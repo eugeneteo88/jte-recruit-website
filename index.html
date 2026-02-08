@@ -127,10 +127,13 @@
     }
 
     /* Desktop circular container */
-    .team-desktop-grid-circular .group > div:first-child {
-        position: relative;
-        overflow: hidden;
-    }
+    .team-desktop-grid-circular {
+    /* display: grid; - REMOVED, handled by Tailwind */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
     .team-desktop-grid-circular .group > div:first-child::after {
         content: '';
@@ -236,7 +239,7 @@
 
     /* --- TEAM SECTION --- */
     .team-desktop-grid-circular {
-        display: grid;
+      /*  display: grid; */
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         max-width: 1200px;
@@ -814,19 +817,15 @@
                 <p class="text-gray-400 text-sm max-w-lg mx-auto hidden md:block">Recruitment experts with personality. Hover to see what makes us tick.</p>
             </div>
             
-            <!-- Mobile: Infinite Scrolling Marquee -->
-            <div class="md:hidden overflow-hidden marquee-container">
-                <div class="marquee-content animate-marquee flex gap-8 items-center" id="mobile-team-marquee">
-                    <!-- Javascript will inject items here -->
-                </div>
-            </div>
+           <!-- Mobile: Infinite Scrolling Marquee -->
+<div class="overflow-hidden marquee-container md:hidden" style="display: none;" id="mobile-team-container">
+    <div class="marquee-content animate-marquee flex gap-8 items-center" id="mobile-team-marquee">
+        <!-- Javascript will inject items here -->
+    </div>
+</div>
 
-            <!-- Desktop: Circular Avatars Grid -->
-            <div class="team-desktop-grid-circular hidden md:grid" id="team-desktop">
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Eugene.png" class="w-full h-full object-cover team-photo" alt="Eugene">
-                    </div>
+<!-- Desktop: Circular Avatars Grid -->
+<div class="hidden md:grid team-desktop-grid-circular" id="team-desktop" style="grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto;">
                     <h4 class="font-serif text-lg text-white font-medium mb-1">Eugene</h4>
                     <p class="text-xs text-luxury-gold uppercase tracking-wider">Managing Partner</p>
                     <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Coffee connoisseur & early bird"</p>
@@ -1491,27 +1490,51 @@
             { name: "Yvette", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" }
         ];
 
-        // Mobile team marquee initialization
-        function initMobileTeamMarquee() {
-            const mobileMarquee = document.getElementById('mobile-team-marquee');
-            if (!mobileMarquee) return;
-            
-            const doubledTeam = [...teamMembers, ...teamMembers];
-            
-            doubledTeam.forEach(member => {
-                const item = document.createElement('div');
-                item.className = 'flex flex-col items-center w-[120px] flex-shrink-0 group';
-                item.innerHTML = `
-                    <div class="w-24 h-24 rounded-full overflow-hidden mb-3 relative">
-                        <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
-                    </div>
-                    <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
-                    <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
-                `;
-                mobileMarquee.appendChild(item);
-            });
-        }
+ // Mobile team marquee initialization
+function initMobileTeamMarquee() {
+    const mobileMarquee = document.getElementById('mobile-team-marquee');
+    const mobileContainer = document.querySelector('.marquee-container');
+    const desktopGrid = document.getElementById('team-desktop');
+    
+    if (!mobileMarquee || !mobileContainer || !desktopGrid) return;
+    
+    // Clear existing content to prevent duplicates
+    mobileMarquee.innerHTML = '';
+    
+    // Check if mobile view (< 768px)
+    const isMobile = window.innerWidth < 768;
+    
+    if (isMobile) {
+        // Show mobile, hide desktop
+        mobileContainer.style.display = 'block';
+        desktopGrid.style.display = 'none';
+        
+        // Populate marquee with doubled team for seamless loop
+        const doubledTeam = [...teamMembers, ...teamMembers];
+        
+        doubledTeam.forEach(member => {
+            const item = document.createElement('div');
+            item.className = 'flex flex-col items-center w-[120px] flex-shrink-0 group';
+            item.innerHTML = `
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-3 relative">
+                    <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
+                </div>
+                <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
+                <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
+            `;
+            mobileMarquee.appendChild(item);
+        });
+    } else {
+        // Desktop view: hide mobile marquee, show desktop grid
+        mobileContainer.style.display = 'none';
+        desktopGrid.style.display = 'grid';
+    }
+}
 
+// Add resize listener to switch between views
+window.addEventListener('resize', () => {
+    initMobileTeamMarquee();
+});
         // Service dots initialization
         function initServiceDots() {
             const servicesScroll = document.getElementById('services-scroll');
