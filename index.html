@@ -1518,9 +1518,10 @@
             const serviceDots = document.getElementById('service-dots');
             
             if (!serviceDots || !servicesScroll) return;
-            
+                serviceDots.innerHTML = ''; // Clear existing dots first
             // Create 8 dots for services
-            for (let i = 0; i < 8; i++) {
+            const cardCount = servicesScroll.querySelectorAll('.service-card-mobile').length;
+            for (let i = 0; i < cardCount; i++) {
                 const dot = document.createElement('div');
                 dot.className = `service-dot ${i === 0 ? 'active' : ''}`;
                 serviceDots.appendChild(dot);
@@ -1528,8 +1529,14 @@
 
             servicesScroll.addEventListener('scroll', () => {
                 const scrollLeft = servicesScroll.scrollLeft;
+                const maxScroll = servicesScroll.scrollWidth - servicesScroll.clientWidth;
                 const cardWidth = servicesScroll.offsetWidth * 0.85 + 16;
-                const activeIndex = Math.round(scrollLeft / cardWidth);
+                let activeIndex = Math.round(scrollLeft / cardWidth);
+                
+                // Fix: Ensure last dot activates when scrolled to end
+                if (scrollLeft >= maxScroll - 20) {
+                    activeIndex = cardCount - 1;
+                }
                 
                 serviceDots.querySelectorAll('.service-dot').forEach((dot, idx) => {
                     dot.classList.toggle('active', idx === activeIndex);
