@@ -565,6 +565,27 @@
             display: none !important;
         }
     }
+
+    /* FIX: Service Card Text Alignment */
+    .service-card-desktop .absolute.bottom-0,
+    .service-card-mobile .absolute.bottom-0 {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .service-card-desktop h3,
+    .service-card-mobile h3 {
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+    
+    .service-card-desktop .w-10,
+    .service-card-mobile .w-10 {
+        margin-bottom: 1rem;
+    }
+    
 </style>
 
 <!-- 4. CONTENT -->
