@@ -1,0 +1,1688 @@
+<!-- =========================================================================
+     JTE RECRUIT - GOLDEN MASTER v5 (TESTIMONIALS CAROUSEL FULLY FIXED)
+     - Desktop: 2 testimonials at a time with side navigation arrows
+     - Mobile: Horizontal scroll maintained
+     - Contact links gold hover effects
+     - Send button arrow animation
+     ========================================================================= -->
+
+<!-- 1. CORE DEPENDENCIES -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- 2. SYSTEM CONFIGURATION -->
+<script>
+    tailwind.config = {
+        darkMode: 'class', 
+        theme: {
+            extend: {
+                fontFamily: {
+                    serif: ['Playfair Display', 'serif'],
+                    sans: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    luxury: {
+                        black: '#0a0a0a',
+                        charcoal: '#141414',
+                        gold: '#C6A87C',
+                        goldLight: '#E5D4B3',
+                        goldDark: '#8C7350',
+                        cream: '#F5F1E8',
+                        warmGray: '#8A8A8A',
+                    }
+                },
+                letterSpacing: {
+                    'widest-plus': '0.15em',
+                },
+                animation: {
+                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    'modal-in': 'modalIn 0.4s ease-out forwards',
+                    'float': 'float 6s ease-in-out infinite',
+                    'marquee': 'marquee 35s linear infinite',
+                },
+                keyframes: {
+                    fadeInUp: {
+                        '0%': { opacity: '0', transform: 'translateY(30px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)' },
+                    },
+                    modalIn: {
+                        '0%': { opacity: '0', transform: 'scale(0.95)' },
+                        '100%': { opacity: '1', transform: 'scale(1)' },
+                    },
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0)' },
+                        '50%': { transform: 'translateY(-10px)' },
+                    },
+                    marquee: {
+                        '0%': { transform: 'translateX(0%)' },
+                        '100%': { transform: 'translateX(-50%)' },
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<!-- 3. STYLES -->
+<style>
+    /* Wrapper */
+    .jte-wrapper {
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        line-height: 1.7;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        position: relative;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    /* Custom Scrollbar */
+    .jte-wrapper ::-webkit-scrollbar { width: 6px; }
+    .jte-wrapper ::-webkit-scrollbar-track { background: transparent; }
+    .jte-wrapper ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+    /* Interactive Elements */
+    .hover-gold-line { position: relative; }
+    .hover-gold-line::after {
+        content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+        background: #C6A87C; transition: width 0.4s ease;
+    }
+    .hover-gold-line:hover::after { width: 100%; }
+
+    /* --- SERVICES SECTION --- */
+    .service-card .service-image {
+        transition: all 0.8s ease;
+        filter: sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(0.85) contrast(1.05);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .service-card:hover .service-image {
+        filter: sepia(20%) saturate(110%) hue-rotate(-5deg) brightness(0.92) contrast(1.02);
+        transform: scale(1.05);
+    }
+
+    /* --- TEAM SECTION --- */
+    .team-photo {
+        transition: all 0.8s ease;
+        filter: sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(0.85) contrast(1.05);
+        object-fit: cover;
+    }
+
+    .group:hover .team-photo {
+        filter: sepia(20%) saturate(110%) hue-rotate(-5deg) brightness(0.92) contrast(1.02);
+        transform: scale(1.1);
+    }
+
+    /* Desktop circular container */
+    .team-desktop-grid-circular .group > div:first-child {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .team-desktop-grid-circular .group > div:first-child::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(198, 168, 124, 0.1) 0%, transparent 60%);
+        opacity: 0.4;
+        transition: opacity 0.5s ease;
+        border-radius: 50%;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+    }
+
+    .team-desktop-grid-circular .group:hover > div:first-child::after {
+        opacity: 0.2;
+    }
+
+    /* Mobile marquee team items */
+    #mobile-team-marquee .group > div:first-child {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #mobile-team-marquee .group > div:first-child::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(198, 168, 124, 0.08) 0%, transparent 50%);
+        opacity: 0.3;
+        border-radius: 50%;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+    }
+
+    /* Consistent border treatment */
+    .team-desktop-grid-circular .group > div:first-child,
+    #mobile-team-marquee .group > div:first-child {
+        border: 2px solid rgba(198, 168, 124, 0.2);
+        transition: border-color 0.3s ease;
+    }
+
+    .team-desktop-grid-circular .group:hover > div:first-child,
+    #mobile-team-marquee .group:hover > div:first-child {
+        border-color: #C6A87C;
+    }
+
+    /* --- SERVICES SECTION FIXES --- */
+    .services-mobile-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 1rem;
+        padding: 0 1.5rem;
+        padding-bottom: 1rem;
+    }
+    .services-mobile-scroll::-webkit-scrollbar {
+        display: none;
+    }
+    .service-card-mobile {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        height: 400px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
+    .service-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .service-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+    .service-dot.active {
+        background: #C6A87C;
+        width: 24px;
+        border-radius: 4px;
+    }
+    .services-desktop {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    .service-card-desktop {
+        height: 320px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
+    @media (max-width: 1024px) {
+        .services-desktop {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* --- TEAM SECTION --- */
+    .team-desktop-grid-circular {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 1024px) {
+        .team-desktop-grid-circular {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .team-desktop-grid-circular {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    }
+
+    /* Marquee for mobile */
+    .marquee-container {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        padding: 1rem 0;
+    }
+    .marquee-content {
+        display: flex;
+        gap: 3rem; 
+        width: max-content;
+        will-change: transform;
+        padding-left: 1rem;
+    }
+
+    /* --- TESTIMONIALS SECTION - DESKTOP CAROUSEL --- */
+    .testimonial-nav-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid rgba(198, 168, 124, 0.3);
+        background: rgba(10, 10, 10, 0.8);
+        color: #C6A87C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+    }
+
+    .testimonial-nav-btn:hover {
+        background: #C6A87C;
+        color: #0a0a0a;
+        border-color: #C6A87C;
+    }
+
+    .testimonial-nav-btn:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+        background: transparent;
+    }
+
+    .testimonial-nav-btn:disabled:hover {
+        background: transparent;
+        color: #C6A87C;
+        border-color: rgba(198, 168, 124, 0.3);
+    }
+
+    /* Mobile scroll indicator */
+    .mobile-scroll-hint {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #C6A87C;
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
+    @media (min-width: 768px) {
+        .mobile-scroll-hint { display: none; }
+    }
+
+    /* --- FORM SUCCESS MESSAGE --- */
+    .success-message {
+        display: none;
+        padding: 1rem;
+        background: rgba(198, 168, 124, 0.1);
+        border: 1px solid #C6A87C;
+        border-radius: 6px;
+        color: #C6A87C;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    .success-message.show {
+        display: block;
+        animation: fadeInUp 0.5s ease;
+    }
+
+    /* --- HERO TEXT LOCK --- */
+    .hero-text-lock h1 {
+        color: #ffffff !important;
+    }
+
+    .hero-text-lock h1 span.italic {
+        color: #C6A87C !important;
+    }
+
+    .hero-text-lock .text-luxury-gold {
+        color: #C6A87C !important;
+    }
+
+    .hero-text-lock .btn-primary {
+        background: linear-gradient(135deg, #C6A87C 0%, #8C7350 100%) !important;
+        color: #0a0a0a !important;
+    }
+
+    .hero-text-lock .btn-outline {
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        color: #ffffff !important;
+    }
+
+    .hero-text-lock .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: #ffffff !important;
+    }
+
+    /* --- CONTACT LINKS GOLD HOVER --- */
+    .contact-link {
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #9CA3AF !important;
+    }
+    
+    .contact-link:hover {
+        color: #C6A87C !important;
+    }
+    
+    .contact-link:hover i,
+    .contact-link:hover svg {
+        color: #C6A87C !important;
+        transform: translateX(4px);
+    }
+
+    .contact-link i,
+    .contact-link svg {
+        transition: all 0.3s ease;
+    }
+
+    /* --- SEND MESSAGE BUTTON --- */
+    .btn-primary {
+        background: linear-gradient(135deg, #C6A87C 0%, #8C7350 100%);
+        color: #0a0a0a;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #D4B88A 0%, #9A8055 100%);
+        color: #000000;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(198, 168, 124, 0.3);
+    }
+
+    .btn-submit-arrow {
+        transition: transform 0.3s ease;
+    }
+    
+    .btn-primary:hover .btn-submit-arrow {
+        transform: translateX(6px);
+    }
+    
+    .btn-primary:active .btn-submit-arrow {
+        transform: translateX(8px);
+    }
+
+    /* --- LIGHT MODE --- */
+    .theme-light.jte-wrapper { background-color: #F5F1E8 !important; color: #1a1a1a !important; }
+    
+    /* Navbar */
+    .theme-light nav { 
+        background: linear-gradient(to bottom, rgba(245,241,232,0.98), rgba(245,241,232,0.95)) !important; 
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+    .theme-light nav .font-serif { color: #0a0a0a !important; }
+    .theme-light nav a { color: #4a4a4a !important; } 
+    .theme-light nav a:hover { color: #8C7350 !important; }
+    .theme-light #mobile-theme-toggle { color: #1a1a1a !important; } 
+
+    /* Light mode hero */
+    .theme-light .hero-text-lock h1 {
+        color: #ffffff !important;
+    }
+
+    .theme-light .hero-text-lock h1 span.italic,
+    .theme-light .hero-text-lock .text-luxury-gold {
+        color: #C6A87C !important;
+    }
+
+    .theme-light .hero-text-lock p {
+        color: #e5e5e5 !important;
+    }
+
+    .theme-light .hero-text-lock .btn-primary {
+        background: linear-gradient(135deg, #C6A87C 0%, #8C7350 100%) !important;
+        color: #0a0a0a !important;
+    }
+
+    .theme-light .hero-text-lock .btn-outline {
+        border-color: rgba(255, 255, 255, 0.6) !important;
+        color: #ffffff !important;
+    }
+
+    /* Light mode contact links */
+    .theme-light .contact-link {
+        color: #4B5563 !important;
+    }
+    
+    .theme-light .contact-link:hover {
+        color: #8C7350 !important;
+    }
+
+    /* Backgrounds & Text */
+    .theme-light .bg-luxury-black { background-color: #F5F1E8 !important; }
+    
+    /* Cards become white in light mode */
+    .theme-light .bg-luxury-charcoal { 
+        background-color: #FFFFFF !important; 
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
+        border: 1px solid rgba(0,0,0,0.05); 
+    }
+
+    .theme-light h2, .theme-light h3, .theme-light h4 { color: #0a0a1a !important; }
+    .theme-light p, .theme-light .text-gray-300, .theme-light .text-gray-400 { color: #555555 !important; } 
+    .theme-light .text-white { color: #1a1a1a !important; } 
+    .theme-light .text-luxury-gold { color: #8C7350 !important; } 
+    
+    /* EXCEPTION: Service Card Overlay */
+    .theme-light .service-card { background-color: #141414 !important; } 
+    .theme-light .service-card h3, 
+    .theme-light .service-card p,
+    .theme-light .service-card .text-white { color: #ffffff !important; }
+    .theme-light .service-card .text-gray-300 { color: #d1d5db !important; }
+
+    /* Footer */
+    .theme-light footer { background-color: #EBEBE8 !important; border-top: 1px solid rgba(0,0,0,0.05) !important; }
+
+    /* Grain overlay */
+    .grain-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+</style>
+
+<!-- 4. CONTENT -->
+<div id="jte-main-wrapper" class="jte-wrapper antialiased selection:bg-luxury-gold selection:text-black">
+    
+    <div class="grain-overlay"></div>
+
+    <!-- Navbar -->
+    <nav id="jte-navbar" class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
+        <div class="z-50 cursor-pointer group" onclick="scrollToTop()">
+            <span class="font-serif text-2xl tracking-[0.1em] text-white font-semibold group-hover:text-luxury-gold transition-colors duration-300">JTE</span>
+            <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-10">
+            <a href="#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Our Story</a>
+            <a href="#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
+            <a href="#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
+            <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold scroll-link">Let's Talk</a>
+            
+            <button onclick="toggleTheme()" class="ml-4 p-2 rounded-full border border-white/20 hover:bg-white/10 transition-all text-white hover:border-luxury-gold hover:text-luxury-gold">
+                <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile: Theme Toggle Only -->
+        <div class="md:hidden flex items-center gap-4 z-50 relative">
+            <button id="mobile-theme-toggle" onclick="toggleTheme()" class="text-white focus:outline-none transition-colors p-2 hover:text-luxury-gold">
+                <svg id="icon-moon-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg id="icon-sun-mobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6590115381" target="_blank" rel="noopener noreferrer" class="whatsapp-float fixed bottom-6 right-6 z-[60] bg-luxury-gold w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20 transition-all hover:rotate-12 hover:scale-110">
+        <svg viewBox="0 0 24 24" class="w-7 h-7 fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- HERO -->
+    <section class="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 z-10"></div> 
+            <img loading="eager" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/hero/hero-image.png" class="hero-image w-full h-full object-cover" alt="JTE Recruit Team Singapore">
+        </div>
+        
+        <div class="absolute top-1/4 left-10 w-32 h-32 border border-luxury-gold/20 rounded-full animate-float opacity-30 hidden md:block"></div>
+        <div class="absolute bottom-1/4 right-10 w-48 h-48 border border-luxury-gold/10 rounded-full animate-float opacity-20 hidden md:block" style="animation-delay: 2s;"></div>
+        
+        <div class="hero-text-lock relative z-20 text-center px-4 animate-fade-in-up max-w-4xl mx-auto">
+            <p class="text-luxury-gold text-xs uppercase tracking-[0.2em] mb-6 font-medium">Singapore • Est. 2014</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 leading-tight">
+                We Find<br />
+                <span class="italic font-normal text-luxury-gold">Great People</span>
+            </h1>
+            <p class="font-sans font-light text-gray-300 text-sm md:text-base tracking-wide max-w-xl mx-auto leading-relaxed mb-10">
+                Eleven years of matching talent with opportunity. We take our work seriously, but not ourselves.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#services" class="btn-primary px-8 py-4 text-xs uppercase tracking-wider">Explore Services</a>
+                <a href="#contact" class="btn-outline px-8 py-4 text-xs uppercase tracking-wider">Get in Touch</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-white/50"></i>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy" class="py-24 md:py-32 bg-luxury-black text-center px-6 border-b border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <i data-lucide="quote" class="w-10 h-10 text-luxury-gold mx-auto mb-8 opacity-60"></i>
+            <h2 class="font-serif text-2xl md:text-4xl leading-relaxed text-white mb-6 font-normal">
+                "The right person in the right role<br>
+                can change everything."
+            </h2>
+            <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-16 font-light">
+                We've spent over a decade learning that recruitment isn't about filling seats—it's about understanding people. 
+                From warehouse operators to C-suite executives, everyone deserves a team that gets them.
+            </p>
+            
+            <!-- UPDATED STATS -->
+            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto border-t border-white/10 pt-12">
+                <div class="group">
+                    <span class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform inline-block">11+</span>
+                    <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">Years</span>
+                </div>
+                <div class="group">
+                    <span class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform inline-block">500+</span>
+                    <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">Clients</span>
+                </div>
+                <div class="group">
+                    <span class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform inline-block">12k+</span>
+                    <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">Placement</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES (Mobile Scroll + Desktop Grid) -->
+    <section id="services" class="py-24 bg-luxury-black border-t border-white/5">
+        <div class="px-6 md:px-12 max-w-7xl mx-auto mb-8">
+            <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-3 font-medium">What We Do</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-white mb-4">Services That Actually Work</h2>
+            <div class="mobile-scroll-hint md:hidden">
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <span>Swipe to explore</span>
+            </div>
+        </div>
+        
+        <!-- Mobile: Horizontal Scroll -->
+        <div class="services-mobile-scroll md:hidden" id="services-scroll">
+            <div onclick="openModal('perm')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Permanent%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Permanent Hiring">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Permanent Hiring</h3>
+                    <p class="font-sans text-sm text-gray-300">Finding your next long-term team member.</p>
+                </div>
+            </div>
+            <div onclick="openModal('contract')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Temp%20%26%20Contract.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Temp & Contract">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Temp & Contract</h3>
+                    <p class="font-sans text-sm text-gray-300">Flexible staffing for agile businesses.</p>
+                </div>
+            </div>
+            <div onclick="openModal('manpower')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Manpower%20Outsourcing.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Manpower Outsourcing">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Manpower Outsourcing</h3>
+                    <p class="font-sans text-sm text-gray-300">Full HR department without the overhead.</p>
+                </div>
+            </div>
+            <div onclick="openModal('payroll')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Payroll & Work Pass">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Payroll & Work Pass</h3>
+                    <p class="font-sans text-sm text-gray-300">Compliance and accuracy guaranteed.</p>
+                </div>
+            </div>
+            <div onclick="openModal('branding')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Branding%20%26%20Culture.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Branding & Culture">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Branding & Culture</h3>
+                    <p class="font-sans text-sm text-gray-300">Make your company a place people want to work.</p>
+                </div>
+            </div>
+            <div onclick="openModal('project')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Project & Mass Hiring">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Project & Mass Hiring</h3>
+                    <p class="font-sans text-sm text-gray-300">High-volume recruitment without the chaos.</p>
+                </div>
+            </div>
+            <div onclick="openModal('advisory')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/HR%20Advisory.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="HR Advisory">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">HR Advisory</h3>
+                    <p class="font-sans text-sm text-gray-300">Navigate Singapore employment laws with confidence.</p>
+                </div>
+            </div>
+            <div onclick="openModal('training')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Training%20%26%20Support.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Training & Support">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-xl text-white mb-2">Training & Support</h3>
+                    <p class="font-sans text-sm text-gray-300">Set your new hires up for success from day one.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Pagination Dots -->
+        <div class="service-dots md:hidden" id="service-dots"></div>
+
+        <!-- Desktop: Grid -->
+        <div class="services-desktop px-6 md:px-12 max-w-7xl mx-auto hidden md:grid">
+            <div onclick="openModal('perm')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Permanent%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Permanent Hiring">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Permanent Hiring</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Finding your next long-term team member.</p>
+                </div>
+            </div>
+            <div onclick="openModal('contract')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Temp%20%26%20Contract.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Temp & Contract">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Temp & Contract</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Flexible staffing for agile businesses.</p>
+                </div>
+            </div>
+            <div onclick="openModal('manpower')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Manpower%20Outsourcing.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Manpower Outsourcing">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Manpower Outsourcing</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Full HR department without the overhead.</p>
+                </div>
+            </div>
+            <div onclick="openModal('payroll')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Payroll & Work Pass">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Payroll & Work Pass</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Compliance and accuracy guaranteed.</p>
+                </div>
+            </div>
+            <div onclick="openModal('branding')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Branding%20%26%20Culture.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Branding & Culture">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Branding & Culture</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Make your company a place people want to work.</p>
+                </div>
+            </div>
+            <div onclick="openModal('project')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Project & Mass Hiring">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Project & Mass Hiring</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">High-volume recruitment without the chaos.</p>
+                </div>
+            </div>
+            <div onclick="openModal('advisory')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/HR%20Advisory.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="HR Advisory">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">HR Advisory</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Navigate Singapore employment laws with confidence.</p>
+                </div>
+            </div>
+            <div onclick="openModal('training')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Training%20%26%20Support.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Training & Support">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
+                    <h3 class="font-serif text-lg text-white mb-2">Training & Support</h3>
+                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Set your new hires up for success from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="py-24 bg-luxury-black border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 text-center">
+            <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] font-medium">How We Work</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-white mt-4 mb-6">Simple Process, Serious Results</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto mb-16">No black boxes or mysterious algorithms. Just good old-fashioned listening, expertise, and hard work.</p>
+            
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <div class="hidden md:block absolute top-16 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-luxury-gold/30 to-transparent z-0"></div>
+                
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-luxury-charcoal rounded-full flex items-center justify-center mx-auto mb-6 border border-luxury-gold/30 transition-all duration-500 shadow-lg group-hover:scale-110 group-hover:border-luxury-gold">
+                        <span class="font-serif text-2xl text-luxury-gold">01</span>
+                    </div>
+                    <h4 class="text-white font-serif text-xl mb-3">Listen First</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">We start by understanding your culture, your pain points, and what "great" actually looks like for you.</p>
+                </div>
+                
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-luxury-charcoal rounded-full flex items-center justify-center mx-auto mb-6 border border-luxury-gold/30 transition-all duration-500 shadow-lg group-hover:scale-110 group-hover:border-luxury-gold">
+                        <span class="font-serif text-2xl text-luxury-gold">02</span>
+                    </div>
+                    <h4 class="text-white font-serif text-xl mb-3">Curate Carefully</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Quality over quantity. We only send you candidates we'd hire ourselves—usually just 3-4 perfect fits.</p>
+                </div>
+                
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-luxury-charcoal rounded-full flex items-center justify-center mx-auto mb-6 border border-luxury-gold/30 transition-all duration-500 shadow-lg group-hover:scale-110 group-hover:border-luxury-gold">
+                        <span class="font-serif text-2xl text-luxury-gold">03</span>
+                    </div>
+                    <h4 class="text-white font-serif text-xl mb-3">Support Always</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed px-4">Our job doesn't end at the offer letter. We check in, smooth the onboarding, and ensure everyone thrives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="py-24 bg-luxury-black border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] font-medium">The People Behind It</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-white mt-4 mb-6">Meet the Team</h2>
+                <p class="text-gray-400 text-sm max-w-lg mx-auto md:hidden">Our dedicated professionals</p>
+                <p class="text-gray-400 text-sm max-w-lg mx-auto hidden md:block">Recruitment experts with personality. Hover to see what makes us tick.</p>
+            </div>
+            
+            <!-- Mobile: Infinite Scrolling Marquee -->
+            <div class="md:hidden overflow-hidden marquee-container">
+                <div class="marquee-content animate-marquee flex gap-8 items-center" id="mobile-team-marquee">
+                    <!-- Javascript will inject items here -->
+                </div>
+            </div>
+
+            <!-- Desktop: Circular Avatars Grid -->
+            <div class="team-desktop-grid-circular hidden md:grid" id="team-desktop">
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Eugene.png" class="w-full h-full object-cover team-photo" alt="Eugene">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Eugene</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Managing Partner</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Coffee connoisseur & early bird"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Adaline.png" class="w-full h-full object-cover team-photo" alt="Adaline">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Adaline</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Head of Sales</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Closer with a heart"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Cassandra.png" class="w-full h-full object-cover team-photo" alt="Cassandra">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Cassandra</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Consulting Manager</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Solves problems before you have them"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" class="w-full h-full object-cover team-photo" alt="Tiffany">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Tiffany</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Matchmaker of talent"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" class="w-full h-full object-cover team-photo" alt="Shanice">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Shanice</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Detail-obsessed in the best way"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" class="w-full h-full object-cover team-photo" alt="Jonathan">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Jonathan</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Partnership Lead</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Networker extraordinaire"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" class="w-full h-full object-cover team-photo" alt="Apple">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Apple</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior HR & Finance</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"HR encyclopedia"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" class="w-full h-full object-cover team-photo" alt="Shirny">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Shirny</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Account Assistant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Numbers wizard"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" class="w-full h-full object-cover team-photo" alt="Nurul">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Nurul</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruiter</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Multitasking master"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" class="w-full h-full object-cover team-photo" alt="Elaine">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Elaine</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Always has a solution"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" class="w-full h-full object-cover team-photo" alt="Elsa">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Elsa</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Fresh perspective"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" class="w-full h-full object-cover team-photo" alt="Sheryl">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Sheryl</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Positive energy only"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" class="w-full h-full object-cover team-photo" alt="Sharmaine">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Sharmaine</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Relentless optimist"</p>
+                </div>
+                <div class="text-center group cursor-pointer p-4">
+                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
+                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" class="w-full h-full object-cover team-photo" alt="Yvette">
+                    </div>
+                    <h4 class="font-serif text-lg text-white font-medium mb-1">Yvette</h4>
+                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
+                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Rising star"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPETITIVE ADVANTAGE -->
+    <section class="py-24 bg-luxury-black border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-20">
+            <div class="order-2 lg:order-1">
+                <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-4 font-medium">Why JTE?</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-white mb-6">The Difference Is Personal</h2>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed">
+                    We're not the biggest agency, not yet. But we're the team that picks up your call at 8pm, remembers your daughter's birthday, and genuinely celebrates when you finally find that perfect hire.
+                </p>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-5 group">
+                        <div class="w-12 h-12 border border-white/10 rounded-full flex-shrink-0 flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-black transition-all duration-300">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-serif text-lg mb-1">People-First Always</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">We treat candidates like humans, not numbers. Happy candidates become great employees.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 group">
+                        <div class="w-12 h-12 border border-white/10 rounded-full flex-shrink-0 flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-black transition-all duration-300">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-serif text-lg mb-1">Speed Without Sacrifice</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Average 5-day turnaround for first shortlists. Fast doesn't have to mean sloppy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 group">
+                        <div class="w-12 h-12 border border-white/10 rounded-full flex-shrink-0 flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-black transition-all duration-300">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-serif text-lg mb-1">Full-Stack HR</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Recruitment, branding, payroll, compliance—we do it all so you don't need five vendors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-5 group">
+                        <div class="w-12 h-12 border border-white/10 rounded-full flex-shrink-0 flex items-center justify-center text-luxury-gold group-hover:bg-luxury-gold group-hover:text-black transition-all duration-300">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-serif text-lg mb-1">Local Market Experts</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">Eleven years navigating Singapore's talent landscape. We know where the best people are.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-luxury-charcoal p-8 md:p-10 border border-white/5 order-1 lg:order-2 shadow-2xl rounded-lg">
+                <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-4 font-medium">Industries</span>
+                <h3 class="font-serif text-2xl md:text-3xl text-white mb-8">Where We Excel</h3>
+                <p class="text-gray-400 text-sm mb-8">From factory floors to trading floors, we speak your language.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm">
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Banking & Finance</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Admin & HR</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Engineering</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Healthcare</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">IT & Technology</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Logistics</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Manufacturing</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Oil & Gas</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Real Estate</span>
+                    </div>
+                    <div class="flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Retail & F&B</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS - DESKTOP CAROUSEL (2 AT A TIME) + MOBILE SCROLL -->
+    <section class="py-24 bg-luxury-black relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-luxury-gold/30 via-transparent to-transparent"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-4 font-medium">Client Love</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-white">What Our Clients Say</h2>
+                <div class="mobile-scroll-hint md:hidden justify-center mt-4">
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <span>Swipe to see more</span>
+                </div>
+            </div>
+            
+            <!-- DESKTOP: Carousel View (2 testimonials at a time with navigation) -->
+            <div class="hidden md:block relative" id="testimonials-desktop-wrapper">
+                <!-- Previous Button -->
+                <button class="testimonial-nav-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10" id="testimonial-prev" onclick="moveTestimonials('prev')" aria-label="Previous testimonials">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                
+                <div class="overflow-hidden mx-12">
+                    <div class="testimonials-track-desktop flex transition-transform duration-500 ease-in-out gap-6" id="testimonials-track-desktop">
+                        <!-- All 8 Testimonials - Each takes 50% minus half gap -->
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"JTE has been instrumental in transforming our talent acquisition strategy. Their understanding of the fintech space and ability to source niche skill sets has been nothing short of exceptional."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">RT</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Richard Tan</div>
+                                        <div class="text-xs text-gray-500">HR Director, FinTech Solutions</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"I was skeptical about using a recruitment agency, but the JTE team changed my mind. They actually listened to what I needed and didn't waste my time with irrelevant candidates. Game changer!"</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">AL</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Angela Lim</div>
+                                        <div class="text-xs text-gray-500">Owner, Katong Coffee Co.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"In my 20 years of HR leadership, I've rarely encountered an agency with such dedication to quality. JTE's candidates consistently exceed our expectations, and their retention rates speak for themselves."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">MW</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Michelle Wong</div>
+                                        <div class="text-xs text-gray-500">VP Human Resources, MNC Logistics</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"These guys get it. They understand that running a restaurant means I need staff who can handle Friday night chaos without breaking a sweat. Always reliable, always on point."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">KO</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Kenny Ong</div>
+                                        <div class="text-xs text-gray-500">Founder, Straits Kitchen Group</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"The JTE team demonstrates exceptional professionalism and market knowledge. Their ability to deliver qualified candidates within tight timelines has been invaluable to our expansion plans."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">JL</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">James Lim</div>
+                                        <div class="text-xs text-gray-500">Operations Manager, Retail Chain</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Needed staff urgently for a big project. Called them on a Friday evening, had people starting Monday morning. That's the kind of service that keeps me coming back. Absolute legends!"</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">RD</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Rani Devi</div>
+                                        <div class="text-xs text-gray-500">Co-Founder, TechStart SG</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"What sets JTE apart is their consultative approach. They don't just fill positions; they help us refine our job requirements and employer brand. A true strategic partner in every sense."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">SC</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Sarah Chen</div>
+                                        <div class="text-xs text-gray-500">Senior HR Manager, Manufacturing Co.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                            <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
+                                <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                                <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Honestly? I was drowning in admin work trying to hire myself. JTE took that stress away completely. Now I focus on growing my business while they handle the people stuff. Best decision ever."</p>
+                                <div class="flex items-center gap-3 pt-4 border-t border-white/5 mt-auto">
+                                    <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                                        <span class="text-luxury-gold font-serif text-xs">MF</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-semibold text-white">Marcus Fernandez</div>
+                                        <div class="text-xs text-gray-500">Director, Creative Agency</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Button -->
+                <button class="testimonial-nav-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10" id="testimonial-next" onclick="moveTestimonials('next')" aria-label="Next testimonials">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Indicator -->
+                <div class="text-center mt-6">
+                    <span class="text-sm text-gray-400 font-medium" id="testimonial-indicator">1 / 4</span>
+                </div>
+            </div>
+
+            <!-- MOBILE: Horizontal Scroll (Same as Services) -->
+            <div class="services-mobile-scroll md:hidden" id="testimonials-scroll-mobile">
+                <!-- Testimonial 1 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"JTE has been instrumental in transforming our talent acquisition strategy. Their understanding of the fintech space and ability to source niche skill sets has been nothing short of exceptional."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">RT</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Richard Tan</div>
+                            <div class="text-xs text-gray-500">HR Director, FinTech Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"I was skeptical about using a recruitment agency, but the JTE team changed my mind. They actually listened to what I needed and didn't waste my time with irrelevant candidates. Game changer!"</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">AL</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Angela Lim</div>
+                            <div class="text-xs text-gray-500">Owner, Katong Coffee Co.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"In my 20 years of HR leadership, I've rarely encountered an agency with such dedication to quality. JTE's candidates consistently exceed our expectations, and their retention rates speak for themselves."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">MW</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Michelle Wong</div>
+                            <div class="text-xs text-gray-500">VP Human Resources, MNC Logistics</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"These guys get it. They understand that running a restaurant means I need staff who can handle Friday night chaos without breaking a sweat. Always reliable, always on point."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">KO</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Kenny Ong</div>
+                            <div class="text-xs text-gray-500">Founder, Straits Kitchen Group</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"The JTE team demonstrates exceptional professionalism and market knowledge. Their ability to deliver qualified candidates within tight timelines has been invaluable to our expansion plans."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">JL</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">James Lim</div>
+                            <div class="text-xs text-gray-500">Operations Manager, Retail Chain</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Needed staff urgently for a big project. Called them on a Friday evening, had people starting Monday morning. That's the kind of service that keeps me coming back. Absolute legends!"</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">RD</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Rani Devi</div>
+                            <div class="text-xs text-gray-500">Co-Founder, TechStart SG</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"What sets JTE apart is their consultative approach. They don't just fill positions; they help us refine our job requirements and employer brand. A true strategic partner in every sense."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">SC</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Sarah Chen</div>
+                            <div class="text-xs text-gray-500">Senior HR Manager, Manufacturing Co.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 8 -->
+                <div class="service-card-mobile p-6 bg-luxury-charcoal border border-white/5 relative group flex flex-col">
+                    <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
+                    <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Honestly? I was drowning in admin work trying to hire myself. JTE took that stress away completely. Now I focus on growing my business while they handle the people stuff. Best decision ever."</p>
+                    <div class="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
+                        <div class="w-8 h-8 bg-luxury-gold/20 rounded-full flex items-center justify-center">
+                            <span class="text-luxury-gold font-serif text-xs">MF</span>
+                        </div>
+                        <div>
+                            <div class="text-sm font-semibold text-white">Marcus Fernandez</div>
+                            <div class="text-xs text-gray-500">Director, Creative Agency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Pagination Dots -->
+            <div class="service-dots md:hidden" id="testimonial-mobile-dots"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-32 bg-luxury-black border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row gap-16">
+            <div class="md:w-2/5">
+                <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-6 font-medium">Get in Touch</span>
+                <h2 class="font-serif text-4xl text-white mb-6">Let's Start a Conversation</h2>
+                <p class="text-gray-400 text-sm mb-10 leading-relaxed">
+                    Whether you need one key hire or a hundred, we'd love to hear from you. 
+                    No obligations, no hard sells—just honest advice.
+                </p>
+                
+                <div class="space-y-6 font-sans font-light text-sm">
+                    <div>
+                        <p class="text-white mb-2 font-medium flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-luxury-gold"></i>
+                            Visit Us
+                        </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=1+Gateway+Drive+%2310-14+Westgate+Tower+Singapore+608531" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            1 Gateway Drive, #10-14<br>Westgate Tower<br>Singapore 608531
+                        </a>
+                    </div>
+                    <div>
+                        <p class="text-white mb-2 font-medium flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-luxury-gold"></i>
+                            Email
+                        </p>
+                        <a href="mailto:ask@jte.com.sg" class="contact-link">ask@jte.com.sg</a>
+                    </div>
+                    <div>
+                        <p class="text-white mb-2 font-medium flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-luxury-gold"></i>
+                            Call or WhatsApp
+                        </p>
+                        <a href="https://wa.me/6590115381" target="_blank" rel="noopener noreferrer" class="contact-link">+65 9011 5381</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-3/5">
+                <div id="success-message" class="success-message">
+                    <i data-lucide="check-circle" class="w-5 h-5 inline mr-2"></i>
+                    Your message has been successfully sent! We'll get back to you within 24 hours.
+                </div>
+                
+                <form class="space-y-6" id="contact-form" onsubmit="sendToEmail(event)">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="relative group">
+                            <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Your Name *</label>
+                            <input type="text" name="name" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="John Doe" required>
+                        </div>
+                        <div class="relative group">
+                            <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Mobile Number *</label>
+                            <input type="tel" name="mobile" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="+65 9123 4567" required>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="relative group">
+                            <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Email Address *</label>
+                            <input type="email" name="email" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="john@company.com" required>
+                        </div>
+                        <div class="relative group">
+                            <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Company *</label>
+                            <input type="text" name="company" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="Acme Pte Ltd" required>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">How Can We Help? *</label>
+                        <textarea name="message" rows="4" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors resize-none" placeholder="Tell us about your hiring needs..." required></textarea>
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" id="submitBtn" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-xs flex items-center justify-center gap-2 rounded-md group">
+                            Send Message
+                            <i data-lucide="arrow-right" class="w-4 h-4 btn-submit-arrow"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-luxury-black border-t border-white/5 text-center">
+        <div class="mb-8 flex justify-center space-x-6">
+            <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="https://sg.linkedin.com/company/jte-recruit-pte-ltd" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.tiktok.com/@jterecruit?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+        </div>
+        <p class="font-serif text-2xl text-white tracking-widest mb-3">JTE</p>
+        <p class="font-sans text-xs text-gray-500 mb-2">Recruitment with personality</p>
+        <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider">© 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
+    </footer>
+
+    <!-- Service Modal -->
+    <div id="service-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity" onclick="closeModal()"></div>
+        <div class="relative bg-luxury-charcoal border border-white/10 max-w-2xl w-full p-8 md:p-12 shadow-2xl animate-modal-in rounded-lg max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white hover:text-luxury-gold transition-colors p-2 hover:rotate-90 transition-transform duration-300">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <span id="modal-subtitle" class="text-luxury-gold text-xs uppercase tracking-[0.2em] block mb-4 font-medium">Service Detail</span>
+            <h3 id="modal-title" class="font-serif text-3xl md:text-4xl text-white mb-6">Service Title</h3>
+            <div class="w-16 h-[2px] bg-luxury-gold mb-8"></div>
+            <p id="modal-description" class="font-sans text-gray-300 text-sm md:text-base leading-relaxed font-light mb-8">Description goes here...</p>
+            <div class="flex justify-between items-center pt-8 border-t border-white/10">
+                <span class="text-xs text-gray-500">Questions? We're here to help.</span>
+                <a href="#contact" onclick="closeModal()" class="text-sm font-medium text-luxury-gold hover:text-white transition-colors flex items-center gap-2">
+                    Get in touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons after DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            if (localStorage.getItem('jte-theme') === 'light') toggleTheme();
+            
+            // Initialize mobile team marquee
+            initMobileTeamMarquee();
+            
+            // Initialize testimonial mobile dots
+            initTestimonialMobileDots();
+            
+            // Initialize service dots
+            initServiceDots();
+            
+            // Initialize desktop testimonials carousel buttons
+            updateTestimonialButtons();
+        });
+
+        // Team members for mobile marquee only
+        const teamMembers = [
+            { name: "Eugene", role: "Managing Partner", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Eugene.png" },
+            { name: "Adaline", role: "Head of Sales", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Adaline.png" },
+            { name: "Cassandra", role: "Consulting Manager", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Cassandra.png" },
+            { name: "Tiffany", role: "Senior Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" },
+            { name: "Shanice", role: "Senior Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" },
+            { name: "Jonathan", role: "Partnership Lead", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" },
+            { name: "Apple", role: "Senior HR & Finance", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" },
+            { name: "Shirny", role: "Account Assistant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" },
+            { name: "Nurul", role: "Recruiter", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" },
+            { name: "Elaine", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" },
+            { name: "Elsa", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" },
+            { name: "Sheryl", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" },
+            { name: "Sharmaine", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" },
+            { name: "Yvette", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" }
+        ];
+
+        // Mobile team marquee initialization
+        function initMobileTeamMarquee() {
+            const mobileMarquee = document.getElementById('mobile-team-marquee');
+            if (!mobileMarquee) return;
+            
+            const doubledTeam = [...teamMembers, ...teamMembers];
+            
+            doubledTeam.forEach(member => {
+                const item = document.createElement('div');
+                item.className = 'flex flex-col items-center w-[120px] flex-shrink-0 group';
+                item.innerHTML = `
+                    <div class="w-24 h-24 rounded-full overflow-hidden mb-3 relative">
+                        <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
+                    </div>
+                    <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
+                    <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
+                `;
+                mobileMarquee.appendChild(item);
+            });
+        }
+
+        // Service dots initialization
+        function initServiceDots() {
+            const servicesScroll = document.getElementById('services-scroll');
+            const serviceDots = document.getElementById('service-dots');
+            
+            if (!serviceDots || !servicesScroll) return;
+            
+            // Create 8 dots for services
+            for (let i = 0; i < 8; i++) {
+                const dot = document.createElement('div');
+                dot.className = `service-dot ${i === 0 ? 'active' : ''}`;
+                serviceDots.appendChild(dot);
+            }
+
+            servicesScroll.addEventListener('scroll', () => {
+                const scrollLeft = servicesScroll.scrollLeft;
+                const cardWidth = servicesScroll.offsetWidth * 0.85 + 16;
+                const activeIndex = Math.round(scrollLeft / cardWidth);
+                
+                serviceDots.querySelectorAll('.service-dot').forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+            });
+        }
+
+        // Testimonials Desktop Carousel Logic
+        let testimonialBatchIndex = 0;
+        const totalBatches = 4; // 8 testimonials / 2 per view = 4 batches
+
+        function moveTestimonials(direction) {
+            const track = document.getElementById('testimonials-track-desktop');
+            const indicator = document.getElementById('testimonial-indicator');
+            
+            if (direction === 'next' && testimonialBatchIndex < totalBatches - 1) {
+                testimonialBatchIndex++;
+            } else if (direction === 'prev' && testimonialBatchIndex > 0) {
+                testimonialBatchIndex--;
+            }
+            
+            // FIX: Changed from 25 to 100 to move full container width (2 cards) per click
+            // Since each card is ~50% width, 2 cards = 100% container width
+            const translateX = -(testimonialBatchIndex * 100);
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicator
+            if (indicator) {
+                indicator.textContent = `${testimonialBatchIndex + 1} / ${totalBatches}`;
+            }
+            
+            // Update button states
+            updateTestimonialButtons();
+        }
+
+        function updateTestimonialButtons() {
+            const prevBtn = document.getElementById('testimonial-prev');
+            const nextBtn = document.getElementById('testimonial-next');
+            
+            if (prevBtn) {
+                prevBtn.disabled = testimonialBatchIndex === 0;
+            }
+            if (nextBtn) {
+                nextBtn.disabled = testimonialBatchIndex === totalBatches - 1;
+            }
+        }
+
+        // Testimonials Mobile - Dots (8 dots for 8 testimonials)
+        function initTestimonialMobileDots() {
+            const dotsContainer = document.getElementById('testimonial-mobile-dots');
+            const scrollContainer = document.getElementById('testimonials-scroll-mobile');
+            
+            if (!dotsContainer || !scrollContainer) return;
+            
+            // Create 8 dots
+            for (let i = 0; i < 8; i++) {
+                const dot = document.createElement('div');
+                dot.className = `service-dot ${i === 0 ? 'active' : ''}`;
+                dotsContainer.appendChild(dot);
+            }
+            
+            // Update dots on scroll
+            scrollContainer.addEventListener('scroll', () => {
+                const scrollLeft = scrollContainer.scrollLeft;
+                const cardWidth = scrollContainer.offsetWidth * 0.85 + 16;
+                const activeIndex = Math.round(scrollLeft / cardWidth);
+                
+                dotsContainer.querySelectorAll('.service-dot').forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+            });
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            const wrapper = document.getElementById('jte-main-wrapper');
+            const sun = document.getElementById('icon-sun');
+            const moon = document.getElementById('icon-moon');
+            const sunMobile = document.getElementById('icon-sun-mobile');
+            const moonMobile = document.getElementById('icon-moon-mobile');
+            
+            wrapper.classList.toggle('theme-light');
+            const isLight = wrapper.classList.contains('theme-light');
+            
+            if (isLight) {
+                sun?.classList.remove('hidden');
+                moon?.classList.add('hidden');
+                sunMobile?.classList.remove('hidden');
+                moonMobile?.classList.add('hidden');
+                localStorage.setItem('jte-theme', 'light');
+            } else {
+                sun?.classList.add('hidden');
+                moon?.classList.remove('hidden');
+                sunMobile?.classList.add('hidden');
+                moonMobile?.classList.remove('hidden');
+                localStorage.setItem('jte-theme', 'dark');
+            }
+        }
+
+        // Service data
+        const serviceData = {
+            'perm': { title: "Permanent Placement", desc: "We don't just send you CVs—we send you people who fit. Our permanent placement service focuses on cultural alignment as much as skills. We spend time understanding your team dynamics, then find candidates who'll thrive in them. From first interview to first day, we're with you every step." },
+            'contract': { title: "Temp & Contract Staffing", desc: "Need someone yesterday? Our contract staffing gives you flexibility without the panic. Whether it's maternity cover, project work, or seasonal peaks, we have a pool of pre-vetted professionals ready to jump in. Same quality, zero long-term commitment." },
+            'payroll': { title: "Payroll & Work Pass Services", desc: "Payday should be simple. We handle the complex calculations, CPF contributions, tax filings, and work pass applications so you don't have to. Accurate, on-time, and fully compliant with Singapore regulations. Your employees get paid, you get peace of mind." },
+            'manpower': { title: "Manpower Outsourcing", desc: "Imagine having a full HR department without the overhead. We recruit, manage, and motivate your workforce while you focus on growing your business. Perfect for companies that need scale without the administrative headache." },
+            'branding': { title: "Employer Branding & Culture", desc: "Great talent has options. We help you stand out by defining and communicating what makes your company special. From career pages to social presence, we make sure the right people are excited to work with you before they even apply." },
+            'project': { title: "Project & Mass Hiring", desc: "Opening a new facility? Launching a new division? We specialize in high-volume hiring that doesn't sacrifice quality. Our team can mobilize quickly to fill 10 roles or 100, managing the entire pipeline from sourcing to onboarding." },
+            'advisory': { title: "HR Advisory", desc: "Singapore's employment landscape changes constantly. We keep you compliant and competitive with up-to-date advice on the Employment Act, work pass regulations, and best practices. Think of us as your on-call HR director." },
+            'training': { title: "Training & Onboarding Support", desc: "A great hire can fail without proper onboarding. We design and deliver training programs that get new employees productive faster and keep them engaged longer. From orientation to ongoing development, we help you build capability." }
+        };
+
+        function openModal(key) {
+            const data = serviceData[key];
+            if (!data) return;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-description').textContent = data.desc;
+            document.getElementById('service-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('service-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Contact form
+        function sendToEmail(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const formData = new FormData(form);
+            
+            const subject = `Website Enquiry from ${formData.get('name')} - ${formData.get('company')}`;
+            const body = `Name: ${formData.get('name')}\nMobile: ${formData.get('mobile')}\nEmail: ${formData.get('email')}\nCompany: ${formData.get('company')}\n\nMessage:\n${formData.get('message')}`;
+            
+            document.getElementById('success-message').classList.add('show');
+            form.reset();
+            
+            setTimeout(() => {
+                document.getElementById('success-message').classList.remove('show');
+            }, 5000);
+            
+            window.location.href = `mailto:ask@jte.com.sg?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === "Escape") closeModal();
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top: offset, behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+</div>
