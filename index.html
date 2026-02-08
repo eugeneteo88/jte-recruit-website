@@ -1356,7 +1356,10 @@
                     Your message has been successfully sent! We'll get back to you within 24 hours.
                 </div>
                 
-                <form class="space-y-6" id="contact-form" onsubmit="sendToEmail(event)">
+                    <form class="space-y-6" id="contact-form" action="https://formspree.io/f/mpqjwaqv" method="POST">
+                    <input type="hidden" name="_subject" value="New enquiry from JTE Website">
+                    <input type="text" name="_gotcha" style="display:none">
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="relative group">
                             <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Your Name *</label>
@@ -1383,11 +1386,12 @@
                     </div>
                     <div class="pt-4">
                         <button type="submit" id="submitBtn" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-xs flex items-center justify-center gap-2 rounded-md group">
-                            Send Message
-                            <i data-lucide="arrow-right" class="w-4 h-4 btn-submit-arrow"></i>
+                            <span id="btnText">Send Message</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 btn-submit-arrow" id="btnIcon"></i>
+                            <div id="btnLoader" class="hidden w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
                         </button>
                     </div>
-                </form>
+                </form>    
             </div>
         </div>
     </section>
@@ -1731,24 +1735,57 @@ window.addEventListener('resize', () => {
             document.body.style.overflow = '';
         }
 
-        // Contact form
-        function sendToEmail(event) {
-            event.preventDefault();
-            const form = document.getElementById('contact-form');
-            const formData = new FormData(form);
-            
-            const subject = `Website Enquiry from ${formData.get('name')} - ${formData.get('company')}`;
-            const body = `Name: ${formData.get('name')}\nMobile: ${formData.get('mobile')}\nEmail: ${formData.get('email')}\nCompany: ${formData.get('company')}\n\nMessage:\n${formData.get('message')}`;
-            
-            document.getElementById('success-message').classList.add('show');
+        // Handle Formspree submission
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = this;
+    const btn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnIcon = document.getElementById('btnIcon');
+    const btnLoader = document.getElementById('btnLoader');
+    const successMsg = document.getElementById('success-message');
+    
+    // Loading state
+    btn.disabled = true;
+    btnText.textContent = 'Sending...';
+    btnIcon.classList.add('hidden');
+    btnLoader.classList.remove('hidden');
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (response.ok) {
+            successMsg.classList.add('show');
             form.reset();
+            btnText.textContent = 'Message Sent';
+            btnLoader.classList.add('hidden');
+            btnIcon.classList.remove('hidden');
+            lucide.createIcons();
             
             setTimeout(() => {
-                document.getElementById('success-message').classList.remove('show');
+                successMsg.classList.remove('show');
+                btn.disabled = false;
+                btnText.textContent = 'Send Message';
             }, 5000);
-            
-            window.location.href = `mailto:ask@jte.com.sg?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        } else {
+            throw new Error('Failed to send');
         }
+    } catch (error) {
+        btnText.textContent = 'Failed - Try Again';
+        btnLoader.classList.add('hidden');
+        btnIcon.classList.remove('hidden');
+        btn.disabled = false;
+        lucide.createIcons();
+        alert('Sorry, there was an error. Please email us directly at ask@jte.com.sg');
+    }
+});
 
         document.addEventListener('keydown', e => {
             if (e.key === "Escape") closeModal();
