@@ -1527,16 +1527,19 @@
                 serviceDots.appendChild(dot);
             }
 
-            servicesScroll.addEventListener('scroll', () => {
+                       servicesScroll.addEventListener('scroll', () => {
                 const scrollLeft = servicesScroll.scrollLeft;
                 const maxScroll = servicesScroll.scrollWidth - servicesScroll.clientWidth;
-                const cardWidth = servicesScroll.offsetWidth * 0.85 + 16;
-                let activeIndex = Math.round(scrollLeft / cardWidth);
+                const cardCount = serviceDots.querySelectorAll('.service-dot').length;
                 
-                // Fix: Ensure last dot activates when scrolled to end
-                if (scrollLeft >= maxScroll - 20) {
-                    activeIndex = cardCount - 1;
+                // Proportional calculation: maps scroll progress (0-100%) to card index (0-7)
+                let activeIndex = 0;
+                if (maxScroll > 0) {
+                    activeIndex = Math.round((scrollLeft / maxScroll) * (cardCount - 1));
                 }
+                
+                // Clamp to valid range (safety check)
+                activeIndex = Math.max(0, Math.min(activeIndex, cardCount - 1));
                 
                 serviceDots.querySelectorAll('.service-dot').forEach((dot, idx) => {
                     dot.classList.toggle('active', idx === activeIndex);
