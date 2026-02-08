@@ -70,6 +70,7 @@
             }
         }
     </script>
+<base target="_blank">
 </head>
 <body class="bg-cream dark:bg-luxury-black text-luxury-charcoal dark:text-cream transition-colors duration-300">
 
@@ -221,7 +222,15 @@
         width: 24px;
         border-radius: 4px;
     }
+    /* Light mode service dots */
+    .theme-light .service-dot {
+        background: rgba(0,0,0,0.2);
+    }
+    .theme-light .service-dot.active {
+        background: #8C7350;
+    }
     .services-desktop {
+        display: grid !important;
         grid-template-columns: repeat(4, 1fr);
         gap: 1.5rem;
     }
@@ -233,7 +242,7 @@
     }
     @media (max-width: 1024px) {
         .services-desktop {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 
@@ -277,12 +286,32 @@
     }
 
     /* --- TESTIMONIALS SECTION - DESKTOP CAROUSEL --- */
+    .testimonials-carousel-wrapper {
+        position: relative;
+        padding: 0 60px;
+    }
+    .testimonials-carousel-container {
+        overflow: hidden;
+        width: 100%;
+    }
+    .testimonials-track-desktop {
+        display: flex;
+        gap: 24px;
+        transition: transform 0.5s ease-in-out;
+    }
+    .testimonial-card-desktop {
+        flex: 0 0 calc(50% - 12px);
+        min-width: calc(50% - 12px);
+    }
     .testimonial-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         width: 48px;
         height: 48px;
         border-radius: 50%;
         border: 1px solid rgba(198, 168, 124, 0.3);
-        background: rgba(10, 10, 10, 0.8);
+        background: rgba(10, 10, 10, 0.9);
         color: #C6A87C;
         display: flex;
         align-items: center;
@@ -290,12 +319,27 @@
         cursor: pointer;
         transition: all 0.3s ease;
         backdrop-filter: blur(4px);
+        z-index: 10;
     }
-
     .testimonial-nav-btn:hover {
         background: #C6A87C;
         color: #0a0a0a;
         border-color: #C6A87C;
+    }
+    .testimonial-nav-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+    .testimonial-nav-btn:disabled:hover {
+        background: rgba(10, 10, 10, 0.9);
+        color: #C6A87C;
+        border-color: rgba(198, 168, 124, 0.3);
+    }
+    .testimonial-nav-btn.prev {
+        left: 0;
+    }
+    .testimonial-nav-btn.next {
+        right: 0;
     }
 
     .testimonial-nav-btn:disabled {
@@ -500,6 +544,26 @@
     .grain-overlay {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; opacity: 0.03;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* DESKTOP ONLY - Hide mobile elements */
+    @media (min-width: 768px) {
+        .services-mobile-scroll,
+        .service-dots,
+        #testimonials-scroll-mobile,
+        #testimonial-mobile-dots,
+        #services-scroll,
+        #service-dots {
+            display: none !important;
+        }
+    }
+    
+    /* MOBILE ONLY - Hide desktop elements */
+    @media (max-width: 767px) {
+        .services-desktop,
+        #testimonials-desktop-wrapper {
+            display: none !important;
+        }
     }
 </style>
 
@@ -818,125 +882,18 @@
             </div>
             
            <!-- Mobile: Infinite Scrolling Marquee -->
-<div class="overflow-hidden marquee-container md:hidden" style="display: none;" id="mobile-team-container">
+<div class="overflow-hidden marquee-container md:hidden" id="mobile-team-container">
     <div class="marquee-content animate-marquee flex gap-8 items-center" id="mobile-team-marquee">
         <!-- Javascript will inject items here -->
     </div>
 </div>
 
-<!-- Desktop: Circular Avatars Grid -->
-<div class="hidden md:grid team-desktop-grid-circular" id="team-desktop" style="grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto;">
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Eugene</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Managing Partner</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Coffee connoisseur & early bird"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Adaline.png" class="w-full h-full object-cover team-photo" alt="Adaline">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Adaline</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Head of Sales</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Closer with a heart"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Cassandra.png" class="w-full h-full object-cover team-photo" alt="Cassandra">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Cassandra</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Consulting Manager</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Solves problems before you have them"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" class="w-full h-full object-cover team-photo" alt="Tiffany">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Tiffany</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Matchmaker of talent"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" class="w-full h-full object-cover team-photo" alt="Shanice">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Shanice</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Detail-obsessed in the best way"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" class="w-full h-full object-cover team-photo" alt="Jonathan">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Jonathan</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Partnership Lead</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Networker extraordinaire"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" class="w-full h-full object-cover team-photo" alt="Apple">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Apple</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Senior HR & Finance</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"HR encyclopedia"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" class="w-full h-full object-cover team-photo" alt="Shirny">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Shirny</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Account Assistant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Numbers wizard"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" class="w-full h-full object-cover team-photo" alt="Nurul">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Nurul</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Multitasking master"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" class="w-full h-full object-cover team-photo" alt="Elaine">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Elaine</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Always has a solution"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" class="w-full h-full object-cover team-photo" alt="Elsa">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Elsa</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Fresh perspective"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" class="w-full h-full object-cover team-photo" alt="Sheryl">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Sheryl</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Positive energy only"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" class="w-full h-full object-cover team-photo" alt="Sharmaine">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Sharmaine</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Relentless optimist"</p>
-                </div>
-                <div class="text-center group cursor-pointer p-4">
-                    <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4">
-                        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" class="w-full h-full object-cover team-photo" alt="Yvette">
-                    </div>
-                    <h4 class="font-serif text-lg text-white font-medium mb-1">Yvette</h4>
-                    <p class="text-xs text-luxury-gold uppercase tracking-wider">Recruitment Consultant</p>
-                    <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"Rising star"</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Desktop: Circular Avatars Grid (Populated by JS with random order) -->
+<div class="hidden md:grid team-desktop-grid-circular" id="team-desktop">
+    <!-- Team members will be injected here by JavaScript in random order -->
+</div>
+</div>
+</section>
 
     <!-- COMPETITIVE ADVANTAGE -->
     <section class="py-24 bg-luxury-black border-t border-white/5 relative">
@@ -1056,16 +1013,16 @@
             </div>
             
             <!-- DESKTOP: Carousel View (2 testimonials at a time with navigation) -->
-            <div class="hidden md:block relative" id="testimonials-desktop-wrapper">
+            <div class="hidden md:block testimonials-carousel-wrapper" id="testimonials-desktop-wrapper">
                 <!-- Previous Button -->
-                <button class="testimonial-nav-btn absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10" id="testimonial-prev" onclick="moveTestimonials('prev')" aria-label="Previous testimonials">
+                <button class="testimonial-nav-btn prev" id="testimonial-prev" onclick="moveTestimonials('prev')" aria-label="Previous testimonials">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </button>
                 
-                <div class="overflow-hidden mx-12">
-                    <div class="testimonials-track-desktop flex transition-transform duration-500 ease-in-out gap-6" id="testimonials-track-desktop">
+                <div class="testimonials-carousel-container">
+                    <div class="testimonials-track-desktop" id="testimonials-track-desktop">
                         <!-- All 8 Testimonials - Each takes 50% minus half gap -->
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"JTE has been instrumental in transforming our talent acquisition strategy. Their understanding of the fintech space and ability to source niche skill sets has been nothing short of exceptional."</p>
@@ -1081,7 +1038,7 @@
                             </div>
                         </div>
                         
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"I was skeptical about using a recruitment agency, but the JTE team changed my mind. They actually listened to what I needed and didn't waste my time with irrelevant candidates. Game changer!"</p>
@@ -1097,7 +1054,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"In my 20 years of HR leadership, I've rarely encountered an agency with such dedication to quality. JTE's candidates consistently exceed our expectations, and their retention rates speak for themselves."</p>
@@ -1113,7 +1070,7 @@
                             </div>
                         </div>
                         
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"These guys get it. They understand that running a restaurant means I need staff who can handle Friday night chaos without breaking a sweat. Always reliable, always on point."</p>
@@ -1129,7 +1086,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"The JTE team demonstrates exceptional professionalism and market knowledge. Their ability to deliver qualified candidates within tight timelines has been invaluable to our expansion plans."</p>
@@ -1145,7 +1102,7 @@
                             </div>
                         </div>
                         
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Needed staff urgently for a big project. Called them on a Friday evening, had people starting Monday morning. That's the kind of service that keeps me coming back. Absolute legends!"</p>
@@ -1161,7 +1118,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"What sets JTE apart is their consultative approach. They don't just fill positions; they help us refine our job requirements and employer brand. A true strategic partner in every sense."</p>
@@ -1177,7 +1134,7 @@
                             </div>
                         </div>
                         
-                        <div class="w-[calc(50%-12px)] flex-shrink-0">
+                        <div class="testimonial-card-desktop">
                             <div class="p-6 bg-luxury-charcoal border border-white/5 h-full flex flex-col rounded-lg">
                                 <i data-lucide="quote" class="w-6 h-6 text-luxury-gold opacity-40 mb-4"></i>
                                 <p class="text-gray-300 font-serif italic leading-relaxed text-sm mb-4 flex-grow">"Honestly? I was drowning in admin work trying to hire myself. JTE took that stress away completely. Now I focus on growing my business while they handle the people stuff. Best decision ever."</p>
@@ -1196,7 +1153,7 @@
                 </div>
 
                 <!-- Next Button -->
-                <button class="testimonial-nav-btn absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10" id="testimonial-next" onclick="moveTestimonials('next')" aria-label="Next testimonials">
+                <button class="testimonial-nav-btn next" id="testimonial-next" onclick="moveTestimonials('next')" aria-label="Next testimonials">
                     <i data-lucide="chevron-right" class="w-5 h-5"></i>
                 </button>
                 
@@ -1472,64 +1429,92 @@
             updateTestimonialButtons();
         });
 
-        // Team members for mobile marquee only
+        // Team members with taglines for both mobile and desktop
         const teamMembers = [
-            { name: "Eugene", role: "Managing Partner", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Eugene.png" },
-            { name: "Adaline", role: "Head of Sales", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Adaline.png" },
-            { name: "Cassandra", role: "Consulting Manager", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Cassandra.png" },
-            { name: "Tiffany", role: "Senior Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" },
-            { name: "Shanice", role: "Senior Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" },
-            { name: "Jonathan", role: "Partnership Lead", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" },
-            { name: "Apple", role: "Senior HR & Finance", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" },
-            { name: "Shirny", role: "Account Assistant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" },
-            { name: "Nurul", role: "Recruiter", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" },
-            { name: "Elaine", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" },
-            { name: "Elsa", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" },
-            { name: "Sheryl", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" },
-            { name: "Sharmaine", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" },
-            { name: "Yvette", role: "Recruitment Consultant", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" }
+            { name: "Eugene", role: "Managing Partner", tagline: "Coffee connoisseur & early bird", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Eugene.png" },
+            { name: "Adaline", role: "Head of Sales", tagline: "Closer with a heart", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Adaline.png" },
+            { name: "Cassandra", role: "Consulting Manager", tagline: "Solves problems before you have them", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Cassandra.png" },
+            { name: "Tiffany", role: "Senior Consultant", tagline: "Matchmaker of talent", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" },
+            { name: "Shanice", role: "Senior Consultant", tagline: "Detail-obsessed in the best way", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" },
+            { name: "Jonathan", role: "Partnership Lead", tagline: "Networker extraordinaire", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" },
+            { name: "Apple", role: "Senior HR & Finance", tagline: "HR encyclopedia", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" },
+            { name: "Shirny", role: "Account Assistant", tagline: "Numbers wizard", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" },
+            { name: "Nurul", role: "Recruitment Consultant", tagline: "Multitasking master", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" },
+            { name: "Elaine", role: "Recruitment Consultant", tagline: "Always has a solution", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" },
+            { name: "Elsa", role: "Recruitment Consultant", tagline: "Fresh perspective", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" },
+            { name: "Sheryl", role: "Recruitment Consultant", tagline: "Positive energy only", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" },
+            { name: "Sharmaine", role: "Recruitment Consultant", tagline: "Relentless optimist", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" },
+            { name: "Yvette", role: "Recruitment Consultant", tagline: "Rising star", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" }
         ];
 
- // Mobile team marquee initialization
-function initMobileTeamMarquee() {
-    const mobileMarquee = document.getElementById('mobile-team-marquee');
-    const mobileContainer = document.querySelector('.marquee-container');
-    const desktopGrid = document.getElementById('team-desktop');
-    
-    if (!mobileMarquee || !mobileContainer || !desktopGrid) return;
-    
-    // Clear existing content to prevent duplicates
-    mobileMarquee.innerHTML = '';
-    
-    // Check if mobile view (< 768px)
-    const isMobile = window.innerWidth < 768;
-    
-    if (isMobile) {
-        // Show mobile, hide desktop
-        mobileContainer.style.display = 'block';
-        desktopGrid.style.display = 'none';
-        
-        // Populate marquee with doubled team for seamless loop
-        const doubledTeam = [...teamMembers, ...teamMembers];
-        
-        doubledTeam.forEach(member => {
-            const item = document.createElement('div');
-            item.className = 'flex flex-col items-center w-[120px] flex-shrink-0 group';
-            item.innerHTML = `
-                <div class="w-24 h-24 rounded-full overflow-hidden mb-3 relative">
-                    <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
-                </div>
-                <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
-                <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
-            `;
-            mobileMarquee.appendChild(item);
-        });
-    } else {
-        // Desktop view: hide mobile marquee, show desktop grid
-        mobileContainer.style.display = 'none';
-        desktopGrid.style.display = 'grid';
-    }
-}
+        // Fisher-Yates shuffle algorithm for randomizing array
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Mobile team marquee initialization
+        function initMobileTeamMarquee() {
+            const mobileMarquee = document.getElementById('mobile-team-marquee');
+            const mobileContainer = document.getElementById('mobile-team-container');
+            const desktopGrid = document.getElementById('team-desktop');
+            
+            if (!mobileMarquee || !mobileContainer || !desktopGrid) return;
+            
+            // Clear existing content to prevent duplicates
+            mobileMarquee.innerHTML = '';
+            desktopGrid.innerHTML = '';
+            
+            // Check if mobile view (< 768px)
+            const isMobile = window.innerWidth < 768;
+            
+            if (isMobile) {
+                // Show mobile, hide desktop
+                mobileContainer.style.display = 'block';
+                desktopGrid.style.display = 'none';
+                
+                // Populate marquee with doubled team for seamless loop
+                const doubledTeam = [...teamMembers, ...teamMembers];
+                
+                doubledTeam.forEach(member => {
+                    const item = document.createElement('div');
+                    item.className = 'flex flex-col items-center w-[120px] flex-shrink-0 group';
+                    item.innerHTML = `
+                        <div class="w-24 h-24 rounded-full overflow-hidden mb-3 relative">
+                            <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
+                        </div>
+                        <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
+                        <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
+                    `;
+                    mobileMarquee.appendChild(item);
+                });
+            } else {
+                // Desktop view: hide mobile marquee, show desktop grid with randomized order
+                mobileContainer.style.display = 'none';
+                desktopGrid.style.display = 'grid';
+                
+                // Randomize team order for desktop
+                const randomizedTeam = shuffleArray(teamMembers);
+                
+                randomizedTeam.forEach(member => {
+                    const item = document.createElement('div');
+                    item.className = 'text-center group cursor-pointer p-4';
+                    item.innerHTML = `
+                        <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4 relative">
+                            <img loading="lazy" src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}">
+                        </div>
+                        <h4 class="font-serif text-lg text-white font-medium mb-1">${member.name}</h4>
+                        <p class="text-xs text-luxury-gold uppercase tracking-wider">${member.role}</p>
+                        <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"${member.tagline}"</p>
+                    `;
+                    desktopGrid.appendChild(item);
+                });
+            }
+        }
 
 // Add resize listener to switch between views
 window.addEventListener('resize', () => {
@@ -1576,7 +1561,10 @@ window.addEventListener('resize', () => {
 
         function moveTestimonials(direction) {
             const track = document.getElementById('testimonials-track-desktop');
+            const container = track.parentElement;
             const indicator = document.getElementById('testimonial-indicator');
+            
+            if (!track || !container) return;
             
             if (direction === 'next' && testimonialBatchIndex < totalBatches - 1) {
                 testimonialBatchIndex++;
@@ -1584,10 +1572,17 @@ window.addEventListener('resize', () => {
                 testimonialBatchIndex--;
             }
             
-            // FIX: Changed from 25 to 100 to move full container width (2 cards) per click
-            // Since each card is ~50% width, 2 cards = 100% container width
-            const translateX = -(testimonialBatchIndex * 100);
-            track.style.transform = `translateX(${translateX}%)`;
+            // Calculate the width of one batch (2 cards + gap)
+            // Each card is calc(50% - 12px), gap is 24px
+            // So 2 cards + gap = (50% - 12px) + 24px + (50% - 12px) = 100% of container
+            const containerWidth = container.offsetWidth;
+            const gap = 24; // gap between cards in pixels
+            
+            // Calculate scroll amount: each batch moves by container width + gap
+            // But since cards are sized to fit exactly 2 per row, we just move by container width + gap
+            const scrollAmount = containerWidth + gap;
+            const translateX = -(testimonialBatchIndex * scrollAmount);
+            track.style.transform = `translateX(${translateX}px)`;
             
             // Update indicator
             if (indicator) {
@@ -1609,6 +1604,20 @@ window.addEventListener('resize', () => {
                 nextBtn.disabled = testimonialBatchIndex === totalBatches - 1;
             }
         }
+        
+        // Reset carousel on window resize
+        window.addEventListener('resize', () => {
+            testimonialBatchIndex = 0;
+            const track = document.getElementById('testimonials-track-desktop');
+            if (track) {
+                track.style.transform = 'translateX(0)';
+            }
+            updateTestimonialButtons();
+            const indicator = document.getElementById('testimonial-indicator');
+            if (indicator) {
+                indicator.textContent = `1 / ${totalBatches}`;
+            }
+        });
 
         // Testimonials Mobile - Dots (8 dots for 8 testimonials)
         function initTestimonialMobileDots() {
@@ -1617,18 +1626,31 @@ window.addEventListener('resize', () => {
             
             if (!dotsContainer || !scrollContainer) return;
             
+            // Clear existing dots first
+            dotsContainer.innerHTML = '';
+            
             // Create 8 dots
-            for (let i = 0; i < 8; i++) {
+            const cardCount = scrollContainer.querySelectorAll('.service-card-mobile').length || 8;
+            for (let i = 0; i < cardCount; i++) {
                 const dot = document.createElement('div');
                 dot.className = `service-dot ${i === 0 ? 'active' : ''}`;
                 dotsContainer.appendChild(dot);
             }
             
-            // Update dots on scroll
+            // Update dots on scroll - use proportional calculation like Services
             scrollContainer.addEventListener('scroll', () => {
                 const scrollLeft = scrollContainer.scrollLeft;
-                const cardWidth = scrollContainer.offsetWidth * 0.85 + 16;
-                const activeIndex = Math.round(scrollLeft / cardWidth);
+                const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                const dotCount = dotsContainer.querySelectorAll('.service-dot').length;
+                
+                // Proportional calculation: maps scroll progress (0-100%) to dot index
+                let activeIndex = 0;
+                if (maxScroll > 0) {
+                    activeIndex = Math.round((scrollLeft / maxScroll) * (dotCount - 1));
+                }
+                
+                // Clamp to valid range
+                activeIndex = Math.max(0, Math.min(activeIndex, dotCount - 1));
                 
                 dotsContainer.querySelectorAll('.service-dot').forEach((dot, idx) => {
                     dot.classList.toggle('active', idx === activeIndex);
