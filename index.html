@@ -1,70 +1,77 @@
-<!-- =========================================================================
-     JTE RECRUIT - GOLDEN MASTER v5 (TESTIMONIALS CAROUSEL FULLY FIXED)
-     - Desktop: 2 testimonials at a time with side navigation arrows
-     - Mobile: Horizontal scroll maintained
-     - Contact links gold hover effects
-     - Send button arrow animation
-     ========================================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =========================================================================
+         JTE RECRUIT - GOLDEN MASTER v5 (TESTIMONIALS CAROUSEL FULLY FIXED)
+         - Desktop: 2 testimonials at a time with side navigation arrows
+         - Mobile: Horizontal scroll maintained
+         - Contact links gold hover effects
+         - Send button arrow animation
+         ========================================================================= -->
 
-<!-- 1. CORE DEPENDENCIES -->
-<title>JTE Recruit | Good People, Great Work.</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
-<script src="https://unpkg.com/lucide@latest"></script>
+    <!-- 1. CORE DEPENDENCIES -->
+    <title>JTE Recruit | Good People, Great Work.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<!-- 2. SYSTEM CONFIGURATION -->
-<script>
-    tailwind.config = {
-        darkMode: 'class', 
-        theme: {
-            extend: {
-                fontFamily: {
-                    serif: ['Playfair Display', 'serif'],
-                    sans: ['Inter', 'sans-serif'],
-                },
-                colors: {
-                    luxury: {
-                        black: '#0a0a0a',
-                        charcoal: '#141414',
-                        gold: '#C6A87C',
-                        goldLight: '#E5D4B3',
-                        goldDark: '#8C7350',
-                        cream: '#F5F1E8',
-                        warmGray: '#8A8A8A',
-                    }
-                },
-                letterSpacing: {
-                    'widest-plus': '0.15em',
-                },
-                animation: {
-                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
-                    'modal-in': 'modalIn 0.4s ease-out forwards',
-                    'float': 'float 6s ease-in-out infinite',
-                    'marquee': 'marquee 35s linear infinite',
-                },
-                keyframes: {
-                    fadeInUp: {
-                        '0%': { opacity: '0', transform: 'translateY(30px)' },
-                        '100%': { opacity: '1', transform: 'translateY(0)' },
+    <!-- 2. SYSTEM CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
                     },
-                    modalIn: {
-                        '0%': { opacity: '0', transform: 'scale(0.95)' },
-                        '100%': { opacity: '1', transform: 'scale(1)' },
+                    colors: {
+                        luxury: {
+                            black: '#0a0a0a',
+                            charcoal: '#141414',
+                            gold: '#C6A87C',
+                            goldLight: '#E5D4B3',
+                            goldDark: '#8C7350',
+                            cream: '#F5F1E8',
+                            warmGray: '#8A8A8A',
+                        }
                     },
-                    float: {
-                        '0%, 100%': { transform: 'translateY(0)' },
-                        '50%': { transform: 'translateY(-10px)' },
+                    letterSpacing: {
+                        'widest-plus': '0.15em',
                     },
-                    marquee: {
-                        '0%': { transform: 'translateX(0%)' },
-                        '100%': { transform: 'translateX(-50%)' },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'modal-in': 'modalIn 0.4s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 35s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        modalIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
                     }
                 }
             }
         }
-    }
-</script>
+    </script>
+</head>
+<body class="bg-cream dark:bg-luxury-black text-luxury-charcoal dark:text-cream transition-colors duration-300">
 
 <!-- 3. STYLES -->
 <style>
@@ -1688,3 +1695,5 @@
         });
     </script>
 </div>
+</body>
+</html>
