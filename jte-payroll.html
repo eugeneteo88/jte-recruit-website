@@ -141,25 +141,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .calendly-container {
-            min-height: 650px;
-        }
-
-        @media (max-width: 768px) {
-            .calendly-container {
-                min-height: 1000px;
-            }
-        }
-
-        /* Light mode specific text colors */
-        .text-primary { color: #1a1a1a; }
-        .text-secondary { color: #4a4a4a; }
-        .text-muted { color: #6a6a6a; }
-
-        body.dark-mode .text-primary { color: #ffffff; }
-        body.dark-mode .text-secondary { color: #d1d5db; }
-        body.dark-mode .text-muted { color: #9ca3af; }
-
         /* Section borders */
         .section-border {
             border-color: rgba(0, 0, 0, 0.1);
@@ -194,6 +175,110 @@
             border-color: #C6A87C;
             color: #C6A87C;
         }
+
+        /* Light mode specific text colors */
+        .text-primary { color: #1a1a1a; }
+        .text-secondary { color: #4a4a4a; }
+        .text-muted { color: #6a6a6a; }
+
+        body.dark-mode .text-primary { color: #ffffff; }
+        body.dark-mode .text-secondary { color: #d1d5db; }
+        body.dark-mode .text-muted { color: #9ca3af; }
+
+        /* Form styles */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #f9f9f9;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            color: #1a1a1a;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .form-input {
+            background: #1a1a1a;
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #8C7350;
+            box-shadow: 0 0 0 3px rgba(198, 168, 124, 0.1);
+        }
+
+        body.dark-mode .form-input:focus {
+            border-color: #C6A87C;
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6a6a6a;
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .form-label {
+            color: #9ca3af;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            padding: 1rem;
+            background: rgba(198, 168, 124, 0.1);
+            border: 1px solid #C6A87C;
+            border-radius: 0.5rem;
+            color: #8C7350;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        body.dark-mode .success-message {
+            color: #C6A87C;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Submit button arrow animation */
+        .btn-submit-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover .btn-submit-arrow {
+            transform: translateX(6px);
+        }
+
+        /* Spinner */
+        .spinner {
+            display: none;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-top-color: #0a0a0a;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 <base target="_blank">
 </head>
@@ -217,8 +302,8 @@
                 </svg>
             </button>
 
-            <a href="#book-call" class="btn-primary px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-md">
-                Book 15-Min Call
+            <a href="#contact-form" class="btn-primary px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-md">
+                Get Started
             </a>
         </div>
     </nav>
@@ -244,8 +329,8 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                    <a href="#book-call" class="btn-primary px-8 py-4 text-center text-sm uppercase tracking-wider font-semibold rounded-md">
-                        Book Your 15-Min Call
+                    <a href="#contact-form" class="btn-primary px-8 py-4 text-center text-sm uppercase tracking-wider font-semibold rounded-md">
+                        Apply for Pilot Program
                     </a>
                     <a href="#how-it-works" class="btn-outline px-8 py-4 text-center text-sm uppercase tracking-wider rounded-md">
                         See How It Works
@@ -564,33 +649,93 @@
         </div>
     </section>
 
-    <!-- Book Call Section -->
-    <section id="book-call" class="py-20 px-6 md:px-12 border-t section-border">
-        <div class="max-w-4xl mx-auto">
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-20 px-6 md:px-12 border-t section-border">
+        <div class="max-w-2xl mx-auto">
             <div class="text-center mb-12">
                 <span class="gold-text text-xs uppercase tracking-[0.2em] font-medium">Ready to Save $36K?</span>
-                <h2 class="font-serif text-3xl md:text-4xl mt-4 mb-6 text-primary">Book Your 15-Minute Call</h2>
+                <h2 class="font-serif text-3xl md:text-4xl mt-4 mb-6 text-primary">Apply for the Pilot Program</h2>
                 <p class="text-secondary">
                     No obligations. No hard sell. Just a quick chat to see if we're a fit.
                 </p>
             </div>
 
-            <!-- Calendly Embed -->
-            <div class="card rounded-2xl p-4 md:p-8">
-                <div class="calendly-container">
-                    <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_CALENDLY_LINK/15min" style="min-width:320px;height:650px;"></div>
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                    <!-- Calendly inline widget end -->
+            <div class="card rounded-2xl p-8 md:p-10">
+                <!-- Success Message -->
+                <div id="success-message" class="success-message">
+                    <i data-lucide="check-circle" class="w-5 h-5 inline mr-2"></i>
+                    Application submitted successfully! We'll get back to you within 24 hours.
                 </div>
 
-                <!-- Fallback if Calendly doesn't load -->
-                <div id="calendly-fallback" class="hidden text-center py-12">
-                    <p class="text-muted mb-4">Unable to load calendar. Please contact us directly:</p>
-                    <a href="https://wa.me/6590115381" class="btn-primary px-8 py-4 inline-block text-sm uppercase tracking-wider font-semibold rounded-md">
-                        WhatsApp Us
-                    </a>
-                </div>
+                <form id="pilot-form" action="https://formspree.io/f/xpqjgwaq" method="POST" class="space-y-6">
+                    <input type="hidden" name="_subject" value="New Payroll Pilot Program Application">
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" name="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Company Name *</label>
+                            <input type="text" name="company" class="form-input" placeholder="Acme Pte Ltd" required>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" name="email" class="form-input" placeholder="john@company.com" required>
+                        </div>
+                        <div>
+                            <label class="form-label">Mobile Number *</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="+65 9123 4567" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Number of Employees *</label>
+                        <select name="employee_count" class="form-input" required>
+                            <option value="">Select...</option>
+                            <option value="1-5">1-5 employees</option>
+                            <option value="6-10">6-10 employees</option>
+                            <option value="11-20">11-20 employees</option>
+                            <option value="21-50">21-50 employees</option>
+                            <option value="50+">50+ employees</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Industry *</label>
+                        <select name="industry" class="form-input" required>
+                            <option value="">Select...</option>
+                            <option value="insurance">Insurance Agency</option>
+                            <option value="recruitment">Recruitment Agency</option>
+                            <option value="startup">Startup / Tech</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="retail">Retail / F&B</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Tell us about your current payroll setup</label>
+                        <textarea name="message" rows="3" class="form-input resize-none" placeholder="How do you currently handle payroll? What challenges are you facing?"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" id="submitBtn" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-sm flex items-center justify-center gap-2 rounded-md group">
+                            <span id="btnText">Submit Application</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 btn-submit-arrow" id="btnIcon"></i>
+                            <div class="spinner" id="btnSpinner"></div>
+                        </button>
+                    </div>
+
+                    <p class="text-center text-xs text-muted mt-4">
+                        By submitting, you agree to be contacted about the payroll pilot program.
+                    </p>
+                </form>
             </div>
         </div>
     </section>
@@ -708,22 +853,73 @@
                 sunIcon.classList.add('hidden');
                 moonIcon.classList.remove('hidden');
             } else {
-                // Default to light mode
                 document.body.classList.remove('dark-mode');
                 sunIcon.classList.remove('hidden');
                 moonIcon.classList.add('hidden');
             }
 
-            // Initialize Lucide icons
             lucide.createIcons();
+        });
 
-            // Check if Calendly loaded
-            setTimeout(() => {
-                const calendlyWidget = document.querySelector('.calendly-inline-widget iframe');
-                if (!calendlyWidget) {
-                    document.getElementById('calendly-fallback').classList.remove('hidden');
+        // Form submission handler
+        document.getElementById('pilot-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const successMsg = document.getElementById('success-message');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.textContent = 'Submitting...';
+            btnIcon.classList.add('hidden');
+            btnSpinner.style.display = 'block';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    successMsg.classList.add('show');
+                    form.reset();
+
+                    // Reset button
+                    btnText.textContent = 'Application Submitted';
+                    btnSpinner.style.display = 'none';
+                    btnIcon.classList.remove('hidden');
+
+                    // Scroll to top of form
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Reset button after 5 seconds
+                    setTimeout(() => {
+                        successMsg.classList.remove('show');
+                        submitBtn.disabled = false;
+                        btnText.textContent = 'Submit Application';
+                    }, 5000);
+                } else {
+                    throw new Error('Submission failed');
                 }
-            }, 5000);
+            } catch (error) {
+                // Show error
+                btnText.textContent = 'Failed - Try Again';
+                btnSpinner.style.display = 'none';
+                btnIcon.classList.remove('hidden');
+                submitBtn.disabled = false;
+
+                alert('Sorry, there was an error submitting your application. Please email us directly at eugene@jte.com.sg');
+            }
+
+            lucide.createIcons();
         });
 
         // FAQ Toggle
