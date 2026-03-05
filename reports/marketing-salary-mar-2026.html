@@ -1,0 +1,367 @@
+import React, { useState } from 'react';
+import { 
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell 
+} from 'recharts';
+import { 
+  Briefcase, TrendingUp, CheckCircle, Building, DollarSign, Calendar, ArrowRight, Phone, BookOpen, Info
+} from 'lucide-react';
+
+const App = () => {
+  const [hoverIndex, setHoverIndex] = useState(null);
+
+  // Data based on the local Singapore FMCG/F&B discussion
+  // Colors updated to the luxury gold gradient spectrum
+  const placementData = [
+    { 
+      id: 1,
+      shortRole: 'Regional Mktg Dir',
+      role: 'Regional Marketing Director', 
+      companyType: 'Health & Wellness FMCG', 
+      base: 13.5, 
+      bonus: '3 months bonus',
+      color: '#8C7350' // Darkest Gold
+    },
+    { 
+      id: 2,
+      shortRole: 'Mktg Director',
+      role: 'Marketing Director', 
+      companyType: 'Premium Beverage Brand', 
+      base: 12.0, 
+      bonus: '2.5 months bonus',
+      color: '#9B7F4A' 
+    },
+    { 
+      id: 3,
+      shortRole: 'Head of E-comm',
+      role: 'Head of E-commerce & Marketing', 
+      companyType: 'F&B Retailer', 
+      base: 11.0, 
+      bonus: 'Variable bonus',
+      color: '#A98C5A'
+    },
+    { 
+      id: 4,
+      shortRole: 'Head of Brand',
+      role: 'Head of Brand', 
+      companyType: 'Regional Food Distributor', 
+      base: 9.5, 
+      bonus: '2 months bonus',
+      color: '#B89A6B' 
+    },
+    { 
+      id: 5,
+      shortRole: 'Snr Mktg Mgr',
+      role: 'Senior Marketing Manager', 
+      companyType: 'Global Snack Brand', 
+      base: 8.0, 
+      bonus: '2 months bonus',
+      color: '#C6A87C' // Lightest Gold
+    },
+  ];
+
+  const marketReportData = [
+    { role: 'Marketing Director / Senior Director', range: 'S$14,000 - S$20,000', exp: '10 - 15+ years' },
+    { role: 'Head of Marketing / Head of Brand', range: 'S$10,000 - S$14,000', exp: '8 - 12 years' },
+    { role: 'Senior Marketing Manager', range: 'S$8,000 - S$12,000', exp: '5 - 10 years' },
+    { role: 'Marketing Manager / Brand Manager', range: 'S$5,500 - S$8,000', exp: '3 - 6 years' },
+  ];
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="bg-white p-5 border border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-xl font-sans">
+          <p className="font-serif font-bold text-[#1a1a1a] text-lg mb-1">{data.role}</p>
+          <p className="text-[#6a6a6a] text-xs uppercase tracking-wider mb-4">{data.companyType}</p>
+          <div className="flex items-center gap-2 text-sm mb-2">
+            <DollarSign className="w-4 h-4 text-[#8C7350]" />
+            <span className="font-semibold text-[#1a1a1a]">S${data.base}k / month</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm">
+            <Calendar className="w-4 h-4 text-[#8C7350]" />
+            <span className="text-[#4a4a4a]">{data.bonus}</span>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className="min-h-screen bg-[#F5F1E8] font-sans text-[#1a1a1a] selection:bg-[#C6A87C]/30">
+      
+      {/* Injecting fonts directly to match the landing page */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+        .font-serif { font-family: 'Playfair Display', serif !important; }
+        .font-sans { font-family: 'Inter', sans-serif !important; }
+        .gold-gradient { background: linear-gradient(135deg, #C6A87C 0%, #8C7350 100%); }
+        .gold-text { color: #8C7350; }
+        .card-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+      `}</style>
+
+      {/* Navigation / Header */}
+      <nav className="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-[#F5F1E8] to-transparent">
+        <div className="z-50 flex flex-col">
+          <span className="font-serif text-2xl tracking-[0.1em] text-[#1a1a1a] font-semibold">JTE</span>
+          <span className="block text-[9px] uppercase tracking-[0.3em] text-[#6a6a6a] mt-1">Recruit</span>
+        </div>
+        <div className="hidden sm:flex items-center text-xs uppercase tracking-wider font-medium text-[#6a6a6a]">
+          <span>FMCG & F&B Marketing</span>
+          <span className="mx-4 border-l border-black/20 h-4"></span>
+          <span>Singapore 2026</span>
+        </div>
+      </nav>
+
+      <main className="max-w-6xl mx-auto px-6 md:px-12 pt-32 pb-20">
+        
+        {/* Hero Section */}
+        <div className="mb-16 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C6A87C]/10 border border-[#C6A87C]/30 mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#8C7350] animate-pulse"></span>
+            <span className="gold-text text-xs uppercase tracking-wider font-medium">Confidential Client Briefing</span>
+          </div>
+          
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-[#1a1a1a]">
+            Validating the Market for<br/>
+            <span className="italic gold-text">Marketing Leadership</span>
+          </h1>
+          
+          <p className="text-[#4a4a4a] text-lg leading-relaxed max-w-2xl">
+            A targeted snapshot of recent placement data within Singapore's FMCG and Food & Beverage sectors, curated specifically to support your strategic hiring decisions.
+          </p>
+        </div>
+
+        {/* Key Metrics Dashboard */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="bg-white rounded-2xl p-8 border border-black/10 card-shadow">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-[#C6A87C]/10 flex items-center justify-center">
+                <Briefcase className="w-5 h-5 gold-text" />
+              </div>
+              <h3 className="text-xs font-semibold text-[#6a6a6a] uppercase tracking-widest">Target Band</h3>
+            </div>
+            <div className="font-serif text-4xl gold-text mb-2">S$10k-14k</div>
+            <p className="text-sm text-[#4a4a4a]">Typical monthly base range for Director-level talent.</p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 border border-black/10 card-shadow">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 rounded-full bg-[#C6A87C]/10 flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 gold-text" />
+              </div>
+              <h3 className="text-xs font-semibold text-[#6a6a6a] uppercase tracking-widest">Variable</h3>
+            </div>
+            <div className="font-serif text-4xl gold-text mb-2">2-3 Mths</div>
+            <p className="text-sm text-[#4a4a4a]">Standard AWS & performance bonus structure.</p>
+          </div>
+
+          <div className="bg-[#141414] rounded-2xl p-8 card-shadow relative overflow-hidden">
+            <div className="absolute -top-6 -right-6 p-4 opacity-5">
+              <CheckCircle className="w-40 h-40 text-white" />
+            </div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                  <span className="font-serif text-xl text-[#C6A87C]">JTE</span>
+                </div>
+                <h3 className="text-xs font-semibold text-white/60 uppercase tracking-widest">Success Rate</h3>
+              </div>
+              <div className="font-serif text-4xl text-[#C6A87C] mb-2">100%</div>
+              <p className="text-sm text-white/80">Fill rate for retained FMCG leadership searches.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Two-Column Layout for Data and Placements */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
+          
+          {/* Chart Column */}
+          <div className="bg-white rounded-2xl p-8 border border-black/10 card-shadow">
+            <div className="mb-8">
+              <span className="gold-text text-xs uppercase tracking-[0.2em] font-medium">Data Visualization</span>
+              <h2 className="font-serif text-2xl text-[#1a1a1a] mt-2">Recent Placements (Base SGD)</h2>
+            </div>
+            
+            <div className="h-80 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={placementData} margin={{ top: 20, right: 0, left: -20, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
+                  <XAxis 
+                    dataKey="shortRole" 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{ fill: '#6a6a6a', fontSize: 11, fontFamily: 'Inter' }} 
+                    dy={10}
+                  />
+                  <YAxis 
+                    axisLine={false} 
+                    tickLine={false} 
+                    tick={{ fill: '#6a6a6a', fontSize: 11, fontFamily: 'Inter' }}
+                    tickFormatter={(value) => `$${value}k`}
+                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: '#F5F1E8', opacity: 0.5 }} />
+                  <Bar 
+                    dataKey="base" 
+                    radius={[4, 4, 0, 0]}
+                    onMouseEnter={(_, index) => setHoverIndex(index)}
+                    onMouseLeave={() => setHoverIndex(null)}
+                  >
+                    {placementData.map((entry, index) => (
+                      <Cell 
+                        key={`cell-${index}`} 
+                        fill={entry.color} 
+                        fillOpacity={hoverIndex === index || hoverIndex === null ? 1 : 0.3}
+                        style={{ transition: 'all 0.3s ease' }}
+                      />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* List Column */}
+          <div className="flex flex-col gap-5">
+            <div className="mb-3 px-2">
+              <span className="gold-text text-xs uppercase tracking-[0.2em] font-medium">Track Record</span>
+              <h2 className="font-serif text-2xl text-[#1a1a1a] mt-2">Executed Mandates</h2>
+            </div>
+            
+            {placementData.map((item, index) => (
+              <div 
+                key={item.id} 
+                className="bg-white rounded-xl p-6 border border-black/10 card-shadow hover:border-[#8C7350]/30 transition-all duration-300 flex items-start gap-5 cursor-default"
+                onMouseEnter={() => setHoverIndex(index)}
+                onMouseLeave={() => setHoverIndex(null)}
+              >
+                <div className="w-12 h-12 rounded-full bg-[#F5F1E8] flex flex-shrink-0 items-center justify-center border border-black/5">
+                  <Building className="w-5 h-5 gold-text" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-serif text-lg text-[#1a1a1a] font-semibold mb-1">{item.role}</h4>
+                  <p className="text-xs uppercase tracking-wider text-[#6a6a6a] mb-4">{item.companyType}</p>
+                  
+                  <div className="flex flex-wrap gap-4 pt-4 border-t border-black/5">
+                    <div className="flex items-center gap-2">
+                      <DollarSign className="w-4 h-4 gold-text" />
+                      <span className="text-sm font-medium text-[#1a1a1a]">S${item.base}k / mo</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-[#6a6a6a]" />
+                      <span className="text-sm text-[#4a4a4a]">{item.bonus}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 2026 Broad Market Research Report */}
+        <div className="bg-white rounded-2xl p-8 sm:p-12 border border-black/10 card-shadow mb-20 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C6A87C]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+          
+          <div className="relative z-10">
+            <div className="mb-10 text-center sm:text-left">
+              <span className="gold-text text-xs uppercase tracking-[0.2em] font-medium">Market Overview</span>
+              <h2 className="font-serif text-3xl text-[#1a1a1a] mt-2">2026 Salary Benchmark</h2>
+              <p className="text-[#6a6a6a] text-sm mt-3">Broad industry averages for Consumer Goods, Retail, & F&B in Singapore.</p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-black/10">
+                    <th className="py-4 px-4 font-semibold text-[#6a6a6a] text-xs uppercase tracking-wider">Marketing Leadership Role</th>
+                    <th className="py-4 px-4 font-semibold text-[#6a6a6a] text-xs uppercase tracking-wider">Typical Experience</th>
+                    <th className="py-4 px-4 font-semibold text-[#6a6a6a] text-xs uppercase tracking-wider">Monthly Base Salary</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-black/5">
+                  {marketReportData.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-[#F5F1E8]/50 transition-colors duration-200">
+                      <td className="py-5 px-4 font-medium text-[#1a1a1a]">{row.role}</td>
+                      <td className="py-5 px-4 text-[#6a6a6a] text-sm">{row.exp}</td>
+                      <td className="py-5 px-4 font-serif font-semibold text-[#8C7350] text-lg">{row.range}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-black/10 flex items-start gap-3 text-xs text-[#6a6a6a] leading-relaxed">
+              <Info className="w-4 h-4 flex-shrink-0 mt-0.5 gold-text" />
+              <p>
+                <strong>Source Validation:</strong> Data compiled and aggregated from Q1 2026 Singapore Salary Guides published by Morgan McKinley, JobStreet Insights, and PayScale FMCG/Wholesale industry reports. These figures represent broad market averages across both SMEs and MNCs. JTE's specific placements often optimize these ranges based on exact client mandates and variable bonus structuring.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="gold-gradient rounded-2xl p-10 sm:p-16 text-center shadow-xl relative overflow-hidden">
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <span className="text-[#1a1a1a] text-xs uppercase tracking-[0.2em] font-bold mb-4 block">Next Steps</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-[#1a1a1a] mb-6">Let's discuss your specific mandate.</h2>
+            <p className="text-[#1a1a1a]/80 text-lg mb-10">
+              We have a strong network of pre-vetted talent currently operating within these exact compensation bands. 
+            </p>
+            
+            <div className="flex flex-col items-center gap-6 mt-4">
+              <div className="bg-white/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-black/10 flex flex-col sm:flex-row items-center gap-6 w-full max-w-lg shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+                <div className="relative">
+                   <div className="absolute -inset-1 rounded-full border border-[#1a1a1a]/20 animate-ping opacity-50"></div>
+                   <img 
+                     src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" 
+                     alt="Elsa Adam" 
+                     className="w-24 h-24 rounded-full object-cover border-2 border-[#1a1a1a] relative z-10 shadow-lg"
+                   />
+                </div>
+                <div className="flex-1 text-center sm:text-left">
+                  <h3 className="font-serif text-2xl text-[#1a1a1a] mb-1">Elsa Adam</h3>
+                  <p className="text-[10px] uppercase tracking-widest text-[#1a1a1a]/70 font-bold mb-5">Managing Consultant</p>
+                  
+                  <div className="flex flex-col gap-3">
+                    <a href="https://wa.me/6593360384" target="_blank" rel="noopener noreferrer" className="w-full px-5 py-3 bg-[#1a1a1a] text-[#C6A87C] uppercase tracking-wider text-[10px] font-bold rounded hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-center sm:justify-start gap-3 shadow-md">
+                      <Phone className="w-3.5 h-3.5" />
+                      WhatsApp / +65 9336 0384
+                    </a>
+                    <a href="mailto:elsa@jte.com.sg" className="w-full px-5 py-3 bg-transparent border border-[#1a1a1a] text-[#1a1a1a] uppercase tracking-wider text-[10px] font-bold rounded hover:bg-[#1a1a1a]/10 transition-all duration-300 flex items-center justify-center sm:justify-start gap-3">
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      elsa@jte.com.sg
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-lg mt-2">
+                <a 
+                  href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-co-profile/co-profile/JTE%20Co%20Profile%202026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-8 py-4 bg-transparent border border-[#1a1a1a] text-[#1a1a1a] uppercase tracking-wider text-xs font-bold rounded hover:bg-[#1a1a1a]/10 transition-all duration-300 flex items-center justify-center gap-3"
+                >
+                  View JTE Co Profile
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+      
+      {/* Footer */}
+      <footer className="py-12 border-t border-black/10 text-center">
+        <p className="font-serif text-2xl text-[#1a1a1a] tracking-widest mb-3">JTE</p>
+        <p className="font-sans text-xs text-[#6a6a6a] mb-2 uppercase tracking-wider">Executive Search Insights</p>
+        <p className="font-sans text-[10px] text-[#6a6a6a]/60 uppercase tracking-widest">© 2026 JTE Recruit Pte Ltd. Strictly Private & Confidential.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
