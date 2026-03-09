@@ -230,23 +230,32 @@
             color: #9ca3af;
         }
 
-        /* Success message */
-        .success-message {
+        /* Success & Error message */
+        .feedback-message {
             display: none;
             padding: 1rem;
-            background: rgba(198, 168, 124, 0.1);
-            border: 1px solid #C6A87C;
             border-radius: 0.5rem;
-            color: #8C7350;
             text-align: center;
             margin-bottom: 1.5rem;
+        }
+        
+        .success-message {
+            background: rgba(198, 168, 124, 0.1);
+            border: 1px solid #C6A87C;
+            color: #8C7350;
         }
 
         body.dark-mode .success-message {
             color: #C6A87C;
         }
+        
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
 
-        .success-message.show {
+        .feedback-message.show {
             display: block;
             animation: fadeInUp 0.5s ease;
         }
@@ -293,17 +302,8 @@
         </a>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleTheme()" class="theme-toggle" aria-label="Toggle dark mode">
-                <svg id="icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                </svg>
-                <svg id="icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-            </button>
-
             <a href="#contact-form" class="btn-primary px-6 py-3 text-xs uppercase tracking-wider font-semibold rounded-md">
-                Get Started
+                Let's talk
             </a>
         </div>
     </nav>
@@ -315,7 +315,7 @@
             <div class="fade-in">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-luxury-gold/10 border border-luxury-gold/30 mb-6">
                     <span class="w-2 h-2 rounded-full bg-luxury-gold pulse-dot"></span>
-                    <span class="gold-text text-xs uppercase tracking-wider font-medium">Limited to 20 Companies</span>
+                    <span class="gold-text text-xs uppercase tracking-wider font-medium">New 30 slots</span>
                 </div>
 
                 <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-primary">
@@ -324,8 +324,7 @@
                 </h1>
 
                 <p class="text-secondary text-lg mb-6 leading-relaxed">
-                    Free payroll processing for insurance agencies, small companies, and directors. 
-                    Save $36,000/year in headcount costs. Zero admin burden.
+                    Comprehensive payroll services—not just processing. We cover everything from salary issuance to CPF, SDL, and all required statutory payments for free*. Save up to $4,000 monthly on hiring payroll staff, and eliminate the headaches of yearly increments, bonuses, and employee management. Zero admin burden and zero additional costs.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-8">
@@ -338,14 +337,18 @@
                 </div>
 
                 <!-- Trust Indicators -->
-                <div class="flex items-center gap-6 text-sm text-muted">
+                <div class="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-muted">
                     <div class="flex items-center gap-2">
                         <i data-lucide="check-circle" class="w-4 h-4 check-icon"></i>
-                        <span>No credit card required</span>
+                        <span>100% Compliance</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i data-lucide="check-circle" class="w-4 h-4 check-icon"></i>
-                        <span>Free forever</span>
+                        <span>Zero Admin Effort</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 check-icon"></i>
+                        <span>Peace of Mind</span>
                     </div>
                 </div>
             </div>
@@ -355,11 +358,11 @@
                 <div class="card rounded-2xl p-8 md:p-10">
                     <div class="grid grid-cols-2 gap-8 mb-8">
                         <div>
-                            <div class="font-serif text-4xl gold-text mb-2">$36K</div>
-                            <div class="text-muted text-sm">Average savings per year</div>
+                            <div class="font-serif text-4xl gold-text mb-2">$4,000+</div>
+                            <div class="text-muted text-sm">Average savings per month</div>
                         </div>
                         <div>
-                            <div class="font-serif text-4xl gold-text mb-2">0</div>
+                            <div class="font-serif text-4xl gold-text mb-2">Minimal</div>
                             <div class="text-muted text-sm">Admin hours required</div>
                         </div>
                         <div>
@@ -368,21 +371,33 @@
                         </div>
                         <div>
                             <div class="font-serif text-4xl gold-text mb-2">100%</div>
-                            <div class="text-muted text-sm">CPF compliant</div>
+                            <div class="text-muted text-sm">MOM Compliant</div>
                         </div>
                     </div>
 
                     <div class="border-t border-gray-200 dark:border-white/10 pt-6">
-                        <p class="text-secondary text-sm italic mb-4">
-                            "I was drowning in admin work trying to do payroll myself. JTE took that stress away completely. Now I focus on growing my business."
-                        </p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-luxury-gold/20 flex items-center justify-center">
-                                <span class="gold-text font-serif text-sm">MF</span>
-                            </div>
-                            <div>
-                                <div class="text-primary text-sm font-medium">Marcus Fernandez</div>
-                                <div class="text-muted text-xs">Director, Creative Agency</div>
+                        <div class="min-h-[140px] flex flex-col justify-between">
+                            <p id="test-text" class="text-secondary text-sm italic mb-4" style="transition: opacity 0.2s ease;">
+                                "I was drowning in admin work trying to do payroll myself. JTE took that stress away completely. Now I focus on growing my business."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-luxury-gold/20 flex items-center justify-center shrink-0">
+                                        <span id="test-initials" class="gold-text font-serif text-sm">ML</span>
+                                    </div>
+                                    <div>
+                                        <div id="test-name" class="text-primary text-sm font-medium">Mei Ling</div>
+                                        <div id="test-role" class="text-muted text-xs">Creative Director</div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-1 shrink-0">
+                                    <button onclick="prevTestimonial()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 text-muted hover:text-luxury-gold transition-colors" aria-label="Previous testimonial">
+                                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                    </button>
+                                    <button onclick="nextTestimonial()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/5 text-muted hover:text-luxury-gold transition-colors" aria-label="Next testimonial">
+                                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -413,7 +428,7 @@
                     </div>
                     <h3 class="font-serif text-xl text-primary mb-3">The Headcount Trap</h3>
                     <p class="text-secondary text-sm leading-relaxed">
-                        Hiring one person just for payroll costs $2,000-3,000/month. That's $24,000-36,000/year for someone to click buttons.
+                        Hiring one person just for payroll costs $4,000+/month. That's $48,000+/year for someone to click buttons.
                     </p>
                 </div>
 
@@ -449,7 +464,7 @@
                     One Invoice. One Payment.<br><span class="gold-text italic">Zero Admin.</span>
                 </h2>
                 <p class="text-secondary max-w-2xl mx-auto">
-                    We handle everything through Carbonate HR system. You get the same output, zero headcount, zero management.
+                    We handle everything through our HR system. You get the same output, zero headcount, zero management.
                 </p>
             </div>
 
@@ -471,7 +486,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="check" class="w-5 h-5 check-icon mt-0.5 flex-shrink-0"></i>
-                            <span class="text-secondary text-sm">Leave & MC tracking via Carbonate</span>
+                            <span class="text-secondary text-sm">Leave & MC tracking via our system</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="check" class="w-5 h-5 check-icon mt-0.5 flex-shrink-0"></i>
@@ -480,10 +495,6 @@
                         <li class="flex items-start gap-3">
                             <i data-lucide="check" class="w-5 h-5 check-icon mt-0.5 flex-shrink-0"></i>
                             <span class="text-secondary text-sm">Salary issued 28th of every month</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="check" class="w-5 h-5 check-icon mt-0.5 flex-shrink-0"></i>
-                            <span class="text-secondary text-sm">30-day credit terms</span>
                         </li>
                     </ul>
                 </div>
@@ -497,7 +508,7 @@
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <i data-lucide="plus" class="w-5 h-5 text-muted mt-0.5 flex-shrink-0"></i>
-                            <span class="text-secondary text-sm">OT calculations & variable pay</span>
+                            <span class="text-secondary text-sm">OT & incentive calculations</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="plus" class="w-5 h-5 text-muted mt-0.5 flex-shrink-0"></i>
@@ -505,12 +516,12 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="plus" class="w-5 h-5 text-muted mt-0.5 flex-shrink-0"></i>
-                            <span class="text-secondary text-sm">Complex custom reporting</span>
+                            <span class="text-secondary text-sm">Non-standard/variable monthly salaries</span>
                         </li>
                     </ul>
                     <div class="mt-6 p-4 bg-luxury-gold/10 rounded-lg border border-luxury-gold/20">
                         <p class="gold-text text-sm font-medium">
-                            $80 max per month for complex payroll
+                            Additional charge per headcount
                         </p>
                         <p class="text-muted text-xs mt-1">
                             Most companies don't need this. Standard fixed-salary payroll is completely free.
@@ -525,22 +536,22 @@
                     <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white dark:bg-luxury-charcoal border border-luxury-gold/30 flex items-center justify-center shadow-sm">
                         <span class="font-serif text-2xl gold-text">01</span>
                     </div>
-                    <h4 class="text-primary font-medium mb-2">You Pay Us</h4>
-                    <p class="text-secondary text-sm">By 27th of following month. One invoice, one payment.</p>
+                    <h4 class="text-primary font-medium mb-2">1st of the Month</h4>
+                    <p class="text-secondary text-sm">Invoiced on the 1st day for the total basic salary payable for the current month.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white dark:bg-luxury-charcoal border border-luxury-gold/30 flex items-center justify-center shadow-sm">
                         <span class="font-serif text-2xl gold-text">02</span>
                     </div>
-                    <h4 class="text-primary font-medium mb-2">We Handle Everything</h4>
-                    <p class="text-secondary text-sm">CPF, SDL, CDAC, payslips. All compliance covered.</p>
+                    <h4 class="text-primary font-medium mb-2">End of the Month</h4>
+                    <p class="text-secondary text-sm">Salaries are issued based on attendance, and all statutory payments are processed.</p>
                 </div>
                 <div class="text-center">
                     <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-white dark:bg-luxury-charcoal border border-luxury-gold/30 flex items-center justify-center shadow-sm">
                         <span class="font-serif text-2xl gold-text">03</span>
                     </div>
-                    <h4 class="text-primary font-medium mb-2">Salary Issued</h4>
-                    <p class="text-secondary text-sm">28th of every month. Your employees get paid on time.</p>
+                    <h4 class="text-primary font-medium mb-2">The Following Month</h4>
+                    <p class="text-secondary text-sm">Invoiced on the 1st for the new month's basic salary, plus the previous month's statutory payments.</p>
                 </div>
             </div>
         </div>
@@ -558,13 +569,13 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
                         <h3 class="font-serif text-xl text-primary mb-6 flex items-center gap-3">
-                            <i data-lucide="shield" class="w-5 h-5 gold-text"></i>
-                            Security Deposit
+                            <i data-lucide="shield-check" class="w-5 h-5 gold-text"></i>
+                            Zero Security Deposit
                         </h3>
                         <div class="space-y-4 text-secondary text-sm">
-                            <p><strong class="text-primary">First 5 employees:</strong> 1-month basic salary deposit per employee</p>
-                            <p><strong class="text-primary">6th employee onward:</strong> No deposit required</p>
-                            <p class="text-muted italic mt-4">Why? Pilot program = limited risk. First 5 employees build mutual trust.</p>
+                            <p><strong class="text-primary">No Deposits:</strong> We do not require any upfront security deposits to join.</p>
+                            <p><strong class="text-primary">Condition:</strong> Salaries are issued only after the basic salary invoice is paid.</p>
+                            <p class="text-muted italic mt-4">Why bill upfront? To keep this premium service free, we need to minimize financial risk. You fund the basic salary, and we absorb the risk for processing the statutory payments.</p>
                         </div>
                     </div>
 
@@ -574,10 +585,10 @@
                             Payment Terms
                         </h3>
                         <div class="space-y-4 text-secondary text-sm">
+                            <p><strong class="text-primary">Invoicing:</strong> 1st day of every month</p>
                             <p><strong class="text-primary">Salary issued:</strong> 28th of every month</p>
-                            <p><strong class="text-primary">Your payment due:</strong> By 27th of following month</p>
-                            <p><strong class="text-primary">Late payment:</strong> We may hold upcoming salary</p>
-                            <p class="text-muted italic mt-4">30-day credit terms. No hidden fees. No surprises.</p>
+                            <p><strong class="text-primary">Statutory billing:</strong> Billed in the following month's invoice</p>
+                            <p class="text-muted italic mt-4">Pre-paid basic salary model. No hidden fees. No surprises.</p>
                         </div>
                     </div>
                 </div>
@@ -585,7 +596,7 @@
                 <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/10 text-center">
                     <div class="inline-flex items-center gap-2 gold-text">
                         <i data-lucide="info" class="w-4 h-4"></i>
-                        <span class="text-sm">Limited to 20 companies. First come, first served.</span>
+                        <span class="text-sm">Opening up to new 30 companies. First come, first served.</span>
                     </div>
                 </div>
             </div>
@@ -652,9 +663,15 @@
 
             <div class="card rounded-2xl p-8 md:p-10">
                 <!-- Success Message -->
-                <div id="success-message" class="success-message">
+                <div id="success-message" class="feedback-message success-message">
                     <i data-lucide="check-circle" class="w-5 h-5 inline mr-2"></i>
                     Application submitted successfully! We'll get back to you within 24 hours.
+                </div>
+                
+                <!-- Error Message -->
+                <div id="error-message" class="feedback-message error-message">
+                    <i data-lucide="alert-circle" class="w-5 h-5 inline mr-2"></i>
+                    Sorry, there was an error submitting your application. Please email us directly at eugene@jte.com.sg
                 </div>
 
                 <form id="pilot-form" action="https://formspree.io/f/xpqjgwaq" method="POST" class="space-y-6">
@@ -695,18 +712,15 @@
                         </select>
                     </div>
 
-                    <div>
+                    <div class="relative">
                         <label class="form-label">Industry *</label>
-                        <select name="industry" class="form-input" required>
-                            <option value="">Select...</option>
-                            <option value="insurance">Insurance / Finance</option>
-                            <option value="recruitment">Real Estate</option>
-                            <option value="startup">Startup / Tech</option>
-                            <option value="professional">Professional Services</option>
-                            <option value="retail">Retail / F&B</option>
-                            <option value="manufacturing">Manufacturing</option>
-                            <option value="others">Others</option>
-                        </select>
+                        <div class="relative">
+                            <input type="text" name="industry" id="industry-search" class="form-input pr-10" placeholder="Search or select industry..." autocomplete="off" required>
+                            <i data-lucide="chevron-down" class="absolute right-3 top-[0.85rem] w-4 h-4 text-gray-400 pointer-events-none transition-transform duration-200" id="industry-chevron"></i>
+                        </div>
+                        <ul id="industry-dropdown" class="absolute z-10 w-full mt-1 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-md shadow-lg max-h-60 overflow-y-auto hidden text-left scrollbar-hide">
+                            <!-- Populated via JS -->
+                        </ul>
                     </div>
 
                     <div>
@@ -755,7 +769,7 @@
                         <i data-lucide="chevron-down" class="w-5 h-5 gold-text transition-transform"></i>
                     </button>
                     <div class="hidden px-6 pb-4 text-secondary text-sm">
-                        Your data stays in Singapore, stored securely via Carbonate HR system. We comply with PDPA regulations and never share your information with third parties.
+                        Your data stays in Singapore, stored securely via our HR system. We comply with PDPA regulations and never share your information with third parties.
                     </div>
                 </div>
 
@@ -813,42 +827,116 @@
     </footer>
 
     <script>
-        // Theme toggle functionality
-        function toggleTheme() {
-            const body = document.body;
-            const sunIcon = document.getElementById('icon-sun');
-            const moonIcon = document.getElementById('icon-moon');
+        // Safe localStorage wrapper (prevents issues in restrictive iframes)
+        const safeStorage = {
+            getItem: (key) => { try { return localStorage.getItem(key); } catch(e) { return null; } },
+            setItem: (key, value) => { try { localStorage.setItem(key, value); } catch(e) {} }
+        };
 
-            body.classList.toggle('dark-mode');
-
-            if (body.classList.contains('dark-mode')) {
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Check for saved theme preference or default to light
+        // Initialization
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            const sunIcon = document.getElementById('icon-sun');
-            const moonIcon = document.getElementById('icon-moon');
+            lucide.createIcons();
 
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                document.body.classList.remove('dark-mode');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
+            // Industry Dropdown Logic
+            const industries = [
+                "Accounting / Audit / Tax",
+                "Advertising / PR / Events",
+                "Aerospace / Aviation",
+                "Agriculture / Forestry / Fishing",
+                "Architecture / Interior Design",
+                "Automotive / Motor Vehicles",
+                "Banking / Financial Services",
+                "Beauty / Fitness / Personal Care",
+                "Biotechnology / Pharmaceuticals",
+                "Chemical / Plastic / Paper",
+                "Civil Service / Government",
+                "Construction / Building",
+                "Consulting (Business / Management)",
+                "Customer Service / Call Center",
+                "Design / Creative",
+                "Education / Training",
+                "Electronics / Semiconductor",
+                "Energy / Power / Water",
+                "Engineering",
+                "Entertainment / Media / Publishing",
+                "Environment / Sustainability",
+                "F&B / Catering / Restaurant",
+                "FMCG",
+                "Healthcare / Medical",
+                "Hospitality / Hotels / Tourism",
+                "Human Resources / Recruitment",
+                "Information Technology (IT) / Software",
+                "Insurance",
+                "Legal",
+                "Logistics / Supply Chain",
+                "Manufacturing / Production",
+                "Marine / Offshore / Shipyard",
+                "Mining / Oil & Gas",
+                "Non-Profit / NGO",
+                "Property / Real Estate",
+                "Retail / E-commerce",
+                "Security / Law Enforcement",
+                "Telecommunications",
+                "Transportation",
+                "Wholesale / Trading",
+                "Others"
+            ];
+
+            const industryInput = document.getElementById('industry-search');
+            const industryDropdown = document.getElementById('industry-dropdown');
+            const industryChevron = document.getElementById('industry-chevron');
+
+            function renderIndustryOptions(options) {
+                industryDropdown.innerHTML = '';
+                if (options.length === 0) {
+                    const li = document.createElement('li');
+                    li.className = 'px-4 py-3 text-sm text-gray-500';
+                    li.textContent = 'No industries found';
+                    industryDropdown.appendChild(li);
+                    return;
+                }
+
+                options.forEach(ind => {
+                    const li = document.createElement('li');
+                    li.className = 'px-4 py-2.5 text-sm text-primary hover:bg-luxury-gold/10 hover:text-luxury-gold cursor-pointer transition-colors border-b border-gray-100 dark:border-white/5 last:border-0';
+                    li.textContent = ind;
+                    li.addEventListener('click', () => {
+                        industryInput.value = ind;
+                        closeIndustryDropdown();
+                    });
+                    industryDropdown.appendChild(li);
+                });
             }
 
-            lucide.createIcons();
+            function openIndustryDropdown() {
+                industryDropdown.classList.remove('hidden');
+                if (industryChevron) industryChevron.style.transform = 'rotate(180deg)';
+            }
+
+            function closeIndustryDropdown() {
+                industryDropdown.classList.add('hidden');
+                if (industryChevron) industryChevron.style.transform = 'rotate(0deg)';
+            }
+
+            if (industryInput && industryDropdown) {
+                industryInput.addEventListener('focus', () => {
+                    renderIndustryOptions(industries);
+                    openIndustryDropdown();
+                });
+
+                industryInput.addEventListener('input', (e) => {
+                    const search = e.target.value.toLowerCase();
+                    const filtered = industries.filter(ind => ind.toLowerCase().includes(search));
+                    renderIndustryOptions(filtered);
+                    openIndustryDropdown();
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!industryInput.contains(e.target) && !industryDropdown.contains(e.target)) {
+                        closeIndustryDropdown();
+                    }
+                });
+            }
         });
 
         // Form submission handler
@@ -861,11 +949,16 @@
             const btnIcon = document.getElementById('btnIcon');
             const btnSpinner = document.getElementById('btnSpinner');
             const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+
+            // Hide previous messages
+            successMsg.classList.remove('show');
+            errorMsg.classList.remove('show');
 
             // Show loading state
             submitBtn.disabled = true;
             btnText.textContent = 'Submitting...';
-            btnIcon.classList.add('hidden');
+            if (btnIcon) btnIcon.classList.add('hidden');
             btnSpinner.style.display = 'block';
 
             try {
@@ -885,7 +978,7 @@
                     // Reset button
                     btnText.textContent = 'Application Submitted';
                     btnSpinner.style.display = 'none';
-                    btnIcon.classList.remove('hidden');
+                    if (btnIcon) btnIcon.classList.remove('hidden');
 
                     // Scroll to top of form
                     successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -900,30 +993,73 @@
                     throw new Error('Submission failed');
                 }
             } catch (error) {
-                // Show error
+                // Show error message component instead of alert
+                errorMsg.classList.add('show');
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
                 btnText.textContent = 'Failed - Try Again';
                 btnSpinner.style.display = 'none';
-                btnIcon.classList.remove('hidden');
+                if (btnIcon) btnIcon.classList.remove('hidden');
                 submitBtn.disabled = false;
-
-                alert('Sorry, there was an error submitting your application. Please email us directly at eugene@jte.com.sg');
             }
 
+            // Optional: call createIcons if you inject new elements, but we handle svg query now.
             lucide.createIcons();
         });
 
         // FAQ Toggle
         function toggleFaq(button) {
             const content = button.nextElementSibling;
-            const icon = button.querySelector('i');
+            // Lucide replaces <i> with <svg> tags when it renders, so we query for the svg element instead
+            const icon = button.querySelector('svg');
 
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
+                if (icon) icon.style.transform = 'rotate(180deg)';
             } else {
                 content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
+                if (icon) icon.style.transform = 'rotate(0deg)';
             }
+        }
+
+        // Testimonial Slider
+        const testimonials = [
+            { text: "\"I was drowning in admin work trying to do payroll myself. JTE took that stress away completely. Now I focus on growing my business.\"", initials: "ML", name: "Mei Ling", role: "Creative Director" },
+            { text: "\"The switch to JTE was seamless. I used to spend days on payroll, but now it's basically on autopilot. Highly recommended.\"", initials: "WT", name: "Wei Ting", role: "SME Owner" },
+            { text: "\"No more headaches with MOM regulations and CPF calculations. JTE handles it all perfectly, giving me peace of mind.\"", initials: "RK", name: "Rajesh K.", role: "Managing Director" },
+            { text: "\"We saved enough on admin costs to hire another sales rep. The free pilot program was the best decision for our agency.\"", initials: "SN", name: "Siti N.", role: "Agency Manager" },
+            { text: "\"Salary is always out on the 28th without fail. My staff are happy, and I don't have to stress over end-of-month processing.\"", initials: "JL", name: "Jonathan Lee", role: "Tech Startup Founder" }
+        ];
+        
+        let currentTestimonialIndex = 0;
+
+        function updateTestimonial() {
+            const t = testimonials[currentTestimonialIndex];
+            const textEl = document.getElementById('test-text');
+            
+            // Fade out
+            textEl.style.opacity = 0;
+            
+            setTimeout(() => {
+                // Update content
+                textEl.textContent = t.text;
+                document.getElementById('test-initials').textContent = t.initials;
+                document.getElementById('test-name').textContent = t.name;
+                document.getElementById('test-role').textContent = t.role;
+                
+                // Fade in
+                textEl.style.opacity = 1;
+            }, 200);
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            updateTestimonial();
+        }
+
+        function prevTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial();
         }
 
         // Smooth scroll
