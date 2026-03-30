@@ -254,7 +254,7 @@
 
     /* --- TEAM SECTION --- */
     .team-desktop-grid-circular {
-      /*  display: grid; */
+      /* display: grid; */
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         max-width: 1200px;
@@ -474,6 +474,18 @@
         transform: translateX(8px);
     }
 
+    /* --- WHATSAPP MODAL BUTTONS --- */
+    .wa-btn-outline {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+    
+    .wa-btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #ffffff;
+    }
+
     /* --- LIGHT MODE --- */
     .theme-light.jte-wrapper { background-color: #F5F1E8 !important; color: #1a1a1a !important; }
     
@@ -531,6 +543,16 @@
         border: 1px solid rgba(0,0,0,0.05); 
     }
 
+    .theme-light .wa-btn-outline {
+        border-color: rgba(0, 0, 0, 0.3) !important;
+        color: #1a1a1a !important;
+    }
+    
+    .theme-light .wa-btn-outline:hover {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+        border-color: #1a1a1a !important;
+    }
+
     .theme-light h2, .theme-light h3, .theme-light h4 { color: #0a0a1a !important; }
     .theme-light p, .theme-light .text-gray-300, .theme-light .text-gray-400 { color: #555555 !important; } 
     .theme-light .text-white { color: #1a1a1a !important; } 
@@ -545,6 +567,8 @@
 
     /* Footer */
     .theme-light footer { background-color: #EBEBE8 !important; border-top: 1px solid rgba(0,0,0,0.05) !important; }
+    .theme-light .social-icon { border-color: rgba(0,0,0,0.2) !important; color: #4B5563 !important; }
+    .theme-light .social-icon:hover { border-color: #8C7350 !important; color: #8C7350 !important; }
 
     /* Grain overlay */
     .grain-overlay {
@@ -595,7 +619,7 @@
 </style>
 
 <!-- 4. CONTENT -->
-<div id="jte-main-wrapper" class="jte-wrapper antialiased selection:bg-luxury-gold selection:text-black">
+<div id="jte-main-wrapper" class="jte-wrapper theme-light antialiased selection:bg-luxury-gold selection:text-black">
     
     <div class="grain-overlay"></div>
 
@@ -614,24 +638,24 @@
             <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold scroll-link">Let's Talk</a>
             
             <button onclick="toggleTheme()" class="ml-4 p-2 rounded-full border border-white/20 hover:bg-white/10 transition-all text-white hover:border-luxury-gold hover:text-luxury-gold">
-                <svg id="icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                <svg id="icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="icon-moon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </button>
         </div>
 
         <!-- Mobile: Theme Toggle Only -->
         <div class="md:hidden flex items-center gap-4 z-50 relative">
             <button id="mobile-theme-toggle" onclick="toggleTheme()" class="text-white focus:outline-none transition-colors p-2 hover:text-luxury-gold">
-                <svg id="icon-moon-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                <svg id="icon-sun-mobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg id="icon-moon-mobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg id="icon-sun-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </button>
         </div>
     </nav>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/6590115381" target="_blank" rel="noopener noreferrer" class="whatsapp-float fixed bottom-6 right-6 z-[60] bg-luxury-gold w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20 transition-all hover:rotate-12 hover:scale-110">
+    <!-- Floating WhatsApp (Changed to Button triggering Modal) -->
+    <button onclick="openWaModal()" class="whatsapp-float fixed bottom-6 right-6 z-[60] bg-luxury-gold w-14 h-14 rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20 transition-all hover:rotate-12 hover:scale-110">
         <svg viewBox="0 0 24 24" class="w-7 h-7 fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    </a>
+    </button>
 
     <!-- HERO -->
     <section class="relative h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
@@ -1021,6 +1045,31 @@
                         <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
                         <span class="text-gray-300 group-hover:text-white transition-colors">Retail & F&B</span>
                     </div>
+                    <!-- Additional industries optimized for desktop view to fill space nicely -->
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">FMCG & Consumer Goods</span>
+                    </div>
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Life Sciences & Pharma</span>
+                    </div>
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Construction</span>
+                    </div>
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Hospitality & Tourism</span>
+                    </div>
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Supply Chain</span>
+                    </div>
+                    <div class="hidden md:flex items-center group cursor-default">
+                        <span class="w-2 h-2 bg-luxury-gold mr-3 rounded-full group-hover:scale-150 transition-transform"></span>
+                        <span class="text-gray-300 group-hover:text-white transition-colors">Education & Training</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1346,13 +1395,6 @@
                         </p>
                         <a href="mailto:ask@jte.com.sg" class="contact-link">ask@jte.com.sg</a>
                     </div>
-                    <div>
-                        <p class="text-white mb-2 font-medium flex items-center gap-2">
-                            <i data-lucide="phone" class="w-4 h-4 text-luxury-gold"></i>
-                            Call or WhatsApp
-                        </p>
-                        <a href="https://wa.me/6590115381" target="_blank" rel="noopener noreferrer" class="contact-link">+65 9011 5381</a>
-                    </div>
                 </div>
             </div>
             
@@ -1369,21 +1411,21 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="relative group">
                             <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Your Name *</label>
-                            <input type="text" name="name" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="John Doe" required>
+                            <input type="text" name="name" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" required>
                         </div>
                         <div class="relative group">
                             <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Mobile Number *</label>
-                            <input type="tel" name="mobile" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="+65 9123 4567" required>
+                            <input type="tel" name="mobile" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="+65" required>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="relative group">
                             <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Email Address *</label>
-                            <input type="email" name="email" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="john@company.com" required>
+                            <input type="email" name="email" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" required>
                         </div>
                         <div class="relative group">
                             <label class="text-xs text-gray-500 uppercase tracking-wider mb-2 block">Company *</label>
-                            <input type="text" name="company" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" placeholder="Acme Pte Ltd" required>
+                            <input type="text" name="company" class="w-full bg-luxury-charcoal border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-luxury-gold transition-colors" required>
                         </div>
                     </div>
                     <div class="relative group">
@@ -1405,13 +1447,13 @@
     <!-- FOOTER -->
     <footer class="py-12 bg-luxury-black border-t border-white/5 text-center">
         <div class="mb-8 flex justify-center space-x-6">
-            <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
-                <i data-lucide="instagram" class="w-5 h-5"></i>
+            <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
             </a>
-            <a href="https://sg.linkedin.com/company/jte-recruit-pte-ltd" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+            <a href="https://sg.linkedin.com/company/jte-recruit-pte-ltd" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://www.tiktok.com/@jterecruit?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
+            <a href="https://www.tiktok.com/@jterecruit?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             </a>
         </div>
@@ -1440,12 +1482,52 @@
         </div>
     </div>
 
+    <!-- WhatsApp Interstitial Modal -->
+    <div id="wa-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md transition-opacity" onclick="closeWaModal()"></div>
+        <div class="relative bg-luxury-charcoal border border-white/10 max-w-md w-full p-8 md:p-10 shadow-2xl animate-modal-in rounded-lg">
+            <button onclick="closeWaModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white hover:text-luxury-gold transition-colors p-2 hover:rotate-90 transition-transform duration-300">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <!-- Selection View -->
+            <div id="wa-selection-view" class="py-4">
+                <h3 class="font-serif text-2xl md:text-3xl text-white text-center mb-2">Connect with Us</h3>
+                <p class="text-gray-400 text-sm text-center mb-8 px-4 font-light">To ensure you reach the right team, please let us know:</p>
+                
+                <div class="flex gap-3 w-full">
+                    <button onclick="handleWaChoice('employer')" class="btn-primary flex-1 py-4 px-2 text-xs uppercase tracking-wider text-center transition-all">
+                        I Am An Employer
+                    </button>
+                    <button onclick="handleWaChoice('jobseeker')" class="wa-btn-outline flex-1 py-4 px-2 text-xs uppercase tracking-wider text-center transition-all">
+                        I Am A Job Seeker
+                    </button>
+                </div>
+            </div>
+
+            <!-- Job Seeker Notice View -->
+            <div id="wa-jobseeker-view" class="hidden text-center py-6">
+                <h3 class="font-serif text-2xl text-white mb-4">Notice to Job Seekers</h3>
+                <p class="text-gray-300 text-sm leading-relaxed font-light px-2">
+                    Thank you for your interest! To ensure data privacy and a fair process, you may apply directly from our job portals. <br><br><b>We do not accept applications or resumes via WhatsApp.</b>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // Initialize Lucide icons after DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            if (localStorage.getItem('jte-theme') === 'light') toggleTheme();
+            
+            // Check theme preference, default to light
+            const savedTheme = localStorage.getItem('jte-theme');
+            if (savedTheme === 'dark') {
+                toggleTheme(); // This will switch to dark mode
+            } else if (!savedTheme) {
+                localStorage.setItem('jte-theme', 'light');
+            }
             
             // Initialize mobile team marquee
             initMobileTeamMarquee();
@@ -1468,14 +1550,16 @@
             { name: "Tiffany", role: "Senior Consultant", tagline: "Matchmaker of talent", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Tiffany.png" },
             { name: "Shanice", role: "Senior Consultant", tagline: "Detail-obsessed in the best way", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shanice.png" },
             { name: "Jonathan", role: "Partnership Lead", tagline: "Networker extraordinaire", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Jonathan.png" },
-            { name: "Apple", role: "Senior HR & Finance", tagline: "HR encyclopedia", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Apple.png" },
             { name: "Shirny", role: "Account Assistant", tagline: "Numbers wizard", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Shirny.png" },
             { name: "Nurul", role: "Recruitment Consultant", tagline: "Multitasking master", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Nurul.png" },
             { name: "Elaine", role: "Recruitment Consultant", tagline: "Always has a solution", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elaine.png" },
             { name: "Elsa", role: "Recruitment Consultant", tagline: "Fresh perspective", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Elsa.png" },
             { name: "Sheryl", role: "Recruitment Consultant", tagline: "Positive energy only", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sheryl.png" },
             { name: "Sharmaine", role: "Recruitment Consultant", tagline: "Relentless optimist", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Sharmaine.png" },
-            { name: "Yvette", role: "Recruitment Consultant", tagline: "Rising star", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" }
+            { name: "Yvette", role: "Recruitment Consultant", tagline: "Rising star", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Yvette.png" },
+            { name: "Vynesh", role: "Recruitment Consultant", tagline: "Connecting great talent", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Vynesh.png" },
+            { name: "Carmella", role: "Recruitment Consultant", tagline: "Driven to succeed", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Carmella.png" },
+            { name: "Rachel", role: "Recruitment Consultant", tagline: "Matching potential with opportunity", img: "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/Rachel.png" }
         ];
 
         // Fisher-Yates shuffle algorithm for randomizing array
@@ -1519,7 +1603,7 @@
                             <img src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}" loading="lazy">
                         </div>
                         <h4 class="font-serif text-white font-medium text-sm">${member.name}</h4>
-                        <p class="text-[9px] text-luxury-gold uppercase tracking-wider text-center line-clamp-1 w-full px-1">${member.role}</p>
+                        <p class="text-[8px] text-luxury-gold tracking-wide text-center line-clamp-1 w-full px-1">${member.role}</p>
                     `;
                     mobileMarquee.appendChild(item);
                 });
@@ -1539,7 +1623,7 @@
                             <img loading="lazy" src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}">
                         </div>
                         <h4 class="font-serif text-lg text-white font-medium mb-1">${member.name}</h4>
-                        <p class="text-xs text-luxury-gold uppercase tracking-wider">${member.role}</p>
+                        <p class="text-[10px] text-luxury-gold tracking-wide">${member.role}</p>
                         <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"${member.tagline}"</p>
                     `;
                     desktopGrid.appendChild(item);
@@ -1741,6 +1825,29 @@ window.addEventListener('resize', () => {
             document.body.style.overflow = '';
         }
 
+        // WhatsApp Modal Logic
+        function openWaModal() {
+            document.getElementById('wa-selection-view').classList.remove('hidden');
+            document.getElementById('wa-jobseeker-view').classList.add('hidden');
+            document.getElementById('wa-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWaModal() {
+            document.getElementById('wa-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function handleWaChoice(choice) {
+            if (choice === 'employer') {
+                window.open('https://wa.me/6590115381', '_blank', 'noopener,noreferrer');
+                closeWaModal();
+            } else if (choice === 'jobseeker') {
+                document.getElementById('wa-selection-view').classList.add('hidden');
+                document.getElementById('wa-jobseeker-view').classList.remove('hidden');
+            }
+        }
+
         // Handle Formspree submission
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -1794,7 +1901,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 });
 
         document.addEventListener('keydown', e => {
-            if (e.key === "Escape") closeModal();
+            if (e.key === "Escape") {
+                closeModal();
+                closeWaModal();
+            }
         });
 
         function scrollToTop() {
