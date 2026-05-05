@@ -7,173 +7,223 @@
   <meta name="description" content="Find your next role in Singapore. Browse jobs across engineering, logistics, admin, finance and more. Apply directly with JTE Recruit.">
   <meta property="og:title" content="Jobs in Singapore | JTE Recruit">
   <meta property="og:description" content="Browse jobs across Singapore. Apply directly with JTE Recruit — EA License 14C7215.">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background: #FAF7F2; color: #1C1C1C; }
-    .font-playfair { font-family: 'Playfair Display', serif; }
-    .job-card.active { border-left: 3px solid #C9A96E; background: rgba(250, 247, 242, 0.85); }
-    .job-card:hover { background: #FAF7F2; }
+    :root {
+      --bg: #FAF7F2;
+      --white: #FFFFFF;
+      --gold: #C9A96E;
+      --gold-dark: #B8935A;
+      --gold-light: #F5EDD9;
+      --text: #1C1C1C;
+      --text-muted: #6B6B6B;
+      --border: #E8E0D5;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+    html { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: inherit; }
+    body { margin: 0; font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(201, 169, 110, 0.35); border-radius: 9999px; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
-    .skeleton { animation: pulse 2s infinite; background: #E8E0D5; border-radius: 4px; }
     #mobileDetail { transform: translateX(100%); transition: transform 0.3s ease; }
     #mobileDetail.slide-in { transform: translateX(0) !important; }
-    .modal-panel { max-height: calc(100vh - 2rem); }
+    #applyModal { display: none !important; align-items: center; justify-content: center; }
+    #applyModal.is-open { display: flex !important; }
+    .modal-shell { max-height: calc(100vh - 2rem); }
     @media (max-width: 1023px) {
-      .modal-panel { max-height: none; height: 100%; }
+      .modal-shell { max-height: none; height: 100%; border-radius: 0 !important; }
     }
+    .inp:focus, .sel:focus { outline: none; border-color: var(--gold) !important; box-shadow: 0 0 0 1px var(--gold); }
+    .desk-grid { display: none; max-width: 1400px; margin: 0 auto; grid-template-columns: 240px 360px 1fr; height: calc(100vh - 113px); overflow: hidden; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+    @media (min-width: 1024px) { .desk-grid { display: grid; } }
+    .mob-only { display: block; }
+    @media (min-width: 1024px) { .mob-only { display: none !important; } }
+    .hidden { display: none !important; }
   </style>
 </head>
-<body class="min-h-screen antialiased">
-  <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white border-b border-[#E8E0D5] shadow-sm">
-    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
-      <a href="https://jte.com.sg" class="flex-shrink-0 flex items-baseline gap-1 group" target="_blank" rel="noopener noreferrer">
-        <span class="font-playfair text-xl font-semibold text-[#C9A96E] group-hover:text-[#B8935A] transition-colors">JTE</span>
-        <span class="font-playfair text-xl font-semibold text-[#1C1C1C] group-hover:text-[#B8935A] transition-colors">Recruit</span>
+<body>
+  <header style="background:white;border-bottom:1px solid #E8E0D5;position:sticky;top:0;z-index:50">
+    <div style="max-width:1400px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between">
+      <a href="https://jte.com.sg" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:flex;align-items:center;gap:4px">
+        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#C9A96E">JTE</span>
+        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1C1C1C">Recruit</span>
       </a>
-      <div class="hidden sm:flex flex-1 justify-center px-2">
-        <span id="jobCountBadge" class="inline-flex items-center rounded-full border border-[#E8E0D5] bg-[#FAF7F2] px-3 py-1 text-xs font-medium text-[#6B6B6B]">
-          <span id="jobCountNum" class="font-semibold text-[#1C1C1C]">—</span>&nbsp;<span>roles available</span>
-        </span>
+      <div style="background:#F5EDD9;border:1px solid #E8D5B0;border-radius:20px;padding:4px 14px;font-size:13px;color:#B8935A;font-weight:500">
+        <span id="jobCount">Loading...</span>
       </div>
-      <a href="https://jte.com.sg" class="text-xs sm:text-sm font-medium text-[#6B6B6B] hover:text-[#C9A96E] transition-colors whitespace-nowrap" target="_blank" rel="noopener noreferrer">← Back to JTE.com.sg</a>
-    </div>
-    <div class="sm:hidden flex justify-center pb-2 px-4">
-      <span id="jobCountBadgeMobile" class="inline-flex items-center rounded-full border border-[#E8E0D5] bg-[#FAF7F2] px-3 py-1 text-xs font-medium text-[#6B6B6B]">
-        <span id="jobCountNumMobile" class="font-semibold text-[#1C1C1C]">—</span>&nbsp;<span>roles available</span>
-      </span>
+      <a href="https://jte.com.sg" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#6B6B6B;text-decoration:none;display:flex;align-items:center;gap:4px">← Back to JTE.com.sg</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="border-b border-[#E8E0D5] bg-[#FAF7F2] py-8 px-4 text-center">
-    <h1 class="font-playfair text-3xl sm:text-4xl font-semibold text-[#1C1C1C] mb-2">Find Your Next Role</h1>
-    <p class="text-sm text-[#6B6B6B] font-light">Browse opportunities across Singapore · Updated daily</p>
+  <section style="background:#FAF7F2;padding:32px 24px;text-align:center;border-bottom:1px solid #E8E0D5">
+    <h1 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#1C1C1C;margin:0 0 8px">Find Your Next Role</h1>
+    <p style="font-size:15px;color:#6B6B6B;margin:0;font-family:'Inter',sans-serif">Browse opportunities across Singapore · Updated daily</p>
   </section>
 
-  <!-- Mobile top bar -->
-  <div class="lg:hidden sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#E8E0D5] px-4 py-3 flex gap-2 items-center">
-    <div class="flex-1 relative">
-      <input type="search" id="mobileSearch" placeholder="Search roles…" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm text-[#1C1C1C] placeholder:text-[#6B6B6B] focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" autocomplete="off">
-      <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6B6B] text-xs">⌕</span>
-    </div>
-    <button type="button" id="filterToggle" class="flex-shrink-0 rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-xs font-semibold uppercase tracking-wide text-[#1C1C1C] hover:border-[#C9A96E]">Filters</button>
+  <div class="mob-only" style="position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #E8E0D5;padding:12px 16px;display:flex;gap:8px;align-items:center">
+    <input type="search" id="mobileSearch" placeholder="Search roles..." autocomplete="off" class="inp" style="flex:1;padding:10px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif">
+    <button type="button" id="filterToggle" style="flex-shrink:0;padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer">Filters</button>
   </div>
 
-  <!-- Mobile filters (collapsible) -->
-  <div id="filterPanel" class="lg:hidden hidden border-b border-[#E8E0D5] bg-[#FAF7F2] px-4 py-4 space-y-4">
+  <div id="filterPanel" class="mob-only hidden" style="border-bottom:1px solid #E8E0D5;background:#FAF7F2;padding:16px">
     <div id="mobileFiltersMount"></div>
   </div>
 
-  <!-- Desktop layout -->
-  <main class="max-w-[1600px] mx-auto">
-    <div class="hidden lg:grid lg:grid-cols-[220px_340px_1fr] lg:gap-0 lg:border-x border-[#E8E0D5]" style="height: calc(100vh - 120px);">
-
-      <!-- Filters -->
-      <aside class="border-r border-[#E8E0D5] bg-[#FAF7F2] overflow-y-auto px-4 py-6 space-y-5">
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Search</label>
-          <input type="search" id="deskSearch" placeholder="Title, industry, function…" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" autocomplete="off">
+  <main>
+    <div class="desk-grid">
+      <aside style="background:#FAF7F2;border-right:1px solid #E8E0D5;overflow-y:auto;padding:20px 16px;font-family:'Inter',sans-serif">
+        <div style="margin-bottom:20px">
+          <input type="text" id="searchInput" placeholder="Search roles..." autocomplete="off" class="inp" style="width:100%;padding:10px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;box-sizing:border-box;font-family:'Inter',sans-serif">
         </div>
-        <div>
-          <span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Region</span>
-          <div id="regionRadios" class="space-y-2"></div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Industry</label>
-          <select id="industrySelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none"></select>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Job function</label>
-          <select id="functionSelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none"></select>
-        </div>
-        <div>
-          <span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-3">Job type</span>
-          <div id="jobTypePills" class="flex flex-wrap gap-2"></div>
-        </div>
-        <div>
-          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Salary</label>
-          <select id="salarySelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none">
-            <option value="any">Any</option>
-            <option value="lt2k">Below $2k</option>
-            <option value="2k3k">$2k – $3k</option>
-            <option value="3k4k">$3k – $4k</option>
-            <option value="4k5k">$4k – $5k</option>
-            <option value="gt5k">Above $5k</option>
-          </select>
-        </div>
-        <button type="button" id="clearFilters" class="w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-2 text-sm font-semibold text-[#B8935A] hover:bg-[#C9A96E]/10 transition-colors">Clear all filters</button>
+        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">REGION</p>
+        <div id="regionRadios" style="margin-bottom:20px"></div>
+        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">INDUSTRY</p>
+        <select id="industrySelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:20px"></select>
+        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB FUNCTION</p>
+        <select id="functionSelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:20px"></select>
+        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB TYPE</p>
+        <div id="jobTypePills" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"></div>
+        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">SALARY</p>
+        <select id="salarySelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:16px">
+          <option value="any">Any</option>
+          <option value="lt2k">Below $2k</option>
+          <option value="2k3k">$2k – $3k</option>
+          <option value="3k4k">$3k – $4k</option>
+          <option value="4k5k">$4k – $5k</option>
+          <option value="gt5k">Above $5k</option>
+        </select>
+        <button type="button" id="clearFilters" style="width:100%;padding:9px;font-size:13px;border:1px solid #C9A96E;border-radius:8px;background:transparent;color:#C9A96E;cursor:pointer;font-family:'Inter',sans-serif;margin-top:16px"
+          onmouseover="this.style.background='#C9A96E';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#C9A96E'">Clear All Filters</button>
       </aside>
 
-      <!-- Job list -->
-      <section class="border-r border-[#E8E0D5] bg-white overflow-y-auto flex flex-col">
-        <div class="sticky top-0 z-10 border-b border-[#E8E0D5] bg-white/95 backdrop-blur px-4 py-3">
-          <p class="text-sm text-[#6B6B6B]"><span class="font-semibold text-[#1C1C1C]" id="resultsCount">0</span> results</p>
+      <div style="border-right:1px solid #E8E0D5;overflow-y:auto;background:white;display:flex;flex-direction:column">
+        <div style="padding:12px 16px;border-bottom:1px solid #E8E0D5;position:sticky;top:0;background:white;z-index:10">
+          <p id="resultsCount" style="font-size:13px;color:#6B6B6B;margin:0;font-family:'Inter',sans-serif"></p>
         </div>
-        <div id="jobListDesk" class="flex-1 p-3 space-y-2"></div>
-      </section>
+        <div id="jobList"></div>
+      </div>
 
-      <!-- Detail -->
-      <section id="detailDesk" class="bg-[#FAF7F2] overflow-y-auto p-6 lg:p-8">
-        <div id="detailEmpty" class="h-full flex flex-col items-center justify-center text-center text-[#6B6B6B] py-20 px-4">
-          <p class="text-4xl mb-3">💼</p>
-          <p class="text-sm font-medium">Select a role to view details →</p>
+      <div id="jobDetail" style="overflow-y:auto;background:#FAF7F2;padding:32px;font-family:'Inter',sans-serif">
+        <div id="emptyState" style="min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6B6B6B">
+          <div style="font-size:48px;margin-bottom:12px;opacity:0.4">💼</div>
+          <p style="font-size:14px;margin:0">Select a role to view details</p>
         </div>
-        <div id="detailContentDesk" class="hidden"></div>
-      </section>
+        <div id="detailContent" style="display:none;max-width:680px;margin:0 auto">
+          <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+              <div style="flex:1;min-width:200px">
+                <h2 id="detailTitle" style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1C1C1C;margin:0 0 6px;line-height:1.3"></h2>
+                <p id="detailCompany" style="font-size:14px;color:#C9A96E;font-weight:500;margin:0 0 4px"></p>
+                <p id="detailPosted" style="font-size:12px;color:#6B6B6B;margin:0"></p>
+              </div>
+              <button type="button" id="detailApplyTop" style="padding:10px 20px;background:#C9A96E;color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;flex-shrink:0"
+                onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply Now →</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#FAF7F2;border-radius:12px;padding:16px">
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Location</p><p id="detailLocation" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Industry</p><p id="detailIndustry" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Salary</p><p id="detailSalary" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Job Type</p><p id="detailJobType" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Working Days</p><p id="detailWorkingDays" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Min Qualification</p><p id="detailQualification" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Function</p><p id="detailFunction" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Rights to Work</p><p id="detailRights" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            </div>
+          </div>
+          <div id="descriptionCard" style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow);display:none">
+            <h3 style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#1C1C1C;margin:0 0 16px">About This Role</h3>
+            <div id="detailDescription" style="font-size:14px;color:#1C1C1C;line-height:1.7;font-family:'Inter',sans-serif"></div>
+          </div>
+          <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;box-shadow:var(--card-shadow);text-align:center">
+            <button type="button" id="detailApplyBottom" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif"
+              onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply for This Role</button>
+            <p style="font-size:12px;color:#6B6B6B;margin:10px 0 0">EA License No. 14C7215</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Mobile: list -->
-    <div class="lg:hidden px-4 py-4 pb-28">
-      <div id="jobListMobile" class="space-y-3"></div>
+    <div class="mob-only" style="padding:16px 16px 112px">
+      <div id="jobListMobile"></div>
     </div>
   </main>
 
-  <!-- Mobile full-screen detail -->
-  <div id="mobileDetail" class="lg:hidden fixed inset-0 z-[60] bg-[#FAF7F2] flex flex-col overflow-hidden">
-    <div class="flex-shrink-0 flex items-center gap-3 border-b border-[#E8E0D5] bg-white px-4 py-3">
-      <button type="button" id="mobileDetailBack" class="p-2 -ml-2 rounded-lg hover:bg-[#FAF7F2] text-[#1C1C1C]" aria-label="Back to list">
-        ←
-      </button>
-      <span class="text-sm font-semibold text-[#1C1C1C] truncate">Role details</span>
+  <div id="mobileDetail" class="mob-only" style="display:none;position:fixed;inset:0;z-index:60;background:#FAF7F2;flex-direction:column;overflow:hidden">
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;border-bottom:1px solid #E8E0D5;background:white;padding:12px 16px">
+      <button type="button" id="mobileDetailBack" style="padding:8px;margin-left:-8px;border:none;background:transparent;font-size:18px;cursor:pointer;color:#1C1C1C" aria-label="Back">←</button>
+      <span style="font-size:14px;font-weight:600;color:#1C1C1C;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Role details</span>
     </div>
-    <div id="detailScrollMobile" class="flex-1 overflow-y-auto px-4 py-6 pb-24"></div>
-    <div class="flex-shrink-0 border-t border-[#E8E0D5] bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-      <button type="button" id="mobileApplySticky" class="w-full rounded-lg bg-[#C9A96E] py-3.5 text-sm font-semibold text-white shadow-md hover:bg-[#B8935A] transition-colors">Apply Now →</button>
-      <p class="text-center text-[10px] text-[#6B6B6B] mt-2">EA License No. 14C7215</p>
+    <div id="detailScrollMobile" style="flex:1;min-height:0;overflow-y:auto;padding:24px 16px 120px;font-family:'Inter',sans-serif">
+      <div id="mEmptyState" style="display:none;min-height:200px;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6B6B6B">
+        <div style="font-size:48px;margin-bottom:12px;opacity:0.4">💼</div>
+        <p style="font-size:14px;margin:0">Select a role</p>
+      </div>
+      <div id="mDetailContent" style="display:none;max-width:680px;margin:0 auto">
+        <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow)">
+          <div style="margin-bottom:16px">
+            <h2 id="mDetailTitle" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1C1C1C;margin:0 0 6px;line-height:1.3"></h2>
+            <p id="mDetailCompany" style="font-size:14px;color:#C9A96E;font-weight:500;margin:0 0 4px"></p>
+            <p id="mDetailPosted" style="font-size:12px;color:#6B6B6B;margin:0"></p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#FAF7F2;border-radius:12px;padding:16px">
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Location</p><p id="mDetailLocation" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Industry</p><p id="mDetailIndustry" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Salary</p><p id="mDetailSalary" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Job Type</p><p id="mDetailJobType" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Working Days</p><p id="mDetailWorkingDays" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Min Qualification</p><p id="mDetailQualification" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Function</p><p id="mDetailFunction" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Rights to Work</p><p id="mDetailRights" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+          </div>
+        </div>
+        <div id="mDescriptionCard" style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow);display:none">
+          <h3 style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#1C1C1C;margin:0 0 16px">About This Role</h3>
+          <div id="mDetailDescription" style="font-size:14px;color:#1C1C1C;line-height:1.7;font-family:'Inter',sans-serif"></div>
+        </div>
+        <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;box-shadow:var(--card-shadow);text-align:center;margin-bottom:24px">
+          <button type="button" id="mDetailApplyBottom" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif"
+            onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply for This Role</button>
+          <p style="font-size:12px;color:#6B6B6B;margin:10px 0 0">EA License No. 14C7215</p>
+        </div>
+      </div>
+    </div>
+    <div style="flex-shrink:0;border-top:1px solid #E8E0D5;background:white;padding:16px;padding-bottom:max(16px, env(safe-area-inset-bottom))">
+      <button type="button" id="mobileApplySticky" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif"
+        onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply Now →</button>
+      <p style="text-align:center;font-size:10px;color:#6B6B6B;margin:8px 0 0">EA License No. 14C7215</p>
     </div>
   </div>
 
-  <!-- Apply modal -->
-  <div id="applyModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm">
-    <div class="modal-panel w-full sm:max-w-lg bg-white sm:rounded-2xl shadow-2xl border border-[#E8E0D5] overflow-hidden flex flex-col sm:max-h-[90vh]">
-      <div id="modalInner" class="relative overflow-y-auto flex-1 p-6 sm:p-8"></div>
+  <div id="applyModal" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:16px">
+    <div class="modal-shell" style="width:100%;max-width:480px;background:white;border-radius:16px;border:1px solid #E8E0D5;box-shadow:0 20px 40px rgba(0,0,0,0.12);overflow:hidden;display:flex;flex-direction:column;max-height:calc(100vh - 2rem)">
+      <div id="modalInner" style="position:relative;overflow-y:auto;flex:1;padding:24px;font-family:'Inter',sans-serif"></div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-[#E8E0D5] bg-white mt-auto py-12 px-6 text-center text-sm text-[#6B6B6B]">
-    <p class="font-semibold text-[#1C1C1C]">JTE Recruit Pte Ltd</p>
-    <p class="mt-1">EA License No. 14C7215</p>
-    <p class="mt-3 max-w-md mx-auto leading-relaxed">Address: 1 Gateway Drive #10-14 Westgate Tower Singapore 608531</p>
-    <a href="mailto:ask@jte.com.sg" class="mt-2 inline-block text-[#C9A96E] hover:text-[#B8935A] font-medium">ask@jte.com.sg</a>
-    <p class="mt-6 text-xs text-[#6B6B6B]">© 2026 JTE Recruit Pte Ltd. All rights reserved.</p>
+  <footer style="background:white;border-top:1px solid #E8E0D5;padding:24px;text-align:center;font-family:'Inter',sans-serif">
+    <p style="font-size:13px;color:#6B6B6B;margin:0 0 4px">
+      <strong style="color:#1C1C1C">JTE Recruit Pte Ltd</strong> · EA License No. 14C7215
+    </p>
+    <p style="font-size:12px;color:#6B6B6B;margin:0 0 4px">
+      1 Gateway Drive #10-14 Westgate Tower · Singapore 608531 ·
+      <a href="mailto:ask@jte.com.sg" style="color:#C9A96E;text-decoration:none">ask@jte.com.sg</a>
+    </p>
+    <p style="font-size:11px;color:#6B6B6B;margin:0">© 2026 JTE Recruit Pte Ltd. All rights reserved.</p>
   </footer>
 
   <script>
     const SUPABASE_URL = 'https://yxhzczjhwvdaqmoqyeyn.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4aHpjempod3ZkYXFtb3F5ZXluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjc3NTAsImV4cCI6MjA5MTY0Mzc1MH0.8qy91-HBrFsjEL-YsncdSTt0qftc2fr_g8h9hEN15Lc';
 
-    const JOBS_SELECT = [
-      'id', 'public_id', 'title', 'job_type', 'job_function', 'job_industry', 'location', 'working_days',
-      'salary_range', 'rights_to_work', 'min_qualification', 'spoken_languages',
-      'job_description_internal', 'job_description', 'created_at', 'portal_show_company_name', 'company_id',
-      'companies(name)'
-    ].join(',');
+    const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_days,salary_range,rights_to_work,min_qualification,job_description,created_at,portal_show_company_name,company_id,companies(name)';
 
     const MRT_REGION = {
       'Jurong East':'West','Boon Lay':'West','Pioneer':'West','Joo Koon':'West',
@@ -333,19 +383,65 @@
       return job.portal_show_company_name && nm ? nm : 'JTE Recruit Pte Ltd';
     }
 
-    function getJobDescription(job) {
-      var a = job.job_description_internal;
-      var b = job.job_description;
-      if (a && String(a).trim()) return String(a);
-      if (b && String(b).trim()) return String(b);
-      return '';
+    function injectDescStyleOnce() {
+      if (document.getElementById('descStyle')) return;
+      var style = document.createElement('style');
+      style.id = 'descStyle';
+      style.textContent =
+        '#detailDescription ul, #mDetailDescription ul { padding-left: 20px; margin: 8px 0; list-style-type: disc; }' +
+        '#detailDescription li, #mDetailDescription li { margin-bottom: 4px; font-size: 14px; color: #1C1C1C; line-height: 1.6; }' +
+        '#detailDescription strong, #detailDescription b, #mDetailDescription strong, #mDetailDescription b { font-weight: 600; color: #1C1C1C; }' +
+        '#detailDescription p, #mDetailDescription p { margin: 0 0 12px; font-size: 14px; line-height: 1.7; }' +
+        '#detailDescription h3, #detailDescription h4, #mDetailDescription h3, #mDetailDescription h4 { font-family: \'Playfair Display\', serif; color: #1C1C1C; margin: 16px 0 8px; }';
+      document.head.appendChild(style);
     }
 
-    function formatLanguages(l) {
-      if (l == null || l === '') return '—';
-      if (Array.isArray(l)) return l.filter(Boolean).join(', ');
-      if (typeof l === 'object') return Object.values(l).filter(Boolean).join(', ');
-      return String(l);
+    function renderJobDetail(job) {
+      injectDescStyleOnce();
+      function setBoth(deskId, mobId, text) {
+        var a = document.getElementById(deskId);
+        var b = document.getElementById(mobId);
+        var v = text == null ? '' : String(text);
+        if (a) a.textContent = v;
+        if (b) b.textContent = v;
+      }
+      setBoth('detailTitle', 'mDetailTitle', job.title || '');
+      setBoth('detailCompany', 'mDetailCompany', getCompanyName(job));
+      var posted = 'Posted ' + formatPosted(job.created_at);
+      setBoth('detailPosted', 'mDetailPosted', posted);
+      setBoth('detailLocation', 'mDetailLocation', job.location || 'Singapore');
+      setBoth('detailIndustry', 'mDetailIndustry', job.job_industry || '—');
+      setBoth('detailSalary', 'mDetailSalary', formatSalary(job));
+      setBoth('detailJobType', 'mDetailJobType', jobTypeLabel(job));
+      setBoth('detailWorkingDays', 'mDetailWorkingDays', job.working_days != null ? String(job.working_days) : '—');
+      setBoth('detailQualification', 'mDetailQualification', job.min_qualification != null ? String(job.min_qualification) : '—');
+      setBoth('detailFunction', 'mDetailFunction', job.job_function || '—');
+      var rights = job.rights_to_work != null && String(job.rights_to_work).trim() ? String(job.rights_to_work) : '—';
+      setBoth('detailRights', 'mDetailRights', rights);
+
+      var raw = job.job_description && String(job.job_description).trim() ? String(job.job_description) : '';
+      var descEl = document.getElementById('detailDescription');
+      var descCard = document.getElementById('descriptionCard');
+      var mDesc = document.getElementById('mDetailDescription');
+      var mCard = document.getElementById('mDescriptionCard');
+      if (raw) {
+        if (descEl) descEl.innerHTML = raw;
+        if (mDesc) mDesc.innerHTML = raw;
+        if (descCard) descCard.style.display = 'block';
+        if (mCard) mCard.style.display = 'block';
+      } else {
+        if (descEl) descEl.innerHTML = '';
+        if (mDesc) mDesc.innerHTML = '';
+        if (descCard) descCard.style.display = 'none';
+        if (mCard) mCard.style.display = 'none';
+      }
+    }
+
+    function bindDetailApplyHandlers() {
+      ['detailApplyTop', 'detailApplyBottom', 'mDetailApplyBottom', 'mobileApplySticky'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.onclick = function () { openApplyModal(); };
+      });
     }
 
     function updateUrl(publicId) {
@@ -465,11 +561,13 @@
     }
 
     function setJobCountDisplay(n) {
-      var el = document.getElementById('jobCountNum');
-      var elM = document.getElementById('jobCountNumMobile');
-      var v = String(n);
-      if (el) el.textContent = v;
-      if (elM) elM.textContent = v;
+      var el = document.getElementById('jobCount');
+      if (!el) return;
+      el.textContent = n + ' role' + (n === 1 ? '' : 's') + ' available';
+    }
+
+    function regionLabel(val) {
+      return val === 'All' ? 'All Regions' : val;
     }
 
     function renderRegionRadios(container) {
@@ -477,9 +575,10 @@
       var regions = ['All', 'West', 'East', 'North', 'Central', 'North East', 'South'];
       var isMobile = container.id === 'regionRadiosM';
       container.innerHTML = regions.map(function (r) {
-        return '<label class="flex items-center gap-2 cursor-pointer text-sm">' +
-          '<input type="radio" name="region' + (isMobile ? '_m' : '') + '" value="' + r + '" class="accent-[#C9A96E]" ' + (filters.region === r ? 'checked' : '') + ' />' +
-          '<span>' + r + '</span></label>';
+        return '<label style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:#1C1C1C;margin-bottom:2px;font-family:\'Inter\',sans-serif" ' +
+          'onmouseover="this.style.background=\'#F5EDD9\'" onmouseout="this.style.background=\'transparent\'">' +
+          '<input type="radio" name="region' + (isMobile ? '_m' : '') + '" value="' + r + '" style="accent-color:#C9A96E" ' + (filters.region === r ? 'checked' : '') + ' />' +
+          '<span>' + regionLabel(r) + '</span></label>';
       }).join('');
       container.querySelectorAll('input[type="radio"]').forEach(function (inp) {
         inp.addEventListener('change', function () {
@@ -501,8 +600,10 @@
       if (!container) return;
       container.innerHTML = JOB_TYPE_OPTIONS.map(function (opt) {
         var active = selectedJobTypes.has(opt.key);
-        return '<button type="button" data-jt="' + opt.key + '" class="job-type-pill rounded-full border px-3 py-1 text-xs font-medium transition-colors ' +
-          (active ? 'border-[#C9A96E] bg-[#C9A96E]/15 text-[#B8935A]' : 'border-[#E8E0D5] bg-white text-[#6B6B6B] hover:border-[#C9A96E]') + '">' + opt.label + '</button>';
+        var bg = active ? '#F5EDD9' : 'white';
+        var border = active ? '#C9A96E' : '#E8E0D5';
+        var color = active ? '#B8935A' : '#6B6B6B';
+        return '<button type="button" data-jt="' + opt.key + '" class="job-type-pill" style="padding:5px 12px;font-size:12px;border-radius:20px;border:1px solid ' + border + ';background:' + bg + ';color:' + color + ';cursor:pointer;font-family:\'Inter\',sans-serif">' + opt.label + '</button>';
       }).join('');
       container.querySelectorAll('.job-type-pill').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -518,7 +619,7 @@
     }
 
     function syncRegionDesk() {
-      document.querySelectorAll('#regionRadios input[name="region"]').forEach(function (inp) {
+      document.querySelectorAll('#regionRadios input[type="radio"]').forEach(function (inp) {
         inp.checked = inp.value === filters.region;
       });
     }
@@ -554,54 +655,59 @@
       return String(s).replace(/"/g, '&quot;');
     }
 
-    function renderJobCard(job, isMobile) {
+    function renderJobCard(job) {
       var active = selectedJob && selectedJob.id === job.id;
       var company = getCompanyName(job);
       var region = getRegion(job.location || '');
       var sal = formatSalary(job);
-      var jt = jobTypeLabel(job);
-      var ind = job.job_industry || '—';
+      var jt = job.job_type || 'Full time';
+      var ind = job.job_industry || '';
+      var borderLeft = active ? '#C9A96E' : 'transparent';
+      var bg = active ? 'rgba(250,247,242,0.5)' : 'transparent';
+      var indHtml = ind ? '<span style="padding:3px 8px;font-size:11px;border-radius:4px;background:#F5F5F5;color:#6B6B6B">' + escapeHtml(ind) + '</span>' : '';
       return (
-        '<article tabindex="0" role="button" data-job-id="' + job.id + '" class="job-card cursor-pointer rounded-xl border border-[#E8E0D5] bg-white p-4 shadow-sm transition-all text-left w-full ' +
-        (active ? 'active' : '') + '">' +
-        '<h3 class="font-semibold text-[#1C1C1C] text-sm leading-snug">' + escapeHtml(job.title || '') + '</h3>' +
-        '<p class="mt-1 text-xs font-medium text-[#C9A96E]">' + escapeHtml(company) + '</p>' +
-        '<p class="mt-2 text-xs text-[#6B6B6B]">📍 ' + escapeHtml(job.location || '—') + ' · ' + escapeHtml(region) + '</p>' +
-        '<p class="mt-1 text-xs text-[#6B6B6B]">💰 ' + escapeHtml(sal) + '</p>' +
-        '<div class="mt-2 flex flex-wrap gap-2 items-center">' +
-        '<span class="inline-block rounded-full bg-[#FAF7F2] px-2 py-0.5 text-[10px] font-medium text-[#6B6B6B]">' + escapeHtml(jt) + '</span>' +
-        '<span class="text-[10px] text-[#6B6B6B]">' + escapeHtml(ind) + '</span>' +
-        '</div>' +
-        '<p class="mt-2 text-[10px] text-[#6B6B6B]">' + daysAgo(job.created_at) + '</p>' +
-        '</article>'
+        '<div class="job-card" data-job-id="' + job.id + '" style="padding:16px;border-bottom:1px solid #E8E0D5;cursor:pointer;border-left:3px solid ' + borderLeft + ';background:' + bg + ';transition:all 0.15s;font-family:\'Inter\',sans-serif">' +
+        '<h3 style="font-size:14px;font-weight:600;color:#1C1C1C;margin:0 0 4px;line-height:1.4">' + escapeHtml(job.title || '') + '</h3>' +
+        '<p style="font-size:12px;color:#C9A96E;font-weight:500;margin:0 0 10px">' + escapeHtml(company) + '</p>' +
+        '<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px">' +
+        '<div style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B6B6B"><span>📍</span><span>' + escapeHtml(job.location || 'Singapore') + ' · ' + escapeHtml(region) + '</span></div>' +
+        '<div style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B6B6B"><span>💰</span><span>' + escapeHtml(sal) + '</span></div></div>' +
+        '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">' +
+        '<span style="padding:3px 8px;font-size:11px;border-radius:4px;background:#F5EDD9;color:#B8935A;font-weight:500">' + escapeHtml(jt) + '</span>' +
+        indHtml +
+        '<span style="margin-left:auto;font-size:11px;color:#6B6B6B">' + daysAgo(job.created_at) + '</span></div></div>'
       );
     }
 
-    function renderSkeletonList(el, n) {
-      el.innerHTML = Array.from({ length: n }, function () {
-        return '<div class="rounded-xl border border-[#E8E0D5] bg-white p-4 shadow-sm space-y-2">' +
-          '<div class="skeleton h-4" style="width:75%"></div>' +
-          '<div class="skeleton h-3" style="width:50%"></div>' +
-          '<div class="skeleton h-3" style="width:100%"></div>' +
-          '</div>';
-      }).join('');
+    function showSkeletons(el) {
+      if (!el) return;
+      el.innerHTML = Array(4).fill(
+        '<div style="padding:16px;border-bottom:1px solid #E8E0D5">' +
+        '<div style="height:16px;background:#E8E0D5;border-radius:4px;width:70%;margin-bottom:8px;animation:pulse 1.5s infinite"></div>' +
+        '<div style="height:12px;background:#E8E0D5;border-radius:4px;width:40%;margin-bottom:12px;animation:pulse 1.5s infinite"></div>' +
+        '<div style="height:12px;background:#E8E0D5;border-radius:4px;width:55%;margin-bottom:6px;animation:pulse 1.5s infinite"></div>' +
+        '<div style="height:12px;background:#E8E0D5;border-radius:4px;width:45%;animation:pulse 1.5s infinite"></div></div>'
+      ).join('');
     }
 
     function renderLists() {
-      var desk = document.getElementById('jobListDesk');
+      var desk = document.getElementById('jobList');
       var mob = document.getElementById('jobListMobile');
       var rc = document.getElementById('resultsCount');
-      if (rc) rc.textContent = String(filteredJobs.length);
+      if (rc) {
+        var n = filteredJobs.length;
+        rc.innerHTML = '<span style="font-weight:600;color:#1C1C1C">' + n + '</span> <span style="color:#6B6B6B">results</span>';
+      }
 
       if (!filteredJobs.length) {
-        var empty = '<div class="text-center py-12 text-sm text-[#6B6B6B] px-4">No roles match your filters. Try adjusting search or filters.</div>';
+        var empty = '<div style="text-align:center;padding:48px 16px;font-size:13px;color:#6B6B6B;font-family:\'Inter\',sans-serif">No roles match your filters. Try adjusting search or filters.</div>';
         if (desk) desk.innerHTML = empty;
         if (mob) mob.innerHTML = empty;
         return;
       }
 
-      if (desk) desk.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j, false); }).join('');
-      if (mob) mob.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j, true); }).join('');
+      if (desk) desk.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j); }).join('');
+      if (mob) mob.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j); }).join('');
 
       [desk, mob].forEach(function (container) {
         if (!container) return;
@@ -622,88 +728,52 @@
       } catch (e) { return '—'; }
     }
 
-    function renderDetailMarkup(job) {
-      var company = getCompanyName(job);
-      var desc = getJobDescription(job);
-      var grid = [
-        ['Location', job.location || '—'],
-        ['Industry', job.job_industry || '—'],
-        ['Salary', formatSalary(job)],
-        ['Job type', jobTypeLabel(job)],
-        ['Working days', job.working_days != null ? String(job.working_days) : '—'],
-        ['Min qualification', job.min_qualification != null ? String(job.min_qualification) : '—'],
-        ['Languages', formatLanguages(job.spoken_languages)],
-        ['Function', job.job_function || '—']
-      ];
-      var gridHtml = '<dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">';
-      grid.forEach(function (row) {
-        gridHtml += '<div class="border-b border-[#E8E0D5]/60 pb-3"><dt class="text-[#6B6B6B] text-xs uppercase tracking-wide">' + escapeHtml(row[0]) + '</dt><dd class="mt-1 font-medium text-[#1C1C1C]">' + escapeHtml(row[1]) + '</dd></div>';
-      });
-      gridHtml += '</dl>';
-
-      var descSection = '';
-      if (/<[a-z][\s\S]*>/i.test(desc)) {
-        descSection = '<div id="aboutRoleHtml" class="job-desc-html text-sm text-[#1C1C1C] leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_p]:mb-3 [&_li]:my-1">' + desc + '</div>';
-      } else {
-        descSection = '<div class="text-sm text-[#1C1C1C] leading-relaxed whitespace-pre-wrap">' + escapeHtml(desc) + '</div>';
-      }
-
-      return (
-        '<div class="max-w-3xl">' +
-        '<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">' +
-        '<div>' +
-        '<h2 class="font-playfair text-2xl sm:text-3xl font-semibold text-[#1C1C1C] leading-tight">' + escapeHtml(job.title || '') + '</h2>' +
-        '<p class="mt-2 text-base font-medium text-[#C9A96E]">' + escapeHtml(company) + '</p>' +
-        '<p class="mt-2 text-xs text-[#6B6B6B]">Posted ' + formatPosted(job.created_at) + '</p>' +
-        '</div>' +
-        '<button type="button" class="apply-open hidden sm:inline-flex flex-shrink-0 items-center justify-center rounded-lg bg-[#C9A96E] px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-[#B8935A] transition-colors">Apply Now →</button>' +
-        '</div>' +
-        '<div class="rounded-2xl border border-[#E8E0D5] bg-white p-5 shadow-sm mb-8">' + gridHtml + '</div>' +
-        '<h3 class="font-playfair text-lg font-semibold text-[#1C1C1C] mb-3">About this role</h3>' +
-        (desc ? descSection : '<p class="text-sm text-[#6B6B6B]">Full description coming soon. Apply and our consultants will share more.</p>') +
-        '<button type="button" class="apply-open mt-10 w-full sm:w-auto sm:min-w-[280px] rounded-lg bg-[#C9A96E] px-8 py-4 text-sm font-semibold text-white shadow-md hover:bg-[#B8935A] transition-colors">Apply for this role</button>' +
-        '<p class="mt-4 text-center text-xs text-[#6B6B6B] sm:text-left">EA License No. 14C7215</p>' +
-        '</div>'
-      );
-    }
-
-    function bindApplyButtons(root) {
-      if (!root) return;
-      root.querySelectorAll('.apply-open').forEach(function (btn) {
-        btn.addEventListener('click', function () { openApplyModal(); });
-      });
-    }
-
     function selectJob(job) {
       selectedJob = job;
-      var empty = document.getElementById('detailEmpty');
-      var content = document.getElementById('detailContentDesk');
       if (job.public_id) updateUrl(job.public_id);
       else updateUrl(null);
 
-      if (empty) empty.classList.add('hidden');
-      if (content) {
-        content.classList.remove('hidden');
-        content.innerHTML = renderDetailMarkup(job);
-        bindApplyButtons(content);
-      }
+      var empty = document.getElementById('emptyState');
+      var content = document.getElementById('detailContent');
+      if (empty) empty.style.display = 'none';
+      if (content) content.style.display = 'block';
 
-      document.querySelectorAll('.job-card').forEach(function (c) {
-        c.classList.toggle('active', c.getAttribute('data-job-id') === String(job.id));
+      renderJobDetail(job);
+      bindDetailApplyHandlers();
+
+      document.querySelectorAll('.job-card').forEach(function (card) {
+        var id = card.getAttribute('data-job-id');
+        var isSel = id === String(job.id);
+        card.style.borderLeftColor = isSel ? '#C9A96E' : 'transparent';
+        card.style.background = isSel ? 'rgba(250,247,242,0.5)' : 'transparent';
       });
 
-      var mscroll = document.getElementById('detailScrollMobile');
-      var md = document.getElementById('mobileDetail');
-      if (mscroll && md) {
-        mscroll.innerHTML = renderDetailMarkup(job);
-        bindApplyButtons(mscroll);
-        md.classList.add('slide-in');
+      if (window.innerWidth < 1024) {
+        var md = document.getElementById('mobileDetail');
+        var mEmpty = document.getElementById('mEmptyState');
+        var mContent = document.getElementById('mDetailContent');
+        if (mEmpty) mEmpty.style.display = 'none';
+        if (mContent) mContent.style.display = 'block';
+        if (md) {
+          md.style.display = 'flex';
+          md.style.flexDirection = 'column';
+          requestAnimationFrame(function () {
+            md.classList.add('slide-in');
+          });
+        }
+        var scroll = document.getElementById('detailScrollMobile');
+        if (scroll) scroll.scrollTop = 0;
       }
     }
 
     function closeMobileDetail() {
       var md = document.getElementById('mobileDetail');
-      if (md) md.classList.remove('slide-in');
+      if (md) {
+        md.classList.remove('slide-in');
+        setTimeout(function () {
+          md.style.display = 'none';
+        }, 280);
+      }
       updateUrl(null);
     }
 
@@ -712,10 +782,10 @@
       renderLists();
       if (selectedJob && !filteredJobs.find(function (j) { return j.id === selectedJob.id; })) {
         selectedJob = null;
-        var empty = document.getElementById('detailEmpty');
-        var content = document.getElementById('detailContentDesk');
-        if (empty) empty.classList.remove('hidden');
-        if (content) { content.classList.add('hidden'); content.innerHTML = ''; }
+        var empty = document.getElementById('emptyState');
+        var content = document.getElementById('detailContent');
+        if (empty) empty.style.display = 'flex';
+        if (content) content.style.display = 'none';
       }
     }
 
@@ -724,8 +794,7 @@
       var modal = document.getElementById('applyModal');
       var inner = document.getElementById('modalInner');
       if (!modal || !inner) return;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+      modal.classList.add('is-open');
       document.body.style.overflow = 'hidden';
       inner.innerHTML = buildFormHtml(selectedJob);
       wireForm(inner);
@@ -733,10 +802,7 @@
 
     function closeApplyModal() {
       var modal = document.getElementById('applyModal');
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
+      if (modal) modal.classList.remove('is-open');
       document.body.style.overflow = '';
     }
 
@@ -745,45 +811,46 @@
       var ccOptions = COUNTRY_CODES.map(function (c) {
         return '<option value="' + c.code + '">' + c.flag + ' ' + c.code + '</option>';
       }).join('');
+      var inp = 'width:100%;padding:10px 14px;font-size:14px;border:1px solid #E8E0D5;border-radius:8px;font-family:\'Inter\',sans-serif;color:#1C1C1C;box-sizing:border-box';
       return (
-        '<button type="button" class="modal-close absolute top-4 right-4 z-10 rounded-lg p-1 text-2xl leading-none text-[#6B6B6B] hover:bg-[#FAF7F2] hover:text-[#1C1C1C]" aria-label="Close">&times;</button>' +
-        '<div class="pt-10">' +
-        '<p class="text-xs font-semibold uppercase tracking-wide text-[#6B6B6B]">Applying for</p>' +
-        '<h3 class="font-playfair text-xl font-semibold text-[#1C1C1C] mt-1">' + escapeHtml(job.title || '') + '</h3>' +
-        '<p class="text-sm font-medium text-[#C9A96E] mt-1">' + escapeHtml(company) + '</p>' +
-        '</div>' +
-        '<form id="applyForm" class="mt-6 space-y-4">' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Full name <span class="text-red-600">*</span></label>' +
-        '<input required name="fullName" type="text" autocomplete="name" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div>' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Email <span class="text-red-600">*</span></label>' +
-        '<input required name="email" type="email" autocomplete="email" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div>' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Mobile <span class="text-red-600">*</span></label>' +
-        '<div class="flex gap-2">' +
-        '<select name="countryCode" class="rounded-lg border border-[#E8E0D5] bg-white px-2 py-2 text-sm focus:border-[#C9A96E]">' + ccOptions + '</select>' +
-        '<input required name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="8123 4567" class="flex-1 rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div></div>' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Resume (PDF or Word, max 5MB) <span class="text-red-600">*</span></label>' +
-        '<div id="dropZone" class="rounded-xl border-2 border-dashed border-[#E8E0D5] bg-[#FAF7F2] px-4 py-8 text-center cursor-pointer hover:border-[#C9A96E] transition-colors">' +
-        '<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden" id="resumeInput" />' +
-        '<p class="text-sm text-[#6B6B6B]">Drag & drop or <span class="text-[#C9A96E] font-semibold">browse</span></p>' +
-        '<p id="resumeName" class="mt-2 text-xs text-[#1C1C1C] font-medium"></p></div></div>' +
-        '<div class="grid grid-cols-2 gap-3">' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Expected salary (min)</label>' +
-        '<input name="salaryMin" type="number" min="0" placeholder="Optional" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm" /></div>' +
-        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Expected salary (max)</label>' +
-        '<input name="salaryMax" type="number" min="0" placeholder="Optional" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm" /></div></div>' +
-        '<div><span class="block text-xs font-medium text-[#6B6B6B] mb-2">Rights to work <span class="text-[#6B6B6B] font-normal">(optional)</span></span>' +
-        '<label class="flex gap-3 rounded-lg border border-[#E8E0D5] bg-white p-3 mb-2 cursor-pointer">' +
-        '<input type="radio" name="rights" value="permanent" class="mt-1 accent-[#C9A96E]" />' +
-        '<span><span class="font-medium text-[#1C1C1C]">Permanent rights to work</span><span class="block text-xs text-[#6B6B6B]">(Singapore Citizen or Permanent Resident)</span></span></label>' +
-        '<label class="flex gap-3 rounded-lg border border-[#E8E0D5] bg-white p-3 cursor-pointer">' +
-        '<input type="radio" name="rights" value="work_pass" class="mt-1 accent-[#C9A96E]" />' +
-        '<span><span class="font-medium text-[#1C1C1C]">Require work pass</span><span class="block text-xs text-[#6B6B6B]">(Employment Pass, S Pass or Work Permit)</span></span></label></div>' +
-        '<label class="flex gap-2 items-start cursor-pointer">' +
-        '<input required type="checkbox" name="consent" class="mt-1 accent-[#C9A96E]" />' +
-        '<span class="text-xs text-[#6B6B6B] leading-relaxed">I consent to JTE Recruit Pte Ltd collecting and using my personal data for recruitment purposes in accordance with the Personal Data Protection Act (PDPA).</span></label>' +
-        '<p id="formError" class="text-sm text-red-600 hidden"></p>' +
-        '<button type="submit" class="w-full rounded-lg bg-[#C9A96E] py-3.5 text-sm font-semibold text-white shadow hover:bg-[#B8935A] transition-colors">Submit application</button>' +
-        '<p class="text-center text-[10px] text-[#6B6B6B]">EA License No. 14C7215</p>' +
+        '<div style="position:sticky;top:0;background:white;padding-bottom:12px;margin-bottom:8px;border-bottom:1px solid #E8E0D5;z-index:2">' +
+        '<button type="button" class="modal-close" style="position:absolute;top:0;right:0;border:none;background:transparent;font-size:24px;line-height:1;color:#6B6B6B;cursor:pointer;padding:4px 8px" aria-label="Close">&times;</button>' +
+        '<p style="font-size:11px;font-weight:600;color:#6B6B6B;letter-spacing:0.06em;text-transform:uppercase;margin:0">Applying for</p>' +
+        '<h3 style="font-family:\'Playfair Display\',serif;font-size:20px;font-weight:600;color:#1C1C1C;margin:8px 0 4px;line-height:1.3">' + escapeHtml(job.title || '') + '</h3>' +
+        '<p style="font-size:14px;color:#C9A96E;font-weight:500;margin:0">' + escapeHtml(company) + '</p></div>' +
+        '<form id="applyForm" style="margin-top:8px">' +
+        '<div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Full name <span style="color:#c00">*</span></label>' +
+        '<input required name="fullName" type="text" autocomplete="name" class="inp" style="' + inp + '" /></div>' +
+        '<div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Email <span style="color:#c00">*</span></label>' +
+        '<input required name="email" type="email" autocomplete="email" class="inp" style="' + inp + '" /></div>' +
+        '<div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Mobile <span style="color:#c00">*</span></label>' +
+        '<div style="display:flex;gap:8px">' +
+        '<select name="countryCode" class="sel inp" style="padding:10px 12px;font-size:14px;border:1px solid #E8E0D5;border-radius:8px;background:white;font-family:\'Inter\',sans-serif;color:#1C1C1C">' + ccOptions + '</select>' +
+        '<input required name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="8123 4567" class="inp" style="flex:1;' + inp + '" /></div></div>' +
+        '<div style="margin-bottom:16px"><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Resume (PDF or Word, max 5MB) <span style="color:#c00">*</span></label>' +
+        '<div id="dropZone" style="border:2px dashed #E8E0D5;border-radius:12px;background:#FAF7F2;padding:28px 16px;text-align:center;cursor:pointer;font-family:\'Inter\',sans-serif">' +
+        '<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none" id="resumeInput" />' +
+        '<p style="font-size:14px;color:#6B6B6B;margin:0">Drag & drop or <span style="color:#C9A96E;font-weight:600">browse</span></p>' +
+        '<p id="resumeName" style="margin-top:8px;font-size:12px;color:#1C1C1C;font-weight:500"></p></div></div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">' +
+        '<div><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Expected salary (min)</label>' +
+        '<input name="salaryMin" type="number" min="0" placeholder="Optional" class="inp" style="' + inp + '" /></div>' +
+        '<div><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Expected salary (max)</label>' +
+        '<input name="salaryMax" type="number" min="0" placeholder="Optional" class="inp" style="' + inp + '" /></div></div>' +
+        '<div style="margin-bottom:16px"><span style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:8px;font-family:\'Inter\',sans-serif">Rights to work <span style="font-weight:400">(optional)</span></span>' +
+        '<label style="display:flex;gap:12px;border:1px solid #E8E0D5;border-radius:8px;padding:12px;margin-bottom:8px;cursor:pointer;background:white;font-family:\'Inter\',sans-serif">' +
+        '<input type="radio" name="rights" value="permanent" style="margin-top:4px;accent-color:#C9A96E" />' +
+        '<span><span style="font-weight:600;color:#1C1C1C;font-size:14px">Permanent rights to work</span><span style="display:block;font-size:12px;color:#6B6B6B;margin-top:2px">(Singapore Citizen or Permanent Resident)</span></span></label>' +
+        '<label style="display:flex;gap:12px;border:1px solid #E8E0D5;border-radius:8px;padding:12px;cursor:pointer;background:white;font-family:\'Inter\',sans-serif">' +
+        '<input type="radio" name="rights" value="work_pass" style="margin-top:4px;accent-color:#C9A96E" />' +
+        '<span><span style="font-weight:600;color:#1C1C1C;font-size:14px">Require work pass</span><span style="display:block;font-size:12px;color:#6B6B6B;margin-top:2px">(Employment Pass, S Pass or Work Permit)</span></span></label></div>' +
+        '<label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;margin-bottom:16px;font-family:\'Inter\',sans-serif">' +
+        '<input required type="checkbox" name="consent" style="margin-top:4px;accent-color:#C9A96E;flex-shrink:0" />' +
+        '<span style="font-size:12px;color:#6B6B6B;line-height:1.5">I consent to JTE Recruit Pte Ltd collecting and using my personal data for recruitment purposes in accordance with the Personal Data Protection Act (PDPA).</span></label>' +
+        '<p id="formError" style="display:none;font-size:13px;color:#b91c1c;margin-bottom:12px;font-family:\'Inter\',sans-serif"></p>' +
+        '<button type="submit" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:\'Inter\',sans-serif"' +
+        ' onmouseover="this.style.background=\'#B8935A\'" onmouseout="this.style.background=\'#C9A96E\'">Submit application</button>' +
+        '<p style="text-align:center;font-size:10px;color:#6B6B6B;margin-top:12px;font-family:\'Inter\',sans-serif">EA License No. 14C7215</p>' +
         '</form>'
       );
     }
@@ -803,15 +870,15 @@
         var okType = /pdf|msword|wordprocessingml/.test(file.type) || /\.pdf$/i.test(file.name) || /\.docx?$/i.test(file.name);
         if (!okType) {
           errEl.textContent = 'Please upload a PDF or Word document.';
-          errEl.classList.remove('hidden');
+          errEl.style.display = 'block';
           return;
         }
         if (file.size > max) {
           errEl.textContent = 'File must be 5MB or smaller.';
-          errEl.classList.remove('hidden');
+          errEl.style.display = 'block';
           return;
         }
-        errEl.classList.add('hidden');
+        errEl.style.display = 'none';
         resumeName.textContent = file.name;
         resumeInput.__file = file;
       }
@@ -821,12 +888,17 @@
         if (resumeInput.files[0]) setResume(resumeInput.files[0]);
       });
       ['dragenter', 'dragover'].forEach(function (ev) {
-        dropZone.addEventListener(ev, function (e) { e.preventDefault(); dropZone.classList.add('border-[#C9A96E]', 'bg-[#C9A96E]/10'); });
+        dropZone.addEventListener(ev, function (e) {
+          e.preventDefault();
+          dropZone.style.borderColor = '#C9A96E';
+          dropZone.style.background = 'rgba(201,169,110,0.08)';
+        });
       });
       ['dragleave', 'drop'].forEach(function (ev) {
         dropZone.addEventListener(ev, function (e) {
           e.preventDefault();
-          dropZone.classList.remove('border-[#C9A96E]', 'bg-[#C9A96E]/10');
+          dropZone.style.borderColor = '#E8E0D5';
+          dropZone.style.background = '#FAF7F2';
         });
       });
       dropZone.addEventListener('drop', function (e) {
@@ -836,7 +908,7 @@
 
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        errEl.classList.add('hidden');
+        errEl.style.display = 'none';
         var fd = new FormData(form);
         var fullName = fd.get('fullName');
         var email = fd.get('email');
@@ -845,12 +917,12 @@
         var resume = resumeInput.__file || resumeInput.files[0];
         if (!resume) {
           errEl.textContent = 'Please attach your resume.';
-          errEl.classList.remove('hidden');
+          errEl.style.display = 'block';
           return;
         }
         if (!checkRateLimit(String(email).toLowerCase())) {
           errEl.textContent = 'You have reached the daily application limit for this email. Please try again tomorrow.';
-          errEl.classList.remove('hidden');
+          errEl.style.display = 'block';
           return;
         }
         var rightsEl = form.querySelector('input[name="rights"]:checked');
@@ -880,7 +952,7 @@
         } catch (err) {
           console.error(err);
           errEl.textContent = 'Something went wrong. Please try again or email ask@jte.com.sg.';
-          errEl.classList.remove('hidden');
+          errEl.style.display = 'block';
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit application';
         }
@@ -889,20 +961,20 @@
 
     function showSuccess(inner, name) {
       inner.innerHTML =
-        '<div class="text-center py-4">' +
-        '<p class="text-5xl mb-4">✅</p>' +
-        '<h3 class="font-playfair text-2xl font-semibold text-[#1C1C1C]">Application submitted!</h3>' +
-        '<p class="mt-3 text-lg font-semibold text-[#C9A96E]">' + escapeHtml(name) + '</p>' +
-        '<p class="mt-4 text-sm text-[#6B6B6B] leading-relaxed">We\'ve received your application. Our team will review your profile and reach out if there\'s a match.</p>' +
-        '<div class="mt-8 rounded-xl border border-[#E8E0D5] bg-[#FAF7F2] p-5 text-left text-sm text-[#1C1C1C] space-y-3">' +
-        '<p class="font-semibold text-[#1C1C1C]">What\'s next</p>' +
-        '<ul class="list-disc pl-5 space-y-2 text-[#6B6B6B]">' +
-        '<li>Check your email for a confirmation shortly.</li>' +
-        '<li>We aim to respond within 2–3 working days where there is a potential fit.</li>' +
-        '<li>Follow <a href="https://www.linkedin.com/company/jte-recruit-pte-ltd/" target="_blank" rel="noopener noreferrer" class="text-[#C9A96E] font-medium underline hover:text-[#B8935A]">JTE Recruit on LinkedIn</a> for new roles.</li>' +
+        '<div style="text-align:center;padding:16px 0;font-family:\'Inter\',sans-serif">' +
+        '<p style="font-size:48px;margin:0 0 16px">✅</p>' +
+        '<h3 style="font-family:\'Playfair Display\',serif;font-size:22px;font-weight:600;color:#1C1C1C;margin:0">Application submitted!</h3>' +
+        '<p style="margin-top:12px;font-size:18px;font-weight:600;color:#C9A96E">' + escapeHtml(name) + '</p>' +
+        '<p style="margin-top:16px;font-size:14px;color:#6B6B6B;line-height:1.6">We\'ve received your application. Our team will review your profile and reach out if there\'s a match.</p>' +
+        '<div style="margin-top:24px;border:1px solid #E8E0D5;border-radius:12px;background:#FAF7F2;padding:20px;text-align:left">' +
+        '<p style="font-weight:600;color:#1C1C1C;margin:0 0 12px;font-size:14px">What\'s next</p>' +
+        '<ul style="margin:0;padding-left:20px;color:#6B6B6B;font-size:14px;line-height:1.6">' +
+        '<li style="margin-bottom:8px">Check your email for a confirmation shortly.</li>' +
+        '<li style="margin-bottom:8px">We aim to respond within 2–3 working days where there is a potential fit.</li>' +
+        '<li>Follow <a href="https://www.linkedin.com/company/jte-recruit-pte-ltd/" target="_blank" rel="noopener noreferrer" style="color:#C9A96E;font-weight:600">JTE Recruit on LinkedIn</a> for new roles.</li>' +
         '</ul></div>' +
-        '<button type="button" id="browseMoreBtn" class="mt-8 w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-3 text-sm font-semibold text-[#B8935A] hover:bg-[#C9A96E]/10">Browse more jobs</button>' +
-        '<p class="mt-4 text-[10px] text-[#6B6B6B]">EA License No. 14C7215</p>' +
+        '<button type="button" id="browseMoreBtn" style="margin-top:24px;width:100%;padding:12px;border:2px solid #C9A96E;border-radius:12px;background:transparent;color:#B8935A;font-size:14px;font-weight:600;cursor:pointer;font-family:\'Inter\',sans-serif">Browse more jobs</button>' +
+        '<p style="margin-top:16px;font-size:10px;color:#6B6B6B">EA License No. 14C7215</p>' +
         '</div>';
       inner.querySelector('#browseMoreBtn').addEventListener('click', function () {
         closeApplyModal();
@@ -913,18 +985,22 @@
       var mount = document.getElementById('mobileFiltersMount');
       var aside = document.querySelector('aside');
       if (!mount || !aside) return;
+      var selSt = 'width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:\'Inter\',sans-serif;cursor:pointer';
       mount.innerHTML =
-        '<div class="space-y-4">' +
-        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Industry</label>' +
-        '<select id="industrySelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm"></select></div>' +
-        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Job function</label>' +
-        '<select id="functionSelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm"></select></div>' +
-        '<div><span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Region</span><div id="regionRadiosM" class="space-y-2"></div></div>' +
-        '<div><span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-3">Job type</span><div id="jobTypePillsM" class="flex flex-wrap gap-2"></div></div>' +
-        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Salary</label>' +
-        '<select id="salarySelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm">' +
-        '<option value="any">Any</option><option value="lt2k">Below $2k</option><option value="2k3k">$2k – $3k</option><option value="3k4k">$3k – $4k</option><option value="4k5k">$4k – $5k</option><option value="gt5k">Above $5k</option></select></div>' +
-        '<button type="button" id="clearFiltersM" class="w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-2 text-sm font-semibold text-[#B8935A]">Clear all filters</button></div>';
+        '<div style="font-family:\'Inter\',sans-serif">' +
+        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">INDUSTRY</p>' +
+        '<select id="industrySelectM" class="sel" style="' + selSt + ';margin-bottom:20px"></select>' +
+        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB FUNCTION</p>' +
+        '<select id="functionSelectM" class="sel" style="' + selSt + ';margin-bottom:20px"></select>' +
+        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">REGION</p>' +
+        '<div id="regionRadiosM" style="margin-bottom:20px"></div>' +
+        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB TYPE</p>' +
+        '<div id="jobTypePillsM" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"></div>' +
+        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">SALARY</p>' +
+        '<select id="salarySelectM" class="sel" style="' + selSt + ';margin-bottom:16px">' +
+        '<option value="any">Any</option><option value="lt2k">Below $2k</option><option value="2k3k">$2k – $3k</option><option value="3k4k">$3k – $4k</option><option value="4k5k">$4k – $5k</option><option value="gt5k">Above $5k</option></select>' +
+        '<button type="button" id="clearFiltersM" style="width:100%;padding:9px;font-size:13px;border:1px solid #C9A96E;border-radius:8px;background:transparent;color:#C9A96E;cursor:pointer;font-family:\'Inter\',sans-serif;margin-top:8px"' +
+        ' onmouseover="this.style.background=\'#C9A96E\';this.style.color=\'white\'" onmouseout="this.style.background=\'transparent\';this.style.color=\'#C9A96E\'">Clear All Filters</button></div>';
 
       populateDropdowns();
       renderRegionRadios(document.getElementById('regionRadiosM'));
@@ -962,7 +1038,7 @@
       renderRegionRadios(document.getElementById('regionRadios'));
       renderJobTypePills(document.getElementById('jobTypePills'));
 
-      var deskSearch = document.getElementById('deskSearch');
+      var deskSearch = document.getElementById('searchInput');
       var mobSearch = document.getElementById('mobileSearch');
       function onSearch(v) {
         filters.search = v;
@@ -997,7 +1073,8 @@
         filters.jobFunction = '';
         filters.salaryBucket = 'any';
         selectedJobTypes.clear();
-        if (deskSearch) deskSearch.value = '';
+        var si = document.getElementById('searchInput');
+        if (si) si.value = '';
         if (mobSearch) mobSearch.value = '';
         document.getElementById('salarySelect').value = 'any';
         document.getElementById('industrySelect').value = '';
@@ -1027,9 +1104,8 @@
         if (e.target.id === 'applyModal') closeApplyModal();
       });
 
-      var deskList = document.getElementById('jobListDesk');
-      renderSkeletonList(deskList, 5);
-      renderSkeletonList(document.getElementById('jobListMobile'), 5);
+      showSkeletons(document.getElementById('jobList'));
+      showSkeletons(document.getElementById('jobListMobile'));
 
       allJobs = await fetchJobs();
       setJobCountDisplay(allJobs.length);
@@ -1052,9 +1128,14 @@
         if (j) selectJob(j);
         else {
           selectedJob = null;
-          document.getElementById('detailEmpty').classList.remove('hidden');
-          document.getElementById('detailContentDesk').classList.add('hidden');
-          document.querySelectorAll('.job-card').forEach(function (c) { c.classList.remove('active'); });
+          var es = document.getElementById('emptyState');
+          var dc = document.getElementById('detailContent');
+          if (es) es.style.display = 'flex';
+          if (dc) dc.style.display = 'none';
+          document.querySelectorAll('.job-card').forEach(function (c) {
+            c.style.borderLeftColor = 'transparent';
+            c.style.background = 'transparent';
+          });
           closeMobileDetail();
         }
       });
