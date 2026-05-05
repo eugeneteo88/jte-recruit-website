@@ -28,7 +28,7 @@
     }
     html { box-sizing: border-box; }
     *, *::before, *::after { box-sizing: inherit; }
-    body { margin: 0; font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; }
+    body { margin: 0; font-family: var(--font-body); background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(201, 169, 110, 0.35); border-radius: 9999px; }
@@ -42,116 +42,154 @@
       .modal-shell { max-height: none; height: 100%; border-radius: 0 !important; }
     }
     .inp:focus, .sel:focus { outline: none; border-color: var(--gold) !important; box-shadow: 0 0 0 1px var(--gold); }
-    .desk-grid { display: none; max-width: 1400px; margin: 0 auto; grid-template-columns: 240px 360px 1fr; height: calc(100vh - 113px); overflow: hidden; border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
-    @media (min-width: 1024px) { .desk-grid { display: grid; } }
+    main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+    .js-layout { display: none; grid-template-columns: 420px 1fr; flex: 1; min-height: 0; max-height: calc(100vh - 220px); height: calc(100vh - 220px); max-width: 1440px; margin: 0 auto; overflow: hidden; border-left: 1px solid var(--border); border-right: 1px solid var(--border); background: white; }
+    @media (min-width: 1024px) { .js-layout { display: grid; } }
     .mob-only { display: block; }
     @media (min-width: 1024px) { .mob-only { display: none !important; } }
     .hidden { display: none !important; }
+    .pills-scroll { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+    .pills-scroll::-webkit-scrollbar { height: 4px; }
+    .filter-dd { position: absolute; top: 100%; left: 0; margin-top: 6px; min-width: 220px; max-height: 280px; overflow-y: auto; background: white; border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--card-shadow-hover); z-index: 40; padding: 10px; }
+    .pill-wrap { position: relative; flex-shrink: 0; }
+    .job-card:hover { background: rgba(250,247,242,0.85) !important; }
+    #jobDetailScroll { overflow-y: auto; flex: 1; min-height: 0; scroll-behavior: smooth; }
+    #detailStickyBar { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    #detailStickyBar.visible { opacity: 1; pointer-events: auto; }
+    #applyModal.is-open { justify-content: flex-end !important; align-items: stretch !important; padding: 0 !important; }
+    @media (max-width: 1023px) {
+      #applyModal.is-open { justify-content: center !important; align-items: stretch !important; }
+      #applyModal .modal-shell { width: 100% !important; max-width: 100% !important; border-radius: 0 !important; height: 100% !important; max-height: none !important; }
+    }
+    #applyModal .modal-shell { transform: translateX(100%); transition: transform 0.28s ease; border-radius: 16px 0 0 16px; height: 100vh; max-height: 100vh; margin: 0; }
+    #applyModal.is-open .modal-shell { transform: translateX(0); }
+    @media (max-width: 1023px) {
+      #applyModal .modal-shell { transform: translateY(100%); border-radius: 0 !important; }
+      #applyModal.is-open .modal-shell { transform: translateY(0); }
+    }
+    .job-html h1, .job-html h2, .job-html h3, .job-html h4 { font-family: var(--font-heading); color: var(--text); margin: 1em 0 0.5em; }
+    .job-html ul { padding-left: 1.25rem; margin: 0.75em 0; }
+    .job-html li { margin-bottom: 0.35em; line-height: 1.6; }
+    .job-html p { margin: 0 0 1em; line-height: 1.7; font-size: 14px; }
   </style>
 </head>
 <body>
-  <header style="background:white;border-bottom:1px solid #E8E0D5;position:sticky;top:0;z-index:50">
-    <div style="max-width:1400px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between">
+  <header style="background:#fff;border-bottom:1px solid #E8E0D5;width:100%;position:sticky;top:0;z-index:60">
+    <div style="max-width:1440px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center">
       <a href="https://jte.com.sg" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:flex;align-items:center;gap:4px">
-        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#C9A96E">JTE</span>
-        <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1C1C1C">Recruit</span>
+        <span style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#C9A96E">JTE</span>
+        <span style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#1C1C1C">Recruit</span>
       </a>
-      <div style="background:#F5EDD9;border:1px solid #E8D5B0;border-radius:20px;padding:4px 14px;font-size:13px;color:#B8935A;font-weight:500">
-        <span id="jobCount">Loading...</span>
-      </div>
-      <a href="https://jte.com.sg" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#6B6B6B;text-decoration:none;display:flex;align-items:center;gap:4px">← Back to JTE.com.sg</a>
     </div>
   </header>
 
-  <section style="background:#FAF7F2;padding:32px 24px;text-align:center;border-bottom:1px solid #E8E0D5">
-    <h1 style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#1C1C1C;margin:0 0 8px">Find Your Next Role</h1>
-    <p style="font-size:15px;color:#6B6B6B;margin:0;font-family:'Inter',sans-serif">Browse opportunities across Singapore · Updated daily</p>
+  <section style="background:#FAF7F2;border-bottom:1px solid #E8E0D5;padding:20px 16px 16px">
+    <div style="max-width:1440px;margin:0 auto">
+      <div style="position:relative;max-width:900px;margin:0 auto 12px">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px;opacity:0.5;pointer-events:none">🔍</span>
+        <input type="search" id="searchInput" placeholder="Search job title, industry, function..." autocomplete="off" class="inp" style="width:100%;padding:14px 16px 14px 44px;font-size:16px;border:1px solid #E8E0D5;border-radius:10px;background:#fff;color:#1C1C1C;box-sizing:border-box;font-family:'Inter',sans-serif;box-shadow:0 1px 2px rgba(0,0,0,0.04)">
+      </div>
+      <p id="jobCount" style="text-align:center;font-size:14px;color:#6B6B6B;margin:0 0 14px;font-family:'Inter',sans-serif">Loading...</p>
+      <div class="pills-scroll" id="filterPillsRow" style="max-width:900px;margin:0 auto;position:relative">
+        <div class="pill-wrap">
+          <button type="button" id="pillIndustryBtn" class="filter-pill-btn" style="padding:8px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:20px;background:#fff;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">Industry <span style="font-size:10px">▾</span></button>
+          <div id="ddIndustry" class="filter-dd hidden">
+            <select id="industrySelect" class="sel" style="width:100%;padding:8px;border:1px solid #E8E0D5;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif"></select>
+          </div>
+        </div>
+        <div class="pill-wrap">
+          <button type="button" id="pillSalaryBtn" class="filter-pill-btn" style="padding:8px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:20px;background:#fff;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">Salary <span style="font-size:10px">▾</span></button>
+          <div id="ddSalary" class="filter-dd hidden">
+            <select id="salarySelect" class="sel" style="width:100%;padding:8px;border:1px solid #E8E0D5;border-radius:8px;font-size:13px;font-family:'Inter',sans-serif">
+              <option value="any">Any</option>
+              <option value="lt2k">Below $2k</option>
+              <option value="2k3k">$2k – $3k</option>
+              <option value="3k4k">$3k – $4k</option>
+              <option value="4k5k">$4k – $5k</option>
+              <option value="gt5k">Above $5k</option>
+            </select>
+          </div>
+        </div>
+        <div class="pill-wrap">
+          <button type="button" id="pillWorkTypeBtn" class="filter-pill-btn" style="padding:8px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:20px;background:#fff;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">Work type <span style="font-size:10px">▾</span></button>
+          <div id="ddWorkType" class="filter-dd hidden" style="min-width:260px">
+            <div id="jobTypePills" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+            <p style="font-size:11px;color:#6B6B6B;margin:8px 0 0">Tap types to filter</p>
+          </div>
+        </div>
+        <div class="pill-wrap">
+          <button type="button" id="pillRegionBtn" class="filter-pill-btn" style="padding:8px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:20px;background:#fff;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap">Region <span style="font-size:10px">▾</span></button>
+          <div id="ddRegion" class="filter-dd hidden" style="min-width:200px">
+            <div id="regionRadios"></div>
+          </div>
+        </div>
+        <button type="button" id="clearFilters" style="padding:8px 14px;font-size:13px;border:1px solid #C9A96E;border-radius:20px;background:transparent;color:#C9A96E;font-family:'Inter',sans-serif;cursor:pointer;flex-shrink:0;white-space:nowrap">Clear all</button>
+      </div>
+    </div>
   </section>
 
-  <div class="mob-only" style="position:sticky;top:0;z-index:40;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-bottom:1px solid #E8E0D5;padding:12px 16px;display:flex;gap:8px;align-items:center">
-    <input type="search" id="mobileSearch" placeholder="Search roles..." autocomplete="off" class="inp" style="flex:1;padding:10px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif">
-    <button type="button" id="filterToggle" style="flex-shrink:0;padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer">Filters</button>
-  </div>
-
-  <div id="filterPanel" class="mob-only hidden" style="border-bottom:1px solid #E8E0D5;background:#FAF7F2;padding:16px">
-    <div id="mobileFiltersMount"></div>
-  </div>
-
   <main>
-    <div class="desk-grid">
-      <aside style="background:#FAF7F2;border-right:1px solid #E8E0D5;overflow-y:auto;padding:20px 16px;font-family:'Inter',sans-serif">
-        <div style="margin-bottom:20px">
-          <input type="text" id="searchInput" placeholder="Search roles..." autocomplete="off" class="inp" style="width:100%;padding:10px 14px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;box-sizing:border-box;font-family:'Inter',sans-serif">
-        </div>
-        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">REGION</p>
-        <div id="regionRadios" style="margin-bottom:20px"></div>
-        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">INDUSTRY</p>
-        <select id="industrySelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:20px"></select>
-        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB FUNCTION</p>
-        <select id="functionSelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:20px"></select>
-        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB TYPE</p>
-        <div id="jobTypePills" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"></div>
-        <p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">SALARY</p>
-        <select id="salarySelect" class="sel" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer;margin-bottom:16px">
-          <option value="any">Any</option>
-          <option value="lt2k">Below $2k</option>
-          <option value="2k3k">$2k – $3k</option>
-          <option value="3k4k">$3k – $4k</option>
-          <option value="4k5k">$4k – $5k</option>
-          <option value="gt5k">Above $5k</option>
-        </select>
-        <button type="button" id="clearFilters" style="width:100%;padding:9px;font-size:13px;border:1px solid #C9A96E;border-radius:8px;background:transparent;color:#C9A96E;cursor:pointer;font-family:'Inter',sans-serif;margin-top:16px"
-          onmouseover="this.style.background='#C9A96E';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#C9A96E'">Clear All Filters</button>
-      </aside>
-
-      <div style="border-right:1px solid #E8E0D5;overflow-y:auto;background:white;display:flex;flex-direction:column">
-        <div style="padding:12px 16px;border-bottom:1px solid #E8E0D5;position:sticky;top:0;background:white;z-index:10">
+    <div class="js-layout">
+      <div style="border-right:1px solid #E8E0D5;display:flex;flex-direction:column;background:#fff;min-width:0">
+        <div style="padding:10px 14px;border-bottom:1px solid #E8E0D5;background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <label style="font-size:13px;color:#6B6B6B;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:8px">Sort
+            <select id="sortSelect" class="sel" style="padding:6px 28px 6px 10px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:#fff;color:#1C1C1C;font-family:'Inter',sans-serif;cursor:pointer">
+              <option value="recent">Most recent</option>
+              <option value="salary_desc">Salary (high to low)</option>
+            </select>
+          </label>
           <p id="resultsCount" style="font-size:13px;color:#6B6B6B;margin:0;font-family:'Inter',sans-serif"></p>
         </div>
-        <div id="jobList"></div>
+        <div id="jobList" style="overflow-y:auto;flex:1;min-height:0"></div>
       </div>
 
-      <div id="jobDetail" style="overflow-y:auto;background:#FAF7F2;padding:32px;font-family:'Inter',sans-serif">
-        <div id="emptyState" style="min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6B6B6B">
-          <div style="font-size:48px;margin-bottom:12px;opacity:0.4">💼</div>
-          <p style="font-size:14px;margin:0">Select a role to view details</p>
+      <div id="jobDetail" style="display:flex;flex-direction:column;background:#FAF7F2;min-width:0;position:relative;height:100%">
+        <div id="detailStickyBar" style="position:sticky;top:0;left:0;right:0;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:rgba(255,255,255,0.97);border-bottom:1px solid #E8E0D5;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
+          <span id="stickyTitle" style="font-size:14px;font-weight:600;color:#1C1C1C;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0"></span>
+          <button type="button" id="stickyQuickApply" style="padding:8px 16px;background:#C9A96E;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0">Quick Apply</button>
         </div>
-        <div id="detailContent" style="display:none;max-width:680px;margin:0 auto">
-          <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow)">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap">
-              <div style="flex:1;min-width:200px">
-                <h2 id="detailTitle" style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1C1C1C;margin:0 0 6px;line-height:1.3"></h2>
-                <p id="detailCompany" style="font-size:14px;color:#C9A96E;font-weight:500;margin:0 0 4px"></p>
-                <p id="detailPosted" style="font-size:12px;color:#6B6B6B;margin:0"></p>
+        <div id="jobDetailScroll">
+          <div id="emptyState" style="min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6B6B6B;padding:40px 20px">
+            <div style="font-size:48px;margin-bottom:12px;opacity:0.35">💼</div>
+            <p style="font-size:14px;margin:0;font-family:'Inter',sans-serif">Select a job to view details</p>
+          </div>
+          <div id="detailContent" style="display:none;padding:24px 28px 48px;font-family:'Inter',sans-serif">
+            <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:20px">
+              <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#C9A96E,#B8935A);color:#fff;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">JTE</div>
+              <div style="flex:1;min-width:0">
+                <h1 id="detailTitle" style="font-size:24px;font-weight:700;color:#1C1C1C;margin:0 0 8px;line-height:1.25;font-family:'Inter',sans-serif"></h1>
+                <p style="margin:0;font-size:15px;color:#6B6B6B"><span id="detailCompany"></span> <span style="display:inline-block;margin-left:6px;padding:2px 8px;font-size:11px;border-radius:4px;background:#F5EDD9;color:#B8935A;font-weight:600">Verified employer</span></p>
+                <p id="detailPosted" style="font-size:13px;color:#6B6B6B;margin:10px 0 0"></p>
               </div>
-              <button type="button" id="detailApplyTop" style="padding:10px 20px;background:#C9A96E;color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;flex-shrink:0"
-                onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply Now →</button>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#FAF7F2;border-radius:12px;padding:16px">
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Location</p><p id="detailLocation" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Industry</p><p id="detailIndustry" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Salary</p><p id="detailSalary" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Job Type</p><p id="detailJobType" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Working Days</p><p id="detailWorkingDays" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Min Qualification</p><p id="detailQualification" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Function</p><p id="detailFunction" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-              <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;letter-spacing:0.06em;margin:0 0 3px;font-weight:500">Rights to Work</p><p id="detailRights" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+            <div style="font-size:14px;color:#1C1C1C;line-height:1.7;margin-bottom:20px;border-top:1px solid #E8E0D5;border-bottom:1px solid #E8E0D5;padding:16px 0">
+              <p style="margin:0 0 10px"><span style="color:#6B6B6B">📍</span> <span id="detailLocation"></span>, <span id="detailRegionLabel"></span></p>
+              <p style="margin:0 0 10px"><span style="color:#6B6B6B">🏭</span> <span id="detailIndustry"></span></p>
+              <p style="margin:0 0 10px"><span style="color:#6B6B6B">⏰</span> <span id="detailJobType"></span></p>
+              <p style="margin:0"><span style="color:#6B6B6B">💰</span> <span id="detailSalary"></span></p>
             </div>
-          </div>
-          <div id="descriptionCard" style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow);display:none">
-            <h3 style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#1C1C1C;margin:0 0 16px">About This Role</h3>
-            <div id="detailDescription" style="font-size:14px;color:#1C1C1C;line-height:1.7;font-family:'Inter',sans-serif"></div>
-          </div>
-          <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;box-shadow:var(--card-shadow);text-align:center">
-            <button type="button" id="detailApplyBottom" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif"
-              onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply for This Role</button>
-            <p style="font-size:12px;color:#6B6B6B;margin:10px 0 0">EA License No. 14C7215</p>
+            <div id="detailApplyAnchor" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;align-items:center">
+              <button type="button" id="detailApplyMain" style="padding:12px 28px;background:#C9A96E;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Apply Now</button>
+              <button type="button" id="detailSaveBtn" style="padding:12px 24px;background:#fff;color:#6B6B6B;border:1px solid #E8E0D5;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Save</button>
+            </div>
+            <div style="border-top:1px solid #E8E0D5;margin:0 0 24px"></div>
+            <div id="detailDescription" class="job-html" style="font-size:14px;color:#1C1C1C;line-height:1.75;max-width:720px"></div>
+            <p style="font-size:12px;color:#6B6B6B;margin-top:32px;text-align:center">EA License No. 14C7215</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mob-only" style="padding:16px 16px 112px">
+    <div class="mob-only" style="padding:0 0 100px;background:#fff">
+      <div style="padding:10px 16px;border-bottom:1px solid #E8E0D5;display:flex;align-items:center;justify-content:space-between">
+        <label style="font-size:13px;color:#6B6B6B;display:flex;align-items:center;gap:8px">Sort
+          <select id="sortSelectMobile" class="sel" style="padding:6px 10px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px">
+            <option value="recent">Most recent</option>
+            <option value="salary_desc">Salary (high to low)</option>
+          </select>
+        </label>
+        <p id="resultsCountMobile" style="font-size:13px;color:#6B6B6B;margin:0"></p>
+      </div>
       <div id="jobListMobile"></div>
     </div>
   </main>
@@ -159,40 +197,32 @@
   <div id="mobileDetail" class="mob-only" style="display:none;position:fixed;inset:0;z-index:60;background:#FAF7F2;flex-direction:column;overflow:hidden">
     <div style="flex-shrink:0;display:flex;align-items:center;gap:12px;border-bottom:1px solid #E8E0D5;background:white;padding:12px 16px">
       <button type="button" id="mobileDetailBack" style="padding:8px;margin-left:-8px;border:none;background:transparent;font-size:18px;cursor:pointer;color:#1C1C1C" aria-label="Back">←</button>
-      <span style="font-size:14px;font-weight:600;color:#1C1C1C;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Role details</span>
+      <span id="mobileHeaderTitle" style="font-size:14px;font-weight:600;color:#1C1C1C;font-family:'Inter',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">Job details</span>
+      <button type="button" id="mobileStickyQuickApply" style="padding:8px 14px;background:#C9A96E;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0;display:none">Quick Apply</button>
     </div>
-    <div id="detailScrollMobile" style="flex:1;min-height:0;overflow-y:auto;padding:24px 16px 120px;font-family:'Inter',sans-serif">
-      <div id="mEmptyState" style="display:none;min-height:200px;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#6B6B6B">
-        <div style="font-size:48px;margin-bottom:12px;opacity:0.4">💼</div>
-        <p style="font-size:14px;margin:0">Select a role</p>
-      </div>
-      <div id="mDetailContent" style="display:none;max-width:680px;margin:0 auto">
-        <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow)">
-          <div style="margin-bottom:16px">
-            <h2 id="mDetailTitle" style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1C1C1C;margin:0 0 6px;line-height:1.3"></h2>
-            <p id="mDetailCompany" style="font-size:14px;color:#C9A96E;font-weight:500;margin:0 0 4px"></p>
-            <p id="mDetailPosted" style="font-size:12px;color:#6B6B6B;margin:0"></p>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#FAF7F2;border-radius:12px;padding:16px">
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Location</p><p id="mDetailLocation" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Industry</p><p id="mDetailIndustry" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Salary</p><p id="mDetailSalary" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Job Type</p><p id="mDetailJobType" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Working Days</p><p id="mDetailWorkingDays" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Min Qualification</p><p id="mDetailQualification" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Function</p><p id="mDetailFunction" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
-            <div><p style="font-size:10px;color:#6B6B6B;text-transform:uppercase;margin:0 0 3px;font-weight:500">Rights to Work</p><p id="mDetailRights" style="font-size:13px;color:#1C1C1C;font-weight:500;margin:0"></p></div>
+    <div id="detailScrollMobile" style="flex:1;min-height:0;overflow-y:auto;font-family:'Inter',sans-serif">
+      <div id="mDetailContent" style="display:none;padding:20px 16px 140px">
+        <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:18px">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#C9A96E,#B8935A);color:#fff;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">JTE</div>
+          <div style="flex:1;min-width:0">
+            <h1 id="mDetailTitle" style="font-size:20px;font-weight:700;color:#1C1C1C;margin:0 0 6px;line-height:1.25;font-family:'Inter',sans-serif"></h1>
+            <p style="margin:0;font-size:14px;color:#6B6B6B"><span id="mDetailCompany"></span> <span style="display:inline-block;margin-left:6px;padding:2px 8px;font-size:10px;border-radius:4px;background:#F5EDD9;color:#B8935A;font-weight:600">Verified employer</span></p>
+            <p id="mDetailPosted" style="font-size:12px;color:#6B6B6B;margin:8px 0 0"></p>
           </div>
         </div>
-        <div id="mDescriptionCard" style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;margin-bottom:20px;box-shadow:var(--card-shadow);display:none">
-          <h3 style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#1C1C1C;margin:0 0 16px">About This Role</h3>
-          <div id="mDetailDescription" style="font-size:14px;color:#1C1C1C;line-height:1.7;font-family:'Inter',sans-serif"></div>
+        <div style="font-size:14px;color:#1C1C1C;line-height:1.65;margin-bottom:18px;border-top:1px solid #E8E0D5;border-bottom:1px solid #E8E0D5;padding:14px 0">
+          <p style="margin:0 0 8px"><span style="color:#6B6B6B">📍</span> <span id="mDetailLocation"></span>, <span id="mDetailRegionLabel"></span></p>
+          <p style="margin:0 0 8px"><span style="color:#6B6B6B">🏭</span> <span id="mDetailIndustry"></span></p>
+          <p style="margin:0 0 8px"><span style="color:#6B6B6B">⏰</span> <span id="mDetailJobType"></span></p>
+          <p style="margin:0"><span style="color:#6B6B6B">💰</span> <span id="mDetailSalary"></span></p>
         </div>
-        <div style="background:white;border-radius:16px;padding:24px;border:1px solid #E8E0D5;box-shadow:var(--card-shadow);text-align:center;margin-bottom:24px">
-          <button type="button" id="mDetailApplyBottom" style="width:100%;padding:14px;background:#C9A96E;color:white;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif"
-            onmouseover="this.style.background='#B8935A'" onmouseout="this.style.background='#C9A96E'">Apply for This Role</button>
-          <p style="font-size:12px;color:#6B6B6B;margin:10px 0 0">EA License No. 14C7215</p>
+        <div id="mDetailApplyAnchor" style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+          <button type="button" id="mDetailApplyMain" style="flex:1;min-width:140px;padding:12px;background:#C9A96E;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Apply Now</button>
+          <button type="button" id="mDetailSaveBtn" style="flex:1;min-width:120px;padding:12px;background:#fff;color:#6B6B6B;border:1px solid #E8E0D5;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif">Save</button>
         </div>
+        <div style="border-top:1px solid #E8E0D5;margin:0 0 20px"></div>
+        <div id="mDetailDescription" class="job-html" style="font-size:14px;color:#1C1C1C;line-height:1.75"></div>
+        <p style="font-size:11px;color:#6B6B6B;margin-top:28px;text-align:center">EA License No. 14C7215</p>
       </div>
     </div>
     <div style="flex-shrink:0;border-top:1px solid #E8E0D5;background:white;padding:16px;padding-bottom:max(16px, env(safe-area-inset-bottom))">
@@ -223,7 +253,7 @@
     const SUPABASE_URL = 'https://yxhzczjhwvdaqmoqyeyn.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4aHpjempod3ZkYXFtb3F5ZXluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjc3NTAsImV4cCI6MjA5MTY0Mzc1MH0.8qy91-HBrFsjEL-YsncdSTt0qftc2fr_g8h9hEN15Lc';
 
-    const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_days,salary_range,rights_to_work,min_qualification,job_description,created_at,portal_show_company_name,company_id,companies(name)';
+    const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_days,salary_range,salary_min,salary_max,min_qualification,job_description,created_at,portal_show_company_name,company_id,companies(name)';
 
     const MRT_REGION = {
       'Jurong East':'West','Boon Lay':'West','Pioneer':'West','Joo Koon':'West',
@@ -293,9 +323,25 @@
       search: '',
       region: 'All',
       industry: '',
-      jobFunction: '',
-      salaryBucket: 'any'
+      salaryBucket: 'any',
+      sort: 'recent'
     };
+
+    function extractJdSnippet(html, maxLength) {
+      maxLength = maxLength == null ? 150 : maxLength;
+      if (!html) return '';
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      var items = tmp.querySelectorAll('li');
+      if (items.length > 0) {
+        return Array.from(items).slice(0, 2).map(function (li) {
+          return '• ' + li.textContent.trim();
+        }).join('\n');
+      }
+      var text = tmp.textContent || tmp.innerText || '';
+      text = text.trim();
+      return text.slice(0, maxLength) + (text.length > maxLength ? '...' : '');
+    }
 
     function daysAgo(dateStr) {
       const d = Math.floor((Date.now() - new Date(dateStr)) / 86400000);
@@ -312,9 +358,9 @@
       const min = job.salary_min != null ? Number(job.salary_min) : null;
       const max = job.salary_max != null ? Number(job.salary_max) : null;
       if (min != null && max != null && !isNaN(min) && !isNaN(max)) {
-        return '$' + min.toLocaleString() + ' – $' + max.toLocaleString() + '/month';
+        return '$' + min.toLocaleString() + ' – $' + max.toLocaleString() + ' per month';
       }
-      if (min != null && !isNaN(min)) return 'From $' + min.toLocaleString() + '/month';
+      if (min != null && !isNaN(min)) return 'From $' + min.toLocaleString() + ' per month';
       if (job.salary_range && String(job.salary_range).trim()) return String(job.salary_range).trim();
       return 'Salary undisclosed';
     }
@@ -383,16 +429,23 @@
       return job.portal_show_company_name && nm ? nm : 'JTE Recruit Pte Ltd';
     }
 
+    function locationWithRegionLine(job) {
+      var loc = job.location && String(job.location).trim() ? String(job.location) : 'Singapore';
+      var reg = getRegion(job.location || '');
+      var regLabel = reg && reg !== 'All' ? reg + ' Region' : 'Singapore';
+      return { loc: loc, region: regLabel, line: loc + ', ' + regLabel };
+    }
+
     function injectDescStyleOnce() {
       if (document.getElementById('descStyle')) return;
       var style = document.createElement('style');
       style.id = 'descStyle';
       style.textContent =
-        '#detailDescription ul, #mDetailDescription ul { padding-left: 20px; margin: 8px 0; list-style-type: disc; }' +
-        '#detailDescription li, #mDetailDescription li { margin-bottom: 4px; font-size: 14px; color: #1C1C1C; line-height: 1.6; }' +
-        '#detailDescription strong, #detailDescription b, #mDetailDescription strong, #mDetailDescription b { font-weight: 600; color: #1C1C1C; }' +
-        '#detailDescription p, #mDetailDescription p { margin: 0 0 12px; font-size: 14px; line-height: 1.7; }' +
-        '#detailDescription h3, #detailDescription h4, #mDetailDescription h3, #mDetailDescription h4 { font-family: \'Playfair Display\', serif; color: #1C1C1C; margin: 16px 0 8px; }';
+        '.job-html ul, .job-html ol { padding-left: 1.25rem; margin: 0.75em 0; }' +
+        '.job-html li { margin-bottom: 0.35em; line-height: 1.6; font-size: 14px; }' +
+        '.job-html strong, .job-html b { font-weight: 600; color: #1C1C1C; }' +
+        '.job-html p { margin: 0 0 1em; line-height: 1.75; font-size: 14px; }' +
+        '.job-html h1, .job-html h2, .job-html h3, .job-html h4 { font-family: \'Playfair Display\', serif; color: #1C1C1C; margin: 1em 0 0.5em; font-weight: 600; }';
       document.head.appendChild(style);
     }
 
@@ -405,43 +458,71 @@
         if (a) a.textContent = v;
         if (b) b.textContent = v;
       }
+      var lr = locationWithRegionLine(job);
       setBoth('detailTitle', 'mDetailTitle', job.title || '');
       setBoth('detailCompany', 'mDetailCompany', getCompanyName(job));
       var posted = 'Posted ' + formatPosted(job.created_at);
       setBoth('detailPosted', 'mDetailPosted', posted);
-      setBoth('detailLocation', 'mDetailLocation', job.location || 'Singapore');
+      setBoth('detailLocation', 'mDetailLocation', lr.loc);
+      setBoth('detailRegionLabel', 'mDetailRegionLabel', lr.region);
       setBoth('detailIndustry', 'mDetailIndustry', job.job_industry || '—');
       setBoth('detailSalary', 'mDetailSalary', formatSalary(job));
       setBoth('detailJobType', 'mDetailJobType', jobTypeLabel(job));
-      setBoth('detailWorkingDays', 'mDetailWorkingDays', job.working_days != null ? String(job.working_days) : '—');
-      setBoth('detailQualification', 'mDetailQualification', job.min_qualification != null ? String(job.min_qualification) : '—');
-      setBoth('detailFunction', 'mDetailFunction', job.job_function || '—');
-      var rights = job.rights_to_work != null && String(job.rights_to_work).trim() ? String(job.rights_to_work) : '—';
-      setBoth('detailRights', 'mDetailRights', rights);
+
+      var st = document.getElementById('stickyTitle');
+      if (st) st.textContent = (job.title || '').slice(0, 60) + ((job.title || '').length > 60 ? '…' : '');
+      var mht = document.getElementById('mobileHeaderTitle');
+      if (mht) mht.textContent = (job.title || 'Job details').slice(0, 40) + ((job.title || '').length > 40 ? '…' : '');
 
       var raw = job.job_description && String(job.job_description).trim() ? String(job.job_description) : '';
       var descEl = document.getElementById('detailDescription');
-      var descCard = document.getElementById('descriptionCard');
       var mDesc = document.getElementById('mDetailDescription');
-      var mCard = document.getElementById('mDescriptionCard');
-      if (raw) {
-        if (descEl) descEl.innerHTML = raw;
-        if (mDesc) mDesc.innerHTML = raw;
-        if (descCard) descCard.style.display = 'block';
-        if (mCard) mCard.style.display = 'block';
-      } else {
-        if (descEl) descEl.innerHTML = '';
-        if (mDesc) mDesc.innerHTML = '';
-        if (descCard) descCard.style.display = 'none';
-        if (mCard) mCard.style.display = 'none';
-      }
+      if (descEl) descEl.innerHTML = raw || '';
+      if (mDesc) mDesc.innerHTML = raw || '';
+
+      setupDetailScrollSpy();
+      setupMobileDetailScrollSpy();
     }
 
     function bindDetailApplyHandlers() {
-      ['detailApplyTop', 'detailApplyBottom', 'mDetailApplyBottom', 'mobileApplySticky'].forEach(function (id) {
+      ['detailApplyMain', 'stickyQuickApply', 'mDetailApplyMain', 'mobileApplySticky', 'mobileStickyQuickApply'].forEach(function (id) {
         var el = document.getElementById(id);
         if (el) el.onclick = function () { openApplyModal(); };
       });
+      ['detailSaveBtn', 'mDetailSaveBtn'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.onclick = function () { alert('Saved to your list is coming soon.'); };
+      });
+    }
+
+    function setupDetailScrollSpy() {
+      var wrap = document.getElementById('jobDetailScroll');
+      var bar = document.getElementById('detailStickyBar');
+      var anchor = document.getElementById('detailApplyAnchor');
+      if (!wrap || !bar || !anchor) return;
+      function tick() {
+        var er = anchor.getBoundingClientRect();
+        var wr = wrap.getBoundingClientRect();
+        var past = er.bottom < wr.top + 12;
+        if (past) bar.classList.add('visible');
+        else bar.classList.remove('visible');
+      }
+      wrap.onscroll = tick;
+      tick();
+    }
+
+    function setupMobileDetailScrollSpy() {
+      var wrap = document.getElementById('detailScrollMobile');
+      var mq = document.getElementById('mobileStickyQuickApply');
+      var anchor = document.getElementById('mDetailApplyAnchor');
+      if (!wrap || !mq || !anchor) return;
+      function tick() {
+        var er = anchor.getBoundingClientRect();
+        var wr = wrap.getBoundingClientRect();
+        mq.style.display = er.bottom < wr.top + 12 ? 'inline-block' : 'none';
+      }
+      wrap.onscroll = tick;
+      tick();
     }
 
     function updateUrl(publicId) {
@@ -525,7 +606,6 @@
           phone_country_code: formData.countryCode,
           expected_salary_min: formData.salaryMin ? parseInt(formData.salaryMin, 10) : null,
           expected_salary_max: formData.salaryMax ? parseInt(formData.salaryMax, 10) : null,
-          rights_to_work_public: formData.rightsToWork || null,
           resume_path: resumePath,
           resume_filename: resumeFilename,
           consent_pdpa: true,
@@ -553,7 +633,6 @@
           if (reg !== filters.region && reg !== 'All') return false;
         }
         if (filters.industry && (job.job_industry || '') !== filters.industry) return false;
-        if (filters.jobFunction && (job.job_function || '') !== filters.jobFunction) return false;
         if (!jobMatchesSelectedTypes(job)) return false;
         if (!salaryMatchesBucket(job, filters.salaryBucket)) return false;
         return true;
@@ -573,26 +652,18 @@
     function renderRegionRadios(container) {
       if (!container) return;
       var regions = ['All', 'West', 'East', 'North', 'Central', 'North East', 'South'];
-      var isMobile = container.id === 'regionRadiosM';
       container.innerHTML = regions.map(function (r) {
         return '<label style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:#1C1C1C;margin-bottom:2px;font-family:\'Inter\',sans-serif" ' +
           'onmouseover="this.style.background=\'#F5EDD9\'" onmouseout="this.style.background=\'transparent\'">' +
-          '<input type="radio" name="region' + (isMobile ? '_m' : '') + '" value="' + r + '" style="accent-color:#C9A96E" ' + (filters.region === r ? 'checked' : '') + ' />' +
+          '<input type="radio" name="region" value="' + r + '" style="accent-color:#C9A96E" ' + (filters.region === r ? 'checked' : '') + ' />' +
           '<span>' + regionLabel(r) + '</span></label>';
       }).join('');
       container.querySelectorAll('input[type="radio"]').forEach(function (inp) {
         inp.addEventListener('change', function () {
           filters.region = inp.value;
-          if (isMobile) syncRegionDesk();
-          else syncRegionMobile();
+          closeFilterDropdowns();
           refresh();
         });
-      });
-    }
-
-    function syncRegionMobile() {
-      document.querySelectorAll('#regionRadiosM input[type="radio"]').forEach(function (inp) {
-        inp.checked = inp.value === filters.region;
       });
     }
 
@@ -611,38 +682,37 @@
           if (selectedJobTypes.has(k)) selectedJobTypes.delete(k);
           else selectedJobTypes.add(k);
           renderJobTypePills(document.getElementById('jobTypePills'));
-          var m = document.getElementById('jobTypePillsM');
-          if (m) renderJobTypePills(m);
+          closeFilterDropdowns();
           refresh();
         });
       });
     }
 
-    function syncRegionDesk() {
-      document.querySelectorAll('#regionRadios input[type="radio"]').forEach(function (inp) {
-        inp.checked = inp.value === filters.region;
-      });
-    }
-
     function populateDropdowns() {
       var industries = [...new Set(allJobs.map(function (j) { return j.job_industry; }).filter(Boolean))].sort();
-      var functions = [...new Set(allJobs.map(function (j) { return j.job_function; }).filter(Boolean))].sort();
-      ['industrySelect', 'industrySelectM'].forEach(function (id) {
-        var sel = document.getElementById(id);
-        if (!sel) return;
-        var cur = filters.industry;
-        sel.innerHTML = '<option value="">All industries</option>' +
-          industries.map(function (i) { return '<option value="' + escapeAttr(i) + '">' + escapeHtml(i) + '</option>'; }).join('');
-        sel.value = cur;
-      });
-      ['functionSelect', 'functionSelectM'].forEach(function (id) {
-        var sel = document.getElementById(id);
-        if (!sel) return;
-        var cur = filters.jobFunction;
-        sel.innerHTML = '<option value="">All functions</option>' +
-          functions.map(function (i) { return '<option value="' + escapeAttr(i) + '">' + escapeHtml(i) + '</option>'; }).join('');
-        sel.value = cur;
-      });
+      var sel = document.getElementById('industrySelect');
+      if (!sel) return;
+      var cur = filters.industry;
+      sel.innerHTML = '<option value="">All industries</option>' +
+        industries.map(function (i) { return '<option value="' + escapeAttr(i) + '">' + escapeHtml(i) + '</option>'; }).join('');
+      sel.value = cur;
+    }
+
+    function getSortedJobs() {
+      var list = filteredJobs.slice();
+      if (filters.sort === 'salary_desc') {
+        list.sort(function (a, b) {
+          var pa = parseSalaryBand(a);
+          var pb = parseSalaryBand(b);
+          var va = pa.max != null ? pa.max : pa.min;
+          var vb = pb.max != null ? pb.max : pb.min;
+          if (va == null && vb == null) return 0;
+          if (va == null) return 1;
+          if (vb == null) return -1;
+          return vb - va;
+        });
+      }
+      return list;
     }
 
     function escapeHtml(s) {
@@ -658,24 +728,22 @@
     function renderJobCard(job) {
       var active = selectedJob && selectedJob.id === job.id;
       var company = getCompanyName(job);
-      var region = getRegion(job.location || '');
+      var lr = locationWithRegionLine(job);
       var sal = formatSalary(job);
-      var jt = job.job_type || 'Full time';
-      var ind = job.job_industry || '';
       var borderLeft = active ? '#C9A96E' : 'transparent';
-      var bg = active ? 'rgba(250,247,242,0.5)' : 'transparent';
-      var indHtml = ind ? '<span style="padding:3px 8px;font-size:11px;border-radius:4px;background:#F5F5F5;color:#6B6B6B">' + escapeHtml(ind) + '</span>' : '';
+      var bg = active ? '#FAF7F2' : '#fff';
+      var snippetRaw = extractJdSnippet(job.job_description || '', 120);
+      var snippetHtml = escapeHtml(snippetRaw).replace(/\n/g, '<br>');
       return (
-        '<div class="job-card" data-job-id="' + job.id + '" style="padding:16px;border-bottom:1px solid #E8E0D5;cursor:pointer;border-left:3px solid ' + borderLeft + ';background:' + bg + ';transition:all 0.15s;font-family:\'Inter\',sans-serif">' +
-        '<h3 style="font-size:14px;font-weight:600;color:#1C1C1C;margin:0 0 4px;line-height:1.4">' + escapeHtml(job.title || '') + '</h3>' +
-        '<p style="font-size:12px;color:#C9A96E;font-weight:500;margin:0 0 10px">' + escapeHtml(company) + '</p>' +
-        '<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:10px">' +
-        '<div style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B6B6B"><span>📍</span><span>' + escapeHtml(job.location || 'Singapore') + ' · ' + escapeHtml(region) + '</span></div>' +
-        '<div style="display:flex;align-items:center;gap:5px;font-size:12px;color:#6B6B6B"><span>💰</span><span>' + escapeHtml(sal) + '</span></div></div>' +
-        '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">' +
-        '<span style="padding:3px 8px;font-size:11px;border-radius:4px;background:#F5EDD9;color:#B8935A;font-weight:500">' + escapeHtml(jt) + '</span>' +
-        indHtml +
-        '<span style="margin-left:auto;font-size:11px;color:#6B6B6B">' + daysAgo(job.created_at) + '</span></div></div>'
+        '<div class="job-card" data-job-id="' + job.id + '" style="padding:18px 16px;border-bottom:1px solid #E8E0D5;cursor:pointer;border-left:4px solid ' + borderLeft + ';background:' + bg + ';transition:background 0.15s;font-family:\'Inter\',sans-serif">' +
+        '<h3 style="font-size:15px;font-weight:600;color:#C9A96E;margin:0 0 8px;line-height:1.35;text-decoration:none">' + escapeHtml(job.title || '') + '</h3>' +
+        '<p style="font-size:13px;color:#6B6B6B;margin:0 0 12px">' + escapeHtml(company) + '</p>' +
+        '<p style="margin:0 0 6px;font-size:13px;color:#1C1C1C;line-height:1.45"><span style="color:#6B6B6B">📍</span> ' + escapeHtml(lr.line) + '</p>' +
+        '<p style="margin:0 0 12px;font-size:13px;color:#1C1C1C;line-height:1.45"><span style="color:#6B6B6B">💰</span> ' + escapeHtml(sal) + '</p>' +
+        (snippetRaw ? '<div style="font-size:13px;color:#1C1C1C;line-height:1.55;margin:0 0 14px">' + snippetHtml + '</div>' : '') +
+        '<div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#6B6B6B">' +
+        '<span>' + daysAgo(job.created_at) + '</span>' +
+        '<span style="display:flex;align-items:center;gap:12px"><span style="font-size:14px;color:#9a9a9a">▾</span><span title="Save" style="font-size:16px;opacity:0.7">🔖</span></span></div></div>'
       );
     }
 
@@ -691,23 +759,26 @@
     }
 
     function renderLists() {
+      var sorted = getSortedJobs();
       var desk = document.getElementById('jobList');
       var mob = document.getElementById('jobListMobile');
       var rc = document.getElementById('resultsCount');
-      if (rc) {
-        var n = filteredJobs.length;
-        rc.innerHTML = '<span style="font-weight:600;color:#1C1C1C">' + n + '</span> <span style="color:#6B6B6B">results</span>';
-      }
+      var rcm = document.getElementById('resultsCountMobile');
+      var n = filteredJobs.length;
+      var countHtml = '<span style="font-weight:600;color:#1C1C1C">' + n + '</span> <span style="color:#6B6B6B">jobs</span>';
+      if (rc) rc.innerHTML = countHtml;
+      if (rcm) rcm.innerHTML = countHtml;
 
-      if (!filteredJobs.length) {
-        var empty = '<div style="text-align:center;padding:48px 16px;font-size:13px;color:#6B6B6B;font-family:\'Inter\',sans-serif">No roles match your filters. Try adjusting search or filters.</div>';
+      if (!sorted.length) {
+        var empty = '<div style="text-align:center;padding:48px 16px;font-size:13px;color:#6B6B6B;font-family:\'Inter\',sans-serif">No roles match your filters.</div>';
         if (desk) desk.innerHTML = empty;
         if (mob) mob.innerHTML = empty;
         return;
       }
 
-      if (desk) desk.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j); }).join('');
-      if (mob) mob.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j); }).join('');
+      var html = sorted.map(function (j) { return renderJobCard(j); }).join('');
+      if (desk) desk.innerHTML = html;
+      if (mob) mob.innerHTML = html;
 
       [desk, mob].forEach(function (container) {
         if (!container) return;
@@ -745,14 +816,12 @@
         var id = card.getAttribute('data-job-id');
         var isSel = id === String(job.id);
         card.style.borderLeftColor = isSel ? '#C9A96E' : 'transparent';
-        card.style.background = isSel ? 'rgba(250,247,242,0.5)' : 'transparent';
+        card.style.background = isSel ? '#FAF7F2' : '#fff';
       });
 
       if (window.innerWidth < 1024) {
         var md = document.getElementById('mobileDetail');
-        var mEmpty = document.getElementById('mEmptyState');
         var mContent = document.getElementById('mDetailContent');
-        if (mEmpty) mEmpty.style.display = 'none';
         if (mContent) mContent.style.display = 'block';
         if (md) {
           md.style.display = 'flex';
@@ -780,6 +849,7 @@
     function refresh() {
       applyFilters();
       renderLists();
+      updateFilterPillStyles();
       if (selectedJob && !filteredJobs.find(function (j) { return j.id === selectedJob.id; })) {
         selectedJob = null;
         var empty = document.getElementById('emptyState');
@@ -837,13 +907,6 @@
         '<input name="salaryMin" type="number" min="0" placeholder="Optional" class="inp" style="' + inp + '" /></div>' +
         '<div><label style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:6px;font-family:\'Inter\',sans-serif">Expected salary (max)</label>' +
         '<input name="salaryMax" type="number" min="0" placeholder="Optional" class="inp" style="' + inp + '" /></div></div>' +
-        '<div style="margin-bottom:16px"><span style="display:block;font-size:12px;color:#6B6B6B;margin-bottom:8px;font-family:\'Inter\',sans-serif">Rights to work <span style="font-weight:400">(optional)</span></span>' +
-        '<label style="display:flex;gap:12px;border:1px solid #E8E0D5;border-radius:8px;padding:12px;margin-bottom:8px;cursor:pointer;background:white;font-family:\'Inter\',sans-serif">' +
-        '<input type="radio" name="rights" value="permanent" style="margin-top:4px;accent-color:#C9A96E" />' +
-        '<span><span style="font-weight:600;color:#1C1C1C;font-size:14px">Permanent rights to work</span><span style="display:block;font-size:12px;color:#6B6B6B;margin-top:2px">(Singapore Citizen or Permanent Resident)</span></span></label>' +
-        '<label style="display:flex;gap:12px;border:1px solid #E8E0D5;border-radius:8px;padding:12px;cursor:pointer;background:white;font-family:\'Inter\',sans-serif">' +
-        '<input type="radio" name="rights" value="work_pass" style="margin-top:4px;accent-color:#C9A96E" />' +
-        '<span><span style="font-weight:600;color:#1C1C1C;font-size:14px">Require work pass</span><span style="display:block;font-size:12px;color:#6B6B6B;margin-top:2px">(Employment Pass, S Pass or Work Permit)</span></span></label></div>' +
         '<label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;margin-bottom:16px;font-family:\'Inter\',sans-serif">' +
         '<input required type="checkbox" name="consent" style="margin-top:4px;accent-color:#C9A96E;flex-shrink:0" />' +
         '<span style="font-size:12px;color:#6B6B6B;line-height:1.5">I consent to JTE Recruit Pte Ltd collecting and using my personal data for recruitment purposes in accordance with the Personal Data Protection Act (PDPA).</span></label>' +
@@ -925,10 +988,6 @@
           errEl.style.display = 'block';
           return;
         }
-        var rightsEl = form.querySelector('input[name="rights"]:checked');
-        var rightsVal = rightsEl ? rightsEl.value : null;
-        var rightsMap = { permanent: 'Permanent Rights to Work', work_pass: 'Require Work Pass' };
-
         var submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting…';
@@ -944,7 +1003,6 @@
             countryCode: String(countryCode),
             salaryMin: fd.get('salaryMin'),
             salaryMax: fd.get('salaryMax'),
-            rightsToWork: rightsVal ? rightsMap[rightsVal] : null,
             resume: resume
           });
           recordApplicationAttempt(String(email).toLowerCase());
@@ -981,120 +1039,111 @@
       });
     }
 
-    function mountMobileFiltersClone() {
-      var mount = document.getElementById('mobileFiltersMount');
-      var aside = document.querySelector('aside');
-      if (!mount || !aside) return;
-      var selSt = 'width:100%;padding:9px 12px;font-size:13px;border:1px solid #E8E0D5;border-radius:8px;background:white;color:#1C1C1C;font-family:\'Inter\',sans-serif;cursor:pointer';
-      mount.innerHTML =
-        '<div style="font-family:\'Inter\',sans-serif">' +
-        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">INDUSTRY</p>' +
-        '<select id="industrySelectM" class="sel" style="' + selSt + ';margin-bottom:20px"></select>' +
-        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB FUNCTION</p>' +
-        '<select id="functionSelectM" class="sel" style="' + selSt + ';margin-bottom:20px"></select>' +
-        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">REGION</p>' +
-        '<div id="regionRadiosM" style="margin-bottom:20px"></div>' +
-        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">JOB TYPE</p>' +
-        '<div id="jobTypePillsM" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px"></div>' +
-        '<p style="font-size:10px;font-weight:600;color:#6B6B6B;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px">SALARY</p>' +
-        '<select id="salarySelectM" class="sel" style="' + selSt + ';margin-bottom:16px">' +
-        '<option value="any">Any</option><option value="lt2k">Below $2k</option><option value="2k3k">$2k – $3k</option><option value="3k4k">$3k – $4k</option><option value="4k5k">$4k – $5k</option><option value="gt5k">Above $5k</option></select>' +
-        '<button type="button" id="clearFiltersM" style="width:100%;padding:9px;font-size:13px;border:1px solid #C9A96E;border-radius:8px;background:transparent;color:#C9A96E;cursor:pointer;font-family:\'Inter\',sans-serif;margin-top:8px"' +
-        ' onmouseover="this.style.background=\'#C9A96E\';this.style.color=\'white\'" onmouseout="this.style.background=\'transparent\';this.style.color=\'#C9A96E\'">Clear All Filters</button></div>';
-
-      populateDropdowns();
-      renderRegionRadios(document.getElementById('regionRadiosM'));
-      renderJobTypePills(document.getElementById('jobTypePillsM'));
-
-      document.getElementById('industrySelectM').addEventListener('change', function () {
-        filters.industry = this.value;
-        document.getElementById('industrySelect').value = this.value;
-        refresh();
+    function closeFilterDropdowns() {
+      ['ddIndustry', 'ddSalary', 'ddWorkType', 'ddRegion'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
       });
-      document.getElementById('functionSelectM').addEventListener('change', function () {
-        filters.jobFunction = this.value;
-        document.getElementById('functionSelect').value = this.value;
-        refresh();
-      });
-      document.getElementById('salarySelectM').addEventListener('change', function () {
-        filters.salaryBucket = this.value;
-        document.getElementById('salarySelect').value = this.value;
-        refresh();
-      });
-      document.getElementById('clearFiltersM').addEventListener('click', function () {
-        document.getElementById('clearFilters').click();
-      });
-
-      syncRegionMobile();
-      syncSalaryMobile();
     }
 
-    function syncSalaryMobile() {
-      var sm = document.getElementById('salarySelectM');
-      if (sm) sm.value = filters.salaryBucket;
+    function updateFilterPillStyles() {
+      var goldBg = '#F5EDD9';
+      var goldBorder = '#C9A96E';
+      var plainBg = '#fff';
+      var plainBorder = '#E8E0D5';
+      function stylePill(btnId, active) {
+        var b = document.getElementById(btnId);
+        if (!b) return;
+        b.style.background = active ? goldBg : plainBg;
+        b.style.borderColor = active ? goldBorder : plainBorder;
+        b.style.borderStyle = 'solid';
+        b.style.borderWidth = '1px';
+      }
+      stylePill('pillIndustryBtn', !!filters.industry);
+      stylePill('pillSalaryBtn', filters.salaryBucket !== 'any');
+      stylePill('pillWorkTypeBtn', selectedJobTypes.size > 0);
+      stylePill('pillRegionBtn', filters.region !== 'All');
+    }
+
+    function initPillDropdowns() {
+      var pairs = [
+        { btn: 'pillIndustryBtn', dd: 'ddIndustry' },
+        { btn: 'pillSalaryBtn', dd: 'ddSalary' },
+        { btn: 'pillWorkTypeBtn', dd: 'ddWorkType' },
+        { btn: 'pillRegionBtn', dd: 'ddRegion' }
+      ];
+      pairs.forEach(function (p) {
+        var btn = document.getElementById(p.btn);
+        var dd = document.getElementById(p.dd);
+        if (!btn || !dd) return;
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var opening = dd.classList.contains('hidden');
+          closeFilterDropdowns();
+          if (opening) dd.classList.remove('hidden');
+        });
+      });
+      document.addEventListener('click', function () {
+        closeFilterDropdowns();
+      });
+      pairs.forEach(function (p) {
+        var dd = document.getElementById(p.dd);
+        if (dd) dd.addEventListener('click', function (e) { e.stopPropagation(); });
+      });
+    }
+
+    function onSortChange(v) {
+      filters.sort = v || 'recent';
+      var s1 = document.getElementById('sortSelect');
+      var s2 = document.getElementById('sortSelectMobile');
+      if (s1) s1.value = filters.sort;
+      if (s2) s2.value = filters.sort;
+      refresh();
     }
 
     async function init() {
       renderRegionRadios(document.getElementById('regionRadios'));
       renderJobTypePills(document.getElementById('jobTypePills'));
+      initPillDropdowns();
 
       var deskSearch = document.getElementById('searchInput');
-      var mobSearch = document.getElementById('mobileSearch');
       function onSearch(v) {
         filters.search = v;
         refresh();
       }
-      if (deskSearch) deskSearch.addEventListener('input', function () { onSearch(deskSearch.value); if (mobSearch) mobSearch.value = deskSearch.value; });
-      if (mobSearch) mobSearch.addEventListener('input', function () { onSearch(mobSearch.value); if (deskSearch) deskSearch.value = mobSearch.value; });
+      if (deskSearch) deskSearch.addEventListener('input', function () { onSearch(deskSearch.value); });
 
       document.getElementById('industrySelect').addEventListener('change', function () {
         filters.industry = this.value;
-        var m = document.getElementById('industrySelectM');
-        if (m) m.value = this.value;
-        refresh();
-      });
-      document.getElementById('functionSelect').addEventListener('change', function () {
-        filters.jobFunction = this.value;
-        var m = document.getElementById('functionSelectM');
-        if (m) m.value = this.value;
+        closeFilterDropdowns();
         refresh();
       });
       document.getElementById('salarySelect').addEventListener('change', function () {
         filters.salaryBucket = this.value;
-        var m = document.getElementById('salarySelectM');
-        if (m) m.value = this.value;
+        closeFilterDropdowns();
         refresh();
       });
+
+      document.getElementById('sortSelect').addEventListener('change', function () { onSortChange(this.value); });
+      document.getElementById('sortSelectMobile').addEventListener('change', function () { onSortChange(this.value); });
 
       document.getElementById('clearFilters').addEventListener('click', function () {
         filters.search = '';
         filters.region = 'All';
         filters.industry = '';
-        filters.jobFunction = '';
         filters.salaryBucket = 'any';
+        filters.sort = 'recent';
         selectedJobTypes.clear();
         var si = document.getElementById('searchInput');
         if (si) si.value = '';
-        if (mobSearch) mobSearch.value = '';
         document.getElementById('salarySelect').value = 'any';
         document.getElementById('industrySelect').value = '';
-        document.getElementById('functionSelect').value = '';
-        var sm = document.getElementById('salarySelectM');
-        if (sm) sm.value = 'any';
-        var im = document.getElementById('industrySelectM');
-        if (im) im.value = '';
-        var fm = document.getElementById('functionSelectM');
-        if (fm) fm.value = '';
+        document.getElementById('sortSelect').value = 'recent';
+        document.getElementById('sortSelectMobile').value = 'recent';
         renderRegionRadios(document.getElementById('regionRadios'));
-        renderRegionRadios(document.getElementById('regionRadiosM'));
         renderJobTypePills(document.getElementById('jobTypePills'));
-        renderJobTypePills(document.getElementById('jobTypePillsM'));
+        closeFilterDropdowns();
         refresh();
-      });
-
-      document.getElementById('filterToggle').addEventListener('click', function () {
-        var p = document.getElementById('filterPanel');
-        p.classList.toggle('hidden');
       });
 
       document.getElementById('mobileDetailBack').addEventListener('click', closeMobileDetail);
@@ -1110,10 +1159,8 @@
       allJobs = await fetchJobs();
       setJobCountDisplay(allJobs.length);
       populateDropdowns();
-      mountMobileFiltersClone();
 
-      applyFilters();
-      renderLists();
+      refresh();
 
       var params = new URLSearchParams(window.location.search);
       var jobParam = params.get('job');
@@ -1134,7 +1181,7 @@
           if (dc) dc.style.display = 'none';
           document.querySelectorAll('.job-card').forEach(function (c) {
             c.style.borderLeftColor = 'transparent';
-            c.style.background = 'transparent';
+            c.style.background = '#fff';
           });
           closeMobileDetail();
         }
