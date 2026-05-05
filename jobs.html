@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jobs in Singapore | JTE Recruit</title>
+  <meta name="description" content="Find your next role in Singapore. Browse jobs across engineering, logistics, admin, finance and more. Apply directly with JTE Recruit.">
+  <meta property="og:title" content="Jobs in Singapore | JTE Recruit">
+  <meta property="og:description" content="Browse jobs across Singapore. Apply directly with JTE Recruit — EA License 14C7215.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #FAF7F2; color: #1C1C1C; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    .job-card.active { border-left: 3px solid #C9A96E; background: rgba(250, 247, 242, 0.85); }
+    .job-card:hover { background: #FAF7F2; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(201, 169, 110, 0.35); border-radius: 9999px; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .skeleton { animation: pulse 2s infinite; background: #E8E0D5; border-radius: 4px; }
+    #mobileDetail { transform: translateX(100%); transition: transform 0.3s ease; }
+    #mobileDetail.slide-in { transform: translateX(0) !important; }
+    .modal-panel { max-height: calc(100vh - 2rem); }
+    @media (max-width: 1023px) {
+      .modal-panel { max-height: none; height: 100%; }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white border-b border-[#E8E0D5] shadow-sm">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
+      <a href="https://jte.com.sg" class="flex-shrink-0 flex items-baseline gap-1 group" target="_blank" rel="noopener noreferrer">
+        <span class="font-playfair text-xl font-semibold text-[#C9A96E] group-hover:text-[#B8935A] transition-colors">JTE</span>
+        <span class="font-playfair text-xl font-semibold text-[#1C1C1C] group-hover:text-[#B8935A] transition-colors">Recruit</span>
+      </a>
+      <div class="hidden sm:flex flex-1 justify-center px-2">
+        <span id="jobCountBadge" class="inline-flex items-center rounded-full border border-[#E8E0D5] bg-[#FAF7F2] px-3 py-1 text-xs font-medium text-[#6B6B6B]">
+          <span id="jobCountNum" class="font-semibold text-[#1C1C1C]">—</span>&nbsp;<span>roles available</span>
+        </span>
+      </div>
+      <a href="https://jte.com.sg" class="text-xs sm:text-sm font-medium text-[#6B6B6B] hover:text-[#C9A96E] transition-colors whitespace-nowrap" target="_blank" rel="noopener noreferrer">← Back to JTE.com.sg</a>
+    </div>
+    <div class="sm:hidden flex justify-center pb-2 px-4">
+      <span id="jobCountBadgeMobile" class="inline-flex items-center rounded-full border border-[#E8E0D5] bg-[#FAF7F2] px-3 py-1 text-xs font-medium text-[#6B6B6B]">
+        <span id="jobCountNumMobile" class="font-semibold text-[#1C1C1C]">—</span>&nbsp;<span>roles available</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="border-b border-[#E8E0D5] bg-[#FAF7F2] py-8 px-4 text-center">
+    <h1 class="font-playfair text-3xl sm:text-4xl font-semibold text-[#1C1C1C] mb-2">Find Your Next Role</h1>
+    <p class="text-sm text-[#6B6B6B] font-light">Browse opportunities across Singapore · Updated daily</p>
+  </section>
+
+  <!-- Mobile top bar -->
+  <div class="lg:hidden sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#E8E0D5] px-4 py-3 flex gap-2 items-center">
+    <div class="flex-1 relative">
+      <input type="search" id="mobileSearch" placeholder="Search roles…" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm text-[#1C1C1C] placeholder:text-[#6B6B6B] focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" autocomplete="off">
+      <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6B6B] text-xs">⌕</span>
+    </div>
+    <button type="button" id="filterToggle" class="flex-shrink-0 rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-xs font-semibold uppercase tracking-wide text-[#1C1C1C] hover:border-[#C9A96E]">Filters</button>
+  </div>
+
+  <!-- Mobile filters (collapsible) -->
+  <div id="filterPanel" class="lg:hidden hidden border-b border-[#E8E0D5] bg-[#FAF7F2] px-4 py-4 space-y-4">
+    <div id="mobileFiltersMount"></div>
+  </div>
+
+  <!-- Desktop layout -->
+  <main class="max-w-[1600px] mx-auto">
+    <div class="hidden lg:grid lg:grid-cols-[220px_340px_1fr] lg:gap-0 lg:border-x border-[#E8E0D5]" style="height: calc(100vh - 120px);">
+
+      <!-- Filters -->
+      <aside class="border-r border-[#E8E0D5] bg-[#FAF7F2] overflow-y-auto px-4 py-6 space-y-5">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Search</label>
+          <input type="search" id="deskSearch" placeholder="Title, industry, function…" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" autocomplete="off">
+        </div>
+        <div>
+          <span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Region</span>
+          <div id="regionRadios" class="space-y-2"></div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Industry</label>
+          <select id="industrySelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Job function</label>
+          <select id="functionSelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none"></select>
+        </div>
+        <div>
+          <span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-3">Job type</span>
+          <div id="jobTypePills" class="flex flex-wrap gap-2"></div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Salary</label>
+          <select id="salarySelect" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none">
+            <option value="any">Any</option>
+            <option value="lt2k">Below $2k</option>
+            <option value="2k3k">$2k – $3k</option>
+            <option value="3k4k">$3k – $4k</option>
+            <option value="4k5k">$4k – $5k</option>
+            <option value="gt5k">Above $5k</option>
+          </select>
+        </div>
+        <button type="button" id="clearFilters" class="w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-2 text-sm font-semibold text-[#B8935A] hover:bg-[#C9A96E]/10 transition-colors">Clear all filters</button>
+      </aside>
+
+      <!-- Job list -->
+      <section class="border-r border-[#E8E0D5] bg-white overflow-y-auto flex flex-col">
+        <div class="sticky top-0 z-10 border-b border-[#E8E0D5] bg-white/95 backdrop-blur px-4 py-3">
+          <p class="text-sm text-[#6B6B6B]"><span class="font-semibold text-[#1C1C1C]" id="resultsCount">0</span> results</p>
+        </div>
+        <div id="jobListDesk" class="flex-1 p-3 space-y-2"></div>
+      </section>
+
+      <!-- Detail -->
+      <section id="detailDesk" class="bg-[#FAF7F2] overflow-y-auto p-6 lg:p-8">
+        <div id="detailEmpty" class="h-full flex flex-col items-center justify-center text-center text-[#6B6B6B] py-20 px-4">
+          <p class="text-4xl mb-3">💼</p>
+          <p class="text-sm font-medium">Select a role to view details →</p>
+        </div>
+        <div id="detailContentDesk" class="hidden"></div>
+      </section>
+    </div>
+
+    <!-- Mobile: list -->
+    <div class="lg:hidden px-4 py-4 pb-28">
+      <div id="jobListMobile" class="space-y-3"></div>
+    </div>
+  </main>
+
+  <!-- Mobile full-screen detail -->
+  <div id="mobileDetail" class="lg:hidden fixed inset-0 z-[60] bg-[#FAF7F2] flex flex-col overflow-hidden">
+    <div class="flex-shrink-0 flex items-center gap-3 border-b border-[#E8E0D5] bg-white px-4 py-3">
+      <button type="button" id="mobileDetailBack" class="p-2 -ml-2 rounded-lg hover:bg-[#FAF7F2] text-[#1C1C1C]" aria-label="Back to list">
+        ←
+      </button>
+      <span class="text-sm font-semibold text-[#1C1C1C] truncate">Role details</span>
+    </div>
+    <div id="detailScrollMobile" class="flex-1 overflow-y-auto px-4 py-6 pb-24"></div>
+    <div class="flex-shrink-0 border-t border-[#E8E0D5] bg-white p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+      <button type="button" id="mobileApplySticky" class="w-full rounded-lg bg-[#C9A96E] py-3.5 text-sm font-semibold text-white shadow-md hover:bg-[#B8935A] transition-colors">Apply Now →</button>
+      <p class="text-center text-[10px] text-[#6B6B6B] mt-2">EA License No. 14C7215</p>
+    </div>
+  </div>
+
+  <!-- Apply modal -->
+  <div id="applyModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm">
+    <div class="modal-panel w-full sm:max-w-lg bg-white sm:rounded-2xl shadow-2xl border border-[#E8E0D5] overflow-hidden flex flex-col sm:max-h-[90vh]">
+      <div id="modalInner" class="relative overflow-y-auto flex-1 p-6 sm:p-8"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#E8E0D5] bg-white mt-auto py-12 px-6 text-center text-sm text-[#6B6B6B]">
+    <p class="font-semibold text-[#1C1C1C]">JTE Recruit Pte Ltd</p>
+    <p class="mt-1">EA License No. 14C7215</p>
+    <p class="mt-3 max-w-md mx-auto leading-relaxed">Address: 1 Gateway Drive #10-14 Westgate Tower Singapore 608531</p>
+    <a href="mailto:ask@jte.com.sg" class="mt-2 inline-block text-[#C9A96E] hover:text-[#B8935A] font-medium">ask@jte.com.sg</a>
+    <p class="mt-6 text-xs text-[#6B6B6B]">© 2026 JTE Recruit Pte Ltd. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://yxhzczjhwvdaqmoqyeyn.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4aHpjempod3ZkYXFtb3F5ZXluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjc3NTAsImV4cCI6MjA5MTY0Mzc1MH0.8qy91-HBrFsjEL-YsncdSTt0qftc2fr_g8h9hEN15Lc';
+
+    const JOBS_SELECT = [
+      'id', 'public_id', 'title', 'job_type', 'job_function', 'job_industry', 'location', 'working_days',
+      'salary_range', 'rights_to_work', 'min_qualification', 'spoken_languages',
+      'job_description_internal', 'job_description', 'created_at', 'portal_show_company_name', 'company_id',
+      'companies(name)'
+    ].join(',');
+
+    const MRT_REGION = {
+      'Jurong East':'West','Boon Lay':'West','Pioneer':'West','Joo Koon':'West',
+      'Lakeside':'West','Chinese Garden':'West','Clementi':'West','Dover':'West',
+      'Buona Vista':'West','one-north':'West','Commonwealth':'West',
+      'Queenstown':'West','Redhill':'West','Tiong Bahru':'West','Jurong West':'West',
+      'Tuas':'West','Gul Circle':'West',
+      'Pasir Ris':'East','Tampines':'East','Simei':'East','Tanah Merah':'East',
+      'Bedok':'East','Kembangan':'East','Eunos':'East','Paya Lebar':'East',
+      'Aljunied':'East','Kallang':'East','Lavender':'East','Dakota':'East',
+      'MacPherson':'East','Tai Seng':'East',
+      'Woodlands':'North','Marsiling':'North','Admiralty':'North','Sembawang':'North',
+      'Canberra':'North','Yishun':'North','Khatib':'North','Yio Chu Kang':'North',
+      'Ang Mo Kio':'North','Lentor':'North','Springleaf':'North',
+      'City Hall':'Central','Raffles Place':'Central','Tanjong Pagar':'Central',
+      'Marina Bay':'Central','Orchard':'Central','Somerset':'Central',
+      'Dhoby Ghaut':'Central','Bugis':'Central','Clarke Quay':'Central',
+      'Chinatown':'Central','Outram Park':'Central','Bras Basah':'Central',
+      'Promenade':'Central','Bayfront':'Central','Shenton Way':'Central',
+      'Maxwell':'Central','Havelock':'Central',
+      'Sengkang':'North East','Punggol':'North East','Hougang':'North East',
+      'Kovan':'North East','Serangoon':'North East','Woodleigh':'North East',
+      'Potong Pasir':'North East','Boon Keng':'North East','Farrer Park':'North East',
+      'Little India':'North East','Rochor':'North East','Bartley':'North East',
+      'Marymount':'North East',
+      'HarbourFront':'South','Telok Blangah':'South','Labrador Park':'South',
+      'Pasir Panjang':'South','Kent Ridge':'South','Haw Par Villa':'South',
+      'Islandwide':'All','Remote':'All','Flexible':'All','Various':'All'
+    };
+
+    function getRegion(location) {
+      if (!location) return 'All';
+      for (const [mrt, region] of Object.entries(MRT_REGION)) {
+        if (location.includes(mrt)) return region;
+      }
+      return 'All';
+    }
+
+    const JOB_TYPE_OPTIONS = [
+      { key: 'full time', label: 'Full time' },
+      { key: 'part time', label: 'Part time' },
+      { key: 'contract', label: 'Contract' },
+      { key: 'contract perm', label: 'Contract → Perm' },
+      { key: 'internship', label: 'Internship' }
+    ];
+
+    const COUNTRY_CODES = [
+      { code: '+65', flag: '🇸🇬', label: 'Singapore' },
+      { code: '+60', flag: '🇲🇾', label: 'Malaysia' },
+      { code: '+63', flag: '🇵🇭', label: 'Philippines' },
+      { code: '+62', flag: '🇮🇩', label: 'Indonesia' },
+      { code: '+91', flag: '🇮🇳', label: 'India' },
+      { code: '+86', flag: '🇨🇳', label: 'China' },
+      { code: '+84', flag: '🇻🇳', label: 'Vietnam' },
+      { code: '+66', flag: '🇹🇭', label: 'Thailand' },
+      { code: '+880', flag: '🇧🇩', label: 'Bangladesh' },
+      { code: '+94', flag: '🇱🇰', label: 'Sri Lanka' },
+      { code: '+95', flag: '🇲🇲', label: 'Myanmar' }
+    ];
+
+    let allJobs = [];
+    let filteredJobs = [];
+    let selectedJob = null;
+    const selectedJobTypes = new Set();
+
+    const filters = {
+      search: '',
+      region: 'All',
+      industry: '',
+      jobFunction: '',
+      salaryBucket: 'any'
+    };
+
+    function daysAgo(dateStr) {
+      const d = Math.floor((Date.now() - new Date(dateStr)) / 86400000);
+      if (d === 0) return 'Today';
+      if (d === 1) return 'Yesterday';
+      if (d < 7) return d + ' days ago';
+      const w = Math.floor(d / 7);
+      if (d < 30) return w + ' week' + (w > 1 ? 's' : '') + ' ago';
+      const m = Math.floor(d / 30);
+      return m + ' month' + (m > 1 ? 's' : '') + ' ago';
+    }
+
+    function formatSalary(job) {
+      const min = job.salary_min != null ? Number(job.salary_min) : null;
+      const max = job.salary_max != null ? Number(job.salary_max) : null;
+      if (min != null && max != null && !isNaN(min) && !isNaN(max)) {
+        return '$' + min.toLocaleString() + ' – $' + max.toLocaleString() + '/month';
+      }
+      if (min != null && !isNaN(min)) return 'From $' + min.toLocaleString() + '/month';
+      if (job.salary_range && String(job.salary_range).trim()) return String(job.salary_range).trim();
+      return 'Salary undisclosed';
+    }
+
+    function parseSalaryBand(job) {
+      const min = job.salary_min != null ? Number(job.salary_min) : null;
+      const max = job.salary_max != null ? Number(job.salary_max) : null;
+      if (min != null && !isNaN(min) && max != null && !isNaN(max)) return { min, max };
+      const text = (job.salary_range || '') + '';
+      const nums = text.match(/\d[\d,]*/g);
+      if (!nums || !nums.length) return { min: null, max: null };
+      const parsed = nums.map(function (n) { return parseInt(n.replace(/,/g, ''), 10); }).filter(function (n) { return !isNaN(n); });
+      if (!parsed.length) return { min: null, max: null };
+      return { min: Math.min.apply(null, parsed), max: Math.max.apply(null, parsed) };
+    }
+
+    function salaryMatchesBucket(job, bucket) {
+      if (bucket === 'any') return true;
+      const band = parseSalaryBand(job);
+      if (band.min == null && band.max == null) return false;
+      var low = band.min != null ? band.min : band.max;
+      var high = band.max != null ? band.max : band.min;
+      function overlaps(a, b, c, d) { return a <= d && c <= b; }
+      switch (bucket) {
+        case 'lt2k': return high <= 2000 || (low < 2000 && high < 2500);
+        case '2k3k': return overlaps(low, high, 2000, 3000);
+        case '3k4k': return overlaps(low, high, 3000, 4000);
+        case '4k5k': return overlaps(low, high, 4000, 5000);
+        case 'gt5k': return low >= 5000 || high > 5000;
+        default: return true;
+      }
+    }
+
+    function normalizeJobType(jt) {
+      if (!jt) return '';
+      var s = String(jt).toLowerCase().trim();
+      s = s.replace(/→/g, ' ').replace(/->/g, ' ');
+      s = s.replace(/\s+/g, ' ');
+      if (s.includes('intern')) return 'internship';
+      if (s.includes('contract') && (s.includes('perm') || s.includes('permanent'))) return 'contract perm';
+      if (s.includes('full')) return 'full time';
+      if (s.includes('part')) return 'part time';
+      if (s.includes('contract')) return 'contract';
+      return s;
+    }
+
+    function jobMatchesSelectedTypes(job) {
+      if (selectedJobTypes.size === 0) return true;
+      var nt = normalizeJobType(job.job_type);
+      var keys = Array.from(selectedJobTypes);
+      return keys.some(function (k) {
+        if (nt === k) return true;
+        return false;
+      });
+    }
+
+    function jobTypeLabel(job) {
+      var jt = job.job_type;
+      if (!jt) return '—';
+      return String(jt);
+    }
+
+    function getCompanyName(job) {
+      var c = job.companies;
+      var nm = c && (Array.isArray(c) ? (c[0] && c[0].name) : c.name);
+      return job.portal_show_company_name && nm ? nm : 'JTE Recruit Pte Ltd';
+    }
+
+    function getJobDescription(job) {
+      var a = job.job_description_internal;
+      var b = job.job_description;
+      if (a && String(a).trim()) return String(a);
+      if (b && String(b).trim()) return String(b);
+      return '';
+    }
+
+    function formatLanguages(l) {
+      if (l == null || l === '') return '—';
+      if (Array.isArray(l)) return l.filter(Boolean).join(', ');
+      if (typeof l === 'object') return Object.values(l).filter(Boolean).join(', ');
+      return String(l);
+    }
+
+    function updateUrl(publicId) {
+      var url = new URL(window.location.href);
+      if (publicId) url.searchParams.set('job', publicId);
+      else url.searchParams.delete('job');
+      history.pushState({}, '', url);
+    }
+
+    function checkRateLimit(email) {
+      var key = 'jte_apps_' + new Date().toDateString();
+      var apps = JSON.parse(localStorage.getItem(key) || '[]');
+      return apps.filter(function (e) { return e === email; }).length < 3;
+    }
+
+    function recordApplicationAttempt(email) {
+      var key = 'jte_apps_' + new Date().toDateString();
+      var apps = JSON.parse(localStorage.getItem(key) || '[]');
+      apps.push(email);
+      localStorage.setItem(key, JSON.stringify(apps));
+    }
+
+    async function fetchJobs() {
+      try {
+        var url = SUPABASE_URL + '/rest/v1/jobs?select=' + encodeURIComponent(JOBS_SELECT) +
+          '&show_on_portal=eq.true&status=eq.Open&order=created_at.desc';
+        var res = await fetch(url, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY
+          }
+        });
+        if (!res.ok) {
+          var t = await res.text();
+          throw new Error(t || 'Failed to fetch');
+        }
+        return await res.json();
+      } catch (e) {
+        console.error('fetchJobs error:', e);
+        return [];
+      }
+    }
+
+    async function submitApplication(formData) {
+      var resumePath = null, resumeFilename = null;
+      if (formData.resume) {
+        var ts = Date.now();
+        var clean = formData.resume.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+        var path = 'portal/' + formData.jobPublicId + '/' + ts + '-' + clean;
+        var upRes = await fetch(SUPABASE_URL + '/storage/v1/object/job-inbound-resumes/' + path, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Content-Type': formData.resume.type || 'application/octet-stream',
+            'x-upsert': 'false'
+          },
+          body: formData.resume
+        });
+        if (upRes.ok) {
+          resumePath = path;
+          resumeFilename = formData.resume.name;
+        }
+      }
+
+      var appRes = await fetch(SUPABASE_URL + '/rest/v1/portal_applications', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          job_id: formData.jobId,
+          job_public_id: formData.jobPublicId,
+          job_title: formData.jobTitle,
+          full_name: formData.fullName.trim(),
+          email: formData.email.trim().toLowerCase(),
+          phone: formData.countryCode + formData.phone.trim(),
+          phone_country_code: formData.countryCode,
+          expected_salary_min: formData.salaryMin ? parseInt(formData.salaryMin, 10) : null,
+          expected_salary_max: formData.salaryMax ? parseInt(formData.salaryMax, 10) : null,
+          rights_to_work_public: formData.rightsToWork || null,
+          resume_path: resumePath,
+          resume_filename: resumeFilename,
+          consent_pdpa: true,
+          status: 'new',
+          source: 'portal'
+        })
+      });
+
+      if (!appRes.ok) {
+        var err = await appRes.text();
+        throw new Error(err || 'Failed to submit');
+      }
+      return true;
+    }
+
+    function applyFilters() {
+      var q = filters.search.toLowerCase().trim();
+      filteredJobs = allJobs.filter(function (job) {
+        var title = (job.title || '').toLowerCase();
+        var ind = (job.job_industry || '').toLowerCase();
+        var fn = (job.job_function || '').toLowerCase();
+        if (q && title.indexOf(q) === -1 && ind.indexOf(q) === -1 && fn.indexOf(q) === -1) return false;
+        if (filters.region !== 'All') {
+          var reg = getRegion(job.location || '');
+          if (reg !== filters.region && reg !== 'All') return false;
+        }
+        if (filters.industry && (job.job_industry || '') !== filters.industry) return false;
+        if (filters.jobFunction && (job.job_function || '') !== filters.jobFunction) return false;
+        if (!jobMatchesSelectedTypes(job)) return false;
+        if (!salaryMatchesBucket(job, filters.salaryBucket)) return false;
+        return true;
+      });
+    }
+
+    function setJobCountDisplay(n) {
+      var el = document.getElementById('jobCountNum');
+      var elM = document.getElementById('jobCountNumMobile');
+      var v = String(n);
+      if (el) el.textContent = v;
+      if (elM) elM.textContent = v;
+    }
+
+    function renderRegionRadios(container) {
+      if (!container) return;
+      var regions = ['All', 'West', 'East', 'North', 'Central', 'North East', 'South'];
+      var isMobile = container.id === 'regionRadiosM';
+      container.innerHTML = regions.map(function (r) {
+        return '<label class="flex items-center gap-2 cursor-pointer text-sm">' +
+          '<input type="radio" name="region' + (isMobile ? '_m' : '') + '" value="' + r + '" class="accent-[#C9A96E]" ' + (filters.region === r ? 'checked' : '') + ' />' +
+          '<span>' + r + '</span></label>';
+      }).join('');
+      container.querySelectorAll('input[type="radio"]').forEach(function (inp) {
+        inp.addEventListener('change', function () {
+          filters.region = inp.value;
+          if (isMobile) syncRegionDesk();
+          else syncRegionMobile();
+          refresh();
+        });
+      });
+    }
+
+    function syncRegionMobile() {
+      document.querySelectorAll('#regionRadiosM input[type="radio"]').forEach(function (inp) {
+        inp.checked = inp.value === filters.region;
+      });
+    }
+
+    function renderJobTypePills(container) {
+      if (!container) return;
+      container.innerHTML = JOB_TYPE_OPTIONS.map(function (opt) {
+        var active = selectedJobTypes.has(opt.key);
+        return '<button type="button" data-jt="' + opt.key + '" class="job-type-pill rounded-full border px-3 py-1 text-xs font-medium transition-colors ' +
+          (active ? 'border-[#C9A96E] bg-[#C9A96E]/15 text-[#B8935A]' : 'border-[#E8E0D5] bg-white text-[#6B6B6B] hover:border-[#C9A96E]') + '">' + opt.label + '</button>';
+      }).join('');
+      container.querySelectorAll('.job-type-pill').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var k = btn.getAttribute('data-jt');
+          if (selectedJobTypes.has(k)) selectedJobTypes.delete(k);
+          else selectedJobTypes.add(k);
+          renderJobTypePills(document.getElementById('jobTypePills'));
+          var m = document.getElementById('jobTypePillsM');
+          if (m) renderJobTypePills(m);
+          refresh();
+        });
+      });
+    }
+
+    function syncRegionDesk() {
+      document.querySelectorAll('#regionRadios input[name="region"]').forEach(function (inp) {
+        inp.checked = inp.value === filters.region;
+      });
+    }
+
+    function populateDropdowns() {
+      var industries = [...new Set(allJobs.map(function (j) { return j.job_industry; }).filter(Boolean))].sort();
+      var functions = [...new Set(allJobs.map(function (j) { return j.job_function; }).filter(Boolean))].sort();
+      ['industrySelect', 'industrySelectM'].forEach(function (id) {
+        var sel = document.getElementById(id);
+        if (!sel) return;
+        var cur = filters.industry;
+        sel.innerHTML = '<option value="">All industries</option>' +
+          industries.map(function (i) { return '<option value="' + escapeAttr(i) + '">' + escapeHtml(i) + '</option>'; }).join('');
+        sel.value = cur;
+      });
+      ['functionSelect', 'functionSelectM'].forEach(function (id) {
+        var sel = document.getElementById(id);
+        if (!sel) return;
+        var cur = filters.jobFunction;
+        sel.innerHTML = '<option value="">All functions</option>' +
+          functions.map(function (i) { return '<option value="' + escapeAttr(i) + '">' + escapeHtml(i) + '</option>'; }).join('');
+        sel.value = cur;
+      });
+    }
+
+    function escapeHtml(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
+    function escapeAttr(s) {
+      return String(s).replace(/"/g, '&quot;');
+    }
+
+    function renderJobCard(job, isMobile) {
+      var active = selectedJob && selectedJob.id === job.id;
+      var company = getCompanyName(job);
+      var region = getRegion(job.location || '');
+      var sal = formatSalary(job);
+      var jt = jobTypeLabel(job);
+      var ind = job.job_industry || '—';
+      return (
+        '<article tabindex="0" role="button" data-job-id="' + job.id + '" class="job-card cursor-pointer rounded-xl border border-[#E8E0D5] bg-white p-4 shadow-sm transition-all text-left w-full ' +
+        (active ? 'active' : '') + '">' +
+        '<h3 class="font-semibold text-[#1C1C1C] text-sm leading-snug">' + escapeHtml(job.title || '') + '</h3>' +
+        '<p class="mt-1 text-xs font-medium text-[#C9A96E]">' + escapeHtml(company) + '</p>' +
+        '<p class="mt-2 text-xs text-[#6B6B6B]">📍 ' + escapeHtml(job.location || '—') + ' · ' + escapeHtml(region) + '</p>' +
+        '<p class="mt-1 text-xs text-[#6B6B6B]">💰 ' + escapeHtml(sal) + '</p>' +
+        '<div class="mt-2 flex flex-wrap gap-2 items-center">' +
+        '<span class="inline-block rounded-full bg-[#FAF7F2] px-2 py-0.5 text-[10px] font-medium text-[#6B6B6B]">' + escapeHtml(jt) + '</span>' +
+        '<span class="text-[10px] text-[#6B6B6B]">' + escapeHtml(ind) + '</span>' +
+        '</div>' +
+        '<p class="mt-2 text-[10px] text-[#6B6B6B]">' + daysAgo(job.created_at) + '</p>' +
+        '</article>'
+      );
+    }
+
+    function renderSkeletonList(el, n) {
+      el.innerHTML = Array.from({ length: n }, function () {
+        return '<div class="rounded-xl border border-[#E8E0D5] bg-white p-4 shadow-sm space-y-2">' +
+          '<div class="skeleton h-4" style="width:75%"></div>' +
+          '<div class="skeleton h-3" style="width:50%"></div>' +
+          '<div class="skeleton h-3" style="width:100%"></div>' +
+          '</div>';
+      }).join('');
+    }
+
+    function renderLists() {
+      var desk = document.getElementById('jobListDesk');
+      var mob = document.getElementById('jobListMobile');
+      var rc = document.getElementById('resultsCount');
+      if (rc) rc.textContent = String(filteredJobs.length);
+
+      if (!filteredJobs.length) {
+        var empty = '<div class="text-center py-12 text-sm text-[#6B6B6B] px-4">No roles match your filters. Try adjusting search or filters.</div>';
+        if (desk) desk.innerHTML = empty;
+        if (mob) mob.innerHTML = empty;
+        return;
+      }
+
+      if (desk) desk.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j, false); }).join('');
+      if (mob) mob.innerHTML = filteredJobs.map(function (j) { return renderJobCard(j, true); }).join('');
+
+      [desk, mob].forEach(function (container) {
+        if (!container) return;
+        container.querySelectorAll('[data-job-id]').forEach(function (card) {
+          card.addEventListener('click', function () {
+            var id = card.getAttribute('data-job-id');
+            var job = allJobs.find(function (j) { return String(j.id) === String(id); });
+            if (job) selectJob(job);
+          });
+        });
+      });
+    }
+
+    function formatPosted(iso) {
+      if (!iso) return '—';
+      try {
+        return new Date(iso).toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' });
+      } catch (e) { return '—'; }
+    }
+
+    function renderDetailMarkup(job) {
+      var company = getCompanyName(job);
+      var desc = getJobDescription(job);
+      var grid = [
+        ['Location', job.location || '—'],
+        ['Industry', job.job_industry || '—'],
+        ['Salary', formatSalary(job)],
+        ['Job type', jobTypeLabel(job)],
+        ['Working days', job.working_days != null ? String(job.working_days) : '—'],
+        ['Min qualification', job.min_qualification != null ? String(job.min_qualification) : '—'],
+        ['Languages', formatLanguages(job.spoken_languages)],
+        ['Function', job.job_function || '—']
+      ];
+      var gridHtml = '<dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">';
+      grid.forEach(function (row) {
+        gridHtml += '<div class="border-b border-[#E8E0D5]/60 pb-3"><dt class="text-[#6B6B6B] text-xs uppercase tracking-wide">' + escapeHtml(row[0]) + '</dt><dd class="mt-1 font-medium text-[#1C1C1C]">' + escapeHtml(row[1]) + '</dd></div>';
+      });
+      gridHtml += '</dl>';
+
+      var descSection = '';
+      if (/<[a-z][\s\S]*>/i.test(desc)) {
+        descSection = '<div id="aboutRoleHtml" class="job-desc-html text-sm text-[#1C1C1C] leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_p]:mb-3 [&_li]:my-1">' + desc + '</div>';
+      } else {
+        descSection = '<div class="text-sm text-[#1C1C1C] leading-relaxed whitespace-pre-wrap">' + escapeHtml(desc) + '</div>';
+      }
+
+      return (
+        '<div class="max-w-3xl">' +
+        '<div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">' +
+        '<div>' +
+        '<h2 class="font-playfair text-2xl sm:text-3xl font-semibold text-[#1C1C1C] leading-tight">' + escapeHtml(job.title || '') + '</h2>' +
+        '<p class="mt-2 text-base font-medium text-[#C9A96E]">' + escapeHtml(company) + '</p>' +
+        '<p class="mt-2 text-xs text-[#6B6B6B]">Posted ' + formatPosted(job.created_at) + '</p>' +
+        '</div>' +
+        '<button type="button" class="apply-open hidden sm:inline-flex flex-shrink-0 items-center justify-center rounded-lg bg-[#C9A96E] px-5 py-2.5 text-sm font-semibold text-white shadow hover:bg-[#B8935A] transition-colors">Apply Now →</button>' +
+        '</div>' +
+        '<div class="rounded-2xl border border-[#E8E0D5] bg-white p-5 shadow-sm mb-8">' + gridHtml + '</div>' +
+        '<h3 class="font-playfair text-lg font-semibold text-[#1C1C1C] mb-3">About this role</h3>' +
+        (desc ? descSection : '<p class="text-sm text-[#6B6B6B]">Full description coming soon. Apply and our consultants will share more.</p>') +
+        '<button type="button" class="apply-open mt-10 w-full sm:w-auto sm:min-w-[280px] rounded-lg bg-[#C9A96E] px-8 py-4 text-sm font-semibold text-white shadow-md hover:bg-[#B8935A] transition-colors">Apply for this role</button>' +
+        '<p class="mt-4 text-center text-xs text-[#6B6B6B] sm:text-left">EA License No. 14C7215</p>' +
+        '</div>'
+      );
+    }
+
+    function bindApplyButtons(root) {
+      if (!root) return;
+      root.querySelectorAll('.apply-open').forEach(function (btn) {
+        btn.addEventListener('click', function () { openApplyModal(); });
+      });
+    }
+
+    function selectJob(job) {
+      selectedJob = job;
+      var empty = document.getElementById('detailEmpty');
+      var content = document.getElementById('detailContentDesk');
+      if (job.public_id) updateUrl(job.public_id);
+      else updateUrl(null);
+
+      if (empty) empty.classList.add('hidden');
+      if (content) {
+        content.classList.remove('hidden');
+        content.innerHTML = renderDetailMarkup(job);
+        bindApplyButtons(content);
+      }
+
+      document.querySelectorAll('.job-card').forEach(function (c) {
+        c.classList.toggle('active', c.getAttribute('data-job-id') === String(job.id));
+      });
+
+      var mscroll = document.getElementById('detailScrollMobile');
+      var md = document.getElementById('mobileDetail');
+      if (mscroll && md) {
+        mscroll.innerHTML = renderDetailMarkup(job);
+        bindApplyButtons(mscroll);
+        md.classList.add('slide-in');
+      }
+    }
+
+    function closeMobileDetail() {
+      var md = document.getElementById('mobileDetail');
+      if (md) md.classList.remove('slide-in');
+      updateUrl(null);
+    }
+
+    function refresh() {
+      applyFilters();
+      renderLists();
+      if (selectedJob && !filteredJobs.find(function (j) { return j.id === selectedJob.id; })) {
+        selectedJob = null;
+        var empty = document.getElementById('detailEmpty');
+        var content = document.getElementById('detailContentDesk');
+        if (empty) empty.classList.remove('hidden');
+        if (content) { content.classList.add('hidden'); content.innerHTML = ''; }
+      }
+    }
+
+    function openApplyModal() {
+      if (!selectedJob) return;
+      var modal = document.getElementById('applyModal');
+      var inner = document.getElementById('modalInner');
+      if (!modal || !inner) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      inner.innerHTML = buildFormHtml(selectedJob);
+      wireForm(inner);
+    }
+
+    function closeApplyModal() {
+      var modal = document.getElementById('applyModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      document.body.style.overflow = '';
+    }
+
+    function buildFormHtml(job) {
+      var company = getCompanyName(job);
+      var ccOptions = COUNTRY_CODES.map(function (c) {
+        return '<option value="' + c.code + '">' + c.flag + ' ' + c.code + '</option>';
+      }).join('');
+      return (
+        '<button type="button" class="modal-close absolute top-4 right-4 z-10 rounded-lg p-1 text-2xl leading-none text-[#6B6B6B] hover:bg-[#FAF7F2] hover:text-[#1C1C1C]" aria-label="Close">&times;</button>' +
+        '<div class="pt-10">' +
+        '<p class="text-xs font-semibold uppercase tracking-wide text-[#6B6B6B]">Applying for</p>' +
+        '<h3 class="font-playfair text-xl font-semibold text-[#1C1C1C] mt-1">' + escapeHtml(job.title || '') + '</h3>' +
+        '<p class="text-sm font-medium text-[#C9A96E] mt-1">' + escapeHtml(company) + '</p>' +
+        '</div>' +
+        '<form id="applyForm" class="mt-6 space-y-4">' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Full name <span class="text-red-600">*</span></label>' +
+        '<input required name="fullName" type="text" autocomplete="name" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div>' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Email <span class="text-red-600">*</span></label>' +
+        '<input required name="email" type="email" autocomplete="email" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div>' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Mobile <span class="text-red-600">*</span></label>' +
+        '<div class="flex gap-2">' +
+        '<select name="countryCode" class="rounded-lg border border-[#E8E0D5] bg-white px-2 py-2 text-sm focus:border-[#C9A96E]">' + ccOptions + '</select>' +
+        '<input required name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="8123 4567" class="flex-1 rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm focus:border-[#C9A96E] focus:outline-none focus:ring-1 focus:ring-[#C9A96E]" /></div></div>' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Resume (PDF or Word, max 5MB) <span class="text-red-600">*</span></label>' +
+        '<div id="dropZone" class="rounded-xl border-2 border-dashed border-[#E8E0D5] bg-[#FAF7F2] px-4 py-8 text-center cursor-pointer hover:border-[#C9A96E] transition-colors">' +
+        '<input type="file" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden" id="resumeInput" />' +
+        '<p class="text-sm text-[#6B6B6B]">Drag & drop or <span class="text-[#C9A96E] font-semibold">browse</span></p>' +
+        '<p id="resumeName" class="mt-2 text-xs text-[#1C1C1C] font-medium"></p></div></div>' +
+        '<div class="grid grid-cols-2 gap-3">' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Expected salary (min)</label>' +
+        '<input name="salaryMin" type="number" min="0" placeholder="Optional" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm" /></div>' +
+        '<div><label class="block text-xs font-medium text-[#6B6B6B] mb-1">Expected salary (max)</label>' +
+        '<input name="salaryMax" type="number" min="0" placeholder="Optional" class="w-full rounded-lg border border-[#E8E0D5] px-3 py-2 text-sm" /></div></div>' +
+        '<div><span class="block text-xs font-medium text-[#6B6B6B] mb-2">Rights to work <span class="text-[#6B6B6B] font-normal">(optional)</span></span>' +
+        '<label class="flex gap-3 rounded-lg border border-[#E8E0D5] bg-white p-3 mb-2 cursor-pointer">' +
+        '<input type="radio" name="rights" value="permanent" class="mt-1 accent-[#C9A96E]" />' +
+        '<span><span class="font-medium text-[#1C1C1C]">Permanent rights to work</span><span class="block text-xs text-[#6B6B6B]">(Singapore Citizen or Permanent Resident)</span></span></label>' +
+        '<label class="flex gap-3 rounded-lg border border-[#E8E0D5] bg-white p-3 cursor-pointer">' +
+        '<input type="radio" name="rights" value="work_pass" class="mt-1 accent-[#C9A96E]" />' +
+        '<span><span class="font-medium text-[#1C1C1C]">Require work pass</span><span class="block text-xs text-[#6B6B6B]">(Employment Pass, S Pass or Work Permit)</span></span></label></div>' +
+        '<label class="flex gap-2 items-start cursor-pointer">' +
+        '<input required type="checkbox" name="consent" class="mt-1 accent-[#C9A96E]" />' +
+        '<span class="text-xs text-[#6B6B6B] leading-relaxed">I consent to JTE Recruit Pte Ltd collecting and using my personal data for recruitment purposes in accordance with the Personal Data Protection Act (PDPA).</span></label>' +
+        '<p id="formError" class="text-sm text-red-600 hidden"></p>' +
+        '<button type="submit" class="w-full rounded-lg bg-[#C9A96E] py-3.5 text-sm font-semibold text-white shadow hover:bg-[#B8935A] transition-colors">Submit application</button>' +
+        '<p class="text-center text-[10px] text-[#6B6B6B]">EA License No. 14C7215</p>' +
+        '</form>'
+      );
+    }
+
+    function wireForm(inner) {
+      var form = inner.querySelector('#applyForm');
+      var dropZone = inner.querySelector('#dropZone');
+      var resumeInput = inner.querySelector('#resumeInput');
+      var resumeName = inner.querySelector('#resumeName');
+      var errEl = inner.querySelector('#formError');
+
+      inner.querySelector('.modal-close') && inner.querySelector('.modal-close').addEventListener('click', closeApplyModal);
+
+      function setResume(file) {
+        if (!file) return;
+        var max = 5 * 1024 * 1024;
+        var okType = /pdf|msword|wordprocessingml/.test(file.type) || /\.pdf$/i.test(file.name) || /\.docx?$/i.test(file.name);
+        if (!okType) {
+          errEl.textContent = 'Please upload a PDF or Word document.';
+          errEl.classList.remove('hidden');
+          return;
+        }
+        if (file.size > max) {
+          errEl.textContent = 'File must be 5MB or smaller.';
+          errEl.classList.remove('hidden');
+          return;
+        }
+        errEl.classList.add('hidden');
+        resumeName.textContent = file.name;
+        resumeInput.__file = file;
+      }
+
+      dropZone.addEventListener('click', function () { resumeInput.click(); });
+      resumeInput.addEventListener('change', function () {
+        if (resumeInput.files[0]) setResume(resumeInput.files[0]);
+      });
+      ['dragenter', 'dragover'].forEach(function (ev) {
+        dropZone.addEventListener(ev, function (e) { e.preventDefault(); dropZone.classList.add('border-[#C9A96E]', 'bg-[#C9A96E]/10'); });
+      });
+      ['dragleave', 'drop'].forEach(function (ev) {
+        dropZone.addEventListener(ev, function (e) {
+          e.preventDefault();
+          dropZone.classList.remove('border-[#C9A96E]', 'bg-[#C9A96E]/10');
+        });
+      });
+      dropZone.addEventListener('drop', function (e) {
+        var f = e.dataTransfer.files[0];
+        if (f) setResume(f);
+      });
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        errEl.classList.add('hidden');
+        var fd = new FormData(form);
+        var fullName = fd.get('fullName');
+        var email = fd.get('email');
+        var phone = fd.get('phone');
+        var countryCode = fd.get('countryCode');
+        var resume = resumeInput.__file || resumeInput.files[0];
+        if (!resume) {
+          errEl.textContent = 'Please attach your resume.';
+          errEl.classList.remove('hidden');
+          return;
+        }
+        if (!checkRateLimit(String(email).toLowerCase())) {
+          errEl.textContent = 'You have reached the daily application limit for this email. Please try again tomorrow.';
+          errEl.classList.remove('hidden');
+          return;
+        }
+        var rightsEl = form.querySelector('input[name="rights"]:checked');
+        var rightsVal = rightsEl ? rightsEl.value : null;
+        var rightsMap = { permanent: 'Permanent Rights to Work', work_pass: 'Require Work Pass' };
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+
+        try {
+          await submitApplication({
+            jobId: selectedJob.id,
+            jobPublicId: selectedJob.public_id,
+            jobTitle: selectedJob.title,
+            fullName: String(fullName),
+            email: String(email),
+            phone: String(phone),
+            countryCode: String(countryCode),
+            salaryMin: fd.get('salaryMin'),
+            salaryMax: fd.get('salaryMax'),
+            rightsToWork: rightsVal ? rightsMap[rightsVal] : null,
+            resume: resume
+          });
+          recordApplicationAttempt(String(email).toLowerCase());
+          showSuccess(inner, String(fullName).trim());
+        } catch (err) {
+          console.error(err);
+          errEl.textContent = 'Something went wrong. Please try again or email ask@jte.com.sg.';
+          errEl.classList.remove('hidden');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit application';
+        }
+      });
+    }
+
+    function showSuccess(inner, name) {
+      inner.innerHTML =
+        '<div class="text-center py-4">' +
+        '<p class="text-5xl mb-4">✅</p>' +
+        '<h3 class="font-playfair text-2xl font-semibold text-[#1C1C1C]">Application submitted!</h3>' +
+        '<p class="mt-3 text-lg font-semibold text-[#C9A96E]">' + escapeHtml(name) + '</p>' +
+        '<p class="mt-4 text-sm text-[#6B6B6B] leading-relaxed">We\'ve received your application. Our team will review your profile and reach out if there\'s a match.</p>' +
+        '<div class="mt-8 rounded-xl border border-[#E8E0D5] bg-[#FAF7F2] p-5 text-left text-sm text-[#1C1C1C] space-y-3">' +
+        '<p class="font-semibold text-[#1C1C1C]">What\'s next</p>' +
+        '<ul class="list-disc pl-5 space-y-2 text-[#6B6B6B]">' +
+        '<li>Check your email for a confirmation shortly.</li>' +
+        '<li>We aim to respond within 2–3 working days where there is a potential fit.</li>' +
+        '<li>Follow <a href="https://www.linkedin.com/company/jte-recruit-pte-ltd/" target="_blank" rel="noopener noreferrer" class="text-[#C9A96E] font-medium underline hover:text-[#B8935A]">JTE Recruit on LinkedIn</a> for new roles.</li>' +
+        '</ul></div>' +
+        '<button type="button" id="browseMoreBtn" class="mt-8 w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-3 text-sm font-semibold text-[#B8935A] hover:bg-[#C9A96E]/10">Browse more jobs</button>' +
+        '<p class="mt-4 text-[10px] text-[#6B6B6B]">EA License No. 14C7215</p>' +
+        '</div>';
+      inner.querySelector('#browseMoreBtn').addEventListener('click', function () {
+        closeApplyModal();
+      });
+    }
+
+    function mountMobileFiltersClone() {
+      var mount = document.getElementById('mobileFiltersMount');
+      var aside = document.querySelector('aside');
+      if (!mount || !aside) return;
+      mount.innerHTML =
+        '<div class="space-y-4">' +
+        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Industry</label>' +
+        '<select id="industrySelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm"></select></div>' +
+        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Job function</label>' +
+        '<select id="functionSelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm"></select></div>' +
+        '<div><span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Region</span><div id="regionRadiosM" class="space-y-2"></div></div>' +
+        '<div><span class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-3">Job type</span><div id="jobTypePillsM" class="flex flex-wrap gap-2"></div></div>' +
+        '<div><label class="block text-xs font-semibold uppercase tracking-wide text-[#6B6B6B] mb-2">Salary</label>' +
+        '<select id="salarySelectM" class="w-full rounded-lg border border-[#E8E0D5] bg-white px-3 py-2 text-sm">' +
+        '<option value="any">Any</option><option value="lt2k">Below $2k</option><option value="2k3k">$2k – $3k</option><option value="3k4k">$3k – $4k</option><option value="4k5k">$4k – $5k</option><option value="gt5k">Above $5k</option></select></div>' +
+        '<button type="button" id="clearFiltersM" class="w-full rounded-lg border-2 border-[#C9A96E] bg-transparent py-2 text-sm font-semibold text-[#B8935A]">Clear all filters</button></div>';
+
+      populateDropdowns();
+      renderRegionRadios(document.getElementById('regionRadiosM'));
+      renderJobTypePills(document.getElementById('jobTypePillsM'));
+
+      document.getElementById('industrySelectM').addEventListener('change', function () {
+        filters.industry = this.value;
+        document.getElementById('industrySelect').value = this.value;
+        refresh();
+      });
+      document.getElementById('functionSelectM').addEventListener('change', function () {
+        filters.jobFunction = this.value;
+        document.getElementById('functionSelect').value = this.value;
+        refresh();
+      });
+      document.getElementById('salarySelectM').addEventListener('change', function () {
+        filters.salaryBucket = this.value;
+        document.getElementById('salarySelect').value = this.value;
+        refresh();
+      });
+      document.getElementById('clearFiltersM').addEventListener('click', function () {
+        document.getElementById('clearFilters').click();
+      });
+
+      syncRegionMobile();
+      syncSalaryMobile();
+    }
+
+    function syncSalaryMobile() {
+      var sm = document.getElementById('salarySelectM');
+      if (sm) sm.value = filters.salaryBucket;
+    }
+
+    async function init() {
+      renderRegionRadios(document.getElementById('regionRadios'));
+      renderJobTypePills(document.getElementById('jobTypePills'));
+
+      var deskSearch = document.getElementById('deskSearch');
+      var mobSearch = document.getElementById('mobileSearch');
+      function onSearch(v) {
+        filters.search = v;
+        refresh();
+      }
+      if (deskSearch) deskSearch.addEventListener('input', function () { onSearch(deskSearch.value); if (mobSearch) mobSearch.value = deskSearch.value; });
+      if (mobSearch) mobSearch.addEventListener('input', function () { onSearch(mobSearch.value); if (deskSearch) deskSearch.value = mobSearch.value; });
+
+      document.getElementById('industrySelect').addEventListener('change', function () {
+        filters.industry = this.value;
+        var m = document.getElementById('industrySelectM');
+        if (m) m.value = this.value;
+        refresh();
+      });
+      document.getElementById('functionSelect').addEventListener('change', function () {
+        filters.jobFunction = this.value;
+        var m = document.getElementById('functionSelectM');
+        if (m) m.value = this.value;
+        refresh();
+      });
+      document.getElementById('salarySelect').addEventListener('change', function () {
+        filters.salaryBucket = this.value;
+        var m = document.getElementById('salarySelectM');
+        if (m) m.value = this.value;
+        refresh();
+      });
+
+      document.getElementById('clearFilters').addEventListener('click', function () {
+        filters.search = '';
+        filters.region = 'All';
+        filters.industry = '';
+        filters.jobFunction = '';
+        filters.salaryBucket = 'any';
+        selectedJobTypes.clear();
+        if (deskSearch) deskSearch.value = '';
+        if (mobSearch) mobSearch.value = '';
+        document.getElementById('salarySelect').value = 'any';
+        document.getElementById('industrySelect').value = '';
+        document.getElementById('functionSelect').value = '';
+        var sm = document.getElementById('salarySelectM');
+        if (sm) sm.value = 'any';
+        var im = document.getElementById('industrySelectM');
+        if (im) im.value = '';
+        var fm = document.getElementById('functionSelectM');
+        if (fm) fm.value = '';
+        renderRegionRadios(document.getElementById('regionRadios'));
+        renderRegionRadios(document.getElementById('regionRadiosM'));
+        renderJobTypePills(document.getElementById('jobTypePills'));
+        renderJobTypePills(document.getElementById('jobTypePillsM'));
+        refresh();
+      });
+
+      document.getElementById('filterToggle').addEventListener('click', function () {
+        var p = document.getElementById('filterPanel');
+        p.classList.toggle('hidden');
+      });
+
+      document.getElementById('mobileDetailBack').addEventListener('click', closeMobileDetail);
+      document.getElementById('mobileApplySticky').addEventListener('click', openApplyModal);
+
+      document.getElementById('applyModal').addEventListener('click', function (e) {
+        if (e.target.id === 'applyModal') closeApplyModal();
+      });
+
+      var deskList = document.getElementById('jobListDesk');
+      renderSkeletonList(deskList, 5);
+      renderSkeletonList(document.getElementById('jobListMobile'), 5);
+
+      allJobs = await fetchJobs();
+      setJobCountDisplay(allJobs.length);
+      populateDropdowns();
+      mountMobileFiltersClone();
+
+      applyFilters();
+      renderLists();
+
+      var params = new URLSearchParams(window.location.search);
+      var jobParam = params.get('job');
+      if (jobParam) {
+        var j = allJobs.find(function (x) { return x.public_id === jobParam; });
+        if (j) selectJob(j);
+      }
+
+      window.addEventListener('popstate', function () {
+        var p = new URLSearchParams(window.location.search).get('job');
+        var j = p ? allJobs.find(function (x) { return x.public_id === p; }) : null;
+        if (j) selectJob(j);
+        else {
+          selectedJob = null;
+          document.getElementById('detailEmpty').classList.remove('hidden');
+          document.getElementById('detailContentDesk').classList.add('hidden');
+          document.querySelectorAll('.job-card').forEach(function (c) { c.classList.remove('active'); });
+          closeMobileDetail();
+        }
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
