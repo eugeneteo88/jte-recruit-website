@@ -215,19 +215,15 @@
 </head>
 <body class="jte-wrapper theme-light antialiased" id="jte-main-wrapper">
 
-    <!-- Navbar: same markup/classes as index.html (links point back to index anchors) -->
+    <!-- Navbar: logo home + Jobs only (no index section links) -->
     <nav id="jte-navbar" class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
         <a href="./index.html" class="z-50 cursor-pointer group">
             <span class="font-serif text-2xl tracking-[0.1em] text-white font-semibold group-hover:text-luxury-gold transition-colors duration-300">JTE</span>
             <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
         </a>
 
-        <div class="hidden md:flex items-center space-x-10">
-            <a href="./index.html#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Our Story</a>
-            <a href="./index.html#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">What We Do</a>
-            <a href="./index.html#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">The Team</a>
+        <div class="hidden md:flex items-center gap-8">
             <a href="./jobs.html" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold" aria-current="page">Jobs</a>
-            <a href="./index.html#contact" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold">Let's Talk</a>
 
             <button type="button" onclick="toggleTheme()" class="hidden ml-4 p-2 rounded-full border border-white/20 hover:bg-white/10 transition-all text-white hover:border-luxury-gold hover:text-luxury-gold" aria-hidden="true" tabindex="-1">
                 <svg id="icon-moon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
@@ -293,8 +289,8 @@
         </div>
     </div>
 
-    <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), full width between gutters -->
-    <div class="flex flex-1 overflow-hidden relative min-h-0 w-full min-w-0 px-6 md:px-12 gap-0">
+    <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), wide gutter between list and detail on md+ -->
+    <div class="flex flex-1 overflow-hidden relative min-h-0 w-full min-w-0 px-6 md:px-12 gap-0 md:gap-12">
         <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r border-white/5 overflow-y-auto scroll-pane pb-20 md:pb-0">
             <div class="py-4 md:py-5" id="job-list-container"></div>
         </div>
