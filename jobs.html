@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>JTE Recruit | Job Portal</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -117,6 +117,16 @@
             margin-bottom: 0.5rem;
             line-height: 1.6;
         }
+        .job-description-content {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        .job-description-content img,
+        .job-description-content video,
+        .job-description-content iframe {
+            max-width: 100%;
+            height: auto;
+        }
 
         .theme-light.jte-wrapper { background-color: #F5F1E8; color: #1a1a1a; }
         .theme-light .bg-luxury-black { background-color: #F5F1E8 !important; }
@@ -200,32 +210,28 @@
         }
 
         @media (max-width: 768px) {
-            #right-pane {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 50;
-                transform: translateX(100%);
-                transition: transform 0.3s ease-out;
-                background-color: var(--bg-color, #0a0a0a);
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            #right-pane.open {
-                transform: translateX(0);
-            }
             .theme-light #right-pane { background-color: #F5F1E8; }
 
             #left-pane { width: 100% !important; }
+
+            select.filter-pill {
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            #apply-modal input:not([type="file"]),
+            #apply-modal select,
+            #apply-modal textarea {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body class="jte-wrapper theme-light antialiased" id="jte-main-wrapper">
 
     <!-- Navbar: logo home + Jobs only (no index section links) -->
-    <nav id="jte-navbar" class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
+    <nav id="jte-navbar" class="fixed w-full z-50 px-4 sm:px-6 md:px-12 pt-[calc(1.5rem+env(safe-area-inset-top,0px))] pb-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
         <a href="./index.html" class="z-50 cursor-pointer group">
             <span class="font-serif text-2xl tracking-[0.1em] text-white font-semibold group-hover:text-luxury-gold transition-colors duration-300">JTE</span>
             <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
@@ -250,20 +256,20 @@
     </nav>
 
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
-    <div id="jobs-page-stack" class="flex flex-col pt-[5.75rem]">
+    <div id="jobs-page-stack" class="flex flex-col pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem]">
 
     <!-- Search & filters: same horizontal padding as index nav only (no extra max-w layer) -->
-    <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-6 md:px-12 py-3">
+    <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-4 sm:px-6 md:px-12 py-3">
         <div class="flex flex-col md:flex-row gap-3 items-start md:items-center">
 
             <div class="relative w-full md:w-1/3 max-w-md">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
                 </div>
-                <input type="text" id="job-search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 p-2.5 transition-colors" placeholder="All jobs • Singapore" autocomplete="off">
+                <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="All jobs • Singapore" autocomplete="off">
             </div>
 
-            <div class="flex gap-2 overflow-x-auto pb-1 md:pb-0 w-full scroll-pane no-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+            <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full scroll-pane no-scrollbar touch-pan-x" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
                 <select id="filter-industry" class="filter-pill text-white shrink-0" title="Industries"></select>
                 <select id="filter-salary" class="filter-pill text-white shrink-0" title="Salary (up to $5K band)">
                     <option value="Any">Up to $5K · Any salary</option>
@@ -286,21 +292,21 @@
     </div>
 
     <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), wide gutter between list and detail on md+ -->
-    <div class="flex flex-col md:flex-row relative w-full min-w-0 px-6 md:px-12 gap-0 md:gap-12">
-        <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r border-white/5 pb-20 md:pb-8">
+    <div class="flex flex-col md:flex-row relative w-full min-w-0 px-4 sm:px-6 md:px-12 gap-0 md:gap-12">
+        <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r-0 md:border-r border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-8 max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))]">
             <div class="py-4 md:py-5 px-1 sm:px-2 md:px-0" id="job-list-container"></div>
         </div>
 
-        <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto md:overflow-visible relative">
+        <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto md:overflow-visible relative max-md:rounded-t-xl max-md:border-t max-md:border-white/10">
 
-            <div class="md:hidden sticky top-0 bg-luxury-charcoal border-b border-white/5 p-4 z-10 flex items-center justify-between theme-light-bg-sync">
-                <button type="button" onclick="closeMobileDetails()" class="flex items-center text-luxury-gold font-medium">
-                    <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Jobs
+            <div id="mobile-detail-toolbar" class="md:hidden hidden sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-white/5 bg-luxury-charcoal px-3 py-2 backdrop-blur-sm bg-opacity-95">
+                <button type="button" onclick="closeMobileDetails()" class="flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-lg px-2 text-luxury-gold font-medium active:opacity-80 [-webkit-tap-highlight-color:transparent]">
+                    <i data-lucide="arrow-left" class="w-5 h-5 shrink-0"></i><span class="text-sm">Back</span>
                 </button>
-                <button type="button" id="mobile-apply-btn" class="hidden btn-primary px-4 py-2 rounded text-xs font-semibold uppercase tracking-wider" onclick="applyFromMobile()">Apply Now</button>
+                <button type="button" id="mobile-apply-btn" class="hidden min-h-[44px] shrink-0 rounded-lg btn-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider [-webkit-tap-highlight-color:transparent]" onclick="applyFromMobile()">Apply</button>
             </div>
 
-            <div id="job-details-container" class="py-6 md:py-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden">
+            <div id="job-details-container" class="py-6 md:py-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden max-md:[scroll-margin-top:0.5rem]">
                 <div class="mb-6">
                     <h1 class="font-serif text-2xl md:text-3xl text-white mb-2 leading-tight" id="detail-title">Job Title</h1>
                     <div class="flex items-center gap-2 mb-4">
@@ -334,7 +340,7 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 mb-10 pb-8 border-b border-white/10">
-                    <button type="button" id="detail-apply-btn" class="btn-primary px-8 py-3 rounded text-sm font-semibold text-center w-full sm:w-auto shadow-lg shadow-luxury-gold/10">
+                    <button type="button" id="detail-apply-btn" class="btn-primary min-h-[48px] px-8 py-3 rounded text-sm font-semibold text-center w-full sm:w-auto shadow-lg shadow-luxury-gold/10 [-webkit-tap-highlight-color:transparent]">
                         Apply Now
                     </button>
                 </div>
@@ -345,15 +351,16 @@
                 </div>
             </div>
 
-            <div id="empty-state" class="flex flex-col items-center justify-center min-h-[50vh] text-center p-8 opacity-50">
-                <i data-lucide="briefcase" class="w-16 h-16 text-luxury-gold mb-4 opacity-50"></i>
-                <h2 class="font-serif text-2xl text-white mb-2">Select a job</h2>
-                <p class="text-gray-400 text-sm">Click on a job role on the left to view details</p>
+            <div id="empty-state" class="flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] text-center p-6 md:p-8 opacity-50">
+                <i data-lucide="briefcase" class="w-14 h-14 md:w-16 md:h-16 text-luxury-gold mb-4 opacity-50"></i>
+                <h2 class="font-serif text-xl md:text-2xl text-white mb-2">Select a job</h2>
+                <p class="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed md:hidden">Tap a job above to load full details and apply here.</p>
+                <p class="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed hidden md:block">Click a job on the left to view details.</p>
             </div>
         </div>
     </div>
 
-    <footer class="border-t border-white/5 flex-shrink-0 bg-luxury-charcoal px-6 md:px-12 py-4 text-center text-xs text-gray-500">
+    <footer class="border-t border-white/5 flex-shrink-0 bg-luxury-charcoal px-4 sm:px-6 md:px-12 py-5 md:py-4 text-center text-[11px] sm:text-xs text-gray-500 leading-relaxed max-w-3xl mx-auto w-full">
         <strong class="text-gray-300">JTE Recruit Pte Ltd</strong> · EA License No. 14C7215 ·
         1 Gateway Drive #10-14 Westgate Tower Singapore 608531 ·
         <a href="mailto:ask@jte.com.sg" class="hover:text-luxury-gold">ask@jte.com.sg</a>
@@ -373,7 +380,7 @@
                 <button type="button" onclick="closeApplyModal()" class="text-gray-400 hover:text-white text-2xl leading-none ml-4" aria-label="Close">×</button>
             </div>
 
-            <form id="apply-form" class="px-6 py-5 space-y-4" onsubmit="handleSubmit(event)">
+            <form id="apply-form" class="px-6 pt-5 pb-[calc(1.75rem+env(safe-area-inset-bottom,0px))] space-y-4" onsubmit="handleSubmit(event)">
 
                 <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Required Information</p>
 
@@ -446,7 +453,7 @@
                 </div>
 
                 <button type="submit" id="submit-btn"
-                        class="btn-primary w-full py-3.5 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                        class="btn-primary w-full min-h-[48px] py-3.5 rounded-xl text-sm font-semibold tracking-wider uppercase [-webkit-tap-highlight-color:transparent]">
                     Submit Application
                 </button>
 
@@ -471,7 +478,7 @@
                     <p>💼 Follow us on LinkedIn for more roles</p>
                 </div>
             </div>
-            <button type="button" onclick="closeSuccessModal()" class="btn-primary w-full py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+            <button type="button" onclick="closeSuccessModal()" class="btn-primary w-full min-h-[48px] py-3 rounded-xl text-sm font-semibold tracking-wider uppercase [-webkit-tap-highlight-color:transparent]">
                 Browse More Jobs
             </button>
         </div>
@@ -675,6 +682,13 @@
             return String(s).replace(/"/g, '&quot;');
         }
 
+        function updateMobileDetailToolbar() {
+            const bar = document.getElementById('mobile-detail-toolbar');
+            if (!bar || window.innerWidth >= 768) return;
+            if (activeJobId) bar.classList.remove('hidden');
+            else bar.classList.add('hidden');
+        }
+
         function renderJobList() {
             const container = document.getElementById('job-list-container');
             const list = applyFilters();
@@ -682,18 +696,19 @@
             if (!list.length) {
                 container.innerHTML = '<p class="text-sm text-gray-400 text-center py-8">No roles match your filters.</p>';
                 lucide.createIcons();
+                updateMobileDetailToolbar();
                 return;
             }
 
             container.innerHTML = '';
             list.forEach(job => {
-                const isActive = job.id === activeJobId;
+                const isActive = String(job.id) === String(activeJobId);
                 const activeClass = isActive ? 'active' : '';
                 const summaryBullets = (job.bullets || []).slice(0, 2).map(b =>
                     `<li class="truncate text-xs text-gray-400 mb-1 flex items-start"><span class="text-luxury-gold mr-1.5 mt-0.5">•</span> <span class="truncate">${escapeHtml(b)}</span></li>`
                 ).join('');
                 const cardHtml = `
-                    <div class="job-card bg-luxury-charcoal rounded-lg p-5 mb-4 ${activeClass}" onclick="selectJob(${JSON.stringify(job.id)})">
+                    <div class="job-card touch-manipulation active:opacity-95 bg-luxury-charcoal rounded-lg p-4 sm:p-5 mb-3 sm:mb-4 ${activeClass}" onclick="selectJob(${JSON.stringify(job.id)})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectJob(${JSON.stringify(job.id)});}">
                         <div class="mb-2">
                             <h3 class="font-serif text-white font-medium leading-snug pr-4 hover:text-luxury-gold transition-colors">${escapeHtml(job.title)}</h3>
                         </div>
@@ -712,46 +727,61 @@
                 container.insertAdjacentHTML('beforeend', cardHtml);
             });
             lucide.createIcons();
+            updateMobileDetailToolbar();
         }
 
         function selectJob(id) {
-            activeJobId = id;
+            const sid = String(id);
             const list = applyFilters();
-            const job = list.find(j => j.id === id) || jobsData.find(j => j.id === id);
+            const job = list.find(j => String(j.id) === sid) || jobsData.find(j => String(j.id) === sid);
+            activeJobId = job ? sid : null;
             renderJobList();
 
-            if (job) {
-                currentJob = job;
-                const loc = job.location || '';
-                const reg = getRegion(loc);
-                document.getElementById('detail-title').textContent = job.title;
-                document.getElementById('detail-company').textContent = job.company;
-                document.getElementById('detail-logo').textContent = job.logo;
-                document.getElementById('detail-location').textContent =
-                    loc + (reg !== 'All' ? ' · ' + reg : '');
-                document.getElementById('detail-salary').textContent = job.salary;
-                document.getElementById('detail-category').textContent = job.jobFunction || job.category || '—';
-                document.getElementById('detail-type').textContent = job.workingDays || job.type || '—';
-                document.getElementById('detail-posted').textContent = job.posted;
-
-                document.getElementById('detail-description').innerHTML = job.description || '<p class="text-gray-400">No description provided.</p>';
-
-                document.getElementById('empty-state').classList.add('hidden');
-                const detailContainer = document.getElementById('job-details-container');
-                detailContainer.classList.remove('hidden');
-                detailContainer.classList.remove('animate-fade-in');
-                void detailContainer.offsetWidth;
-                detailContainer.classList.add('animate-fade-in');
-
+            if (!job) {
+                currentJob = null;
+                document.getElementById('job-details-container').classList.add('hidden');
+                document.getElementById('empty-state').classList.remove('hidden');
                 const mobApply = document.getElementById('mobile-apply-btn');
-                if (mobApply) mobApply.classList.remove('hidden');
-
-                if (window.innerWidth < 768) {
-                    syncMobilePaneBg();
-                    document.getElementById('right-pane').classList.add('open');
-                }
-                lucide.createIcons();
+                if (mobApply) mobApply.classList.add('hidden');
+                updateMobileDetailToolbar();
+                return;
             }
+
+            currentJob = job;
+            const loc = job.location || '';
+            const reg = getRegion(loc);
+            document.getElementById('detail-title').textContent = job.title;
+            document.getElementById('detail-company').textContent = job.company;
+            document.getElementById('detail-logo').textContent = job.logo;
+            document.getElementById('detail-location').textContent =
+                loc + (reg !== 'All' ? ' · ' + reg : '');
+            document.getElementById('detail-salary').textContent = job.salary;
+            document.getElementById('detail-category').textContent = job.jobFunction || job.category || '—';
+            document.getElementById('detail-type').textContent = job.workingDays || job.type || '—';
+            document.getElementById('detail-posted').textContent = job.posted;
+
+            document.getElementById('detail-description').innerHTML = job.description || '<p class="text-gray-400">No description provided.</p>';
+
+            document.getElementById('empty-state').classList.add('hidden');
+            const detailContainer = document.getElementById('job-details-container');
+            detailContainer.classList.remove('hidden');
+            detailContainer.classList.remove('animate-fade-in');
+            void detailContainer.offsetWidth;
+            detailContainer.classList.add('animate-fade-in');
+
+            const mobApply = document.getElementById('mobile-apply-btn');
+            if (mobApply) mobApply.classList.remove('hidden');
+
+            if (window.innerWidth < 768) {
+                syncMobilePaneBg();
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        detailContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 80);
+                });
+            }
+            updateMobileDetailToolbar();
+            lucide.createIcons();
         }
 
         function applyFromMobile() {
@@ -759,7 +789,6 @@
         }
 
         function closeMobileDetails() {
-            document.getElementById('right-pane').classList.remove('open');
             activeJobId = null;
             currentJob = null;
             document.getElementById('job-details-container').classList.add('hidden');
@@ -767,6 +796,9 @@
             const mobApply = document.getElementById('mobile-apply-btn');
             if (mobApply) mobApply.classList.add('hidden');
             renderJobList();
+            if (window.innerWidth < 768) {
+                document.getElementById('left-pane').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function toggleTheme() {
@@ -1039,12 +1071,12 @@
 
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 768) {
-                document.getElementById('right-pane').classList.remove('open');
                 if (!activeJobId && jobsData.length > 0) {
                     const first = applyFilters()[0];
                     if (first) selectJob(first.id);
                 }
             }
+            updateMobileDetailToolbar();
         });
     </script>
 </body>
