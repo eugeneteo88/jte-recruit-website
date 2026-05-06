@@ -54,10 +54,11 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             background-color: #0a0a0a;
             color: #ffffff;
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .scroll-pane::-webkit-scrollbar { width: 6px; }
@@ -127,13 +128,19 @@
         .theme-light .text-gray-400 { color: #4b5563 !important; }
         .theme-light .text-gray-300 { color: #374151 !important; }
 
-        /* Fixed gradient navbar (same as index.html): keep readable contrast over gradient */
-        .theme-light #jte-navbar .text-white { color: #ffffff !important; }
-        .theme-light #jte-navbar .text-gray-400 { color: #9ca3af !important; }
-        .theme-light #jte-navbar a.group:hover span { color: #C6A87C !important; }
-        .theme-light #jte-navbar a.text-gray-300 { color: #d1d5db !important; }
-        .theme-light #jte-navbar a.text-gray-300:hover { color: #ffffff !important; }
-        .theme-light #jte-navbar a.text-luxury-gold { color: #C6A87C !important; }
+        /* Light mode: cream nav bar + dark type (index.html pattern). Avoids white text on transparent/cream. */
+        .theme-light #jte-navbar {
+            background: linear-gradient(to bottom, rgba(245, 241, 232, 0.98), rgba(245, 241, 232, 0.96)) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+        }
+        .theme-light #jte-navbar .font-serif { color: #0a0a0a !important; }
+        .theme-light #jte-navbar .text-gray-400 { color: #5c5c5c !important; }
+        .theme-light #jte-navbar a.group:hover .font-serif,
+        .theme-light #jte-navbar a.group:hover .text-gray-400 { color: #8C7350 !important; }
+        .theme-light #jte-navbar a { color: #4a4a4a !important; }
+        .theme-light #jte-navbar a:hover { color: #8C7350 !important; }
+        .theme-light #jte-navbar a.text-luxury-gold { color: #8C7350 !important; }
 
         .theme-light .job-card {
             background-color: #FFFFFF;
@@ -203,6 +210,8 @@
                 transform: translateX(100%);
                 transition: transform 0.3s ease-out;
                 background-color: var(--bg-color, #0a0a0a);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
             #right-pane.open {
                 transform: translateX(0);
@@ -241,7 +250,7 @@
     </nav>
 
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
-    <div id="jobs-page-stack" class="flex flex-col flex-1 min-h-0 overflow-hidden pt-[5.75rem]">
+    <div id="jobs-page-stack" class="flex flex-col pt-[5.75rem]">
 
     <!-- Search & filters: same horizontal padding as index nav only (no extra max-w layer) -->
     <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-6 md:px-12 py-3">
@@ -255,7 +264,7 @@
             </div>
 
             <div class="flex gap-2 overflow-x-auto pb-1 md:pb-0 w-full scroll-pane no-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
-                <select id="filter-industry" class="filter-pill text-white shrink-0" title="Classification"></select>
+                <select id="filter-industry" class="filter-pill text-white shrink-0" title="Industries"></select>
                 <select id="filter-salary" class="filter-pill text-white shrink-0" title="Salary (up to $5K band)">
                     <option value="Any">Up to $5K · Any salary</option>
                     <option value="lt2k">Up to $5K · Below $2k</option>
@@ -272,30 +281,17 @@
                     <option value="Contract → Perm">Work type · Contract → Perm</option>
                     <option value="Internship">Work type · Internship</option>
                 </select>
-                <select id="filter-region" class="filter-pill text-white shrink-0 hidden md:flex" title="Remote / Area">
-                    <option value="All">Remote · All areas</option>
-                    <option value="West">Remote · West</option>
-                    <option value="East">Remote · East</option>
-                    <option value="North">Remote · North</option>
-                    <option value="Central">Remote · Central</option>
-                    <option value="North East">Remote · North East</option>
-                    <option value="South">Remote · South</option>
-                </select>
-                <select id="filter-listed" class="filter-pill text-white shrink-0 hidden lg:flex" title="Listing time">
-                    <option value="newest">Listing time · Newest</option>
-                    <option value="oldest">Listing time · Oldest</option>
-                </select>
             </div>
         </div>
     </div>
 
     <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), wide gutter between list and detail on md+ -->
-    <div class="flex flex-1 overflow-hidden relative min-h-0 w-full min-w-0 px-6 md:px-12 gap-0 md:gap-12">
-        <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r border-white/5 overflow-y-auto scroll-pane pb-20 md:pb-0">
-            <div class="py-4 md:py-5" id="job-list-container"></div>
+    <div class="flex flex-col md:flex-row relative w-full min-w-0 px-6 md:px-12 gap-0 md:gap-12">
+        <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r border-white/5 pb-20 md:pb-8">
+            <div class="py-4 md:py-5 px-1 sm:px-2 md:px-0" id="job-list-container"></div>
         </div>
 
-        <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto scroll-pane relative">
+        <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto md:overflow-visible relative">
 
             <div class="md:hidden sticky top-0 bg-luxury-charcoal border-b border-white/5 p-4 z-10 flex items-center justify-between theme-light-bg-sync">
                 <button type="button" onclick="closeMobileDetails()" class="flex items-center text-luxury-gold font-medium">
@@ -304,22 +300,12 @@
                 <button type="button" id="mobile-apply-btn" class="hidden btn-primary px-4 py-2 rounded text-xs font-semibold uppercase tracking-wider" onclick="applyFromMobile()">Apply Now</button>
             </div>
 
-            <div id="job-details-container" class="py-6 md:py-8 px-0 md:px-2 max-w-4xl mx-auto animate-fade-in hidden">
-                <div class="flex justify-between items-start mb-6">
-                    <div>
-                        <h1 class="font-serif text-2xl md:text-3xl text-white mb-2 leading-tight" id="detail-title">Job Title</h1>
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="w-6 h-6 rounded bg-luxury-gold/20 flex items-center justify-center text-luxury-gold font-serif text-xs font-bold" id="detail-logo">J</div>
-                            <span class="text-luxury-gold font-medium text-sm" id="detail-company">Company Name</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button type="button" class="p-2 border border-white/10 rounded hover:border-luxury-gold text-gray-400 hover:text-luxury-gold transition-colors bg-luxury-black">
-                            <i data-lucide="share-2" class="w-4 h-4"></i>
-                        </button>
-                        <button type="button" class="p-2 border border-white/10 rounded hover:border-luxury-gold text-gray-400 hover:text-luxury-gold transition-colors bg-luxury-black hidden md:block">
-                            <i data-lucide="more-horizontal" class="w-4 h-4"></i>
-                        </button>
+            <div id="job-details-container" class="py-6 md:py-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden">
+                <div class="mb-6">
+                    <h1 class="font-serif text-2xl md:text-3xl text-white mb-2 leading-tight" id="detail-title">Job Title</h1>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 rounded bg-luxury-gold/20 flex items-center justify-center text-luxury-gold font-serif text-xs font-bold" id="detail-logo">J</div>
+                        <span class="text-luxury-gold font-medium text-sm" id="detail-company">Company Name</span>
                     </div>
                 </div>
 
@@ -521,7 +507,7 @@
         let activeJobId = null;
         let currentJob = null;
 
-        let filters = { search: '', region: 'All', salary: 'Any', jobType: 'All', industry: '', listed: 'newest' };
+        let filters = { search: '', salary: 'Any', jobType: 'All', industry: '' };
 
         async function fetchJobs() {
             const url = `${SUPABASE_URL}/rest/v1/jobs?select=${encodeURIComponent(JOBS_SELECT)}&show_on_portal=eq.true&status=eq.Open&order=created_at.desc`;
@@ -658,9 +644,6 @@
                         !(job.category || '').toLowerCase().includes(q) &&
                         !(job.jobFunction || '').toLowerCase().includes(q)) return false;
                 }
-                if (filters.region !== 'All') {
-                    if (getRegion(job.location) !== filters.region) return false;
-                }
                 if (filters.industry && job.category !== filters.industry) return false;
                 if (filters.jobType !== 'All') {
                     const want = filterJobTypeLabelToNormalized(filters.jobType);
@@ -669,11 +652,7 @@
                 if (!salaryMatchesBucket(job, filters.salary)) return false;
                 return true;
             });
-            list.sort((a, b) => {
-                const ta = a.createdAtMs || 0;
-                const tb = b.createdAtMs || 0;
-                return filters.listed === 'oldest' ? ta - tb : tb - ta;
-            });
+            list.sort((a, b) => (b.createdAtMs || 0) - (a.createdAtMs || 0));
             return list;
         }
 
@@ -681,7 +660,7 @@
             const sel = document.getElementById('filter-industry');
             const industries = [...new Set(jobsData.map(j => j.category).filter(Boolean))].sort();
             const cur = filters.industry;
-            sel.innerHTML = '<option value="">Classification · All</option>' +
+            sel.innerHTML = '<option value="">Industries · All</option>' +
                 industries.map(i => `<option value="${escapeAttr(i)}">${escapeHtml(i)}</option>`).join('');
             sel.value = cur;
         }
@@ -1003,13 +982,6 @@
                 renderJobList();
             });
 
-            document.getElementById('filter-region').addEventListener('change', function () {
-                filters.region = this.value;
-                activeJobId = null;
-                document.getElementById('job-details-container').classList.add('hidden');
-                document.getElementById('empty-state').classList.remove('hidden');
-                renderJobList();
-            });
             document.getElementById('filter-salary').addEventListener('change', function () {
                 filters.salary = this.value;
                 activeJobId = null;
@@ -1031,11 +1003,6 @@
                 document.getElementById('empty-state').classList.remove('hidden');
                 renderJobList();
             });
-            document.getElementById('filter-listed').addEventListener('change', function () {
-                filters.listed = this.value;
-                renderJobList();
-            });
-
             document.getElementById('detail-apply-btn').addEventListener('click', function () {
                 if (currentJob) openApplyModal(currentJob);
             });
