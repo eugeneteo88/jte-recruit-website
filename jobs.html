@@ -166,8 +166,6 @@
         .theme-light .btn-outline { border-color: rgba(0,0,0,0.2); color: #1a1a1a; }
         .theme-light .btn-outline:hover { border-color: #8C7350; background: rgba(140,115,80,0.05); }
 
-        .theme-light .filter-pill { background-color: #FFFFFF; border-color: rgba(0,0,0,0.1); color: #1a1a1a; }
-        .theme-light .filter-pill:hover { border-color: #8C7350; }
         .theme-light .search-input { background-color: #FFFFFF; color: #1a1a1a; border-color: rgba(0,0,0,0.1); }
 
         .theme-light .job-description-content ul { color: #4b5563; }
@@ -181,44 +179,10 @@
         .theme-light #success-modal .bg-luxury-charcoal { background-color: #FFFFFF !important; }
         .theme-light #success-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
 
-        /* Filter row: native selects styled as pills (matches template layout) */
-        select.filter-pill {
-            appearance: none;
-            padding-right: 1.75rem;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.65rem center;
-            max-width: 13rem;
-        }
-        .theme-light select.filter-pill {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-        }
-
-        .filter-pill {
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.03);
-            font-size: 0.875rem;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.2s ease;
-        }
-        .filter-pill:hover {
-            border-color: #C6A87C;
-            background: rgba(198, 168, 124, 0.05);
-        }
-
         @media (max-width: 768px) {
             .theme-light #right-pane { background-color: #F5F1E8; }
 
             #left-pane { width: 100% !important; }
-
-            select.filter-pill {
-                min-height: 44px;
-                display: inline-flex;
-                align-items: center;
-            }
 
             #apply-modal input:not([type="file"]),
             #apply-modal select,
@@ -258,36 +222,13 @@
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
     <div id="jobs-page-stack" class="flex flex-col pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem]">
 
-    <!-- Search & filters: same horizontal padding as index nav only (no extra max-w layer) -->
+    <!-- Search -->
     <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-4 sm:px-6 md:px-12 py-3">
-        <div class="flex flex-col md:flex-row gap-3 items-start md:items-center">
-
-            <div class="relative w-full md:w-1/3 max-w-md">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
-                </div>
-                <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="All jobs • Singapore" autocomplete="off">
+        <div class="relative w-full max-w-md">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
             </div>
-
-            <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full scroll-pane no-scrollbar touch-pan-x" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
-                <select id="filter-industry" class="filter-pill text-white shrink-0" title="Industries"></select>
-                <select id="filter-salary" class="filter-pill text-white shrink-0" title="Salary (up to $5K band)">
-                    <option value="Any">Up to $5K · Any salary</option>
-                    <option value="lt2k">Up to $5K · Below $2k</option>
-                    <option value="2k3k">Up to $5K · $2k–$3k</option>
-                    <option value="3k4k">Up to $5K · $3k–$4k</option>
-                    <option value="4k5k">Up to $5K · $4k–$5k</option>
-                    <option value="gt5k">Salary · Above $5k</option>
-                </select>
-                <select id="filter-job-type" class="filter-pill text-white shrink-0" title="Work type">
-                    <option value="All">Work type · All</option>
-                    <option value="Full time">Work type · Full time</option>
-                    <option value="Part time">Work type · Part time</option>
-                    <option value="Contract">Work type · Contract</option>
-                    <option value="Contract → Perm">Work type · Contract → Perm</option>
-                    <option value="Internship">Work type · Internship</option>
-                </select>
-            </div>
+            <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="All jobs • Singapore" autocomplete="off">
         </div>
     </div>
 
@@ -507,7 +448,7 @@
         let activeJobId = null;
         let currentJob = null;
 
-        let filters = { search: '', salary: 'Any', jobType: 'All', industry: '' };
+        let filters = { search: '' };
 
         async function fetchJobs() {
             const url = `${SUPABASE_URL}/rest/v1/jobs?select=${encodeURIComponent(JOBS_SELECT)}&show_on_portal=eq.true&status=eq.Open&order=created_at.desc`;
@@ -582,10 +523,8 @@
                 logo: ((logoSource && logoSource.length ? logoSource : 'JTE')[0] || 'J').toUpperCase(),
                 location: job.location || 'Singapore',
                 salary: job.salary_range && String(job.salary_range).trim() ? String(job.salary_range).trim() : 'Salary undisclosed',
-                salaryRangeOriginal: job.salary_range || '',
                 category: job.job_industry || '',
                 type: job.job_type || 'Full time',
-                typeNormalized: normalizeJobType(job.job_type),
                 posted: daysAgo(job.created_at),
                 createdAtMs: ts,
                 workingDays: job.working_days != null ? String(job.working_days) : '',
@@ -593,50 +532,6 @@
                 description: job.job_description || '',
                 bullets: extractBullets(job.job_description)
             };
-        }
-
-        function normalizeJobType(jt) {
-            if (!jt) return '';
-            let s = String(jt).toLowerCase().trim();
-            s = s.replace(/→/g, ' ').replace(/->/g, ' ');
-            s = s.replace(/\s+/g, ' ');
-            if (s.includes('intern')) return 'internship';
-            if (s.includes('contract') && (s.includes('perm') || s.includes('permanent'))) return 'contract perm';
-            if (s.includes('full')) return 'full time';
-            if (s.includes('part')) return 'part time';
-            if (s.includes('contract')) return 'contract';
-            return s;
-        }
-
-        function filterJobTypeLabelToNormalized(label) {
-            if (label === 'All') return 'All';
-            return normalizeJobType(label);
-        }
-
-        function parseSalaryBand(job) {
-            const text = (job.salaryRangeOriginal || job.salary || '') + '';
-            const nums = text.match(/\d[\d,]*/g);
-            if (!nums || !nums.length) return { min: null, max: null };
-            const parsed = nums.map(n => parseInt(n.replace(/,/g, ''), 10)).filter(n => !isNaN(n));
-            if (!parsed.length) return { min: null, max: null };
-            return { min: Math.min.apply(null, parsed), max: Math.max.apply(null, parsed) };
-        }
-
-        function salaryMatchesBucket(job, bucket) {
-            if (bucket === 'Any') return true;
-            const band = parseSalaryBand(job);
-            if (band.min == null && band.max == null) return false;
-            const low = band.min != null ? band.min : band.max;
-            const high = band.max != null ? band.max : band.min;
-            function overlaps(a, b, c, d) { return a <= d && c <= b; }
-            switch (bucket) {
-                case 'lt2k': return high <= 2000 || (low < 2000 && high < 2500);
-                case '2k3k': return overlaps(low, high, 2000, 3000);
-                case '3k4k': return overlaps(low, high, 3000, 4000);
-                case '4k5k': return overlaps(low, high, 4000, 5000);
-                case 'gt5k': return low >= 5000 || high > 5000;
-                default: return true;
-            }
         }
 
         function applyFilters() {
@@ -647,35 +542,16 @@
                         !(job.category || '').toLowerCase().includes(q) &&
                         !(job.jobFunction || '').toLowerCase().includes(q)) return false;
                 }
-                if (filters.industry && job.category !== filters.industry) return false;
-                if (filters.jobType !== 'All') {
-                    const want = filterJobTypeLabelToNormalized(filters.jobType);
-                    if (want !== 'All' && job.typeNormalized !== want) return false;
-                }
-                if (!salaryMatchesBucket(job, filters.salary)) return false;
                 return true;
             });
             list.sort((a, b) => (b.createdAtMs || 0) - (a.createdAtMs || 0));
             return list;
         }
 
-        function populateIndustryFilter() {
-            const sel = document.getElementById('filter-industry');
-            const industries = [...new Set(jobsData.map(j => j.category).filter(Boolean))].sort();
-            const cur = filters.industry;
-            sel.innerHTML = '<option value="">Industries · All</option>' +
-                industries.map(i => `<option value="${escapeAttr(i)}">${escapeHtml(i)}</option>`).join('');
-            sel.value = cur;
-        }
-
         function escapeHtml(s) {
             const d = document.createElement('div');
             d.textContent = s;
             return d.innerHTML;
-        }
-
-        function escapeAttr(s) {
-            return String(s).replace(/"/g, '&quot;');
         }
 
         function updateMobileDetailToolbar() {
@@ -690,7 +566,12 @@
             const list = applyFilters();
 
             if (!list.length) {
-                container.innerHTML = '<p class="text-sm text-gray-400 text-center py-8">No roles match your filters.</p>';
+                const msg = !jobsData.length
+                    ? 'No open roles at the moment.'
+                    : (filters.search.trim()
+                        ? 'No roles match your search.'
+                        : 'No open roles at the moment.');
+                container.innerHTML = `<p class="text-sm text-gray-400 text-center py-8">${escapeHtml(msg)}</p>`;
                 lucide.createIcons();
                 updateMobileDetailToolbar();
                 return;
@@ -1011,7 +892,6 @@
 
             const raw = await fetchJobs();
             jobsData = raw.map(mapJob);
-            populateIndustryFilter();
 
             document.getElementById('job-search').addEventListener('input', function () {
                 filters.search = this.value;
@@ -1021,27 +901,6 @@
                 renderJobList();
             });
 
-            document.getElementById('filter-salary').addEventListener('change', function () {
-                filters.salary = this.value;
-                activeJobId = null;
-                document.getElementById('job-details-container').classList.add('hidden');
-                document.getElementById('empty-state').classList.remove('hidden');
-                renderJobList();
-            });
-            document.getElementById('filter-job-type').addEventListener('change', function () {
-                filters.jobType = this.value;
-                activeJobId = null;
-                document.getElementById('job-details-container').classList.add('hidden');
-                document.getElementById('empty-state').classList.remove('hidden');
-                renderJobList();
-            });
-            document.getElementById('filter-industry').addEventListener('change', function () {
-                filters.industry = this.value;
-                activeJobId = null;
-                document.getElementById('job-details-container').classList.add('hidden');
-                document.getElementById('empty-state').classList.remove('hidden');
-                renderJobList();
-            });
             document.getElementById('detail-apply-btn').addEventListener('click', function () {
                 if (currentJob) openApplyModal(currentJob);
             });
