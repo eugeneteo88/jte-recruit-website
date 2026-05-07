@@ -66,6 +66,17 @@
         .scroll-pane::-webkit-scrollbar-thumb { background: rgba(198, 168, 124, 0.3); border-radius: 3px; }
         .scroll-pane:hover::-webkit-scrollbar-thumb { background: rgba(198, 168, 124, 0.6); }
 
+        /* Apply modal: no number spinners; single scroll root avoids focus/hit bugs */
+        #apply-form input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        #apply-form input[type="number"]::-webkit-outer-spin-button,
+        #apply-form input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         /* Nav link underline — same as index.html */
         .hover-gold-line { position: relative; }
         .hover-gold-line::after {
@@ -303,8 +314,8 @@
 
     </div><!-- /#jobs-page-stack -->
 
-    <div id="apply-modal" class="fixed inset-0 z-[100] hidden items-start justify-center overflow-y-auto p-3 sm:p-4 py-6 sm:py-8" style="background:rgba(0,0,0,0.7)">
-        <div class="bg-luxury-charcoal border border-white/10 rounded-2xl w-full max-w-2xl min-w-0 max-h-[min(92dvh,900px)] overflow-y-auto overflow-x-hidden scroll-pane shadow-2xl">
+    <div id="apply-modal" class="fixed inset-0 z-[100] hidden items-start justify-center overflow-y-auto overflow-x-hidden p-3 sm:p-4 py-6 sm:py-8 overscroll-contain" style="background:rgba(0,0,0,0.7)">
+        <div class="bg-luxury-charcoal border border-white/10 rounded-2xl w-full max-w-2xl min-w-0 my-2 sm:my-4 overflow-x-hidden scroll-pane shadow-2xl pointer-events-auto relative self-start">
             <div class="sticky top-0 bg-luxury-charcoal border-b border-white/10 px-4 sm:px-6 py-3 rounded-t-2xl flex justify-between items-start gap-3 z-10">
                 <div class="min-w-0 pr-2">
                     <p class="text-xs text-gray-400 mb-0.5">Applying for</p>
@@ -334,15 +345,15 @@
                 <div class="min-w-0">
                     <label class="block text-xs font-medium text-gray-300 mb-1.5">Mobile Number *</label>
                     <div class="flex flex-wrap sm:flex-nowrap gap-2 min-w-0">
-                        <select id="app-country" class="shrink-0 w-full sm:w-[7.25rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
-                            <option value="+65">🇸🇬 +65</option>
-                            <option value="+60">🇲🇾 +60</option>
-                            <option value="+63">🇵🇭 +63</option>
-                            <option value="+62">🇮🇩 +62</option>
-                            <option value="+91">🇮🇳 +91</option>
-                            <option value="+86">🇨🇳 +86</option>
-                            <option value="+84">🇻🇳 +84</option>
-                            <option value="+66">🇹🇭 +66</option>
+                        <select id="app-country" class="shrink-0 w-full sm:w-[5.5rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
+                            <option value="+65">+65</option>
+                            <option value="+60">+60</option>
+                            <option value="+63">+63</option>
+                            <option value="+62">+62</option>
+                            <option value="+91">+91</option>
+                            <option value="+86">+86</option>
+                            <option value="+84">+84</option>
+                            <option value="+66">+66</option>
                         </select>
                         <input type="tel" id="app-phone" required placeholder="9123 4567"
                                class="flex-1 min-w-0 w-full sm:w-auto px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
