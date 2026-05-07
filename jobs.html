@@ -360,13 +360,6 @@
         </div>
     </div>
 
-    <footer class="border-t border-white/5 flex-shrink-0 bg-luxury-charcoal px-4 sm:px-6 md:px-12 py-5 md:py-4 text-center text-[11px] sm:text-xs text-gray-500 leading-relaxed max-w-3xl mx-auto w-full">
-        <strong class="text-gray-300">JTE Recruit Pte Ltd</strong> · EA License No. 14C7215 ·
-        1 Gateway Drive #10-14 Westgate Tower Singapore 608531 ·
-        <a href="mailto:ask@jte.com.sg" class="hover:text-luxury-gold">ask@jte.com.sg</a>
-        <br>© 2026 JTE Recruit Pte Ltd. All rights reserved.
-    </footer>
-
     </div><!-- /#jobs-page-stack -->
 
     <div id="apply-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" style="background:rgba(0,0,0,0.7)">
@@ -578,8 +571,11 @@
             const useCoLogo = job.portal_show_company_name && job.companies && (Array.isArray(job.companies) ? job.companies[0]?.name : job.companies.name);
             const logoSource = useCoLogo ? co : 'JTE';
             const ts = job.created_at ? new Date(job.created_at).getTime() : 0;
+            const portalId = (job.public_id != null && String(job.public_id).trim() !== '')
+                ? String(job.public_id).trim()
+                : String(job.id != null ? job.id : '').trim();
             return {
-                id: job.public_id || String(job.id),
+                id: portalId,
                 rawId: job.id,
                 title: job.title || 'Untitled',
                 company: co,
@@ -707,8 +703,18 @@
                 const summaryBullets = (job.bullets || []).slice(0, 2).map(b =>
                     `<li class="truncate text-xs text-gray-400 mb-1 flex items-start"><span class="text-luxury-gold mr-1.5 mt-0.5">•</span> <span class="truncate">${escapeHtml(b)}</span></li>`
                 ).join('');
-                const cardHtml = `
-                    <div class="job-card touch-manipulation active:opacity-95 bg-luxury-charcoal rounded-lg p-4 sm:p-5 mb-3 sm:mb-4 ${activeClass}" onclick="selectJob(${JSON.stringify(job.id)})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectJob(${JSON.stringify(job.id)});}">
+                const wrap = document.createElement('div');
+                wrap.className =
+                    `job-card touch-manipulation active:opacity-95 bg-luxury-charcoal rounded-lg p-4 sm:p-5 mb-3 sm:mb-4 ${activeClass}`.trim();
+                wrap.setAttribute('role', 'button');
+                wrap.tabIndex = 0;
+                wrap.addEventListener('click', () => selectJob(job.id));
+                wrap.addEventListener('keydown', (e) => {
+                    if (e.key !== 'Enter' && e.key !== ' ') return;
+                    e.preventDefault();
+                    selectJob(job.id);
+                });
+                wrap.innerHTML = `
                         <div class="mb-2">
                             <h3 class="font-serif text-white font-medium leading-snug pr-4 hover:text-luxury-gold transition-colors">${escapeHtml(job.title)}</h3>
                         </div>
@@ -722,18 +728,19 @@
                                 <span>Details</span>
                                 <i data-lucide="chevron-right" class="w-3 h-3"></i>
                             </div>
-                        </div>
-                    </div>`;
-                container.insertAdjacentHTML('beforeend', cardHtml);
+                        </div>`;
+                container.appendChild(wrap);
             });
             lucide.createIcons();
             updateMobileDetailToolbar();
         }
 
         function selectJob(id) {
-            const sid = String(id);
+            const sid = String(id == null ? '' : id).trim();
             const list = applyFilters();
-            const job = list.find(j => String(j.id) === sid) || jobsData.find(j => String(j.id) === sid);
+            const job =
+                list.find(j => String(j.id).trim() === sid) ||
+                jobsData.find(j => String(j.id).trim() === sid);
             activeJobId = job ? sid : null;
             renderJobList();
 
