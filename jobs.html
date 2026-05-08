@@ -231,6 +231,25 @@
         #apply-modal #app-rights-work-trigger-text:not(.text-gray-400) {
             color: #f3f4f6 !important;
         }
+        /* Open list panels use cream bg in theme-light; option rows must use dark text (not text-gray-200). */
+        .theme-light #apply-modal #app-spoken-language-panel label,
+        .theme-light #apply-modal #app-spoken-language-panel label span {
+            color: #111827 !important;
+        }
+        .theme-light #apply-modal #app-spoken-language-panel label:hover {
+            background-color: rgba(0, 0, 0, 0.05) !important;
+        }
+        .theme-light #apply-modal #app-rights-work-panel .app-rights-option {
+            color: #111827 !important;
+        }
+        .theme-light #apply-modal #app-rights-work-panel .app-rights-option:hover,
+        .theme-light #apply-modal #app-rights-work-panel .app-rights-option:focus {
+            background-color: rgba(0, 0, 0, 0.05) !important;
+        }
+        .theme-light #apply-modal #app-spoken-language-panel,
+        .theme-light #apply-modal #app-rights-work-panel {
+            border-color: rgba(0, 0, 0, 0.12) !important;
+        }
         .theme-light #success-modal .bg-luxury-charcoal { background-color: #FFFFFF !important; }
         .theme-light #success-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
 
@@ -244,6 +263,21 @@
             #apply-modal textarea,
             #apply-modal .apply-modal-dd-trigger {
                 font-size: 16px;
+            }
+            /* Smaller placeholder copy on small screens; typed value stays 16px (iOS zoom guard). */
+            #apply-modal input::placeholder,
+            #apply-modal input::-webkit-input-placeholder,
+            #apply-modal input::-moz-placeholder,
+            #apply-modal textarea::placeholder,
+            #apply-modal textarea::-webkit-input-placeholder,
+            #apply-modal textarea::-moz-placeholder {
+                font-size: 0.75rem;
+                line-height: 1.35;
+                opacity: 1;
+            }
+            #apply-modal #app-spoken-language-trigger-text.text-gray-400,
+            #apply-modal #app-rights-work-trigger-text.text-gray-400 {
+                font-size: 0.75rem;
             }
         }
 
@@ -539,6 +573,16 @@
         const SUPABASE_URL = 'https://yxhzczjhwvdaqmoqyeyn.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4aHpjempod3ZkYXFtb3F5ZXluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjc3NTAsImV4cCI6MjA5MTY0Mzc1MH0.8qy91-HBrFsjEL-YsncdSTt0qftc2fr_g8h9hEN15Lc';
 
+        /**
+         * CRM portal ingest (apply form): set at runtime — do not commit secrets to git.
+         * Example (inject via deploy / small script before this block):
+         *   window.__JTE_PORTAL__ = {
+         *     crmPortalApiUrl: 'https://app.jte.com.sg/api/crm/portal-applications',
+         *     portalIngestSecret: '<from your hosting secret store>'
+         *   };
+         * This is static HTML (no process.env). GitHub Pages: use an Actions step to inject a
+         * generated snippet, or load a non-committed config script from your host.
+         */
         const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_days,salary_range,min_qualification,job_description,created_at,portal_show_company_name,companies(name)';
 
         const MRT_REGION = {
@@ -1083,6 +1127,14 @@
             localStorage.setItem(key, JSON.stringify(apps));
         }
 
+        const RESUME_MAX_BYTES = 5 * 1024 * 1024;
+
+        function userFacingErrorMessage(raw) {
+            if (!raw || typeof raw !== 'string') return 'Something went wrong. Please try again.';
+            const one = raw.replace(/\s+/g, ' ').trim();
+            return one.length > 220 ? one.slice(0, 217) + '…' : one;
+        }
+
         async function handleSubmit(e) {
             e.preventDefault();
 
@@ -1123,60 +1175,92 @@
                 return;
             }
 
+            if (resume.size > RESUME_MAX_BYTES) {
+                document.getElementById('apply-error-text').textContent = 'Resume must be 5MB or smaller. Please compress or shorten the file and try again.';
+                document.getElementById('apply-error').classList.remove('hidden');
+                return;
+            }
+
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
 
-            try {
-                let resumePath = null, resumeFilename = null;
-                const ts = Date.now();
-                const clean = resume.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-                const path = `portal/${currentJob.id}/${ts}-${clean}`;
+            const errBox = document.getElementById('apply-error');
+            const errText = document.getElementById('apply-error-text');
+            function showApplyError(msg) {
+                errText.textContent = msg;
+                errBox.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application';
+            }
 
-                const upRes = await fetch(`${SUPABASE_URL}/storage/v1/object/job-inbound-resumes/${path}`, {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'Content-Type': resume.type || 'application/octet-stream',
-                        'x-upsert': 'false'
-                    },
-                    body: resume
-                });
-                if (upRes.ok) {
-                    resumePath = path;
-                    resumeFilename = resume.name;
+            try {
+                const portalCfg =
+                    typeof window.__JTE_PORTAL__ === 'object' && window.__JTE_PORTAL__ !== null
+                        ? window.__JTE_PORTAL__
+                        : {};
+                const crmUrl =
+                    portalCfg.crmPortalApiUrl ||
+                    'https://app.jte.com.sg/api/crm/portal-applications';
+                const crmSecret = portalCfg.portalIngestSecret || '';
+
+                if (!crmSecret) {
+                    showApplyError(
+                        'Portal API is not configured (missing ingest secret). Set window.__JTE_PORTAL__.portalIngestSecret at deploy time — do not commit secrets to git.'
+                    );
+                    return;
                 }
 
-                const appRes = await fetch(`${SUPABASE_URL}/rest/v1/portal_applications`, {
+                const formData = new FormData();
+                formData.append('job_public_id', currentJob.id);
+                formData.append('full_name', name);
+                formData.append('email', email.toLowerCase());
+
+                if (countryCode) {
+                    formData.append('phone_country_code', countryCode);
+                    formData.append('phone', phone);
+                } else {
+                    formData.append('phone', phone);
+                }
+
+                formData.append('qualification', qualification);
+                formData.append('spoken_languages', spokenLanguage);
+                formData.append('expected_salary', Number.isFinite(salaryNum) ? String(salaryNum) : '');
+                formData.append('rights_to_work', rightToWork);
+                formData.append('resume', resume, resume.name);
+                formData.append('consent_pdpa', 'true');
+
+                const crmResponse = await fetch(crmUrl, {
                     method: 'POST',
                     headers: {
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'Content-Type': 'application/json',
-                        'Prefer': 'return=minimal'
+                        'X-Portal-Key': crmSecret
                     },
-                    body: JSON.stringify({
-                        job_id: currentJob.rawId,
-                        job_public_id: currentJob.id,
-                        job_title: currentJob.title,
-                        full_name: name,
-                        email: email.toLowerCase(),
-                        phone: countryCode + phone,
-                        phone_country_code: countryCode,
-                        qualification: qualification || null,
-                        spoken_language: spokenLanguage || null,
-                        right_to_work: rightToWork || null,
-                        expected_salary_min: Number.isFinite(salaryNum) ? salaryNum : null,
-                        expected_salary_max: null,
-                        resume_path: resumePath,
-                        resume_filename: resumeFilename,
-                        consent_pdpa: true,
-                        status: 'new',
-                        source: 'portal'
-                    })
+                    body: formData
                 });
 
-                if (!appRes.ok) throw new Error('Submission failed');
+                const errBody = await crmResponse.text();
+                let result = {};
+                if (errBody) {
+                    try {
+                        result = JSON.parse(errBody);
+                    } catch (x) {
+                        result = { raw: errBody };
+                    }
+                }
+
+                if (!crmResponse.ok) {
+                    const msg = result.error || result.message || result.raw || crmResponse.statusText;
+                    console.error('[portal] CRM submit failed', crmResponse.status, result);
+                    showApplyError(
+                        'Failed to submit application: ' +
+                            (typeof msg === 'string' ? msg : JSON.stringify(msg))
+                    );
+                    return;
+                }
+
+                if (result.ok === false) {
+                    showApplyError('Failed to submit application');
+                    return;
+                }
 
                 recordApplicationAttempt(email.toLowerCase());
 
@@ -1189,7 +1273,8 @@
                 lucide.createIcons();
             } catch (err) {
                 console.error(err);
-                document.getElementById('apply-error-text').textContent = 'Something went wrong. Please try again.';
+                document.getElementById('apply-error-text').textContent =
+                    err && err.message ? userFacingErrorMessage(err.message) : 'Something went wrong. Please try again.';
                 document.getElementById('apply-error').classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Application';
