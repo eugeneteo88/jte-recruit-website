@@ -201,6 +201,29 @@
                 font-size: 16px;
             }
         }
+
+        /* Mobile: job details as full-viewport overlay (matches JS innerWidth < 768) */
+        @media (max-width: 767px) {
+            #right-pane.job-detail-mobile-open {
+                position: fixed;
+                inset: 0;
+                z-index: 85;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                height: 100dvh;
+                max-height: 100dvh;
+                border-radius: 0;
+                border-top-width: 0;
+                padding-bottom: env(safe-area-inset-bottom, 0px);
+            }
+            #right-pane.job-detail-mobile-open #job-details-container {
+                flex: 1 1 auto;
+                min-height: 0;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     </style>
 </head>
 <body class="jte-wrapper theme-light antialiased" id="jte-main-wrapper">
@@ -220,14 +243,6 @@
                 <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </button>
         </div>
-
-        <div class="md:hidden flex items-center gap-4 z-50 relative">
-            <a href="./jobs.html" class="text-xs uppercase tracking-[0.15em] text-luxury-gold transition-colors font-semibold" aria-current="page">Jobs</a>
-            <button type="button" id="mobile-theme-toggle" onclick="toggleTheme()" class="hidden text-white focus:outline-none transition-colors p-2 hover:text-luxury-gold" aria-hidden="true" tabindex="-1">
-                <svg id="icon-moon-mobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                <svg id="icon-sun-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </button>
-        </div>
     </nav>
 
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
@@ -239,7 +254,7 @@
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
             </div>
-            <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="All jobs • Singapore" autocomplete="off">
+            <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="Search for Job Title" autocomplete="off">
         </div>
     </div>
 
@@ -306,7 +321,7 @@
             <div id="empty-state" class="flex flex-col items-center justify-center min-h-[40vh] md:min-h-[50vh] text-center p-6 md:p-8 opacity-50">
                 <i data-lucide="briefcase" class="w-14 h-14 md:w-16 md:h-16 text-luxury-gold mb-4 opacity-50"></i>
                 <h2 class="font-serif text-xl md:text-2xl text-white mb-2">Select a job</h2>
-                <p class="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed md:hidden">Tap a job above to load full details and apply here.</p>
+                <p class="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed md:hidden">Tap a job to open full details and apply.</p>
                 <p class="text-gray-400 text-sm max-w-xs mx-auto leading-relaxed hidden md:block">Click a job on the left to view details.</p>
             </div>
         </div>
@@ -344,8 +359,8 @@
 
                 <div class="min-w-0">
                     <label class="block text-xs font-medium text-gray-300 mb-1.5">Mobile Number *</label>
-                    <div class="flex flex-wrap sm:flex-nowrap gap-2 min-w-0">
-                        <select id="app-country" class="shrink-0 w-full sm:w-[5.5rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
+                    <div class="flex flex-nowrap gap-2 min-w-0 items-stretch">
+                        <select id="app-country" class="shrink-0 w-[5.5rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
                             <option value="+65">+65</option>
                             <option value="+60">+60</option>
                             <option value="+63">+63</option>
@@ -356,16 +371,16 @@
                             <option value="+66">+66</option>
                         </select>
                         <input type="tel" id="app-phone" required placeholder="9123 4567"
-                               class="flex-1 min-w-0 w-full sm:w-auto px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
+                               class="min-w-0 flex-1 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-medium text-gray-300 mb-1.5">Resume * (PDF or Word, max 5MB)</label>
                     <div id="drop-zone" onclick="document.getElementById('app-resume').click()"
-                         class="border-2 border-dashed border-white/10 rounded-xl py-3 px-3 sm:p-4 text-center cursor-pointer hover:border-luxury-gold transition-colors">
+                         class="border-2 border-dashed border-white/10 rounded-xl min-h-[140px] px-3 py-6 sm:px-4 sm:py-8 flex flex-col items-center justify-center gap-2 text-center cursor-pointer hover:border-luxury-gold transition-colors">
                         <p class="text-sm text-gray-400">📎 Click to upload or drag & drop</p>
-                        <p id="resume-name" class="text-xs text-luxury-gold mt-1 hidden truncate"></p>
+                        <p id="resume-name" class="text-xs text-luxury-gold hidden truncate max-w-full px-1"></p>
                     </div>
                     <input type="file" id="app-resume" accept=".pdf,.doc,.docx" class="hidden" onchange="handleResumeSelect(this)">
                 </div>
@@ -570,6 +585,20 @@
             else bar.classList.add('hidden');
         }
 
+        function syncBodyScrollLock() {
+            const applyModal = document.getElementById('apply-modal');
+            const successModal = document.getElementById('success-modal');
+            const rightPane = document.getElementById('right-pane');
+            const applyOpen = applyModal && !applyModal.classList.contains('hidden');
+            const successOpen = successModal && !successModal.classList.contains('hidden');
+            const mobileDetailOpen =
+                rightPane &&
+                rightPane.classList.contains('job-detail-mobile-open') &&
+                window.innerWidth < 768;
+            document.body.style.overflow =
+                applyOpen || successOpen || mobileDetailOpen ? 'hidden' : '';
+        }
+
         function renderJobList() {
             const container = document.getElementById('job-list-container');
             const list = applyFilters();
@@ -636,11 +665,13 @@
 
             if (!job) {
                 currentJob = null;
+                document.getElementById('right-pane')?.classList.remove('job-detail-mobile-open');
                 document.getElementById('job-details-container').classList.add('hidden');
                 document.getElementById('empty-state').classList.remove('hidden');
                 const mobApply = document.getElementById('mobile-apply-btn');
                 if (mobApply) mobApply.classList.add('hidden');
                 updateMobileDetailToolbar();
+                syncBodyScrollLock();
                 return;
             }
 
@@ -669,14 +700,14 @@
             const mobApply = document.getElementById('mobile-apply-btn');
             if (mobApply) mobApply.classList.remove('hidden');
 
+            const rightPane = document.getElementById('right-pane');
             if (window.innerWidth < 768) {
+                rightPane?.classList.add('job-detail-mobile-open');
                 syncMobilePaneBg();
-                requestAnimationFrame(() => {
-                    setTimeout(() => {
-                        detailContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 80);
-                });
+            } else {
+                rightPane?.classList.remove('job-detail-mobile-open');
             }
+            syncBodyScrollLock();
             updateMobileDetailToolbar();
             lucide.createIcons();
         }
@@ -688,14 +719,13 @@
         function closeMobileDetails() {
             activeJobId = null;
             currentJob = null;
+            document.getElementById('right-pane')?.classList.remove('job-detail-mobile-open');
             document.getElementById('job-details-container').classList.add('hidden');
             document.getElementById('empty-state').classList.remove('hidden');
             const mobApply = document.getElementById('mobile-apply-btn');
             if (mobApply) mobApply.classList.add('hidden');
+            syncBodyScrollLock();
             renderJobList();
-            if (window.innerWidth < 768) {
-                document.getElementById('left-pane').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         }
 
         function toggleTheme() {
@@ -744,21 +774,21 @@
             const modal = document.getElementById('apply-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
+            syncBodyScrollLock();
         }
 
         function closeApplyModal() {
             const modal = document.getElementById('apply-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            document.body.style.overflow = '';
+            syncBodyScrollLock();
         }
 
         function closeSuccessModal() {
             const modal = document.getElementById('success-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            document.body.style.overflow = '';
+            syncBodyScrollLock();
         }
 
         function handleResumeSelect(input) {
@@ -866,7 +896,7 @@
                 const success = document.getElementById('success-modal');
                 success.classList.remove('hidden');
                 success.classList.add('flex');
-                document.body.style.overflow = 'hidden';
+                syncBodyScrollLock();
                 lucide.createIcons();
             } catch (err) {
                 console.error(err);
@@ -905,8 +935,10 @@
             document.getElementById('job-search').addEventListener('input', function () {
                 filters.search = this.value;
                 activeJobId = null;
+                document.getElementById('right-pane')?.classList.remove('job-detail-mobile-open');
                 document.getElementById('job-details-container').classList.add('hidden');
                 document.getElementById('empty-state').classList.remove('hidden');
+                syncBodyScrollLock();
                 renderJobList();
             });
 
@@ -945,11 +977,18 @@
         });
 
         window.addEventListener('resize', () => {
+            const rightPane = document.getElementById('right-pane');
+            const detailsEl = document.getElementById('job-details-container');
             if (window.innerWidth >= 768) {
+                rightPane?.classList.remove('job-detail-mobile-open');
+                syncBodyScrollLock();
                 if (!activeJobId && jobsData.length > 0) {
                     const first = applyFilters()[0];
                     if (first) selectJob(first.id);
                 }
+            } else if (activeJobId && detailsEl && !detailsEl.classList.contains('hidden')) {
+                rightPane?.classList.add('job-detail-mobile-open');
+                syncBodyScrollLock();
             }
             updateMobileDetailToolbar();
         });
