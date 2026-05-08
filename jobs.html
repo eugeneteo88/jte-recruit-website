@@ -109,6 +109,7 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 15px rgba(198, 168, 124, 0.2);
         }
+
         .btn-outline {
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.2s ease;
@@ -232,25 +233,16 @@
 </head>
 <body class="jte-wrapper theme-light antialiased" id="jte-main-wrapper">
 
-    <!-- Navbar: logo home + Jobs only (no index section links) -->
+    <!-- Navbar: logo home -->
     <nav id="jte-navbar" class="fixed w-full z-50 px-4 sm:px-6 md:px-12 pt-[calc(1.5rem+env(safe-area-inset-top,0px))] pb-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent transition-all duration-300">
         <a href="./index.html" class="z-50 cursor-pointer group">
             <span class="font-serif text-2xl tracking-[0.1em] text-white font-semibold group-hover:text-luxury-gold transition-colors duration-300">JTE</span>
             <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
         </a>
-
-        <div class="hidden md:flex items-center gap-8">
-            <a href="./jobs.html" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold" aria-current="page">Jobs</a>
-
-            <button type="button" onclick="toggleTheme()" class="hidden ml-4 p-2 rounded-full border border-white/20 hover:bg-white/10 transition-all text-white hover:border-luxury-gold hover:text-luxury-gold" aria-hidden="true" tabindex="-1">
-                <svg id="icon-moon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                <svg id="icon-sun" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </button>
-        </div>
     </nav>
 
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
-    <div id="jobs-page-stack" class="flex flex-col pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem]">
+    <div id="jobs-page-stack" class="flex flex-col pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem] pb-12 md:pb-16">
 
     <!-- Search -->
     <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-4 sm:px-6 md:px-12 py-3">
@@ -258,7 +250,7 @@
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
             </div>
-            <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="Search for Job Title" autocomplete="off">
+            <input type="text" id="job-search" inputmode="search" enterkeyhint="search" class="search-input w-full bg-luxury-charcoal border border-white/10 text-white text-base md:text-sm rounded-full focus:ring-1 focus:ring-luxury-gold focus:border-luxury-gold block w-full pl-10 py-3 md:py-2.5 px-3 transition-colors" placeholder="Search jobs" autocomplete="off">
         </div>
     </div>
 
@@ -280,10 +272,7 @@
             <div id="job-details-container" class="py-6 md:py-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden max-md:[scroll-margin-top:0.5rem]">
                 <div class="mb-6">
                     <h1 class="font-serif text-2xl md:text-3xl text-white mb-2 leading-tight" id="detail-title">Job Title</h1>
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-6 h-6 rounded bg-luxury-gold/20 flex items-center justify-center text-luxury-gold font-serif text-xs font-bold" id="detail-logo">J</div>
-                        <span class="text-luxury-gold font-medium text-sm" id="detail-company">Company Name</span>
-                    </div>
+                    <p class="text-luxury-gold font-medium text-sm mb-4" id="detail-company">Company Name</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6 mb-8 text-sm text-gray-300">
@@ -311,14 +300,14 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3 mb-10 pb-8 border-b border-white/10">
-                    <button type="button" id="detail-apply-btn" class="btn-primary min-h-[48px] px-8 py-3 rounded text-sm font-semibold text-center w-full sm:w-auto shadow-lg shadow-luxury-gold/10 [-webkit-tap-highlight-color:transparent]">
+                    <button type="button" id="detail-apply-btn" class="inline-flex w-full sm:w-auto min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-2xl border-0 bg-luxury-goldLight px-8 py-3.5 text-center font-sans text-[11px] font-semibold normal-case tracking-wide text-luxury-black transition-all duration-300 hover:bg-[#c9b08f] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-luxury-gold/45 focus-visible:ring-offset-2 focus-visible:ring-offset-luxury-cream disabled:pointer-events-none disabled:opacity-45 [-webkit-tap-highlight-color:transparent]">
                         Apply Now
                     </button>
                 </div>
 
-                <div class="job-description-content font-sans">
-                    <h2 class="font-serif text-xl text-white mb-4">Roles & Responsibilities</h2>
-                    <div id="detail-description" class="text-sm md:text-base leading-relaxed max-w-none"></div>
+                <div class="job-description-content font-sans text-[13px] md:text-sm leading-relaxed">
+                    <h2 class="font-serif text-lg md:text-xl text-white mb-3">Roles & Responsibilities</h2>
+                    <div id="detail-description" class="max-w-none"></div>
                 </div>
             </div>
         </div>
@@ -548,8 +537,6 @@
 
         function mapJob(job) {
             const co = companyName(job);
-            const useCoLogo = job.portal_show_company_name && job.companies && (Array.isArray(job.companies) ? job.companies[0]?.name : job.companies.name);
-            const logoSource = useCoLogo ? co : 'JTE';
             const ts = job.created_at ? new Date(job.created_at).getTime() : 0;
             const portalId = (job.public_id != null && String(job.public_id).trim() !== '')
                 ? String(job.public_id).trim()
@@ -559,7 +546,6 @@
                 rawId: job.id,
                 title: job.title || 'Untitled',
                 company: co,
-                logo: ((logoSource && logoSource.length ? logoSource : 'JTE')[0] || 'J').toUpperCase(),
                 location: job.location || 'Singapore',
                 salary: job.salary_range && String(job.salary_range).trim() ? String(job.salary_range).trim() : 'Salary undisclosed',
                 category: job.job_industry || '',
@@ -694,7 +680,6 @@
             const reg = getRegion(loc);
             document.getElementById('detail-title').textContent = job.title;
             document.getElementById('detail-company').textContent = job.company;
-            document.getElementById('detail-logo').textContent = job.logo;
             document.getElementById('detail-location').textContent =
                 loc + (reg !== 'All' ? ' · ' + reg : '');
             document.getElementById('detail-salary').textContent = job.salary;
@@ -740,37 +725,9 @@
             renderJobList();
         }
 
-        function toggleTheme() {
-            const wrapper = document.getElementById('jte-main-wrapper');
-            const sun = document.getElementById('icon-sun');
-            const moon = document.getElementById('icon-moon');
-            const sunMobile = document.getElementById('icon-sun-mobile');
-            const moonMobile = document.getElementById('icon-moon-mobile');
-
-            wrapper.classList.toggle('theme-light');
-            const isLight = wrapper.classList.contains('theme-light');
-
-            if (isLight) {
-                sun?.classList.remove('hidden');
-                moon?.classList.add('hidden');
-                sunMobile?.classList.remove('hidden');
-                moonMobile?.classList.add('hidden');
-                localStorage.setItem('jte-theme', 'light');
-            } else {
-                sun?.classList.add('hidden');
-                moon?.classList.remove('hidden');
-                sunMobile?.classList.add('hidden');
-                moonMobile?.classList.remove('hidden');
-                localStorage.setItem('jte-theme', 'dark');
-            }
-
-            syncMobilePaneBg();
-        }
-
         function syncMobilePaneBg() {
             const rightPane = document.getElementById('right-pane');
-            const isLight = document.getElementById('jte-main-wrapper').classList.contains('theme-light');
-            rightPane.style.setProperty('--bg-color', isLight ? '#F5F1E8' : '#0a0a0a');
+            rightPane?.style.setProperty('--bg-color', '#F5F1E8');
         }
 
         function openApplyModal(job) {
@@ -929,16 +886,8 @@
         document.addEventListener('DOMContentLoaded', async () => {
             lucide.createIcons();
 
-            /* Same theme key as index.html (`jte-theme`) */
-            if (!localStorage.getItem('jte-theme') && localStorage.getItem('jte-portal-theme')) {
-                localStorage.setItem('jte-theme', localStorage.getItem('jte-portal-theme'));
-            }
-            const savedTheme = localStorage.getItem('jte-theme');
-            if (savedTheme === 'dark') {
-                toggleTheme();
-            } else if (!savedTheme) {
-                localStorage.setItem('jte-theme', 'light');
-            }
+            /* Jobs portal is light mode only (ignore site theme preference on this page). */
+            document.getElementById('jte-main-wrapper').classList.add('theme-light');
             syncMobilePaneBg();
 
             const raw = await fetchJobs();
