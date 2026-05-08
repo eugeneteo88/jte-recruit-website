@@ -13,7 +13,7 @@ window.__JTE_PORTAL__ = {
 };
 ```
 
-Static HTML has **no** `process.env`; use your host’s inject step (GitHub Actions, Netlify env inject snippet, etc.).
+Static HTML has **no** `process.env`. In this repo, **CI** runs `node scripts/inject-portal-config.js` (see `npm run build` and `.github/workflows/deploy.yml`) before publishing to GitHub Pages — do not commit the injected `jobs.html` to `main`.
 
 ---
 
