@@ -203,10 +203,11 @@
             color: #1a1a1a !important;
             border-color: rgba(0,0,0,0.1) !important;
         }
-        /* Buttons: same field chrome as inputs but no forced text color (label span sets contrast). */
+        /* Buttons: same field chrome as inputs; set text color (body/.jte-wrapper inherits white otherwise). */
         .theme-light #apply-modal button.apply-modal-dd-trigger {
             background-color: #F5F1E8 !important;
             border-color: rgba(0,0,0,0.1) !important;
+            color: #111827 !important;
         }
         .theme-light #apply-modal .apply-modal-dd-trigger .apply-modal-dd-chevron {
             color: rgba(0,0,0,0.42) !important;
@@ -223,12 +224,18 @@
         .theme-light #apply-modal #app-rights-work-trigger-text.text-gray-400 {
             color: #6b7280 !important;
         }
+        /* Filled value on cream: must beat the generic :not(.text-gray-400) rule below (same cascade order). */
+        .theme-light #apply-modal #app-spoken-language-trigger-text:not(.text-gray-400),
+        .theme-light #apply-modal #app-rights-work-trigger-text:not(.text-gray-400) {
+            color: #111827 !important;
+        }
         #apply-modal #app-spoken-language-trigger-text.text-gray-400,
         #apply-modal #app-rights-work-trigger-text.text-gray-400 {
             color: #9ca3af !important;
         }
-        #apply-modal #app-spoken-language-trigger-text:not(.text-gray-400),
-        #apply-modal #app-rights-work-trigger-text:not(.text-gray-400) {
+        /* Light value text only on dark modal (no .theme-light on body). */
+        body:not(.theme-light) #apply-modal #app-spoken-language-trigger-text:not(.text-gray-400),
+        body:not(.theme-light) #apply-modal #app-rights-work-trigger-text:not(.text-gray-400) {
             color: #f3f4f6 !important;
         }
         /* Open list panels use cream bg in theme-light; option rows must use dark text (not text-gray-200). */
@@ -253,6 +260,24 @@
         .theme-light #success-modal .bg-luxury-charcoal { background-color: #FFFFFF !important; }
         .theme-light #success-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
 
+        /* Apply modal: smaller placeholders (all viewports); inputs keep text-sm / mobile 16px below. */
+        #apply-modal input::placeholder,
+        #apply-modal input::-webkit-input-placeholder,
+        #apply-modal input::-moz-placeholder,
+        #apply-modal textarea::placeholder,
+        #apply-modal textarea::-webkit-input-placeholder,
+        #apply-modal textarea::-moz-placeholder {
+            font-size: 0.75rem;
+            line-height: 1.35;
+            opacity: 1;
+        }
+
+        /* Contact row: slightly smaller than other apply fields */
+        #apply-modal #app-country,
+        #apply-modal #app-phone {
+            font-size: 0.8125rem;
+        }
+
         @media (max-width: 768px) {
             .theme-light #right-pane { background-color: #F5F1E8; }
 
@@ -264,16 +289,9 @@
             #apply-modal .apply-modal-dd-trigger {
                 font-size: 16px;
             }
-            /* Smaller placeholder copy on small screens; typed value stays 16px (iOS zoom guard). */
-            #apply-modal input::placeholder,
-            #apply-modal input::-webkit-input-placeholder,
-            #apply-modal input::-moz-placeholder,
-            #apply-modal textarea::placeholder,
-            #apply-modal textarea::-webkit-input-placeholder,
-            #apply-modal textarea::-moz-placeholder {
-                font-size: 0.75rem;
-                line-height: 1.35;
-                opacity: 1;
+            #apply-modal #app-country,
+            #apply-modal #app-phone {
+                font-size: 0.8125rem !important;
             }
             #apply-modal #app-spoken-language-trigger-text.text-gray-400,
             #apply-modal #app-rights-work-trigger-text.text-gray-400 {
@@ -425,7 +443,7 @@
                 <!-- Row 1: Full name -->
                 <div class="min-w-0">
                     <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-name">Full Name *</label>
-                    <input type="text" id="app-name" required placeholder="Full Name"
+                    <input type="text" id="app-name" required
                            class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                 </div>
 
@@ -433,7 +451,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-email">Email Address *</label>
-                        <input type="email" id="app-email" required placeholder="your@email.com"
+                        <input type="email" id="app-email" required
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
