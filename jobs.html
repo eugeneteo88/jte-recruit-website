@@ -49,6 +49,11 @@
     </script>
 
     <style>
+        /* Fixed #jte-navbar does not reserve flow space; keep document scroll from tucking content under it. */
+        html {
+            scroll-padding-top: calc(6.25rem + env(safe-area-inset-top, 0px));
+        }
+
         .jte-wrapper {
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -337,8 +342,8 @@
         </a>
     </nav>
 
-    <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
-    <div id="jobs-page-stack" class="flex flex-1 flex-col min-h-0 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem] pb-12 md:pb-16">
+    <!-- Offset for fixed nav + safe area (theme-light bar is slightly taller than old transparent bar) -->
+    <div id="jobs-page-stack" class="flex flex-1 flex-col min-h-0 pt-[calc(6.25rem+env(safe-area-inset-top,0px))] md:pt-[calc(6.25rem+env(safe-area-inset-top,0px))] pb-12 md:pb-16">
 
     <!-- Search -->
     <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-[1] shadow-sm px-4 sm:px-6 md:px-12 py-3">
@@ -352,20 +357,20 @@
 
     <!-- Dual pane: flex-1 min-h-0 so list + details each scroll inside the viewport (md+) -->
     <div class="relative z-[2] flex w-full min-w-0 flex-1 min-h-0 flex-col gap-0 px-4 sm:px-6 md:flex-row md:gap-12 md:px-12">
-        <div id="left-pane" class="w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
-            <div id="job-list-container" class="scroll-pane overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-11rem))] md:max-h-none"></div>
+        <div id="left-pane" class="w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(6.25rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
+            <div id="job-list-container" class="scroll-pane overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-12.5rem))] md:max-h-none"></div>
         </div>
 
         <div id="right-pane" class="relative w-full min-w-0 overflow-y-auto bg-luxury-charcoal max-md:rounded-t-xl max-md:border-t max-md:border-white/10 md:min-h-0 md:w-[65%] lg:w-[70%]">
 
-            <div id="mobile-detail-toolbar" class="md:hidden hidden sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-white/5 bg-luxury-charcoal px-3 py-2 backdrop-blur-sm bg-opacity-95">
+            <div id="mobile-detail-toolbar" class="md:hidden hidden sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-white/5 bg-luxury-charcoal px-4 sm:px-6 pb-2 pt-[calc(0.5rem+env(safe-area-inset-top,0px))] backdrop-blur-sm bg-opacity-95">
                 <button type="button" onclick="closeMobileDetails()" class="flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-lg px-2 text-luxury-gold font-medium active:opacity-80 [-webkit-tap-highlight-color:transparent]">
                     <i data-lucide="arrow-left" class="w-5 h-5 shrink-0"></i><span class="text-sm">Back</span>
                 </button>
                 <button type="button" id="mobile-apply-btn" class="hidden inline-flex shrink-0 min-h-[48px] cursor-pointer items-center justify-center gap-2 rounded-2xl border-0 bg-luxury-goldLight px-8 py-3.5 text-center font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-luxury-black transition-all duration-300 hover:bg-[#c9b08f] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-luxury-gold/45 focus-visible:ring-offset-2 focus-visible:ring-offset-luxury-cream disabled:pointer-events-none disabled:opacity-45 [-webkit-tap-highlight-color:transparent]" onclick="applyFromMobile()">Apply</button>
             </div>
 
-            <div id="job-details-container" class="py-6 md:py-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden max-md:[scroll-margin-top:0.5rem]">
+            <div id="job-details-container" class="pt-8 pb-6 md:pt-10 md:pb-8 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto animate-fade-in hidden max-md:[scroll-margin-top:calc(6.25rem+env(safe-area-inset-top,0px))] md:[scroll-margin-top:1rem]">
                 <div class="mb-6">
                     <h1 class="font-serif text-2xl md:text-3xl text-white mb-2 leading-tight" id="detail-title">Job Title</h1>
                     <p class="text-luxury-gold font-medium text-sm mb-4" id="detail-company">Company Name</p>
@@ -481,8 +486,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-qualification">Qualification *</label>
-                        <input type="text" id="app-qualification" required placeholder="e.g. Diploma in Business Admin"
-                               class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
+                        <select id="app-qualification" required
+                                class="w-full min-w-0 cursor-pointer px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
+                            <option value="">Select your qualification</option>
+                            <option value="N/O/A Levels">N/O/A Levels</option>
+                            <option value="ITE">ITE</option>
+                            <option value="Diploma">Diploma</option>
+                            <option value="Degree">Degree</option>
+                            <option value="Master +">Master +</option>
+                        </select>
                     </div>
                     <div class="min-w-0">
                         <span id="app-spoken-language-label" class="mb-1.5 block text-xs font-medium text-gray-300">Spoken Language *</span>
