@@ -362,7 +362,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5">Full Name *</label>
-                        <input type="text" id="app-name" required placeholder="As per NRIC/Passport"
+                        <input type="text" id="app-name" required placeholder="Full Name"
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
@@ -403,12 +403,12 @@
                 <div class="border-t border-white/10 pt-3">
                     <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Optional</p>
                     <label class="block text-xs font-medium text-gray-300 mb-1.5">Expected Salary (SGD/month)</label>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 min-w-0">
+                    <div class="flex flex-nowrap items-center gap-2 min-w-0">
                         <input type="number" id="app-salary-min" placeholder="Min e.g. 2500"
-                               class="w-full sm:flex-1 min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
-                        <span class="text-gray-400 text-sm text-center shrink-0 hidden sm:block">to</span>
+                               class="min-w-0 flex-1 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
+                        <span class="text-gray-400 text-sm shrink-0" aria-hidden="true">to</span>
                         <input type="number" id="app-salary-max" placeholder="Max e.g. 3500"
-                               class="w-full sm:flex-1 min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
+                               class="min-w-0 flex-1 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                 </div>
 
