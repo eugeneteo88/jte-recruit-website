@@ -257,7 +257,7 @@
     <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), wide gutter between list and detail on md+ -->
     <div class="flex flex-col md:flex-row relative w-full min-w-0 px-4 sm:px-6 md:px-12 gap-0 md:gap-12">
         <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r-0 md:border-r border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-8 max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))]">
-            <div class="py-4 md:py-5 px-1 sm:px-2 md:px-0" id="job-list-container"></div>
+            <div class="pt-0 pb-4 md:pb-5 px-1 sm:px-2 md:px-0" id="job-list-container"></div>
         </div>
 
         <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto md:overflow-visible relative max-md:rounded-t-xl max-md:border-t max-md:border-white/10">
@@ -385,35 +385,42 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-qualification">Qualification *</label>
-                        <input type="text" id="app-qualification" required placeholder="e.g. Degree, Diploma"
+                        <input type="text" id="app-qualification" required placeholder="e.g. Diploma in Business Admin"
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-spoken-language">Spoken Language *</label>
-                        <input type="text" id="app-spoken-language" required placeholder="e.g. English, Mandarin"
-                               class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
+                        <select id="app-spoken-language" multiple required size="6"
+                                class="w-full min-w-0 px-2 sm:px-3 py-2 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold scroll-pane">
+                            <option value="English">English</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Malay">Malay</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Cantonese">Cantonese</option>
+                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                            <option value="Filipino">Filipino</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <p class="text-[10px] text-gray-500 mt-1.5 leading-snug">Select one or more (Ctrl+click or ⌘+click). Option values are stored as sent to your CRM.</p>
                     </div>
                 </div>
 
                 <!-- Row 4: Expected salary | Rights to work -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
-                        <label class="block text-xs font-medium text-gray-300 mb-1.5">Expected Salary (SGD/month)</label>
-                        <div class="flex flex-nowrap items-center gap-2 min-w-0">
-                            <input type="number" id="app-salary-min" placeholder="Min e.g. 2500"
-                                   class="min-w-0 flex-1 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
-                            <span class="text-gray-400 text-sm shrink-0" aria-hidden="true">to</span>
-                            <input type="number" id="app-salary-max" placeholder="Max e.g. 3500"
-                                   class="min-w-0 flex-1 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
-                        </div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-salary">Expected Salary (SGD/month)</label>
+                        <input type="number" id="app-salary" inputmode="numeric" placeholder="e.g. $2800"
+                               class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-rights-work">Rights to Work *</label>
-                        <p class="text-[10px] text-gray-500 leading-snug mb-1.5">Permanent residency (SG/PR) or work pass (EP, SP, WP).</p>
                         <select id="app-rights-work" required class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
                             <option value="" disabled selected>Select an option</option>
-                            <option value="Singapore Citizen / Permanent Resident">Singapore Citizen / Permanent Resident</option>
-                            <option value="Work pass (EP, SP, or WP)">Work pass (EP, SP, or WP)</option>
+                            <option value="SG / PR">I have Permanent Work Rights.</option>
+                            <option value="Work Pass">Work Pass (EP, SP &amp; WP)</option>
                         </select>
                     </div>
                 </div>
@@ -818,15 +825,23 @@
             const countryCode = document.getElementById('app-country').value;
             const phone = document.getElementById('app-phone').value.trim();
             const qualification = document.getElementById('app-qualification').value.trim();
-            const spokenLanguage = document.getElementById('app-spoken-language').value.trim();
+            const spokenSel = document.getElementById('app-spoken-language');
+            const spokenParts = Array.from(spokenSel.selectedOptions).map(function (o) { return o.value; });
+            const spokenLanguage = spokenParts.length ? spokenParts.join(', ') : '';
             const rightToWork = document.getElementById('app-rights-work').value;
             const resume = document.getElementById('app-resume').files[0];
-            const salaryMin = document.getElementById('app-salary-min').value;
-            const salaryMax = document.getElementById('app-salary-max').value;
+            const salaryRaw = document.getElementById('app-salary').value.trim();
+            const salaryNum = salaryRaw ? parseInt(salaryRaw, 10) : NaN;
             const submitBtn = document.getElementById('submit-btn');
 
             if (!resume) {
                 document.getElementById('apply-error-text').textContent = 'Please upload your resume.';
+                document.getElementById('apply-error').classList.remove('hidden');
+                return;
+            }
+
+            if (!spokenParts.length) {
+                document.getElementById('apply-error-text').textContent = 'Please select at least one spoken language.';
                 document.getElementById('apply-error').classList.remove('hidden');
                 return;
             }
@@ -880,8 +895,8 @@
                         qualification: qualification || null,
                         spoken_language: spokenLanguage || null,
                         right_to_work: rightToWork || null,
-                        expected_salary_min: salaryMin ? parseInt(salaryMin, 10) : null,
-                        expected_salary_max: salaryMax ? parseInt(salaryMax, 10) : null,
+                        expected_salary_min: Number.isFinite(salaryNum) ? salaryNum : null,
+                        expected_salary_max: null,
                         resume_path: resumePath,
                         resume_filename: resumeFilename,
                         consent_pdpa: true,
