@@ -198,10 +198,14 @@
         .theme-light #apply-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
         .theme-light #apply-modal .text-white { color: #1a1a1a !important; }
         .theme-light #apply-modal input,
-        .theme-light #apply-modal select,
-        .theme-light #apply-modal .apply-modal-dd-trigger {
+        .theme-light #apply-modal select {
             background-color: #F5F1E8 !important;
             color: #1a1a1a !important;
+            border-color: rgba(0,0,0,0.1) !important;
+        }
+        /* Buttons: same field chrome as inputs but no forced text color (label span sets contrast). */
+        .theme-light #apply-modal button.apply-modal-dd-trigger {
+            background-color: #F5F1E8 !important;
             border-color: rgba(0,0,0,0.1) !important;
         }
         .theme-light #apply-modal .apply-modal-dd-trigger .apply-modal-dd-chevron {
@@ -209,6 +213,23 @@
         }
         .theme-light #apply-modal .apply-modal-dd-trigger .text-gray-400 {
             color: #6b7280 !important;
+        }
+        /* Custom dropdown value text: must stay dark on cream (theme-light) and light on charcoal fill */
+        .theme-light #apply-modal #app-spoken-language-trigger-text,
+        .theme-light #apply-modal #app-rights-work-trigger-text {
+            color: #111827 !important;
+        }
+        .theme-light #apply-modal #app-spoken-language-trigger-text.text-gray-400,
+        .theme-light #apply-modal #app-rights-work-trigger-text.text-gray-400 {
+            color: #6b7280 !important;
+        }
+        #apply-modal #app-spoken-language-trigger-text.text-gray-400,
+        #apply-modal #app-rights-work-trigger-text.text-gray-400 {
+            color: #9ca3af !important;
+        }
+        #apply-modal #app-spoken-language-trigger-text:not(.text-gray-400),
+        #apply-modal #app-rights-work-trigger-text:not(.text-gray-400) {
+            color: #f3f4f6 !important;
         }
         .theme-light #success-modal .bg-luxury-charcoal { background-color: #FFFFFF !important; }
         .theme-light #success-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
@@ -411,7 +432,7 @@
                         <span id="app-spoken-language-label" class="mb-1.5 block text-xs font-medium text-gray-300">Spoken Language *</span>
                         <div id="app-spoken-language-wrap" class="relative">
                             <button type="button" id="app-spoken-language-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="app-spoken-language-label app-spoken-language-trigger-text"
-                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm text-white focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
+                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
                                 <span id="app-spoken-language-trigger-text" class="truncate text-gray-400">Select languages…</span>
                                 <i data-lucide="chevron-down" id="app-spoken-language-chevron" class="apply-modal-dd-chevron h-4 w-4 shrink-0 text-gray-500 transition-transform duration-200"></i>
                             </button>
@@ -431,7 +452,6 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mt-1.5 text-[10px] leading-snug text-gray-500">Open the list and tick all that apply. Stored values match your CRM picklist.</p>
                     </div>
                 </div>
 
@@ -446,7 +466,7 @@
                         <span id="app-rights-work-label" class="mb-1.5 block text-xs font-medium text-gray-300">Rights to Work *</span>
                         <div id="app-rights-work-wrap" class="relative">
                             <button type="button" id="app-rights-work-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="app-rights-work-label app-rights-work-trigger-text"
-                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm text-white focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
+                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
                                 <span id="app-rights-work-trigger-text" class="truncate text-gray-400">Select an option</span>
                                 <i data-lucide="chevron-down" id="app-rights-work-chevron" class="apply-modal-dd-chevron h-4 w-4 shrink-0 text-gray-500 transition-transform duration-200"></i>
                             </button>
@@ -881,7 +901,6 @@
             const parts = getSpokenLanguageSelections();
             textEl.textContent = parts.length ? parts.join(', ') : 'Select languages…';
             textEl.classList.toggle('text-gray-400', !parts.length);
-            textEl.classList.toggle('text-white', !!parts.length);
         }
 
         function closeRightsWorkPanelOnly() {
@@ -927,7 +946,6 @@
             const v = input.value;
             textEl.textContent = RIGHTS_WORK_LABELS[v] || 'Select an option';
             textEl.classList.toggle('text-gray-400', !v);
-            textEl.classList.toggle('text-white', !!v);
             if (wrap) {
                 wrap.querySelectorAll('.app-rights-option').forEach(function (btn) {
                     const on = btn.dataset.value === v;
