@@ -242,7 +242,7 @@
     </nav>
 
     <!-- Offset for fixed nav (same py-6 as index navbar ≈ 88–96px total bar height) -->
-    <div id="jobs-page-stack" class="flex flex-col pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem] pb-12 md:pb-16">
+    <div id="jobs-page-stack" class="flex flex-1 flex-col min-h-0 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem] pb-12 md:pb-16">
 
     <!-- Search -->
     <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-4 sm:px-6 md:px-12 py-3">
@@ -254,13 +254,13 @@
         </div>
     </div>
 
-    <!-- Dual pane: same horizontal gutters as navbar (px-6 md:px-12), wide gutter between list and detail on md+ -->
-    <div class="flex flex-col md:flex-row relative w-full min-w-0 px-4 sm:px-6 md:px-12 gap-0 md:gap-12">
-        <div id="left-pane" class="w-full md:w-[35%] lg:w-[30%] min-w-0 bg-luxury-black border-r-0 md:border-r border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-8 max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))]">
-            <div class="pt-0 pb-4 md:pb-5 px-1 sm:px-2 md:px-0" id="job-list-container"></div>
+    <!-- Dual pane: flex-1 min-h-0 so list + details each scroll inside the viewport (md+) -->
+    <div class="relative flex w-full min-w-0 flex-1 min-h-0 flex-col gap-0 px-4 sm:px-6 md:flex-row md:gap-12 md:px-12">
+        <div id="left-pane" class="w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
+            <div id="job-list-container" class="scroll-pane overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-11rem))] md:max-h-none"></div>
         </div>
 
-        <div id="right-pane" class="w-full md:w-[65%] lg:w-[70%] min-w-0 bg-luxury-charcoal overflow-y-auto md:overflow-visible relative max-md:rounded-t-xl max-md:border-t max-md:border-white/10">
+        <div id="right-pane" class="relative w-full min-w-0 overflow-y-auto bg-luxury-charcoal max-md:rounded-t-xl max-md:border-t max-md:border-white/10 md:min-h-0 md:w-[65%] lg:w-[70%]">
 
             <div id="mobile-detail-toolbar" class="md:hidden hidden sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-white/5 bg-luxury-charcoal px-3 py-2 backdrop-blur-sm bg-opacity-95">
                 <button type="button" onclick="closeMobileDetails()" class="flex min-h-[44px] min-w-[44px] items-center gap-2 rounded-lg px-2 text-luxury-gold font-medium active:opacity-80 [-webkit-tap-highlight-color:transparent]">
@@ -316,7 +316,7 @@
     </div><!-- /#jobs-page-stack -->
 
     <!-- FOOTER (same as index.html) -->
-    <footer class="py-12 bg-luxury-black border-t border-white/5 text-center">
+    <footer class="shrink-0 py-12 bg-luxury-black border-t border-white/5 text-center">
         <div class="mb-8 flex justify-center space-x-6">
             <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="social-icon w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
@@ -513,6 +513,50 @@
 
         let filters = { search: '' };
 
+        const JOB_LIST_PAGE_INITIAL = 8;
+        const JOB_LIST_PAGE_STEP = 4;
+        let jobListVisibleCount = JOB_LIST_PAGE_INITIAL;
+        let jobListScrollObserver = null;
+
+        function resetJobListPagination() {
+            jobListVisibleCount = JOB_LIST_PAGE_INITIAL;
+        }
+
+        function ensureActiveJobInVisibleSlice(list) {
+            if (!activeJobId || !list.length) return;
+            const idx = list.findIndex(j => String(j.id) === String(activeJobId));
+            if (idx < 0) return;
+            const need = idx + 1;
+            if (jobListVisibleCount >= need) return;
+            while (jobListVisibleCount < need && jobListVisibleCount < list.length) {
+                jobListVisibleCount = Math.min(list.length, jobListVisibleCount + JOB_LIST_PAGE_STEP);
+            }
+        }
+
+        function setupJobListScrollObserver() {
+            const container = document.getElementById('job-list-container');
+            const sentinel = document.getElementById('job-list-load-sentinel');
+            if (jobListScrollObserver) {
+                jobListScrollObserver.disconnect();
+                jobListScrollObserver = null;
+            }
+            if (!container || !sentinel) return;
+            jobListScrollObserver = new IntersectionObserver(
+                function (entries) {
+                    for (let i = 0; i < entries.length; i++) {
+                        if (!entries[i].isIntersecting) continue;
+                        const list = applyFilters();
+                        if (jobListVisibleCount >= list.length) return;
+                        jobListVisibleCount = Math.min(list.length, jobListVisibleCount + JOB_LIST_PAGE_STEP);
+                        renderJobList();
+                        return;
+                    }
+                },
+                { root: container, rootMargin: '0px 0px 100px 0px', threshold: 0.01 }
+            );
+            jobListScrollObserver.observe(sentinel);
+        }
+
         async function fetchJobs() {
             const url = `${SUPABASE_URL}/rest/v1/jobs?select=${encodeURIComponent(JOBS_SELECT)}&show_on_portal=eq.true&status=eq.Open&order=created_at.desc`;
             try {
@@ -639,7 +683,13 @@
             const container = document.getElementById('job-list-container');
             const list = applyFilters();
 
+            if (jobListScrollObserver) {
+                jobListScrollObserver.disconnect();
+                jobListScrollObserver = null;
+            }
+
             if (!list.length) {
+                resetJobListPagination();
                 const msg = !jobsData.length
                     ? 'No open roles at the moment.'
                     : (filters.search.trim()
@@ -651,8 +701,12 @@
                 return;
             }
 
+            ensureActiveJobInVisibleSlice(list);
+            const visible = Math.min(jobListVisibleCount, list.length);
+            const slice = list.slice(0, visible);
+
             container.innerHTML = '';
-            list.forEach(job => {
+            slice.forEach(job => {
                 const isActive = String(job.id) === String(activeJobId);
                 const activeClass = isActive ? 'active' : '';
                 const summaryBullets = (job.bullets || []).slice(0, 2).map(b =>
@@ -686,6 +740,22 @@
                         </div>`;
                 container.appendChild(wrap);
             });
+
+            if (visible >= list.length) {
+                const end = document.createElement('p');
+                end.id = 'job-list-end-message';
+                end.className = 'text-center text-xs text-gray-500 pt-4 pb-2 px-2';
+                end.textContent = 'This is the end of the job lists';
+                container.appendChild(end);
+            } else {
+                const sentinel = document.createElement('div');
+                sentinel.id = 'job-list-load-sentinel';
+                sentinel.className = 'h-1 w-full shrink-0 pointer-events-none';
+                sentinel.setAttribute('aria-hidden', 'true');
+                container.appendChild(sentinel);
+                setupJobListScrollObserver();
+            }
+
             lucide.createIcons();
             updateMobileDetailToolbar();
         }
@@ -945,6 +1015,7 @@
             document.getElementById('job-search').addEventListener('input', function () {
                 filters.search = this.value;
                 activeJobId = null;
+                resetJobListPagination();
                 document.getElementById('right-pane')?.classList.remove('job-detail-mobile-open');
                 document.getElementById('job-details-container').classList.add('hidden');
                 syncBodyScrollLock();
