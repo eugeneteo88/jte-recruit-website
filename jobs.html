@@ -86,17 +86,24 @@
         .hover-gold-line:hover::after { width: 100%; }
 
         .job-card {
+            position: relative;
+            z-index: 0;
             transition: all 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
         }
         .job-card:hover {
+            z-index: 20;
             border-color: rgba(198, 168, 124, 0.4);
             transform: translateY(-2px);
         }
         .job-card.active {
+            z-index: 15;
             border: 2px solid #C6A87C;
             background: rgba(198, 168, 124, 0.05);
+        }
+        .job-card.active:hover {
+            z-index: 20;
         }
 
         .btn-primary {
@@ -191,7 +198,18 @@
         .theme-light #apply-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
         .theme-light #apply-modal .text-white { color: #1a1a1a !important; }
         .theme-light #apply-modal input,
-        .theme-light #apply-modal select { background-color: #F5F1E8 !important; color: #1a1a1a !important; border-color: rgba(0,0,0,0.1) !important; }
+        .theme-light #apply-modal select,
+        .theme-light #apply-modal .apply-modal-dd-trigger {
+            background-color: #F5F1E8 !important;
+            color: #1a1a1a !important;
+            border-color: rgba(0,0,0,0.1) !important;
+        }
+        .theme-light #apply-modal .apply-modal-dd-trigger .apply-modal-dd-chevron {
+            color: rgba(0,0,0,0.42) !important;
+        }
+        .theme-light #apply-modal .apply-modal-dd-trigger .text-gray-400 {
+            color: #6b7280 !important;
+        }
         .theme-light #success-modal .bg-luxury-charcoal { background-color: #FFFFFF !important; }
         .theme-light #success-modal .bg-luxury-black { background-color: #F5F1E8 !important; }
 
@@ -202,7 +220,8 @@
 
             #apply-modal input:not([type="file"]),
             #apply-modal select,
-            #apply-modal textarea {
+            #apply-modal textarea,
+            #apply-modal .apply-modal-dd-trigger {
                 font-size: 16px;
             }
         }
@@ -245,7 +264,7 @@
     <div id="jobs-page-stack" class="flex flex-1 flex-col min-h-0 pt-[calc(5.75rem+env(safe-area-inset-top,0px))] md:pt-[5.75rem] pb-12 md:pb-16">
 
     <!-- Search -->
-    <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-10 shadow-sm px-4 sm:px-6 md:px-12 py-3">
+    <div class="w-full bg-luxury-black border-b border-white/5 flex-shrink-0 z-[1] shadow-sm px-4 sm:px-6 md:px-12 py-3">
         <div class="relative w-full max-w-md">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <i data-lucide="search" class="w-4 h-4 text-gray-400"></i>
@@ -255,7 +274,7 @@
     </div>
 
     <!-- Dual pane: flex-1 min-h-0 so list + details each scroll inside the viewport (md+) -->
-    <div class="relative flex w-full min-w-0 flex-1 min-h-0 flex-col gap-0 px-4 sm:px-6 md:flex-row md:gap-12 md:px-12">
+    <div class="relative z-[2] flex w-full min-w-0 flex-1 min-h-0 flex-col gap-0 px-4 sm:px-6 md:flex-row md:gap-12 md:px-12">
         <div id="left-pane" class="w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(5.75rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
             <div id="job-list-container" class="scroll-pane overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-11rem))] md:max-h-none"></div>
         </div>
@@ -365,7 +384,7 @@
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-phone">Contact Number *</label>
                         <div class="flex flex-nowrap gap-2 min-w-0 items-stretch">
-                            <select id="app-country" aria-label="Country code" class="shrink-0 w-[5.5rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
+                            <select id="app-country" aria-label="Country code" class="apply-modal-dd-trigger shrink-0 w-[5.5rem] px-2 sm:px-3 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
                                 <option value="+65">+65</option>
                                 <option value="+60">+60</option>
                                 <option value="+63">+63</option>
@@ -389,22 +408,30 @@
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
-                        <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-spoken-language">Spoken Language *</label>
-                        <select id="app-spoken-language" multiple required size="6"
-                                class="w-full min-w-0 px-2 sm:px-3 py-2 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold scroll-pane">
-                            <option value="English">English</option>
-                            <option value="Mandarin">Mandarin</option>
-                            <option value="Malay">Malay</option>
-                            <option value="Tamil">Tamil</option>
-                            <option value="Cantonese">Cantonese</option>
-                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
-                            <option value="Filipino">Filipino</option>
-                            <option value="Hindi">Hindi</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Korean">Korean</option>
-                            <option value="Others">Others</option>
-                        </select>
-                        <p class="text-[10px] text-gray-500 mt-1.5 leading-snug">Select one or more (Ctrl+click or ⌘+click). Option values are stored as sent to your CRM.</p>
+                        <span id="app-spoken-language-label" class="mb-1.5 block text-xs font-medium text-gray-300">Spoken Language *</span>
+                        <div id="app-spoken-language-wrap" class="relative">
+                            <button type="button" id="app-spoken-language-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="app-spoken-language-label app-spoken-language-trigger-text"
+                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm text-white focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
+                                <span id="app-spoken-language-trigger-text" class="truncate text-gray-400">Select languages…</span>
+                                <i data-lucide="chevron-down" id="app-spoken-language-chevron" class="apply-modal-dd-chevron h-4 w-4 shrink-0 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="app-spoken-language-panel" class="absolute left-0 right-0 z-[120] mt-1 hidden max-h-56 overflow-y-auto scroll-pane rounded-xl border border-white/10 bg-luxury-black p-1 shadow-xl" role="listbox" aria-multiselectable="true">
+                                <div class="grid grid-cols-1 gap-0">
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="English"><span>English</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Mandarin"><span>Mandarin</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Malay"><span>Malay</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Tamil"><span>Tamil</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Cantonese"><span>Cantonese</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Bahasa Indonesia"><span>Bahasa Indonesia</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Filipino"><span>Filipino</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Hindi"><span>Hindi</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Japanese"><span>Japanese</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Korean"><span>Korean</span></label>
+                                    <label class="flex cursor-pointer items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-200 hover:bg-white/5"><input type="checkbox" class="app-spoken-lang-cb accent-luxury-gold h-4 w-4 shrink-0 rounded border-white/20" value="Others"><span>Others</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-1.5 text-[10px] leading-snug text-gray-500">Open the list and tick all that apply. Stored values match your CRM picklist.</p>
                     </div>
                 </div>
 
@@ -416,12 +443,19 @@
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
-                        <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-rights-work">Rights to Work *</label>
-                        <select id="app-rights-work" required class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
-                            <option value="" disabled selected>Select an option</option>
-                            <option value="SG / PR">I have Permanent Work Rights.</option>
-                            <option value="Work Pass">Work Pass (EP, SP &amp; WP)</option>
-                        </select>
+                        <span id="app-rights-work-label" class="mb-1.5 block text-xs font-medium text-gray-300">Rights to Work *</span>
+                        <div id="app-rights-work-wrap" class="relative">
+                            <button type="button" id="app-rights-work-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="app-rights-work-label app-rights-work-trigger-text"
+                                    class="apply-modal-dd-trigger flex w-full min-w-0 items-center justify-between gap-2 rounded-xl border border-white/10 bg-luxury-black px-3 sm:px-4 py-2.5 text-left text-sm text-white focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent]">
+                                <span id="app-rights-work-trigger-text" class="truncate text-gray-400">Select an option</span>
+                                <i data-lucide="chevron-down" id="app-rights-work-chevron" class="apply-modal-dd-chevron h-4 w-4 shrink-0 text-gray-500 transition-transform duration-200"></i>
+                            </button>
+                            <div id="app-rights-work-panel" class="absolute left-0 right-0 z-[120] mt-1 hidden overflow-hidden rounded-xl border border-white/10 bg-luxury-black p-1 shadow-xl" role="listbox" aria-labelledby="app-rights-work-label">
+                                <button type="button" role="option" class="app-rights-option w-full rounded-lg border border-transparent px-3 py-2 text-left text-sm text-gray-200 transition-colors hover:bg-white/5 focus:bg-white/5 focus:outline-none" data-value="SG / PR" aria-selected="false">I have Permanent Work Rights.</button>
+                                <button type="button" role="option" class="app-rights-option w-full rounded-lg border border-transparent px-3 py-2 text-left text-sm text-gray-200 transition-colors hover:bg-white/5 focus:bg-white/5 focus:outline-none" data-value="Work Pass" aria-selected="false">Work Pass (EP, SP &amp; WP)</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="app-rights-work" value="">
                     </div>
                 </div>
 
@@ -835,12 +869,156 @@
             rightPane?.style.setProperty('--bg-color', '#F5F1E8');
         }
 
+        function getSpokenLanguageSelections() {
+            return Array.from(document.querySelectorAll('.app-spoken-lang-cb:checked')).map(function (cb) {
+                return cb.value;
+            });
+        }
+
+        function syncSpokenLanguageTrigger() {
+            const textEl = document.getElementById('app-spoken-language-trigger-text');
+            if (!textEl) return;
+            const parts = getSpokenLanguageSelections();
+            textEl.textContent = parts.length ? parts.join(', ') : 'Select languages…';
+            textEl.classList.toggle('text-gray-400', !parts.length);
+            textEl.classList.toggle('text-white', !!parts.length);
+        }
+
+        function closeRightsWorkPanelOnly() {
+            const panel = document.getElementById('app-rights-work-panel');
+            const trigger = document.getElementById('app-rights-work-trigger');
+            const chevron = document.getElementById('app-rights-work-chevron');
+            if (panel) panel.classList.add('hidden');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            if (chevron) chevron.style.transform = '';
+        }
+
+        function closeSpokenLanguagePanelOnly() {
+            const panel = document.getElementById('app-spoken-language-panel');
+            const trigger = document.getElementById('app-spoken-language-trigger');
+            const chevron = document.getElementById('app-spoken-language-chevron');
+            if (panel) panel.classList.add('hidden');
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            if (chevron) chevron.style.transform = '';
+        }
+
+        function setSpokenLanguagePanelOpen(open) {
+            const panel = document.getElementById('app-spoken-language-panel');
+            const trigger = document.getElementById('app-spoken-language-trigger');
+            const chevron = document.getElementById('app-spoken-language-chevron');
+            if (!panel || !trigger) return;
+            if (open) closeRightsWorkPanelOnly();
+            panel.classList.toggle('hidden', !open);
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+            if (open) lucide.createIcons();
+        }
+
+        const RIGHTS_WORK_LABELS = {
+            'SG / PR': 'I have Permanent Work Rights.',
+            'Work Pass': 'Work Pass (EP, SP & WP)'
+        };
+
+        function syncRightsWorkTrigger() {
+            const input = document.getElementById('app-rights-work');
+            const textEl = document.getElementById('app-rights-work-trigger-text');
+            const wrap = document.getElementById('app-rights-work-wrap');
+            if (!input || !textEl) return;
+            const v = input.value;
+            textEl.textContent = RIGHTS_WORK_LABELS[v] || 'Select an option';
+            textEl.classList.toggle('text-gray-400', !v);
+            textEl.classList.toggle('text-white', !!v);
+            if (wrap) {
+                wrap.querySelectorAll('.app-rights-option').forEach(function (btn) {
+                    const on = btn.dataset.value === v;
+                    btn.setAttribute('aria-selected', on ? 'true' : 'false');
+                    btn.classList.toggle('border-luxury-gold/45', on);
+                    btn.classList.toggle('bg-luxury-gold/10', on);
+                    btn.classList.toggle('shadow-[inset_3px_0_0_0_rgba(198,168,124,0.85)]', on);
+                });
+            }
+        }
+
+        function setRightsWorkPanelOpen(open) {
+            const panel = document.getElementById('app-rights-work-panel');
+            const trigger = document.getElementById('app-rights-work-trigger');
+            const chevron = document.getElementById('app-rights-work-chevron');
+            if (!panel || !trigger) return;
+            if (open) closeSpokenLanguagePanelOnly();
+            panel.classList.toggle('hidden', !open);
+            trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+            if (open) lucide.createIcons();
+        }
+
+        function initRightsWorkDropdown() {
+            const wrap = document.getElementById('app-rights-work-wrap');
+            const trigger = document.getElementById('app-rights-work-trigger');
+            const panel = document.getElementById('app-rights-work-panel');
+            const modal = document.getElementById('apply-modal');
+            if (!wrap || !trigger || !panel || !modal || wrap.dataset.rightsInit === '1') return;
+            wrap.dataset.rightsInit = '1';
+
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                setRightsWorkPanelOpen(panel.classList.contains('hidden'));
+            });
+
+            panel.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+
+            wrap.querySelectorAll('.app-rights-option').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    document.getElementById('app-rights-work').value = btn.dataset.value;
+                    syncRightsWorkTrigger();
+                    setRightsWorkPanelOpen(false);
+                });
+            });
+
+            modal.addEventListener('click', function (e) {
+                if (panel.classList.contains('hidden')) return;
+                if (!wrap.contains(e.target)) setRightsWorkPanelOpen(false);
+            });
+        }
+
+        function initSpokenLanguageDropdown() {
+            const wrap = document.getElementById('app-spoken-language-wrap');
+            const trigger = document.getElementById('app-spoken-language-trigger');
+            const panel = document.getElementById('app-spoken-language-panel');
+            const modal = document.getElementById('apply-modal');
+            if (!wrap || !trigger || !panel || !modal || wrap.dataset.langInit === '1') return;
+            wrap.dataset.langInit = '1';
+
+            trigger.addEventListener('click', function (e) {
+                e.stopPropagation();
+                setSpokenLanguagePanelOpen(panel.classList.contains('hidden'));
+            });
+
+            panel.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+
+            wrap.querySelectorAll('.app-spoken-lang-cb').forEach(function (cb) {
+                cb.addEventListener('change', syncSpokenLanguageTrigger);
+            });
+
+            modal.addEventListener('click', function (e) {
+                if (panel.classList.contains('hidden')) return;
+                if (!wrap.contains(e.target)) setSpokenLanguagePanelOpen(false);
+            });
+        }
+
         function openApplyModal(job) {
             currentJob = job;
             document.getElementById('modal-job-title').textContent = job.title;
             document.getElementById('modal-company-name').textContent = job.company;
             document.getElementById('apply-error').classList.add('hidden');
             document.getElementById('apply-form').reset();
+            syncSpokenLanguageTrigger();
+            setSpokenLanguagePanelOpen(false);
+            syncRightsWorkTrigger();
+            setRightsWorkPanelOpen(false);
             document.getElementById('resume-name').classList.add('hidden');
             const submitBtn = document.getElementById('submit-btn');
             submitBtn.disabled = false;
@@ -895,8 +1073,7 @@
             const countryCode = document.getElementById('app-country').value;
             const phone = document.getElementById('app-phone').value.trim();
             const qualification = document.getElementById('app-qualification').value.trim();
-            const spokenSel = document.getElementById('app-spoken-language');
-            const spokenParts = Array.from(spokenSel.selectedOptions).map(function (o) { return o.value; });
+            const spokenParts = getSpokenLanguageSelections();
             const spokenLanguage = spokenParts.length ? spokenParts.join(', ') : '';
             const rightToWork = document.getElementById('app-rights-work').value;
             const resume = document.getElementById('app-resume').files[0];
@@ -912,6 +1089,12 @@
 
             if (!spokenParts.length) {
                 document.getElementById('apply-error-text').textContent = 'Please select at least one spoken language.';
+                document.getElementById('apply-error').classList.remove('hidden');
+                return;
+            }
+
+            if (!rightToWork) {
+                document.getElementById('apply-error-text').textContent = 'Please select your rights to work.';
                 document.getElementById('apply-error').classList.remove('hidden');
                 return;
             }
@@ -1004,6 +1187,8 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             lucide.createIcons();
+            initSpokenLanguageDropdown();
+            initRightsWorkDropdown();
 
             /* Jobs portal is light mode only (ignore site theme preference on this page). */
             document.getElementById('jte-main-wrapper').classList.add('theme-light');
