@@ -98,17 +98,17 @@
             cursor: pointer;
         }
         .job-card:hover {
-            z-index: 20;
+            z-index: 50;
             border-color: rgba(198, 168, 124, 0.4);
             transform: translateY(-2px);
         }
         .job-card.active {
-            z-index: 15;
+            z-index: 40;
             border: 2px solid #C6A87C;
             background: rgba(198, 168, 124, 0.05);
         }
         .job-card.active:hover {
-            z-index: 20;
+            z-index: 50;
         }
 
         .btn-primary {
@@ -209,12 +209,29 @@
             border-color: rgba(0,0,0,0.1) !important;
         }
         /* Buttons: same field chrome as inputs; set text color (body/.jte-wrapper inherits white otherwise). */
-        .theme-light #apply-modal button.apply-modal-dd-trigger {
+        .theme-light #apply-modal button.apply-modal-dd-trigger,
+        .theme-light #apply-modal select.apply-modal-dd-trigger {
             background-color: #F5F1E8 !important;
             border-color: rgba(0,0,0,0.1) !important;
             color: #111827 !important;
         }
-        .theme-light #apply-modal .apply-modal-dd-trigger .apply-modal-dd-chevron {
+        /* Qualification select: match custom dd triggers; chevron is a sibling (see markup). */
+        #apply-modal #app-qualification.apply-modal-dd-trigger {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+        #apply-modal #app-qualification.apply-modal-dd-trigger::-ms-expand {
+            display: none;
+        }
+        .theme-light #apply-modal select#app-qualification.apply-modal-dd-trigger.is-placeholder {
+            color: #6b7280 !important;
+        }
+        body:not(.theme-light) #apply-modal select#app-qualification.apply-modal-dd-trigger.is-placeholder {
+            color: #9ca3af !important;
+        }
+        .theme-light #apply-modal .apply-modal-dd-trigger .apply-modal-dd-chevron,
+        .theme-light #apply-modal #app-qualification-chevron.apply-modal-dd-chevron {
             color: rgba(0,0,0,0.42) !important;
         }
         .theme-light #apply-modal .apply-modal-dd-trigger .text-gray-400 {
@@ -357,8 +374,8 @@
 
     <!-- Dual pane: flex-1 min-h-0 so list + details each scroll inside the viewport (md+) -->
     <div class="relative z-[2] flex w-full min-w-0 flex-1 min-h-0 flex-col gap-0 px-4 sm:px-6 md:flex-row md:gap-12 md:px-12">
-        <div id="left-pane" class="w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(6.25rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
-            <div id="job-list-container" class="scroll-pane overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-12.5rem))] md:max-h-none"></div>
+        <div id="left-pane" class="relative z-[5] w-full min-w-0 bg-luxury-black border-r-0 border-white/5 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] max-md:[scroll-margin-top:calc(6.25rem+env(safe-area-inset-top,0px))] md:flex md:min-h-0 md:w-[35%] md:flex-col md:overflow-hidden md:border-r md:border-white/5 md:pb-0 lg:w-[30%]">
+            <div id="job-list-container" class="scroll-pane relative z-10 overflow-y-auto overscroll-contain px-1 pb-4 pt-0 sm:px-2 md:min-h-0 md:flex-1 md:px-0 md:pb-4 max-h-[min(72vh,calc(100dvh-12.5rem))] md:max-h-none"></div>
         </div>
 
         <div id="right-pane" class="relative w-full min-w-0 overflow-y-auto bg-luxury-charcoal max-md:rounded-t-xl max-md:border-t max-md:border-white/10 md:min-h-0 md:w-[65%] lg:w-[70%]">
@@ -486,15 +503,18 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-qualification">Qualification *</label>
-                        <select id="app-qualification" required
-                                class="w-full min-w-0 cursor-pointer px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-luxury-gold">
-                            <option value="">Select your qualification</option>
-                            <option value="N/O/A Levels">N/O/A Levels</option>
-                            <option value="ITE">ITE</option>
-                            <option value="Diploma">Diploma</option>
-                            <option value="Degree">Degree</option>
-                            <option value="Master +">Master +</option>
-                        </select>
+                        <div class="relative min-w-0">
+                            <select id="app-qualification" required
+                                    class="apply-modal-dd-trigger is-placeholder w-full min-w-0 cursor-pointer appearance-none rounded-xl border border-white/10 bg-luxury-black py-2.5 pl-3 pr-10 text-left text-sm text-white focus:outline-none focus:border-luxury-gold [-webkit-tap-highlight-color:transparent] sm:pl-4 truncate">
+                                <option value="">Select your qualification</option>
+                                <option value="N/O/A Levels">N/O/A Levels</option>
+                                <option value="ITE">ITE</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Degree">Degree</option>
+                                <option value="Master +">Master +</option>
+                            </select>
+                            <i data-lucide="chevron-down" id="app-qualification-chevron" class="apply-modal-dd-chevron pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 shrink-0 text-gray-500" aria-hidden="true"></i>
+                        </div>
                     </div>
                     <div class="min-w-0">
                         <span id="app-spoken-language-label" class="mb-1.5 block text-xs font-medium text-gray-300">Spoken Language *</span>
@@ -1105,12 +1125,19 @@
             });
         }
 
+        function syncQualificationSelectPlaceholder() {
+            const el = document.getElementById('app-qualification');
+            if (!el) return;
+            el.classList.toggle('is-placeholder', el.value === '');
+        }
+
         function openApplyModal(job) {
             currentJob = job;
             document.getElementById('modal-job-title').textContent = job.title;
             document.getElementById('modal-company-name').textContent = job.company;
             document.getElementById('apply-error').classList.add('hidden');
             document.getElementById('apply-form').reset();
+            syncQualificationSelectPlaceholder();
             syncSpokenLanguageTrigger();
             setSpokenLanguagePanelOpen(false);
             syncRightsWorkTrigger();
@@ -1326,6 +1353,12 @@
             lucide.createIcons();
             initSpokenLanguageDropdown();
             initRightsWorkDropdown();
+
+            const qualSel = document.getElementById('app-qualification');
+            if (qualSel) {
+                qualSel.addEventListener('change', syncQualificationSelectPlaceholder);
+                syncQualificationSelectPlaceholder();
+            }
 
             /* Jobs portal is light mode only (ignore site theme preference on this page). */
             document.getElementById('jte-main-wrapper').classList.add('theme-light');
