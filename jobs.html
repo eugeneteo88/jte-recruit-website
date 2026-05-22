@@ -637,7 +637,7 @@
          * This is static HTML (no process.env). GitHub Pages: use an Actions step to inject a
          * generated snippet, or load a non-committed config script from your host.
          */
-        const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_days,salary_range,min_qualification,job_description,created_at,portal_show_company_name,companies(name)';
+        const JOBS_SELECT = 'id,public_id,title,job_type,job_function,job_industry,location,working_locations,working_days,salary_range,min_qualification,job_description,created_at,portal_show_company_name,companies(name)';
 
         const MRT_REGION = {
             'Jurong East':'West','Boon Lay':'West','Pioneer':'West','Clementi':'West',
@@ -738,6 +738,32 @@
             return 'All';
         }
 
+        /** Station list from CRM working_locations[]; legacy jobs use location only. */
+        function getJobLocations(job) {
+            const wl = job.working_locations;
+            if (Array.isArray(wl) && wl.length > 0) {
+                return wl.map(function (s) { return String(s).trim(); }).filter(Boolean);
+            }
+            if (job.location && String(job.location).trim()) {
+                return [String(job.location).trim()];
+            }
+            return [];
+        }
+
+        function formatLocationDisplay(job) {
+            const locs = job.locations || getJobLocations(job);
+            if (locs.length === 0) return job.location || 'Singapore';
+            if (locs.length === 1) return locs[0];
+            return locs[0] + ' · +' + (locs.length - 1) + ' locations';
+        }
+
+        function formatLocationDetail(job) {
+            const locs = job.locations || getJobLocations(job);
+            if (locs.length === 0) return job.location || 'Singapore';
+            if (locs.length === 1) return locs[0];
+            return locs.join(', ');
+        }
+
         function daysAgo(dateStr) {
             if (!dateStr) return '—';
             const d = Math.floor((Date.now() - new Date(dateStr)) / 86400000);
@@ -772,12 +798,14 @@
             const portalId = (job.public_id != null && String(job.public_id).trim() !== '')
                 ? String(job.public_id).trim()
                 : String(job.id != null ? job.id : '').trim();
+            const locations = getJobLocations(job);
             return {
                 id: portalId,
                 rawId: job.id,
                 title: job.title || 'Untitled',
                 company: co,
-                location: job.location || 'Singapore',
+                locations: locations,
+                location: locations[0] || job.location || 'Singapore',
                 salary: job.salary_range && String(job.salary_range).trim() ? String(job.salary_range).trim() : 'Salary undisclosed',
                 category: job.job_industry || '',
                 type: job.job_type || 'Full time',
@@ -880,7 +908,7 @@
                             <h3 class="font-serif text-white font-medium leading-snug pr-4 hover:text-luxury-gold transition-colors">${escapeHtml(job.title)}</h3>
                         </div>
                         <div class="text-sm text-luxury-gold mb-1 truncate">${escapeHtml(job.company)}</div>
-                        <div class="text-xs text-gray-400 mb-1">${escapeHtml(job.location)}</div>
+                        <div class="text-xs text-gray-400 mb-1">${escapeHtml(formatLocationDisplay(job))}</div>
                         <div class="text-sm font-medium text-gray-300 mb-3">${escapeHtml(job.salary)}</div>
                         <ul class="mb-4 list-none pl-0">${summaryBullets}</ul>
                         <div class="flex justify-between items-center text-xs text-gray-500 mt-2 border-t border-white/5 pt-3">
@@ -933,12 +961,17 @@
             }
 
             currentJob = job;
-            const loc = job.location || '';
-            const reg = getRegion(loc);
+            const locs = job.locations || getJobLocations(job);
+            const primaryLocation = locs[0] || job.location || '';
+            // Region filter uses primary station only (not every working_locations entry).
+            const reg = getRegion(primaryLocation);
+            const detailLoc = formatLocationDetail(job);
             document.getElementById('detail-title').textContent = job.title;
             document.getElementById('detail-company').textContent = job.company;
             document.getElementById('detail-location').textContent =
-                loc + (reg !== 'All' ? ' · ' + reg : '');
+                locs.length <= 1
+                    ? detailLoc + (reg !== 'All' ? ' · ' + reg : '')
+                    : detailLoc;
             document.getElementById('detail-salary').textContent = job.salary;
             document.getElementById('detail-category').textContent = job.jobFunction || job.category || '—';
             document.getElementById('detail-type').textContent = job.workingDays || job.type || '—';
