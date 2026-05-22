@@ -547,7 +547,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div class="min-w-0">
                         <label class="block text-xs font-medium text-gray-300 mb-1.5" for="app-salary">Expected Salary (SGD/month)</label>
-                        <input type="number" id="app-salary" inputmode="numeric" placeholder="e.g. $2800"
+                        <input type="text" id="app-salary" inputmode="numeric" placeholder="e.g. $2800"
                                class="w-full min-w-0 px-3 sm:px-4 py-2.5 bg-luxury-black border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 focus:outline-none focus:border-luxury-gold">
                     </div>
                     <div class="min-w-0">
@@ -1209,7 +1209,7 @@
             const rightToWork = document.getElementById('app-rights-work').value;
             const resume = document.getElementById('app-resume').files[0];
             const salaryRaw = document.getElementById('app-salary').value.trim();
-            const salaryNum = salaryRaw ? parseInt(salaryRaw, 10) : NaN;
+            const salaryCleaned = salaryRaw.replace(/[$,\s]/g, '');
             const submitBtn = document.getElementById('submit-btn');
 
             if (!resume) {
@@ -1285,7 +1285,7 @@
 
                 formData.append('qualification', qualification);
                 formData.append('spoken_languages', spokenLanguage);
-                formData.append('expected_salary', Number.isFinite(salaryNum) ? String(salaryNum) : '');
+                formData.append('expected_salary', salaryCleaned);
                 formData.append('rights_to_work', rightToWork);
                 formData.append('resume', resume, resume.name);
                 formData.append('consent_pdpa', 'true');
