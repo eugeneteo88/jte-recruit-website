@@ -1,8 +1,0 @@
-{
-  "name": "jte-recruit-website",
-  "private": true,
-  "description": "Static JTE site; npm run build injects CRM portal secrets into jobs.html for CI only.",
-  "scripts": {
-    "build": "node scripts/inject-portal-config.js"
-  }
-}

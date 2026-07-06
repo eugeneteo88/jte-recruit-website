@@ -13,12 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Inject portal config
-        env:
-          PORTAL_INGEST_SECRET: ${{ secrets.PORTAL_INGEST_SECRET }}
-          CRM_PORTAL_API_URL: https://app.jte.com.sg/api/crm/portal-applications
-        run: node scripts/inject-portal-config.js
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
