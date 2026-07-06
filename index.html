@@ -1506,13 +1506,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             
-            // Check theme preference, default to light
-            const savedTheme = localStorage.getItem('jte-theme');
-            if (savedTheme === 'dark') {
-                toggleTheme(); // This will switch to dark mode
-            } else if (!savedTheme) {
-                localStorage.setItem('jte-theme', 'light');
-            }
+            // Light theme only: force light and clear any previously saved dark preference
+            localStorage.setItem('jte-theme', 'light');
+            document.getElementById('jte-main-wrapper')?.classList.add('theme-light');
             
             // Initialize mobile team marquee
             initMobileTeamMarquee();
@@ -1753,32 +1749,6 @@ window.addEventListener('resize', () => {
                     dot.classList.toggle('active', idx === activeIndex);
                 });
             });
-        }
-
-        // Theme toggle
-        function toggleTheme() {
-            const wrapper = document.getElementById('jte-main-wrapper');
-            const sun = document.getElementById('icon-sun');
-            const moon = document.getElementById('icon-moon');
-            const sunMobile = document.getElementById('icon-sun-mobile');
-            const moonMobile = document.getElementById('icon-moon-mobile');
-            
-            wrapper.classList.toggle('theme-light');
-            const isLight = wrapper.classList.contains('theme-light');
-            
-            if (isLight) {
-                sun?.classList.remove('hidden');
-                moon?.classList.add('hidden');
-                sunMobile?.classList.remove('hidden');
-                moonMobile?.classList.add('hidden');
-                localStorage.setItem('jte-theme', 'light');
-            } else {
-                sun?.classList.add('hidden');
-                moon?.classList.remove('hidden');
-                sunMobile?.classList.add('hidden');
-                moonMobile?.classList.remove('hidden');
-                localStorage.setItem('jte-theme', 'dark');
-            }
         }
 
         // Service data
