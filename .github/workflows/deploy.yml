@@ -24,3 +24,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
+          # Publish as a single commit with no history, so the gh-pages branch
+          # never accumulates old (or confidential) files in its git history.
+          force_orphan: true
