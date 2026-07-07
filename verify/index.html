@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify a Contact | JTE Recruit &mdash; Scam Protection</title>
+    <meta name="description" content="Received a WhatsApp message claiming to be from JTE Recruit? Check whether the number belongs to a genuine JTE consultant and protect yourself from impersonation scams.">
+    <meta property="og:url" content="https://jte.com.sg/verify">
+    <meta property="og:title" content="Verify a Contact | JTE Recruit">
+    <meta property="og:description" content="Check whether a WhatsApp number really belongs to a JTE consultant. Protect yourself from impersonation scams.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        luxury: {
+                            black: '#0a0a0a', charcoal: '#141414', gold: '#C6A87C',
+                            goldLight: '#E5D4B3', goldDark: '#8C7350', cream: '#F5F1E8', warmGray: '#8A8A8A',
+                        }
+                    },
+                    letterSpacing: { 'widest-plus': '0.15em' },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .hover-gold-line { position: relative; }
+        .hover-gold-line::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #C6A87C; transition: width 0.4s ease; }
+        .hover-gold-line:hover::after { width: 100%; }
+        .btn-primary { background: #C6A87C; color: #0a0a0a; transition: all .3s ease; }
+        .btn-primary:hover { background: #E5D4B3; }
+        .btn-primary:disabled { opacity: .6; cursor: default; }
+    </style>
+</head>
+<body class="bg-luxury-cream text-luxury-charcoal">
+
+    <!-- Nav (matches main site) -->
+    <nav class="fixed w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+        <a href="/" class="z-50 cursor-pointer group block leading-none">
+            <span class="font-serif text-2xl tracking-[0.1em] text-white font-semibold group-hover:text-luxury-gold transition-colors duration-300">JTE</span>
+            <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
+        </a>
+        <div class="flex items-center gap-4 md:gap-8">
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="/#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Our Story</a>
+                <a href="/#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">What We Do</a>
+                <a href="/#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">The Team</a>
+                <a href="/#contact" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Let's Talk</a>
+            </div>
+            <a href="/verify" class="inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Verify a Number
+            </a>
+        </div>
+    </nav>
+
+    <!-- Dark hero band -->
+    <header class="bg-luxury-black text-white pt-32 pb-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="inline-flex items-center gap-2 text-luxury-gold text-xs uppercase tracking-[0.2em] font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Scam Protection
+            </span>
+            <h1 class="font-serif text-4xl md:text-5xl mt-6 mb-6 leading-tight">Verify before you trust</h1>
+            <p class="text-gray-300 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+                Scammers are impersonating JTE consultants &mdash; using our name, and even our photos, to message job seekers on WhatsApp. Before you reply to anyone claiming to be from JTE, check their number here.
+            </p>
+        </div>
+    </header>
+
+    <!-- Checker -->
+    <section class="px-6 -mt-12 mb-16">
+        <div class="bg-white rounded-xl shadow-2xl border border-black/5 p-6 md:p-10 max-w-2xl mx-auto">
+            <h2 class="font-serif text-2xl md:text-3xl text-[#0a0a1a] mb-2 text-center">Check a WhatsApp number</h2>
+            <p class="text-[#555] text-sm text-center mb-8 font-light">Received a message claiming to be from JTE? Enter the number below to check if it&rsquo;s really one of our consultants.</p>
+
+            <form id="checkForm" class="flex flex-col sm:flex-row gap-3">
+                <input id="phoneInput" type="tel" inputmode="tel" placeholder="e.g. +65 9123 4567" autocomplete="off"
+                    class="flex-1 bg-[#F5F1E8] border border-black/15 rounded-md px-4 py-3.5 text-[#1a1a1a] placeholder:text-[#999] focus:outline-none focus:border-luxury-goldDark transition-colors" aria-label="WhatsApp number to check">
+                <button id="checkBtn" type="submit" class="btn-primary px-8 py-3.5 rounded-md text-xs uppercase tracking-wider font-semibold whitespace-nowrap">Check Number</button>
+            </form>
+
+            <div id="resultArea" class="mt-6"></div>
+
+            <p class="mt-6 text-[11px] text-[#999] text-center leading-relaxed">We never display our consultants&rsquo; numbers publicly. This tool only confirms whether a number you already received is genuinely ours.</p>
+        </div>
+    </section>
+
+    <!-- Warning band -->
+    <section class="bg-luxury-black text-white py-14 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-serif text-2xl md:text-3xl mb-4">JTE will never ask you for money</h2>
+            <p class="text-gray-400 font-light">Legitimate recruitment is always free for job seekers. If anyone claiming to be from JTE asks you to pay, deposit, or complete paid tasks &mdash; it is a scam. Stop, and verify the number above.</p>
+        </div>
+    </section>
+
+    <!-- How the scam works -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="font-serif text-3xl text-[#0a0a1a] mb-8 text-center">How the scam works</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 border border-black/5 shadow-sm"><span class="font-serif text-3xl text-luxury-goldDark">1</span><h3 class="font-serif text-lg text-[#0a0a1a] mt-2 mb-2">The approach</h3><p class="text-sm text-[#555] font-light leading-relaxed">You get an unsolicited WhatsApp from someone using a JTE consultant&rsquo;s name or photo, offering an easy, high-paying work-from-home job.</p></div>
+            <div class="bg-white rounded-xl p-6 border border-black/5 shadow-sm"><span class="font-serif text-3xl text-luxury-goldDark">2</span><h3 class="font-serif text-lg text-[#0a0a1a] mt-2 mb-2">The hook</h3><p class="text-sm text-[#555] font-light leading-relaxed">You&rsquo;re asked to complete simple &ldquo;tasks&rdquo; and make a small deposit. They let you withdraw a little early, so it feels real and trustworthy.</p></div>
+            <div class="bg-white rounded-xl p-6 border border-black/5 shadow-sm"><span class="font-serif text-3xl text-luxury-goldDark">3</span><h3 class="font-serif text-lg text-[#0a0a1a] mt-2 mb-2">The trap</h3><p class="text-sm text-[#555] font-light leading-relaxed">To &ldquo;unlock&rdquo; bigger earnings you&rsquo;re pushed to deposit more and more. Eventually the money &mdash; and the scammer &mdash; disappears.</p></div>
+        </div>
+    </section>
+
+    <!-- Red flags + What JTE never does -->
+    <section class="max-w-5xl mx-auto px-6 pb-16 grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl p-8 border border-black/5 shadow-sm">
+            <h3 class="font-serif text-xl text-[#0a0a1a] mb-5">Warning signs of a scam</h3>
+            <ul class="space-y-3 text-sm text-[#555] font-light">
+                <li class="flex gap-3"><span class="text-red-600 font-bold">&times;</span><span>Asks you to pay a deposit, &ldquo;top-up&rdquo;, or complete paid tasks to earn or withdraw money.</span></li>
+                <li class="flex gap-3"><span class="text-red-600 font-bold">&times;</span><span>Offers unusually high pay for simple work-from-home &ldquo;tasks&rdquo; (liking videos, boosting orders, etc.).</span></li>
+                <li class="flex gap-3"><span class="text-red-600 font-bold">&times;</span><span>Lets you withdraw a small amount early to build trust, then pressures you to deposit more.</span></li>
+                <li class="flex gap-3"><span class="text-red-600 font-bold">&times;</span><span>Contacts you out of the blue for a job you never applied for.</span></li>
+                <li class="flex gap-3"><span class="text-red-600 font-bold">&times;</span><span>Uses a consultant&rsquo;s photo or name but a number you can&rsquo;t verify here.</span></li>
+            </ul>
+        </div>
+        <div class="bg-white rounded-xl p-8 border border-black/5 shadow-sm">
+            <h3 class="font-serif text-xl text-[#0a0a1a] mb-5">JTE will never</h3>
+            <ul class="space-y-3 text-sm text-[#555] font-light">
+                <li class="flex gap-3"><span class="text-luxury-goldDark font-bold">&check;</span><span>Ask you for money &mdash; deposits, fees, or &ldquo;task top-ups&rdquo;.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-goldDark font-bold">&check;</span><span>Ask you to complete paid online tasks to earn commissions.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-goldDark font-bold">&check;</span><span>Recruit you via random WhatsApp or Telegram messages for jobs you didn&rsquo;t apply for.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-goldDark font-bold">&check;</span><span>Request your bank login, OTP, or crypto wallet details.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- If targeted -->
+    <section class="max-w-3xl mx-auto px-6 pb-20">
+        <div class="bg-luxury-charcoal rounded-xl p-8 md:p-10 text-center text-white">
+            <h2 class="font-serif text-2xl md:text-3xl mb-4">Think you&rsquo;ve been targeted?</h2>
+            <p class="text-gray-400 font-light mb-6">If you&rsquo;ve received a suspicious message or lost money, act quickly. In Singapore you can:</p>
+            <ul class="text-left inline-block space-y-3 text-gray-300 text-sm font-light">
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">&check;</span><span>Call the <strong class="text-white">ScamShield Helpline at 1799</strong>, or the <strong class="text-white">Police Anti-Scam Hotline at 1800-255-0000</strong>.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">&check;</span><span>Report scams at <a href="https://www.scamshield.gov.sg" target="_blank" rel="noopener noreferrer" class="text-luxury-gold underline">scamshield.gov.sg</a>.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">&check;</span><span>Block and report the number inside WhatsApp, and tell your bank if you sent money.</span></li>
+                <li class="flex gap-3"><span class="text-luxury-gold font-bold">&check;</span><span>Let us know at <a href="mailto:ask@jte.com.sg" class="text-luxury-gold underline">ask@jte.com.sg</a> so we can warn others.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer (matches main site) -->
+    <footer class="py-12 bg-luxury-black border-t border-white/5 text-center">
+        <div class="mb-8 flex justify-center space-x-6">
+            <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+            <a href="https://sg.linkedin.com/company/jte-recruit-pte-ltd" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="https://www.tiktok.com/@jterecruit?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-luxury-gold hover:border-luxury-gold transition-all"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        </div>
+        <p class="font-serif text-2xl text-white tracking-widest mb-3">JTE</p>
+        <p class="font-sans text-xs text-gray-500 mb-2">Recruitment with personality</p>
+        <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider mb-4">&copy; 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
+        <a href="/verify" class="font-sans text-[10px] text-luxury-gold hover:text-white uppercase tracking-wider transition-colors">Verify a Contact &middot; Scam Protection</a>
+    </footer>
+
+    <!-- Verification logic -->
+    <script>
+        var SUPABASE_URL = 'https://cqkzlykkshlzemiiloeo.supabase.co';
+        var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNxa3pseWtrc2hsemVtaWlsb2VvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0ODIzMTQsImV4cCI6MjA4NjA1ODMxNH0.cziFtQ9QSU_ydUkTYK_fcf9OVJwpY-kPPdJIE6idfKY';
+
+        var form = document.getElementById('checkForm');
+        var input = document.getElementById('phoneInput');
+        var btn = document.getElementById('checkBtn');
+        var area = document.getElementById('resultArea');
+
+        function render(html) { area.innerHTML = html; }
+
+        var SAFE = '<div class="flex items-start gap-4 rounded-lg border border-green-600/30 bg-green-50 p-5">'
+            + '<span class="text-green-700 text-xl font-bold leading-none mt-0.5">&check;</span><div>'
+            + '<p class="font-semibold text-green-800">Verified &mdash; this is a genuine JTE consultant.</p>'
+            + '<p class="text-sm text-green-700 mt-1">You may continue the conversation. As always, JTE will never ask you to pay a deposit or complete paid tasks.</p></div></div>';
+
+        var DANGER = '<div class="flex items-start gap-4 rounded-lg border border-red-600/30 bg-red-50 p-5">'
+            + '<span class="text-red-700 text-xl font-bold leading-none mt-0.5">&times;</span><div>'
+            + '<p class="font-semibold text-red-800">This number is NOT one of our consultants.</p>'
+            + '<p class="text-sm text-red-700 mt-1">Do not respond, send money, or share personal details. Block the number and report it. If they claimed to be from JTE, it is very likely an impersonation scam.</p></div></div>';
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var raw = input.value || '';
+            var digits = raw.replace(/\D/g, '');
+            if (digits.length < 8) {
+                render('<p class="text-sm text-amber-700 text-center">Please enter a valid mobile number (at least 8 digits).</p>');
+                return;
+            }
+            btn.disabled = true; btn.textContent = 'Checking…';
+            render('');
+            fetch(SUPABASE_URL + '/rest/v1/rpc/verify_contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
+                body: JSON.stringify({ input: raw })
+            }).then(function (r) {
+                if (!r.ok) throw new Error('unavailable');
+                return r.json();
+            }).then(function (ok) {
+                render(ok === true ? SAFE : DANGER);
+            }).catch(function () {
+                render('<p class="text-sm text-[#555] text-center">Verification is temporarily unavailable. Please try again shortly, or email us at <a href="mailto:ask@jte.com.sg" class="text-luxury-goldDark underline">ask@jte.com.sg</a>.</p>');
+            }).then(function () {
+                btn.disabled = false; btn.textContent = 'Check Number';
+            });
+        });
+    </script>
+</body>
+</html>

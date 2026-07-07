@@ -628,12 +628,18 @@
             <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-400 mt-1 group-hover:text-luxury-gold transition-colors">Recruit</span>
         </div>
 
-        <!-- Desktop Links -->
-        <div class="hidden md:flex items-center space-x-10">
-            <a href="#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Our Story</a>
-            <a href="#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
-            <a href="#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
-            <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-luxury-gold hover:text-white transition-colors font-semibold scroll-link">Let's Talk</a>
+        <!-- Right cluster: desktop links (hidden on mobile) + always-visible Verify button -->
+        <div class="flex items-center gap-4 md:gap-8">
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Our Story</a>
+                <a href="#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
+                <a href="#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
+                <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Let's Talk</a>
+            </div>
+            <a href="/verify" class="inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Verify a Number
+            </a>
         </div>
     </nav>
 
@@ -1444,7 +1450,8 @@
         </div>
         <p class="font-serif text-2xl text-white tracking-widest mb-3">JTE</p>
         <p class="font-sans text-xs text-gray-500 mb-2">Recruitment with personality</p>
-        <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider">© 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
+        <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider mb-4">© 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
+        <a href="/verify" class="font-sans text-[10px] text-luxury-gold hover:text-white uppercase tracking-wider transition-colors">Verify a Contact · Scam Protection</a>
     </footer>
 
     <!-- Service Modal -->
