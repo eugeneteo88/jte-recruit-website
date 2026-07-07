@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jte.com.sg/sitemap.xml
