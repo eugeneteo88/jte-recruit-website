@@ -1733,14 +1733,14 @@
                 // Randomize which faces appear each load
                 const picks = shuffleArray(teamMembers).slice(0, shown);
                 const avatars = picks.map((m, i) =>
-                    `<img src="${m.img}" alt="${m.name}" loading="lazy" class="w-14 h-14 rounded-full object-cover team-photo" style="border:3px solid #F5F1E8; margin-left:${i ? '-18px' : '0'};">`
+                    `<img src="${m.img}" alt="${m.name}" loading="lazy" class="w-14 h-14 shrink-0 rounded-full object-cover team-photo" style="border:3px solid #F5F1E8; margin-left:${i ? '-18px' : '0'};">`
                 ).join('');
 
                 mobileTeam.innerHTML = `
                     <div class="text-center px-6">
                         <div class="flex justify-center items-center mb-6">
                             ${avatars}
-                            <span class="w-14 h-14 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:-18px; background:#8C7350; color:#F5F1E8; position:relative; z-index:2;">+${extra}</span>
+                            <span class="w-14 h-14 shrink-0 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:-18px; background:#8C7350; color:#F5F1E8; position:relative; z-index:2;">+${extra}</span>
                         </div>
                         <p class="text-gray-500 text-sm font-light mx-auto leading-relaxed">${teamMembers.length} recruiters with real personality, across engineering, logistics, healthcare &amp; more.</p>
                     </div>
