@@ -50,10 +50,10 @@
           "url": "https://jte.com.sg/",
           "logo": "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png",
           "image": "https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/social%20media%20preview/Social%20Media%20Preview%20Image%20-%201200%20x%20630.webp",
-          "description": "Singapore recruitment agency connecting people with the right roles since 2014. Permanent, contract, and outsourced hiring with a human touch. Recruitment is free for job seekers.",
+          "description": "Singapore recruitment agency connecting people with the right roles since 2014, with particular strength in engineering, logistics, manufacturing, and healthcare. Permanent, contract, and outsourced hiring with a human touch. Recruitment is free for job seekers.",
           "foundingDate": "2014",
           "slogan": "Great People, Great Work.",
-          "knowsAbout": ["Recruitment", "Permanent hiring", "Contract and temporary staffing", "Manpower outsourcing", "Payroll administration", "Work pass application", "HR advisory", "Employer branding"],
+          "knowsAbout": ["Recruitment", "Permanent hiring", "Contract and temporary staffing", "Manpower outsourcing", "Payroll administration", "Work pass application", "HR advisory", "Employer branding", "Engineering recruitment", "Logistics recruitment", "Manufacturing recruitment", "Healthcare recruitment"],
           "email": "ask@jte.com.sg",
           "telephone": "+6590115381",
           "address": {
@@ -71,6 +71,7 @@
           ],
           "identifier": { "@type": "PropertyValue", "propertyID": "Singapore MOM Employment Agency Licence", "value": "14C7215" },
           "geo": { "@type": "GeoCoordinates", "latitude": 1.3339, "longitude": 103.7421 },
+          "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:30" },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Recruitment Services",
@@ -104,7 +105,8 @@
             { "@type": "Question", "name": "How do I apply for a job through JTE Recruit?", "acceptedAnswer": { "@type": "Answer", "text": "Reach out via our contact form, email ask@jte.com.sg, or WhatsApp. Our consultants will get to know you and match you with suitable roles — there is no cost to job seekers." } },
             { "@type": "Question", "name": "How can employers engage JTE for hiring?", "acceptedAnswer": { "@type": "Answer", "text": "Contact us through the form, email, or WhatsApp for a no-obligation conversation. We handle permanent, contract, and project or mass hiring, as well as outsourced manpower." } },
             { "@type": "Question", "name": "Does JTE handle work passes and payroll for foreign employees?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Work pass application and payroll administration are among our services, so we can manage the paperwork for foreign hires." } },
-            { "@type": "Question", "name": "Which areas does JTE Recruit serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based at Westgate Tower in Jurong East and serve employers and job seekers across Singapore." } }
+            { "@type": "Question", "name": "Which areas does JTE Recruit serve?", "acceptedAnswer": { "@type": "Answer", "text": "We are based at Westgate Tower in Jurong East and serve employers and job seekers across Singapore." } },
+            { "@type": "Question", "name": "What industries does JTE Recruit specialise in?", "acceptedAnswer": { "@type": "Answer", "text": "JTE has particular strength in engineering, logistics, manufacturing, and healthcare recruitment, and also places talent across other sectors in Singapore." } }
           ]
         }
       ]
@@ -718,10 +720,11 @@
 
         <!-- Right cluster: desktop links (hidden on mobile) + always-visible Verify button -->
         <div class="flex items-center gap-4 md:gap-8">
-            <div class="hidden md:flex items-center space-x-10">
+            <div class="hidden md:flex items-center space-x-7">
                 <a href="#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Our Story</a>
                 <a href="#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
                 <a href="#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
+                <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Insights</a>
                 <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Let's Talk</a>
             </div>
             <a href="/verify" class="inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
@@ -1491,6 +1494,10 @@
                     <h3 class="font-serif text-lg text-white mb-2">Which areas does JTE Recruit serve?</h3>
                     <p class="text-gray-400 font-light text-sm leading-relaxed">We're based at Westgate Tower in Jurong East and serve employers and job seekers across Singapore.</p>
                 </div>
+                <div>
+                    <h3 class="font-serif text-lg text-white mb-2">What industries does JTE Recruit specialise in?</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">We have particular strength in engineering, logistics, manufacturing, and healthcare recruitment, and also place talent across other sectors in Singapore.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1594,8 +1601,12 @@
         <p class="font-serif text-2xl text-white tracking-widest mb-3">JTE</p>
         <p class="font-sans text-xs text-gray-500 mb-2">Recruitment with personality</p>
         <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider mb-4">© 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
-        <a href="/verify" class="font-sans text-[10px] text-luxury-gold hover:text-white uppercase tracking-wider transition-colors">Verify a Contact · Scam Protection</a>
-        <p class="font-sans text-[9px] text-gray-600 mt-4">This website uses cookies for anonymous analytics.</p>
+        <div class="flex justify-center gap-5 text-[10px] uppercase tracking-wider mb-3">
+            <a href="/verify" class="text-luxury-gold hover:text-white transition-colors">Verify a Contact</a>
+            <a href="/blog" class="text-gray-500 hover:text-white transition-colors">Insights</a>
+            <a href="/privacy" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
+        </div>
+        <p class="font-sans text-[9px] text-gray-600">This website uses cookies for anonymous analytics. See our <a href="/privacy" class="underline hover:text-luxury-gold">Privacy Policy</a>.</p>
     </footer>
 
     <!-- Service Modal -->
