@@ -1730,41 +1730,21 @@
 
                 const shown = 7;
                 const extra = teamMembers.length - shown;
-                const avatars = teamMembers.slice(0, shown).map((m, i) =>
+                // Randomize which faces appear each load
+                const picks = shuffleArray(teamMembers).slice(0, shown);
+                const avatars = picks.map((m, i) =>
                     `<img src="${m.img}" alt="${m.name}" loading="lazy" class="w-14 h-14 rounded-full object-cover team-photo" style="border:3px solid #F5F1E8; margin-left:${i ? '-18px' : '0'};">`
                 ).join('');
-                const gridItems = teamMembers.map(m => `
-                    <div class="text-center">
-                        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-3">
-                            <img src="${m.img}" alt="${m.name}" loading="lazy" class="w-full h-full object-cover team-photo">
-                        </div>
-                        <h4 class="font-serif text-white text-base font-medium">${m.name}</h4>
-                        <p class="text-[9px] text-luxury-gold uppercase tracking-wide mt-1">${m.role}</p>
-                        <p class="text-[11px] text-gray-500 italic mt-2 leading-snug">"${m.tagline}"</p>
-                    </div>`).join('');
 
                 mobileTeam.innerHTML = `
                     <div class="text-center px-6">
                         <div class="flex justify-center items-center mb-6">
                             ${avatars}
-                            <span class="w-14 h-14 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:8px; background:#e7e0d1; color:#8C7350; position:relative; z-index:1;">+${extra}</span>
+                            <span class="w-14 h-14 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:-18px; background:#8C7350; color:#F5F1E8; position:relative; z-index:2;">+${extra}</span>
                         </div>
-                        <p class="text-gray-500 text-sm font-light max-w-xs mx-auto mb-6 leading-relaxed">A team of ${teamMembers.length} recruiters with real personality, across engineering, logistics, healthcare &amp; more.</p>
-                        <button id="team-expand-btn" type="button" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.12em] transition-colors" style="border:1px solid #8C7350; color:#8C7350; background:transparent;">
-                            <span data-label>Meet the team</span> <span data-arrow>&darr;</span>
-                        </button>
+                        <p class="text-gray-500 text-sm font-light mx-auto leading-relaxed">${teamMembers.length} recruiters with real personality, across engineering, logistics, healthcare &amp; more.</p>
                     </div>
-                    <div id="team-expanded" class="hidden grid grid-cols-2 gap-x-4 gap-y-9 px-6 mt-10">${gridItems}</div>
                 `;
-
-                const btn = document.getElementById('team-expand-btn');
-                const exp = document.getElementById('team-expanded');
-                btn.addEventListener('click', () => {
-                    const isOpen = !exp.classList.contains('hidden');
-                    exp.classList.toggle('hidden', isOpen);
-                    btn.querySelector('[data-label]').textContent = isOpen ? 'Meet the team' : 'Show less';
-                    btn.querySelector('[data-arrow]').innerHTML = isOpen ? '&darr;' : '&uarr;';
-                });
             } else {
                 if (mobileTeam) mobileTeam.style.display = 'none';
                 desktopGrid.innerHTML = '';
