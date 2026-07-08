@@ -587,8 +587,11 @@
         box-shadow: none !important;
     }
     .theme-light nav .font-serif { color: #0a0a0a !important; }
-    .theme-light nav a { color: #4a4a4a !important; } 
-    .theme-light nav a:hover { color: #8C7350 !important; }
+    .theme-light nav a:not(.jte-verify):not(.nav-active) { color: #4a4a4a !important; }
+    .theme-light nav a:not(.jte-verify):not(.nav-active):hover { color: #8C7350 !important; }
+    nav a.jte-verify { color: #0a0a0a !important; }
+    nav a.nav-active { color: #C6A87C !important; }
+    nav a.nav-active::after { width: 100% !important; }
 
     /* Light mode hero */
     .theme-light .hero-text-lock h1 {
@@ -752,13 +755,13 @@
         <!-- Right cluster: desktop links (hidden on mobile) + always-visible Verify button -->
         <div class="flex items-center gap-4 md:gap-8">
             <div class="hidden md:flex items-center space-x-7">
-                <a href="#philosophy" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Our Approach</a>
-                <a href="#services" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
-                <a href="#team" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
+                <a href="#services" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
+                <a href="#team" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
+                <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Our Story</a>
                 <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Insights</a>
-                <a href="#contact" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Let's Talk</a>
+                <a href="#contact" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Let's Talk</a>
             </div>
-            <a href="/verify" class="hidden md:inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+            <a href="/verify" class="jte-verify hidden md:inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-bold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 Verify a Number
             </a>
@@ -768,12 +771,11 @@
     <!-- Mobile hamburger + circle-reveal menu -->
     <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     <div id="mmenu">
-      <a class="mlk scroll-link" href="#philosophy" onclick="closeMenu()"><span class="idx">01</span>Our Approach</a>
-      <a class="mlk scroll-link" href="#services" onclick="closeMenu()"><span class="idx">02</span>What We Do</a>
-      <a class="mlk scroll-link" href="#team" onclick="closeMenu()"><span class="idx">03</span>The Team</a>
-      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">04</span>Our Story</a>
-      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">05</span>Insights</a>
-      <a class="mlk scroll-link" href="#contact" onclick="closeMenu()"><span class="idx">06</span>Contact</a>
+      <a class="mlk scroll-link" href="#services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
+      <a class="mlk scroll-link" href="#team" onclick="closeMenu()"><span class="idx">02</span>The Team</a>
+      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">03</span>Our Story</a>
+      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Insights</a>
+      <a class="mlk scroll-link" href="#contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
       <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
     </div>
 
@@ -2020,6 +2022,28 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       function toggleMenu(){document.body.classList.toggle('menu-open');}
       function closeMenu(){document.body.classList.remove('menu-open');}
       (function(){var t=document.getElementById('toTop');window.addEventListener('scroll',function(){ if(window.scrollY>500){t.classList.add('show');}else{t.classList.remove('show');} });})();
+      // Scroll-spy: highlight the active section in the nav
+      (function(){
+        var links={};
+        document.querySelectorAll('nav a.nav-link').forEach(function(a){var h=a.getAttribute('href'); if(h&&h.charAt(0)==='#') links[h.slice(1)]=a;});
+        var ids=Object.keys(links); if(!ids.length) return;
+        var obs=new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(e.isIntersecting){
+              ids.forEach(function(id){links[id].classList.remove('nav-active');});
+              if(links[e.target.id]) links[e.target.id].classList.add('nav-active');
+            }
+          });
+        },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+        ids.forEach(function(id){var s=document.getElementById(id); if(s) obs.observe(s);});
+      })();
+      // Robust hash landing (cross-page /#section links, reliable on mobile)
+      (function(){
+        if(!location.hash) return;
+        var id=location.hash.slice(1);
+        function go(){var t=document.getElementById(id); if(t){window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-80,behavior:'auto'});}}
+        window.addEventListener('load',function(){setTimeout(go,120);setTimeout(go,500);});
+      })();
     </script>
 </body>
 </html>
