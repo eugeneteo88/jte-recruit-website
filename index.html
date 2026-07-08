@@ -53,7 +53,7 @@
           "description": "Singapore recruitment agency helping employers hire since 2014, with particular strength in engineering, logistics, manufacturing, and healthcare. Permanent, contract, and outsourced hiring with a human touch.",
           "foundingDate": "2014",
           "slogan": "Great People, Great Work.",
-          "knowsAbout": ["Recruitment", "Permanent hiring", "Contract and temporary staffing", "Manpower outsourcing", "Payroll administration", "Work pass application", "HR advisory", "Employer branding", "Engineering recruitment", "Logistics recruitment", "Manufacturing recruitment", "Healthcare recruitment"],
+          "knowsAbout": ["Recruitment", "Permanent hiring", "Contract and temporary staffing", "Manpower outsourcing", "Payroll administration", "Work pass application", "Employer branding", "Engineering recruitment", "Logistics recruitment", "Manufacturing recruitment", "Healthcare recruitment"],
           "email": "ask@jte.com.sg",
           "telephone": "+6567157450",
           "address": {
@@ -101,7 +101,7 @@
           "mainEntity": [
             { "@type": "Question", "name": "Does JTE Recruit charge job seekers any fees?", "acceptedAnswer": { "@type": "Answer", "text": "No. Legitimate recruitment is never charged to candidates. JTE is paid by the employers who engage us, never by individuals, so anyone asking you to pay is not a genuine recruiter." } },
             { "@type": "Question", "name": "How can I verify that a JTE consultant is genuine?", "acceptedAnswer": { "@type": "Answer", "text": "Enter the WhatsApp number at https://jte.com.sg/verify to confirm whether it belongs to a real JTE consultant. JTE will never ask you to pay a deposit, transfer money, or complete paid tasks. Anyone who does that is running a scam." } },
-            { "@type": "Question", "name": "What services does JTE Recruit offer?", "acceptedAnswer": { "@type": "Answer", "text": "Permanent hiring, temporary and contract staffing, manpower outsourcing, payroll and work pass management, project and mass hiring, employer branding, and HR advisory." } },
+            { "@type": "Question", "name": "What services does JTE Recruit offer?", "acceptedAnswer": { "@type": "Answer", "text": "Permanent hiring, temporary and contract staffing, manpower outsourcing, payroll and work pass management, project and mass hiring, and employer branding." } },
             { "@type": "Question", "name": "Where is JTE Recruit located?", "acceptedAnswer": { "@type": "Answer", "text": "JTE Recruit is at 1 Gateway Drive, #10-14 Westgate Tower, Singapore 608531." } },
             { "@type": "Question", "name": "Is JTE Recruit a licensed employment agency?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. JTE Recruit Pte Ltd holds Employment Agency Licence No. 14C7215, issued by Singapore's Ministry of Manpower." } },
             { "@type": "Question", "name": "How do I apply for a job through JTE Recruit?", "acceptedAnswer": { "@type": "Answer", "text": "JTE Recruit is engaged by employers to fill specific roles, rather than helping individuals search for jobs. If you've applied to a role we're managing, the consultant handling it will contact you directly. Please note we don't accept CVs or applications sent to us over WhatsApp." } },
@@ -810,7 +810,7 @@
         
         <!-- Mobile: Horizontal Scroll -->
         <div class="services-mobile-scroll md:hidden" id="services-scroll">
-            <div onclick="openModal('perm')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/permanent-recruitment'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Permanent%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Permanent Hiring">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -819,7 +819,7 @@
                     <p class="font-sans text-sm text-gray-300">Finding your next long-term team member.</p>
                 </div>
             </div>
-            <div onclick="openModal('contract')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/contract-staffing'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Temp%20%26%20Contract.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Temp & Contract">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -828,7 +828,7 @@
                     <p class="font-sans text-sm text-gray-300">Flexible staffing for agile businesses operation.</p>
                 </div>
             </div>
-            <div onclick="openModal('manpower')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/manpower-outsourcing'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Manpower%20Outsourcing.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Manpower Outsourcing">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -837,7 +837,7 @@
                     <p class="font-sans text-sm text-gray-300">Full HR & Ops department without the overhead.</p>
                 </div>
             </div>
-            <div onclick="openModal('payroll')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/payroll-work-pass'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Payroll & Work Pass">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -846,7 +846,7 @@
                     <p class="font-sans text-sm text-gray-300">Equipped with compliance and accuracy guaranteed.</p>
                 </div>
             </div>
-            <div onclick="openModal('branding')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/employer-branding'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Branding%20%26%20Culture.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Branding & Culture">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -855,31 +855,13 @@
                     <p class="font-sans text-sm text-gray-300">Make your company a place people want to work.</p>
                 </div>
             </div>
-            <div onclick="openModal('project')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/mass-hiring'" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Project & Mass Hiring">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
                     <h3 class="font-serif text-xl text-white mb-2">Project & Mass Hiring</h3>
                     <p class="font-sans text-sm text-gray-300">High-volume recruitment without the chaos.</p>
-                </div>
-            </div>
-            <div onclick="openModal('advisory')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
-                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/HR%20Advisory.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="HR Advisory">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
-                    <h3 class="font-serif text-xl text-white mb-2">HR Advisory</h3>
-                    <p class="font-sans text-sm text-gray-300">Navigate Singapore employment laws with confidence.</p>
-                </div>
-            </div>
-            <div onclick="openModal('training')" class="service-card service-card-mobile relative group cursor-pointer bg-gray-900">
-                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Training%20%26%20Support.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Training & Support">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
-                    <h3 class="font-serif text-xl text-white mb-2">Training & Support</h3>
-                    <p class="font-sans text-sm text-gray-300">Set your new hires up for success from day one.</p>
                 </div>
             </div>
         </div>
@@ -889,7 +871,7 @@
 
         <!-- Desktop: Grid -->
         <div class="services-desktop px-6 md:px-12 max-w-7xl mx-auto hidden md:grid">
-            <div onclick="openModal('perm')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/permanent-recruitment'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Permanent%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Permanent Hiring">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -898,7 +880,7 @@
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Finding your next long-term team member.</p>
                 </div>
             </div>
-            <div onclick="openModal('contract')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/contract-staffing'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Temp%20%26%20Contract.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Temp & Contract">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -907,7 +889,7 @@
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Flexible staffing for agile businesses operation.</p>
                 </div>
             </div>
-            <div onclick="openModal('manpower')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/manpower-outsourcing'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Manpower%20Outsourcing.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Manpower Outsourcing">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -916,7 +898,7 @@
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Full HR & Ops department without the overhead.</p>
                 </div>
             </div>
-            <div onclick="openModal('payroll')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/payroll-work-pass'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Payroll & Work Pass">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -925,7 +907,7 @@
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Equipped with compliance and accuracy guaranteed.</p>
                 </div>
             </div>
-            <div onclick="openModal('branding')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/employer-branding'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Branding%20%26%20Culture.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Branding & Culture">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -934,31 +916,13 @@
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Make your company a place people want to work.</p>
                 </div>
             </div>
-            <div onclick="openModal('project')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
+            <div onclick="location.href='/services/mass-hiring'" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
                 <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Project & Mass Hiring">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 right-0 p-6">
                     <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
                     <h3 class="font-serif text-lg text-white mb-2">Project & Mass Hiring</h3>
                     <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">High-volume recruitment without the chaos.</p>
-                </div>
-            </div>
-            <div onclick="openModal('advisory')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
-                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/HR%20Advisory.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="HR Advisory">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
-                    <h3 class="font-serif text-lg text-white mb-2">HR Advisory</h3>
-                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Navigate Singapore employment laws with confidence.</p>
-                </div>
-            </div>
-            <div onclick="openModal('training')" class="service-card service-card-desktop relative group cursor-pointer bg-gray-900">
-                <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/services/Training%20%26%20Support.jpeg" class="service-image absolute inset-0 w-full h-full object-cover" alt="Training & Support">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-                    <div class="w-10 h-[2px] bg-luxury-gold mb-4"></div>
-                    <h3 class="font-serif text-lg text-white mb-2">Training & Support</h3>
-                    <p class="font-sans text-xs text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">Set your new hires up for success from day one.</p>
                 </div>
             </div>
         </div>
@@ -1461,7 +1425,7 @@
                 </div>
                 <div>
                     <h3 class="font-serif text-lg text-white mb-2">What services does JTE Recruit offer?</h3>
-                    <p class="text-gray-400 font-light text-sm leading-relaxed">Permanent hiring, temporary and contract staffing, manpower outsourcing, payroll and work pass management, project and mass hiring, employer branding, and HR advisory.</p>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">Permanent hiring, temporary and contract staffing, manpower outsourcing, payroll and work pass management, project and mass hiring, and employer branding.</p>
                 </div>
                 <div>
                     <h3 class="font-serif text-lg text-white mb-2">Where is JTE Recruit located?</h3>
@@ -1601,6 +1565,14 @@
         <p class="font-serif text-2xl text-white tracking-widest mb-3">JTE</p>
         <p class="font-sans text-xs text-gray-500 mb-2">Recruitment with personality</p>
         <p class="font-sans text-[10px] text-gray-600 uppercase tracking-wider mb-4">© 2025 JTE Recruit Pte Ltd. EA License 14C7215.</p>
+        <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-wider mb-3 max-w-2xl mx-auto">
+            <a href="/services/permanent-recruitment" class="text-gray-500 hover:text-luxury-gold transition-colors">Permanent Hiring</a>
+            <a href="/services/contract-staffing" class="text-gray-500 hover:text-luxury-gold transition-colors">Temp &amp; Contract</a>
+            <a href="/services/manpower-outsourcing" class="text-gray-500 hover:text-luxury-gold transition-colors">Manpower Outsourcing</a>
+            <a href="/services/payroll-work-pass" class="text-gray-500 hover:text-luxury-gold transition-colors">Payroll &amp; Work Pass</a>
+            <a href="/services/employer-branding" class="text-gray-500 hover:text-luxury-gold transition-colors">Employer Branding</a>
+            <a href="/services/mass-hiring" class="text-gray-500 hover:text-luxury-gold transition-colors">Project &amp; Mass Hiring</a>
+        </div>
         <div class="flex justify-center gap-5 text-[10px] uppercase tracking-wider mb-3">
             <a href="/verify" class="text-luxury-gold hover:text-white transition-colors">Verify a Contact</a>
             <a href="/blog" class="text-gray-500 hover:text-white transition-colors">Insights</a>
@@ -1713,7 +1685,7 @@
                             ${avatars}
                             <span class="w-14 h-14 shrink-0 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:-18px; background:#8C7350; color:#F5F1E8; position:relative; z-index:2;">+${extra}</span>
                         </div>
-                        <p class="text-gray-500 text-sm font-light mx-auto leading-relaxed">${teamMembers.length} recruiters with real personality, across engineering, logistics, healthcare &amp; more.</p>
+                        <p class="text-gray-500 text-sm font-light mx-auto leading-relaxed">A team with real personality and 50+ years of combined experience, across engineering, logistics, healthcare &amp; more.</p>
                     </div>
                 `;
             } else {
