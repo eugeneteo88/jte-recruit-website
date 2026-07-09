@@ -90,12 +90,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- BLOGPOSTS:START -->
   <url>
     <loc>https://jte.com.sg/blog/spotting-recruitment-scams</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- BLOGPOSTS:END -->
   <url>
     <loc>https://jte.com.sg/privacy</loc>
     <lastmod>2026-07-09</lastmod>

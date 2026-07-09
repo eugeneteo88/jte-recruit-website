@@ -1,0 +1,34 @@
+name: Scheduled publish
+
+# Reveals blog posts on their scheduled date without anyone pushing.
+# Each day it regenerates the blog index + sitemap from blog/posts.json
+# (Singapore-time date filter) and redeploys. Add a post with a future
+# `date` in posts.json and it goes live automatically on that day.
+
+on:
+  schedule:
+    - cron: '5 16 * * *'   # 16:05 UTC = 00:05 Singapore time, daily
+  workflow_dispatch:        # allows a manual "publish now" from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate blog index + sitemap from posts.json
+        run: node scripts/build-blog.mjs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          force_orphan: true
