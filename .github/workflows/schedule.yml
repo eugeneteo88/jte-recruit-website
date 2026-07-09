@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Regenerate blog index + sitemap from posts.json
         run: node scripts/build-blog.mjs
