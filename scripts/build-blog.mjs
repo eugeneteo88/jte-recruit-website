@@ -100,6 +100,42 @@ sitemap = sitemap.replace(
 );
 writeFileSync(p('sitemap.xml'), sitemap);
 
-console.log(`build-blog: ${todayISO} — ${live.length} live post(s): ${live.map(x => x.slug).join(', ') || '(none)'}`);
+// --- "Keep reading" block injected into each live article (between markers) ---
+const relatedCard = (post) => `          <a href="/blog/${post.slug}" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+            <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">${post.tag}</span>
+            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">${post.title}</h3>
+            <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
+              ${arrow}
+            </span>
+          </a>`;
+
+const relatedBlock = (current) => {
+  const others = live.filter(x => x.slug !== current.slug).slice(0, 2);
+  if (!others.length) return '';
+  return `        <div class="border-t border-black/10 pt-10">
+          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Keep reading</p>
+          <div class="grid sm:grid-cols-2 gap-6 mt-5">
+${others.map(relatedCard).join('\n')}
+          </div>
+        </div>`;
+};
+
+const liveSlugs = new Set(live.map(x => x.slug));
+let related = 0;
+for (const post of POSTS) {
+  const fp = p(`blog/${post.slug}/index.html`);
+  let html;
+  try { html = readFileSync(fp, 'utf8'); } catch { continue; }
+  if (!html.includes('<!-- RELATED:START -->')) continue;
+  const block = liveSlugs.has(post.slug) ? relatedBlock(post) : ''; // clear for not-yet-live posts
+  html = html.replace(
+    /(<!-- RELATED:START -->)[\s\S]*?(<!-- RELATED:END -->)/,
+    `$1\n${block}\n        $2`
+  );
+  writeFileSync(fp, html);
+  related++;
+}
+
+console.log(`build-blog: ${todayISO} — ${live.length} live post(s): ${live.map(x => x.slug).join(', ') || '(none)'}; related blocks updated: ${related}`);
 const pending = POSTS.filter(post => post.draft || post.date > todayISO);
 if (pending.length) console.log(`  pending: ${pending.map(x => `${x.slug}@${x.draft ? 'draft' : x.date}`).join(', ')}`);
