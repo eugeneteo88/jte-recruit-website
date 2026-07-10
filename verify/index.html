@@ -39,6 +39,38 @@
         .btn-share:hover { background:#8C7350; color:#fff; border-color:#8C7350; }
         .btn-share svg { width:1rem; height:1rem; }
         .btn-share.copied { background:#2f7d4a; border-color:#2f7d4a; color:#fff; }
+        /* Live reassurance + Spot-the-imposter */
+        .si-live{max-width:42rem;margin:0 auto;background:linear-gradient(180deg,#fff,#F5F1E8);border:1px solid #C6A87C;border-radius:16px;padding:24px 28px;box-shadow:0 24px 50px -34px rgba(36,27,18,.5);}
+        .si-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8C7350;font-weight:600;}
+        .si-dot{width:9px;height:9px;border-radius:50%;background:#2f7d4a;box-shadow:0 0 0 0 rgba(47,125,74,.5);animation:siPulse 2s infinite;}
+        @keyframes siPulse{0%{box-shadow:0 0 0 0 rgba(47,125,74,.45)}70%{box-shadow:0 0 0 9px rgba(47,125,74,0)}100%{box-shadow:0 0 0 0 rgba(47,125,74,0)}}
+        @media (prefers-reduced-motion:reduce){.si-dot{animation:none;}}
+        .si-live h2{font-family:'Playfair Display',serif;font-weight:600;font-size:26px;line-height:1.15;margin:13px 0 10px;color:#241B12;}
+        .si-live p{color:#6f6353;font-size:15px;line-height:1.6;}
+        .si-live p .q{color:#B4462F;font-style:italic;font-weight:500;}
+        .si-sec{text-align:center;margin:0 auto 24px;max-width:40rem;}
+        .si-sec h2{font-family:'Playfair Display',serif;font-weight:600;font-size:30px;margin:12px 0 10px;color:#241B12;}
+        .si-sec p{color:#6f6353;font-size:15px;}
+        .si-swipe{display:none;margin-top:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C6A87C;}
+        .si-row{display:flex;gap:18px;overflow-x:auto;padding:6px 4px 18px;scroll-snap-type:x mandatory;max-width:1160px;margin:0 auto;}
+        .si-row::-webkit-scrollbar{height:6px;}
+        .si-row::-webkit-scrollbar-thumb{background:#C6A87C;border-radius:9px;}
+        .si-card{flex:0 0 282px;scroll-snap-align:center;background:#fff;border:1px solid rgba(36,27,18,.1);border-radius:16px;overflow:hidden;box-shadow:0 22px 46px -34px rgba(36,27,18,.5);display:flex;flex-direction:column;}
+        .si-tag{padding:12px 16px 0;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#B4462F;font-weight:700;}
+        .si-chead{display:flex;align-items:center;gap:10px;background:#0b3b33;color:#eafff6;padding:11px 14px;margin-top:10px;}
+        .si-av{width:34px;height:34px;border-radius:50%;background:#3a5d54;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#cfeee2;flex:none;}
+        .si-who .n{font-size:13.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .si-who .num{font-size:11px;color:#9dc4b8;}
+        .si-chat{background:#ECE4DB;padding:14px 12px;display:flex;flex-direction:column;gap:8px;flex:1;}
+        .si-b{max-width:86%;padding:8px 11px;border-radius:12px;font-size:13px;line-height:1.42;box-shadow:0 1px 1px rgba(0,0,0,.08);color:#111;}
+        .si-b.in{background:#fff;align-self:flex-start;border-top-left-radius:3px;}
+        .si-b.out{background:#DCF8C6;align-self:flex-end;border-top-right-radius:3px;}
+        .si-b .tm{display:block;text-align:right;font-size:9.5px;color:#9aa;margin-top:3px;}
+        .si-flag{background:#FBEEE9;border-top:1px solid rgba(180,70,47,.2);padding:13px 15px;display:flex;gap:9px;}
+        .si-flag .ic{color:#B4462F;flex:none;font-size:15px;}
+        .si-flag .ft{font-size:12.3px;line-height:1.5;color:#7a3325;}
+        .si-flag .ft b{color:#B4462F;}
+        @media(max-width:760px){.si-swipe{display:block;}.si-card{flex-basis:80vw;max-width:320px;}}
         body{background:#FBF9F4;color:#1c1a17;}
         .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
         .lnk{color:#8a8175;transition:.25s;}
@@ -139,6 +171,75 @@
             <div id="resultArea" class="mt-6"></div>
 
             <p class="mt-6 text-[11px] text-[#999] text-center leading-relaxed">We never display our consultants&rsquo; numbers publicly. This tool only confirms whether a number you already received is genuinely ours.</p>
+        </div>
+    </section>
+
+    <!-- Always-live reassurance -->
+    <section class="px-6 mb-14">
+        <div class="si-live">
+            <span class="si-eyebrow"><span class="si-dot"></span>Always live &middot; updated in real time</span>
+            <h2>If it doesn&rsquo;t verify here, it isn&rsquo;t us</h2>
+            <p>The check above reads our live consultant directory &mdash; updated the instant a number is added or changed, with no lag and no exceptions. So be very wary of anyone who says <span class="q">&ldquo;my number recently changed and your website just hasn&rsquo;t updated yet.&rdquo;</span> That is a classic scam line. A genuine JTE number verifies here every single time.</p>
+        </div>
+    </section>
+
+    <!-- Spot the imposter -->
+    <section class="px-6 pb-4 mb-12">
+        <div class="si-sec">
+            <span class="si-eyebrow">Spot the imposter</span>
+            <h2>What a scam message looks like</h2>
+            <p>Real patterns we&rsquo;ve seen impersonators use. If a message feels like any of these, stop &mdash; and verify the number above.</p>
+            <div class="si-swipe">&larr; Swipe to see more &rarr;</div>
+        </div>
+        <div class="si-row">
+
+            <div class="si-card">
+                <div class="si-tag">The &ldquo;work-from-home&rdquo; bait</div>
+                <div class="si-chead"><div class="si-av">?</div><div class="si-who"><div class="n">Michelle &middot; JTE Recruit</div><div class="num">+65 8123 4567</div></div></div>
+                <div class="si-chat">
+                    <div class="si-b in">Hi! I&rsquo;m Michelle from JTE Recruit &#128522; We&rsquo;re hiring for a work-from-home admin role.<span class="tm">9:02 AM</span></div>
+                    <div class="si-b in">$150&ndash;250/day, flexible hours &mdash; you only need your phone. Interested?<span class="tm">9:02 AM</span></div>
+                    <div class="si-b out">How did you get my number?<span class="tm">9:14 AM</span></div>
+                    <div class="si-b in">From a jobs database. Let me add you to our WhatsApp work group to start today!<span class="tm">9:15 AM</span></div>
+                </div>
+                <div class="si-flag"><span class="ic">&#128681;</span><span class="ft"><b>JTE recruits for employers</b> &mdash; we don&rsquo;t cold-message job seekers with day-rate, phone-only &ldquo;WFH admin&rdquo; offers. Pay that sounds too easy is bait.</span></div>
+            </div>
+
+            <div class="si-card">
+                <div class="si-tag">The &ldquo;IT hasn&rsquo;t updated it&rdquo; excuse</div>
+                <div class="si-chead"><div class="si-av">?</div><div class="si-who"><div class="n">&ldquo;JTE&rdquo; Recruiter</div><div class="num">+65 8234 5678</div></div></div>
+                <div class="si-chat">
+                    <div class="si-b out">I checked your number on jte.com.sg/verify &mdash; it&rsquo;s not showing as yours.<span class="tm">2:31 PM</span></div>
+                    <div class="si-b in">Ah, I changed my number recently &mdash; our IT hasn&rsquo;t updated the website yet &#128591;<span class="tm">2:32 PM</span></div>
+                    <div class="si-b in">Don&rsquo;t worry, I&rsquo;m really from JTE! Let&rsquo;s continue &#128522;<span class="tm">2:32 PM</span></div>
+                </div>
+                <div class="si-flag"><span class="ic">&#128681;</span><span class="ft"><b>A lie.</b> Our directory updates instantly &mdash; a real number always verifies. &ldquo;IT hasn&rsquo;t updated it yet&rdquo; is a scammer&rsquo;s favourite line. Stop here.</span></div>
+            </div>
+
+            <div class="si-card">
+                <div class="si-tag">The &ldquo;pay to start&rdquo; task scam</div>
+                <div class="si-chead"><div class="si-av">?</div><div class="si-who"><div class="n">HR &middot; JTE Recruit</div><div class="num">+65 8345 6789</div></div></div>
+                <div class="si-chat">
+                    <div class="si-b in">Congrats, you&rsquo;re shortlisted! &#127881; Complete 5 simple tasks daily to earn commission.<span class="tm">11:20 AM</span></div>
+                    <div class="si-b in">Just top up $50 to activate your account &mdash; fully refundable after your first task.<span class="tm">11:20 AM</span></div>
+                    <div class="si-b out">Why do I need to pay?<span class="tm">11:25 AM</span></div>
+                    <div class="si-b in">It&rsquo;s a standard activation deposit. Everyone does it &#128176;<span class="tm">11:26 AM</span></div>
+                </div>
+                <div class="si-flag"><span class="ic">&#128681;</span><span class="ft"><b>JTE never asks job seekers for money</b> &mdash; no deposits, &ldquo;activation&rdquo;, top-ups or training fees, ever. Any payment request is a scam.</span></div>
+            </div>
+
+            <div class="si-card">
+                <div class="si-tag">The personal-details grab</div>
+                <div class="si-chead"><div class="si-av">?</div><div class="si-who"><div class="n">&ldquo;JTE&rdquo; Onboarding</div><div class="num">+65 8456 7890</div></div></div>
+                <div class="si-chat">
+                    <div class="si-b in">To confirm your placement, please send: NRIC (front &amp; back), your bank account number, and a selfie.<span class="tm">4:07 PM</span></div>
+                    <div class="si-b in">HR will process it within 10 minutes &#9203;<span class="tm">4:07 PM</span></div>
+                    <div class="si-b out">Is that really necessary now?<span class="tm">4:12 PM</span></div>
+                    <div class="si-b in">Yes, or you&rsquo;ll lose the slot. Hurry! &#128591;<span class="tm">4:12 PM</span></div>
+                </div>
+                <div class="si-flag"><span class="ic">&#128681;</span><span class="ft"><b>No real recruiter</b> collects your NRIC + bank details over WhatsApp to &ldquo;confirm&rdquo; a job. Never send these to an unverified number.</span></div>
+            </div>
+
         </div>
     </section>
 
