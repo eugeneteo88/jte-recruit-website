@@ -35,6 +35,10 @@
         .btn-primary { background: #C6A87C; color: #0a0a0a; transition: all .3s ease; }
         .btn-primary:hover { background: #E5D4B3; }
         .btn-primary:disabled { opacity: .6; cursor: default; }
+        .btn-share { display:inline-flex; align-items:center; gap:.6rem; border:1px solid rgba(140,115,80,.45); color:#8C7350; background:transparent; padding:.8rem 1.6rem; border-radius:999px; font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; font-weight:600; cursor:pointer; transition:.3s ease; -webkit-tap-highlight-color:transparent; }
+        .btn-share:hover { background:#8C7350; color:#fff; border-color:#8C7350; }
+        .btn-share svg { width:1rem; height:1rem; }
+        .btn-share.copied { background:#2f7d4a; border-color:#2f7d4a; color:#fff; }
         body{background:#FBF9F4;color:#1c1a17;}
         .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
         .lnk{color:#8a8175;transition:.25s;}
@@ -110,6 +114,13 @@
             <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed max-w-2xl mx-auto">
                 Scammers are impersonating JTE consultants, using our name and even our photos to message job seekers on WhatsApp. Before you reply to anyone claiming to be from JTE, check their number here.
             </p>
+            <div style="margin-top:2rem; display:flex; justify-content:center;">
+                <button id="shareBtn" type="button" class="btn-share" aria-label="Share this page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    <span id="shareLabel">Share this page</span>
+                </button>
+            </div>
+            <p style="margin-top:.85rem;" class="text-[11px] text-[#999] font-light">Know someone getting messages? Send them this checker.</p>
         </div>
     </header>
 
@@ -296,6 +307,41 @@
                 btn.disabled = false; btn.textContent = 'Check Number';
             });
         });
+    </script>
+
+    <!-- Share this page -->
+    <script>
+        (function () {
+            var btn = document.getElementById('shareBtn');
+            if (!btn) return;
+            var label = document.getElementById('shareLabel');
+            var url = 'https://jte.com.sg/verify';
+            var shareData = {
+                title: 'Verify a JTE number before you trust it',
+                text: 'Got a WhatsApp message claiming to be from JTE Recruit? Check whether the number is really ours here:',
+                url: url
+            };
+            function track(method) { if (window.gtag) gtag('event', 'share', { method: method, content_type: 'verify_page' }); }
+            function copied() {
+                btn.classList.add('copied');
+                var prev = label.textContent;
+                label.textContent = 'Link copied ✓';
+                setTimeout(function () { btn.classList.remove('copied'); label.textContent = prev; }, 2200);
+            }
+            btn.addEventListener('click', function () {
+                if (navigator.share) {
+                    navigator.share(shareData).then(function () { track('web_share'); }).catch(function () {});
+                } else if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(url).then(function () { copied(); track('copy_link'); }, whatsapp);
+                } else {
+                    whatsapp();
+                }
+            });
+            function whatsapp() {
+                window.open('https://wa.me/?text=' + encodeURIComponent(shareData.text + ' ' + url), '_blank', 'noopener');
+                track('whatsapp');
+            }
+        })();
     </script>
 </body>
 </html>
