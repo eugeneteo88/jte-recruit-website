@@ -1,0 +1,221 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>JTE Recruit — Brand Guide</title>
+<link rel="stylesheet" href="/assets/tailwind.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FBF9F4;--ink:#1c1a17;--black:#0a0a0a;--coffee:#241B12;--charcoal:#141414;--gold:#C6A87C;--goldd:#8C7350;--goldl:#E5D4B3;--cream:#F5F1E8;--gray:#6b7280;--danger:#B4462F;--good:#2f7d4a;--line:rgba(36,27,18,.12)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Playfair Display',serif}
+  .doc{max-width:60rem;margin:0 auto;padding:0 34px 90px}
+  /* cover */
+  .cover{padding:70px 0 30px;border-bottom:1px solid var(--line);text-align:center}
+  .cover .lock{display:inline-block;text-align:center;line-height:1}
+  .cover .lock .j{font-family:'Playfair Display',serif;font-size:44px;font-weight:600;letter-spacing:.1em;color:var(--black)}
+  .cover .lock .r{display:block;font-size:15px;text-transform:uppercase;letter-spacing:.3em;color:var(--gray);margin-top:4px}
+  .cover h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;margin:26px 0 8px}
+  .cover p{color:#6f6353;font-size:14px}
+  /* section */
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--goldd);font-weight:600}
+  h2{font-family:'Playfair Display',serif;font-size:27px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  .lede{color:#5b5347;font-size:14.5px;max-width:64ch;margin-bottom:22px}
+  h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6c;font-weight:700;margin:22px 0 12px}
+  p{font-size:14.5px}.mut{color:#6f6353}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.82em;background:#f0e9dc;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--goldd)}
+  ul.ticks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  ul.ticks li{display:flex;gap:10px;font-size:13.8px;line-height:1.5}
+  .ok{color:var(--good);font-weight:700;flex:none}.no{color:var(--danger);font-weight:700;flex:none}
+
+  /* colour swatches */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .sw .chip{height:76px}
+  .sw .meta{padding:11px 13px}
+  .sw .nm{font-size:13px;font-weight:600}
+  .sw .hex{font-family:ui-monospace,monospace;font-size:11.5px;color:#8a7f6c;text-transform:uppercase}
+  .sw .use{font-size:11px;color:#8a7f6c;margin-top:5px;line-height:1.4}
+
+  /* logo boards */
+  .boards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .board{border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;justify-content:center;padding:40px;min-height:150px;background:#fff}
+  .board.dark{background:var(--coffee)}
+  .lock{display:inline-block;text-align:center;line-height:1}
+  .lock .j{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;letter-spacing:.1em}
+  .lock .r{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.3em;margin-top:4px}
+  .lock.big .j{font-size:40px}.lock.big .r{font-size:15px}
+  .board:not(.dark) .lock .j{color:var(--black)}.board:not(.dark) .lock .r{color:var(--gray)}
+  .board.dark .lock .j{color:#fff}.board.dark .lock .r{color:#9a9186}
+  .clear{position:relative;padding:26px}
+  .clear::before{content:"";position:absolute;inset:0;border:1px dashed var(--gold);border-radius:6px;opacity:.6}
+
+  /* type samples */
+  .type-row{padding:12px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:baseline}
+  .type-row:first-child{border-top:none}
+  .type-row .spec{font-size:11px;color:#8a7f6c;line-height:1.4}
+  .type-row .spec b{color:var(--ink);display:block;font-size:12px}
+  .eyebrow-ex{color:var(--goldd);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+
+  /* buttons */
+  .btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-primary{background:var(--gold);color:#0a0a0a;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;border-radius:.375rem;padding:.9rem 1.9rem;display:inline-flex;align-items:center;gap:.5rem;border:0}
+  .btn-outline{border:1px solid rgba(140,115,80,.45);color:var(--goldd);background:transparent;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;border-radius:.375rem;padding:.9rem 1.8rem}
+  .btn-pill{display:inline-flex;align-items:center;gap:.375rem;background:var(--gold);color:var(--black);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.5rem 1rem;border-radius:999px}
+  .link-gold{color:var(--ink);font-weight:500;border-bottom:2px solid var(--gold);padding-bottom:2px}
+
+  /* card + accent */
+  .demo-card{background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:.75rem;box-shadow:0 10px 40px rgba(0,0,0,.06);padding:22px;max-width:22rem}
+  .accent{width:2.5rem;height:2px;background:var(--gold);margin-bottom:14px}
+  .demo-card h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;margin-bottom:6px}
+
+  /* photo */
+  .photo{border-radius:12px;overflow:hidden;border:1px solid var(--line);max-width:26rem;background:linear-gradient(135deg,#3a2c1c,#6b5236)}
+  .photo img{width:100%;height:220px;object-fit:cover;display:block;filter:sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(.85) contrast(1.05)}
+
+  .flag{background:var(--cream);border:1px solid var(--gold);border-radius:12px;padding:14px 16px;font-size:13px;color:#4a4030;line-height:1.6;margin-top:14px}.flag b{color:var(--goldd)}
+  .cols2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.swatches{grid-template-columns:1fr 1fr}.boards,.cols2{grid-template-columns:1fr}.type-row{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="doc">
+
+  <div class="cover">
+    <span class="lock"><span class="j serif">JTE</span><span class="r">Recruit</span></span>
+    <h1 class="serif">Brand Guide</h1>
+    <p>Great People, Great Work. &middot; Singapore, est. 2014 &middot; EA Licence 14C7215</p>
+    <p style="margin-top:6px;font-size:12px;color:#9a8f7f">v1 &middot; the single source of truth for how JTE looks &amp; sounds. Rendered in the real site fonts &amp; colours.</p>
+  </div>
+
+  <!-- ESSENCE -->
+  <section>
+    <span class="kicker">01 &middot; Brand essence</span>
+    <h2 class="serif">Quiet luxury, human warmth</h2>
+    <p class="lede">JTE is a premium Singapore recruitment partner that feels calm, considered and genuinely human &mdash; never loud or corporate. We serve <b>employers</b>, and we carry ourselves like a trusted advisor, not a job board.</p>
+    <div class="flag" style="margin:2px 0 22px"><span style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd);font-weight:700">Our mission</span><br><span class="serif" style="font-size:20px;color:var(--ink)">&ldquo;We help employers hire great people, properly.&rdquo;</span></div>
+    <div class="cols2">
+      <div><h3>Personality &mdash; three words</h3><ul class="ticks"><li><span class="ok">&#9679;</span><b>Human</b> &mdash; real people, real relationships; warmth over process</li><li><span class="ok">&#9679;</span><b>Refined</b> &mdash; quiet-luxury look, calm confidence, never flashy</li><li><span class="ok">&#9679;</span><b>Trusted</b> &mdash; licensed, discreet, a decade of doing it properly</li></ul></div>
+      <div><h3>What we are / aren&rsquo;t</h3><ul class="ticks"><li><span class="ok">&#10003;</span>An advisor to <b>employers</b> who need to hire well</li><li><span class="ok">&#10003;</span>Human-led, technology-assisted</li><li><span class="no">&#10007;</span>Not a job board that courts job seekers</li><li><span class="no">&#10007;</span>Not corporate, salesy, or loud</li></ul></div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section>
+    <span class="kicker">02 &middot; Logo</span>
+    <h2 class="serif">The wordmark</h2>
+    <p class="lede">A text wordmark: <b>JTE</b> in Playfair Display (semibold), with <b>RECRUIT</b> tracked wide beneath. Finalised treatment: <b>centred</b> (JTE centred over RECRUIT), the standard gap, and <code>leading-none</code> &mdash; used identically on every page.</p>
+    <div class="boards">
+      <div class="board"><span class="lock big"><span class="j serif">JTE</span><span class="r">Recruit</span></span></div>
+      <div class="board dark"><span class="lock big"><span class="j serif">JTE</span><span class="r">Recruit</span></span></div>
+    </div>
+    <div class="cols2" style="margin-top:20px">
+      <div><h3>Clear space</h3><p class="mut" style="font-size:13px">Keep at least the height of the &ldquo;JTE&rdquo; cap around the lockup, free of other elements.</p><div class="board" style="min-height:120px;margin-top:10px"><span class="clear"><span class="lock"><span class="j serif">JTE</span><span class="r">Recruit</span></span></span></div></div>
+      <div><h3>Rules</h3><ul class="ticks"><li><span class="ok">&#10003;</span>Always centred, Playfair for JTE, RECRUIT at <code>0.3em</code> tracking</li><li><span class="ok">&#10003;</span>Gold-dark on light; white on dark; never low-contrast</li><li><span class="no">&#10007;</span>Don&rsquo;t left-align, restretch, recolour, or swap the font</li><li><span class="no">&#10007;</span>Don&rsquo;t add effects, boxes, or change the JTE&#8596;Recruit gap</li></ul></div>
+    </div>
+  </section>
+
+  <!-- COLOUR -->
+  <section>
+    <span class="kicker">03 &middot; Colour</span>
+    <h2 class="serif">Palette</h2>
+    <p class="lede">A warm, restrained palette: near-black &amp; coffee grounds, a single gold accent in three tones, and cream papers. Gold is the <b>only</b> accent &mdash; use it sparingly so it stays special.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#0a0a0a"></div><div class="meta"><div class="nm">Luxury Black</div><div class="hex">#0A0A0A</div><div class="use">Hero, primary text on light</div></div></div>
+      <div class="sw"><div class="chip" style="background:#241B12"></div><div class="meta"><div class="nm">Coffee</div><div class="hex">#241B12</div><div class="use">Footer, dark bands</div></div></div>
+      <div class="sw"><div class="chip" style="background:#C6A87C"></div><div class="meta"><div class="nm">Gold</div><div class="hex">#C6A87C</div><div class="use">Primary accent, buttons</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8C7350"></div><div class="meta"><div class="nm">Gold Dark</div><div class="hex">#8C7350</div><div class="use">Accent/eyebrows on light</div></div></div>
+      <div class="sw"><div class="chip" style="background:#E5D4B3"></div><div class="meta"><div class="nm">Gold Light</div><div class="hex">#E5D4B3</div><div class="use">Highlights, hover on dark</div></div></div>
+      <div class="sw"><div class="chip" style="background:#F5F1E8;border-bottom:1px solid var(--line)"></div><div class="meta"><div class="nm">Cream</div><div class="hex">#F5F1E8</div><div class="use">Light section bg, inputs</div></div></div>
+      <div class="sw"><div class="chip" style="background:#FBF9F4;border-bottom:1px solid var(--line)"></div><div class="meta"><div class="nm">Paper</div><div class="hex">#FBF9F4</div><div class="use">Inner-page background</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1c1a17"></div><div class="meta"><div class="nm">Ink</div><div class="hex">#1C1A17</div><div class="use">Body text on light</div></div></div>
+      <div class="sw"><div class="chip" style="background:#6b7280"></div><div class="meta"><div class="nm">Warm Gray</div><div class="hex">#6B7280</div><div class="use">Secondary text, RECRUIT</div></div></div>
+      <div class="sw"><div class="chip" style="background:#B4462F"></div><div class="meta"><div class="nm">Danger</div><div class="hex">#B4462F</div><div class="use">Scam/alert (Verify only)</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2f7d4a"></div><div class="meta"><div class="nm">Success</div><div class="hex">#2F7D4A</div><div class="use">Verified / positive</div></div></div>
+      <div class="sw"><div class="chip" style="background:#141414"></div><div class="meta"><div class="nm">Charcoal</div><div class="hex">#141414</div><div class="use">Image-card ground</div></div></div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section>
+    <span class="kicker">04 &middot; Typography</span>
+    <h2 class="serif">Playfair Display + Inter</h2>
+    <p class="lede"><b>Playfair Display</b> (serif) for headings &amp; the logo &mdash; elegant, high-contrast. <b>Inter</b> (sans) for everything else &mdash; body, UI, labels. Two families only.</p>
+    <div class="type-row"><div class="spec"><b>Hero (home only)</b>Playfair 600 &middot; 96px</div><div class="serif" style="font-size:52px;font-weight:600;line-height:1;color:var(--black)">Great People</div></div>
+    <div class="type-row"><div class="spec"><b>Page title H1</b>Playfair 600 &middot; 36&#8594;54px</div><div class="serif" style="font-size:40px;font-weight:600;color:var(--black)">Verify before you trust</div></div>
+    <div class="type-row"><div class="spec"><b>Section H2</b>Playfair 600 &middot; ~30px</div><div class="serif" style="font-size:28px;font-weight:600;color:var(--black)">Services that actually work</div></div>
+    <div class="type-row"><div class="spec"><b>Card H3</b>Playfair 600 &middot; ~18px</div><div class="serif" style="font-size:18px;font-weight:600;color:var(--black)">Permanent Hiring</div></div>
+    <div class="type-row"><div class="spec"><b>Eyebrow / kicker</b>Inter 600 &middot; 11.5px &middot; .2em &middot; upper &middot; gold-dark</div><div><span class="eyebrow-ex">What We Do</span></div></div>
+    <div class="type-row"><div class="spec"><b>Lead / subtitle</b>Inter 300 &middot; 13&#8594;16px</div><div style="font-weight:300;color:#5b5347;font-size:16px">A decade of connecting real people with the right roles.</div></div>
+    <div class="type-row"><div class="spec"><b>Body</b>Inter 400 &middot; 15&#8594;16px &middot; lh 1.7</div><div style="font-size:15px;color:var(--ink)">Recruitment isn&rsquo;t about filling seats &mdash; it&rsquo;s about understanding people.</div></div>
+    <div class="type-row"><div class="spec"><b>Nav / micro-label</b>Inter &middot; 12px &middot; .15em &middot; upper</div><div style="font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#4b5563">Our Story</div></div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section>
+    <span class="kicker">05 &middot; Buttons &amp; interactive</span>
+    <h2 class="serif">Controls</h2>
+    <p class="lede">Gold, black-text primary for the main action; a quiet outline for secondary; the gold pill for &ldquo;Verify a Number&rdquo;. Uppercase, tracked, small.</p>
+    <div class="btnrow">
+      <button class="btn-primary">Get in touch &rarr;</button>
+      <button class="btn-outline">Learn more</button>
+      <span class="btn-pill">&#10003; Verify a Number</span>
+      <a class="link-gold">Gold underline link</a>
+    </div>
+    <div class="flag"><b>Standard:</b> one <b>solid gold</b> primary button everywhere &mdash; bg #C6A87C, hover #E5D4B3. The old homepage gradient has been unified to match, and the &ldquo;Verify a Number&rdquo; pill text is semibold to match button-weight.</div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section>
+    <span class="kicker">06 &middot; Components &amp; layout</span>
+    <h2 class="serif">Building blocks</h2>
+    <div class="cols2">
+      <div>
+        <h3>Card + gold accent line</h3>
+        <div class="demo-card"><div class="accent"></div><h4>Where you stand</h4><p class="mut" style="font-size:13px">White card, soft shadow, hairline border, and a short gold accent line above the title &mdash; the signature motif.</p></div>
+      </div>
+      <div>
+        <h3>Structure</h3>
+        <ul class="ticks">
+          <li><span class="ok">&#9679;</span><b>Nav:</b> transparent over hero, JTE logo left, uppercase links, always-visible gold Verify pill.</li>
+          <li><span class="ok">&#9679;</span><b>Footer:</b> coffee <code>#241B12</code>, logo + tagline + columns + &ldquo;&copy; &hellip; EA 14C7215&rdquo;.</li>
+          <li><span class="ok">&#9679;</span><b>Sections:</b> generous <code>py-24/32</code>, hairline dividers, eyebrow &#8594; H2 &#8594; content.</li>
+          <li><span class="ok">&#9679;</span><b>Texture:</b> a 3% film-grain overlay on dark scenes &mdash; subtle warmth.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY -->
+  <section>
+    <span class="kicker">07 &middot; Photography &amp; icons</span>
+    <h2 class="serif">Imagery</h2>
+    <p class="lede">Warm, cinematic photography of real people &amp; workplaces, always under a signature <b>sepia grade</b> so every image feels part of the brand. Icons are <b>Lucide</b>, thin stroke, used sparingly.</p>
+    <div class="photo"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Permanent%20Hiring.jpeg?width=800&quality=75&resize=contain" alt="JTE photography treatment"></div>
+    <p class="mut" style="font-size:12px;margin-top:10px">Grade: <code>sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(.85) contrast(1.05)</code></p>
+  </section>
+
+  <!-- VOICE -->
+  <section>
+    <span class="kicker">08 &middot; Voice &amp; messaging</span>
+    <h2 class="serif">How we speak</h2>
+    <p class="lede">Warm, plain, confident. Short sentences. We talk <b>to employers</b>, like a trusted advisor &mdash; helpful, never pushy, never gimmicky.</p>
+    <div class="cols2">
+      <div><h3>Do</h3><ul class="ticks">
+        <li><span class="ok">&#10003;</span>&ldquo;Great People, Great Work.&rdquo; &mdash; the tagline</li>
+        <li><span class="ok">&#10003;</span>Speak to employers: &ldquo;hire well&rdquo;, &ldquo;the right person&rdquo;</li>
+        <li><span class="ok">&#10003;</span>Human, specific, reassuring; lead with value</li>
+        <li><span class="ok">&#10003;</span>Cite the licence &amp; a decade of experience for trust</li>
+      </ul></div>
+      <div><h3>Don&rsquo;t</h3><ul class="ticks">
+        <li><span class="no">&#10007;</span>Never invite or address job seekers as customers</li>
+        <li><span class="no">&#10007;</span>No hype, clich&eacute;s (&ldquo;pay peanuts&hellip;&rdquo;), or hard sell</li>
+        <li><span class="no">&#10007;</span>No jargon or corporate filler</li>
+        <li><span class="no">&#10007;</span>Never overclaim &mdash; stay honest, add disclaimers where due</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div style="padding:30px 0 0;font-size:12px;color:#9a8f7f;text-align:center">JTE Recruit Pte Ltd &middot; EA Licence 14C7215 &middot; Brand Guide v1 &mdash; rendered from the live site&rsquo;s real fonts, colours &amp; components.</div>
+
+</div>
+</body></html>
