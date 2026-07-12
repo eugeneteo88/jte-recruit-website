@@ -175,6 +175,21 @@
         transform: scale(1.1);
     }
 
+    /* Unified team teaser: 7 faces + "+7" tile → Our Story */
+    .team-row{display:grid;grid-template-columns:repeat(8,1fr);gap:1.25rem;max-width:1200px;margin:0 auto;}
+    .tm{display:block;text-align:center;text-decoration:none;}
+    .tm .tm-photo{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:2px solid rgba(198,168,124,.2);transition:border-color .3s ease;}
+    .tm:hover .tm-photo{border-color:#C6A87C;}
+    .tm h4{font-family:'Playfair Display',serif;font-size:.95rem;margin:1.5rem 0 .25rem;font-weight:600;}
+    .tm .role{color:#8C7350;font-size:.7rem;}
+    .tm-more{display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(150deg,#241B12,#3a2c19);border-color:rgba(198,168,124,.45)!important;}
+    .tm-more .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#E5D4B3;line-height:1;}
+    .tm-more .s{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:#b6a889;margin-top:.25rem;}
+    .team-seeall{display:inline-flex;align-items:center;gap:.5rem;color:#8C7350;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:gap .3s ease;}
+    .team-seeall:hover{gap:.85rem;}
+    @media(max-width:900px){.team-row{grid-template-columns:repeat(4,1fr);gap:1rem;}}
+    @media(max-width:480px){.team-row{grid-template-columns:repeat(4,1fr);gap:.6rem;}.tm h4{font-size:.75rem;margin-top:1rem;}.tm .role{display:none;}}
+
     /* Desktop circular container */
     .team-desktop-grid-circular {
     /* display: grid; - REMOVED, handled by Tailwind */
@@ -1001,17 +1016,12 @@
             <div class="text-center mb-12">
                 <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] font-medium">The People Behind It</span>
                 <h2 class="font-serif text-3xl md:text-4xl text-white mt-4 mb-6">Meet the Team</h2>
-                <p class="text-gray-400 text-sm max-w-lg mx-auto md:hidden">Our dedicated professionals</p>
-                <p class="text-gray-400 text-sm max-w-lg mx-auto hidden md:block">Recruitment experts with personality. Hover to see what makes us tick.</p>
+                <p class="text-gray-400 text-sm max-w-lg mx-auto">Fourteen recruitment experts with personality &mdash; here are a few.</p>
             </div>
             
-           <!-- Mobile: collapsed teaser that expands on tap (populated by JS) -->
-<div class="md:hidden" id="mobile-team"></div>
-
-<!-- Desktop: Circular Avatars Grid (Populated by JS with random order) -->
-<div class="hidden md:grid team-desktop-grid-circular" id="team-desktop">
-    <!-- Team members will be injected here by JavaScript in random order -->
-</div>
+            <!-- Unified team teaser: 7 random faces + "+7" tile → Our Story (populated by JS) -->
+            <div class="team-row" id="team-row"></div>
+            <div class="text-center" style="margin-top:3.5rem"><a href="/our-story#team" class="team-seeall">Read more at Our Story &rarr;</a></div>
 </div>
 </section>
 
@@ -1719,71 +1729,19 @@
             return shuffled;
         }
 
-        // Mobile team marquee initialization
-        let teamIsMobile = null;
+        // Team teaser: 7 random faces + a "+N" tile, same on mobile & desktop, all → Our Story
         function initMobileTeamMarquee() {
-            const mobileTeam = document.getElementById('mobile-team');
-            const desktopGrid = document.getElementById('team-desktop');
-            if (!desktopGrid) return;
-
-            const isMobile = window.innerWidth < 768;
-            // Only (re)build when the mobile/desktop breakpoint actually changes, so a
-            // resize (e.g. mobile URL-bar show/hide on scroll) never collapses an expanded team.
-            if (isMobile === teamIsMobile) return;
-            teamIsMobile = isMobile;
-
-            if (isMobile) {
-                if (!mobileTeam) return;
-                // Show mobile teaser, hide desktop grid
-                mobileTeam.style.display = 'block';
-                desktopGrid.style.display = 'none';
-
-                const shown = 7;
-                const extra = teamMembers.length - shown;
-                // Randomize which faces appear each load
-                const picks = shuffleArray(teamMembers).slice(0, shown);
-                const avatars = picks.map((m, i) =>
-                    `<img src="${m.img}" alt="${m.name}" loading="lazy" class="w-14 h-14 shrink-0 rounded-full object-cover team-photo" style="border:3px solid #F5F1E8; margin-left:${i ? '-18px' : '0'};">`
-                ).join('');
-
-                mobileTeam.innerHTML = `
-                    <div class="text-center px-6">
-                        <div class="flex justify-center items-center mb-6">
-                            ${avatars}
-                            <span class="w-14 h-14 shrink-0 rounded-full flex items-center justify-center font-semibold text-sm" style="border:3px solid #F5F1E8; margin-left:-18px; background:#8C7350; color:#F5F1E8; position:relative; z-index:2;">+${extra}</span>
-                        </div>
-                        <p class="text-gray-500 text-sm font-light mx-auto leading-relaxed">A team with real personality and 50+ years of combined experience, across engineering, logistics, healthcare &amp; more.</p>
-                    </div>
-                `;
-            } else {
-                if (mobileTeam) mobileTeam.style.display = 'none';
-                desktopGrid.innerHTML = '';
-                // Desktop view: show randomized circular grid
-                desktopGrid.style.display = 'grid';
-                
-                // Randomize team order for desktop
-                const randomizedTeam = shuffleArray(teamMembers);
-                
-                randomizedTeam.forEach(member => {
-                    const item = document.createElement('div');
-                    item.className = 'text-center group cursor-pointer p-4';
-                    item.innerHTML = `
-                        <div class="w-32 h-32 lg:w-40 lg:h-40 mx-auto rounded-full overflow-hidden mb-4 relative">
-                            <img loading="lazy" src="${member.img}" class="w-full h-full object-cover team-photo" alt="${member.name}">
-                        </div>
-                        <h4 class="font-serif text-lg text-white font-medium mb-1">${member.name}</h4>
-                        <p class="text-[10px] text-luxury-gold tracking-wide">${member.role}</p>
-                        <p class="text-xs text-gray-500 mt-2 italic opacity-0 group-hover:opacity-100 transition-opacity">"${member.tagline}"</p>
-                    `;
-                    desktopGrid.appendChild(item);
-                });
-            }
+            const row = document.getElementById('team-row');
+            if (!row) return;
+            const shown = 7;
+            const extra = teamMembers.length - shown;
+            const picks = shuffleArray(teamMembers).slice(0, shown);
+            let html = picks.map(m =>
+                `<a href="/our-story#team" class="tm group"><div class="tm-photo"><img loading="lazy" class="team-photo w-full h-full" src="${m.img}" alt="${m.name}"></div><h4>${m.name}</h4><p class="role">${m.role}</p></a>`
+            ).join('');
+            html += `<a href="/our-story#team" class="tm group"><div class="tm-photo tm-more"><span class="n">+${extra}</span><span class="s">See all</span></div><h4>The whole team</h4><p class="role">&nbsp;</p></a>`;
+            row.innerHTML = html;
         }
-
-// Add resize listener to switch between views
-window.addEventListener('resize', () => {
-    initMobileTeamMarquee();
-});
         // Service dots initialization
         function initServiceDots() {
             const servicesScroll = document.getElementById('services-scroll');

@@ -70,6 +70,18 @@
   /* back to top */
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#C6A87C,#8C7350);color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  /* full team grid */
+  .team-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1.5rem 1.25rem;max-width:1120px;margin:0 auto;}
+  .tm{display:block;text-align:center;}
+  .tm-photo{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:2px solid rgba(198,168,124,.2);transition:border-color .3s ease;}
+  .tm:hover .tm-photo{border-color:#C6A87C;}
+  .team-photo{width:100%;height:100%;object-fit:cover;transition:all .8s ease;filter:sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(.85) contrast(1.05);}
+  .tm:hover .team-photo{filter:sepia(20%) saturate(110%) hue-rotate(-5deg) brightness(.92) contrast(1.02);transform:scale(1.08);}
+  .tm h4{font-family:'Playfair Display',serif;color:#1a1a1a;font-size:.98rem;margin:1rem 0 .15rem;font-weight:600;}
+  .tm p.role{color:#8C7350;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;}
+  .tm p.tag{color:#8a8175;font-size:.72rem;font-style:italic;margin-top:.35rem;line-height:1.3;}
+  @media(max-width:1024px){.team-grid{grid-template-columns:repeat(4,1fr);gap:2rem 1.25rem;}}
+  @media(max-width:640px){.team-grid{grid-template-columns:repeat(3,1fr);gap:1.6rem .8rem;}.tm h4{font-size:.82rem;}.tm p.tag{display:none;}}
 </style>
 </head>
 <body class="antialiased">
@@ -82,11 +94,11 @@
   </a>
   <div class="flex items-center gap-4 md:gap-8">
     <div class="hidden md:flex items-center space-x-7">
-      <a href="/#services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
-      <a href="/#team" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">The Team</a>
+      <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
+      <a href="/our-story#team" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">The Team</a>
           <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
       <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Insights</a>
-      <a href="/#contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
+      <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
     </div>
     <a href="/verify" class="hidden md:inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -98,11 +110,11 @@
 <!-- Mobile hamburger + circle-reveal menu -->
 <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 <div id="mmenu">
-      <a class="mlk" href="/#services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
-      <a class="mlk" href="/#team" onclick="closeMenu()"><span class="idx">02</span>The Team</a>
+      <a class="mlk" href="/services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
+      <a class="mlk" href="/our-story#team" onclick="closeMenu()"><span class="idx">02</span>The Team</a>
       <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">03</span>Our Story</a>
       <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Insights</a>
-      <a class="mlk" href="/#contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
+      <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
       <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
     </div>
 
@@ -115,8 +127,8 @@
       <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-4 mb-6 leading-[1.1]">Recruitment with a bit more personality</h1>
       <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed mb-8 max-w-lg">We&rsquo;ve helped Singapore employers hire since 2014 &mdash; with a team that actually knows your industry and treats your next hire like it matters. Because it does.</p>
       <div class="flex flex-nowrap gap-3 md:gap-4">
-        <a href="/#contact" class="btn-primary px-6 md:px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide whitespace-nowrap">Work with us</a>
-        <a href="/#services" class="btn-outline px-6 md:px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide whitespace-nowrap">See what we do</a>
+        <a href="/contact" class="btn-primary px-6 md:px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide whitespace-nowrap">Work with us</a>
+        <a href="/services" class="btn-outline px-6 md:px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide whitespace-nowrap">See what we do</a>
       </div>
     </div>
     <div class="relative">
@@ -178,14 +190,39 @@
 </section>
 
 <!-- THE TEAM -->
-<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
-  <div class="max-w-3xl mx-auto text-center">
+<section id="team" class="py-16 md:py-20 px-6 md:px-12 bg-white scroll-mt-24">
+  <div class="max-w-3xl mx-auto text-center mb-14">
     <span class="eyebrow">The people</span>
     <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6">Real personality, real mileage</h2>
     <p class="text-[15px] md:text-base leading-[1.8] text-gray-700 font-light mb-5">Between us we bring more than <strong class="font-medium text-luxury-goldDark">50 years of combined experience</strong>. Some of us have been in the trade for over a decade; all of us genuinely enjoy it. That mix of hard-won expertise and actual personality is what clients remember &mdash; and why they keep coming back.</p>
     <p class="text-[15px] md:text-base leading-[1.8] text-gray-700 font-light">We know our sectors well enough to judge a candidate properly, not just keyword-match a CV. And we&rsquo;re the kind of people you won&rsquo;t mind picking up the phone to.</p>
   </div>
+  <div class="team-grid" id="teamGrid"></div>
 </section>
+<script>
+  var TB='https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/team/';
+  var team=[
+    {n:'Eugene',r:'Managing Partner',t:"Runs on iced kopi, codes for what’s next",img:'Eugene.png'},
+    {n:'Adaline',r:'Head of Sales',t:'Closer with a heart',img:'Adaline.png'},
+    {n:'Jonathan',r:'Partnership Lead',t:'Networker extraordinaire',img:'Jonathan.png'},
+    {n:'Cassandra',r:'Consulting Manager',t:'Solves problems before you have them',img:'Cassandra.png'},
+    {n:'Tiffany',r:'Senior Consultant',t:"Logistics’ quiet powerhouse",img:'Tiffany.png'},
+    {n:'Shanice',r:'Senior Consultant',t:'Detail-obsessed in the best way',img:'Shanice.png'},
+    {n:'Desmond',r:'Senior Consultant',t:"Healthcare’s steady hand",img:'Desmond.png'},
+    {n:'Shirny',r:'Account Assistant',t:'Numbers wizard',img:'Shirny.png'},
+    {n:'Elaine',r:'Recruitment Consultant',t:'Relentlessly positive, reliably delivers',img:'Elaine.png'},
+    {n:'Elsa',r:'Recruitment Consultant',t:'Fresh perspective',img:'Elsa.png'},
+    {n:'Sharmaine',r:'Recruitment Consultant',t:'Relentless optimist',img:'Sharmaine.png'},
+    {n:'Yvette',r:'Recruitment Consultant',t:'Rising star',img:'Yvette.png'},
+    {n:'Rachel',r:'Recruitment Consultant',t:'Matching potential with opportunity',img:'Rachel.png'},
+    {n:'Mithra',r:'Recruitment Consultant',t:'Came for the internship, stayed for the culture',img:'Mithra.png'}
+  ];
+  var th='';
+  team.forEach(function(m){
+    th+='<div class="tm group"><div class="tm-photo"><img class="team-photo" src="'+TB+m.img+'" alt="'+m.n+'"></div><h4>'+m.n+'</h4><p class="role">'+m.r+'</p></div>';
+  });
+  document.getElementById('teamGrid').innerHTML=th;
+</script>
 
 <!-- WHAT WE BELIEVE -->
 <section class="py-16 md:py-20 px-6 md:px-12">
@@ -205,7 +242,7 @@
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Let&rsquo;s find your next great hire</h2>
     <p class="text-gray-600 leading-relaxed mb-9 font-light">Whether it&rsquo;s one key person or a hundred, we&rsquo;d love to hear what you&rsquo;re building. No obligations &mdash; just a straight conversation.</p>
-    <a href="/#contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
+    <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
 
@@ -248,7 +285,7 @@
         <a href="/our-story" class="lnk block">Our Story</a>
         <a href="/blog" class="lnk block">Insights</a>
         <a href="/verify" class="lnk block">Verify a Number</a>
-        <a href="/#contact" class="lnk block">Contact</a>
+        <a href="/contact" class="lnk block">Contact</a>
       </div>
     </div>
   </div>
