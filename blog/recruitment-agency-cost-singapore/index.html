@@ -47,6 +47,9 @@
         .hover-gold-line{position:relative;}
         .hover-gold-line::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C6A87C;transition:width .4s ease;}
         .hover-gold-line:hover::after{width:100%;}
+  nav{background:linear-gradient(to bottom,rgba(245,241,232,.98) 62%,rgba(245,241,232,0))}
+  nav a.nav-active{color:#C6A87C !important}
+  nav a.nav-active::after{width:100% !important}
         .lnk{color:#8a8175;transition:.25s;}
         .lnk:hover{color:#C6A87C;}
         .soc{width:2.5rem;height:2.5rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.18);color:#9a9186;transition:.3s;}
@@ -72,7 +75,7 @@
         body.menu-open #mmenu a.mlk:nth-of-type(5){transition-delay:.34s}
         body.menu-open #mmenu .mverify{transition-delay:.40s}
         @media(min-width:768px){#mmenu{display:none;}}
-        #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,#C6A87C,#8C7350);color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
+        #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
         #toTop.show{opacity:1;pointer-events:auto;transform:none;}
     </style>
 </head>
@@ -87,7 +90,7 @@
             <div class="hidden md:flex items-center space-x-7">
                 <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
                 <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
-                <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-luxury-goldDark font-semibold hover-gold-line">Insights</a>
+                <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line nav-active">Insights</a>
                 <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
             </div>
             <a href="/verify" class="hidden md:inline-flex items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
