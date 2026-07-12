@@ -175,74 +175,16 @@
         transform: scale(1.1);
     }
 
-    /* Unified team teaser: 7 faces + "+7" tile → Our Story */
-    .team-row{display:grid;grid-template-columns:repeat(8,1fr);gap:1.25rem;max-width:1200px;margin:0 auto;}
-    .tm{display:block;text-align:center;text-decoration:none;}
-    .tm .tm-photo{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:2px solid rgba(198,168,124,.2);transition:border-color .3s ease;}
-    .tm:hover .tm-photo{border-color:#C6A87C;}
-    .tm h4{font-family:'Playfair Display',serif;font-size:.95rem;margin:1.5rem 0 .25rem;font-weight:600;}
-    .tm .role{color:#8C7350;font-size:.7rem;}
-    .tm-more{display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(150deg,#241B12,#3a2c19);border-color:rgba(198,168,124,.45)!important;}
-    .tm-more .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#E5D4B3;line-height:1;}
-    .tm-more .s{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:#b6a889;margin-top:.25rem;}
+    /* Team teaser: overlapping avatar stack → Our Story (same on mobile & desktop) */
+    .team-stack{display:flex;justify-content:center;align-items:center;}
+    .team-stack .av{position:relative;display:block;width:4rem;height:4rem;border-radius:9999px;overflow:hidden;border:3px solid #F5F1E8;box-shadow:0 6px 16px rgba(60,45,25,.18);transition:transform .35s ease,box-shadow .35s ease;}
+    .team-stack .av:not(:first-child){margin-left:-1.1rem;}
+    .team-stack .av:hover{transform:translateY(-6px) scale(1.04);z-index:6;box-shadow:0 12px 24px rgba(60,45,25,.28);}
+    .team-stack .av img{width:100%;height:100%;object-fit:cover;}
+    .team-stack .more{display:flex;align-items:center;justify-content:center;background:#8C7350;color:#F5F1E8;font-family:'Playfair Display',serif;font-weight:600;font-size:1rem;letter-spacing:.02em;}
     .team-seeall{display:inline-flex;align-items:center;gap:.5rem;color:#8C7350;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:gap .3s ease;}
     .team-seeall:hover{gap:.85rem;}
-    @media(max-width:900px){.team-row{grid-template-columns:repeat(4,1fr);gap:1rem;}}
-    @media(max-width:480px){.team-row{grid-template-columns:repeat(4,1fr);gap:.6rem;}.tm h4{font-size:.75rem;margin-top:1rem;}.tm .role{display:none;}}
-
-    /* Desktop circular container */
-    .team-desktop-grid-circular {
-    /* display: grid; - REMOVED, handled by Tailwind */
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-    .team-desktop-grid-circular .group > div:first-child::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(198, 168, 124, 0.1) 0%, transparent 60%);
-        opacity: 0.4;
-        transition: opacity 0.5s ease;
-        border-radius: 50%;
-        pointer-events: none;
-        mix-blend-mode: overlay;
-    }
-
-    .team-desktop-grid-circular .group:hover > div:first-child::after {
-        opacity: 0.2;
-    }
-
-    /* Mobile marquee team items */
-    #mobile-team-marquee .group > div:first-child {
-        position: relative;
-        overflow: hidden;
-    }
-
-    #mobile-team-marquee .group > div:first-child::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(198, 168, 124, 0.08) 0%, transparent 50%);
-        opacity: 0.3;
-        border-radius: 50%;
-        pointer-events: none;
-        mix-blend-mode: overlay;
-    }
-
-    /* Consistent border treatment */
-    .team-desktop-grid-circular .group > div:first-child,
-    #mobile-team-marquee .group > div:first-child {
-        border: 2px solid rgba(198, 168, 124, 0.2);
-        transition: border-color 0.3s ease;
-    }
-
-    .team-desktop-grid-circular .group:hover > div:first-child,
-    #mobile-team-marquee .group:hover > div:first-child {
-        border-color: #C6A87C;
-    }
+    @media(min-width:768px){.team-stack .av{width:5.75rem;height:5.75rem;border-width:4px;}.team-stack .av:not(:first-child){margin-left:-1.5rem;}.team-stack .more{font-size:1.25rem;}}
 
     /* --- SERVICES SECTION FIXES --- */
     .services-mobile-scroll {
@@ -307,45 +249,6 @@
         .services-desktop {
             grid-template-columns: repeat(2, 1fr) !important;
         }
-    }
-
-    /* --- TEAM SECTION --- */
-    .team-desktop-grid-circular {
-      /* display: grid; */
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    @media (min-width: 1024px) {
-        .team-desktop-grid-circular {
-            grid-template-columns: repeat(5, 1fr);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .team-desktop-grid-circular {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-    }
-
-    /* Marquee for mobile */
-    .marquee-container {
-        display: flex;
-        overflow: hidden;
-        width: 100%;
-        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        padding: 1rem 0;
-    }
-    .marquee-content {
-        display: flex;
-        gap: 3rem; 
-        width: max-content;
-        will-change: transform;
-        padding-left: 1rem;
     }
 
     /* --- TESTIMONIALS SECTION - DESKTOP CAROUSEL --- */
@@ -722,7 +625,6 @@
         <div class="flex items-center gap-4 md:gap-8">
             <div class="hidden md:flex items-center space-x-7">
                 <a href="#services" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">What We Do</a>
-                <a href="#team" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">The Team</a>
                 <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Our Story</a>
                 <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line">Insights</a>
                 <a href="#contact" class="nav-link text-xs uppercase tracking-[0.15em] text-gray-300 hover:text-white transition-colors hover-gold-line scroll-link">Let's Talk</a>
@@ -738,10 +640,9 @@
     <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     <div id="mmenu">
       <a class="mlk scroll-link" href="#services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
-      <a class="mlk scroll-link" href="#team" onclick="closeMenu()"><span class="idx">02</span>The Team</a>
-      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">03</span>Our Story</a>
-      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Insights</a>
-      <a class="mlk scroll-link" href="#contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
+      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">02</span>Our Story</a>
+      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">03</span>Insights</a>
+      <a class="mlk scroll-link" href="#contact" onclick="closeMenu()"><span class="idx">04</span>Contact</a>
       <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
     </div>
 
@@ -1016,12 +917,12 @@
             <div class="text-center mb-12">
                 <span class="text-luxury-gold text-xs uppercase tracking-[0.2em] font-medium">The People Behind It</span>
                 <h2 class="font-serif text-3xl md:text-4xl text-white mt-4 mb-6">Meet the Team</h2>
-                <p class="text-gray-400 text-sm max-w-lg mx-auto">Fourteen recruitment experts with personality &mdash; here are a few.</p>
+                <p class="text-gray-400 text-sm max-w-lg mx-auto">Recruitment experts with real personality.</p>
             </div>
             
-            <!-- Unified team teaser: 7 random faces + "+7" tile → Our Story (populated by JS) -->
-            <div class="team-row" id="team-row"></div>
-            <div class="text-center" style="margin-top:3.5rem"><a href="/our-story#team" class="team-seeall">Read more at Our Story &rarr;</a></div>
+            <!-- Team teaser: overlapping avatar stack + "+N" → Our Story (populated by JS) -->
+            <div class="team-stack" id="team-row"></div>
+            <div class="text-center" style="margin-top:3rem"><a href="/our-story#team" class="team-seeall">Read more at Our Story &rarr;</a></div>
 </div>
 </section>
 
@@ -1604,7 +1505,7 @@
     <!-- FOOTER -->
     <footer class="pt-16 pb-10 px-6 md:px-12 text-white" style="background:#241B12;">
       <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div class="inline-block leading-none text-center">
+        <div class="leading-none">
           <span class="font-serif text-2xl tracking-[0.1em] font-semibold">JTE</span>
           <span class="block text-[9px] uppercase tracking-[0.3em] text-[#9a9186] mt-1 mb-4">Recruit</span>
           <p class="text-[#8a8175] text-sm font-light leading-relaxed max-w-xs mb-5">Recruitment with personality. Helping Singapore employers hire since 2014.</p>
@@ -1729,7 +1630,7 @@
             return shuffled;
         }
 
-        // Team teaser: 7 random faces + a "+N" tile, same on mobile & desktop, all → Our Story
+        // Team teaser: overlapping avatar stack (7 random faces + "+N"), same mobile & desktop → Our Story
         function initMobileTeamMarquee() {
             const row = document.getElementById('team-row');
             if (!row) return;
@@ -1737,9 +1638,9 @@
             const extra = teamMembers.length - shown;
             const picks = shuffleArray(teamMembers).slice(0, shown);
             let html = picks.map(m =>
-                `<a href="/our-story#team" class="tm group"><div class="tm-photo"><img loading="lazy" class="team-photo w-full h-full" src="${m.img}" alt="${m.name}"></div><h4>${m.name}</h4><p class="role">${m.role}</p></a>`
+                `<a href="/our-story#team" class="av" title="${m.name}"><img loading="lazy" class="team-photo" src="${m.img}" alt="${m.name}"></a>`
             ).join('');
-            html += `<a href="/our-story#team" class="tm group"><div class="tm-photo tm-more"><span class="n">+${extra}</span><span class="s">See all</span></div><h4>The whole team</h4><p class="role">&nbsp;</p></a>`;
+            html += `<a href="/our-story#team" class="av more" title="See all">+${extra}</a>`;
             row.innerHTML = html;
         }
         // Service dots initialization
