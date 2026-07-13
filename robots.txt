@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /toolkit/
 
 Sitemap: https://jte.com.sg/sitemap.xml
