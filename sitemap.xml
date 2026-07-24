@@ -7,111 +7,117 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/our-story</loc>
+    <loc>https://jte.com.sg/our-story/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/permanent-recruitment</loc>
+    <loc>https://jte.com.sg/services/permanent-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/contract-staffing</loc>
+    <loc>https://jte.com.sg/services/contract-staffing/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/manpower-outsourcing</loc>
+    <loc>https://jte.com.sg/services/manpower-outsourcing/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/payroll-work-pass</loc>
+    <loc>https://jte.com.sg/services/payroll-work-pass/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/employer-branding</loc>
+    <loc>https://jte.com.sg/services/employer-branding/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/services/mass-hiring</loc>
+    <loc>https://jte.com.sg/services/mass-hiring/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/engineering-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/engineering-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/logistics-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/logistics-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/manufacturing-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/manufacturing-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/healthcare-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/healthcare-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/commercial-support-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/commercial-support-recruitment/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/sectors/it-recruitment</loc>
+    <loc>https://jte.com.sg/sectors/it-recruitment/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/verify</loc>
+    <loc>https://jte.com.sg/verify/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/blog</loc>
+    <loc>https://jte.com.sg/blog/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- BLOGPOSTS:START -->
   <url>
-    <loc>https://jte.com.sg/blog/looking-past-the-cv</loc>
+    <loc>https://jte.com.sg/blog/recruitment-agency-cost-singapore/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/looking-past-the-cv/</loc>
     <lastmod>2026-07-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jte.com.sg/blog/spotting-recruitment-scams</loc>
+    <loc>https://jte.com.sg/blog/spotting-recruitment-scams/</loc>
     <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- BLOGPOSTS:END -->
   <url>
-    <loc>https://jte.com.sg/privacy</loc>
+    <loc>https://jte.com.sg/privacy/</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

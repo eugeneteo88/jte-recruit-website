@@ -39,7 +39,7 @@ const live = POSTS
   .filter(post => !post.draft && post.date <= todayISO)
   .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
 
-const featuredCard = (post) => `            <a href="/blog/${post.slug}" class="group grid md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.3fr)] bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] overflow-hidden hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow">
+const featuredCard = (post) => `            <a href="/blog/${post.slug}/" class="group grid md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.3fr)] bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] overflow-hidden hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow">
                 <div class="relative hidden md:flex items-center justify-center p-10 overflow-hidden" style="background:linear-gradient(150deg,#241B12 0%,#3a2c1c 100%);">
                     <span class="absolute top-6 left-7 text-[#E5D4B3] text-[10px] uppercase tracking-[0.2em] font-medium">Featured</span>
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 rounded-full border border-luxury-gold/15"></div>
@@ -56,7 +56,7 @@ const featuredCard = (post) => `            <a href="/blog/${post.slug}" class="
                 </div>
             </a>`;
 
-const regularCard = (post) => `                <a href="/blog/${post.slug}" class="group bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] p-8 hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow flex flex-col">
+const regularCard = (post) => `                <a href="/blog/${post.slug}/" class="group bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] p-8 hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow flex flex-col">
                     <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">${post.tag}</span>
                     <h2 class="font-serif text-xl md:text-2xl leading-snug text-luxury-black mt-3 mb-3 group-hover:text-luxury-goldDark transition-colors">${post.title}</h2>
                     <p class="text-sm text-gray-600 font-light leading-relaxed flex-1">${post.excerpt}</p>
@@ -77,7 +77,7 @@ if (live.length) {
 }
 
 const sitemapEntries = live.map(post => `  <url>
-    <loc>https://jte.com.sg/blog/${post.slug}</loc>
+    <loc>https://jte.com.sg/blog/${post.slug}/</loc>
     <lastmod>${post.updated || post.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -102,7 +102,7 @@ sitemap = sitemap.replace(
 writeFileSync(p('sitemap.xml'), sitemap);
 
 // --- "Keep reading" block injected into each live article (between markers) ---
-const relatedCard = (post) => `          <a href="/blog/${post.slug}" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+const relatedCard = (post) => `          <a href="/blog/${post.slug}/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
             <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">${post.tag}</span>
             <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">${post.title}</h3>
             <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
