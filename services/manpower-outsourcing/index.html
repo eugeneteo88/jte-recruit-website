@@ -26,7 +26,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Manpower Outsourcing","serviceType":"Manpower Outsourcing","description":"Outsource your workforce to JTE Recruit. We recruit, manage and pay your team so you can scale without the HR overhead — fully compliant with Singapore regulations.","provider":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/","telephone":"+6567157450"},"areaServed":{"@type":"Country","name":"Singapore"},"url":"https://jte.com.sg/services/manpower-outsourcing"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://jte.com.sg/#services"},{"@type":"ListItem","position":3,"name":"Manpower Outsourcing","item":"https://jte.com.sg/services/manpower-outsourcing"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is this different from permanent hiring?","acceptedAnswer":{"@type":"Answer","text":"With permanent hiring, the employee joins your payroll. With outsourcing, they sit on ours — we manage employment, payroll and compliance while you direct their work."}},{"@type":"Question","name":"Can we scale the team up and down?","acceptedAnswer":{"@type":"Answer","text":"Yes — that flexibility is the point. We adjust headcount with your demand without you carrying the fixed overhead."}},{"@type":"Question","name":"Who handles compliance and payroll?","acceptedAnswer":{"@type":"Answer","text":"We do — CPF, leave, claims, work passes where needed, and MOM compliance throughout."}},{"@type":"Question","name":"What kinds of roles suit outsourcing?","acceptedAnswer":{"@type":"Answer","text":"Operational and support roles where you need reliable capacity without building the HR machinery around it."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is manpower outsourcing?","acceptedAnswer":{"@type":"Answer","text":"Manpower outsourcing is where JTE recruits, employs and manages a team on your behalf. The workers sit on our payroll and under our supervision, and you receive the output and the headcount you need — without carrying the employment, payroll and HR admin yourself. It's common on warehouse, operations and logistics floors and for non-core functions."}},{"@type":"Question","name":"How is manpower outsourcing different from contract staffing?","acceptedAnswer":{"@type":"Answer","text":"With contract staffing we place individual workers as your employer of record, but you still direct and supervise them day to day. With manpower outsourcing we go a step further — we employ and manage the whole team, including on-site supervision, so you're buying an outcome and a managed function rather than just headcount."}},{"@type":"Question","name":"Who employs the workers?","acceptedAnswer":{"@type":"Answer","text":"JTE does. The team sits on our payroll and we are the legal employer — we handle CPF, leave, claims, work passes where needed, insurance and MOM compliance throughout, under our EA licence 14C7215. You get the people and the output without the employment liabilities."}},{"@type":"Question","name":"What functions can be outsourced?","acceptedAnswer":{"@type":"Answer","text":"Typically operational and non-core functions where you need reliable, managed capacity — warehouse and logistics floors, production and packing lines, facilities and support, and other repeatable operations. If a function is central to your business, permanent hiring usually fits better, and we'll tell you so."}},{"@type":"Question","name":"How is manpower outsourcing charged?","acceptedAnswer":{"@type":"Answer","text":"It's quoted, not a success fee. We scope the roles, headcount, hours and supervision you need and give you a clear managed-service rate — usually one monthly invoice covering wages, statutory costs, management and compliance. Talk to us and we'll quote against your actual requirements."}},{"@type":"Question","name":"Who handles compliance and CPF?","acceptedAnswer":{"@type":"Answer","text":"We do, in full. As the legal employer JTE manages CPF, leave, claims, IR8A, work passes where relevant, insurance and MOM compliance for the outsourced team — so you're never exposed to the statutory and employment obligations."}},{"@type":"Question","name":"Which sectors do you cover?","acceptedAnswer":{"@type":"Answer","text":"We outsource teams across engineering, logistics and supply chain, manufacturing, healthcare, and the commercial, support and IT functions that keep those operations running — with a particular strength on warehouse, operations and logistics floors."}}]}</script>
 <style>
   body{background:#FBF9F4;color:#1c1a17;font-family:'Inter',sans-serif;}
   .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
@@ -35,6 +35,8 @@
   .btn-ghost{border:1px solid rgba(28,26,23,.28);color:#1c1a17;transition:.3s;}
   .btn-ghost:hover{border-color:#8C7350;color:#8C7350;transform:translateY(-2px);}
   .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:0 10px 30px -22px rgba(0,0,0,.35);}
+  .disc{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;box-shadow:0 8px 22px -16px rgba(60,45,25,.4);transition:.3s;}
+  .disc:hover{border-color:rgba(140,115,80,.5);transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(60,45,25,.55);}
   .check{color:#8C7350;flex:none;margin-top:.15rem;}
   details{border-top:1px solid rgba(0,0,0,.1);}
   details:last-child{border-bottom:1px solid rgba(0,0,0,.1);}
@@ -79,7 +81,9 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media(min-width:1024px){#svc-sectors a.group{width:calc(33.333% - 0.7rem)}}
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -146,9 +150,10 @@
 <section class="py-20 md:py-24 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow">What we do</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Your team, managed end to end</h2>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Building and running a workforce is a job in itself — recruiting, payroll, CPF, leave, compliance, the daily people admin. For many companies, that&rsquo;s a distraction from the actual business.</p>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">With manpower outsourcing, we take it on. We source the people, put them on our payroll, and manage the administration and compliance — you direct the work, we handle the rest. It&rsquo;s how you scale without building a whole HR function.</p>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Your team, employed and managed for you</h2>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Running a workforce is a job in itself &mdash; recruiting, payroll, CPF, leave, claims, work passes, the daily supervision and people admin. On a busy warehouse, operations or logistics floor, that machinery can quietly become a bigger job than the work it&rsquo;s meant to support. Manpower outsourcing hands the whole of it to us.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Here&rsquo;s what it actually means: JTE recruits the people, puts them on <em>our</em> payroll as their legal employer, and manages the team on your behalf &mdash; including on-the-ground supervision. You tell us the output you need and the standards to hit; we deliver the headcount and keep it running. You get the work done and a team that shows up, without carrying the employment, the statutory obligations or the HR overhead that normally comes with it.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">It&rsquo;s a different shape of deal from simply hiring more people. Instead of building a function &mdash; an HR team, a payroll process, a supervisor, a compliance burden &mdash; you buy a managed function that already exists. That&rsquo;s why outsourcing tends to fit operations, warehousing, non-core support and any work where volume moves up and down through the year: you scale capacity with demand rather than locking in fixed overhead you may not always need.</p>
   </div>
 </section>
 
@@ -156,39 +161,125 @@
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12"><span class="eyebrow">The difference</span><h2 class="font-serif text-3xl md:text-4xl mt-3">What you get with JTE</h2></div>
     <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">We recruit and onboard the workers you need.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Staff sit on our payroll — we handle CPF, leave and claims.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">We recruit, employ and onboard the workers you need.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">The team sits on <em>our</em> payroll — CPF, leave, claims and IR8A on us.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">On-site supervision and management, not just bodies on the floor.</p></div>
       <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Full compliance with MOM and Singapore employment rules.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Scale your headcount up or down as demand changes.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">One point of contact, one monthly invoice.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Less HR admin for you, more focus on the business.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Scale headcount up or down as your volume changes.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">One point of contact, one quoted monthly invoice.</p></div>
     </div>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">What we manage</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Functions we take off your plate</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Outsourcing suits operational and non-core work &mdash; the roles where you need reliable, managed capacity rather than a permanent headcount you have to build a function around.</p></div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Warehouse &amp; logistics floors</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Pickers, packers, forklift and store operators, dispatch and inbound teams &mdash; the hands that keep a warehouse or distribution centre moving through peaks and troughs, staffed and supervised by us.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Production &amp; operations</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Line operators, assembly, packing and general operations crews on the plant floor &mdash; a managed team that flexes with your production schedule instead of sitting on your books when volume dips.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Facilities &amp; support</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Cleaning, facilities, mailroom, on-site support and other non-core functions &mdash; important work that keeps the business running but doesn&rsquo;t need to live inside your own HR machinery.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Variable &amp; seasonal capacity</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Where demand swings with the season, a promotion or a contract, we hold a managed pool you can dial up and down &mdash; so you carry the capacity you need this month, not the overhead of your busiest month all year round.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-8 md:pb-12 px-6 md:px-12">
+  <figure class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden shadow">
+      <img loading="lazy" src="/assets/emp-outsourcing.png" class="w-full object-cover" style="aspect-ratio:21/9;" alt="A managed outsourced team at work on the operations floor — JTE Recruit Singapore">
+    </div>
+    <figcaption class="text-center text-gray-500 text-sm mt-4 font-light italic">A managed team on the floor &mdash; recruited, employed and supervised by JTE, delivering the output you need.</figcaption>
+  </figure>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
   <div class="max-w-4xl mx-auto text-center">
     <span class="eyebrow">Where we&rsquo;re strong</span>
     <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
-    <div class="flex flex-wrap justify-center gap-3">
-      <a href="/sectors/engineering-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Engineering</a>
-      <a href="/sectors/logistics-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Logistics &amp; Supply Chain</a>
-      <a href="/sectors/manufacturing-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Manufacturing</a>
-      <a href="/sectors/healthcare-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Healthcare</a>
-      <a href="/sectors/commercial-support-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Commercial &amp; Support Functions</a>
+    <div id="svc-sectors" class="flex flex-wrap justify-center gap-4">
+      <a href="/sectors/engineering-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="cog" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Engineering</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Design office to plant floor</p>
+      </a>
+      <a href="/sectors/logistics-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="truck" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Logistics &amp; Supply Chain</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Warehouse to supply chain</p>
+      </a>
+      <a href="/sectors/manufacturing-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="factory" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Manufacturing</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Production line to plant</p>
+      </a>
+      <a href="/sectors/healthcare-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="heart-pulse" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Healthcare</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Clinical, allied &amp; support</p>
+      </a>
+      <a href="/sectors/commercial-support-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Commercial &amp; Support</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Finance, HR, sales &amp; admin</p>
+      </a>
+      <a href="/sectors/it-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="monitor" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">IT &amp; Tech</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Support to software engineers</p>
+      </a>
     </div>
-    <p class="text-gray-500 text-sm mt-6 font-light">From a single specialist to a whole team — junior to senior.</p>
+    <p class="text-gray-500 text-sm mt-8 font-light">From a single managed function to a whole floor — we&rsquo;ll size the team to the work.</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">Which do you need?</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Outsourcing, contract or permanent?</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">These three look similar from the outside but solve different problems. Here&rsquo;s a straight read on where each fits &mdash; and we&rsquo;ll tell you honestly which suits your situation.</p></div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card p-7">
+        <span class="eyebrow">Manpower outsourcing</span>
+        <p class="text-sm text-gray-600 leading-relaxed mt-4">We employ <em>and</em> manage the whole team &mdash; including on-site supervision. You buy an output and a managed function; we own the day-to-day. Best for operations, warehouse and non-core work where you want the result without running the people.</p>
+        <p class="text-sm text-gray-500 font-light leading-relaxed mt-4">That&rsquo;s this page &mdash; a fully managed, quoted service.</p>
+      </div>
+      <div class="card p-7">
+        <span class="eyebrow">Temp &amp; contract</span>
+        <p class="text-sm text-gray-600 leading-relaxed mt-4">We place individual workers with JTE as employer of record &mdash; CPF, leave, IR8A and insurance handled &mdash; but you direct and supervise them day to day. Best for a project, a peak season or covering a leave gap.</p>
+        <a href="/services/contract-staffing" class="text-sm font-semibold text-luxury-goldDark hover-gold-line inline-block mt-4">Explore contract &amp; temp staffing &rarr;</a>
+      </div>
+      <div class="card p-7">
+        <span class="eyebrow">Permanent hiring</span>
+        <p class="text-sm text-gray-600 leading-relaxed mt-4">The person joins <em>your</em> payroll for the long term &mdash; a core role where you want someone to build knowledge, own relationships and grow with the team. Success-fee, replacement-guaranteed search.</p>
+        <a href="/services/permanent-recruitment" class="text-sm font-semibold text-luxury-goldDark hover-gold-line inline-block mt-4">Explore permanent recruitment &rarr;</a>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-8 font-light">Still deciding? <a href="/contact" class="text-luxury-goldDark hover-gold-line">Talk it through with us</a> &mdash; we&rsquo;ll point you to whatever actually fits, not whatever bills more.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3">A simple, four-step process</h2></div>
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Scope</h3><p class="text-sm text-gray-600 leading-relaxed">We map the roles, headcount and skills you need.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Recruit</h3><p class="text-sm text-gray-600 leading-relaxed">We source, vet and onboard the right people.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Deploy</h3><p class="text-sm text-gray-600 leading-relaxed">Your team gets to work under your direction.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Manage</h3><p class="text-sm text-gray-600 leading-relaxed">We run payroll, compliance and the people admin.</p></div>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">From brief to a running team</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">A managed service, set up properly. Here&rsquo;s how an outsourced team stands up and stays running with JTE.</p></div>
+    <div class="max-w-3xl mx-auto space-y-8">
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">01</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Scope the work</h3><p class="text-gray-600 leading-relaxed font-light">We sit down with you to map the function, the roles and headcount, the hours and shifts, the output and standards, and how much supervision the work needs. This is where we quote &mdash; a clear managed-service rate against your actual requirements, not a guess.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">02</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Recruit &amp; employ</h3><p class="text-gray-600 leading-relaxed font-light">We source, vet and onboard the team, and put them on our payroll as their legal employer &mdash; handling contracts, CPF, work passes where relevant and insurance. You get a ready team without adding anyone to your own headcount.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">03</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Deploy &amp; supervise</h3><p class="text-gray-600 leading-relaxed font-light">The team gets to work on your floor, managed to the standards we agreed. Depending on the setup that includes an on-site supervisor or team lead from us, so day-to-day people management sits with JTE rather than landing on your managers.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">04</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Run, flex &amp; report</h3><p class="text-gray-600 leading-relaxed font-light">We run payroll, leave, claims and compliance every month, cover absences, and scale the team up or down as your volume moves &mdash; all under one point of contact and one invoice, so the function keeps humming while you watch the output, not the admin.</p></div>
+      </div>
+    </div>
+    <div class="mt-10 card p-7 max-w-3xl mx-auto">
+      <h3 class="font-serif text-lg mb-2 text-luxury-black">A word on pricing</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Manpower outsourcing is quoted, not a success fee. Because every setup differs &mdash; headcount, shift pattern, supervision, statutory costs &mdash; we scope your requirement and give you a managed-service rate, usually a single monthly invoice that folds in wages, statutory contributions, management and compliance. <a href="/contact" class="text-luxury-goldDark hover-gold-line">Tell us the work and we&rsquo;ll quote it</a>.</p>
     </div>
   </div>
 </section>
@@ -197,9 +288,9 @@
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12"><span class="eyebrow">Why JTE</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Your workforce, fully managed</h2></div>
     <div class="grid md:grid-cols-3 gap-10">
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">One partner, one invoice</h3><p class="text-sm text-gray-600 leading-relaxed">Recruiting, payroll and compliance under a single point of contact.</p></div>
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Compliance is on us</h3><p class="text-sm text-gray-600 leading-relaxed">CPF, leave, work passes and MOM rules managed so you&rsquo;re never exposed.</p></div>
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Scale without the overhead</h3><p class="text-sm text-gray-600 leading-relaxed">Grow or shrink your headcount without building a whole HR function.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">One partner, one invoice</h3><p class="text-sm text-gray-600 leading-relaxed">Recruiting, employment, supervision, payroll and compliance under a single point of contact.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Compliance is on us</h3><p class="text-sm text-gray-600 leading-relaxed">As the legal employer we own CPF, leave, work passes and MOM rules &mdash; so you&rsquo;re never exposed.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Scale without the overhead</h3><p class="text-sm text-gray-600 leading-relaxed">Grow or shrink the team with your volume, without building a whole HR function to carry it.</p></div>
     </div>
   </div>
 </section>
@@ -207,17 +298,34 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10"><span class="eyebrow">Questions</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Common questions</h2></div>
-    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How is this different from permanent hiring?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">With permanent hiring, the employee joins your payroll. With outsourcing, they sit on ours — we manage employment, payroll and compliance while you direct their work.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can we scale the team up and down?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes — that flexibility is the point. We adjust headcount with your demand without you carrying the fixed overhead.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Who handles compliance and payroll?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We do — CPF, leave, claims, work passes where needed, and MOM compliance throughout.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What kinds of roles suit outsourcing?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Operational and support roles where you need reliable capacity without building the HR machinery around it.</p></details>
+    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What is manpower outsourcing?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">JTE recruits, employs and manages a team on your behalf. The workers sit on our payroll and under our supervision, and you receive the output and the headcount you need &mdash; without carrying the employment, payroll and HR admin yourself. It&rsquo;s most common on warehouse, operations and logistics floors and for non-core functions.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How is it different from contract staffing?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">With <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">contract staffing</a> we place individual workers as your employer of record, but you still direct and supervise them day to day. Outsourcing goes a step further &mdash; we employ <em>and</em> manage the whole team, including on-site supervision, so you&rsquo;re buying a managed function and an outcome rather than just headcount.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Who employs the workers?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">JTE does. The team sits on our payroll and we are the legal employer &mdash; under our MOM EA licence 14C7215 we handle CPF, leave, claims, work passes where needed, insurance and compliance throughout. You get the people and the output without the employment liabilities.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What functions can be outsourced?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Typically operational and non-core work &mdash; warehouse and logistics floors, production and packing lines, facilities and support, and other repeatable operations. If a function is central to your business, <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent hiring</a> usually fits better, and we&rsquo;ll tell you so.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How is it charged?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">It&rsquo;s quoted, not a success fee. We scope the roles, headcount, hours and supervision you need and give you a clear managed-service rate &mdash; usually one monthly invoice covering wages, statutory costs, management and compliance. <a href="/contact" class="text-luxury-goldDark hover-gold-line">Get in touch for a quote</a>.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Who handles compliance and CPF?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We do, in full. As the legal employer JTE manages CPF, leave, claims, IR8A, work passes where relevant, insurance and MOM compliance for the outsourced team &mdash; see <a href="/services/payroll-work-pass" class="text-luxury-goldDark hover-gold-line">payroll &amp; work pass</a> &mdash; so you&rsquo;re never exposed to the statutory obligations.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Which sectors do you cover?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We outsource teams across <a href="/sectors/engineering-recruitment" class="text-luxury-goldDark hover-gold-line">engineering</a>, <a href="/sectors/logistics-recruitment" class="text-luxury-goldDark hover-gold-line">logistics and supply chain</a>, <a href="/sectors/manufacturing-recruitment" class="text-luxury-goldDark hover-gold-line">manufacturing</a>, <a href="/sectors/healthcare-recruitment" class="text-luxury-goldDark hover-gold-line">healthcare</a>, and the <a href="/sectors/commercial-support-recruitment" class="text-luxury-goldDark hover-gold-line">commercial, support</a> and <a href="/sectors/it-recruitment" class="text-luxury-goldDark hover-gold-line">IT</a> functions that keep those operations running &mdash; with particular strength on warehouse, operations and logistics floors.</p></details>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Explore more</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Related services &amp; guides</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Manpower outsourcing is one of several ways we help Singapore employers build and run teams.</p></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <a href="/services/contract-staffing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Temp &amp; contract staffing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Project, seasonal or cover headcount &mdash; with JTE as employer of record.</p></a>
+      <a href="/services/permanent-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Permanent recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Success-fee, guaranteed search for core, long-term hires on your payroll.</p></a>
+      <a href="/services/payroll-work-pass" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Payroll &amp; work pass</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Employment Pass, S Pass and payroll support for overseas hires.</p></a>
+      <a href="/employers" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">For employers</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The full picture of how we help you hire and build teams.</p></a>
+      <a href="/salary-guide" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Salary guide</h3><p class="text-sm text-gray-500 font-light leading-relaxed">What roles pay across our sectors in the Singapore market.</p></a>
+      <a href="/services" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">All services</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Every way JTE can support your hiring &mdash; in one place.</p></a>
+    </div>
   </div>
 </section>
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Want to scale without the overhead?</h2>
-    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the roles and the numbers. We&rsquo;ll show you how outsourcing could work for you.</p>
+    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the roles and the numbers and we&rsquo;ll show you how a managed team could work &mdash; and quote against it. Not sure outsourcing is the right route? See <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">temp &amp; contract</a> or explore <a href="/employers" class="text-luxury-goldDark hover-gold-line">everything we do for employers</a>.</p>
     <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
@@ -286,6 +394,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
+  if(window.lucide){lucide.createIcons();}
 </script>
 
 </body>

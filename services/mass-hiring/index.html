@@ -26,7 +26,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Project & Mass Hiring","serviceType":"Project and Mass Hiring","description":"High-volume recruitment in Singapore without the chaos. JTE mobilises fast to fill 10 roles or 100 — new facilities, new divisions, seasonal ramps — from sourcing to onboarding.","provider":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/","telephone":"+6567157450"},"areaServed":{"@type":"Country","name":"Singapore"},"url":"https://jte.com.sg/services/mass-hiring"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://jte.com.sg/#services"},{"@type":"ListItem","position":3,"name":"Project & Mass Hiring","item":"https://jte.com.sg/services/mass-hiring"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many roles can you fill at once?","acceptedAnswer":{"@type":"Answer","text":"From ten to a few hundred. We size the team to your project and timeline."}},{"@type":"Question","name":"How do you keep quality up at volume?","acceptedAnswer":{"@type":"Answer","text":"A structured, managed pipeline and clear screening standards — scale doesn’t mean sending you everyone with a pulse."}},{"@type":"Question","name":"Can you hit a fixed start date?","acceptedAnswer":{"@type":"Answer","text":"That’s the whole point. We plan backwards from your deadline and mobilise to hit it."}},{"@type":"Question","name":"Do you handle work passes for foreign hires?","acceptedAnswer":{"@type":"Answer","text":"Yes — where roles require them, we manage the applications as part of the project."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many hires can you handle at once?","acceptedAnswer":{"@type":"Answer","text":"From ten to a few hundred. We size the recruiting team to your project — a single dedicated consultant for a smaller intake, or a coordinated pod running parallel pipelines for a large ramp. We scope the numbers, the roles and the timeline with you before we mobilise, so the capacity matches the target from day one."}},{"@type":"Question","name":"How fast can you fill a large intake?","acceptedAnswer":{"@type":"Answer","text":"We plan backwards from your go-live date. For frontline and operational roles we can begin sending screened candidates within days of the brief and sustain a steady weekly intake until the numbers are met. Timelines depend on the roles, the pass requirements and the market, but we give you a realistic, week-by-week plan at the start rather than an optimistic promise we can't keep."}},{"@type":"Question","name":"How do you keep quality up at volume?","acceptedAnswer":{"@type":"Answer","text":"Scale doesn't mean sending you everyone with a pulse. We agree clear screening standards up front, then run every candidate through the same structured checks — skills, right to work, availability and attitude — before they reach you. A managed pipeline and a single point of coordination mean the hundredth hire is screened as carefully as the first."}},{"@type":"Question","name":"Do you run onsite recruitment or assessment days?","acceptedAnswer":{"@type":"Answer","text":"Yes. For larger drives we can run assessment days, group interviews and onsite or walk-in recruitment events — a fast, structured way to screen and interview many candidates in a short window. We handle the scheduling, the shortlisting and the coordination so your managers meet only the people worth their time."}},{"@type":"Question","name":"Can you combine mass hiring with contract staffing or payroll?","acceptedAnswer":{"@type":"Answer","text":"Often the smartest way to ramp. We can place part or all of an intake as contract or temp staff with JTE as employer of record — CPF, leave, IR8A and insurance handled — and convert strong performers to permanent later. We can also run payroll and work-pass administration for the whole cohort, so a large ramp stays compliant and simple."}},{"@type":"Question","name":"Which sectors do you cover?","acceptedAnswer":{"@type":"Answer","text":"We run volume drives across engineering, logistics and supply chain, manufacturing, healthcare, and the commercial, support and IT functions that keep those operations running — from frontline and operational roles up to the supervisors and specialists who lead them."}},{"@type":"Question","name":"How is a mass-hiring project charged?","acceptedAnswer":{"@type":"Answer","text":"It depends on the mix. Permanent hires within a drive work on a success-fee basis — you pay only when someone starts. Contract or outsourced headcount is charged as a transparent margin on the hourly or monthly rate. For a large, defined project we'll agree the commercial model clearly with you before any work begins."}}]}</script>
 <style>
   body{background:#FBF9F4;color:#1c1a17;font-family:'Inter',sans-serif;}
   .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
@@ -35,6 +35,8 @@
   .btn-ghost{border:1px solid rgba(28,26,23,.28);color:#1c1a17;transition:.3s;}
   .btn-ghost:hover{border-color:#8C7350;color:#8C7350;transform:translateY(-2px);}
   .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:0 10px 30px -22px rgba(0,0,0,.35);}
+  .disc{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;box-shadow:0 8px 22px -16px rgba(60,45,25,.4);transition:.3s;}
+  .disc:hover{border-color:rgba(140,115,80,.5);transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(60,45,25,.55);}
   .check{color:#8C7350;flex:none;margin-top:.15rem;}
   details{border-top:1px solid rgba(0,0,0,.1);}
   details:last-child{border-bottom:1px solid rgba(0,0,0,.1);}
@@ -79,7 +81,9 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media(min-width:1024px){#svc-sectors a.group{width:calc(33.333% - 0.7rem)}}
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -147,8 +151,9 @@
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow">What we do</span>
     <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Volume hiring, without the chaos</h2>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Hiring at scale is a different discipline. A new site, a new contract, a seasonal ramp — suddenly you need dozens of the right people, fast, and the usual process buckles under the numbers.</p>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">We&rsquo;re built for it. A dedicated team, a managed pipeline, and the capacity to source, screen and onboard in volume — so you hit your headcount and your start date without the quality dropping.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Hiring at scale is a different discipline from filling one role at a time. A new site coming online, a fresh contract to staff, a division standing up, a seasonal peak bearing down &mdash; suddenly you need dozens of the right people by a fixed date, and the process that works for a single hire simply buckles under the numbers. Job ads pull a flood of unscreened applications no one has time to read. Interviews clog a manager&rsquo;s calendar. Good candidates go cold while you catch up. And the deadline doesn&rsquo;t move.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">This is exactly what a project and mass hiring drive is built for. Instead of stretching your team thin, JTE mobilises a dedicated recruiting effort around your target &mdash; one plan, one managed pipeline, one point of coordination &mdash; with the capacity to source, screen, interview and onboard people in volume. Whether you need ten hires or a hundred, the work runs to a schedule that&rsquo;s planned backwards from the day you need everyone at their desks or on the floor.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">The hard part isn&rsquo;t finding bodies &mdash; it&rsquo;s finding the right ones, fast, without the quality quietly slipping as the numbers climb. We&rsquo;ve run these drives for Singapore employers since 2014, and the discipline that keeps them honest is structure: clear screening standards agreed up front, a steady weekly cadence of qualified candidates, and coordinated interviews and offers that keep momentum from the first week to the last hire. You hit your headcount and your start date &mdash; and the hundredth person is screened as carefully as the first.</p>
   </div>
 </section>
 
@@ -156,39 +161,132 @@
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12"><span class="eyebrow">The difference</span><h2 class="font-serif text-3xl md:text-4xl mt-3">What you get with JTE</h2></div>
     <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">A dedicated team mobilised for your project.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Capacity to fill 10 roles or 100 to a deadline.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">One managed pipeline from sourcing to onboarding.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Volume screening that still protects quality.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Coordinated interviews and offers, tracked clearly.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Compliance and work passes handled at scale.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">A dedicated team mobilised for your project &mdash; sized to the numbers, with one owner accountable for the whole drive.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Capacity to fill ten roles or a hundred to a fixed go-live date &mdash; planned backwards so the timeline is real.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">One managed pipeline from sourcing to onboarding &mdash; no scattered agencies, no duplicate candidates, one clear view.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Volume screening that still protects quality &mdash; the same standards on the last hire as the first.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Coordinated interviews, assessment days and offers &mdash; scheduled and tracked so nothing and no one falls through.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Work passes, payroll and compliance handled at scale &mdash; or the intake run as contract headcount if that fits better.</p></div>
     </div>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">When you need it</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">The moments a drive makes sense</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Mass hiring isn&rsquo;t about hiring constantly &mdash; it&rsquo;s about hiring a lot, well, in a defined window. These are the situations we&rsquo;re built for.</p></div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">New site &amp; facility openings</h3><p class="text-sm text-gray-500 font-light leading-relaxed">A new plant, warehouse, clinic or office has to be fully crewed before it can open &mdash; often the whole operational team at once, from the floor up. We staff the site to your commissioning date so day one runs, not stumbles.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Expansions &amp; new divisions</h3><p class="text-sm text-gray-500 font-light leading-relaxed">A new contract, a new line of business or a growth push means dozens of hires the existing team can&rsquo;t absorb. We stand up the headcount in parallel with your own hiring, so the expansion lands on schedule.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Seasonal &amp; peak demand</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Peak periods, festive ramps and demand spikes need people fast &mdash; and often only for a season. We fill the surge quickly, frequently as contract or temp headcount, and wind it down cleanly when the peak passes.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Project ramp-ups</h3><p class="text-sm text-gray-500 font-light leading-relaxed">A major project or shutdown needs a crew assembled for a fixed term with the right trades and certifications. We mobilise the team to the start date and keep the pipeline warm for the inevitable last-minute additions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-8 md:pb-12 px-6 md:px-12">
+  <figure class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden shadow">
+      <img loading="lazy" src="/assets/emp-mass-hiring.png" class="w-full object-cover" style="aspect-ratio:21/9;" alt="A large intake starting together on day one — JTE Recruit Singapore">
+    </div>
+    <figcaption class="text-center text-gray-500 text-sm mt-4 font-light italic">A whole team, hired to a deadline and starting together &mdash; the numbers met without the quality slipping.</figcaption>
+  </figure>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
   <div class="max-w-4xl mx-auto text-center">
     <span class="eyebrow">Where we&rsquo;re strong</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
-    <div class="flex flex-wrap justify-center gap-3">
-      <a href="/sectors/engineering-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Engineering</a>
-      <a href="/sectors/logistics-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Logistics &amp; Supply Chain</a>
-      <a href="/sectors/manufacturing-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Manufacturing</a>
-      <a href="/sectors/healthcare-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Healthcare</a>
-      <a href="/sectors/commercial-support-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Commercial &amp; Support Functions</a>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we scale in</h2>
+    <div id="svc-sectors" class="flex flex-wrap justify-center gap-4">
+      <a href="/sectors/engineering-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="cog" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Engineering</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Design office to plant floor</p>
+      </a>
+      <a href="/sectors/logistics-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="truck" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Logistics &amp; Supply Chain</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Warehouse to supply chain</p>
+      </a>
+      <a href="/sectors/manufacturing-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="factory" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Manufacturing</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Production line to plant</p>
+      </a>
+      <a href="/sectors/healthcare-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="heart-pulse" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Healthcare</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Clinical, allied &amp; support</p>
+      </a>
+      <a href="/sectors/commercial-support-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Commercial &amp; Support</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Finance, HR, sales &amp; admin</p>
+      </a>
+      <a href="/sectors/it-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="monitor" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">IT &amp; Tech</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Support to software engineers</p>
+      </a>
     </div>
-    <p class="text-gray-500 text-sm mt-6 font-light">From a single specialist to a whole team — junior to senior.</p>
+    <p class="text-gray-500 text-sm mt-8 font-light">From frontline crews to the supervisors and specialists who lead them &mdash; staffed as one intake.</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">The smart way to ramp</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Combine it with contract or payroll</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">A large intake rarely wants to be one thing. The best drives mix permanent, contract and outsourced headcount &mdash; and we&rsquo;ll tell you honestly which blend fits your project.</p></div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-7">
+        <span class="eyebrow">Ramp with contract staff&hellip;</span>
+        <ul class="mt-4 space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When a chunk of the intake is tied to a season, a project or a demand spike rather than a permanent need.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When you want the headcount now, with JTE as employer of record &mdash; CPF, leave, IR8A and insurance handled.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When you&rsquo;d like to see people on the job before converting the strong performers to permanent.</p></li>
+        </ul>
+        <a href="/services/contract-staffing" class="text-sm font-semibold text-luxury-goldDark hover-gold-line inline-block mt-5">Explore contract &amp; temp staffing &rarr;</a>
+      </div>
+      <div class="card p-7">
+        <span class="eyebrow">Or hand us the admin&hellip;</span>
+        <ul class="mt-4 space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When a large cohort means a mountain of payroll, CPF and IR8A you&rsquo;d rather not carry in-house.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When foreign hires in the intake need work passes managed at scale, applications and renewals included.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">When you want one partner across sourcing, onboarding and ongoing administration &mdash; not a patchwork of vendors.</p></li>
+        </ul>
+        <a href="/services/manpower-outsourcing" class="text-sm font-semibold text-luxury-goldDark hover-gold-line inline-block mt-5">See manpower outsourcing &rarr;</a>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-8 font-light">Not sure which mix is right? <a href="/contact" class="text-luxury-goldDark hover-gold-line">Talk it through with us</a> &mdash; we&rsquo;ll scope the blend that actually fits the project.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3">A simple, four-step process</h2></div>
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Plan</h3><p class="text-sm text-gray-600 leading-relaxed">We map the roles, numbers and timeline with you.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Mobilise</h3><p class="text-sm text-gray-600 leading-relaxed">A dedicated team ramps sourcing immediately.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Fill</h3><p class="text-sm text-gray-600 leading-relaxed">We screen and interview in volume, without dropping quality.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Onboard</h3><p class="text-sm text-gray-600 leading-relaxed">We coordinate offers, passes and a smooth start.</p></div>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">How a volume drive runs</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">One plan, one team, one pipeline &mdash; run to a schedule that&rsquo;s planned backwards from your deadline.</p></div>
+    <div class="max-w-3xl mx-auto space-y-8">
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">01</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Plan &amp; scope</h3><p class="text-gray-600 leading-relaxed font-light">We map the roles, the numbers, the shift patterns and the go-live date with you &mdash; then work backwards into a week-by-week plan. This is also where we agree the screening standards and the right mix of permanent, contract and outsourced headcount.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">02</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Mobilise the team</h3><p class="text-gray-600 leading-relaxed font-light">A dedicated consultant or pod ramps sourcing immediately &mdash; our network built since 2014, targeted advertising, referrals and direct outreach all running in parallel to build the pipeline fast, with one owner accountable for the whole drive.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">03</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Screen at scale</h3><p class="text-gray-600 leading-relaxed font-light">Every candidate goes through the same structured checks &mdash; skills, right to work, availability and attitude &mdash; before they reach you. You get a steady weekly flow of qualified people, not a raw dump of applications to sift yourself.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">04</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Interview &amp; offer</h3><p class="text-gray-600 leading-relaxed font-light">We coordinate interviews, run assessment or walk-in days where volume calls for them, and manage offers and acceptances centrally &mdash; so momentum holds and strong candidates don&rsquo;t drift to a competing offer while you catch up.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">05</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Onboard the cohort</h3><p class="text-gray-600 leading-relaxed font-light">We coordinate work passes, paperwork and start dates so the whole intake lands together and ready. Where you&rsquo;ve chosen contract or outsourced headcount, we carry the payroll and compliance from day one.</p></div>
+      </div>
+    </div>
+    <div class="mt-10 card p-7 max-w-3xl mx-auto">
+      <h3 class="font-serif text-lg mb-2 text-luxury-black">A realistic word on timing</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">For frontline and operational roles we can begin sending screened candidates within days of the brief and sustain a steady weekly intake until the numbers are met. Larger or more specialised drives, and any that depend on work passes, take longer &mdash; so we build the timeline around your go-live date and share it up front. We&rsquo;d rather commit to a plan we can hit than a headline number we can&rsquo;t.</p>
     </div>
   </div>
 </section>
@@ -207,17 +305,34 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10"><span class="eyebrow">Questions</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Common questions</h2></div>
-    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How many roles can you fill at once?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">From ten to a few hundred. We size the team to your project and timeline.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How do you keep quality up at volume?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">A structured, managed pipeline and clear screening standards — scale doesn&rsquo;t mean sending you everyone with a pulse.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you hit a fixed start date?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">That&rsquo;s the whole point. We plan backwards from your deadline and mobilise to hit it.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you handle work passes for foreign hires?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes — where roles require them, we manage the applications as part of the project.</p></details>
+    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How many hires can you handle at once?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">From ten to a few hundred. We size the recruiting team to your project &mdash; a single dedicated consultant for a smaller intake, or a coordinated pod running parallel pipelines for a large ramp. We scope the numbers, the roles and the timeline with you before we mobilise, so the capacity matches the target from day one.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How fast can you fill a large intake?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We plan backwards from your go-live date. For frontline and operational roles we can begin sending screened candidates within days of the brief and sustain a steady weekly intake until the numbers are met. Timelines depend on the roles, the pass requirements and the market, but we give you a realistic, week-by-week plan at the start rather than an optimistic promise we can&rsquo;t keep.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How do you keep quality up at volume?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Scale doesn&rsquo;t mean sending you everyone with a pulse. We agree clear screening standards up front, then run every candidate through the same structured checks &mdash; skills, right to work, availability and attitude &mdash; before they reach you. A managed pipeline and a single point of coordination mean the hundredth hire is screened as carefully as the first.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you run onsite recruitment or assessment days?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. For larger drives we can run assessment days, group interviews and onsite or walk-in recruitment events &mdash; a fast, structured way to screen and interview many candidates in a short window. We handle the scheduling, the shortlisting and the coordination so your managers meet only the people worth their time.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you combine mass hiring with contract or payroll?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Often the smartest way to ramp. We can place part or all of an intake as <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">contract or temp staff</a> with JTE as employer of record &mdash; CPF, leave, IR8A and insurance handled &mdash; and convert strong performers to permanent later. We can also run <a href="/services/manpower-outsourcing" class="text-luxury-goldDark hover-gold-line">payroll and work-pass administration</a> for the whole cohort, so a large ramp stays compliant and simple.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Which sectors do you cover?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We run volume drives across <a href="/sectors/engineering-recruitment" class="text-luxury-goldDark hover-gold-line">engineering</a>, <a href="/sectors/logistics-recruitment" class="text-luxury-goldDark hover-gold-line">logistics and supply chain</a>, <a href="/sectors/manufacturing-recruitment" class="text-luxury-goldDark hover-gold-line">manufacturing</a>, <a href="/sectors/healthcare-recruitment" class="text-luxury-goldDark hover-gold-line">healthcare</a>, and the <a href="/sectors/commercial-support-recruitment" class="text-luxury-goldDark hover-gold-line">commercial, support</a> and <a href="/sectors/it-recruitment" class="text-luxury-goldDark hover-gold-line">IT</a> functions that keep those operations running &mdash; from frontline and operational roles up to the supervisors and specialists who lead them.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How is a mass-hiring project charged?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">It depends on the mix. Permanent hires within a drive work on a success-fee basis &mdash; you pay only when someone starts. Contract or outsourced headcount is charged as a transparent margin on the hourly or monthly rate. For a large, defined project we&rsquo;ll agree the commercial model clearly with you before any work begins. <a href="/contact" class="text-luxury-goldDark hover-gold-line">Get in touch for a quote</a>.</p></details>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Explore more</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Related services &amp; guides</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">A volume drive often draws on the rest of what we do &mdash; here&rsquo;s where to look next.</p></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <a href="/services/contract-staffing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Temp &amp; contract staffing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Seasonal, project or surge headcount &mdash; with JTE as employer of record.</p></a>
+      <a href="/services/manpower-outsourcing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Manpower outsourcing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Hand us the payroll, passes and compliance for a whole cohort.</p></a>
+      <a href="/services/permanent-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Permanent recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">For the core, long-term hires within your ramp &mdash; searched and guaranteed.</p></a>
+      <a href="/employers" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">For employers</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The full picture of how we help you hire and build teams.</p></a>
+      <a href="/salary-guide" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Salary guide</h3><p class="text-sm text-gray-500 font-light leading-relaxed">What roles pay across our sectors in the Singapore market.</p></a>
+      <a href="/services" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">All services</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Every way JTE can support your hiring &mdash; in one place.</p></a>
+    </div>
   </div>
 </section>
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Hiring at scale?</h2>
-    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the numbers and the deadline. We&rsquo;ll show you how we&rsquo;ll hit them.</p>
+    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the numbers and the deadline, and we&rsquo;ll show you how we&rsquo;ll hit them. Not sure a full drive is the answer? See <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">temp &amp; contract</a>, <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent hiring</a>, or explore <a href="/employers" class="text-luxury-goldDark hover-gold-line">everything we do for employers</a>.</p>
     <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
@@ -286,6 +401,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
+  if(window.lucide){lucide.createIcons();}
 </script>
 
 </body>

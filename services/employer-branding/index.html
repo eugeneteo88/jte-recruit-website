@@ -26,7 +26,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Employer Branding & Culture","serviceType":"Employer Branding","description":"Stand out to the talent you want. JTE helps Singapore employers define and communicate what makes them a great place to work — so the right people are keen before they apply.","provider":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/","telephone":"+6567157450"},"areaServed":{"@type":"Country","name":"Singapore"},"url":"https://jte.com.sg/services/employer-branding"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://jte.com.sg/#services"},{"@type":"ListItem","position":3,"name":"Branding & Culture","item":"https://jte.com.sg/services/employer-branding"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is employer branding only for big companies?","acceptedAnswer":{"@type":"Answer","text":"No. Smaller companies often benefit most — a clear, genuine story helps you compete for talent against bigger names."}},{"@type":"Question","name":"Does this actually help hiring?","acceptedAnswer":{"@type":"Answer","text":"Yes. When candidates already understand and like what you stand for, roles fill faster and with better-fit people."}},{"@type":"Question","name":"Do you write the content for us?","acceptedAnswer":{"@type":"Answer","text":"We can help shape careers pages, adverts and messaging, and guide your social presence — as much or as little as you need."}},{"@type":"Question","name":"How does this fit with your recruitment?","acceptedAnswer":{"@type":"Answer","text":"Naturally — a stronger employer brand makes every search we run for you easier and more effective."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is employer branding, in plain terms?","acceptedAnswer":{"@type":"Answer","text":"Your employer brand is the reputation you have as a place to work — what people believe about you before they apply, and what they experience once they do. Employer branding is the work of making that reputation clear, honest and consistent, from your careers page to how a candidate is treated in an interview."}},{"@type":"Question","name":"Is employer branding only for big companies?","acceptedAnswer":{"@type":"Answer","text":"No. Smaller and mid-sized companies often benefit most. You may not have the name recognition of a multinational, but a clear, genuine story about who you are and what it is like to work with you helps you compete for the same talent — often on things money alone cannot buy."}},{"@type":"Question","name":"Does employer branding actually help hiring?","acceptedAnswer":{"@type":"Answer","text":"Yes. When candidates already understand and like what you stand for, roles fill faster, offers get accepted more often, and you attract better-fit people who stay longer. It also filters out those who were never going to suit you, so you spend less time on the wrong interviews."}},{"@type":"Question","name":"What is an EVP, and do we need one?","acceptedAnswer":{"@type":"Answer","text":"An employee value proposition, or EVP, is the honest answer to \"why would a good person choose to work here, and stay?\" It covers the work, the people, growth, flexibility, stability and pay. You do not need a glossy campaign, but you do need clarity — because a clear EVP is what every advert, careers page and recruiter conversation draws from."}},{"@type":"Question","name":"Do you write the content for us?","acceptedAnswer":{"@type":"Answer","text":"We can help shape your careers page, job adverts and hiring messaging, and guide your social presence — as much or as little as you need. Some employers want us to draft everything; others just want a sharper brief and an honest outside read. We work either way."}},{"@type":"Question","name":"How long does it take to see a difference?","acceptedAnswer":{"@type":"Answer","text":"Some things change quickly — a rewritten job advert or a tidied-up careers page can lift response within weeks. A fuller shift in reputation and candidate experience builds over months as more people move through a better process and talk about it. We focus on the quick, practical wins first."}},{"@type":"Question","name":"How does this fit with your recruitment?","acceptedAnswer":{"@type":"Answer","text":"Naturally. A stronger employer brand makes every search we run for you easier and more effective — candidates arrive already warm, and our recruiters have a real story to tell rather than a generic pitch. Branding and recruitment reinforce each other, which is why we offer both."}},{"@type":"Question","name":"Which sectors do you work with?","acceptedAnswer":{"@type":"Answer","text":"We support employers across engineering, logistics and supply chain, manufacturing, healthcare, IT and tech, and the commercial and support functions that keep those businesses running — from a single specialist role to hiring a whole team."}}]}</script>
 <style>
   body{background:#FBF9F4;color:#1c1a17;font-family:'Inter',sans-serif;}
   .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
@@ -35,6 +35,8 @@
   .btn-ghost{border:1px solid rgba(28,26,23,.28);color:#1c1a17;transition:.3s;}
   .btn-ghost:hover{border-color:#8C7350;color:#8C7350;transform:translateY(-2px);}
   .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:0 10px 30px -22px rgba(0,0,0,.35);}
+  .disc{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;box-shadow:0 8px 22px -16px rgba(60,45,25,.4);transition:.3s;}
+  .disc:hover{border-color:rgba(140,115,80,.5);transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(60,45,25,.55);}
   .check{color:#8C7350;flex:none;margin-top:.15rem;}
   details{border-top:1px solid rgba(0,0,0,.1);}
   details:last-child{border-bottom:1px solid rgba(0,0,0,.1);}
@@ -79,7 +81,9 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media(min-width:1024px){#svc-sectors a.group{width:calc(33.333% - 0.7rem)}}
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -147,48 +151,107 @@
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow">What we do</span>
     <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Make people want to work with you</h2>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">When you&rsquo;re hiring, you&rsquo;re not just assessing candidates — they&rsquo;re assessing you. In a tight market, the companies that win talent are the ones who clearly show what they stand for and what it&rsquo;s like to work there.</p>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">We help you find that story and tell it well — from your careers page to your social presence — so the right people arrive already interested, and the hiring gets easier.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">When you&rsquo;re hiring, you&rsquo;re not just assessing candidates &mdash; they&rsquo;re assessing you. In Singapore&rsquo;s tight labour market, the strongest people almost always have more than one option, and they do their homework: they read your careers page, look you up on LinkedIn, ask around, and form a view of your company long before they hit &ldquo;apply&rdquo;. The employers who consistently win talent are the ones who&rsquo;ve made that view a clear and honest one.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">That reputation as a place to work is your <em>employer brand</em>. It exists whether or not you&rsquo;ve ever thought about it &mdash; the only question is whether it&rsquo;s telling your story accurately, or leaving good candidates to guess. Employer branding is simply the work of taking control of it: getting clear on what genuinely makes your company worth joining, saying it in language real people believe, and making sure the experience of applying and interviewing lives up to the promise.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">We help you find that story and tell it well &mdash; from your value proposition to your careers content to the way a candidate is treated from first contact to offer &mdash; so the right people arrive already interested, and every role you open with us gets easier to fill. We&rsquo;ve been hiring for Singapore employers since 2014, so this isn&rsquo;t branding theory: it&rsquo;s built on what we see actually move candidates to say yes.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-12"><span class="eyebrow">The difference</span><h2 class="font-serif text-3xl md:text-4xl mt-3">What you get with JTE</h2></div>
-    <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Clarify what actually makes your company a good place to work.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Sharpen your careers page and job adverts.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Strengthen your presence where candidates look you up.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Craft a consistent, honest employer message.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Attract better-fit candidates before they apply.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Reduce the effort it takes to fill every role.</p></div>
-    </div>
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow">Why it matters</span>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">A tight market rewards the employers people trust</h2>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Singapore employers are hiring into one of the tightest talent markets in the region. Skilled candidates in engineering, healthcare, tech and the trades are courted by several companies at once, and pay alone rarely wins them &mdash; the deciding factor is often whether they can picture themselves happy and growing with you. If your reputation as an employer is vague, they hesitate; if it&rsquo;s clear and appealing, they lean in.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">A weak or absent employer brand quietly taxes everything you do to hire. Adverts get fewer and weaker responses. Recruiters spend longer selling a role that should sell itself. Offers get turned down late in the process because a candidate never quite understood why you were the better choice. And the people who do join without a clear picture are the ones most likely to leave within the year &mdash; the most expensive kind of hire there is.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">A strong employer brand does the opposite: it works for you around the clock. It draws in people who already suit how you work, gives your best staff a reason to stay and refer their friends, and shortens every search because candidates arrive warm. It doesn&rsquo;t need to be loud or expensive &mdash; it needs to be true, clear and consistently shown where candidates are actually looking.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12">
-  <div class="max-w-4xl mx-auto text-center">
-    <span class="eyebrow">Where we&rsquo;re strong</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
-    <div class="flex flex-wrap justify-center gap-3">
-      <a href="/sectors/engineering-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Engineering</a>
-      <a href="/sectors/logistics-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Logistics &amp; Supply Chain</a>
-      <a href="/sectors/manufacturing-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Manufacturing</a>
-      <a href="/sectors/healthcare-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Healthcare</a>
-      <a href="/sectors/commercial-support-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Commercial &amp; Support Functions</a>
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">The difference</span><h2 class="font-serif text-3xl md:text-4xl mt-3">What you get with JTE</h2></div>
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Clarity on what actually makes your company a good place to work &mdash; a real employee value proposition, not slogans.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Sharper careers pages and job adverts that read like you, and pull the right people in.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">A stronger presence where candidates look you up &mdash; LinkedIn, your site, review sites and search.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">A consistent, honest employer message that your team, your recruiters and your adverts all tell the same way.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">A candidate experience that leaves people impressed &mdash; whether or not they get the job.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Better-fit candidates before they apply &mdash; and less effort to fill every role you open.</p></div>
     </div>
-    <p class="text-gray-500 text-sm mt-6 font-light">From a single specialist to a whole team — junior to senior.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
   <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3">A simple, four-step process</h2></div>
+    <div class="text-center mb-12"><span class="eyebrow">What we help with</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">The building blocks of a brand people join</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Employer branding isn&rsquo;t one thing &mdash; it&rsquo;s a handful of connected pieces. We help with as many or as few as you need, and make sure they add up to one honest, consistent whole.</p></div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Your value proposition (EVP)</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The honest answer to &ldquo;why work here, and why stay?&rdquo; We help you pin down what genuinely sets you apart &mdash; the work, the people, growth, flexibility, stability and package &mdash; so every advert and conversation draws from the same clear source of truth.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Careers &amp; culture content</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Your careers page, &ldquo;about the team&rdquo; copy and job adverts, rewritten to sound like real people and say what matters to candidates &mdash; not corporate filler. The words a good hire reads before deciding whether you&rsquo;re worth their time.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Candidate experience</h3><p class="text-sm text-gray-500 font-light leading-relaxed">How you treat people from first message to final answer <em>is</em> your brand. We help tighten the journey &mdash; timely replies, a respectful interview, clear communication &mdash; so candidates leave impressed and speak well of you, offer or not.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Presence where they look</h3><p class="text-sm text-gray-500 font-light leading-relaxed">LinkedIn, your website, Google and review sites are where candidates size you up. We guide what they find there &mdash; a coherent, current picture of your company &mdash; so their research reinforces your story instead of undercutting it.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">A culture that retains</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The strongest employer brand is the honest experience of the people already with you. We help surface what your team genuinely values and does well, so your message stays true &mdash; and so the staff you have become your best source of referrals.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Woven into your hiring</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Because we recruit too, branding never sits in a vacuum. Everything we shape feeds straight into the searches we run for you &mdash; warmer candidates, a sharper pitch, faster closes &mdash; so the brand work pays for itself in the hires it helps land.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-8 md:pb-12 px-6 md:px-12">
+  <figure class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden shadow">
+      <img loading="lazy" src="/assets/emp-branding.png" class="w-full object-cover" style="aspect-ratio:21/9;" alt="A team candidates want to join — employer branding with JTE Recruit Singapore">
+    </div>
+    <figcaption class="text-center text-gray-500 text-sm mt-4 font-light italic">The best employer brand is a true one &mdash; a place people are genuinely glad they joined.</figcaption>
+  </figure>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="eyebrow">Where we&rsquo;re strong</span>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
+    <div id="svc-sectors" class="flex flex-wrap justify-center gap-4">
+      <a href="/sectors/engineering-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="cog" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Engineering</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Design office to plant floor</p>
+      </a>
+      <a href="/sectors/logistics-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="truck" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Logistics &amp; Supply Chain</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Warehouse to supply chain</p>
+      </a>
+      <a href="/sectors/manufacturing-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="factory" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Manufacturing</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Production line to plant</p>
+      </a>
+      <a href="/sectors/healthcare-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="heart-pulse" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Healthcare</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Clinical, allied &amp; support</p>
+      </a>
+      <a href="/sectors/commercial-support-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Commercial &amp; Support</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Finance, HR, sales &amp; admin</p>
+      </a>
+      <a href="/sectors/it-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="monitor" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">IT &amp; Tech</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Support to software engineers</p>
+      </a>
+    </div>
+    <p class="text-gray-500 text-sm mt-8 font-light">From a single specialist to a whole team &mdash; junior to senior.</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">A simple, four-step process</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">No lengthy rebrand, no jargon. A practical process that fits around how you already hire, focused on the changes that actually move candidates.</p></div>
     <div class="grid md:grid-cols-4 gap-6">
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Discover</h3><p class="text-sm text-gray-600 leading-relaxed">We learn what your team values and does well.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Define</h3><p class="text-sm text-gray-600 leading-relaxed">We shape a clear, honest employer message.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Craft</h3><p class="text-sm text-gray-600 leading-relaxed">We turn it into careers content and adverts.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Amplify</h3><p class="text-sm text-gray-600 leading-relaxed">We help you show it where candidates look.</p></div>
+      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Discover</h3><p class="text-sm text-gray-600 leading-relaxed">We learn what your team genuinely values and does well &mdash; talking to the people who work there, not guessing from the outside.</p></div>
+      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Define</h3><p class="text-sm text-gray-600 leading-relaxed">We shape a clear, honest employer message &mdash; your EVP &mdash; that says why the right person would join you and stay.</p></div>
+      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Craft</h3><p class="text-sm text-gray-600 leading-relaxed">We turn it into real careers content, adverts and a candidate journey that reads like you and lands with the people you want.</p></div>
+      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Amplify</h3><p class="text-sm text-gray-600 leading-relaxed">We help you show it where candidates look, and feed it into every search we run &mdash; so the story keeps working long after.</p></div>
     </div>
   </div>
 </section>
@@ -207,17 +270,35 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10"><span class="eyebrow">Questions</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Common questions</h2></div>
-    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Is employer branding only for big companies?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">No. Smaller companies often benefit most — a clear, genuine story helps you compete for talent against bigger names.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Does this actually help hiring?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. When candidates already understand and like what you stand for, roles fill faster and with better-fit people.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you write the content for us?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We can help shape careers pages, adverts and messaging, and guide your social presence — as much or as little as you need.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How does this fit with your recruitment?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Naturally — a stronger employer brand makes every search we run for you easier and more effective.</p></details>
+    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What is employer branding, in plain terms?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Your employer brand is your reputation as a place to work &mdash; what people believe about you before they apply, and what they experience once they do. Employer branding is simply the work of making that reputation clear, honest and consistent, from your <a href="/employers" class="text-luxury-goldDark hover-gold-line">careers content</a> to how a candidate is treated in an interview.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Is employer branding only for big companies?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">No. Smaller and mid-sized companies often benefit most. You may not have the name recognition of a multinational, but a clear, genuine story about who you are and what it&rsquo;s like to work with you helps you compete for the same talent &mdash; often on things money alone can&rsquo;t buy.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Does employer branding actually help hiring?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. When candidates already understand and like what you stand for, roles fill faster, offers get accepted more often, and you attract better-fit people who stay longer. It also filters out those who were never going to suit you, so you spend less time on the wrong interviews.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What is an EVP, and do we need one?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">An employee value proposition, or EVP, is the honest answer to &ldquo;why would a good person choose to work here, and stay?&rdquo; It covers the work, the people, growth, flexibility, stability and pay. You don&rsquo;t need a glossy campaign, but you do need clarity &mdash; because a clear EVP is what every advert, careers page and recruiter conversation draws from.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you write the content for us?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We can help shape your careers page, job adverts and hiring messaging, and guide your social presence &mdash; as much or as little as you need. Some employers want us to draft everything; others just want a sharper brief and an honest outside read. We work either way.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How long does it take to see a difference?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Some things change quickly &mdash; a rewritten job advert or a tidied-up careers page can lift response within weeks. A fuller shift in reputation and candidate experience builds over months as more people move through a better process and talk about it. We focus on the quick, practical wins first.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How does this fit with your recruitment?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Naturally &mdash; a stronger employer brand makes every search we run for you easier and more effective. Candidates arrive already warm, and our recruiters have a real story to tell rather than a generic pitch. See how it feeds our <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent</a> and <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">contract</a> hiring.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Which sectors do you work with?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We support employers across <a href="/sectors/engineering-recruitment" class="text-luxury-goldDark hover-gold-line">engineering</a>, <a href="/sectors/logistics-recruitment" class="text-luxury-goldDark hover-gold-line">logistics and supply chain</a>, <a href="/sectors/manufacturing-recruitment" class="text-luxury-goldDark hover-gold-line">manufacturing</a>, <a href="/sectors/healthcare-recruitment" class="text-luxury-goldDark hover-gold-line">healthcare</a>, <a href="/sectors/it-recruitment" class="text-luxury-goldDark hover-gold-line">IT and tech</a>, and the <a href="/sectors/commercial-support-recruitment" class="text-luxury-goldDark hover-gold-line">commercial and support</a> functions that keep those businesses running &mdash; from a single specialist role to hiring a whole team.</p></details>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Explore more</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Related services &amp; guides</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Employer branding works best alongside the rest of how we help Singapore employers build teams.</p></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <a href="/services/permanent-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Permanent recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The long-term hires your employer brand is built to attract &mdash; screened for fit and longevity.</p></a>
+      <a href="/services/contract-staffing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Temp &amp; contract staffing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Project, seasonal or cover headcount &mdash; with JTE as employer of record.</p></a>
+      <a href="/employers" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">For employers</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The full picture of how we help you hire and build teams.</p></a>
+      <a href="/salary-guide" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Salary guide</h3><p class="text-sm text-gray-500 font-light leading-relaxed">What roles pay across our sectors &mdash; the package side of your value proposition.</p></a>
+      <a href="/sectors/it-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">IT &amp; tech recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Where a strong employer brand matters most &mdash; from support to software engineers.</p></a>
+      <a href="/services" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">All services</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Every way JTE can support your hiring &mdash; in one place.</p></a>
+    </div>
   </div>
 </section>
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Want the right people keen before they apply?</h2>
-    <p class="text-gray-600 leading-relaxed mb-9 font-light">Let&rsquo;s talk about what makes your company worth joining — and how to show it.</p>
+    <p class="text-gray-600 leading-relaxed mb-9 font-light">Let&rsquo;s talk about what makes your company worth joining &mdash; and how to show it. No obligations, just a straight conversation with recruiters who know your market. Ready to hire too? See <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent recruitment</a> or explore <a href="/employers" class="text-luxury-goldDark hover-gold-line">everything we do for employers</a>.</p>
     <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
@@ -286,6 +367,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
+  if(window.lucide){lucide.createIcons();}
 </script>
 
 </body>

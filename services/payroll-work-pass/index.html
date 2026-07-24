@@ -26,7 +26,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Payroll & Work Pass Management","serviceType":"Payroll and Work Pass Management","description":"Accurate, compliant payroll and work pass management in Singapore. JTE handles CPF, tax filing and work pass applications so your team gets paid right, on time, every time.","provider":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/","telephone":"+6567157450"},"areaServed":{"@type":"Country","name":"Singapore"},"url":"https://jte.com.sg/services/payroll-work-pass"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://jte.com.sg/#services"},{"@type":"ListItem","position":3,"name":"Payroll & Work Pass","item":"https://jte.com.sg/services/payroll-work-pass"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you handle work pass applications too?","acceptedAnswer":{"@type":"Answer","text":"Yes — EP, S Pass and work permit applications, renewals and cancellations, alongside the payroll itself."}},{"@type":"Question","name":"How do you keep payroll compliant?","acceptedAnswer":{"@type":"Answer","text":"We stay current with CPF, MOM and IRAS rules and apply them every cycle, so filings and contributions are correct and on time."}},{"@type":"Question","name":"Can you take over an existing payroll?","acceptedAnswer":{"@type":"Answer","text":"Yes — we’ll handle the transition from your current setup so nothing is missed in the changeover."}},{"@type":"Question","name":"How much does payroll cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on your headcount and needs. Get in touch and we’ll give you a straightforward quote. We also run a free payroll pilot program — ask us about it."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What payroll tasks do you handle?","acceptedAnswer":{"@type":"Answer","text":"The full monthly cycle: gross-to-net calculations, pro-rations for joiners and leavers, overtime, allowances, bonuses, deductions and claims, itemised payslips, salary disbursement, and year-end IR8A preparation. We also maintain leave records and the statutory returns that go with payroll, so the whole run is handled end to end rather than piece by piece."}},{"@type":"Question","name":"Do you handle CPF contributions and tax filing (IR8A / IR21)?","acceptedAnswer":{"@type":"Answer","text":"Yes. We calculate and file CPF at the correct rates each month, along with SDL, CDAC, MBMF, SINDA and ECF levies. At year end we prepare and submit IR8A for your employees, and when a foreign employee leaves we handle IR21 tax clearance so their final pay is released correctly."}},{"@type":"Question","name":"Can you apply for an Employment Pass, S Pass or Work Permit?","acceptedAnswer":{"@type":"Answer","text":"Yes. We prepare and submit Employment Pass, S Pass and Work Permit applications through MOM, advise on eligibility, salary benchmarks and quota or levy implications before you commit, and manage the process through to issuance and pass collection."}},{"@type":"Question","name":"Do you handle renewals, appeals and dependant passes?","acceptedAnswer":{"@type":"Answer","text":"Yes. We track expiry dates and manage renewals ahead of the deadline, prepare appeals where an application is rejected, and handle Dependant Passes, Long-Term Visit Passes and cancellations when someone joins, moves or leaves. You get a reminder well before a pass lapses, not after."}},{"@type":"Question","name":"How is payroll and work pass support charged?","acceptedAnswer":{"@type":"Answer","text":"It is quoted, not a success fee. Pricing depends on your headcount, pay frequency and how much work-pass support you need. Tell us the scope and we will give you a straightforward quote. We also run a free payroll pilot so you can see how we work before committing."}},{"@type":"Question","name":"Is our payroll data secure and compliant?","acceptedAnswer":{"@type":"Answer","text":"Payroll data is confidential and we treat it that way — access is restricted, records are kept for the statutory retention periods, and every cycle is run against current CPF, IRAS and MOM rules. As a licensed employment agency (MOM EA 14C7215, operating since 2014) compliance is part of how we work, not an afterthought."}},{"@type":"Question","name":"Can you take over an existing payroll?","acceptedAnswer":{"@type":"Answer","text":"Yes. We manage the transition from your current provider or in-house setup — migrating employee records, pay history, CPF and pass details — so nothing is missed in the changeover and the first run under JTE lands on time."}},{"@type":"Question","name":"Which sectors do you work with?","acceptedAnswer":{"@type":"Answer","text":"We run payroll and work-pass support for employers across engineering, logistics and supply chain, manufacturing, healthcare, the commercial and support functions, and IT and tech — from a handful of staff to a full team of foreign and local employees."}}]}</script>
 <style>
   body{background:#FBF9F4;color:#1c1a17;font-family:'Inter',sans-serif;}
   .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
@@ -35,6 +35,8 @@
   .btn-ghost{border:1px solid rgba(28,26,23,.28);color:#1c1a17;transition:.3s;}
   .btn-ghost:hover{border-color:#8C7350;color:#8C7350;transform:translateY(-2px);}
   .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:0 10px 30px -22px rgba(0,0,0,.35);}
+  .disc{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;box-shadow:0 8px 22px -16px rgba(60,45,25,.4);transition:.3s;}
+  .disc:hover{border-color:rgba(140,115,80,.5);transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(60,45,25,.55);}
   .check{color:#8C7350;flex:none;margin-top:.15rem;}
   details{border-top:1px solid rgba(0,0,0,.1);}
   details:last-child{border-bottom:1px solid rgba(0,0,0,.1);}
@@ -79,7 +81,9 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media(min-width:1024px){#svc-sectors a.group{width:calc(33.333% - 0.7rem)}}
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -124,7 +128,7 @@
       <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-4 mb-6 leading-[1.1]">Payroll &amp; work pass management in Singapore</h1>
       <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed mb-8 max-w-lg">Payday should be simple. We handle the calculations, CPF, filings and work pass applications, so your people get paid right and on time — and you get peace of mind.</p>
       <div class="flex flex-wrap gap-4">
-        <a href="/contact" class="btn-primary px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide">Start hiring</a>
+        <a href="/contact" class="btn-primary px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide">Get a quote</a>
         <a href="/services" class="btn-ghost px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide">Explore all services</a>
       </div>
     </div>
@@ -146,9 +150,10 @@
 <section class="py-20 md:py-24 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow">What we do</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Payroll, done properly</h2>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Payroll looks routine until it isn&rsquo;t. CPF rates, pro-rations, claims, tax filing, work pass renewals — small errors create real headaches, for you and for the person expecting the right number in their account.</p>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">We take it off your desk. Accurate calculations, on-time payment, and full compliance with Singapore regulations. Your employees get paid correctly, and you stop worrying about the deadlines.</p>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Payroll and work passes, done properly</h2>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Payroll looks routine until it isn&rsquo;t. CPF rates change, someone joins mid-month, a bonus needs pro-rating, a claim comes in late, a foreign employee leaves and needs tax clearance, a work pass is weeks from expiring. Each one is a small thing &mdash; but a small error means the wrong number in someone&rsquo;s account, a late CPF filing, or a lapsed pass that stops an employee from legally working. For the business owner or HR lead already stretched thin, it&rsquo;s a quiet, recurring source of risk.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">We take the whole thing off your desk. JTE has run outsourced payroll and work-pass administration for Singapore employers since 2014 &mdash; we calculate pay accurately, file CPF and taxes on time, issue clean payslips, and handle Employment Pass, S Pass and Work Permit applications and renewals through MOM. You keep control and visibility; we carry the admin, the deadlines and the compliance.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">It&rsquo;s built for two kinds of employer: those who simply want the payroll admin off their plate so they can run the business, and those hiring foreign talent who need the work-pass side handled properly alongside the pay. In both cases the promise is the same &mdash; your people get paid right, every cycle, and you stop watching the calendar.</p>
   </div>
 </section>
 
@@ -167,29 +172,119 @@
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12">
-  <div class="max-w-4xl mx-auto text-center">
-    <span class="eyebrow">Where we&rsquo;re strong</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
-    <div class="flex flex-wrap justify-center gap-3">
-      <a href="/sectors/engineering-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Engineering</a>
-      <a href="/sectors/logistics-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Logistics &amp; Supply Chain</a>
-      <a href="/sectors/manufacturing-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Manufacturing</a>
-      <a href="/sectors/healthcare-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Healthcare</a>
-      <a href="/sectors/commercial-support-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Commercial &amp; Support Functions</a>
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">What we handle</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Two jobs, handled together</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Payroll and work passes are two sides of employing people in Singapore &mdash; especially foreign talent. We run both, so nothing falls between the cracks.</p></div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="disc p-7">
+        <h3 class="font-serif text-xl text-luxury-black mb-3">Payroll &amp; statutory</h3>
+        <ul class="space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Monthly gross-to-net payroll &mdash; overtime, allowances, bonuses, deductions and mid-month pro-rations.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">CPF contributions plus SDL, CDAC, MBMF, SINDA and ECF levies, calculated and filed each cycle.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Income-tax filing &mdash; year-end IR8A, and IR21 tax clearance when a foreign employee leaves.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Itemised payslips, salary disbursement, and leave and claims records kept up to date.</p></li>
+        </ul>
+      </div>
+      <div class="disc p-7">
+        <h3 class="font-serif text-xl text-luxury-black mb-3">Work passes &amp; compliance</h3>
+        <ul class="space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Employment Pass, S Pass and Work Permit applications submitted through MOM.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Renewals tracked ahead of expiry, plus appeals when an application is rejected.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Dependant Passes, Long-Term Visit Passes, and pass cancellations on exit.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Eligibility, salary-benchmark and quota or levy guidance before you commit to a hire.</p></li>
+        </ul>
+      </div>
     </div>
-    <p class="text-gray-500 text-sm mt-6 font-light">From a single specialist to a whole team — junior to senior.</p>
+    <p class="text-center text-gray-500 text-sm mt-8 font-light">Already have staff and just want the admin gone? See <a href="/services/manpower-outsourcing" class="text-luxury-goldDark hover-gold-line">manpower outsourcing</a> &mdash; or <a href="/contact" class="text-luxury-goldDark hover-gold-line">tell us your headcount</a> for a quote.</p>
+  </div>
+</section>
+
+<section class="pb-8 md:pb-12 px-6 md:px-12">
+  <figure class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden shadow">
+      <img loading="lazy" src="/assets/emp-payroll.png" class="w-full object-cover" style="aspect-ratio:21/9;" alt="Payroll and work-pass administration handled for a Singapore employer — JTE Recruit">
+    </div>
+    <figcaption class="text-center text-gray-500 text-sm mt-4 font-light italic">Payday becomes a non-event &mdash; the numbers are right, the filings are in, the passes are current.</figcaption>
+  </figure>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="eyebrow">Who we support</span>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
+    <div id="svc-sectors" class="flex flex-wrap justify-center gap-4">
+      <a href="/sectors/engineering-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="cog" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Engineering</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Local &amp; foreign technical staff</p>
+      </a>
+      <a href="/sectors/logistics-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="truck" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Logistics &amp; Supply Chain</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Warehouse to supply chain</p>
+      </a>
+      <a href="/sectors/manufacturing-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="factory" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Manufacturing</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Production line to plant</p>
+      </a>
+      <a href="/sectors/healthcare-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="heart-pulse" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Healthcare</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Clinical, allied &amp; support</p>
+      </a>
+      <a href="/sectors/commercial-support-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Commercial &amp; Support</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Finance, HR, sales &amp; admin</p>
+      </a>
+      <a href="/sectors/it-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="monitor" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">IT &amp; Tech</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Support to software engineers</p>
+      </a>
+    </div>
+    <p class="text-gray-500 text-sm mt-8 font-light">From a handful of staff to a full team of local and foreign employees.</p>
   </div>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3">A simple, four-step process</h2></div>
-    <div class="grid md:grid-cols-4 gap-6">
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Onboard</h3><p class="text-sm text-gray-600 leading-relaxed">We set up your employees, rates and rules.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Process</h3><p class="text-sm text-gray-600 leading-relaxed">Each cycle we calculate pay, CPF and deductions.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Pay</h3><p class="text-sm text-gray-600 leading-relaxed">Salaries go out on time, with clear payslips.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">File</h3><p class="text-sm text-gray-600 leading-relaxed">We keep CPF, tax and work pass filings compliant.</p></div>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">How it works</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Payroll, step by step</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">A clean handover, then a quiet monthly rhythm you don&rsquo;t have to think about.</p></div>
+    <div class="max-w-3xl mx-auto space-y-8">
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">01</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Onboard &amp; migrate</h3><p class="text-gray-600 leading-relaxed font-light">We set up your employees, salary structures, CPF details and pass records &mdash; migrating cleanly from your current provider or spreadsheets so the first run under JTE is complete and correct. If work passes are involved, we map every expiry date up front.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">02</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Process each cycle</h3><p class="text-gray-600 leading-relaxed font-light">Every pay cycle we calculate gross-to-net &mdash; CPF, levies, overtime, allowances, claims, deductions and pro-rations for anyone who joined or left &mdash; and send it to you to review before a cent goes out.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">03</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Pay &amp; payslip</h3><p class="text-gray-600 leading-relaxed font-light">Salaries are disbursed on time and each employee gets a clear, itemised payslip. No chasing, no &ldquo;why is my pay short this month&rdquo; &mdash; the numbers are right and they can see why.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">04</div>
+        <div><h3 class="font-serif text-xl mb-1.5">File &amp; contribute</h3><p class="text-gray-600 leading-relaxed font-light">We submit CPF and levies each month and prepare year-end IR8A, plus IR21 tax clearance whenever a foreign employee leaves &mdash; all against current CPF, IRAS and MOM rules, on the statutory deadlines.</p></div>
+      </div>
+      <div class="flex gap-5">
+        <div class="font-serif text-3xl text-luxury-goldDark leading-none flex-none w-12">05</div>
+        <div><h3 class="font-serif text-xl mb-1.5">Renew &amp; keep current</h3><p class="text-gray-600 leading-relaxed font-light">We watch every work pass and flag renewals well before expiry, handle appeals if needed, and process cancellations and dependant passes as your team changes &mdash; so no one is ever caught working on a lapsed pass.</p></div>
+      </div>
     </div>
+    <div class="mt-10 card p-7 max-w-3xl mx-auto">
+      <h3 class="font-serif text-lg mb-2 text-luxury-black">Try it before you commit</h3>
+      <p class="text-sm text-gray-600 leading-relaxed">Not ready to switch your whole payroll over? We run a free payroll pilot so you can see the accuracy, the payslips and the turnaround on a real cycle first. <a href="/jte-payroll" class="text-luxury-goldDark hover-gold-line">Ask us about the pilot</a> &mdash; there&rsquo;s no obligation to continue.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-3xl mx-auto">
+    <span class="eyebrow">Why it matters</span>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Compliance isn&rsquo;t optional in Singapore</h2>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Payroll and work-pass rules here are strict, and the penalties are real. Late or under-paid CPF attracts interest and enforcement. A missed IR21 filing can hold up a departing employee&rsquo;s final pay and leave you liable for their tax. Employing someone on a lapsed or wrong pass is an offence under the Employment of Foreign Manpower Act &mdash; with fines and debarment on the table, not just a warning.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">That&rsquo;s the quiet risk sitting inside every payroll run, and it&rsquo;s exactly what we&rsquo;re here to absorb. As a licensed employment agency operating since 2014, staying current with MOM, CPF and IRAS is simply how we work &mdash; so the deadlines are met, the filings are right, and your passes never lapse. You get the upside of doing it properly without having to become the expert yourself.</p>
   </div>
 </section>
 
@@ -207,17 +302,35 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10"><span class="eyebrow">Questions</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Common questions</h2></div>
-    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you handle work pass applications too?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes — EP, S Pass and work permit applications, renewals and cancellations, alongside the payroll itself.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How do you keep payroll compliant?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We stay current with CPF, MOM and IRAS rules and apply them every cycle, so filings and contributions are correct and on time.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you take over an existing payroll?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes — we&rsquo;ll handle the transition from your current setup so nothing is missed in the changeover.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How much does payroll cost?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">It depends on your headcount and needs. Get in touch and we&rsquo;ll give you a straightforward quote. We also run a free payroll pilot program — <a href="/jte-payroll" class="underline hover:text-luxury-goldDark">ask us about it</a>.</p></details>
+    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What payroll tasks do you handle?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">The full monthly cycle: gross-to-net calculations, pro-rations for joiners and leavers, overtime, allowances, bonuses, deductions and claims, itemised payslips, salary disbursement, and year-end IR8A preparation. We also maintain leave records and the statutory returns that go with payroll, so the whole run is handled end to end rather than piece by piece.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you handle CPF contributions and tax filing (IR8A / IR21)?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. We calculate and file CPF at the correct rates each month, along with SDL, CDAC, MBMF, SINDA and ECF levies. At year end we prepare and submit IR8A for your employees, and when a foreign employee leaves we handle IR21 tax clearance so their final pay is released correctly.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you apply for an Employment Pass, S Pass or Work Permit?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. We prepare and submit Employment Pass, S Pass and Work Permit applications through MOM, advise on eligibility, salary benchmarks and quota or levy implications before you commit, and manage the process through to issuance and pass collection. It pairs naturally with a <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent</a> or <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">contract</a> hire from overseas.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Do you handle renewals, appeals and dependant passes?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. We track expiry dates and manage renewals ahead of the deadline, prepare appeals where an application is rejected, and handle Dependant Passes, Long-Term Visit Passes and cancellations when someone joins, moves or leaves. You get a reminder well before a pass lapses, not after.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How is it charged?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">It&rsquo;s quoted, not a success fee. Pricing depends on your headcount, pay frequency and how much work-pass support you need. Tell us the scope and we&rsquo;ll give you a straightforward quote. We also run a free payroll pilot so you can see how we work before committing &mdash; <a href="/contact" class="text-luxury-goldDark hover-gold-line">get in touch for a quote</a>.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Is our payroll data secure and compliant?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Payroll data is confidential and we treat it that way &mdash; access is restricted, records are kept for the statutory retention periods, and every cycle is run against current CPF, IRAS and MOM rules. As a licensed employment agency (MOM EA 14C7215, operating since 2014) compliance is part of how we work, not an afterthought.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you take over an existing payroll?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. We manage the transition from your current provider or in-house setup &mdash; migrating employee records, pay history, CPF and pass details &mdash; so nothing is missed in the changeover and the first run under JTE lands on time.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Which sectors do you work with?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We run payroll and work-pass support for employers across <a href="/sectors/engineering-recruitment" class="text-luxury-goldDark hover-gold-line">engineering</a>, <a href="/sectors/logistics-recruitment" class="text-luxury-goldDark hover-gold-line">logistics and supply chain</a>, <a href="/sectors/manufacturing-recruitment" class="text-luxury-goldDark hover-gold-line">manufacturing</a>, <a href="/sectors/healthcare-recruitment" class="text-luxury-goldDark hover-gold-line">healthcare</a>, the <a href="/sectors/commercial-support-recruitment" class="text-luxury-goldDark hover-gold-line">commercial and support</a> functions, and <a href="/sectors/it-recruitment" class="text-luxury-goldDark hover-gold-line">IT and tech</a> &mdash; from a handful of staff to a full team of foreign and local employees.</p></details>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Explore more</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Related services &amp; guides</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Payroll and work-pass support is one of several ways we help Singapore employers run and build their teams.</p></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <a href="/services/manpower-outsourcing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Manpower outsourcing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Hand us the payroll and compliance for staff you already have.</p></a>
+      <a href="/services/contract-staffing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Temp &amp; contract staffing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Project or seasonal headcount &mdash; with JTE as employer of record.</p></a>
+      <a href="/services/permanent-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Permanent recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Long-term hires, incl. work-pass support for overseas talent.</p></a>
+      <a href="/employers" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">For employers</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The full picture of how we help you hire and build teams.</p></a>
+      <a href="/sectors/it-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Sectors we serve</h3><p class="text-sm text-gray-500 font-light leading-relaxed">From engineering and healthcare to IT &amp; tech and beyond.</p></a>
+      <a href="/services" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">All services</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Every way JTE can support your hiring &mdash; in one place.</p></a>
+    </div>
   </div>
 </section>
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Want payroll off your plate?</h2>
-    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us your headcount and what you need. We&rsquo;ll make payday simple.</p>
+    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us your headcount and what you need &mdash; payroll, work passes, or both &mdash; and we&rsquo;ll send a straightforward quote. Hiring foreign talent too? See <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent</a> or <a href="/services/contract-staffing" class="text-luxury-goldDark hover-gold-line">contract</a> hiring, or explore <a href="/employers" class="text-luxury-goldDark hover-gold-line">everything we do for employers</a>.</p>
     <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
@@ -286,6 +399,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
+  if(window.lucide){lucide.createIcons();}
 </script>
 
 </body>

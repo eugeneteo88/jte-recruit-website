@@ -26,7 +26,7 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Temporary & Contract Staffing","serviceType":"Temporary and Contract Staffing","description":"Flexible contract and temporary staffing in Singapore. Pre-vetted professionals ready to step in for cover, projects and seasonal peaks — same quality, no long-term commitment.","provider":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/","telephone":"+6567157450"},"areaServed":{"@type":"Country","name":"Singapore"},"url":"https://jte.com.sg/services/contract-staffing"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://jte.com.sg/#services"},{"@type":"ListItem","position":3,"name":"Temp & Contract","item":"https://jte.com.sg/services/contract-staffing"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you place a contractor?","acceptedAnswer":{"@type":"Answer","text":"Often within days. Because our pool is pre-vetted, we can move fast once we understand the brief."}},{"@type":"Question","name":"Can a contract role convert to permanent?","acceptedAnswer":{"@type":"Answer","text":"Yes — temp-to-perm is common. If someone’s a great fit, we make converting them simple."}},{"@type":"Question","name":"Who employs and pays the contractor?","acceptedAnswer":{"@type":"Answer","text":"We can handle the employment, payroll, CPF and compliance, so the arrangement is clean and fully above board."}},{"@type":"Question","name":"What roles do you cover?","acceptedAnswer":{"@type":"Answer","text":"From frontline and operational roles to specialists and admin, across engineering, logistics, manufacturing, healthcare and commercial functions."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does contract staffing work?","acceptedAnswer":{"@type":"Answer","text":"You tell us the gap — the skills, the reason (a project, a peak, cover for leave) and how long you need someone. We draw from a pre-vetted pool, put forward people we'd vouch for, and deploy your chosen contractor for the agreed term. You direct their day-to-day work while we run the employment, payroll and compliance behind the scenes."}},{"@type":"Question","name":"Can the contractor be on JTE's payroll?","acceptedAnswer":{"@type":"Answer","text":"Yes. This is the employer-of-record model: JTE is the legal employer, so we handle the employment contract, monthly payroll, CPF, statutory leave, IR8A and work-injury insurance. You get the headcount and direct the work; we carry the employment admin and the compliance risk."}},{"@type":"Question","name":"How fast can you mobilise a contractor?","acceptedAnswer":{"@type":"Answer","text":"Often within days. Because our pool is pre-vetted, we can move fast once we understand the brief — sometimes a start within the same week for a straightforward role, a little longer for a niche skill set or where a work pass is involved."}},{"@type":"Question","name":"Contract or permanent — which should I use?","acceptedAnswer":{"@type":"Answer","text":"Contract fits a defined need — a project, a seasonal peak, covering a leave gap, or trialling a capability before you commit. Permanent fits a role that's core to the business for the long term, where retention and cultural fit matter most. If a role is really a permanent one, we'll tell you and point you to our permanent search rather than sell you a contractor."}},{"@type":"Question","name":"Is there a minimum or maximum contract length?","acceptedAnswer":{"@type":"Answer","text":"We're flexible — from a few weeks of cover to a multi-month project or a rolling contract that extends as long as you need. We'll agree the term upfront, and extending, shortening or converting to permanent is straightforward."}},{"@type":"Question","name":"How do you charge for contract staffing?","acceptedAnswer":{"@type":"Answer","text":"Contract and payroll work is quoted, not charged as a permanent-style success fee. We give you a clear rate — typically an all-in monthly or hourly figure that covers the contractor's pay plus employer costs and our management — agreed before anyone starts, with no surprises."}},{"@type":"Question","name":"Can you handle work passes for foreign contract staff?","acceptedAnswer":{"@type":"Answer","text":"Yes. As the employer of record we can sponsor and manage Work Permit, S Pass or Employment Pass applications where the role and quota allow, and keep the pass, levies and renewals compliant for the length of the contract."}},{"@type":"Question","name":"Which sectors do you cover?","acceptedAnswer":{"@type":"Answer","text":"Engineering, logistics and supply chain, manufacturing, healthcare, the commercial and support functions, and IT and tech — from frontline and operational roles to specialists and admin, junior to senior."}}]}</script>
 <style>
   body{background:#FBF9F4;color:#1c1a17;font-family:'Inter',sans-serif;}
   .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;}
@@ -35,6 +35,8 @@
   .btn-ghost{border:1px solid rgba(28,26,23,.28);color:#1c1a17;transition:.3s;}
   .btn-ghost:hover{border-color:#8C7350;color:#8C7350;transform:translateY(-2px);}
   .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:0 10px 30px -22px rgba(0,0,0,.35);}
+  .disc{background:#fff;border:1px solid rgba(0,0,0,.09);border-radius:14px;box-shadow:0 8px 22px -16px rgba(60,45,25,.4);transition:.3s;}
+  .disc:hover{border-color:rgba(140,115,80,.5);transform:translateY(-3px);box-shadow:0 18px 38px -22px rgba(60,45,25,.55);}
   .check{color:#8C7350;flex:none;margin-top:.15rem;}
   details{border-top:1px solid rgba(0,0,0,.1);}
   details:last-child{border-bottom:1px solid rgba(0,0,0,.1);}
@@ -79,7 +81,9 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
   #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media(min-width:1024px){#svc-sectors a.group{width:calc(33.333% - 0.7rem)}}
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="antialiased">
 
@@ -147,8 +151,10 @@
   <div class="max-w-3xl mx-auto">
     <span class="eyebrow">What we do</span>
     <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-6 leading-tight">Staffing that flexes with your business</h2>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Business rarely moves in a straight line. Maternity cover, a sudden project, a seasonal peak — sometimes you need a capable pair of hands quickly, without adding permanent headcount.</p>
-    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">We keep a pool of pre-vetted contract professionals ready to go, so you get the right person fast and only for as long as you need them. When the contract ends, there&rsquo;s no awkward unwinding.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">Business rarely moves in a straight line. A project lands with a deadline attached. A busy season doubles the workload for three months and then eases off. Someone goes on maternity or extended medical leave, or resigns with little notice and takes a working knowledge of the role out the door with them. In each case you need a capable pair of hands quickly &mdash; but not necessarily a permanent one on the books forever.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">That&rsquo;s what contract and temporary staffing is for. We keep a pool of pre-vetted contract professionals ready to go, so you get the right person fast and only for as long as you actually need them. When the contract ends, there&rsquo;s no restructuring, no severance conversation, no awkward unwinding &mdash; the arrangement simply concludes on the date you agreed, or extends if the need runs longer.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">The people we place on contract are held to the same bar as our permanent candidates. &ldquo;Temporary&rdquo; doesn&rsquo;t mean second-string &mdash; it means the engagement is time-boxed, not the quality. Every contractor is screened for the skills the role needs and for the professionalism to walk into an unfamiliar team and be useful in the first week, not the fourth.</p>
+    <p class="text-[17px] leading-[1.8] text-gray-700 font-light">And because JTE can act as the employer of record, the whole thing stays clean. The contractor sits on <em>our</em> payroll &mdash; CPF, leave, IR8A, work-injury insurance and the employment contract are ours to run &mdash; while you simply direct the work day to day. You get flexible headcount without taking on the employment admin or the compliance risk that usually comes with it.</p>
   </div>
 </section>
 
@@ -156,12 +162,35 @@
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12"><span class="eyebrow">The difference</span><h2 class="font-serif text-3xl md:text-4xl mt-3">What you get with JTE</h2></div>
     <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Pre-vetted professionals who can start at short notice.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Pre-vetted professionals who can start at short notice &mdash; often within days.</p></div>
       <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Cover for maternity, medical leave or a sudden departure.</p></div>
       <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Extra hands for projects, launches and seasonal peaks.</p></div>
       <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Contract, temp and temp-to-perm arrangements.</p></div>
-      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">We handle the employment, payroll and compliance.</p></div>
+      <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">JTE as employer of record &mdash; payroll, CPF, leave, IR8A and insurance handled.</p></div>
       <div class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-gray-700 leading-relaxed">Scale up or down without a long-term commitment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">When it fits</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">When contract staffing makes sense</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Contract works best when the need has a shape to it &mdash; a start, a reason and a rough end. These are the situations we&rsquo;re asked for most.</p></div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Projects with a deadline</h3><p class="text-sm text-gray-500 font-light leading-relaxed">A plant upgrade, a system migration, a product launch, an audit or a build-out &mdash; work that needs extra capable hands for a defined stretch, then winds down. You get the specialist skills for exactly the window they&rsquo;re needed, without a permanent line on the org chart afterwards.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Seasonal &amp; demand peaks</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Year-end, festive volume, a big shipment cycle or a sudden run of orders. When the workload doubles for a quarter and then settles, contract headcount lets you meet the peak without carrying the cost through the quiet months that follow.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Cover for a gap</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Maternity, extended medical leave, a sabbatical, or a resignation that leaves a hole while you run a permanent search. A contractor keeps the desk running and the work moving so nothing stalls &mdash; and hands back cleanly when your person returns or the new hire starts.</p></div>
+      <div class="disc p-6"><h3 class="font-serif text-lg text-luxury-black mb-1">Trial before you commit</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Not sure whether a role should be permanent, or whether a particular person is the right long-term fit? A temp-to-perm contract lets you see someone work in your environment before anyone signs a permanent commitment. If it clicks, converting them is simple.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Employer of record</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">JTE carries the employment, you direct the work</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">The part that makes contract staffing genuinely low-effort for you: we become the legal employer, so the admin and the compliance are ours, not yours.</p></div>
+    <div class="max-w-3xl mx-auto">
+      <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">When we place a contractor on an employer-of-record basis, JTE holds the employment contract. That means the monthly payroll run, CPF contributions, statutory and annual leave, IR8A income reporting at year end, and work-injury compensation insurance all sit with us. If a work pass is needed, we sponsor and manage it. You don&rsquo;t set up a new payroll record, you don&rsquo;t track another person&rsquo;s leave balance, and you don&rsquo;t carry the employer&rsquo;s statutory obligations for someone who may only be with you for a few months.</p>
+      <p class="text-[17px] leading-[1.8] text-gray-700 font-light mb-5">What stays with you is the part that matters: the work itself. You set the tasks, the hours, the priorities and the standard, exactly as you would for your own team. The contractor turns up, integrates and delivers &mdash; and everything behind the scenes that keeps the arrangement compliant with Singapore employment and MOM rules is handled by an EA-licensed agency that has been doing exactly this since 2014.</p>
+      <p class="text-[17px] leading-[1.8] text-gray-700 font-light">It&rsquo;s the same principle as our <a href="/services/manpower-outsourcing" class="text-luxury-goldDark hover-gold-line">manpower outsourcing</a> and <a href="/services/payroll-work-pass" class="text-luxury-goldDark hover-gold-line">payroll &amp; work pass</a> services &mdash; you get the people and the output, we carry the employment machinery underneath.</p>
     </div>
   </div>
 </section>
@@ -169,16 +198,50 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-4xl mx-auto text-center">
     <span class="eyebrow">Where we&rsquo;re strong</span>
-    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we know well</h2>
-    <div class="flex flex-wrap justify-center gap-3">
-      <a href="/sectors/engineering-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Engineering</a>
-      <a href="/sectors/logistics-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Logistics &amp; Supply Chain</a>
-      <a href="/sectors/manufacturing-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Manufacturing</a>
-      <a href="/sectors/healthcare-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Healthcare</a>
-      <a href="/sectors/commercial-support-recruitment" class="pill px-5 py-2 text-sm hover:border-luxury-goldDark hover:text-luxury-goldDark transition-colors">Commercial &amp; Support Functions</a>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-8">Sectors we staff on contract</h2>
+    <div id="svc-sectors" class="flex flex-wrap justify-center gap-4">
+      <a href="/sectors/engineering-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="cog" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Engineering</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Design office to plant floor</p>
+      </a>
+      <a href="/sectors/logistics-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="truck" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Logistics &amp; Supply Chain</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Warehouse to supply chain</p>
+      </a>
+      <a href="/sectors/manufacturing-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="factory" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Manufacturing</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Production line to plant</p>
+      </a>
+      <a href="/sectors/healthcare-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="heart-pulse" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Healthcare</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Clinical, allied &amp; support</p>
+      </a>
+      <a href="/sectors/commercial-support-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">Commercial &amp; Support</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Finance, HR, sales &amp; admin</p>
+      </a>
+      <a href="/sectors/it-recruitment" class="group bg-white rounded-2xl border border-black/5 p-6 w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] text-center hover:border-luxury-goldDark hover:shadow-xl transition-all">
+        <i data-lucide="monitor" class="w-8 h-8 mx-auto mb-3 text-luxury-goldDark"></i>
+        <h3 class="font-serif text-lg text-luxury-black">IT &amp; Tech</h3>
+        <p class="text-xs text-gray-500 mt-1.5 leading-snug">Support to software engineers</p>
+      </a>
     </div>
-    <p class="text-gray-500 text-sm mt-6 font-light">From a single specialist to a whole team — junior to senior.</p>
+    <p class="text-gray-500 text-sm mt-8 font-light">From a single specialist to a whole team — junior to senior.</p>
   </div>
+</section>
+
+<section class="pb-8 md:pb-12 px-6 md:px-12">
+  <figure class="max-w-5xl mx-auto">
+    <div class="rounded-2xl overflow-hidden shadow">
+      <img loading="lazy" src="/assets/emp-temp-contract.png" class="w-full object-cover" style="aspect-ratio:21/9;" alt="A contract professional stepping in with the team — JTE Recruit Singapore">
+    </div>
+    <figcaption class="text-center text-gray-500 text-sm mt-4 font-light italic">Ready when the project lands or the peak hits &mdash; and gone cleanly when it&rsquo;s done.</figcaption>
+  </figure>
 </section>
 
 <section class="py-16 md:py-20 px-6 md:px-12 bg-white">
@@ -188,8 +251,37 @@
       <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">01</div><h3 class="font-serif text-lg mb-2">Brief</h3><p class="text-sm text-gray-600 leading-relaxed">Tell us the gap, the skills and how long you need someone.</p></div>
       <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">02</div><h3 class="font-serif text-lg mb-2">Match</h3><p class="text-sm text-gray-600 leading-relaxed">We draw from our pool of ready, pre-vetted professionals.</p></div>
       <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">03</div><h3 class="font-serif text-lg mb-2">Deploy</h3><p class="text-sm text-gray-600 leading-relaxed">Your contractor starts fast — often within days.</p></div>
-      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Manage</h3><p class="text-sm text-gray-600 leading-relaxed">We handle payroll, compliance and check-ins throughout.</p></div>
+      <div class="card p-7"><div class="font-serif text-3xl text-luxury-goldDark mb-3">04</div><h3 class="font-serif text-lg mb-2">Manage</h3><p class="text-sm text-gray-600 leading-relaxed">We run payroll, CPF, compliance and check-ins throughout.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-12"><span class="eyebrow">Which do you need?</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Contract vs permanent &mdash; which fits?</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Not every gap should be a permanent headcount, and not every long-term role should be filled on contract. Here&rsquo;s a straight read on when each makes sense &mdash; and we&rsquo;ll tell you honestly if a role is better filled the other way.</p></div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card p-7">
+        <span class="eyebrow">Go contract when&hellip;</span>
+        <ul class="mt-4 space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">The need is tied to a project, a peak season or covering a leave gap.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">You want the headcount now, without the long-term employment overhead.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">You&rsquo;d like JTE as employer of record &mdash; CPF, leave, IR8A and insurance handled &mdash; while you direct the work.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">You want to trial a capability, or a person, before committing to a permanent role.</p></li>
+        </ul>
+        <p class="text-sm text-gray-500 font-light leading-relaxed mt-5">That&rsquo;s the flexible, quoted, employer-of-record staffing this page is about.</p>
+      </div>
+      <div class="card p-7">
+        <span class="eyebrow">Hire permanent when&hellip;</span>
+        <ul class="mt-4 space-y-3">
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">The role is core to how the business runs and you need it for the long term.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">You want someone to build knowledge, own relationships and grow with the team.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">Cultural fit and retention matter as much as the skills on paper.</p></li>
+          <li class="flex gap-3"><svg class="check w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><p class="text-sm text-gray-600 leading-relaxed">You&rsquo;re hiring leadership, or a specialist whose absence would hurt.</p></li>
+        </ul>
+        <a href="/services/permanent-recruitment" class="text-sm font-semibold text-luxury-goldDark hover-gold-line inline-block mt-5">Explore permanent recruitment &rarr;</a>
+      </div>
+    </div>
+    <p class="text-center text-gray-500 text-sm mt-8 font-light">Still deciding? <a href="/contact" class="text-luxury-goldDark hover-gold-line">Talk it through with us</a> &mdash; we&rsquo;ll point you to whatever actually fits, not whatever bills more.</p>
   </div>
 </section>
 
@@ -197,9 +289,9 @@
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12"><span class="eyebrow">Why JTE</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Fast, flexible, and above board</h2></div>
     <div class="grid md:grid-cols-3 gap-10">
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Ready when you are</h3><p class="text-sm text-gray-600 leading-relaxed">A pre-vetted pool means we move in days, not weeks.</p></div>
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Clean and compliant</h3><p class="text-sm text-gray-600 leading-relaxed">We can employ and payroll the contractor, so the arrangement is fully above board.</p></div>
-      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Flex both ways</h3><p class="text-sm text-gray-600 leading-relaxed">Scale up for a peak, wind down when it passes, convert to permanent when it clicks.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Ready when you are</h3><p class="text-sm text-gray-600 leading-relaxed">A pre-vetted pool means we move in days, not weeks &mdash; and the people we send hold the same bar as our permanent candidates.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Clean and compliant</h3><p class="text-sm text-gray-600 leading-relaxed">As employer of record we run payroll, CPF, leave, IR8A, insurance and work passes &mdash; an EA-licensed agency carrying the compliance, not you.</p></div>
+      <div><h3 class="font-serif text-xl mb-2 text-luxury-goldDark">Flex both ways</h3><p class="text-sm text-gray-600 leading-relaxed">Scale up for a peak, wind down when it passes, extend when the need runs longer, or convert to permanent when it clicks.</p></div>
     </div>
   </div>
 </section>
@@ -207,17 +299,35 @@
 <section class="py-16 md:py-20 px-6 md:px-12">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-10"><span class="eyebrow">Questions</span><h2 class="font-serif text-3xl md:text-4xl mt-3">Common questions</h2></div>
-    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How quickly can you place a contractor?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Often within days. Because our pool is pre-vetted, we can move fast once we understand the brief.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can a contract role convert to permanent?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes — temp-to-perm is common. If someone&rsquo;s a great fit, we make converting them simple.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Who employs and pays the contractor?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We can handle the employment, payroll, CPF and compliance, so the arrangement is clean and fully above board.</p></details>
-    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">What roles do you cover?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">From frontline and operational roles to specialists and admin, across engineering, logistics, manufacturing, healthcare and commercial functions.</p></details>
+    <details open class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How does contract staffing work?<span class="text-luxury-goldDark ml-4">&ndash;</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">You tell us the gap &mdash; the skills, the reason (a project, a peak, cover for leave) and how long you need someone. We draw from a pre-vetted pool, put forward people we&rsquo;d vouch for, and deploy your chosen contractor for the agreed term. You direct their day-to-day work while we run the employment, payroll and compliance behind the scenes.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can the contractor be on JTE&rsquo;s payroll?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. This is the employer-of-record model: JTE is the legal employer, so we handle the employment contract, monthly payroll, CPF, statutory leave, IR8A and work-injury insurance. You get the headcount and direct the work; we carry the employment admin and the compliance risk. It works alongside our <a href="/services/manpower-outsourcing" class="text-luxury-goldDark hover-gold-line">manpower outsourcing</a> and <a href="/services/payroll-work-pass" class="text-luxury-goldDark hover-gold-line">payroll &amp; work pass</a> services.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How fast can you mobilise a contractor?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Often within days. Because our pool is pre-vetted, we can move fast once we understand the brief &mdash; sometimes a start within the same week for a straightforward role, a little longer for a niche skill set or where a work pass is involved.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Contract or permanent &mdash; which should I use?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Contract fits a defined need &mdash; a project, a seasonal peak, covering a leave gap, or trialling a capability before you commit. Permanent fits a role that&rsquo;s core to the business for the long term, where retention and cultural fit matter most. If a role is really a permanent one, we&rsquo;ll say so and point you to <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent recruitment</a> rather than sell you a contractor.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Is there a minimum or maximum contract length?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We&rsquo;re flexible &mdash; from a few weeks of cover to a multi-month project or a rolling contract that extends as long as you need. We&rsquo;ll agree the term upfront, and extending, shortening or converting to permanent is straightforward.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">How do you charge for contract staffing?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Contract and payroll work is quoted, not charged as a permanent-style success fee. We give you a clear rate &mdash; typically an all-in monthly or hourly figure that covers the contractor&rsquo;s pay plus employer costs and our management &mdash; agreed before anyone starts, with no surprises. <a href="/contact" class="text-luxury-goldDark hover-gold-line">Get in touch for a quote</a>.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Can you handle work passes for foreign contract staff?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">Yes. As the employer of record we can sponsor and manage Work Permit, S Pass or Employment Pass applications where the role and quota allow, and keep the pass, levies and renewals compliant for the length of the contract &mdash; see <a href="/services/payroll-work-pass" class="text-luxury-goldDark hover-gold-line">payroll &amp; work pass</a>.</p></details>
+    <details class="py-5"><summary class="font-serif text-lg flex justify-between items-center">Which sectors do you cover?<span class="text-luxury-goldDark ml-4">+</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">We staff across <a href="/sectors/engineering-recruitment" class="text-luxury-goldDark hover-gold-line">engineering</a>, <a href="/sectors/logistics-recruitment" class="text-luxury-goldDark hover-gold-line">logistics and supply chain</a>, <a href="/sectors/manufacturing-recruitment" class="text-luxury-goldDark hover-gold-line">manufacturing</a>, <a href="/sectors/healthcare-recruitment" class="text-luxury-goldDark hover-gold-line">healthcare</a>, the <a href="/sectors/commercial-support-recruitment" class="text-luxury-goldDark hover-gold-line">commercial and support</a> functions and <a href="/sectors/it-recruitment" class="text-luxury-goldDark hover-gold-line">IT and tech</a> &mdash; from frontline and operational roles to specialists and admin, junior to senior.</p></details>
+  </div>
+</section>
+
+<section class="py-16 md:py-20 px-6 md:px-12 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10"><span class="eyebrow">Explore more</span><h2 class="font-serif text-3xl md:text-4xl mt-3 mb-3">Related services &amp; guides</h2><p class="text-gray-500 font-light max-w-2xl mx-auto">Contract staffing is one of several ways we help Singapore employers build teams.</p></div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <a href="/services/permanent-recruitment" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Permanent recruitment</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Success-fee, replacement-guaranteed hiring for roles you need long term.</p></a>
+      <a href="/services/manpower-outsourcing" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Manpower outsourcing</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Hand us the payroll and compliance for staff you already have.</p></a>
+      <a href="/services/payroll-work-pass" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Payroll &amp; work pass</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Employment Pass, S Pass and payroll support for overseas hires.</p></a>
+      <a href="/employers" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">For employers</h3><p class="text-sm text-gray-500 font-light leading-relaxed">The full picture of how we help you hire and build teams.</p></a>
+      <a href="/salary-guide" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">Salary guide</h3><p class="text-sm text-gray-500 font-light leading-relaxed">What roles pay across our sectors in the Singapore market.</p></a>
+      <a href="/services" class="disc p-6 block"><h3 class="font-serif text-lg text-luxury-black mb-1">All services</h3><p class="text-sm text-gray-500 font-light leading-relaxed">Every way JTE can support your hiring &mdash; in one place.</p></a>
+    </div>
   </div>
 </section>
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
     <h2 class="font-serif text-3xl md:text-4xl mb-5">Need someone quickly?</h2>
-    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the gap and the timeline. We&rsquo;ll tell you honestly how fast we can fill it.</p>
+    <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the gap and the timeline. We&rsquo;ll tell you honestly how fast we can fill it. Not sure contract is the right route? See <a href="/services/permanent-recruitment" class="text-luxury-goldDark hover-gold-line">permanent recruitment</a> or explore <a href="/employers" class="text-luxury-goldDark hover-gold-line">everything we do for employers</a>.</p>
     <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-full text-sm font-semibold tracking-wide">Start the conversation</a>
   </div>
 </section>
@@ -286,6 +396,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
+  if(window.lucide){lucide.createIcons();}
 </script>
 
 </body>
