@@ -99,6 +99,19 @@ ${jsonld}
   table.sal .rng{font-weight:600;color:#1c1a17;white-space:nowrap}
   table.sal .nn{display:block;font-size:.66rem;color:#a89f92;font-weight:400;margin-top:1px}
   table.sal .dash{color:#cbbfae}
+  /* Mobile: reflow the wide table into one clean card per role (no sideways scroll) */
+  @media(max-width:639px){
+    .sal-wrap{overflow:visible}
+    table.sal{min-width:0}
+    table.sal thead{display:none}
+    table.sal,table.sal tbody,table.sal tr,table.sal td{display:block;width:auto}
+    table.sal tr{border:1px solid rgba(0,0,0,.09);border-radius:.7rem;padding:.15rem 1rem .55rem;margin-bottom:.7rem;background:#fff}
+    table.sal tbody tr:nth-child(even){background:#fff}
+    table.sal td{border:0;padding:.34rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+    table.sal td.role{font-family:'Playfair Display',serif;font-size:1.02rem;color:#1c1a17;padding:.6rem 0 .45rem;border-bottom:1px solid rgba(0,0,0,.06);margin-bottom:.15rem;display:block}
+    table.sal td[data-label]::before{content:attr(data-label);color:#8a8175;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+    table.sal td .rng{font-size:.92rem}
+  }
   .legend-dot{display:inline-block;width:.55rem;height:.55rem;border-radius:2px;background:#C6A87C;margin-right:.4rem;vertical-align:middle}
   #mburger{position:fixed;top:26px;right:24px;z-index:70;width:26px;height:18px;cursor:pointer;background:none;border:0;padding:0}
   #mburger span{position:absolute;left:0;height:2px;width:100%;border-radius:2px;background:#1c1a17;transition:.35s cubic-bezier(.6,0,.2,1)}
@@ -276,9 +289,9 @@ function tableHTML(sector) {
     : `<span class="dash">&mdash;</span>`;
   const rows = sector.roles.map(r => `        <tr>
           <td class="role">${esc(r.name)}</td>
-          <td>${cell(r.bands['Junior'])}</td>
-          <td>${cell(r.bands['Mid'])}</td>
-          <td>${cell(r.bands['Senior / Lead'])}</td>
+          <td data-label="Junior">${cell(r.bands['Junior'])}</td>
+          <td data-label="Mid">${cell(r.bands['Mid'])}</td>
+          <td data-label="Senior / Lead">${cell(r.bands['Senior / Lead'])}</td>
         </tr>`).join('\n');
   const th = BANDS.map(b => `<th>${b}<span class="sub">${BAND_SUB[b]}</span></th>`).join('');
   return `<div class="sal-wrap"><table class="sal">

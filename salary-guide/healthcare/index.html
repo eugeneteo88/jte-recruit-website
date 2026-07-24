@@ -56,6 +56,19 @@
   table.sal .rng{font-weight:600;color:#1c1a17;white-space:nowrap}
   table.sal .nn{display:block;font-size:.66rem;color:#a89f92;font-weight:400;margin-top:1px}
   table.sal .dash{color:#cbbfae}
+  /* Mobile: reflow the wide table into one clean card per role (no sideways scroll) */
+  @media(max-width:639px){
+    .sal-wrap{overflow:visible}
+    table.sal{min-width:0}
+    table.sal thead{display:none}
+    table.sal,table.sal tbody,table.sal tr,table.sal td{display:block;width:auto}
+    table.sal tr{border:1px solid rgba(0,0,0,.09);border-radius:.7rem;padding:.15rem 1rem .55rem;margin-bottom:.7rem;background:#fff}
+    table.sal tbody tr:nth-child(even){background:#fff}
+    table.sal td{border:0;padding:.34rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+    table.sal td.role{font-family:'Playfair Display',serif;font-size:1.02rem;color:#1c1a17;padding:.6rem 0 .45rem;border-bottom:1px solid rgba(0,0,0,.06);margin-bottom:.15rem;display:block}
+    table.sal td[data-label]::before{content:attr(data-label);color:#8a8175;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+    table.sal td .rng{font-size:.92rem}
+  }
   .legend-dot{display:inline-block;width:.55rem;height:.55rem;border-radius:2px;background:#C6A87C;margin-right:.4rem;vertical-align:middle}
   #mburger{position:fixed;top:26px;right:24px;z-index:70;width:26px;height:18px;cursor:pointer;background:none;border:0;padding:0}
   #mburger span{position:absolute;left:0;height:2px;width:100%;border-radius:2px;background:#1c1a17;transition:.35s cubic-bezier(.6,0,.2,1)}
@@ -129,63 +142,63 @@
       <tbody>
         <tr>
           <td class="role">Nurse</td>
-          <td><span class="rng">$3,000&ndash;4,250</span></td>
-          <td><span class="rng">$3,750&ndash;4,750</span></td>
-          <td><span class="rng">$6,450&ndash;8,000</span></td>
+          <td data-label="Junior"><span class="rng">$3,000&ndash;4,250</span></td>
+          <td data-label="Mid"><span class="rng">$3,750&ndash;4,750</span></td>
+          <td data-label="Senior / Lead"><span class="rng">$6,450&ndash;8,000</span></td>
         </tr>
         <tr>
           <td class="role">Therapist</td>
-          <td><span class="rng">$3,250&ndash;4,500</span></td>
-          <td><span class="rng">$4,500&ndash;6,000</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$3,250&ndash;4,500</span></td>
+          <td data-label="Mid"><span class="rng">$4,500&ndash;6,000</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
         <tr>
           <td class="role">Clinic Staff</td>
-          <td><span class="rng">$2,400&ndash;3,000</span></td>
-          <td><span class="rng">$2,900&ndash;5,750</span></td>
-          <td><span class="rng">$3,750&ndash;6,750</span></td>
+          <td data-label="Junior"><span class="rng">$2,400&ndash;3,000</span></td>
+          <td data-label="Mid"><span class="rng">$2,900&ndash;5,750</span></td>
+          <td data-label="Senior / Lead"><span class="rng">$3,750&ndash;6,750</span></td>
         </tr>
         <tr>
           <td class="role">Care / Support Staff</td>
-          <td><span class="rng">$2,200&ndash;2,900</span></td>
-          <td><span class="rng">$3,100&ndash;5,500</span></td>
-          <td><span class="rng">$5,500&ndash;7,000</span></td>
+          <td data-label="Junior"><span class="rng">$2,200&ndash;2,900</span></td>
+          <td data-label="Mid"><span class="rng">$3,100&ndash;5,500</span></td>
+          <td data-label="Senior / Lead"><span class="rng">$5,500&ndash;7,000</span></td>
         </tr>
         <tr>
           <td class="role">Physiotherapist</td>
-          <td><span class="rng">$4,250&ndash;5,250</span></td>
-          <td><span class="rng">$5,000&ndash;7,000</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$4,250&ndash;5,250</span></td>
+          <td data-label="Mid"><span class="rng">$5,000&ndash;7,000</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
         <tr>
           <td class="role">Pharmacy</td>
-          <td><span class="rng">$2,250&ndash;3,400</span></td>
-          <td><span class="rng">$4,750&ndash;5,600</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$2,250&ndash;3,400</span></td>
+          <td data-label="Mid"><span class="rng">$4,750&ndash;5,600</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
         <tr>
           <td class="role">Medical / Allied Health</td>
-          <td><span class="rng">$2,500&ndash;4,000</span></td>
-          <td><span class="rng">$3,600&ndash;5,750</span></td>
-          <td><span class="rng">$8,000&ndash;15,500</span></td>
+          <td data-label="Junior"><span class="rng">$2,500&ndash;4,000</span></td>
+          <td data-label="Mid"><span class="rng">$3,600&ndash;5,750</span></td>
+          <td data-label="Senior / Lead"><span class="rng">$8,000&ndash;15,500</span></td>
         </tr>
         <tr>
           <td class="role">Laboratory</td>
-          <td><span class="rng">$2,450&ndash;3,150</span></td>
-          <td><span class="rng">$3,850&ndash;5,700</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$2,450&ndash;3,150</span></td>
+          <td data-label="Mid"><span class="rng">$3,850&ndash;5,700</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
         <tr>
           <td class="role">Patient Service</td>
-          <td><span class="rng">$2,150&ndash;2,700</span></td>
-          <td><span class="dash">&mdash;</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$2,150&ndash;2,700</span></td>
+          <td data-label="Mid"><span class="dash">&mdash;</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
         <tr>
           <td class="role">Radiographer</td>
-          <td><span class="rng">$4,450&ndash;7,500</span></td>
-          <td><span class="rng">$5,250&ndash;6,000</span></td>
-          <td><span class="dash">&mdash;</span></td>
+          <td data-label="Junior"><span class="rng">$4,450&ndash;7,500</span></td>
+          <td data-label="Mid"><span class="rng">$5,250&ndash;6,000</span></td>
+          <td data-label="Senior / Lead"><span class="dash">&mdash;</span></td>
         </tr>
       </tbody>
     </table></div>
