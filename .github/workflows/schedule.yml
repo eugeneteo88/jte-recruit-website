@@ -32,3 +32,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           force_orphan: true
+          # Keep build tooling + raw data off the public site.
+          exclude_assets: '.github,salary-data.mjs,build-salary.mjs,salary-data.json'

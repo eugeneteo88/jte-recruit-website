@@ -1,0 +1,444 @@
+#!/usr/bin/env node
+/*
+ * Builds the static Salary Guide from salary-data.json:
+ *   /salary-guide/index.html         (hub)
+ *   /salary-guide/<slug>/index.html  (6 sector pages)
+ * Design system matches the rest of jte.com.sg. Re-run after salary-data.mjs.
+ *   node build-salary.mjs
+ */
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const ROOT = dirname(fileURLToPath(import.meta.url));
+const data = JSON.parse(readFileSync(join(ROOT, 'salary-data.json'), 'utf8'));
+
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const fmtDate = iso => { const [y, m, d] = iso.split('-'); return `${+d} ${MON[+m - 1]} ${y}`; };
+const UPDATED = fmtDate(data.updated);              // e.g. 25 Jul 2026
+const YEAR = data.updated.slice(0, 4);
+
+const BANDS = ['Junior', 'Mid', 'Senior / Lead'];
+const BAND_SUB = { 'Junior': 'Fresh · non-exec · junior', 'Mid': 'Executive · senior exec', 'Senior / Lead': 'Manager · management' };
+
+const SERVICE_SLUG = { engineering: 'engineering-recruitment', logistics: 'logistics-recruitment', manufacturing: 'manufacturing-recruitment', healthcare: 'healthcare-recruitment', commercial: 'commercial-support-recruitment', it: 'it-recruitment' };
+const DRIVERS = {
+  engineering: 'Discipline (M&amp;E vs civil), project vs plant work, professional registration and site allowances move pay the most.',
+  logistics: 'Shift work and overtime can lift take-home well above base &mdash; especially for warehouse, driver and operations roles.',
+  manufacturing: 'Cleanroom / precision experience, shift patterns and supervisory scope drive the range; OT is common on the floor.',
+  healthcare: 'Registration and licensing, ward vs clinic setting, and shift / on-call allowances shape pay well beyond the base figure.',
+  commercial: 'Industry, portfolio size and revenue responsibility matter more than the job title &mdash; a &ldquo;manager&rdquo; in one firm is a different job in another.',
+  it: 'Tech stack, cloud &amp; security specialisation and product-vs-services environments move pay fastest. Senior engineers are usually headhunted rather than job-hunting, so they command a premium.',
+};
+const BLURB = {
+  engineering: 'Mechanical, electrical, civil, project and maintenance engineers, plus technicians and draughtspersons.',
+  logistics: 'Warehouse, drivers, supply chain, procurement, operations, shipping and freight.',
+  manufacturing: 'Production, quality, assembly, machine operators, technicians and supervisors.',
+  healthcare: 'Nurses, allied health, pharmacy, clinic and patient-service roles.',
+  commercial: 'Accounting, HR, sales, admin, marketing, finance and customer service.',
+  it: 'Software, data, cloud, cybersecurity, infrastructure, QA and IT support.',
+};
+
+/* ---------- shared chrome ---------- */
+const head = ({ title, desc, path, jsonld }) => `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${desc}">
+<link rel="canonical" href="https://jte.com.sg${path}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jte.com.sg${path}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:image" content="https://jte.com.sg/assets/og/salary-guide.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${desc}">
+<meta name="twitter:image" content="https://jte.com.sg/assets/og/salary-guide.jpg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BXT61GXYP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6BXT61GXYP');</script>
+<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+${jsonld}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="/assets/tailwind.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:#FBF9F4;color:#1c1a17}
+  .eyebrow{color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+  .hover-gold-line{position:relative}
+  .hover-gold-line::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C6A87C;transition:width .4s ease}
+  .hover-gold-line:hover::after{width:100%}
+  nav{background:linear-gradient(to bottom,rgba(245,241,232,.98) 62%,rgba(245,241,232,0))}
+  nav a.nav-active{color:#C6A87C !important}
+  nav a.nav-active::after{width:100% !important}
+  .btn-primary{background:#C6A87C;color:#0a0a0a;transition:all .3s ease}
+  .btn-primary:hover{background:#E5D4B3}
+  .lnk{color:#8a8175;transition:.25s}.lnk:hover{color:#C6A87C}
+  .soc{width:2.5rem;height:2.5rem;border-radius:9999px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.18);color:#9a9186;transition:.3s}
+  .soc:hover{color:#C6A87C;border-color:#C6A87C}
+  .fld{width:100%;background:#F5F1E8;border:1px solid rgba(0,0,0,.12);border-radius:.375rem;padding:.85rem 1rem;color:#1a1a1a;font-size:.95rem;transition:border-color .3s ease}
+  .fld:focus{outline:none;border-color:#8C7350}.fld::placeholder{color:#9ca3af}
+  .flabel{font-size:.72rem;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem;display:block}
+  .success-message{display:none;padding:1rem;background:rgba(198,168,124,.12);border:1px solid #C6A87C;border-radius:6px;color:#8C7350;margin-bottom:1.5rem;text-align:center;font-size:.9rem}
+  .success-message.show{display:block}
+  .sg-pill{display:inline-flex;align-items:center;gap:.45rem;background:#F5F1E8;border:1px solid #E5D4B3;color:#8C7350;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;padding:.4rem .85rem;border-radius:999px}
+  .sg-pill svg{width:.9rem;height:.9rem}
+  .sg-card{background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:.85rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.15)}
+  .why{background:#241B12;color:#F5F1E8;border-radius:1rem;overflow:hidden}
+  /* salary table */
+  .sal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.sal{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
+  table.sal th,table.sal td{text-align:left;padding:.95rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  table.sal thead th{background:#241B12;color:#F5F1E8;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;border:0}
+  table.sal thead th:first-child{border-top-left-radius:.6rem}
+  table.sal thead th:last-child{border-top-right-radius:.6rem}
+  table.sal thead th .sub{display:block;color:#b8a888;font-size:.6rem;letter-spacing:.06em;text-transform:none;font-weight:400;margin-top:2px}
+  table.sal tbody tr:nth-child(even){background:#FCFAF5}
+  table.sal .role{font-weight:500;color:#1c1a17}
+  table.sal .rng{font-weight:600;color:#1c1a17;white-space:nowrap}
+  table.sal .nn{display:block;font-size:.66rem;color:#a89f92;font-weight:400;margin-top:1px}
+  table.sal .dash{color:#cbbfae}
+  .legend-dot{display:inline-block;width:.55rem;height:.55rem;border-radius:2px;background:#C6A87C;margin-right:.4rem;vertical-align:middle}
+  #mburger{position:fixed;top:26px;right:24px;z-index:70;width:26px;height:18px;cursor:pointer;background:none;border:0;padding:0}
+  #mburger span{position:absolute;left:0;height:2px;width:100%;border-radius:2px;background:#1c1a17;transition:.35s cubic-bezier(.6,0,.2,1)}
+  #mburger span:nth-child(1){top:0}#mburger span:nth-child(2){top:8px}#mburger span:nth-child(3){top:16px}
+  body.menu-open #mburger span{background:#F5F1E8}
+  body.menu-open #mburger span:nth-child(1){top:8px;transform:rotate(45deg)}
+  body.menu-open #mburger span:nth-child(2){opacity:0}
+  body.menu-open #mburger span:nth-child(3){top:8px;transform:rotate(-45deg)}
+  @media(min-width:1024px){#mburger{display:none}}
+  #mmenu{position:fixed;inset:0;z-index:60;background:#241B12;color:#F5F1E8;display:flex;flex-direction:column;justify-content:center;padding:40px 34px;clip-path:circle(0% at calc(100% - 37px) 35px);transition:clip-path .6s cubic-bezier(.6,0,.2,1);pointer-events:none}
+  body.menu-open #mmenu{clip-path:circle(150% at calc(100% - 37px) 35px);pointer-events:auto}
+  #mmenu a.mlk{display:block;font-family:'Playfair Display',serif;font-size:30px;font-weight:500;color:#F5F1E8;text-decoration:none;padding:8px 0}
+  #mmenu a.mlk .idx{font-family:'Inter';font-size:11px;color:#C6A87C;vertical-align:super;margin-right:10px;letter-spacing:.1em}
+  #mmenu .mverify{margin-top:22px;display:inline-flex;align-items:center;gap:8px;background:#C6A87C;color:#241B12;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:12px 22px;border-radius:999px;width:max-content}
+  @media(min-width:1024px){#mmenu{display:none}}
+  .nav-desk{display:none}.nav-verify{display:none}
+  @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
+  #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6)}
+  #toTop.show{opacity:1;pointer-events:auto;transform:none}
+</style></head>
+<body class="antialiased">
+
+  <nav class="absolute w-full z-50 px-6 md:px-12 py-6 flex justify-between items-center">
+    <a href="/" class="group leading-none text-center">
+      <span class="font-serif text-2xl tracking-[0.1em] text-luxury-black font-semibold group-hover:text-luxury-goldDark transition-colors">JTE</span>
+      <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-500 mt-1 group-hover:text-luxury-goldDark transition-colors">Recruit</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-8">
+      <div class="nav-desk items-center space-x-7">
+        <a href="/employers" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">For Employers</a>
+        <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
+        <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
+        <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Field Notes</a>
+        <a href="/salary-guide" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover-gold-line nav-active">Salary Guide</a>
+        <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
+      </div>
+      <a href="/verify" class="nav-verify items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Verify a Number
+      </a>
+    </div>
+  </nav>
+
+  <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div id="mmenu">
+    <a class="mlk" href="/services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
+    <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">02</span>Our Story</a>
+    <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">03</span>Field Notes</a>
+    <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">04</span>Salary Guide</a>
+    <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
+    <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
+  </div>
+`;
+
+const footer = `
+  <!-- FOOTER -->
+  <footer class="pt-16 pb-10 px-6 md:px-12 text-white" style="background:#241B12;">
+    <div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+      <div class="leading-none">
+        <span class="font-serif text-2xl tracking-[0.1em] font-semibold">JTE</span>
+        <span class="block text-[9px] uppercase tracking-[0.3em] text-[#9a9186] mt-1 mb-4">Recruit</span>
+        <p class="text-[#8a8175] text-sm font-light leading-relaxed max-w-xs mb-5">Recruitment with personality. Helping Singapore employers hire since 2014.</p>
+        <div class="text-sm leading-relaxed">
+          <a href="https://www.google.com/maps?cid=6240927876579879639" class="lnk block">1 Gateway Drive<br>#10-14 Westgate Tower<br>Singapore 608531</a>
+          <p class="mt-3"><a href="tel:+6567157450" class="lnk">+65 6715 7450</a> <span class="text-[#5c554b]">&middot;</span> <a href="mailto:ask@jte.com.sg" class="lnk">ask@jte.com.sg</a></p>
+        </div>
+      </div>
+      <div>
+        <p class="text-[#c9c1b6] font-medium mb-4 text-sm">Services</p>
+        <div class="space-y-2.5 text-sm">
+          <a href="/services/permanent-recruitment" class="lnk block">Permanent Hiring</a>
+          <a href="/services/contract-staffing" class="lnk block">Temp &amp; Contract</a>
+          <a href="/services/manpower-outsourcing" class="lnk block">Manpower Outsourcing</a>
+          <a href="/services/payroll-work-pass" class="lnk block">Payroll &amp; Work Pass</a>
+          <a href="/services/employer-branding" class="lnk block">Employer Branding</a>
+          <a href="/services/mass-hiring" class="lnk block">Project &amp; Mass Hiring</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-[#c9c1b6] font-medium mb-4 text-sm">Salary Guide</p>
+        <div class="space-y-2.5 text-sm">
+          <a href="/salary-guide/engineering" class="lnk block">Engineering</a>
+          <a href="/salary-guide/logistics" class="lnk block">Logistics &amp; Supply Chain</a>
+          <a href="/salary-guide/manufacturing" class="lnk block">Manufacturing</a>
+          <a href="/salary-guide/healthcare" class="lnk block">Healthcare</a>
+          <a href="/salary-guide/commercial" class="lnk block">Commercial &amp; Support</a>
+          <a href="/salary-guide/it" class="lnk block">IT &amp; Tech</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-[#c9c1b6] font-medium mb-4 text-sm">Company</p>
+        <div class="space-y-2.5 text-sm">
+          <a href="/employers" class="lnk block">For Employers</a>
+          <a href="/our-story" class="lnk block">Our Story</a>
+          <a href="/blog" class="lnk block">Field Notes</a>
+          <a href="/salary-guide" class="lnk block">Salary Guide</a>
+          <a href="/verify" class="lnk block">Verify a Number</a>
+          <a href="/contact" class="lnk block">Contact</a>
+          <a href="/privacy" class="lnk block">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row-reverse justify-between items-center gap-6">
+      <div class="flex gap-4">
+        <a href="https://www.instagram.com/jterecruit/?hl=en" target="_blank" rel="noopener noreferrer" class="soc"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+        <a href="https://sg.linkedin.com/company/jte-recruit-pte-ltd" target="_blank" rel="noopener noreferrer" class="soc"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        <a href="https://www.tiktok.com/@jterecruit" target="_blank" rel="noopener noreferrer" class="soc"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+      </div>
+      <div class="text-center md:text-left">
+        <p class="text-[#8a8175] text-xs">&copy; ${YEAR} JTE Recruit Pte Ltd. EA License 14C7215.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+  <script>
+    function toggleMenu(){document.body.classList.toggle('menu-open');}
+    function closeMenu(){document.body.classList.remove('menu-open');}
+    (function(){var t=document.getElementById('toTop');window.addEventListener('scroll',function(){if(window.scrollY>500){t.classList.add('show');}else{t.classList.remove('show');}});})();
+  </script>
+</body></html>`;
+
+/* the disclaimer block — same on every page */
+const disclaimer = `
+  <!-- DISCLAIMER -->
+  <section class="px-6 md:px-12 pb-20 md:pb-24">
+    <div class="max-w-3xl mx-auto">
+      <div class="rounded-xl border border-black/10 bg-white/60 p-7 md:p-9">
+        <span class="eyebrow">Please read this</span>
+        <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-4">A guide, not a guarantee</h2>
+        <div class="text-gray-600 text-[13px] md:text-sm font-light leading-relaxed space-y-3">
+          <p>These figures are the <b class="font-medium text-luxury-goldDark">typical monthly base range</b> we see for each role and seniority across the Singapore market. They are <b class="font-medium text-luxury-goldDark">indicative, not a quote or a promise</b> &mdash; real offers land higher and lower depending on the company.</p>
+          <p>They show <b class="font-medium">base pay only</b> &mdash; before bonus, AWS, commission, overtime, shift and site allowances, and benefits. For many roles (warehouse, drivers, production, nursing) overtime and allowances make a real difference to take-home, so the base range under-states what people actually earn.</p>
+          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills &mdash; two jobs with the same title can be very different. These ranges reflect our own experience <b class="font-medium">recruiting across Singapore since 2014</b> and the combined market knowledge of our consultants &mdash; read them as our honest guide, not a fixed rate card.</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+
+/* the "request a tailored report" CTA */
+const reportCTA = `
+  <!-- CTA -->
+  <section class="px-6 md:px-12 pb-24">
+    <div class="why max-w-4xl mx-auto p-8 md:p-12 text-center">
+      <span class="eyebrow" style="color:#E5D4B3">Hiring for a specific role?</span>
+      <h2 class="font-serif text-2xl md:text-[2rem] mt-3 mb-3 leading-tight">Get a tailored read on your role</h2>
+      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto mb-8">Tell us the title, the scope and where you&rsquo;re based &mdash; we&rsquo;ll come back with a sharper range for your exact hire, what similar employers are paying, and how to win the right person. No cost, no obligation.</p>
+      <a href="/contact" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-md uppercase tracking-wider font-semibold text-xs">
+        Ask us about your role
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mt-8 text-xs text-[#e6dcc9]">
+        <span>&#10003; <b class="text-luxury-goldLight font-medium">11+ years</b> placing in Singapore</span>
+        <span>&#10003; <b class="text-luxury-goldLight font-medium">EA Licence</b> 14C7215</span>
+        <span>&#10003; <b class="text-luxury-goldLight font-medium">Real consultants</b>, not a database</span>
+      </div>
+    </div>
+  </section>`;
+
+/* legend explaining the seniority bands */
+const legend = `
+  <div class="max-w-4xl mx-auto mt-5 text-[12px] text-gray-500">
+    <div class="flex flex-wrap gap-x-7 gap-y-2">
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Junior</b> &mdash; fresh grads, non-executive &amp; junior roles</span>
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Mid</b> &mdash; executives, senior execs &amp; professionals</span>
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Senior / Lead</b> &mdash; managers &amp; management</span>
+    </div>
+    <p class="text-gray-400 mt-2.5">A dash (&mdash;) means we don&rsquo;t place enough of that role at that level to quote a fair range.</p>
+  </div>`;
+
+/* build one salary table for a sector */
+function tableHTML(sector) {
+  const cell = c => c
+    ? `<span class="rng">$${fmt(c.low)}&ndash;${fmt(c.high)}</span>`
+    : `<span class="dash">&mdash;</span>`;
+  const rows = sector.roles.map(r => `        <tr>
+          <td class="role">${esc(r.name)}</td>
+          <td>${cell(r.bands['Junior'])}</td>
+          <td>${cell(r.bands['Mid'])}</td>
+          <td>${cell(r.bands['Senior / Lead'])}</td>
+        </tr>`).join('\n');
+  const th = BANDS.map(b => `<th>${b}<span class="sub">${BAND_SUB[b]}</span></th>`).join('');
+  return `<div class="sal-wrap"><table class="sal">
+      <thead><tr><th>Role<span class="sub">${sector.roles.length} roles &middot; SGD / month</span></th>${th}</tr></thead>
+      <tbody>
+${rows}
+      </tbody>
+    </table></div>`;
+}
+
+/* ---------- SECTOR PAGES ---------- */
+function sectorPage(sec) {
+  const svc = SERVICE_SLUG[sec.slug];
+  const topRoles = sec.roles.slice(0, 4).map(r => r.name).join(', ');
+  const title = `${sec.name} Salary Guide Singapore ${YEAR} — Pay by Role &amp; Seniority | JTE Recruit`;
+  const desc = `What ${sec.name.replace(/&amp;|&/g, 'and')} roles pay in Singapore — ${sec.name.replace(/&amp;|&/g,'and')} salary ranges by seniority (${topRoles.replace(/&amp;|&/g,'and')}), from JTE Recruit's years placing talent across Singapore. Updated ${UPDATED}.`;
+  const path = `/salary-guide/${sec.slug}/`;
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from JTE Recruit's market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>`;
+
+  const otherSectors = data.sectors.filter(s => s.slug !== sec.slug).map(s =>
+    `<a href="/salary-guide/${s.slug}" class="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-gray-600 hover:text-luxury-goldDark border border-black/10 hover:border-luxury-gold rounded-full px-4 py-2 transition-colors">${s.name}</a>`).join('\n        ');
+
+  return head({ title, desc, path, jsonld }) + `
+  <!-- HERO -->
+  <header class="px-6 md:px-12 pt-32 pb-8">
+    <div class="max-w-4xl mx-auto">
+      <nav class="text-[11px] uppercase tracking-[0.12em] text-gray-400 mb-6" aria-label="Breadcrumb">
+        <a href="/salary-guide" class="hover:text-luxury-goldDark">Salary Guide</a> <span class="mx-1.5 text-gray-300">/</span> <span class="text-gray-600">${sec.name}</span>
+      </nav>
+      <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore &middot; ${YEAR} &middot; JTE Salary Guide</span>
+      <h1 class="font-serif text-4xl md:text-5xl text-luxury-black font-semibold mt-6 mb-5 leading-[1.1]">${sec.name}<br>Salary Guide, Singapore</h1>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed max-w-2xl">What ${sec.name.replace(/&amp;/g,'&')} roles pay in Singapore, by seniority &mdash; ${BLURB[sec.slug]} The typical monthly ranges we see across the market.</p>
+    </div>
+  </header>
+
+  <!-- TABLE -->
+  <section class="px-6 md:px-12 pb-6">
+    <div class="max-w-4xl mx-auto">
+      ${tableHTML(sec)}
+      <div class="flex flex-wrap justify-between items-center gap-x-4 gap-y-1 mt-4 pt-3.5 border-t border-black/5 text-[12px] text-gray-500">
+        <span><b class="font-medium text-gray-700">50+ years&rsquo;</b> combined experience recruiting in Singapore</span>
+        <span>Updated <b class="font-medium text-gray-700">${UPDATED}</b></span>
+      </div>
+    </div>
+    ${legend}
+  </section>
+
+  <!-- WHAT MOVES THE NUMBER -->
+  <section class="px-6 md:px-12 py-14">
+    <div class="max-w-3xl mx-auto sg-card p-7 md:p-9">
+      <span class="eyebrow">What moves the number</span>
+      <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-3">Why two people in the same role earn differently</h2>
+      <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses sit on top of the base figures above &mdash; so actual take-home often runs higher, especially for shift and hands-on roles.</p>
+      <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week &mdash; <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>.</p>
+    </div>
+  </section>
+${disclaimer}
+  <!-- OTHER SECTORS -->
+  <section class="px-6 md:px-12 pb-20">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="eyebrow">Other sectors</span>
+      <h2 class="font-serif text-2xl text-luxury-black mt-3 mb-6">Explore more salary ranges</h2>
+      <div class="flex flex-wrap justify-center gap-2.5">
+        ${otherSectors}
+      </div>
+    </div>
+  </section>
+${reportCTA}
+${footer}`;
+}
+
+/* ---------- HUB ---------- */
+function hubPage() {
+  const title = `Singapore Salary Guide ${YEAR} — Pay by Role &amp; Seniority | JTE Recruit`;
+  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across Engineering, Logistics, Manufacturing, Healthcare, Commercial and IT — from JTE Recruit's 50+ years' combined experience placing talent in Singapore. Updated ${UPDATED}.`;
+  const path = `/salary-guide/`;
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from JTE Recruit's years of market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>`;
+
+  const cards = data.sectors.map(s => {
+    const examples = s.roles.slice(0, 3).map(r => {
+      const c = r.bands['Mid'] || r.bands['Junior'] || r.bands['Senior / Lead'];
+      return `<div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
+              <span class="text-[13px] text-gray-600">${esc(r.name)}</span>
+              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$${fmt(c.low)}&ndash;${fmt(c.high)}</span>
+            </div>`;
+    }).join('\n            ');
+    const roleWord = s.roles.length === 1 ? 'role' : 'roles';
+    return `        <a href="/salary-guide/${s.slug}" class="group sg-card p-6 md:p-7 block hover:-translate-y-0.5 transition-transform">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-serif text-xl text-luxury-black group-hover:text-luxury-goldDark transition-colors">${s.name}</h3>
+            <svg class="w-4 h-4 text-gray-300 group-hover:text-luxury-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <p class="text-[12px] text-gray-500 font-light leading-relaxed mb-4">${BLURB[s.slug]}</p>
+          <div class="mb-4">
+            ${examples}
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.12em] text-luxury-goldDark font-semibold">${s.roles.length} ${roleWord} &middot; view ranges &rarr;</span>
+        </a>`;
+  }).join('\n');
+
+  return head({ title, desc, path, jsonld }) + `
+  <!-- HERO -->
+  <header class="px-6 md:px-12 pt-32 pb-10 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore Salary Guide &middot; ${YEAR}</span>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-6 mb-6 leading-[1.1]">What roles really pay<br>in Singapore</h1>
+      <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed max-w-2xl mx-auto">Honest salary ranges by role <b class="font-medium text-luxury-black">and</b> seniority &mdash; not one misleading average per job. Built on <b class="font-medium text-luxury-black">50+ years&rsquo; combined experience</b> recruiting across Singapore, these are the real ranges we see for the roles we fill &mdash; from warehouse to software engineer.</p>
+      <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mt-6 text-[12px] text-gray-500">
+        <span>&#128336; Updated <b class="font-medium text-gray-700">${UPDATED}</b></span>
+        <span>&#127775; Free &middot; no sign-up</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTOR CARDS -->
+  <section class="px-6 md:px-12 pb-6">
+    <div class="max-w-2xl mx-auto text-center mb-9">
+      <span class="eyebrow">Pick your sector</span>
+      <h2 class="font-serif text-2xl md:text-3xl text-luxury-black mt-3">Salary ranges by sector</h2>
+      <p class="text-gray-500 text-sm font-light mt-2">Each opens a full breakdown &mdash; every role, split by junior, mid and senior.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+${cards}
+    </div>
+  </section>
+
+  <!-- HOW TO READ -->
+  <section class="px-6 md:px-12 py-16 md:py-20 mt-10 bg-white border-y border-black/5">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="eyebrow">How to read this guide</span>
+        <h2 class="font-serif text-2xl md:text-3xl text-luxury-black mt-3">Why we split every role by seniority</h2>
+      </div>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed mb-4">Most salary guides give you one number per job title. That&rsquo;s where they mislead &mdash; &ldquo;IT&rdquo; isn&rsquo;t a salary, and an IT support hire and a senior software engineer are worlds apart. So we split every role into three seniority bands and show the <b class="font-medium text-luxury-black">typical range</b> &mdash; where most offers land &mdash; not a single average that no real job actually pays.</p>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed">It&rsquo;s the market as we see it from the desk, day in and day out &mdash; built to <b class="font-medium text-luxury-goldDark">guide your decision, not make it for you</b>. The finer print on what&rsquo;s included is in the note further down.</p>
+    </div>
+  </section>
+
+  <!-- WHY FREE -->
+  <section class="px-6 md:px-12 py-16 md:py-20">
+    <div class="why max-w-6xl mx-auto p-8 md:p-12">
+      <span class="eyebrow" style="color:#E5D4B3">Why is it free?</span>
+      <h2 class="font-serif text-2xl md:text-[1.9rem] mt-3 mb-3 leading-tight" style="max-width:24ch">Because when you&rsquo;re ready to hire, we hope you&rsquo;ll call us.</h2>
+      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed" style="max-width:62ch">We&rsquo;ve placed talent across Singapore since 2014. Sharing what we know about the market is how we start the relationship &mdash; no cost, no obligation. If the data helps you hire on your own, wonderful. If you&rsquo;d rather we handle it, we&rsquo;re right here.</p>
+    </div>
+  </section>
+${disclaimer}
+${reportCTA}
+${footer}`;
+}
+
+/* ---------- write ---------- */
+function write(rel, html) {
+  const abs = join(ROOT, rel);
+  mkdirSync(dirname(abs), { recursive: true });
+  writeFileSync(abs, html);
+  console.log('wrote', rel);
+}
+write('salary-guide/index.html', hubPage());
+for (const sec of data.sectors) write(`salary-guide/${sec.slug}/index.html`, sectorPage(sec));
+console.log(`\ndone · ${data.sectors.length} sector pages + hub · data from ${data.updated}`);

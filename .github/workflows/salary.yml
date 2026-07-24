@@ -1,0 +1,43 @@
+name: Refresh salary guide
+
+# Weekly refresh of the Salary Guide, then redeploy the whole site.
+# Runs Saturday 00:30 Singapore time (Fri 16:30 UTC) so the "last updated"
+# date always lands on a weekend. Pulls the latest market picture, rebuilds
+# every salary-guide page, and redeploys. If the data comes back thin the
+# engine aborts (non-zero) and nothing is deployed — the last good site stays.
+
+on:
+  schedule:
+    - cron: '30 16 * * 5'   # Fri 16:30 UTC = Sat 00:30 Singapore time
+  workflow_dispatch:         # manual "refresh now" from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull the latest market picture
+        run: node salary-data.mjs
+
+      - name: Rebuild the salary-guide pages
+        run: node build-salary.mjs
+
+      - name: Regenerate blog index + sitemap
+        run: node scripts/build-blog.mjs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          force_orphan: true
+          # Keep build tooling + raw data off the public site.
+          exclude_assets: '.github,salary-data.mjs,build-salary.mjs,salary-data.json'
