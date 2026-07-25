@@ -63,6 +63,10 @@ const daily = await gsc({startDate:daysAgo(14),endDate:END,dimensions:['date'],t
 
 // Non-branded queries = real market discovery (strip anything containing "jte")
 const nonBrand = queries.filter(r => !/jte/i.test(r.keys[0])).sort((a,b)=>n(b.impressions)-n(a.impressions)).slice(0,10);
+// "Striking distance": queries ranking position 8–20 (bottom of page 1 / top of page 2) — the
+// fastest wins. A page already this close just needs a nudge to reach page one. Ranked by
+// impressions so the highest-traffic opportunities come first.
+const striking = queries.filter(r => { const p=n(r.position); return p>=8 && p<=20; }).sort((a,b)=>n(b.impressions)-n(a.impressions)).slice(0,10);
 
 let submitted='?';
 try{
@@ -112,6 +116,7 @@ console.log(`   impressions ${n(tot.impressions)} · clicks ${n(tot.clicks)} · 
 console.log(`   indexed & surfacing: ${pages.length} pages of ${submitted} submitted · ${queries.length} distinct queries`);
 console.log(`   week-on-week: impressions ${impΔ} · clicks ${clkΔ}` + (orgCurS!==null?` · organic ${orgΔ}`:''));
 console.log('\n🔎 TOP QUERIES'); topQ.forEach(r=>console.log(`   ${String(n(r.impressions)).padStart(4)} imp · ${n(r.clicks)} clk · pos ${n(r.position).toFixed(0).padStart(2)}  ${r.keys[0]}`));
+console.log('\n🪜 STRIKING DISTANCE (pos 8–20 · one push from page 1)'); striking.length ? striking.forEach(r=>console.log(`   ${String(n(r.impressions)).padStart(4)} imp · pos ${n(r.position).toFixed(0).padStart(2)}  ${r.keys[0]}`)) : console.log('   (nothing at position 8–20 yet)');
 console.log('\n🎯 NON-BRANDED (people who don\'t know JTE yet)'); nonBrand.forEach(r=>console.log(`   ${String(n(r.impressions)).padStart(4)} imp · pos ${n(r.position).toFixed(0).padStart(2)}  ${r.keys[0]}`));
 console.log('\n📄 TOP PAGES');   topP.forEach(r=>console.log(`   ${String(n(r.impressions)).padStart(4)} imp  ${r.keys[0].replace(HOST,'')||'/'}`));
 if(orgCurS!==null){ console.log('\n🌱 ORGANIC (GA 7d)  '+orgCurS+' sess · '+orgCurU+' users'); orgDaily.forEach(r=>{const d=r.dimensionValues[0].value;console.log(`   ${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}  ${n(r.metricValues[0].value)} sess`);}); }
@@ -129,6 +134,10 @@ if(RESEND_API_KEY){
   const rowsP = topP.map(r=>`<tr><td style="padding:5px 10px">${(r.keys[0].replace(HOST,'')||'/')}</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${n(r.impressions)} imp</td></tr>`).join('');
   const orgCard = orgCurS!==null ? card('Organic visits 7d',orgCurS+' sess',orgCurU+' users · '+orgΔ) : card('Sitemap','of '+submitted,'pages submitted');
   const aiRowsHTML = aiEngines.length ? aiEngines.map(e=>`<tr><td style="padding:5px 10px">${e.name}</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${e.sess} sess</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${e.users} users</td></tr>`).join('') : `<tr><td style="padding:9px 10px;color:${MUTE}">No AI-engine referrals yet — this is where ChatGPT / Perplexity / Gemini traffic will show as AEO grows.</td></tr>`;
+  const strikeRows = striking.length ? striking.map(r=>`<tr><td style="padding:5px 10px">${r.keys[0].replace(/</g,'&lt;').slice(0,72)}</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${n(r.impressions)} imp</td><td style="padding:5px 10px;text-align:right;color:${GOLD};white-space:nowrap">pos ${n(r.position).toFixed(0)}</td></tr>`).join('') : `<tr><td style="padding:9px 10px;color:${MUTE}">Nothing sitting at position 8–20 right now — keep publishing and they'll appear here.</td></tr>`;
+  const strikeSection = `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🪜 Striking distance — one push from page 1</h3>
+  <p style="font-size:12px;color:#6b6459;margin:0 4px 6px">Searches where JTE ranks <b>position 8–20</b> (bottom of page 1 / top of page 2). These pages are the fastest wins — a better title, more content, or a clearer answer nudges them onto page one. Work top-down.</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${strikeRows}</table>`;
   const aiSection = orgCurS!==null ? `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🤖 Found via AI answer engines (AEO)</h3>
   <p style="font-size:12px;color:#6b6459;margin:0 4px 6px">People who arrived from an AI tool in the last 28 days${aiTotS?` — <b>${aiTotS}</b> sessions, ${aiTotU} users, week-on-week ${chip(delta(aiCur7S,aiPrev7S))}`:''}.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${aiRowsHTML}</table>` : '';
@@ -141,6 +150,7 @@ if(RESEND_API_KEY){
     ${orgCard}
   </tr></table>
   <p style="font-size:13px;color:#6b6459;margin:16px 4px">Clicks 28d: <b>${n(tot.clicks)}</b> · CTR ${(n(tot.ctr)*100).toFixed(1)}% · avg position <b>${n(tot.position).toFixed(1)}</b> · ${queries.length} distinct queries. Week-on-week: impressions ${chip(impΔ)}, clicks ${chip(clkΔ)}${orgCurS!==null?`, organic ${chip(orgΔ)}`:''}.</p>
+  ${strikeSection}
   ${aiSection}
   <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🎯 Non-branded — people finding JTE who didn't search for us</h3>
   <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${rowsNB}</table>
