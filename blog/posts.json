@@ -1,5 +1,15 @@
 [
   {
+    "slug": "hiring-it-talent-singapore",
+    "title": "Hiring IT talent in Singapore: what I&rsquo;ve learned as a recruiter who also builds",
+    "tag": "Perspective",
+    "excerpt": "The IT market moves insanely fast &mdash; and AI made it faster. An honest, personal take on hiring tech talent in Singapore, from a recruiter who builds software himself.",
+    "author": "Eugene Teo",
+    "date": "2026-08-11",
+    "readTime": "6 min read",
+    "icon": "monitor"
+  },
+  {
     "slug": "hiring-engineers-singapore",
     "title": "Hiring engineers in Singapore: it&rsquo;s usually the pay, not the talent",
     "tag": "Employer Guide",
@@ -15,7 +25,7 @@
     "tag": "Employer Guide",
     "excerpt": "A practical checklist &mdash; MOM licensing, sector expertise, fees, process and ethics &mdash; plus the exact questions to ask before you engage a recruiter.",
     "author": "Eugene Teo",
-    "date": "2026-08-18",
+    "date": "2026-08-25",
     "readTime": "6 min read",
     "icon": "check"
   },
@@ -25,7 +35,7 @@
     "tag": "Employer Guide",
     "excerpt": "What each model means, when to use them, the cost and commitment trade-offs, and how to run a permanent core with a flexible contract layer.",
     "author": "Eugene Teo",
-    "date": "2026-08-11",
+    "date": "2026-08-18",
     "readTime": "5 min read",
     "icon": "users"
   },
