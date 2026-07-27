@@ -79,6 +79,7 @@ try{
 let orgCurS=null, orgCurU=0, orgPrevS=0, orgDaily=[];
 let aiEngines=[], aiTotS=0, aiTotU=0, aiCur7S=0, aiPrev7S=0;
 let aSeries=[];
+let channels=[], campaigns=[];
 if (GA_PROPERTY) {
   try {
     const gaTok = await token('https://www.googleapis.com/auth/analytics.readonly');
@@ -91,6 +92,11 @@ if (GA_PROPERTY) {
     orgCurU = orgCur[0]?n(orgCur[0].metricValues[1].value):0;
     orgPrevS= orgPrev[0]?n(orgPrev[0].metricValues[0].value):0;
     aSeries = await ga({dateRanges:[{startDate:'62daysAgo',endDate:'yesterday'}],dimensions:[{name:'date'}],metrics:[{name:'sessions'},{name:'totalUsers'}],dimensionFilter:ORG,orderBys:[{dimension:{dimensionName:'date'}}]});
+    // where visitors came from (channel) + your tagged UTM campaigns
+    const chRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'sessionDefaultChannelGroup'}],metrics:[{name:'sessions'},{name:'totalUsers'}],orderBys:[{metric:{metricName:'sessions'},desc:true}]});
+    channels = chRows.map(r=>({name:r.dimensionValues[0].value||'(unknown)', s:n(r.metricValues[0].value), u:n(r.metricValues[1].value)}));
+    const campRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'sessionCampaignName'},{name:'sessionSource'}],metrics:[{name:'sessions'},{name:'totalUsers'}],orderBys:[{metric:{metricName:'sessions'},desc:true}],limit:15});
+    campaigns = campRows.map(r=>({camp:r.dimensionValues[0].value, src:r.dimensionValues[1].value, s:n(r.metricValues[0].value), u:n(r.metricValues[1].value)})).filter(c=>c.camp && !c.camp.startsWith('('));  // keep only real UTM campaigns (GA4 auto-tags are parenthesised)
     // AEO: sessions arriving from AI answer engines (ChatGPT / Perplexity / Gemini / …)
     const aiFilter={filter:{fieldName:'sessionSource',stringFilter:{matchType:'PARTIAL_REGEXP',value:AI_RE}}};
     const aiRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'sessionSource'}],metrics:[{name:'sessions'},{name:'totalUsers'}],dimensionFilter:aiFilter,orderBys:[{metric:{metricName:'sessions'},desc:true}]});
@@ -147,6 +153,8 @@ console.log('\n🎯 NON-BRANDED (people who don\'t know JTE yet)'); nonBrand.for
 console.log('\n📄 TOP PAGES');   topP.forEach(r=>console.log(`   ${String(n(r.impressions)).padStart(4)} imp  ${r.keys[0].replace(HOST,'')||'/'}`));
 if(orgCurS!==null){ console.log('\n🌱 ORGANIC (GA 7d)  '+orgCurS+' sess · '+orgCurU+' users'); orgDaily.forEach(r=>{const d=r.dimensionValues[0].value;console.log(`   ${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}  ${n(r.metricValues[0].value)} sess`);}); }
 if(orgCurS!==null){ console.log('\n🤖 AI ANSWER ENGINES (AEO 28d)  '+aiTotS+' sess · '+aiTotU+' users · wk '+delta(aiCur7S,aiPrev7S)); aiEngines.length ? aiEngines.forEach(e=>console.log(`   ${String(e.sess).padStart(4)} sess · ${e.users} users  ${e.name}`)) : console.log('   (no AI-engine referrals yet)'); }
+if(orgCurS!==null){ console.log('\n📣 WHERE VISITORS CAME FROM (28d)'); channels.forEach(c=>console.log(`   ${String(c.s).padStart(4)} sess · ${c.u} users  ${c.name}`)); }
+if(orgCurS!==null){ console.log('\n🔗 BY CAMPAIGN (your UTM-tagged links)'); campaigns.length ? campaigns.forEach(c=>console.log(`   ${String(c.s).padStart(4)} sess · ${c.u} users  ${c.camp}  (${c.src})`)) : console.log('   (no tagged campaigns yet — add UTM tags to your shared links)'); }
 console.log('\n📅 IMPRESSIONS TREND (14d)'); daily.forEach(r=>console.log(`   ${r.keys[0]}  ${n(r.impressions)} imp / ${n(r.clicks)} clk`));
 const printMovers=(title,rows)=>{ console.log('\n'+title); rows.forEach(s=>{const chg=s.flat?'— flat':s.noBase?'▲ new':((s.improved?'▲':'▼')+s.pct+'% '+(s.improved?'better':'softer'));console.log('   '+s.label.padEnd(15)+String(s.fmt(s.cur)).padStart(9)+'  (was '+s.fmt(s.prev)+')   '+chg);}); };
 printMovers('📊 WHAT MOVED — vs yesterday ('+daysAgo(1)+' vs '+daysAgo(2)+', organic traffic)', movDaily);
@@ -171,6 +179,12 @@ if(RESEND_API_KEY){
   const aiSection = orgCurS!==null ? `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🤖 Found via AI answer engines (AEO)</h3>
   <p style="font-size:12px;color:#6b6459;margin:0 4px 6px">People who arrived from an AI tool in the last 28 days${aiTotS?` — <b>${aiTotS}</b> sessions, ${aiTotU} users, week-on-week ${chip(delta(aiCur7S,aiPrev7S))}`:''}.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${aiRowsHTML}</table>` : '';
+  const chTotal = channels.reduce((a,c)=>a+c.s,0);
+  const channelSection = (orgCurS!==null && channels.length) ? `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">📣 Where your visitors came from (28d)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${channels.map(c=>`<tr><td style="padding:5px 10px">${c.name}</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${c.s} sess · ${c.u} users</td><td style="padding:5px 10px;text-align:right;color:${GOLD};white-space:nowrap">${chTotal?Math.round(c.s/chTotal*100):0}%</td></tr>`).join('')}</table>` : '';
+  const campaignSection = orgCurS!==null ? `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🔗 By campaign — your tagged links</h3>
+  <p style="font-size:12px;color:#6b6459;margin:0 4px 6px">Visits from links you tagged with UTM codes (e.g. your LinkedIn posts). This is how you see which post actually drove traffic.</p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${campaigns.length ? campaigns.map(c=>`<tr><td style="padding:5px 10px">${c.camp.replace(/</g,'&lt;')}</td><td style="padding:5px 10px;color:${MUTE};white-space:nowrap">${c.src.replace(/</g,'&lt;')}</td><td style="padding:5px 10px;text-align:right;color:#6b6459;white-space:nowrap">${c.s} sess</td></tr>`).join('') : `<tr><td style="padding:9px 10px;color:${MUTE}">No tagged campaigns yet — add UTM tags to the links you share and they'll appear here.</td></tr>`}</table>` : '';
   const moverHTML=(title,sub,rows)=>{
     const up=rows.filter(s=>!s.flat&&s.improved).map(s=>s.label), dn=rows.filter(s=>!s.flat&&!s.improved).map(s=>s.label);
     const tr=rows.map(s=>{const col=s.flat?MUTE:(s.improved?'#1a7f4b':'#b23a44');const chg=s.flat?'—':s.noBase?'▲ new':((s.improved?'▲':'▼')+' '+s.pct+'%');return `<tr><td style="padding:6px 10px">${s.label}</td><td style="padding:6px 10px;text-align:right;font-weight:600">${s.fmt(s.cur)}</td><td style="padding:6px 10px;text-align:right;color:${MUTE}">${s.fmt(s.prev)}</td><td style="padding:6px 10px;text-align:right;color:${col};font-weight:700">${chg}</td></tr>`;}).join('');
@@ -191,6 +205,8 @@ if(RESEND_API_KEY){
   ${isSun?moverHTML('📅 This week vs last week', 'Last 7 days vs the 7 before it.', movWeek):''}
   ${isMonthEnd?moverHTML('🗓️ This month vs last month', 'Last 30 days vs the 30 before it.', movMonth):''}
   ${strikeSection}
+  ${channelSection}
+  ${campaignSection}
   ${aiSection}
   <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🎯 Non-branded — people finding JTE who didn't search for us</h3>
   <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${rowsNB}</table>
