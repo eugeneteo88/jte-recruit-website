@@ -17,10 +17,11 @@ jobs:
         with:
           node-version: 22
 
-      # Regenerate the blog index + sitemap from blog/posts.json so any post
-      # whose publish date has arrived (Singapore time) is included.
-      - name: Build blog
-        run: node scripts/build-blog.mjs
+      # Regenerate blog + salary pages, then rebuild Tailwind CSS from the
+      # current HTML so any newly-used utility class is always compiled in
+      # (prevents stale prebuilt CSS). One command — see package.json "build".
+      - name: Build site (blog + salary + CSS)
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -31,4 +32,4 @@ jobs:
           # never accumulates old (or confidential) files in its git history.
           force_orphan: true
           # Keep build tooling + raw data off the public site.
-          exclude_assets: '.github,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,.ga-key.json'
+          exclude_assets: '.github,node_modules,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,.ga-key.json'
