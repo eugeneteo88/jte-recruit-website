@@ -150,9 +150,10 @@
       <div class="md:w-3/5">
         <div class="mb-5"><span class="eyebrow">For employers</span><p class="text-gray-600 text-sm mt-1">Tell us who you&rsquo;re hiring and we&rsquo;ll be in touch.</p></div>
         <div id="success-message" class="success-message">&#10003; Your message has been sent. We&rsquo;ll get back to you within 24 hours.</div>
-        <form class="space-y-6" id="contact-form" action="https://formspree.io/f/mpqjwaqv" method="POST">
-          <input type="hidden" name="_subject" value="New enquiry from JTE Website">
-          <input type="text" name="_gotcha" style="display:none">
+        <form class="space-y-6" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="84a24d5b-52e7-4efd-bda7-b3964a431f33">
+          <input type="hidden" name="subject" value="New enquiry from JTE Website">
+          <input type="checkbox" name="botcheck" style="display:none">
           <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
             <div><label class="flabel" for="cf-name">Your Name *</label><input id="cf-name" type="text" name="name" class="fld" required></div>
             <div><label class="flabel" for="cf-mobile">Mobile Number *</label><input id="cf-mobile" type="tel" name="mobile" class="fld" placeholder="+65" required></div>
