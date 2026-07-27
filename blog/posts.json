@@ -1,11 +1,21 @@
 [
   {
+    "slug": "hiring-engineers-singapore",
+    "title": "Hiring engineers in Singapore: it&rsquo;s usually the pay, not the talent",
+    "tag": "Employer Guide",
+    "excerpt": "The problem is rarely the talent &mdash; it&rsquo;s the pay. An honest take on the &ldquo;last drawn&rdquo; trap, why engineering is underpaid, and how to land good engineers.",
+    "author": "Eugene Teo",
+    "date": "2026-08-04",
+    "readTime": "6 min read",
+    "icon": "cog"
+  },
+  {
     "slug": "how-to-choose-recruitment-agency-singapore",
     "title": "How to choose a recruitment agency in Singapore",
     "tag": "Employer Guide",
     "excerpt": "A practical checklist &mdash; MOM licensing, sector expertise, fees, process and ethics &mdash; plus the exact questions to ask before you engage a recruiter.",
     "author": "Eugene Teo",
-    "date": "2026-08-11",
+    "date": "2026-08-18",
     "readTime": "6 min read",
     "icon": "check"
   },
@@ -15,7 +25,7 @@
     "tag": "Employer Guide",
     "excerpt": "What each model means, when to use them, the cost and commitment trade-offs, and how to run a permanent core with a flexible contract layer.",
     "author": "Eugene Teo",
-    "date": "2026-08-04",
+    "date": "2026-08-11",
     "readTime": "5 min read",
     "icon": "users"
   },
