@@ -60,6 +60,7 @@ const queries = await gsc({startDate:START,endDate:END,dimensions:['query'],type
 const topQ = await gsc({startDate:START,endDate:END,dimensions:['query'],type:'web',rowLimit:10});
 const topP = await gsc({startDate:START,endDate:END,dimensions:['page'],type:'web',rowLimit:8});
 const daily = await gsc({startDate:daysAgo(14),endDate:END,dimensions:['date'],type:'web'});
+const gSeries = (await gsc({startDate:daysAgo(62),endDate:daysAgo(1),dimensions:['date'],type:'web'})).map(r=>({d:r.keys[0], impr:n(r.impressions), clk:n(r.clicks), pos:n(r.position)}));
 
 // Non-branded queries = real market discovery (strip anything containing "jte")
 const nonBrand = queries.filter(r => !/jte/i.test(r.keys[0])).sort((a,b)=>n(b.impressions)-n(a.impressions)).slice(0,10);
@@ -77,6 +78,7 @@ try{
 // ---------- Google Analytics (organic + AI referrals) — optional ----------
 let orgCurS=null, orgCurU=0, orgPrevS=0, orgDaily=[];
 let aiEngines=[], aiTotS=0, aiTotU=0, aiCur7S=0, aiPrev7S=0;
+let aSeries=[];
 if (GA_PROPERTY) {
   try {
     const gaTok = await token('https://www.googleapis.com/auth/analytics.readonly');
@@ -88,6 +90,7 @@ if (GA_PROPERTY) {
     orgCurS = orgCur[0]?n(orgCur[0].metricValues[0].value):0;
     orgCurU = orgCur[0]?n(orgCur[0].metricValues[1].value):0;
     orgPrevS= orgPrev[0]?n(orgPrev[0].metricValues[0].value):0;
+    aSeries = await ga({dateRanges:[{startDate:'62daysAgo',endDate:'yesterday'}],dimensions:[{name:'date'}],metrics:[{name:'sessions'},{name:'totalUsers'}],dimensionFilter:ORG,orderBys:[{dimension:{dimensionName:'date'}}]});
     // AEO: sessions arriving from AI answer engines (ChatGPT / Perplexity / Gemini / …)
     const aiFilter={filter:{fieldName:'sessionSource',stringFilter:{matchType:'PARTIAL_REGEXP',value:AI_RE}}};
     const aiRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'sessionSource'}],metrics:[{name:'sessions'},{name:'totalUsers'}],dimensionFilter:aiFilter,orderBys:[{metric:{metricName:'sessions'},desc:true}]});
@@ -102,6 +105,29 @@ if (GA_PROPERTY) {
     aiPrev7S= aiP7[0]?n(aiP7[0].metricValues[0].value):0;
   } catch(e){ console.error('GA skipped:', e.message); }
 }
+
+// ---------- "what moved" — period-over-period (daily always · weekly on Sun · monthly on month-end) ----------
+const byDate={};
+for(const r of gSeries){ (byDate[r.d]=byDate[r.d]||{}).impr=r.impr; byDate[r.d].clk=r.clk; byDate[r.d].pos=r.pos; }
+for(const r of aSeries){ const v=r.dimensionValues[0].value; const d=v.slice(0,4)+'-'+v.slice(4,6)+'-'+v.slice(6,8); (byDate[d]=byDate[d]||{}).sess=n(r.metricValues[0].value); byDate[d].users=n(r.metricValues[1].value); }
+const rng=(from,to)=>{const a=[];for(let i=from;i>=to;i--)a.push(daysAgo(i));return a;};
+const sumM=(ds,m)=>ds.reduce((a,d)=>a+((byDate[d]||{})[m]||0),0);
+const wposM=ds=>{let i=0,ip=0;for(const d of ds){const o=byDate[d]||{};if(o.impr){i+=o.impr;ip+=o.impr*(o.pos||0);}}return i?ip/i:0;};
+const sgtNow=new Date(Date.now()+288e5), sgtTom=new Date(Date.now()+288e5+864e5);
+const isSun=sgtNow.getUTCDay()===0, isMonthEnd=sgtTom.getUTCMonth()!==sgtNow.getUTCMonth();
+const fmtN=x=>Math.round(n(x)).toLocaleString(), fmtPos=x=>n(x).toFixed(1);
+const METRICS={
+  sess: {label:'Organic visits', m:'sess', better:'up',   fmt:fmtN},
+  users:{label:'Users',          m:'users',better:'up',   fmt:fmtN},
+  impr: {label:'Impressions',    m:'impr', better:'up',   fmt:fmtN},
+  clk:  {label:'Clicks',         m:'clk',  better:'up',   fmt:fmtN},
+  pos:  {label:'Avg position',   pos:true, better:'down', fmt:fmtPos, eps:0.05},
+};
+const moverStat=r=>{const cur=n(r.cur),prev=n(r.prev),dv=cur-prev;const flat=(r.pos&&(cur===0||prev===0))||(prev===0&&cur===0)||Math.abs(dv)<(r.eps||1e-9);const improved=r.better==='up'?dv>0:dv<0;const noBase=!flat&&prev===0;const pct=prev?Math.abs(Math.round((cur-prev)/prev*100)):null;return{...r,cur,prev,dv,flat,improved,noBase,pct};};
+const build=(keys,cur,prev)=>keys.map(k=>{const d=METRICS[k];const c=d.pos?wposM(cur):sumM(cur,d.m);const p=d.pos?wposM(prev):sumM(prev,d.m);return moverStat({...d,cur:c,prev:p});});
+const movDaily=build(['sess','users'],[daysAgo(1)],[daysAgo(2)]);
+const movWeek =build(['sess','users','impr','clk','pos'],rng(7,1),rng(14,8));
+const movMonth=build(['sess','users','impr','clk','pos'],rng(30,1),rng(60,31));
 
 // ---------- deltas ----------
 const delta = (c,p)=>{ c=n(c);p=n(p); const d=c-p; const arrow=d>0?'▲':d<0?'▼':'–'; return `${arrow}${d>0?'+':''}${d}`; };
@@ -122,6 +148,10 @@ console.log('\n📄 TOP PAGES');   topP.forEach(r=>console.log(`   ${String(n(r.
 if(orgCurS!==null){ console.log('\n🌱 ORGANIC (GA 7d)  '+orgCurS+' sess · '+orgCurU+' users'); orgDaily.forEach(r=>{const d=r.dimensionValues[0].value;console.log(`   ${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}  ${n(r.metricValues[0].value)} sess`);}); }
 if(orgCurS!==null){ console.log('\n🤖 AI ANSWER ENGINES (AEO 28d)  '+aiTotS+' sess · '+aiTotU+' users · wk '+delta(aiCur7S,aiPrev7S)); aiEngines.length ? aiEngines.forEach(e=>console.log(`   ${String(e.sess).padStart(4)} sess · ${e.users} users  ${e.name}`)) : console.log('   (no AI-engine referrals yet)'); }
 console.log('\n📅 IMPRESSIONS TREND (14d)'); daily.forEach(r=>console.log(`   ${r.keys[0]}  ${n(r.impressions)} imp / ${n(r.clicks)} clk`));
+const printMovers=(title,rows)=>{ console.log('\n'+title); rows.forEach(s=>{const chg=s.flat?'— flat':s.noBase?'▲ new':((s.improved?'▲':'▼')+s.pct+'% '+(s.improved?'better':'softer'));console.log('   '+s.label.padEnd(15)+String(s.fmt(s.cur)).padStart(9)+'  (was '+s.fmt(s.prev)+')   '+chg);}); };
+printMovers('📊 WHAT MOVED — vs yesterday ('+daysAgo(1)+' vs '+daysAgo(2)+', organic traffic)', movDaily);
+if(isSun) printMovers('📅 WEEK vs WEEK (last 7d vs prior 7d)', movWeek);
+if(isMonthEnd) printMovers('🗓️  MONTH vs MONTH (last 30d vs prior 30d)', movMonth);
 
 // ---------- email ----------
 if(RESEND_API_KEY){
@@ -141,6 +171,13 @@ if(RESEND_API_KEY){
   const aiSection = orgCurS!==null ? `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🤖 Found via AI answer engines (AEO)</h3>
   <p style="font-size:12px;color:#6b6459;margin:0 4px 6px">People who arrived from an AI tool in the last 28 days${aiTotS?` — <b>${aiTotS}</b> sessions, ${aiTotU} users, week-on-week ${chip(delta(aiCur7S,aiPrev7S))}`:''}.</p>
   <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden">${aiRowsHTML}</table>` : '';
+  const moverHTML=(title,sub,rows)=>{
+    const up=rows.filter(s=>!s.flat&&s.improved).map(s=>s.label), dn=rows.filter(s=>!s.flat&&!s.improved).map(s=>s.label);
+    const tr=rows.map(s=>{const col=s.flat?MUTE:(s.improved?'#1a7f4b':'#b23a44');const chg=s.flat?'—':s.noBase?'▲ new':((s.improved?'▲':'▼')+' '+s.pct+'%');return `<tr><td style="padding:6px 10px">${s.label}</td><td style="padding:6px 10px;text-align:right;font-weight:600">${s.fmt(s.cur)}</td><td style="padding:6px 10px;text-align:right;color:${MUTE}">${s.fmt(s.prev)}</td><td style="padding:6px 10px;text-align:right;color:${col};font-weight:700">${chg}</td></tr>`;}).join('');
+    return `<h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 4px">${title}</h3>
+  <p style="font-size:12px;color:#6b6459;margin:0 4px 7px">${sub} &nbsp; <b style="color:#1a7f4b">▲ ${up.join(', ')||'—'}</b> &nbsp;·&nbsp; <b style="color:#b23a44">▼ ${dn.join(', ')||'—'}</b></p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid ${LINE};border-radius:8px;overflow:hidden"><tr style="color:${MUTE};font-size:10px;text-transform:uppercase;letter-spacing:.05em"><td style="padding:5px 10px">Area</td><td style="padding:5px 10px;text-align:right">Now</td><td style="padding:5px 10px;text-align:right">Before</td><td style="padding:5px 10px;text-align:right">Change</td></tr>${tr}</table>`;
+  };
   const html=`<div style="max-width:620px;margin:0 auto;font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:${INK};background:${CREAM};padding:24px">
   <div style="font-size:12px;color:${GOLD};letter-spacing:.14em;text-transform:uppercase;font-weight:600">JTE Recruit · website growth</div>
   <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:700;color:${DARK};margin:4px 0 16px">Good morning, Eugene ☀️</h1>
@@ -150,6 +187,9 @@ if(RESEND_API_KEY){
     ${orgCard}
   </tr></table>
   <p style="font-size:13px;color:#6b6459;margin:16px 4px">Clicks 28d: <b>${n(tot.clicks)}</b> · CTR ${(n(tot.ctr)*100).toFixed(1)}% · avg position <b>${n(tot.position).toFixed(1)}</b> · ${queries.length} distinct queries. Week-on-week: impressions ${chip(impΔ)}, clicks ${chip(clkΔ)}${orgCurS!==null?`, organic ${chip(orgΔ)}`:''}.</p>
+  ${moverHTML('📊 What moved — yesterday vs the day before', 'Organic visits, '+daysAgo(1)+' vs '+daysAgo(2)+' (near-real-time). Single days swing a lot — search stats sit in the weekly view, where the 2-day reporting lag evens out.', movDaily)}
+  ${isSun?moverHTML('📅 This week vs last week', 'Last 7 days vs the 7 before it.', movWeek):''}
+  ${isMonthEnd?moverHTML('🗓️ This month vs last month', 'Last 30 days vs the 30 before it.', movMonth):''}
   ${strikeSection}
   ${aiSection}
   <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:16px;color:${DARK};margin:20px 4px 6px">🎯 Non-branded — people finding JTE who didn't search for us</h3>
