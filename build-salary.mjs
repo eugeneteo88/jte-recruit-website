@@ -145,6 +145,7 @@ ${jsonld}
         <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
         <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
         <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Field Notes</a>
+        <span class="text-xs uppercase tracking-[0.15em]" style="color:#b0a99e;cursor:default;display:inline-flex;align-items:center;gap:6px;" title="Coming soon">Films <span style="font-size:8px;letter-spacing:.12em;color:#8C7350;border:1px solid rgba(140,115,80,.45);border-radius:999px;padding:2px 6px;">SOON</span></span>
         <a href="/salary-guide" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover-gold-line nav-active">Salary Guide</a>
         <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
       </div>
@@ -158,10 +159,12 @@ ${jsonld}
   <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <div id="mmenu">
     <a class="mlk" href="/services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
-    <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">02</span>Our Story</a>
-    <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">03</span>Field Notes</a>
-    <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">04</span>Salary Guide</a>
-    <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">05</span>Contact</a>
+    <a class="mlk" href="/employers" onclick="closeMenu()"><span class="idx">02</span>For Employers</a>
+    <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">03</span>Our Story</a>
+    <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Field Notes</a>
+    <a class="mlk" style="color:#9a9186;cursor:default;"><span class="idx">05</span>Films <span style="font-size:11px;letter-spacing:.1em;color:#C6A87C;border:1px solid rgba(198,168,124,.5);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;">SOON</span></a>
+    <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">06</span>Salary Guide</a>
+    <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">07</span>Contact</a>
     <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
   </div>
 `;
@@ -285,7 +288,7 @@ const legend = `
 /* build one salary table for a sector */
 function tableHTML(sector) {
   const cell = c => c
-    ? `<span class="rng">$${fmt(c.low)}&ndash;${fmt(c.high)}</span>`
+    ? `<span class="rng">$${fmt(c.low)} &ndash; $${fmt(c.high)}</span>`
     : `<span class="dash">&mdash;</span>`;
   const rows = sector.roles.map(r => `        <tr>
           <td class="role">${esc(r.name)}</td>
@@ -377,7 +380,7 @@ function hubPage() {
       const c = r.bands['Mid'] || r.bands['Junior'] || r.bands['Senior / Lead'];
       return `<div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
               <span class="text-[13px] text-gray-600">${esc(r.name)}</span>
-              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$${fmt(c.low)}&ndash;${fmt(c.high)}</span>
+              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$${fmt(c.low)} &ndash; $${fmt(c.high)}</span>
             </div>`;
     }).join('\n            ');
     const roleWord = s.roles.length === 1 ? 'role' : 'roles';
