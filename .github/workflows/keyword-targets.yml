@@ -1,0 +1,30 @@
+name: JTE keyword battle plan
+
+# Emails Eugene a monthly "winnable keywords" battle plan from Search Console —
+# non-branded searches JTE ranks pos 4-40 for, grouped by how close to page 1.
+# Read-only; deploys nothing. Reuses the growth-report secrets.
+on:
+  schedule:
+    - cron: '0 0 1 * *'    # 08:00 SGT on the 1st of each month (GitHub cron is best-effort)
+  workflow_dispatch:        # manual "Run workflow" button
+
+permissions:
+  contents: read
+
+jobs:
+  battleplan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Write Search Console service-account key
+        run: printf '%s' "$GA_KEY_JSON" > .ga-key.json
+        env:
+          GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
+      - name: Send keyword battle plan email
+        run: node keyword-targets.mjs
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          REPORT_TO: eugeneteo1988@gmail.com
