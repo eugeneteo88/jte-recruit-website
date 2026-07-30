@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /toolkit/
-Disallow: /screening/
 
 Sitemap: https://jte.com.sg/sitemap.xml
