@@ -17,8 +17,11 @@
   .btn-primary{background:#C6A87C;color:#0a0a0a;transition:all .3s ease}
   .btn-primary:hover{background:#E5D4B3}
   .btn-primary:disabled{opacity:.6;cursor:not-allowed}
-  .success-message{display:none;padding:1.1rem;background:rgba(198,168,124,.12);border:1px solid #C6A87C;border-radius:8px;color:#8C7350;margin-bottom:1.5rem;text-align:center;font-size:.95rem}
+  .success-message{display:none;padding:1.6rem 1.25rem;background:rgba(198,168,124,.12);border:1px solid #C6A87C;border-radius:12px;color:#8C7350;margin-bottom:1.5rem;text-align:center}
   .success-message.show{display:block}
+  .ty-avatar{width:78px;height:78px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:2px solid #C6A87C;margin:0 auto .8rem;display:block;box-shadow:0 4px 12px rgba(140,115,80,.22)}
+  .ty-title{font-weight:600;font-size:1.02rem;color:#7a6236;margin-bottom:.4rem}
+  .ty-body{font-size:.9rem;line-height:1.6;color:#8C7350;max-width:26rem;margin:0 auto}
   /* question card */
   .q{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:1.15rem 1.25rem;box-shadow:0 1px 2px rgba(0,0,0,.03)}
   .q + .q{margin-top:.85rem}
@@ -54,10 +57,14 @@
     <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto">The employer has a few questions about your HVAC / ACMV design experience. It only takes a couple of minutes &mdash; your answers go straight to your JTE consultant. There are no right or wrong answers; please answer honestly.</p>
   </div>
 
-  <div id="success-message" class="success-message">&#10003; Thank you &mdash; your answers have been received. Our consultant Mithra will review them and be in touch soon if there are any further questions or updates. You can close this page.</div>
+  <div id="success-message" class="success-message">
+    <img class="ty-avatar" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Mithra.png?width=180&quality=80&resize=cover" alt="Mithra, Recruitment Consultant at JTE Recruit" loading="lazy">
+    <p class="ty-title">Thank you &mdash; your answers have been received.</p>
+    <p class="ty-body">Our consultant <b>Mithra</b> will review them and be in touch soon if there&rsquo;s anything further or any updates. You can close this page.</p>
+  </div>
 
   <form id="screen-form" action="https://api.web3forms.com/submit" method="POST">
-    <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
+    <input type="hidden" name="access_key" value="333eeb52-10f7-432c-9c62-de11201e6260">
     <input type="hidden" name="subject" value="Candidate Screening — Mechanical Manager (HVAC / ACMV)">
     <input type="hidden" name="Position" value="Mechanical Manager (HVAC / ACMV Design)">
     <input type="checkbox" name="botcheck" style="display:none">
