@@ -4,8 +4,10 @@
  * Single source of truth: blog/posts.json (each post has a `date` = publish date).
  * Regenerates the card list in blog/index.html and the blog-post URLs in
  * sitemap.xml, including ONLY posts whose publish date has arrived (Singapore
- * time) and that are not marked draft. Deterministic + idempotent: safe to run
- * on every deploy and on a daily schedule.
+ * time) and that are not marked draft. It ALSO stamps each article's byline
+ * date + read time and JSON-LD dates from posts.json, so reordering the queue
+ * can never leave a hand-typed date behind. Deterministic + idempotent: safe
+ * to run on every deploy and on a daily schedule.
  *
  * Usage: node scripts/build-blog.mjs [--date=YYYY-MM-DD]   (--date is for testing)
  */
@@ -127,14 +129,24 @@ for (const post of POSTS) {
   const fp = p(`blog/${post.slug}/index.html`);
   let html;
   try { html = readFileSync(fp, 'utf8'); } catch { continue; }
-  if (!html.includes('<!-- RELATED:START -->')) continue;
-  const block = liveSlugs.has(post.slug) ? relatedBlock(post) : ''; // clear for not-yet-live posts
+  // posts.json is the single source of truth for dates — stamp the byline date + read time and the JSON-LD
+  // dates from it, so reordering the queue never leaves a hand-typed date behind (no more drift).
   html = html.replace(
-    /(<!-- RELATED:START -->)[\s\S]*?(<!-- RELATED:END -->)/,
-    `$1\n${block}\n        $2`
+    /(<p class="text-gray-500 text-xs mt-0\.5">[^<]*?&middot; )[^<]*(<\/p>)/,
+    `$1${fmtDate(post.date)} &middot; ${post.readTime}$2`
   );
+  html = html.replace(/"datePublished":\s*"\d{4}-\d{2}-\d{2}"/, `"datePublished":"${post.date}"`);
+  html = html.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/, `"dateModified":"${post.updated || post.date}"`);
+  // "Keep reading" block (only for posts that carry the markers)
+  if (html.includes('<!-- RELATED:START -->')) {
+    const block = liveSlugs.has(post.slug) ? relatedBlock(post) : ''; // clear for not-yet-live posts
+    html = html.replace(
+      /(<!-- RELATED:START -->)[\s\S]*?(<!-- RELATED:END -->)/,
+      `$1\n${block}\n        $2`
+    );
+    related++;
+  }
   writeFileSync(fp, html);
-  related++;
 }
 
 console.log(`build-blog: ${todayISO} — ${live.length} live post(s): ${live.map(x => x.slug).join(', ') || '(none)'}; related blocks updated: ${related}`);
