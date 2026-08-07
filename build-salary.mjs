@@ -326,7 +326,7 @@ function sectorPage(sec) {
         <a href="/salary-guide" class="hover:text-luxury-goldDark">Salary Guide</a> <span class="mx-1.5 text-gray-300">/</span> <span class="text-gray-600">${sec.name}</span>
       </nav>
       <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore &middot; ${YEAR} &middot; JTE Salary Guide</span>
-      <h1 class="font-serif text-4xl md:text-5xl text-luxury-black font-semibold mt-6 mb-5 leading-[1.1]">${sec.name}<br>Salary Guide, Singapore</h1>
+      <h1 class="font-serif text-4xl md:text-5xl text-luxury-black font-semibold mt-6 mb-5 leading-[1.1]">${sec.name} Salary Guide<br>Singapore ${YEAR}</h1>
       <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed max-w-2xl">What ${sec.name.replace(/&amp;/g,'&')} roles pay in Singapore, by seniority &mdash; ${BLURB[sec.slug]} The typical monthly ranges we see across the market.</p>
     </div>
   </header>
@@ -402,7 +402,7 @@ function hubPage() {
   <header class="px-6 md:px-12 pt-32 pb-10 text-center">
     <div class="max-w-3xl mx-auto">
       <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore Salary Guide &middot; ${YEAR}</span>
-      <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-6 mb-6 leading-[1.1]">What roles really pay<br>in Singapore</h1>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-6 mb-6 leading-[1.1]">Singapore Salary Guide ${YEAR}:<br>what roles really pay</h1>
       <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed max-w-2xl mx-auto">Honest salary ranges by role <b class="font-medium text-luxury-black">and</b> seniority &mdash; not one misleading average per job. Built on <b class="font-medium text-luxury-black">50+ years&rsquo; combined experience</b> recruiting across Singapore, these are the real ranges we see for the roles we fill &mdash; from warehouse to software engineer.</p>
       <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mt-6 text-[12px] text-gray-500">
         <span>&#128336; Updated <b class="font-medium text-gray-700">${UPDATED}</b></span>
