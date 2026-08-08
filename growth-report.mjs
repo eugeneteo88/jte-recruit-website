@@ -12,7 +12,7 @@ import { createSign } from 'node:crypto';
 const KEY = JSON.parse(readFileSync(new URL('./.ga-key.json', import.meta.url), 'utf8'));
 const SITE = 'https://jte.com.sg/';                     // GSC property (URL-prefix)
 const HOST = 'https://jte.com.sg';
-const GA_PROPERTY = process.env.GA_PROPERTY || '';      // numeric GA4 id, optional
+const GA_PROPERTY = process.env.GA_PROPERTY || '419040281'; // JTE's numeric GA4 property (www.jte.com.sg); env can override
 const { RESEND_API_KEY, REPORT_TO } = process.env;
 const REPORT_FROM = process.env.REPORT_FROM || 'JTE · Growth <alerts@stockkaki.com>';
 
