@@ -182,6 +182,12 @@
   </url>
   <!-- BLOGPOSTS:START -->
   <url>
+    <loc>https://jte.com.sg/blog/bigger-pool-of-engineers-singapore/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/hiring-engineers-singapore/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
