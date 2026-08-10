@@ -58,6 +58,7 @@ const head = ({ title, desc, path, jsonld }) => `<!doctype html><html lang="en">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BXT61GXYP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6BXT61GXYP');</script>
 <link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+<link rel="apple-touch-icon" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/favicon/JTE%20Favicon.png?width=180&height=180&resize=cover">
 ${jsonld}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="/assets/tailwind.css">
@@ -309,8 +310,8 @@ ${rows}
 function sectorPage(sec) {
   const svc = SERVICE_SLUG[sec.slug];
   const topRoles = sec.roles.slice(0, 4).map(r => r.name).join(', ');
-  const title = `${sec.name} Salary Guide Singapore ${YEAR} — Pay by Role &amp; Seniority | JTE Recruit`;
-  const desc = `What ${sec.name.replace(/&amp;|&/g, 'and')} roles pay in Singapore — ${sec.name.replace(/&amp;|&/g,'and')} salary ranges by seniority (${topRoles.replace(/&amp;|&/g,'and')}), from JTE Recruit's years placing talent across Singapore. Updated ${UPDATED}.`;
+  const title = `${sec.name} Salary Guide Singapore ${YEAR} | JTE Recruit`;
+  const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. Real monthly salary ranges from JTE Recruit. Updated ${UPDATED}.`;
   const path = `/salary-guide/${sec.slug}/`;
   const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from JTE Recruit's market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>`;
@@ -349,7 +350,7 @@ function sectorPage(sec) {
       <span class="eyebrow">What moves the number</span>
       <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-3">Why two people in the same role earn differently</h2>
       <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses sit on top of the base figures above &mdash; so actual take-home often runs higher, especially for shift and hands-on roles.</p>
-      <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week &mdash; <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>.</p>
+      <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week &mdash; <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>. Open to a mid-career hire? A <a href="/hiring-grants/" class="text-luxury-goldDark hover:underline font-medium">hiring grant</a> can cover up to 70&ndash;90% of the salary.</p>
     </div>
   </section>
 ${disclaimer}
@@ -369,8 +370,8 @@ ${footer}`;
 
 /* ---------- HUB ---------- */
 function hubPage() {
-  const title = `Singapore Salary Guide ${YEAR} — Pay by Role &amp; Seniority | JTE Recruit`;
-  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across Engineering, Logistics, Manufacturing, Healthcare, Commercial and IT — from JTE Recruit's 50+ years' combined experience placing talent in Singapore. Updated ${UPDATED}.`;
+  const title = `Singapore Salary Guide ${YEAR}: Pay by Role | JTE Recruit`;
+  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from JTE Recruit's market experience. Updated ${UPDATED}.`;
   const path = `/salary-guide/`;
   const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from JTE Recruit's years of market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>`;
