@@ -93,14 +93,15 @@
   .finder-out{padding:30px 32px 36px;background:#F5F1E8;}
   .fq{margin-bottom:24px;} .fq:last-child{margin-bottom:0;}
   .fq .qlab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#5f584d;font-weight:600;margin-bottom:11px;display:block;}
-  .seg{display:flex;gap:8px;flex-wrap:wrap;}
-  .seg button{border:1px solid rgba(0,0,0,.16);background:#fff;border-radius:10px;padding:11px 16px;font-size:13.5px;font-weight:600;color:#5f584d;cursor:pointer;transition:.2s;font-family:inherit;}
-  .seg button.on{background:#8C7350;border-color:#8C7350;color:#fff;}
-  .chips{display:flex;gap:9px;flex-wrap:wrap;}
-  .chip{border:1px solid rgba(0,0,0,.16);background:#fff;border-radius:999px;padding:9px 15px;font-size:13px;font-weight:500;color:#5f584d;cursor:pointer;transition:.2s;font-family:inherit;display:inline-flex;align-items:center;gap:7px;}
-  .chip .tick{width:14px;height:14px;opacity:0;transition:.15s;}
-  .chip.on{border-color:#8C7350;background:rgba(198,168,124,.14);color:#8C7350;}
-  .chip.on .tick{opacity:1;}
+  .seg{display:flex;gap:8px;}
+  .seg button{flex:1 1 0;min-width:0;border:1px solid rgba(0,0,0,.16);background:#fff;border-radius:12px;padding:13px 10px;font-size:13.5px;font-weight:600;color:#5f584d;cursor:pointer;transition:.2s;font-family:inherit;line-height:1.25;text-align:center;}
+  .seg button.on{background:#8C7350;border-color:#8C7350;color:#fff;box-shadow:0 8px 20px -10px rgba(140,115,80,.7);}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(min-width:720px){.tiles{grid-template-columns:repeat(3,1fr);}}
+  .tile{border:1px solid rgba(0,0,0,.16);background:#fff;border-radius:12px;padding:13px 15px;font-size:12.5px;font-weight:600;color:#5f584d;cursor:pointer;transition:.2s;font-family:inherit;text-align:left;line-height:1.25;min-height:48px;display:flex;align-items:center;}
+  .tile.on{border-color:#8C7350;background:rgba(198,168,124,.15);color:#8C7350;}
+  .step{opacity:0;transform:translateY(10px);max-height:0;overflow:hidden;transition:opacity .45s ease,transform .45s ease,max-height .55s ease;}
+  .step.show{opacity:1;transform:none;max-height:1400px;}
   .money{display:flex;align-items:center;border:1px solid rgba(0,0,0,.16);border-radius:10px;padding:0 14px;background:#fff;max-width:220px;transition:.2s;}
   .money:focus-within{border-color:#C6A87C;box-shadow:0 0 0 3px rgba(198,168,124,.18);}
   .money span{color:#8a8175;font-size:15px;} .money input{border:0;outline:0;font-size:16px;padding:12px 8px;width:100%;font-variant-numeric:tabular-nums;color:#1c1a17;background:transparent;font-family:inherit;}
@@ -197,11 +198,11 @@
 </header>
 
 <div class="trust bg-white/50">
-  <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-wrap justify-center md:justify-between gap-x-8 gap-y-2 text-center text-xs md:text-sm text-gray-500">
-    <span>Recruiter <strong class="text-luxury-goldDark font-semibold">and</strong> grant help &mdash; one team</span>
-    <span>No placement fee? Come for the grant</span>
-    <span>Flat application fee &mdash; from ~$1,500</span>
-    <span>Waived if you hire through us</span>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+    <div class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-none" style="color:#8C7350" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-gray-600 leading-snug">Recruiter <strong class="text-luxury-black font-semibold">and</strong> grant help &mdash; one team</span></div>
+    <div class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-none" style="color:#8C7350" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-gray-600 leading-snug">No placement fee? <strong class="text-luxury-black font-semibold">Come for the grant</strong></span></div>
+    <div class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-none" style="color:#8C7350" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-gray-600 leading-snug">Flat application fee &mdash; <strong class="text-luxury-black font-semibold">from ~$1,500</strong></span></div>
+    <div class="flex gap-2.5 items-start"><svg class="w-4 h-4 mt-0.5 flex-none" style="color:#8C7350" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-gray-600 leading-snug"><strong class="text-luxury-black font-semibold">Waived</strong> if you hire through us</span></div>
   </div>
 </div>
 
@@ -218,36 +219,41 @@
         <div class="fq">
           <span class="qlab">1 &middot; What are you doing?</span>
           <div class="seg" id="segSit">
-            <button data-sit="new" class="on">Hiring someone new</button>
-            <button data-sit="reskill">Reskilling my existing staff</button>
+            <button data-sit="new">Hiring someone new</button>
+            <button data-sit="reskill">Reskilling my staff</button>
           </div>
         </div>
-        <div class="fq">
-          <span class="qlab">2 &middot; The person&rsquo;s profile <span style="text-transform:none;letter-spacing:0;color:#a49c8f;font-weight:400;">(tick any that apply)</span></span>
-          <div class="chips" id="chips">
-            <button class="chip" data-k="age40"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aged 40 or above</button>
-            <button class="chip" data-k="age60"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Aged 60 or above</button>
-            <button class="chip" data-k="ltu"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unemployed 6 months+</button>
-            <button class="chip" data-k="disability"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Person with disability</button>
-            <button class="chip" data-k="exoff"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Ex-offender</button>
+        <div class="step" id="step2">
+          <div class="fq">
+            <span class="qlab">2 &middot; The person&rsquo;s profile <span style="text-transform:none;letter-spacing:0;color:#a49c8f;font-weight:400;">(tick any)</span></span>
+            <div class="tiles" id="tiles">
+              <button class="tile" data-k="age40">Aged 40+</button>
+              <button class="tile" data-k="age60">Aged 60+</button>
+              <button class="tile" data-k="ltu">Unemployed 6mth+</button>
+              <button class="tile" data-k="disability">Has a disability</button>
+              <button class="tile" data-k="exoff">Ex-offender</button>
+              <button class="tile" data-k="none">None of these</button>
+            </div>
+            <p class="finder-note" style="margin-top:10px;">Assumes a Singapore Citizen or PR &mdash; that&rsquo;s who these grants are for.</p>
           </div>
-          <p class="finder-note" style="margin-top:10px;">Assumes a Singapore Citizen or PR &mdash; that&rsquo;s who these grants are for.</p>
-        </div>
-        <div class="fq">
-          <span class="qlab">3 &middot; Monthly salary you&rsquo;d offer</span>
-          <div class="money"><span>S$</span><input id="sal" type="text" inputmode="numeric" value="4,500"></div>
+          <div class="fq" style="margin-bottom:0;">
+            <span class="qlab">3 &middot; Monthly salary you&rsquo;d offer</span>
+            <div class="money"><span>S$</span><input id="sal" type="text" inputmode="numeric" value="4,500"></div>
+          </div>
         </div>
       </div>
-      <div class="finder-out">
-        <div class="outhead">
-          <div class="n" id="outN">You could tap <b>1 grant</b></div>
-          <div style="font-size:12px;color:#8a8175;">Estimates &middot; confirmed with you before anything</div>
-        </div>
-        <div class="gcards" id="gcards"></div>
-        <p class="finder-note" id="stackNote">These don&rsquo;t all stack the same way &mdash; some are one-off, some monthly, some automatic. We&rsquo;ll tell you the best combination for your hire.</p>
-        <div class="finder-cta">
-          <a href="/contact" class="btn-primary" style="padding:12px 24px;border-radius:7px;font-size:.86rem;font-weight:600;">Get this checked by a consultant</a>
-          <span style="font-size:13px;color:#5f584d;">or <a href="/contact" style="color:#8C7350;font-weight:600;">let us find the candidate too &rarr;</a></span>
+      <div class="step" id="results">
+        <div class="finder-out">
+          <div class="outhead">
+            <div class="n" id="outN">You could tap <b>1 grant</b></div>
+            <div style="font-size:12px;color:#8a8175;">Estimates &middot; confirmed with you before anything</div>
+          </div>
+          <div class="gcards" id="gcards"></div>
+          <p class="finder-note" id="stackNote">These don&rsquo;t all stack the same way &mdash; some are one-off, some monthly, some automatic. We&rsquo;ll tell you the best combination for your hire.</p>
+          <div class="finder-cta">
+            <a href="/contact" class="btn-primary" style="padding:12px 24px;border-radius:7px;font-size:.86rem;font-weight:600;">Get this checked by a consultant</a>
+            <span style="font-size:13px;color:#5f584d;">or <a href="/contact" style="color:#8C7350;font-weight:600;">let us find the candidate too &rarr;</a></span>
+          </div>
         </div>
       </div>
     </div>
@@ -440,10 +446,12 @@
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
   (function(){
-    var sit='new';
+    var sit=null;
     var flags={age40:false,age60:false,ltu:false,disability:false,exoff:false};
     var sal=document.getElementById('sal');
     var gc=document.getElementById('gcards'), outN=document.getElementById('outN');
+    var step2=document.getElementById('step2'), results=document.getElementById('results');
+    function reveal(){ step2.classList.add('show'); results.classList.add('show'); }
     function fmt(n){return 'S$'+Math.round(n).toLocaleString('en-SG');}
     function num(v){return parseFloat((v||'').toString().replace(/[^0-9.]/g,''))||0;}
     function card(name,amt,desc,badge,act){
@@ -453,6 +461,7 @@
         '<div class="act">'+act+'</div></div>';
     }
     function build(){
+      if(!sit) return;
       var s=num(sal.value);
       var enh = flags.age40 || flags.age60 || flags.ltu;
       var out=[];
@@ -497,17 +506,18 @@
     document.getElementById('segSit').addEventListener('click',function(e){
       var b=e.target.closest('button'); if(!b)return;
       [].forEach.call(this.children,function(c){c.classList.remove('on');});
-      b.classList.add('on'); sit=b.dataset.sit; build();
+      b.classList.add('on'); sit=b.dataset.sit; reveal(); build();
     });
-    document.getElementById('chips').addEventListener('click',function(e){
-      var b=e.target.closest('.chip'); if(!b)return;
-      var k=b.dataset.k; flags[k]=!flags[k]; b.classList.toggle('on',flags[k]);
+    document.getElementById('tiles').addEventListener('click',function(e){
+      var b=e.target.closest('.tile'); if(!b)return; var k=b.dataset.k;
+      if(k==='none'){ for(var f in flags){flags[f]=false;} [].forEach.call(this.children,function(c){if(c.dataset.k!=='none')c.classList.remove('on');}); b.classList.toggle('on'); build(); return; }
+      var nb=this.querySelector('[data-k=none]'); if(nb)nb.classList.remove('on');
+      flags[k]=!flags[k]; b.classList.toggle('on',flags[k]);
       if(k==='age60'&&flags.age60){flags.age40=true;var a=this.querySelector('[data-k=age40]');if(a)a.classList.add('on');}
       build();
     });
     sal.addEventListener('input',build);
     sal.addEventListener('blur',function(){var n=num(sal.value);sal.value=n?n.toLocaleString('en-SG'):'';build();});
-    build();
   })();
 </script>
 
