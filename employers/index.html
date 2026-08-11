@@ -98,7 +98,7 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-cream dark:bg-luxury-black text-luxury-charcoal dark:text-cream transition-colors duration-300">
+<body class="bg-cream text-luxury-charcoal">
 
 <!-- 3. STYLES (cloned from homepage master + page-specific additions) -->
 <style>
@@ -188,49 +188,49 @@
     .btn-outline { transition: all 0.3s ease; }
 
     /* --- LIGHT MODE --- */
-    .theme-light.jte-wrapper { background-color: #F5F1E8 !important; color: #1a1a1a !important; }
+    .jte-wrapper { background-color: #F5F1E8 !important; color: #1a1a1a !important; }
 
     /* Navbar */
-    .theme-light nav {
+    nav {
         background: linear-gradient(to bottom, rgba(245,241,232,0.98), rgba(245,241,232,0.95)) !important;
         border-bottom: none !important;
         box-shadow: none !important;
     }
-    .theme-light nav .font-serif { color: #0a0a0a !important; }
-    .theme-light nav a:not(.jte-verify):not(.nav-active) { color: #4a4a4a !important; }
-    .theme-light nav a:not(.jte-verify):not(.nav-active):hover { color: #8C7350 !important; }
+    nav .font-serif { color: #0a0a0a !important; }
+    nav a:not(.jte-verify):not(.nav-active) { color: #4a4a4a !important; }
+    nav a:not(.jte-verify):not(.nav-active):hover { color: #8C7350 !important; }
     nav a.jte-verify { color: #0a0a0a !important; }
     nav a.nav-active { color: #C6A87C !important; }
     nav a.nav-active::after { width: 100% !important; }
 
     /* Light mode hero */
-    .theme-light .hero-text-lock h1 { color: #ffffff !important; }
-    .theme-light .hero-text-lock h1 span.italic,
-    .theme-light .hero-text-lock .text-luxury-gold { color: #C6A87C !important; }
-    .theme-light .hero-text-lock p { color: #e5e5e5 !important; }
-    .theme-light .hero-text-lock .btn-primary { background: #C6A87C !important; color: #0a0a0a !important; }
-    .theme-light .hero-text-lock .btn-outline { border-color: rgba(255, 255, 255, 0.6) !important; color: #ffffff !important; }
+    .hero-text-lock h1 { color: #ffffff !important; }
+    .hero-text-lock h1 span.italic,
+    .hero-text-lock .text-luxury-gold { color: #C6A87C !important; }
+    .hero-text-lock p { color: #e5e5e5 !important; }
+    .hero-text-lock .btn-primary { background: #C6A87C !important; color: #0a0a0a !important; }
+    .hero-text-lock .btn-outline { border-color: rgba(255, 255, 255, 0.6) !important; color: #ffffff !important; }
 
     /* Light mode contact links */
-    .theme-light .contact-link { color: #4B5563 !important; }
-    .theme-light .contact-link:hover { color: #8C7350 !important; }
+    .contact-link { color: #4B5563 !important; }
+    .contact-link:hover { color: #8C7350 !important; }
 
     /* Backgrounds & Text */
-    .theme-light .bg-luxury-black { background-color: #F5F1E8 !important; }
-    .theme-light .bg-luxury-charcoal {
+    .bg-luxury-black { background-color: #F5F1E8 !important; }
+    .bg-luxury-charcoal {
         background-color: #FFFFFF !important;
         box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         border: 1px solid rgba(0,0,0,0.05);
     }
-    .theme-light h2, .theme-light h3, .theme-light h4 { color: #0a0a1a !important; }
-    .theme-light p, .theme-light .text-gray-300, .theme-light .text-gray-400 { color: #555555 !important; }
-    .theme-light .text-white { color: #1a1a1a !important; }
-    .theme-light .text-luxury-gold { color: #8C7350 !important; }
+    h2, h3, h4 { color: #0a0a1a !important; }
+    p, .text-gray-300, .text-gray-400 { color: #555555 !important; }
+    .text-white { color: #1a1a1a !important; }
+    .text-luxury-gold { color: #8C7350 !important; }
 
     /* Footer */
-    .theme-light footer { background-color: #EBEBE8 !important; border-top: 1px solid rgba(0,0,0,0.05) !important; }
-    .theme-light .social-icon { border-color: rgba(0,0,0,0.2) !important; color: #4B5563 !important; }
-    .theme-light .social-icon:hover { border-color: #8C7350 !important; color: #8C7350 !important; }
+    footer { background-color: #EBEBE8 !important; border-top: 1px solid rgba(0,0,0,0.05) !important; }
+    .social-icon { border-color: rgba(0,0,0,0.2) !important; color: #4B5563 !important; }
+    .social-icon:hover { border-color: #8C7350 !important; color: #8C7350 !important; }
 
     /* Grain overlay */
     .grain-overlay {
@@ -282,9 +282,9 @@
   .service-card .service-image{transition:all .8s ease;filter:sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(.85) contrast(1.05);width:100%;height:100%;object-fit:cover;}
   .service-card:hover .service-image{filter:sepia(20%) saturate(110%) hue-rotate(-5deg) brightness(.92) contrast(1.02);transform:scale(1.05);}
   /* keep photo-card overlay dark even in light mode, exactly like the homepage */
-  .theme-light .service-card{background-color:#141414 !important;}
-  .theme-light .service-card h3,.theme-light .service-card p,.theme-light .service-card .text-white{color:#fff !important;}
-  .theme-light .service-card .text-gray-300{color:#d1d5db !important;}
+  .service-card{background-color:#141414 !important;}
+  .service-card h3,.service-card p,.service-card .text-white{color:#fff !important;}
+  .service-card .text-gray-300{color:#d1d5db !important;}
   .emp-photo-card{position:relative;height:300px;border-radius:10px;overflow:hidden;cursor:pointer;}
   .emp-sec-card{position:relative;height:170px;border-radius:10px;overflow:hidden;cursor:pointer;}
   @media(min-width:768px){.emp-sec-card{height:190px;}}
@@ -299,7 +299,7 @@
 </style>
 
 <!-- 4. CONTENT -->
-<div id="jte-main-wrapper" class="jte-wrapper theme-light antialiased selection:bg-luxury-gold selection:text-black">
+<div id="jte-main-wrapper" class="jte-wrapper antialiased selection:bg-luxury-gold selection:text-black">
 
     <div class="grain-overlay"></div>
 
@@ -865,8 +865,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            // Light theme only
-            document.getElementById('jte-main-wrapper')?.classList.add('theme-light');
         });
 
         // Handle Formspree submission
