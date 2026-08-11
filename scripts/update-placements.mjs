@@ -29,13 +29,38 @@ async function countRows(table) {
   return { ok: Number.isFinite(total), total, status: r.status };
 }
 
+const FORCE = process.env.TABLE; // set TABLE=exact_name to lock it once known
+
+async function listTables() {
+  const r = await fetch(`${SUPA_URL}/rest/v1/`, { headers: { apikey: KEY, Authorization: 'Bearer ' + KEY } });
+  if (!r.ok) return [];
+  const j = await r.json().catch(() => ({}));
+  if (j.definitions) return Object.keys(j.definitions);
+  if (j.paths) return Object.keys(j.paths).map(p => p.replace(/^\//, '')).filter(Boolean);
+  return [];
+}
+
 let found = null;
-for (const t of TABLES) {
+const tryList = FORCE ? [FORCE] : TABLES;
+for (const t of tryList) {
   const c = await countRows(t);
-  if (c.ok) { console.log(`Found ledger table "${t}" → ${c.total} rows`); found = { table: t, total: c.total }; break; }
+  if (c.ok) { console.log(`Found ledger table "${t}" -> ${c.total} rows`); found = { table: t, total: c.total }; break; }
   else console.log(`  "${t}": not usable (status ${c.status ?? c.err})`);
 }
-if (!found) { console.error('ERROR: could not read a count from any candidate table. Tell me the exact table name.'); process.exit(1); }
+
+if (!found) {
+  // Discovery: list only placement/sales-related tables the API exposes, with counts, so we can pick the exact name.
+  console.log('--- discovering placement-related tables ---');
+  const all = await listTables();
+  const matches = all.filter(t => /placement|sale|report|archive|commission|deal|closed|hire|candidate|invoice|billing/i.test(t));
+  if (!matches.length) console.log(`(no obvious matches; ${all.length} tables total exposed)`);
+  for (const t of matches) {
+    const c = await countRows(t);
+    console.log(`  table "${t}": ${c.ok ? c.total + ' rows' : 'status ' + (c.status ?? c.err)}`);
+  }
+  console.error('ERROR: no locked table yet — pick the right one from the list above (rerun with TABLE=<name>).');
+  process.exit(1);
+}
 
 // Round DOWN to the nearest 1,000 → clean marketing "Nk+".
 const total = found.total;
