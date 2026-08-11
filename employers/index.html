@@ -389,7 +389,7 @@
             <!-- TRUST STATS -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto border-t border-white/10 pt-12">
                 <div class="group">
-                    <span class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform md:inline-block">11+</span>
+                    <span id="stat-years" class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform md:inline-block">12+</span>
                     <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">Years</span>
                 </div>
                 <div class="group">
@@ -402,9 +402,10 @@
                 </div>
                 <div class="group">
                     <span class="block font-serif text-4xl text-luxury-gold mb-2 group-hover:scale-110 transition-transform inline-block">14C7215</span>
-                    <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">MOM EA Licence</span>
+                    <span class="text-[11px] uppercase tracking-[0.15em] text-gray-400">EA Licence</span>
                 </div>
             </div>
+            <script>(function(){var s=new Date(2014,5,1),n=new Date(),y=n.getFullYear()-s.getFullYear();if(n.getMonth()<s.getMonth()||(n.getMonth()===s.getMonth()&&n.getDate()<s.getDate()))y--;var e=document.getElementById('stat-years');if(e)e.textContent=y+'+';})();</script>
         </div>
     </section>
 
