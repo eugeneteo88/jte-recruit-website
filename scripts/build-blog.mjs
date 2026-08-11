@@ -58,7 +58,7 @@ const featuredCard = (post) => `            <a href="/blog/${post.slug}/" class=
                 </div>
             </a>`;
 
-const regularCard = (post) => `                <a href="/blog/${post.slug}/" class="group bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] p-8 hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow flex flex-col">
+const regularCard = (post) => `                <a href="/blog/${post.slug}/" data-tag="${post.tag}" class="fn-card group bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] p-8 hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow flex flex-col">
                     <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">${post.tag}</span>
                     <h2 class="font-serif text-xl md:text-2xl leading-snug text-luxury-black mt-3 mb-3 group-hover:text-luxury-goldDark transition-colors">${post.title}</h2>
                     <p class="text-sm text-gray-600 font-light leading-relaxed flex-1">${post.excerpt}</p>
@@ -68,12 +68,20 @@ const regularCard = (post) => `                <a href="/blog/${post.slug}/" cla
                     </span>
                 </a>`;
 
-let cards = '';
+// Field Notes index: filter tabs + card grid + "Load more" — stays short as the blog grows.
+const TAG_ORDER = ['Field Notes', 'Employer Guide', 'Scam Awareness'];
+let cards;
 if (live.length) {
-  cards = featuredCard(live[0]);
-  if (live.length > 1) {
-    cards += `\n            <div class="grid md:grid-cols-2 gap-8">\n${live.slice(1).map(regularCard).join('\n')}\n            </div>`;
-  }
+  const used = TAG_ORDER.filter(t => live.some(p => p.tag === t));
+  for (const t of [...new Set(live.map(p => p.tag))]) if (!used.includes(t)) used.push(t);
+  const tabs = used.length > 1
+    ? `            <div class="fn-tabs">\n                <button class="fn-tab on" data-tag="all">All</button>\n${used.map(t => `                <button class="fn-tab" data-tag="${t}">${t}</button>`).join('\n')}\n            </div>\n`
+    : '';
+  const grid = `            <div class="grid md:grid-cols-2 gap-8" id="fn-grid">\n${live.map(regularCard).join('\n')}\n            </div>`;
+  const more = `\n            <button id="fn-more" class="fn-more" hidden>Load more</button>`;
+  const style = `            <style>\n              .fn-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}\n              .fn-tab{padding:8px 18px;border-radius:999px;border:1px solid rgba(0,0,0,.12);background:#fff;color:#5f584d;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit}\n              .fn-tab:hover{border-color:#C6A87C;color:#8C7350}\n              .fn-tab.on{background:#C6A87C;border-color:#C6A87C;color:#0a0a0a}\n              .fn-more{margin:44px auto 0;display:block;padding:14px 34px;border-radius:8px;background:transparent;border:1px solid rgba(28,26,23,.28);color:#1c1a17;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:inherit}\n              .fn-more:hover{border-color:#8C7350;color:#8C7350}\n              .fn-more[hidden]{display:none}\n            </style>\n`;
+  const js = `\n            <script>(function(){var grid=document.getElementById('fn-grid');if(!grid)return;var cards=[].slice.call(grid.querySelectorAll('.fn-card'));var more=document.getElementById('fn-more');var tabs=[].slice.call(document.querySelectorAll('.fn-tab'));var PAGE=9,filter='all',shown=PAGE;function render(){var matched=cards.filter(function(c){return filter==='all'||c.getAttribute('data-tag')===filter;});cards.forEach(function(c){c.style.display='none';});matched.slice(0,shown).forEach(function(c){c.style.display='';});if(more)more.hidden=matched.length<=shown;}tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter=t.getAttribute('data-tag');shown=PAGE;render();});});if(more)more.addEventListener('click',function(){shown+=PAGE;render();});render();})();</script>`;
+  cards = style + tabs + grid + more + js;
 } else {
   cards = '            <!-- No published articles yet -->';
 }
