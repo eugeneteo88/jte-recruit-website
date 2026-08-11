@@ -15,7 +15,7 @@ const APPLY = process.env.APPLY === 'true';
 if (!KEY) { console.error('ERROR: SUPABASE_KEY secret is not set (check the secret name in the repo).'); process.exit(1); }
 
 // The placement ledger lives in the Sales Report archive. Try the likely table names.
-const TABLES = ['sales_report_archive', 'sales_reports_archive', 'sales_report', 'sales_reports', 'sales-report-archive'];
+const TABLES = ['crm_sales_report_archive'];
 
 async function countRows(table) {
   // HEAD + Prefer:count=exact returns the total in the content-range header, with NO body.
