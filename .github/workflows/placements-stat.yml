@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   update:
@@ -24,11 +25,19 @@ jobs:
         env:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: node scripts/update-placements.mjs
-      - name: Commit if changed
+      - name: Commit + deploy if changed
         if: env.APPLY == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add index.html employers/index.html
-          git diff --cached --quiet || git commit -m "Auto-update placements stat"
-          git push
+          if git diff --cached --quiet; then
+            echo "No change — placements figure unchanged."
+          else
+            git commit -m "Auto-update placements stat"
+            git push
+            # bot pushes don't trigger Deploy (loop guard), so dispatch it explicitly
+            gh workflow run deploy.yml --repo "${{ github.repository }}"
+          fi
