@@ -1,0 +1,34 @@
+name: Placements stat
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Write the number to the site (false = dry run, just print the count)'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '0 20 * * 0'   # weekly — Sunday 20:00 UTC (Mon 04:00 SGT)
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      APPLY: ${{ github.event_name == 'schedule' && 'true' || inputs.apply }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Count placements + update stat
+        env:
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node scripts/update-placements.mjs
+      - name: Commit if changed
+        if: env.APPLY == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add index.html employers/index.html
+          git diff --cached --quiet || git commit -m "Auto-update placements stat"
+          git push
