@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* JTE-GLOBAL-SELECTION — global brand text selection */
+@layer base{
+  ::selection{background-color:#ECDCBB;color:#241B12}::-moz-selection{background-color:#ECDCBB;color:#241B12}
+}
