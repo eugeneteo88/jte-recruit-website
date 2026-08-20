@@ -459,6 +459,11 @@
 
     /* --- LIGHT MODE --- */
     .jte-wrapper { background-color: #F5F1E8 !important; color: #1a1a1a !important; }
+    /* Footer is dark -> force light text (the .jte-wrapper light-mode colour bleeds dark into it) */
+    footer { color: #c9c1b6 !important; }
+    footer .font-serif { color: #ffffff !important; }
+    footer .lnk { color: #8a8175 !important; }
+    footer .lnk:hover, footer a:hover { color: #C6A87C !important; }
     
     /* Navbar */
     nav { 
