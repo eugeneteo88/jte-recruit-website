@@ -57,13 +57,19 @@ function resolveLink(href, fromFile) {
 for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
   const exempt = CONTACT_EXEMPT.some((re) => re.test(file));
+  const noindex = /<meta[^>]+name=["']robots["'][^>]*noindex/i.test(html);
 
-  // page essentials
+  // page essentials — description/canonical only matter on indexable pages.
   if (!/<title>[^<]{3,}<\/title>/i.test(html)) add('WARN', 'missing-title', file, 'no <title> text');
-  if (!/<meta[^>]+name=["']description["'][^>]+content=["'][^"']{20,}/i.test(html))
-    add('WARN', 'missing-meta-description', file, 'no meta description (>=20 chars)');
-  if (!/<link[^>]+rel=["']canonical["']/i.test(html))
-    add('WARN', 'missing-canonical', file, 'no canonical link');
+  if (!noindex) {
+    // parse the meta tag then its content attr, so apostrophes inside a
+    // double-quoted description (e.g. "Singapore's ...") don't false-trip it.
+    const descTag = (html.match(/<meta\b[^>]*\bname=["']description["'][^>]*>/i) || [''])[0];
+    const descVal = (descTag.match(/content=(["'])([\s\S]*?)\1/i) || [, , ''])[2].trim();
+    if (descVal.length < 20) add('WARN', 'missing-meta-description', file, 'no meta description (>=20 chars)');
+    if (!/<link[^>]+rel=["']canonical["']/i.test(html))
+      add('WARN', 'missing-canonical', file, 'no canonical link');
+  }
 
   // internal links
   for (const m of html.matchAll(/href=["']([^"']+)["']/gi)) {
