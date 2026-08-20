@@ -62,6 +62,21 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
   #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6)}
   #toTop.show{opacity:1;pointer-events:auto;transform:none}
+
+  /* laid-out service rows (overview) */
+  .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:3.5rem 0;border-top:1px solid rgba(0,0,0,.07)}
+  .svc-row:first-of-type{border-top:0}
+  .svc-media{border-radius:10px;overflow:hidden;height:300px;box-shadow:0 18px 40px -22px rgba(60,45,25,.5)}
+  .svc-media img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:sepia(30%) saturate(125%) hue-rotate(-8deg) brightness(.9) contrast(1.03);transition:transform .8s ease}
+  .svc-row:hover .svc-media img{transform:scale(1.04)}
+  .svc-row:nth-of-type(even) .svc-media{order:2}
+  .svc-list{margin:18px 0 22px;padding:0;list-style:none}
+  .svc-list li{position:relative;padding-left:20px;margin-bottom:9px;font-size:14px;color:#4b4740;line-height:1.5}
+  .svc-list li::before{content:'';position:absolute;left:0;top:7px;width:7px;height:7px;background:#C6A87C;border-radius:2px;transform:rotate(45deg)}
+  .svc-more{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#8C7350;border-bottom:2px solid transparent;padding-bottom:2px;transition:.3s}
+  .svc-more:hover{color:#C6A87C;border-color:#C6A87C}
+  @media(max-width:820px){.svc-row{grid-template-columns:1fr;gap:1.4rem;padding:2.4rem 0}.svc-row:nth-of-type(even) .svc-media{order:0}.svc-media{height:230px}}
+
 </style></head>
 <body class="antialiased">
 
@@ -108,41 +123,75 @@
     </div>
   </header>
 
-  <!-- Services grid -->
-  <section class="px-6 md:px-12 pb-16 max-w-7xl mx-auto">
-    <div class="svc-grid">
-      <a href="/services/permanent-recruitment" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Permanent%20Hiring.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Permanent Hiring">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Permanent Hiring</h3><p class="font-sans text-sm text-gray-300">Finding your next long-term team member.</p></div>
-      </a>
-      <a href="/services/contract-staffing" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Temp%20%26%20Contract.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Temp & Contract">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Temp &amp; Contract</h3><p class="font-sans text-sm text-gray-300">Flexible staffing for agile operations.</p></div>
-      </a>
-      <a href="/services/manpower-outsourcing" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Manpower%20Outsourcing.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Manpower Outsourcing">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Manpower Outsourcing</h3><p class="font-sans text-sm text-gray-300">A full HR &amp; ops team without the overhead.</p></div>
-      </a>
-      <a href="/services/payroll-work-pass" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Payroll & Work Pass">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Payroll &amp; Work Pass</h3><p class="font-sans text-sm text-gray-300">Compliance and accuracy, guaranteed.</p></div>
-      </a>
-      <a href="/services/employer-branding" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Branding%20%26%20Culture.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Branding & Culture">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Branding &amp; Culture</h3><p class="font-sans text-sm text-gray-300">Make your company a place people want to work.</p></div>
-      </a>
-      <a href="/services/mass-hiring" class="service-card service-card-desktop group cursor-pointer bg-gray-900 block">
-        <img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg?width=1000&quality=75&resize=contain" class="service-image absolute inset-0" alt="Project & Mass Hiring">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6"><div class="w-10 h-[2px] bg-luxury-gold mb-4"></div><h3 class="font-serif text-xl text-white mb-2">Project &amp; Mass Hiring</h3><p class="font-sans text-sm text-gray-300">High-volume recruitment without the chaos.</p></div>
-      </a>
-    </div>
-  </section>
+  <!-- Services laid out -->
+  <section class="px-6 md:px-12 pb-16 max-w-6xl mx-auto">
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Permanent%20Hiring.jpeg?width=1000&quality=75&resize=contain" alt="Permanent Hiring" style="object-position:center 18%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">01 &middot; Permanent</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Permanent Hiring</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">We place people who fit your team and stay &mdash; not just CVs that match a job description. From frontline hires to specialists and leadership.</p>
+          <ul class="svc-list"><li>A proper search, not a stack of forwarded CVs</li><li>Screened for skills <em>and</em> culture fit</li><li>Replacement guarantee on every placement</li></ul>
+          <a href="/services/permanent-recruitment" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Temp%20%26%20Contract.jpeg?width=1000&quality=75&resize=contain" alt="Temp & Contract" style="object-position:center 42%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">02 &middot; Flexible</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Temp &amp; Contract</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">Need someone yesterday? Pre-vetted professionals ready to step in for cover, projects and busy periods &mdash; same quality, no long-term commitment.</p>
+          <ul class="svc-list"><li>Pre-vetted people, often mobilised within days</li><li>For projects, seasonal peaks and cover</li><li>Scale up and down as the work changes</li></ul>
+          <a href="/services/contract-staffing" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Manpower%20Outsourcing.jpeg?width=1000&quality=75&resize=contain" alt="Manpower Outsourcing" style="object-position:center 45%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">03 &middot; Fully managed</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Manpower Outsourcing</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">A full workforce without the overhead. We recruit, manage and pay your team while you focus on running and growing the business.</p>
+          <ul class="svc-list"><li>We recruit, supervise and payroll the team</li><li>CPF, leave, claims and work passes handled</li><li>Built for warehouse, operations and logistics floors</li></ul>
+          <a href="/services/manpower-outsourcing" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Payroll%20%26%20Work%20Pass.jpeg?width=1000&quality=75&resize=contain" alt="Payroll & Work Pass" style="object-position:center 42%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">04 &middot; Compliance</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Payroll &amp; Work Pass</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">Payday should be simple. We handle the calculations, CPF, filings and work pass applications &mdash; your people get paid right and on time.</p>
+          <ul class="svc-list"><li>Accurate payroll, CPF and IR8A filings</li><li>Work pass applications and renewals</li><li>Tax clearance and compliance covered</li></ul>
+          <a href="/services/payroll-work-pass" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Project%20%26%20Mass%20Hiring.jpeg?width=1000&quality=75&resize=contain" alt="Project & Mass Hiring" style="object-position:center 50%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">05 &middot; At scale</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Project &amp; Mass Hiring</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">Opening a facility or launching a division? High-volume hiring that doesn&rsquo;t sacrifice quality &mdash; mobilising quickly to fill 10 roles or 100, end to end.</p>
+          <ul class="svc-list"><li>Mobilise fast when you need scale</li><li>Screening and coordination at volume</li><li>One team running the whole hiring drive</li></ul>
+          <a href="/services/mass-hiring" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="svc-row">
+        <div class="svc-media"><img loading="lazy" src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/services/Branding%20%26%20Culture.jpeg?width=1000&quality=75&resize=contain" alt="Branding & Culture" style="object-position:center 35%"></div>
+        <div class="svc-text">
+          <span class="eyebrow">06 &middot; Attract talent</span>
+          <h2 class="font-serif text-2xl md:text-[1.7rem] text-luxury-black font-semibold mt-3 mb-3">Employer Branding</h2>
+          <p class="text-gray-600 text-sm md:text-[15px] font-light leading-relaxed">Great talent has options. We help you define and show what makes your company worth joining &mdash; so the right people are excited before they even apply.</p>
+          <ul class="svc-list"><li>Clarify what makes you worth joining</li><li>Content and presence that draws talent in</li><li>Handled by our own in-house media team</li></ul>
+          <a href="/services/employer-branding" class="svc-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </section>
 
   <!-- CTA -->
   <section class="px-6 md:px-12 pb-24 text-center">
@@ -179,8 +228,8 @@
           <a href="/services/contract-staffing" class="lnk block">Temp &amp; Contract</a>
           <a href="/services/manpower-outsourcing" class="lnk block">Manpower Outsourcing</a>
           <a href="/services/payroll-work-pass" class="lnk block">Payroll &amp; Work Pass</a>
-          <a href="/services/employer-branding" class="lnk block">Employer Branding</a>
           <a href="/services/mass-hiring" class="lnk block">Project &amp; Mass Hiring</a>
+          <a href="/services/employer-branding" class="lnk block">Employer Branding</a>
         </div>
       </div>
       <div>
