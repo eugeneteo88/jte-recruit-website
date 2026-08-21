@@ -1,10 +1,11 @@
 name: JTE growth report
 
-# Emails Eugene a morning summary of the JTE website's Search Console indexing +
-# search growth (+ GA organic if GA_PROPERTY is set). Read-only; deploys nothing.
+# Emails Eugene a WEEKLY review of the JTE website's Search Console growth
+# (+ GA organic if GA_PROPERTY is set): are we up or down vs last week, what
+# improved, where to improve, what to write. Read-only; deploys nothing.
 on:
   schedule:
-    - cron: '0 0 * * *'   # 08:00 SGT (GitHub cron is best-effort; may arrive 1-3h later)
+    - cron: '0 2 * * 0'   # Sun 02:00 UTC = Sun 10:00 SGT (GitHub cron is best-effort; may arrive 1-3h later)
   workflow_dispatch:       # manual "Run workflow" button for testing
 
 permissions:
