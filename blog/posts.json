@@ -1,13 +1,46 @@
 [
   {
+    "slug": "hiring-grants-singapore-guide",
+    "title": "The employer&rsquo;s guide to hiring grants in Singapore",
+    "tag": "Hiring Grants",
+    "excerpt": "Singapore&rsquo;s hiring grants, mapped in plain English &mdash; the ones you apply for that move the needle on a hire, and the automatic wage credits the government just pays out. Which grant, for which hire.",
+    "author": "Eugene Teo",
+    "date": "2026-08-21",
+    "readTime": "4 min read",
+    "icon": "file",
+    "draft": true
+  },
+  {
     "slug": "employment-grant-singapore-employers-miss",
     "title": "The employment grant most Singapore employers miss",
-    "tag": "Employer Guide",
+    "tag": "Hiring Grants",
     "excerpt": "Singapore&rsquo;s Career Conversion Programme can fund up to 90% of a new hire&rsquo;s salary while you train them &mdash; but most employers miss it or use it wrong. What it is, who qualifies, and how you actually get it.",
     "author": "Eugene Teo",
     "date": "2026-08-21",
     "readTime": "5 min read",
     "icon": "coins",
+    "draft": true
+  },
+  {
+    "slug": "try-before-you-hire-mature-talent-grant",
+    "title": "Try before you hire: the grant for mature talent",
+    "tag": "Hiring Grants",
+    "excerpt": "The Mid-Career Pathways Programme lets you trial a 40-plus hire on a 4&ndash;6 month attachment &mdash; with most of the allowance funded &mdash; then hire them if it works out.",
+    "author": "Eugene Teo",
+    "date": "2026-08-21",
+    "readTime": "4 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "automatic-wage-credits-singapore-employers",
+    "title": "The grants that just show up: automatic wage credits",
+    "tag": "Hiring Grants",
+    "excerpt": "Some hiring support needs no application &mdash; the government tops up your wage bill automatically. PWCS, Senior Employment Credit, and the disability and ex-offender credits, in plain English.",
+    "author": "Eugene Teo",
+    "date": "2026-08-21",
+    "readTime": "4 min read",
+    "icon": "idcard",
     "draft": true
   },
   {

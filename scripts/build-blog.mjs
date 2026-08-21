@@ -69,7 +69,7 @@ const regularCard = (post) => `                <a href="/blog/${post.slug}/" dat
                 </a>`;
 
 // Field Notes index: filter tabs + card grid + "Load more" — stays short as the blog grows.
-const TAG_ORDER = ['Field Notes', 'Employer Guide', 'Scam Awareness'];
+const TAG_ORDER = ['Field Notes', 'Hiring Grants', 'Employer Guide', 'Scam Awareness'];
 let cards;
 if (live.length) {
   const used = TAG_ORDER.filter(t => live.some(p => p.tag === t));
