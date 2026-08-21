@@ -33,4 +33,4 @@ jobs:
           publish_dir: .
           force_orphan: true
           # Keep build tooling + raw data off the public site.
-          exclude_assets: '.github,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,.ga-key.json'
+          exclude_assets: '.github,node_modules,scripts,qa-reports,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,keyword-targets.mjs,.ga-key.json'
