@@ -1,0 +1,26 @@
+name: JTE growth comparison
+
+# Manual only. Prints the whole Search Console history broken down by month, so the
+# question "has this actually grown" gets a number instead of an impression.
+# Read-only: sends no email, deploys nothing, writes nothing back to the repo.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Write Search Console service-account key
+        run: printf '%s' "$GA_KEY_JSON" > .ga-key.json
+        env:
+          GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
+      - name: Compare
+        run: node growth-compare.mjs
