@@ -1,0 +1,41 @@
+name: Client monthly report
+
+# The report the CLIENT reads. Runs on the 3rd of each month, covering the month just
+# ended — the 3rd rather than the 1st because Search Console data lags two to three
+# days and a report built on incomplete data understates the month.
+#
+# It emails EUGENE, not the client. He reads it, then forwards. A report that can reach
+# a client without a human seeing it first is one bad month away from an awkward
+# conversation.
+
+on:
+  schedule:
+    - cron: '0 1 3 * *'    # 3rd of the month, 01:00 UTC = 09:00 SGT
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Month to report on (YYYY-MM). Blank = last complete month.'
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Write Search Console service-account key
+        run: printf '%s' "$GA_KEY_JSON" > .ga-key.json
+        env:
+          GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
+      - name: Build and send
+        run: node client-report.mjs
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          REPORT_TO: eugeneteo1988@gmail.com
+          CLIENT_NAME: JTE Recruit
+          MONTH: ${{ inputs.month }}
