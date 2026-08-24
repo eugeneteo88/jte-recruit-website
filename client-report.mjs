@@ -100,17 +100,23 @@ try {
 } catch { /* no posts file — section is simply omitted */ }
 
 // ---- say it plainly -------------------------------------------------------
+// "No previous month at all" is NOT the same as "no change". Running this on July
+// produced "a steady month" when June simply had no data — reassuring, and false.
+// A client cannot audit that, which is exactly why it has to be right.
+const hasBaseline = prev.impressions > 0;
 const pct = (from, to) => (from ? Math.round(((to - from) / from) * 100) : null);
 const dImp = pct(prev.impressions, cur.impressions);
 const dClk = pct(prev.clicks, cur.clicks);
 const posMoved = prev.position && cur.position ? prev.position - cur.position : 0;   // positive = improved
 
 const n = (x) => Number(x || 0).toLocaleString();
-const arrow = (d) => (d === null ? '' : d > 0 ? `up ${d}%` : d < 0 ? `down ${Math.abs(d)}%` : 'flat');
+const arrow = (d) => (!hasBaseline ? 'no prior month' : d === null ? '' : d > 0 ? `up ${d}%` : d < 0 ? `down ${Math.abs(d)}%` : 'flat');
 
-// The headline is written from the data, including when the data is disappointing.
+// The headline is written from the data, including when the data is disappointing —
+// and including when there is not enough of it to say anything at all.
 let headline;
-if (dImp !== null && dImp > 10 && dClk !== null && dClk > 10) headline = `A good month — more people saw ${CLIENT}, and more of them clicked.`;
+if (!hasBaseline) headline = `This is the first month with search data to report on, so there is nothing yet to compare it against. Next month will show a direction.`;
+else if (dImp !== null && dImp > 10 && dClk !== null && dClk > 10) headline = `A good month — more people saw ${CLIENT}, and more of them clicked.`;
 else if (dImp !== null && dImp > 10 && (dClk === null || dClk <= 0)) headline = `More people saw ${CLIENT} this month, but not more clicked. That is the thing to work on next.`;
 else if (dImp !== null && dImp < -10) headline = `A quieter month — ${CLIENT} appeared less often in search than in ${prevLabel}.`;
 else headline = `A steady month. Nothing moved sharply in either direction.`;
@@ -126,9 +132,9 @@ const html = `<div style="margin:0;padding:0;background:#f5f6f9">
   <table style="width:100%;border-collapse:collapse;margin:0 0 8px">
     ${row('Times you appeared in search', n(cur.impressions), arrow(dImp))}
     ${row('Visits from search', n(cur.clicks), arrow(dClk))}
-    ${row('Average position', cur.position.toFixed(1), posMoved > 0.3 ? `improved by ${posMoved.toFixed(1)}` : posMoved < -0.3 ? `slipped by ${Math.abs(posMoved).toFixed(1)}` : 'unchanged')}
+    ${row('Average position', cur.position.toFixed(1), !hasBaseline ? 'no prior month' : posMoved > 0.3 ? `improved by ${posMoved.toFixed(1)}` : posMoved < -0.3 ? `slipped by ${Math.abs(posMoved).toFixed(1)}` : 'unchanged')}
   </table>
-  <p style="margin:0 0 24px;font-size:13.5px;color:#666c7a">Compared with ${prevLabel}. Average position is where you sit in Google's results — lower is better.</p>
+  <p style="margin:0 0 24px;font-size:13.5px;color:#666c7a">${hasBaseline ? `Compared with ${prevLabel}.` : `There is no search data for ${prevLabel}, so there is nothing to compare against this month.`} Average position is where you sit in Google's results — lower is better.</p>
 
   <h2 style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#666c7a;margin:26px 0 10px">People who already knew you, and people who didn't</h2>
   <p style="margin:0 0 8px"><b>${n(brandClicks)}</b> of this month's visits came from someone searching for ${CLIENT} by name. <b>${n(nonBrandClicks)}</b> came from people searching for what you do, who had not heard of you.</p>
