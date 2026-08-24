@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-08-21",
+    "kind": "technical",
+    "title": "Search Console reporting set up",
+    "note": "Connected the site to Google Search Console so we can see exactly what people search before they land here, and which pages Google is actually showing."
+  },
+  {
+    "date": "2026-07-07",
+    "kind": "technical",
+    "title": "Site rebuilt and relaunched",
+    "note": "New structure, faster pages, and a sitemap Google can read properly. This is the work that everything since has built on."
+  }
+]
