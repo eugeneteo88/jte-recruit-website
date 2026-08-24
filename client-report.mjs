@@ -93,11 +93,20 @@ const topPages = pages.sort((a, b) => (b.clicks || 0) - (a.clicks || 0)).slice(0
 // Read from the site's own publishing data, so this section fills itself in. A report
 // where "what we did" is typed by hand is a report that stops being sent.
 let published = [];
+let upcoming = [];
+const todayIso = new Date().toISOString().slice(0, 10);
 try {
   const posts = JSON.parse(readFileSync(new URL('./blog/posts.json', import.meta.url), 'utf8'));
   const arr = Array.isArray(posts) ? posts : (posts.posts || []);
   published = arr.filter((p) => p.date && p.date >= iso(start) && p.date <= iso(end));
-} catch { /* no posts file — section is simply omitted */ }
+  // What is booked but not yet out. On a retainer the client's real question is not
+  // only "what did I get" but "is anything still happening" — and a dated pipeline
+  // answers it far better than a promise that work continues.
+  upcoming = arr.filter((p) => p.date && p.date > todayIso).sort((a, b) => a.date.localeCompare(b.date)).slice(0, 4);
+} catch { /* no posts file — these sections are simply omitted */ }
+
+// The work log. The email is the summary; this is the proof, with dates against it.
+const LOG_URL = process.env.LOG_URL || 'https://jte.com.sg/updates/';
 
 // ---- say it plainly -------------------------------------------------------
 // "No previous month at all" is NOT the same as "no change". Running this on July
@@ -147,6 +156,15 @@ const html = `<div style="margin:0;padding:0;background:#f5f6f9">
   ${published.length
     ? `<ul style="margin:0 0 20px;padding-left:20px;font-size:15px">${published.map((p) => `<li style="margin:4px 0"><b>${p.title}</b><br><span style="color:#666c7a;font-size:14px">published ${p.date}</span></li>`).join('')}</ul>`
     : `<p style="margin:0 0 20px;font-size:15px;color:#666c7a">No new articles published this month — the work was on the existing pages and the technical side.</p>`}
+
+  <div style="background:#e7e6fb;border-radius:12px;padding:18px 20px;margin:22px 0">
+    <p style="margin:0 0 6px;font-size:15px"><b>See everything, with dates.</b></p>
+    <p style="margin:0 0 14px;font-size:15px;color:#3a404d">Articles, page changes, technical fixes — the full running record of work on your site.</p>
+    <a href="${LOG_URL}" style="display:inline-block;background:#5b57d6;color:#fff;font-weight:700;font-size:15px;text-decoration:none;border-radius:980px;padding:12px 22px">Open the work log →</a>
+  </div>
+
+  ${upcoming.length ? `<h2 style="font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#666c7a;margin:26px 0 10px">What's coming next</h2>
+  <ul style="margin:0 0 20px;padding-left:20px;font-size:15px">${upcoming.map((p) => `<li style="margin:4px 0">${p.title}<br><span style="color:#666c7a;font-size:14px">planned for ${p.date}</span></li>`).join('')}</ul>` : ''}
 
   <div style="background:#edeef4;border-radius:12px;padding:16px 18px;margin:24px 0">
     <p style="margin:0;font-size:15px"><b>A note on timing.</b> Search results move slowly. A month is a data point, not a verdict — the shape only becomes clear over a quarter. If a month is flat, that is normal and not a reason to change course.</p>
