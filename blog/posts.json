@@ -1,5 +1,38 @@
 [
   {
+    "slug": "contract-vs-permanent-engineers-singapore",
+    "title": "Contract vs permanent engineers &mdash; which does your project actually need?",
+    "tag": "Employer Guide",
+    "excerpt": "Most engineering hiring problems start with the wrong question. When a permanent engineer is right, when contract makes more sense, and the traps in between.",
+    "author": "Eugene Teo",
+    "date": "2026-09-01",
+    "readTime": "4 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "what-a-good-engineer-costs-singapore",
+    "title": "What a good engineer actually costs in Singapore right now",
+    "tag": "Employer Guide",
+    "excerpt": "The salary is the part everyone sees &mdash; it isn&rsquo;t the whole cost. An honest breakdown of what an engineering hire really costs, good or bad.",
+    "author": "Eugene Teo",
+    "date": "2026-09-01",
+    "readTime": "4 min read",
+    "icon": "coins",
+    "draft": true
+  },
+  {
+    "slug": "contract-staffing-payroll-one-invoice",
+    "title": "Contract staffing and payroll, one invoice",
+    "tag": "Employer Guide",
+    "excerpt": "Source the person, run their payroll, one bill &mdash; the contract-staffing-with-payroll setup most SMEs don&rsquo;t know they can use.",
+    "author": "Eugene Teo",
+    "date": "2026-09-01",
+    "readTime": "4 min read",
+    "icon": "file",
+    "draft": true
+  },
+  {
     "slug": "hiring-grants-singapore-guide",
     "title": "The employer&rsquo;s guide to hiring grants in Singapore",
     "tag": "Hiring Grants",
