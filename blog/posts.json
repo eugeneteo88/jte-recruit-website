@@ -5,10 +5,9 @@
     "tag": "Employer Guide",
     "excerpt": "Most engineering hiring problems start with the wrong question. When a permanent engineer is right, when contract makes more sense, and the traps in between.",
     "author": "Eugene Teo",
-    "date": "2026-09-01",
+    "date": "2026-09-15",
     "readTime": "4 min read",
-    "icon": "users",
-    "draft": true
+    "icon": "users"
   },
   {
     "slug": "what-a-good-engineer-costs-singapore",
@@ -16,10 +15,9 @@
     "tag": "Employer Guide",
     "excerpt": "The salary is the part everyone sees &mdash; it isn&rsquo;t the whole cost. An honest breakdown of what an engineering hire really costs, good or bad.",
     "author": "Eugene Teo",
-    "date": "2026-09-01",
+    "date": "2026-09-22",
     "readTime": "4 min read",
-    "icon": "coins",
-    "draft": true
+    "icon": "coins"
   },
   {
     "slug": "contract-staffing-payroll-one-invoice",
@@ -27,10 +25,9 @@
     "tag": "Employer Guide",
     "excerpt": "Source the person, run their payroll, one bill &mdash; the contract-staffing-with-payroll setup most SMEs don&rsquo;t know they can use.",
     "author": "Eugene Teo",
-    "date": "2026-09-01",
+    "date": "2026-09-29",
     "readTime": "4 min read",
-    "icon": "file",
-    "draft": true
+    "icon": "file"
   },
   {
     "slug": "hiring-grants-singapore-guide",
