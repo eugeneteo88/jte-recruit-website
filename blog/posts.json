@@ -1,5 +1,27 @@
 [
   {
+    "slug": "what-happens-with-a-good-recruiter",
+    "title": "What actually happens when you work with a good recruiter",
+    "tag": "Employer Guide",
+    "excerpt": "Most employers picture a recruiter as a middleman who forwards CVs. A good one does most of the work before you ever see one &mdash; what you&rsquo;re really paying for, and how to spot one.",
+    "author": "Eugene Teo",
+    "date": "2026-10-06",
+    "readTime": "4 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
+    "slug": "first-tech-hire-non-tech-company",
+    "title": "Your first tech hire at a non-tech company",
+    "tag": "Employer Guide",
+    "excerpt": "Hiring your first software or IT person when nobody in the building is technical is easy to get wrong. Five traps that sink first tech hires &mdash; and what to do instead.",
+    "author": "Eugene Teo",
+    "date": "2026-10-13",
+    "readTime": "5 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
     "slug": "contract-vs-permanent-engineers-singapore",
     "title": "Contract vs permanent engineers &mdash; which does your project actually need?",
     "tag": "Employer Guide",
