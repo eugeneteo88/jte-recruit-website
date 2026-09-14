@@ -3,10 +3,26 @@
 // Scales without a photo backlog: reuse a small set of sector background photos.
 // usage: makeHero({eyebrow, headline, accent, subtitle, bg, out})
 import { createRequire } from 'module';
+import fs from 'fs';
+import path from 'path';
 const require = createRequire('C:/Users/eugen/jte-website/package.json');
 const sharp = require('sharp');
 
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+const BG_DIR = path.join(path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/,'$1'), '..', 'assets', 'hero-bg');
+
+// list available backgrounds for a sector (files named e.g. engineering-1.jpg)
+export function heroBgs(sector, dir=BG_DIR){
+  try { return fs.readdirSync(dir).filter(f=>f.startsWith(sector+'-') && /\.(jpe?g|png|webp)$/i.test(f)).sort().map(f=>path.join(dir,f)); }
+  catch { return []; }
+}
+// deterministic rotation: same slug always picks the same bg, but spreads across the pool
+export function pickBg(sector, seed, dir=BG_DIR){
+  const list = heroBgs(sector, dir); if(!list.length) return null;
+  let h=2166136261; for(const ch of String(seed)){ h^=ch.charCodeAt(0); h=Math.imul(h,16777619); }
+  return list[(h>>>0)%list.length];
+}
 
 function wrap(text, max=26){
   const words = String(text).split(' '); const lines=[]; let cur='';
