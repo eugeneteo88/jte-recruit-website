@@ -1,0 +1,405 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>JTE Company Profile Builder</title>
+<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+<link rel="apple-touch-icon" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/favicon/JTE%20Favicon.png?width=180&height=180&resize=cover">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jte.com.sg/toolkit/company-profile/">
+<meta property="og:title" content="JTE Recruit — Company Profile & Track Record">
+<meta property="og:description" content="Getting to know JTE Recruit: who we are, what we've delivered, and why employers across Singapore trust us with their hiring. Trusted by ST Engineering, Foxconn & Schenker.">
+<meta property="og:image" content="https://jte.com.sg/assets/og/company-profile.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JTE Recruit — Company Profile & Track Record">
+<meta name="twitter:description" content="Getting to know JTE Recruit — who we are, what we've delivered, and why employers trust us with their hiring.">
+<meta name="twitter:image" content="https://jte.com.sg/assets/og/company-profile.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#22201c; --soft:#6b6459; --faint:#9a9284;
+  --black:#0a0a0a; --coffee:#241B12; --gold:#C6A87C; --gold-dark:#8C7350; --gold-light:#E5D4B3;
+  --cream:#F5F1E8; --paper:#ffffff; --panel:#FAF7F1; --line:#e7e1d5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:#cfcac0;font-size:10.5pt;line-height:1.55}
+@page{size:A4;margin:0}
+
+/* ---------- control bar (screen only) ---------- */
+.controls{position:sticky;top:0;z-index:100;background:#1a1512;color:#efe7d9;padding:13px 18px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;border-bottom:2px solid var(--gold);font-family:'Inter',sans-serif}
+.controls .brand{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);letter-spacing:.04em;margin-right:6px;align-self:center}
+.controls .brand b{color:var(--gold);font-weight:600}
+.controls .f{display:flex;flex-direction:column;gap:5px}
+.controls label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.controls input[type=text],.controls select{padding:8px 11px;border:1px solid #6b5b45;background:#2a2018;color:#fff;border-radius:6px;font-size:13px;font-family:'Inter',sans-serif;min-width:210px}
+.controls input[type=text]:focus,.controls select:focus{outline:none;border-color:var(--gold)}
+.controls input:disabled{opacity:.4}
+.controls .chk{flex-direction:row;align-items:center;gap:8px;padding-bottom:9px}
+.controls .chk input{width:16px;height:16px;accent-color:var(--gold)}
+.controls .chk label{color:#efe7d9;letter-spacing:0;text-transform:none;font-size:12.5px;font-weight:400}
+.controls button{padding:10px 20px;background:var(--gold);color:#0a0a0a;border:0;border-radius:6px;font-weight:600;font-size:13px;cursor:pointer;letter-spacing:.02em;transition:.2s}
+.controls button:hover{background:var(--gold-light)}
+.controls .hint{width:100%;font-size:11px;color:#b49b76;margin-top:1px;line-height:1.5}
+.controls .hint b{color:#d8c9ae;font-weight:600}
+
+.pages{margin:0 auto;transform-origin:top center}
+.page{position:relative;width:210mm;height:297mm;background:var(--paper);overflow:hidden;margin:0 auto;box-shadow:0 6px 30px rgba(0,0,0,.18)}
+.page+.page{margin-top:10mm}
+.pad{padding:23mm 22mm 20mm}
+.serif{font-family:'Playfair Display',serif}
+.eyebrow{font-size:8pt;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-dark);font-weight:600}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;color:var(--black);line-height:1.12}
+p{margin-bottom:8pt}
+.lead{font-size:11.5pt;line-height:1.62;color:#3a352e;font-weight:300}
+.small{font-size:8.5pt;color:var(--soft)}
+strong{font-weight:600;color:var(--ink)}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm .j{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:.08em}
+.wm .r{font-family:'Inter';text-transform:uppercase;letter-spacing:.42em;padding-left:.42em}
+.rhead{position:absolute;top:12mm;left:22mm;right:22mm;display:flex;justify-content:space-between;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.rhead::after{content:"";position:absolute;left:0;right:0;bottom:-4mm;height:1px;background:var(--line)}
+.rfoot{position:absolute;bottom:11mm;left:22mm;right:22mm;display:flex;justify-content:space-between;font-size:7.5pt;letter-spacing:.08em;color:var(--faint)}
+.rfoot::before{content:"";position:absolute;left:0;right:0;top:-4mm;height:1px;background:var(--line)}
+.rfoot .c{letter-spacing:.18em;text-transform:uppercase}
+.sec{display:flex;align-items:baseline;gap:14px;margin-bottom:12pt}
+.sec .no{font-family:'Playfair Display',serif;font-size:28pt;color:var(--gold);font-weight:600;line-height:.8}
+.sec h2{font-size:20pt}
+.rule.gold{height:2px;background:var(--gold);width:44px;margin:9pt 0 13pt}
+.cover{background:radial-gradient(130% 120% at 18% 8%, #2c2016 0%, #201710 46%, #140d08 100%);color:#efe7d9}
+.cover .frame{position:absolute;inset:10mm;border:1px solid rgba(198,168,124,.28)}
+.cover .mono{position:absolute;right:-12mm;bottom:-24mm;font-family:'Playfair Display',serif;font-weight:700;font-size:150mm;line-height:1;color:rgba(198,168,124,.05)}
+.cover .inner{position:relative;height:100%;padding:26mm 24mm;display:flex;flex-direction:column}
+.cover .wm .j{color:var(--cream);font-size:22pt}
+.cover .wm .r{color:var(--gold);font-size:8pt;margin-top:5pt}
+.cover .ttl{font-family:'Playfair Display',serif;font-weight:600;color:#fff;font-size:32pt;line-height:1.12}
+.cover .ttl em{font-style:italic;color:var(--gold-light);font-weight:500}
+.cover .sub{font-size:11pt;color:#c9beac;font-weight:300}
+.cover .meta{display:grid;grid-template-columns:1fr 1fr;gap:8mm 14mm}
+.cover .meta .k{font-size:7.5pt;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:4pt}
+.cover .meta .v{font-size:10.5pt;color:#e9dfce}
+.cover .foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:8pt;color:#9c917f}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:2pt 0}
+.stats .cell{padding:11pt 12pt;border-right:1px solid var(--line)}
+.stats .cell:last-child{border-right:0}
+.stats .n{font-family:'Playfair Display',serif;font-size:17pt;color:var(--gold-dark);font-weight:600;line-height:1}
+.stats .l{font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin-top:5pt}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15pt}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:13pt 14pt}
+.card .eyebrow{margin-bottom:6pt;display:block}
+.card p{font-size:9.5pt;color:var(--soft);margin-bottom:0}
+.callout{background:linear-gradient(180deg,#faf4e9,#f6efe0);border-left:3px solid var(--gold);border-radius:2px;padding:12pt 15pt;color:#4a4034}
+.ng{display:grid;grid-template-columns:repeat(3,1fr);gap:12pt}
+.ng .b{border:1px solid var(--line);border-radius:3px;padding:14pt 14pt;background:linear-gradient(180deg,#fff,#faf7f1)}
+.ng .b .n{font-family:'Playfair Display',serif;font-size:25pt;color:var(--gold-dark);font-weight:600;line-height:.95}
+.ng .b .l{font-size:8.5pt;color:var(--soft);margin-top:6pt;line-height:1.35}
+.rating{display:flex;align-items:center;gap:12pt;background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:12pt 15pt}
+.rating .big{font-family:'Playfair Display',serif;font-size:26pt;color:var(--gold-dark);font-weight:600;line-height:1}
+.rating .stars{color:var(--gold);font-size:14pt;letter-spacing:2px}
+.rating .sub{font-size:9pt;color:var(--soft)}
+.case{border:1px solid var(--line);border-radius:3px;overflow:hidden;margin-bottom:11pt}
+.case .top{background:var(--coffee);color:var(--cream);padding:8pt 13pt;display:flex;justify-content:space-between;align-items:center}
+.case .top .tag{font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light)}
+.case .top .role{font-family:'Playfair Display',serif;font-size:12pt}
+.srow{display:flex;gap:12pt;padding:7pt 0;border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:0}
+.srow .st{width:42mm;flex:none}.srow .st h3{font-size:10.5pt}
+.srow .sd{font-size:9.5pt;color:var(--soft)}.srow .sd b{color:var(--ink);font-weight:600}
+.step{display:flex;gap:12pt;padding:7pt 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .sn{flex:none;width:24pt;height:24pt;border:1.5px solid var(--gold);color:var(--gold-dark);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:9.5pt;font-weight:600;font-family:'Playfair Display',serif}
+.step h3{font-size:10.5pt;margin-bottom:1pt}.step p{margin-bottom:0;font-size:9pt;color:var(--soft)}
+.chk-list{list-style:none}
+.chk-list li{position:relative;padding-left:18pt;margin-bottom:6pt;font-size:10pt}
+.chk-list li::before{content:"";position:absolute;left:0;top:3pt;width:9pt;height:9pt;border:1.5px solid var(--gold);border-radius:2px}
+.chk-list li::after{content:"";position:absolute;left:3pt;top:4.5pt;width:4pt;height:2pt;border-left:1.5px solid var(--gold-dark);border-bottom:1.5px solid var(--gold-dark);transform:rotate(-45deg)}
+.mt6{margin-top:6pt}.mt10{margin-top:10pt}.mt14{margin-top:14pt}.mt18{margin-top:18pt}.mb0{margin-bottom:0}
+.backcover{background:radial-gradient(130% 120% at 82% 92%, #2c2016 0%, #201710 48%, #140d08 100%);color:#efe7d9}
+
+@media print{
+  body{background:#fff}
+  .controls{display:none !important}
+  .pages{transform:none !important;zoom:1 !important;margin:0}
+  .page{box-shadow:none;margin:0 !important;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  .page+.page{margin-top:0}
+}
+</style>  <style>/* JTE-GLOBAL-SELECTION */::selection{background-color:#ECDCBB;color:#241B12}::-moz-selection{background-color:#ECDCBB;color:#241B12}</style>
+</head><body>
+
+<!-- ===== CONTROL BAR (screen only) ===== -->
+<div class="controls no-print">
+  <div class="brand"><b>JTE</b> Profile Builder</div>
+  <div class="f">
+    <label for="clientName">Client name</label>
+    <input type="text" id="clientName" placeholder="e.g. Yishun Town Secondary School" value="Yishun Town Secondary School">
+  </div>
+  <div class="f">
+    <label for="dateStr">Date</label>
+    <input type="text" id="dateStr" placeholder="13 July 2026">
+  </div>
+  <div class="f">
+    <label for="variant">Track record set</label>
+    <select id="variant"></select>
+  </div>
+  <div class="f chk">
+    <input type="checkbox" id="excludeName">
+    <label for="excludeName">Exclude client name (generic)</label>
+  </div>
+  <button id="dl" type="button">&#8681; Download PDF</button>
+  <div class="hint">Tip: in the print dialog choose <b>Destination: Save as PDF</b> and make sure <b>&ldquo;Background graphics&rdquo;</b> is ON (under More settings) so the dark cover prints.</div>
+</div>
+
+<div class="pages" id="pages">
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <div class="frame"></div><div class="mono">JTE</div>
+  <div class="inner">
+    <div class="wm"><span class="j">JTE</span><span class="r">Recruit</span></div>
+    <div style="margin-top:auto"></div>
+    <div class="eyebrow" style="color:var(--gold)">Company Profile &amp; Track Record</div>
+    <h1 class="ttl" style="margin-top:10pt">Getting to know<br><em>JTE Recruit</em></h1>
+    <p class="sub" style="margin-top:12pt;max-width:118mm">Who we are, what we&rsquo;ve delivered, and why employers across Singapore trust us with their hiring.</p>
+    <p id="ccTrusted" style="margin-top:11pt;font-size:9pt;letter-spacing:.03em;color:#b49b76"></p>
+    <div style="width:40mm;height:2px;background:var(--gold);margin:11mm 0 11mm"></div>
+    <div class="meta" id="coverMeta"></div>
+    <div style="margin-top:auto"></div>
+    <div class="foot">
+      <div>JTE Recruit Pte Ltd &middot; EA Licence No. 14C7215<br>1 Gateway Drive, #10-14, Singapore 608531</div>
+      <div style="text-align:right">jte.com.sg &middot; +65 6715 7450<br>&ldquo;Great People, Great Work.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 WHO WE ARE -->
+<section class="page">
+  <div class="rhead"><span>JTE Recruit &middot; Company Profile</span><span>Getting to know us</span></div>
+  <div class="pad">
+    <div class="eyebrow">Who we are</div>
+    <div class="rule gold"></div>
+    <p class="lead">JTE Recruit is a Singapore-based recruitment agency. Since 2014 we have helped employers hire great people, properly &mdash; pairing proactive, human sourcing with a disciplined, compliant process. We take time to understand the role and the fit, vet for capability <em>and</em> character, and stay accountable long after the hire starts.</p>
+    <div class="stats mt14">
+      <div class="cell"><div class="n">2014</div><div class="l">Established</div></div>
+      <div class="cell"><div class="n">10+</div><div class="l">Years in market</div></div>
+      <div class="cell"><div class="n">4.8&#9733;</div><div class="l">Google &middot; 330+ reviews</div></div>
+      <div class="cell"><div class="n">14C7215</div><div class="l">EA Licence</div></div>
+    </div>
+    <div class="two mt14">
+      <div class="card"><span class="eyebrow">What we do</span><p>Permanent &amp; contract recruitment, mass hiring, manpower outsourcing, and payroll &amp; work-pass administration &mdash; for employers hiring in Singapore.</p></div>
+      <div class="card"><span class="eyebrow">What makes us different</span><p>We vet for capability and character, not just a CV. Honest advice, transparent terms, and a replacement guarantee keep us invested in every outcome.</p></div>
+    </div>
+    <div class="eyebrow mt18">The team behind the work</div>
+    <div class="rule gold"></div>
+    <p style="margin-bottom:6pt">Led by our founding partners, backed by a specialist team:</p>
+    <div class="two">
+      <ul class="chk-list mb0">
+        <li><strong>Eugene</strong> &mdash; Managing Partner</li>
+        <li><strong>Jonathan</strong> &mdash; Partnership Lead</li>
+        <li><strong>Adaline</strong> &mdash; Head of Sales</li>
+      </ul>
+      <ul class="chk-list mb0">
+        <li>14-strong team of specialist consultants</li>
+        <li>50+ years of combined experience</li>
+        <li>One dedicated point of contact per client</li>
+      </ul>
+    </div>
+    <div class="callout mt14"><em class="serif" style="font-size:13pt;color:var(--coffee)">&ldquo;We help employers hire great people, properly.&rdquo;</em><br><span class="small" style="color:#7a6f5e;letter-spacing:.14em;text-transform:uppercase">Human &middot; Refined &middot; Trusted</span></div>
+  </div>
+  <div class="rfoot"><span>EA Licence No. 14C7215</span><span class="c">JTE Recruit &middot; Company Profile</span><span>Page 2</span></div>
+</section>
+
+<!-- 3 TRACK RECORD NUMBERS -->
+<section class="page">
+  <div class="rhead"><span>JTE Recruit &middot; Company Profile</span><span>Getting to know us</span></div>
+  <div class="pad">
+    <div class="sec"><span class="no">01</span><h2>Track record by the numbers</h2></div>
+    <p class="lead">Over a decade of steady, accountable delivery &mdash; here&rsquo;s what that adds up to. These are the proof points clients look for.</p>
+    <div class="ng mt14">
+      <div class="b"><div class="n">6,000+</div><div class="l">Placements since 2014 &mdash; around 50 every month</div></div>
+      <div class="b"><div class="n">500+</div><div class="l">Employers served across Singapore</div></div>
+      <div class="b"><div class="n">11.5</div><div class="l">Years helping employers hire (est. 2014)</div></div>
+      <div class="b"><div class="n">4.8&#9733;</div><div class="l">Average Google rating (330+ reviews)</div></div>
+      <div class="b"><div class="n">50+</div><div class="l">Years of combined consultant experience</div></div>
+      <div class="b"><div class="n">5</div><div class="l">Core sectors of deep specialisation</div></div>
+    </div>
+    <div class="eyebrow mt18">What these numbers mean for you</div>
+    <div class="rule gold"></div>
+    <ul class="chk-list">
+      <li><strong>Depth, not guesswork.</strong> Established benches mean faster, better-matched shortlists.</li>
+      <li><strong>Proven at scale.</strong> Thousands of hires across hundreds of employers &mdash; a partner that has done this, repeatedly.</li>
+      <li><strong>Reputation you can check.</strong> Our 4.8&#9733; rating is public &mdash; social proof from real clients and candidates.</li>
+    </ul>
+  </div>
+  <div class="rfoot"><span>EA Licence No. 14C7215</span><span class="c">JTE Recruit &middot; Company Profile</span><span>Page 3</span></div>
+</section>
+
+<!-- 4 SELECTED CLIENTS -->
+<section class="page">
+  <div class="rhead"><span>JTE Recruit &middot; Company Profile</span><span>Getting to know us</span></div>
+  <div class="pad">
+    <div class="sec"><span class="no">02</span><h2 id="engHead">Selected clients &amp; engagements</h2></div>
+    <p class="lead" style="margin-bottom:12pt" id="engLead">Employers who trust JTE with their hiring &mdash; including multi-year outsourced-manpower partnerships with some of Singapore&rsquo;s most demanding operations.</p>
+    <div id="engagements"></div>
+    <div class="eyebrow mt14" style="margin-top:15pt">What clients say</div>
+    <div class="rule gold"></div>
+    <div class="rating" style="margin-bottom:10pt">
+      <div class="big">4.8</div>
+      <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="sub">Average Google rating &middot; 330+ reviews from clients &amp; candidates</div></div>
+    </div>
+    <p style="font-size:9.5pt;color:#4a4034;margin:0">JTE has received consistently positive feedback from both clients and candidates for our recruitment support, responsiveness and service delivery. <span style="color:#8C7350;font-weight:600">Client references available on request.</span></p>
+  </div>
+  <div class="rfoot"><span>EA Licence No. 14C7215</span><span class="c">JTE Recruit &middot; Company Profile</span><span>Page 4</span></div>
+</section>
+
+<!-- 5 SECTORS + PROCESS -->
+<section class="page">
+  <div class="rhead"><span>JTE Recruit &middot; Company Profile</span><span>Getting to know us</span></div>
+  <div class="pad">
+    <div class="sec"><span class="no">03</span><h2>What we cover &amp; how we work</h2></div>
+    <div class="eyebrow">Sectors we know well</div>
+    <div class="rule gold"></div>
+    <div>
+      <div class="srow"><div class="st"><h3>Engineering</h3></div><div class="sd">Design &amp; project engineers through to <b>QA/QC, maintenance and plant leadership</b>.</div></div>
+      <div class="srow"><div class="st"><h3>Logistics &amp; Supply Chain</h3></div><div class="sd"><b>Warehouse, transport, planning and operations</b> talent for 3PLs and manufacturers.</div></div>
+      <div class="srow"><div class="st"><h3>Manufacturing</h3></div><div class="sd"><b>Production, process, quality and plant roles</b> &mdash; shop-floor to site management.</div></div>
+      <div class="srow"><div class="st"><h3>Healthcare</h3></div><div class="sd"><b>Clinical, allied-health, support and admin</b> roles for healthcare providers.</div></div>
+      <div class="srow"><div class="st"><h3>Commercial &amp; Support</h3></div><div class="sd"><b>Sales, admin, finance, HR and customer-facing</b> roles across industries.</div></div>
+    </div>
+    <div class="eyebrow mt18">Our process</div>
+    <div class="rule gold"></div>
+    <div class="two" style="gap:10pt 24pt">
+      <div>
+        <div class="step"><div class="sn">1</div><div><h3>Discovery &amp; briefing</h3><p>Define role, scope, package &amp; realistic market expectations.</p></div></div>
+        <div class="step"><div class="sn">2</div><div><h3>Proactive sourcing</h3><p>Reach pre-qualified passive talent, not just active applicants.</p></div></div>
+        <div class="step"><div class="sn">3</div><div><h3>Screening &amp; assessment</h3><p>Vet for capability &amp; character; verify eligibility up front.</p></div></div>
+      </div>
+      <div>
+        <div class="step"><div class="sn">4</div><div><h3>Shortlist &amp; coordination</h3><p>Ranked shortlist; we manage scheduling &amp; feedback.</p></div></div>
+        <div class="step"><div class="sn">5</div><div><h3>Offer &amp; onboarding</h3><p>Manage offer &amp; pre-boarding to reduce drop-off.</p></div></div>
+        <div class="step"><div class="sn">6</div><div><h3>Aftercare &amp; guarantee</h3><p>Check-ins, and a free replacement within agreed terms.</p></div></div>
+      </div>
+    </div>
+    <div class="callout mt14">Not listed here? We place across other sectors too &mdash; just ask. Our process travels well beyond these roles.</div>
+  </div>
+  <div class="rfoot"><span>EA Licence No. 14C7215</span><span class="c">JTE Recruit &middot; Company Profile</span><span>Page 5</span></div>
+</section>
+
+<!-- 6 WHY JTE / CONTACT -->
+<section class="page backcover">
+  <div class="rhead" style="color:rgba(239,231,217,.5)"><span style="color:rgba(239,231,217,.55)">JTE Recruit &middot; Company Profile</span><span style="color:rgba(239,231,217,.55)">Getting to know us</span></div>
+  <div class="pad" style="color:#efe7d9">
+    <div class="eyebrow" style="color:var(--gold)">Why employers choose JTE</div>
+    <div class="rule gold" style="background:var(--gold)"></div>
+    <h2 class="serif" style="color:#fff;font-size:21pt;line-height:1.15">Great people, hired properly.</h2>
+    <p class="lead" style="color:#c9beac;margin-top:8pt;max-width:150mm">Licensed, sector-deep and genuinely accountable &mdash; a hiring partner you can build a plan around.</p>
+    <ul class="chk-list" style="margin-top:12pt">
+      <li style="color:#e7ddcc">Licensed employment agency &mdash; EA Licence No. 14C7215</li>
+      <li style="color:#e7ddcc">Full compliance: Employment Agencies Act, MOM, TAFEP, PDPA</li>
+      <li style="color:#e7ddcc">Replacement guarantee on permanent placements</li>
+      <li style="color:#e7ddcc">Proactive sourcing &amp; rigorous, character-based screening</li>
+      <li style="color:#e7ddcc">4.8&#9733; rated across 330+ reviews &mdash; a reputation you can verify</li>
+    </ul>
+    <div style="margin-top:auto"></div>
+    <div style="border-top:1px solid rgba(198,168,124,.3);padding-top:14pt;display:flex;justify-content:space-between;align-items:flex-end">
+      <div>
+        <div class="wm"><span class="j" style="color:var(--cream);font-size:19pt">JTE</span><span class="r" style="color:var(--gold);font-size:7pt;margin-top:5pt">Recruit</span></div>
+        <p class="serif" style="font-style:italic;color:var(--gold-light);font-size:12pt;margin:10pt 0 0">Let&rsquo;s put great people to work.</p>
+      </div>
+      <div style="text-align:right;font-size:8.5pt;color:#c1b6a4;line-height:1.7">
+        <strong style="color:#efe7d9;font-weight:600">JTE Recruit Pte Ltd</strong><br>
+        1 Gateway Drive, #10-14, Singapore 608531<br>
+        +65 6715 7450 &middot; ask@jte.com.sg<br>
+        jte.com.sg &middot; EA Licence No. 14C7215
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /pages -->
+
+<script>
+/* ============ TRACK-RECORD SETS ============
+   To add a new industry set later, add another entry here (e.g. healthcare:{...}).
+   It automatically appears in the "Track record set" dropdown. */
+var VARIANTS = {
+  general: {
+    label: 'General — all sectors',
+    trusted: 'ST Engineering · Foxconn · Schenker',
+    trustedTail: '— and 500+ employers since 2014.',
+    engagements: [
+      { name:'ST Engineering Group', period:'2023 – Current',
+        scope:'End-to-end outsourced manpower services across ST Engineering entities — recruitment, contract staffing, workforce deployment, operational staffing support and payroll outsourcing. Includes urgent, event-based temporary manpower, such as Formula&nbsp;1 assignments.' },
+      { name:'Foxconn Group of Companies', period:'2014 – Current · 10+ yrs',
+        scope:'Outsourced manpower and deployment for operational requirements — recruitment, manpower fulfilment, shift coordination, full-spectrum HRMS set-up for attendance tracking, payroll support, and onsite operations/HR support.' },
+      { name:'Schenker Singapore Pte Ltd', period:'2014 – Current · 10+ yrs',
+        scope:'Full-spectrum recruitment placement and contract/temporary staffing for logistics, operations and business-support roles — including recurring monthly mass-hiring projects and ongoing contract-staff deployment.' }
+    ]
+  }
+  /* , healthcare: { label:'Healthcare', trusted:'...', trustedTail:'...', engagements:[ ... ] }  <-- future */
+};
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return (s||'').replace(/[&<>]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+function fmtToday(){ var d=new Date(); return d.getDate()+' '+d.toLocaleString('en-GB',{month:'long'})+' '+d.getFullYear(); }
+
+function renderMeta(){
+  var name = $('clientName').value.trim();
+  var excl = $('excludeName').checked;
+  var date = $('dateStr').value.trim() || fmtToday();
+  $('clientName').disabled = excl;
+  var cells = [];
+  if(!excl){ cells.push(['Prepared for', esc(name) || '[ Client organisation ]']); }
+  cells.push(['Prepared by','JTE Recruit Pte Ltd']);
+  cells.push(['Established','2014 · Singapore']);
+  cells.push(['Date', esc(date)]);
+  $('coverMeta').innerHTML = cells.map(function(c){
+    return '<div><div class="k">'+c[0]+'</div><div class="v">'+c[1]+'</div></div>';
+  }).join('');
+  document.title = 'JTE Company Profile' + (!excl && name ? ' — ' + name : '');
+}
+
+function renderVariant(){
+  var v = VARIANTS[$('variant').value] || VARIANTS.general;
+  $('ccTrusted').innerHTML = 'Trusted by <span style="color:#d8c9ae">'+v.trusted+'</span> '+v.trustedTail;
+  $('engagements').innerHTML = v.engagements.map(function(e){
+    return '<div class="case"><div class="top"><span class="role">'+e.name+'</span><span class="tag">'+e.period+'</span></div>'+
+           '<div style="padding:10pt 13pt"><p style="font-size:9.5pt;color:#6b6459;margin:0">'+e.scope+'</p></div></div>';
+  }).join('');
+}
+
+function updateAll(){ renderMeta(); renderVariant(); }
+
+/* fit-to-width preview (screen only) */
+function fit(){
+  var pxWidth = 210 * 96 / 25.4; // A4 width in px @96dpi
+  var vw = document.documentElement.clientWidth;
+  var scale = Math.min(1, (vw - 16) / pxWidth);
+  $('pages').style.zoom = scale;
+}
+
+/* populate variant dropdown */
+(function initVariants(){
+  var sel = $('variant');
+  Object.keys(VARIANTS).forEach(function(k){
+    var o = document.createElement('option'); o.value = k; o.textContent = VARIANTS[k].label; sel.appendChild(o);
+  });
+})();
+
+['clientName','excludeName','dateStr','variant'].forEach(function(id){
+  $(id).addEventListener('input', updateAll);
+  $(id).addEventListener('change', updateAll);
+});
+$('dl').addEventListener('click', function(){ window.print(); });
+window.addEventListener('resize', fit);
+window.onbeforeprint = function(){ $('pages').style.zoom = 1; };
+window.onafterprint = function(){ fit(); };
+
+/* init */
+if(!$('dateStr').value){ $('dateStr').value = fmtToday(); }
+updateAll();
+fit();
+</script>
+</body></html>
