@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-16T08:32:07.043Z",
+  "generated": "2026-09-16T11:58:09.464Z",
   "count": 7,
   "drafts": [
     {
@@ -105,7 +105,7 @@
       "excerpt": "As an employer myself, my first instinct is kiasu &mdash; throw money at it. But a counter-offer usually buys a few months, not loyalty. Why it backfires, and what actually keeps them.",
       "previewUrl": "/blog/should-you-counter-offer-engineer-singapore/",
       "heroUrl": "/blog/should-you-counter-offer-engineer-singapore/hero.jpg",
-      "words": 1316,
+      "words": 1481,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -113,7 +113,8 @@
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: an engineering manager and an engineer having a serious but respectful one-on-one conversation across a desk in a Singapore office, slightly tense, not looking at the camera. Natural light, unposed. No text/logos/watermark. Landscape.",
-        "Candid, real photo: an engineer at his desk looking thoughtful, laptop open, appearing to weigh a decision. Natural light, real, candid. No text/logos/watermark. Landscape."
+        "Candid, real photo: an engineer at his desk looking thoughtful, laptop open, appearing to weigh a decision (a resignation moment). Natural light, real, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a boss/owner in a small Singapore office looking stressed at his desk, hand on chin, thinking hard (the panic-decision moment). Natural light, unposed. No text/logos/watermark. Landscape."
       ]
     },
     {
@@ -124,7 +125,7 @@
       "excerpt": "It&rsquo;s rarely just the money, even though that&rsquo;s the reason they write down. The real drivers behind good engineers walking out &mdash; and how to keep them without overpaying everyone.",
       "previewUrl": "/blog/why-your-engineers-leave-singapore/",
       "heroUrl": "/blog/why-your-engineers-leave-singapore/hero.jpg",
-      "words": 1293,
+      "words": 1468,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -132,7 +133,8 @@
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a small engineering team working in a Singapore office, one person slightly apart and disengaged from the group, a natural candid moment. Natural light. No text/logos/watermark. Landscape.",
-        "Candid, real photo: a manager and an engineer having a friendly, genuine chat over coffee (a stay-interview vibe), relaxed, not looking at camera. Natural light. No text/logos/watermark. Landscape."
+        "Candid, real photo: a manager and an engineer having a friendly, genuine chat over coffee (a stay-interview vibe), relaxed, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer quietly packing up his desk / looking at his phone with his back half-turned, subtle sign of disengagement, in a Singapore office. Natural light, candid. No text/logos/watermark. Landscape."
       ]
     }
   ]
