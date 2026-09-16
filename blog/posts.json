@@ -1,5 +1,27 @@
 [
   {
+    "slug": "should-you-counter-offer-engineer-singapore",
+    "title": "Your best engineer just resigned. Should you counter-offer?",
+    "tag": "Employer Guide",
+    "excerpt": "As an employer myself, my first instinct is kiasu &mdash; throw money at it. But a counter-offer usually buys a few months, not loyalty. Why it backfires, and what actually keeps them.",
+    "author": "Eugene Teo",
+    "date": "2026-10-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "why-your-engineers-leave-singapore",
+    "title": "Why your engineers keep leaving &mdash; and how to keep them without overpaying",
+    "tag": "Employer Guide",
+    "excerpt": "It&rsquo;s rarely just the money, even though that&rsquo;s the reason they write down. The real drivers behind good engineers walking out &mdash; and how to keep them without overpaying everyone.",
+    "author": "Eugene Teo",
+    "date": "2026-11-03",
+    "readTime": "6 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
     "slug": "hiring-maintenance-and-reliability-engineer",
     "title": "Want maintenance and reliability in one engineer? Here&rsquo;s how to make it work",
     "tag": "Employer Guide",

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-16T07:46:54.661Z",
-  "count": 5,
+  "generated": "2026-09-16T08:13:47.853Z",
+  "count": 7,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -95,6 +95,44 @@
       "prompts": [
         "Candid, real photo: a controls engineer wiring or testing an industrial PLC control panel, focused, close-up on hands and panel. Real, candid, natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: an engineer at an HMI / SCADA screen monitoring an automated production line, with a robot arm or automated equipment in the background. Unposed, natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "should-you-counter-offer-engineer-singapore",
+      "title": "Your best engineer just resigned. Should you counter-offer?",
+      "tag": "Employer Guide",
+      "date": "2026-10-31",
+      "excerpt": "As an employer myself, my first instinct is kiasu &mdash; throw money at it. But a counter-offer usually buys a few months, not loyalty. Why it backfires, and what actually keeps them.",
+      "previewUrl": "/blog/should-you-counter-offer-engineer-singapore/",
+      "heroUrl": "/blog/should-you-counter-offer-engineer-singapore/hero.jpg",
+      "words": 1270,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: an engineering manager and an engineer having a serious but respectful one-on-one conversation across a desk in a Singapore office, slightly tense, not looking at the camera. Natural light, unposed. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer at his desk looking thoughtful, laptop open, appearing to weigh a decision. Natural light, real, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-your-engineers-leave-singapore",
+      "title": "Why your engineers keep leaving &mdash; and how to keep them without overpaying",
+      "tag": "Employer Guide",
+      "date": "2026-11-03",
+      "excerpt": "It&rsquo;s rarely just the money, even though that&rsquo;s the reason they write down. The real drivers behind good engineers walking out &mdash; and how to keep them without overpaying everyone.",
+      "previewUrl": "/blog/why-your-engineers-leave-singapore/",
+      "heroUrl": "/blog/why-your-engineers-leave-singapore/hero.jpg",
+      "words": 1232,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a small engineering team working in a Singapore office, one person slightly apart and disengaged from the group, a natural candid moment. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and an engineer having a friendly, genuine chat over coffee (a stay-interview vibe), relaxed, not looking at camera. Natural light. No text/logos/watermark. Landscape."
       ]
     }
   ]
