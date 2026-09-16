@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-16T12:38:03.451Z",
-  "count": 9,
+  "generated": "2026-09-16T14:22:32.467Z",
+  "count": 11,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -10,7 +10,7 @@
       "excerpt": "You want one engineer for both maintenance and reliability without paying for two. The honest reality, and three ways to make that hire work.",
       "previewUrl": "/blog/hiring-maintenance-and-reliability-engineer/",
       "heroUrl": "/blog/hiring-maintenance-and-reliability-engineer/hero.jpg",
-      "words": 1429,
+      "words": 1630,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -29,7 +29,7 @@
       "excerpt": "Post a mechanical engineer role and you drown in near-miss CVs. Why the title is the problem, and how to hire the right flavour.",
       "previewUrl": "/blog/how-to-hire-a-mechanical-engineer-singapore/",
       "heroUrl": "/blog/how-to-hire-a-mechanical-engineer-singapore/hero.jpg",
-      "words": 1652,
+      "words": 1862,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -48,7 +48,7 @@
       "excerpt": "Process engineers move the P&amp;L, so the good ones are kept. Why your role stays open, and four ways to actually fill it.",
       "previewUrl": "/blog/how-to-hire-a-process-engineer-singapore/",
       "heroUrl": "/blog/how-to-hire-a-process-engineer-singapore/hero.jpg",
-      "words": 1481,
+      "words": 1652,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -67,7 +67,7 @@
       "excerpt": "These titles get used interchangeably, so employers hire the wrong one. The clean difference, and how to spec it right.",
       "previewUrl": "/blog/project-engineer-vs-project-manager-hiring/",
       "heroUrl": "/blog/project-engineer-vs-project-manager-hiring/hero.jpg",
-      "words": 1383,
+      "words": 1566,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -86,7 +86,7 @@
       "excerpt": "Automation is the tightest engineering market, and PLC brand mismatch kills your shortlist. The realistic playbook to hire one.",
       "previewUrl": "/blog/how-to-hire-an-automation-controls-engineer/",
       "heroUrl": "/blog/how-to-hire-an-automation-controls-engineer/hero.jpg",
-      "words": 1433,
+      "words": 1579,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
@@ -175,6 +175,46 @@
         "Candid, real photo: a non-technical business owner (40s-50s) interviewing a younger engineer across a desk in a Singapore office, engaged conversation, listening. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
         "Candid, real photo: an engineer explaining something by sketching a diagram on paper or a whiteboard to an attentive listener, candid. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: a small interview panel (two people) with a candidate in a modern Singapore office meeting room, relaxed and genuine, not looking at camera. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-make-a-job-offer-they-wont-reject",
+      "title": "How to make a job offer they won&rsquo;t reject",
+      "tag": "Employer Guide",
+      "date": "2026-11-10",
+      "excerpt": "Most rejected offers aren&rsquo;t about the money &mdash; they&rsquo;re about how the offer was made. Know their expectations early, move fast, sell the role, and rejections become rare.",
+      "previewUrl": "/blog/how-to-make-a-job-offer-they-wont-reject/",
+      "heroUrl": "/blog/how-to-make-a-job-offer-they-wont-reject/hero.jpg",
+      "words": 1510,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a warm, genuine moment of an employer shaking hands with a candidate across a desk in a Singapore office, both pleased, natural. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a boss on a phone call at his desk making a warm offer, smiling slightly, relaxed body language. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a candidate reading an offer letter / email on a laptop at home, thoughtful and pleased. Natural light, real. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hiring-for-attitude-vs-experience",
+      "title": "Hiring for attitude vs experience &mdash; which actually wins?",
+      "tag": "Employer Guide",
+      "date": "2026-11-12",
+      "excerpt": "Skills can be taught; drive, honesty and coachability can&rsquo;t. When to back the eager learner over the seasoned pro &mdash; and when experience is genuinely non-negotiable.",
+      "previewUrl": "/blog/hiring-for-attitude-vs-experience/",
+      "heroUrl": "/blog/hiring-for-attitude-vs-experience/hero.jpg",
+      "words": 1507,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 4,
+      "prompts": [
+        "Candid, real photo: a younger, eager employee being shown something by an older experienced colleague at a workbench or desk in a Singapore workplace, learning moment. Natural light, candid, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a diverse interview across a table, interviewer listening intently to an animated candidate, genuine. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two employees of different ages working together on a task, mentoring vibe, in a modern Singapore office or workshop. Natural light, candid. No text/logos/watermark. Landscape."
       ]
     }
   ]
