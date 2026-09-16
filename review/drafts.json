@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-16T14:22:32.467Z",
-  "count": 11,
+  "generated": "2026-09-16T14:45:56.500Z",
+  "count": 12,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -215,6 +215,26 @@
         "Candid, real photo: a younger, eager employee being shown something by an older experienced colleague at a workbench or desk in a Singapore workplace, learning moment. Natural light, candid, not looking at camera. No text/logos/watermark. Landscape.",
         "Candid, real photo: a diverse interview across a table, interviewer listening intently to an animated candidate, genuine. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: two employees of different ages working together on a task, mentoring vibe, in a modern Singapore office or workshop. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-engineers-in-singapore-guide",
+      "title": "How to hire engineers in Singapore: the complete employer&rsquo;s guide",
+      "tag": "Employer Guide",
+      "date": "2026-11-14",
+      "excerpt": "The whole journey in one place &mdash; from writing the brief to making the offer to keeping them &mdash; with links to the deep-dive on every step. The map I wish every employer had before they started.",
+      "previewUrl": "/blog/how-to-hire-engineers-in-singapore-guide/",
+      "heroUrl": "/blog/how-to-hire-engineers-in-singapore-guide/hero.jpg",
+      "words": 1558,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 20,
+      "prompts": [
+        "Candid, real photo: a Singapore engineering team of mixed ages working together on a factory or workshop floor, natural collaborative moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employer and a recruiter reviewing engineer CVs together at a desk in a Singapore office, discussing a shortlist. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager shaking hands with a new engineering hire on a factory floor or office, genuine welcome moment. Natural light, unposed. No text/logos/watermark. Landscape."
       ]
     }
   ]
