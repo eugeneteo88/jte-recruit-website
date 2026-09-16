@@ -1,5 +1,60 @@
 [
   {
+    "slug": "hiring-maintenance-and-reliability-engineer",
+    "title": "Want maintenance and reliability in one engineer? Here&rsquo;s how to make it work",
+    "tag": "Employer Guide",
+    "excerpt": "You want one engineer for both maintenance and reliability without paying for two. The honest reality, and three ways to make that hire work.",
+    "author": "Eugene Teo",
+    "date": "2026-10-17",
+    "readTime": "6 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
+    "slug": "how-to-hire-a-mechanical-engineer-singapore",
+    "title": "Why you get 200 CVs for a mechanical engineer role &mdash; and how to hire the right one",
+    "tag": "Employer Guide",
+    "excerpt": "Post a mechanical engineer role and you drown in near-miss CVs. Why the title is the problem, and how to hire the right flavour.",
+    "author": "Eugene Teo",
+    "date": "2026-10-20",
+    "readTime": "7 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
+    "slug": "how-to-hire-a-process-engineer-singapore",
+    "title": "Your process engineer role has been open for months. Here&rsquo;s how to fill it",
+    "tag": "Employer Guide",
+    "excerpt": "Process engineers move the P&amp;L, so the good ones are kept. Why your role stays open, and four ways to actually fill it.",
+    "author": "Eugene Teo",
+    "date": "2026-10-22",
+    "readTime": "7 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
+    "slug": "project-engineer-vs-project-manager-hiring",
+    "title": "Hiring a project engineer when you needed a project manager &mdash; the costly mix-up",
+    "tag": "Employer Guide",
+    "excerpt": "These titles get used interchangeably, so employers hire the wrong one. The clean difference, and how to spec it right.",
+    "author": "Eugene Teo",
+    "date": "2026-10-24",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "how-to-hire-an-automation-controls-engineer",
+    "title": "Can&rsquo;t find an automation engineer who knows your PLC setup? The realistic playbook",
+    "tag": "Employer Guide",
+    "excerpt": "Automation is the tightest engineering market, and PLC brand mismatch kills your shortlist. The realistic playbook to hire one.",
+    "author": "Eugene Teo",
+    "date": "2026-10-27",
+    "readTime": "7 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
     "slug": "what-happens-with-a-good-recruiter",
     "title": "What actually happens when you work with a good recruiter",
     "tag": "Employer Guide",
