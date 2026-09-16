@@ -1,5 +1,27 @@
 [
   {
+    "slug": "why-your-job-ad-gets-no-good-applicants",
+    "title": "Why your job ad gets no good applicants &mdash; and how to fix it",
+    "tag": "Employer Guide",
+    "excerpt": "Silence, or a pile of mismatches? The ad is almost always the problem, not the market. The usual culprits &mdash; vague spec, hidden salary, a wall of requirements &mdash; and how to fix each.",
+    "author": "Eugene Teo",
+    "date": "2026-11-05",
+    "readTime": "7 min read",
+    "icon": "file",
+    "draft": true
+  },
+  {
+    "slug": "how-to-interview-an-engineer-non-technical",
+    "title": "How to interview an engineer when you&rsquo;re not technical",
+    "tag": "Employer Guide",
+    "excerpt": "You don&rsquo;t need to test the deep engineering to hire well &mdash; you need to test what you can judge. The questions and signals that work when you can&rsquo;t check the tech yourself.",
+    "author": "Eugene Teo",
+    "date": "2026-11-07",
+    "readTime": "7 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
     "slug": "should-you-counter-offer-engineer-singapore",
     "title": "Your best engineer just resigned. Should you counter-offer?",
     "tag": "Employer Guide",

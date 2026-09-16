@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-16T11:58:09.464Z",
-  "count": 7,
+  "generated": "2026-09-16T12:38:03.451Z",
+  "count": 9,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -135,6 +135,46 @@
         "Candid, real photo: a small engineering team working in a Singapore office, one person slightly apart and disengaged from the group, a natural candid moment. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: a manager and an engineer having a friendly, genuine chat over coffee (a stay-interview vibe), relaxed, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: an engineer quietly packing up his desk / looking at his phone with his back half-turned, subtle sign of disengagement, in a Singapore office. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-your-job-ad-gets-no-good-applicants",
+      "title": "Why your job ad gets no good applicants &mdash; and how to fix it",
+      "tag": "Employer Guide",
+      "date": "2026-11-05",
+      "excerpt": "Silence, or a pile of mismatches? The ad is almost always the problem, not the market. The usual culprits &mdash; vague spec, hidden salary, a wall of requirements &mdash; and how to fix each.",
+      "previewUrl": "/blog/why-your-job-ad-gets-no-good-applicants/",
+      "heroUrl": "/blog/why-your-job-ad-gets-no-good-applicants/hero.jpg",
+      "words": 1529,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a Singapore SME boss at his desk looking at a laptop with a slightly frustrated or unimpressed expression, reviewing job applications. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: over-the-shoulder view of a job seeker on a phone scrolling job listings, casual, in a cafe or on public transport in Singapore. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two colleagues in a small Singapore office discussing a document / job description together at a desk, natural working moment. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-interview-an-engineer-non-technical",
+      "title": "How to interview an engineer when you&rsquo;re not technical",
+      "tag": "Employer Guide",
+      "date": "2026-11-07",
+      "excerpt": "You don&rsquo;t need to test the deep engineering to hire well &mdash; you need to test what you can judge. The questions and signals that work when you can&rsquo;t check the tech yourself.",
+      "previewUrl": "/blog/how-to-interview-an-engineer-non-technical/",
+      "heroUrl": "/blog/how-to-interview-an-engineer-non-technical/hero.jpg",
+      "words": 1645,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a non-technical business owner (40s-50s) interviewing a younger engineer across a desk in a Singapore office, engaged conversation, listening. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer explaining something by sketching a diagram on paper or a whiteboard to an attentive listener, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a small interview panel (two people) with a candidate in a modern Singapore office meeting room, relaxed and genuine, not looking at camera. Natural light. No text/logos/watermark. Landscape."
       ]
     }
   ]
