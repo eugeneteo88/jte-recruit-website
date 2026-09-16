@@ -93,7 +93,7 @@ function pill(label, level){ return `<span class="pill p${level}">${label}</span
 
 function qaRow(d){
   const long = d.words>=1200;
-  const w = d.words>=1300?"g":(d.words>=900?"a":"r");
+  const w = d.words>=1800?"g":(d.words>=1300?"a":"r");
   const f = d.faqCount>=4?"g":(d.faqCount>=1?"a":"r");
   const sc = (d.hasFaqSchema&&d.hasBlogSchema)?"g":"r";
   const he = d.heroUrl?"g":"r";
