@@ -126,6 +126,19 @@
               .fn-more:hover{border-color:#8C7350;color:#8C7350}
               .fn-more[hidden]{display:none}
             </style>
+            <style>
+              .fn-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none}
+              .fn-tabs::-webkit-scrollbar{display:none}
+              .fn-tab{white-space:nowrap;flex:none}
+              @media(min-width:768px){.fn-tabs{flex-wrap:wrap;justify-content:center;overflow:visible}}
+              .fn-disc{max-width:720px;margin:0 auto 34px;font-size:12.5px;line-height:1.7;color:#8a8175;text-align:center;background:#fff;border:1px dashed rgba(0,0,0,.1);border-radius:12px;padding:14px 18px}
+              .fn-disc b{color:#6e6e6e;font-weight:600}
+              .fn-pager{display:flex;gap:6px;justify-content:center;align-items:center;margin:46px 0 0;flex-wrap:wrap}
+              .fn-pg{min-width:38px;height:38px;padding:0 10px;border-radius:8px;border:1px solid rgba(28,26,23,.18);background:#fff;color:#1c1a17;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.2s;display:inline-flex;align-items:center;justify-content:center}
+              .fn-pg:hover:not(:disabled){border-color:#8C7350;color:#8C7350}
+              .fn-pg.on{background:#C6A87C;border-color:#C6A87C;color:#0a0a0a}
+              .fn-pg:disabled{opacity:.4;cursor:default}
+            </style>
             <div class="fn-tabs">
                 <button class="fn-tab on" data-tag="all">All</button>
                 <button class="fn-tab" data-tag="Field Notes">Field Notes</button>
@@ -133,6 +146,7 @@
                 <button class="fn-tab" data-tag="Employer Guide">Employer Guide</button>
                 <button class="fn-tab" data-tag="Scam Awareness">Scam Awareness</button>
             </div>
+            <div class="fn-disc"><b>A note on these Field Notes.</b> These are my own personal views &mdash; not the official position of any organisation. They&rsquo;re gathered over years of conversations with employers, people I&rsquo;ve worked with, friends and folks I&rsquo;ve met along the way. There&rsquo;s no right or wrong here; it&rsquo;s just me sharing what I&rsquo;ve seen. If you see it differently, that&rsquo;s completely fine &mdash; I&rsquo;d genuinely love to hear from you.</div>
             <div class="grid md:grid-cols-2 gap-8" id="fn-grid">
                 <a href="/blog/contract-vs-permanent-engineers-singapore/" data-tag="Employer Guide" class="fn-card group bg-white rounded-2xl border border-black/5 shadow-[0_18px_50px_-30px_rgba(60,45,25,.5)] p-8 hover:shadow-[0_28px_60px_-28px_rgba(60,45,25,.55)] transition-shadow flex flex-col">
                     <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">Employer Guide</span>
@@ -278,9 +292,8 @@
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </span>
                 </a>
-            </div>
-            <button id="fn-more" class="fn-more" hidden>Load more</button>
-            <script>(function(){var grid=document.getElementById('fn-grid');if(!grid)return;var cards=[].slice.call(grid.querySelectorAll('.fn-card'));var more=document.getElementById('fn-more');var tabs=[].slice.call(document.querySelectorAll('.fn-tab'));var PAGE=9,filter='all',shown=PAGE;function render(){var matched=cards.filter(function(c){return filter==='all'||c.getAttribute('data-tag')===filter;});cards.forEach(function(c){c.style.display='none';});matched.slice(0,shown).forEach(function(c){c.style.display='';});if(more)more.hidden=matched.length<=shown;}tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter=t.getAttribute('data-tag');shown=PAGE;render();});});if(more)more.addEventListener('click',function(){shown+=PAGE;render();});render();})();</script>
+            </div>            <nav class="fn-pager" id="fn-pager" aria-label="Field Notes pages"></nav>
+            <script>(function(){var grid=document.getElementById('fn-grid');if(!grid)return;var cards=[].slice.call(grid.querySelectorAll('.fn-card'));var pager=document.getElementById('fn-pager');var tabs=[].slice.call(document.querySelectorAll('.fn-tab'));var filter='all',page=1;function ps(){return window.matchMedia('(min-width:768px)').matches?10:6;}function matched(){return cards.filter(function(c){return filter==='all'||c.getAttribute('data-tag')===filter;});}function render(){var m=matched(),s=ps(),pages=Math.max(1,Math.ceil(m.length/s));if(page>pages)page=pages;cards.forEach(function(c){c.style.display='none';});m.slice((page-1)*s,page*s).forEach(function(c){c.style.display='';});pg(pages);}function pg(pages){if(!pager)return;if(pages<=1){pager.innerHTML='';return;}var h='<button class="fn-pg" data-go="prev"'+(page===1?' disabled':'')+' aria-label="Previous">&lsaquo;</button>';for(var i=1;i<=pages;i++){h+='<button class="fn-pg'+(i===page?' on':'')+'" data-go="'+i+'">'+i+'</button>';}h+='<button class="fn-pg" data-go="next"'+(page===pages?' disabled':'')+' aria-label="Next">&rsaquo;</button>';pager.innerHTML=h;}if(pager)pager.addEventListener('click',function(e){var b=e.target.closest('.fn-pg');if(!b)return;var pages=Math.max(1,Math.ceil(matched().length/ps())),g=b.getAttribute('data-go');if(g==='prev')page=Math.max(1,page-1);else if(g==='next')page=Math.min(pages,page+1);else page=+g;render();grid.scrollIntoView({behavior:'smooth',block:'start'});});tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');filter=t.getAttribute('data-tag');page=1;render();});});var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(render,150);});render();})();</script>
             <!-- POSTS:END -->
         </div>
     </main>
