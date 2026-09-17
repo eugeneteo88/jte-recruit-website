@@ -118,6 +118,33 @@
   .cbtn{margin-top:24px;display:inline-block;background:var(--goldL);color:var(--ink2);border-radius:11px;padding:13px 26px;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
   footer{background:#0b111d;color:#8b93a6;font-size:11px;padding:18px 44px;text-align:center}
   .draftban{background:#B4462F;color:#fff;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px}
+  /* team — overlapping avatar strip, lead largest */
+  .tstrip{display:flex;align-items:center;justify-content:center;margin-top:30px;padding:6px 0}
+  .tav{position:relative;border-radius:50%;overflow:hidden;flex:none;width:98px;height:98px;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,.14);margin-left:-16px;background:var(--cream)}
+  .tav:first-child{margin-left:0}
+  .tav img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+  .tav.lead{width:144px;height:144px;border:4px solid var(--goldL);box-shadow:0 14px 34px rgba(0,0,0,.20);margin-left:0}
+  .tav:nth-child(1){z-index:7}.tav:nth-child(2){z-index:6}.tav:nth-child(3){z-index:5}
+  .tav:nth-child(4){z-index:4}.tav:nth-child(5){z-index:3}.tav:nth-child(6){z-index:2}
+  .tcap{text-align:center;margin-top:22px;font-size:13.5px;color:var(--inkSoft)}
+  .tcap .nm{font-family:'Playfair Display',serif;font-size:19px;color:var(--ink);vertical-align:middle}
+  body.zh .tcap .nm{font-family:'Noto Sans SC',serif;font-weight:800}
+  .tcap .ro{color:var(--goldD);font-weight:700}
+  /* mobile */
+  @media (max-width:640px){
+    .topbar{padding:16px 20px}
+    .hero{padding:20px 20px 40px}
+    .hero h1{font-size:29px}
+    body.zh .hero h1{font-size:25px}
+    section{padding:34px 20px}
+    .cta{padding:34px 20px}
+    footer{padding:16px 20px}
+    .grid2,.deliver,.engage,.contact{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .tav{width:66px;height:66px;border-width:3px;margin-left:-12px}
+    .tav.lead{width:98px;height:98px;border-width:3px}
+    .cline .k{min-width:92px}
+  }
 </style>
 </head>
 <body>
@@ -252,6 +279,29 @@
     </div>
   </section>
 
+  <!-- Your team -->
+  <section class="alt">
+    <div class="kicker en-only">Your JTE team</div>
+    <div class="kicker zh-only">您的 JTE 团队</div>
+    <h2 class="s en-only">One point of contact — a full team behind him</h2>
+    <h2 class="s zh-only">一位专属联系人 —— 背后是一整支团队</h2>
+    <p class="lede en-only">You deal with one person who knows your account inside out. Behind him sits the senior delivery team that runs JTE&rsquo;s largest high-volume manufacturing accounts.</p>
+    <p class="lede zh-only">您只需对接一位对贵司账户了如指掌的负责人；在他身后，是操盘 JTE 最大规模量产账户的资深交付团队。</p>
+    <div class="tstrip">
+      <div class="tav lead"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Jonathan.png?width=360&quality=82&resize=contain" alt="Jonathan Ong" loading="lazy"></div>
+      <div class="tav"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Adaline.png?width=240&quality=80&resize=contain" alt="Adaline — Head of Sales" loading="lazy"></div>
+      <div class="tav"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Cassandra.png?width=240&quality=80&resize=contain" alt="Cassandra — Consulting Manager" loading="lazy"></div>
+      <div class="tav"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Tiffany.png?width=240&quality=80&resize=contain" alt="Tiffany — Senior Consultant" loading="lazy"></div>
+      <div class="tav"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Shanice.png?width=240&quality=80&resize=contain" alt="Shanice — Senior Consultant" loading="lazy"></div>
+      <div class="tav"><img src="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/render/image/public/jte-images/team/Shirny.png?width=240&quality=80&resize=contain" alt="Shirny — Account Assistant" loading="lazy"></div>
+    </div>
+    <div class="tcap">
+      <span class="nm">Jonathan Ong</span>
+      <span class="en-only"> — <span class="ro">your point of contact</span>, Partnership Lead. The rest of the senior team delivers behind him.</span>
+      <span class="zh-only"> —— <span class="ro">您的专属联系人</span>，合作发展主管；资深团队在他身后共同交付。</span>
+    </div>
+  </section>
+
   <!-- CTA -->
   <div class="cta">
     <h2 class="serif en-only">Let&rsquo;s staff the Tampines ramp — together</h2>
@@ -262,7 +312,7 @@
       <div class="cline"><span class="k en-only">Contact</span><span class="k zh-only">联系人</span><span>Jonathan Ong</span></div>
       <div class="cline"><span class="k en-only">Mobile</span><span class="k zh-only">电话</span><span>+65 9768 8914</span></div>
       <div class="cline"><span class="k en-only">Email</span><span class="k zh-only">电邮</span><span><a href="mailto:jonathan@jte.com.sg" style="color:inherit;text-decoration:none">jonathan@jte.com.sg</a></span></div>
-      <div class="cline"><span class="k en-only">Company</span><span class="k zh-only">公司</span><span>JTE Recruit Pte Ltd · Singapore</span></div>
+      <div class="cline"><span class="k en-only">Company</span><span class="k zh-only">公司</span><span>JTE Recruit Pte Ltd</span></div>
     </div>
     <a class="cbtn en-only" href="mailto:jonathan@jte.com.sg?subject=JTE%20Recruit%20%C3%97%20Hyve%20Solutions%20%E2%80%94%20Workforce%20support" style="text-decoration:none;display:inline-block">Arrange an introduction call →</a>
     <a class="cbtn zh-only" href="mailto:jonathan@jte.com.sg?subject=JTE%20Recruit%20%C3%97%20Hyve%20Solutions%20%E2%80%94%20%E4%BA%BA%E5%8A%9B%E6%94%AF%E6%8F%B4" style="text-decoration:none;display:inline-block">安排引荐通话 →</a>
