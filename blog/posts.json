@@ -1,5 +1,49 @@
 [
   {
+    "slug": "how-to-hire-electrical-electronics-engineer",
+    "title": "Can&rsquo;t find an electrical engineer who fits? You may be hiring for the wrong one",
+    "tag": "Employer Guide",
+    "excerpt": "&lsquo;Electrical engineer&rsquo; covers power systems, controls, electronics and building services &mdash; very different people. Why your search stalls, and how to hire the right one.",
+    "author": "Eugene Teo",
+    "date": "2026-12-26",
+    "readTime": "6 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
+    "slug": "hiring-qa-qc-engineer",
+    "title": "Your quality problems aren&rsquo;t bad luck &mdash; they&rsquo;re a QA/QC hiring problem",
+    "tag": "Employer Guide",
+    "excerpt": "When defects keep slipping through, the fix is usually a QA/QC engineer &mdash; but employers hire the wrong flavour, or treat it as a box-tick. What good actually looks like.",
+    "author": "Eugene Teo",
+    "date": "2026-12-29",
+    "readTime": "6 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
+    "slug": "promote-from-within-or-hire-a-manager",
+    "title": "Your best doer isn&rsquo;t automatically your next manager &mdash; promote or hire?",
+    "tag": "Employer Guide",
+    "excerpt": "Promoting your top performer into management is the most common way to lose a great doer and gain a struggling boss. When to promote, when to hire, and how to decide.",
+    "author": "Eugene Teo",
+    "date": "2026-12-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "why-candidates-ghost-you",
+    "title": "Why good candidates ghost you &mdash; and what it says about your process",
+    "tag": "Employer Guide",
+    "excerpt": "Candidates going silent isn&rsquo;t just rudeness &mdash; it&rsquo;s usually feedback on your hiring process. Why it happens, and the fixes that keep good people engaged.",
+    "author": "Eugene Teo",
+    "date": "2027-01-02",
+    "readTime": "6 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
     "slug": "new-hire-quit-first-90-days",
     "title": "Your new hire quit in the first 90 days &mdash; here&rsquo;s what went wrong",
     "tag": "Employer Guide",

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-17T08:28:25.540Z",
-  "count": 29,
+  "generated": "2026-09-17T08:34:03.093Z",
+  "count": 33,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -577,6 +577,86 @@
         "Candid, real photo: a business owner reviewing payroll/salary figures on a laptop with a slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
         "Candid, real photo: two managers discussing figures on a screen at a desk, weighing pay decisions. Natural light, genuine. No text/logos/watermark. Landscape.",
         "Candid, real photo: an employee looking quietly disengaged at a desk (the cost of underpaying), colleagues around. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-electrical-electronics-engineer",
+      "title": "Can&rsquo;t find an electrical engineer who fits? You may be hiring for the wrong one",
+      "tag": "Employer Guide",
+      "date": "2026-12-26",
+      "excerpt": "&lsquo;Electrical engineer&rsquo; covers power systems, controls, electronics and building services &mdash; very different people. Why your search stalls, and how to hire the right one.",
+      "previewUrl": "/blog/how-to-hire-electrical-electronics-engineer/",
+      "heroUrl": "/blog/how-to-hire-electrical-electronics-engineer/hero.jpg",
+      "words": 829,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: an electrical engineer working on a switchboard / power distribution panel in a Singapore facility, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an electronics engineer at a bench testing a circuit board with instruments (oscilloscope, multimeter). Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an M&E electrical engineer in hi-vis checking building electrical systems on a site. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hiring-qa-qc-engineer",
+      "title": "Your quality problems aren&rsquo;t bad luck &mdash; they&rsquo;re a QA/QC hiring problem",
+      "tag": "Employer Guide",
+      "date": "2026-12-29",
+      "excerpt": "When defects keep slipping through, the fix is usually a QA/QC engineer &mdash; but employers hire the wrong flavour, or treat it as a box-tick. What good actually looks like.",
+      "previewUrl": "/blog/hiring-qa-qc-engineer/",
+      "heroUrl": "/blog/hiring-qa-qc-engineer/hero.jpg",
+      "words": 843,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 3,
+      "prompts": [
+        "Candid, real photo: a QA/QC engineer inspecting a product or part with measuring tools on a Singapore production line, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a quality engineer reviewing inspection data / charts on a screen beside the production floor. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: close-up of hands measuring a component with a caliper/gauge on a workbench. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "promote-from-within-or-hire-a-manager",
+      "title": "Your best doer isn&rsquo;t automatically your next manager &mdash; promote or hire?",
+      "tag": "Employer Guide",
+      "date": "2026-12-31",
+      "excerpt": "Promoting your top performer into management is the most common way to lose a great doer and gain a struggling boss. When to promote, when to hire, and how to decide.",
+      "previewUrl": "/blog/promote-from-within-or-hire-a-manager/",
+      "heroUrl": "/blog/promote-from-within-or-hire-a-manager/hero.jpg",
+      "words": 916,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a strong individual performer looking slightly out of their depth leading a small team meeting, genuine moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a business owner weighing a decision at a desk, considering an org chart or notes. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a confident new manager having a supportive one-on-one with a team member. Natural light, genuine. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-candidates-ghost-you",
+      "title": "Why good candidates ghost you &mdash; and what it says about your process",
+      "tag": "Employer Guide",
+      "date": "2027-01-02",
+      "excerpt": "Candidates going silent isn&rsquo;t just rudeness &mdash; it&rsquo;s usually feedback on your hiring process. Why it happens, and the fixes that keep good people engaged.",
+      "previewUrl": "/blog/why-candidates-ghost-you/",
+      "heroUrl": "/blog/why-candidates-ghost-you/hero.jpg",
+      "words": 872,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: an employer looking at a phone/inbox with no reply, mild frustration, at a desk in a Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a job candidate ignoring a call / setting phone face-down, ambivalent, casual setting. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager checking a laptop with an empty interview calendar slot, waiting. Natural light. No text/logos/watermark. Landscape."
       ]
     }
   ]
