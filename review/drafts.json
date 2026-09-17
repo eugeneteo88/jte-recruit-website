@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-17T08:11:52.655Z",
-  "count": 23,
+  "generated": "2026-09-17T08:18:59.888Z",
+  "count": 25,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -457,6 +457,46 @@
         "Candid, real photo: an occupational or speech therapist working one-on-one with a client at a table with therapy materials. Natural light, candid. No text/logos/watermark. Landscape.",
         "Candid, real photo: a radiographer at an imaging machine / console in a Singapore hospital, focused. Natural light mixed with equipment glow. No text/logos/watermark. Landscape.",
         "GRAPHIC (optional, I can also generate this): a clean branded panel listing the 5 AHPC-regulated professions (Physiotherapist, Occupational Therapist, Speech-Language Therapist, Diagnostic Radiographer, Radiation Therapist). JTE house style (dark bg, gold accents)."
+      ]
+    },
+    {
+      "slug": "hiring-foreign-healthcare-workers-singapore",
+      "title": "You found the perfect foreign nurse. Here&rsquo;s why they can&rsquo;t start next week",
+      "tag": "Employer Guide",
+      "date": "2026-12-12",
+      "excerpt": "Two hurdles catch healthcare employers out on every foreign hire &mdash; professional registration and a work pass, running in parallel and both taking time. Why, and how to plan around it.",
+      "previewUrl": "/blog/hiring-foreign-healthcare-workers-singapore/",
+      "heroUrl": "/blog/hiring-foreign-healthcare-workers-singapore/hero.jpg",
+      "words": 934,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 8,
+      "prompts": [
+        "Candid, real photo: a foreign-trained nurse arriving/settling into a Singapore workplace, hopeful, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an HR manager and a foreign healthcare candidate going through paperwork/documents together at a desk. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "GRAPHIC (optional, I can also generate this): a clean branded two-track panel showing the parallel hurdles for a foreign healthcare hire — 'Professional registration (SNB / AHPC)' and 'Work pass (MOM)' running side by side toward 'can start work'. JTE house style (dark bg, gold accents)."
+      ]
+    },
+    {
+      "slug": "how-to-staff-healthcare-singapore-guide",
+      "title": "How to staff a healthcare business in Singapore: the complete guide",
+      "tag": "Employer Guide",
+      "date": "2026-12-15",
+      "excerpt": "The whole healthcare-staffing picture in one place &mdash; the crunch, staffing by setting, registration and work passes, foreign hires and retention &mdash; with links to the detail on each.",
+      "previewUrl": "/blog/how-to-staff-healthcare-singapore-guide/",
+      "heroUrl": "/blog/how-to-staff-healthcare-singapore-guide/hero.jpg",
+      "words": 901,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 11,
+      "prompts": [
+        "Candid, real photo: a warm, capable healthcare team (nurses and care staff) at a Singapore clinic or hospital, working together, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare manager and a recruiter reviewing candidate profiles at a desk in a clinic office, discussing. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a nurse or care worker in a genuine caring moment with a patient in Singapore, warm and real. Natural light. No text/logos/watermark. Landscape."
       ]
     }
   ]
