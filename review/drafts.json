@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17T08:18:59.888Z",
+  "generated": "2026-09-17T08:24:06.180Z",
   "count": 25,
   "drafts": [
     {
@@ -429,7 +429,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a registered nurse in a Singapore hospital ward attending to a patient, professional and warm, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -450,7 +450,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a physiotherapist working with a patient on a rehab exercise in a Singapore clinic, genuine, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -471,7 +471,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 8,
       "prompts": [
         "Candid, real photo: a foreign-trained nurse arriving/settling into a Singapore workplace, hopeful, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
