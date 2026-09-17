@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-17T08:34:03.093Z",
+  "generated": "2026-09-17T08:40:37.668Z",
   "count": 33,
   "drafts": [
     {
@@ -14,7 +14,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a maintenance technician in a Singapore manufacturing plant using a tablet-based maintenance system beside a large pump-motor or rotating equipment, mid-task, focused, not looking at the camera. Natural light, slightly imperfect framing, subtle grain. No text, no logos, no watermark. Landscape.",
@@ -33,7 +33,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a mechanical design engineer at a workstation with a 3D CAD model on screen and a physical prototype part in hand, examining it. Modern office, natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
@@ -52,7 +52,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a process engineer on a manufacturing floor reviewing production data on a screen beside the production line, discussing with a line operator. Unposed, natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -71,7 +71,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a project engineer on an industrial or construction site in a hard hat, reviewing technical drawings with a colleague. Unposed, natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -90,7 +90,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a controls engineer wiring or testing an industrial PLC control panel, focused, close-up on hands and panel. Real, candid, natural light. No text/logos/watermark. Landscape.",
@@ -109,7 +109,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: an engineering manager and an engineer having a serious but respectful one-on-one conversation across a desk in a Singapore office, slightly tense, not looking at the camera. Natural light, unposed. No text/logos/watermark. Landscape.",
@@ -129,7 +129,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a small engineering team working in a Singapore office, one person slightly apart and disengaged from the group, a natural candid moment. Natural light. No text/logos/watermark. Landscape.",
@@ -149,7 +149,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a Singapore SME boss at his desk looking at a laptop with a slightly frustrated or unimpressed expression, reviewing job applications. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
@@ -169,7 +169,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a non-technical business owner (40s-50s) interviewing a younger engineer across a desk in a Singapore office, engaged conversation, listening. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
@@ -189,7 +189,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a warm, genuine moment of an employer shaking hands with a candidate across a desk in a Singapore office, both pleased, natural. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -209,7 +209,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 4,
       "prompts": [
         "Candid, real photo: a younger, eager employee being shown something by an older experienced colleague at a workbench or desk in a Singapore workplace, learning moment. Natural light, candid, not looking at camera. No text/logos/watermark. Landscape.",
@@ -229,7 +229,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 20,
       "prompts": [
         "Candid, real photo: a Singapore engineering team of mixed ages working together on a factory or workshop floor, natural collaborative moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -249,7 +249,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a founder or manager at a laptop reviewing a spreadsheet of salaries, slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -269,7 +269,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: two developers pair-programming at one screen in a modern Singapore office, one explaining to the other, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -289,7 +289,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a cybersecurity analyst in a security operations centre (SOC) with dashboards on multiple screens, focused, dim room, Singapore. Natural light mixed with screen glow, not looking at camera. No text/logos/watermark. Landscape.",
@@ -309,7 +309,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a business owner weighing a decision at a desk with a laptop, thoughtful, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -329,7 +329,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a developer working on a laptop in a flexible setting (co-working or cafe) suggesting contract/freelance work, candid. Natural light. No text/logos/watermark. Landscape.",
@@ -349,7 +349,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 13,
       "prompts": [
         "Candid, real photo: a mixed tech team collaborating around a laptop in a modern Singapore office, genuine working moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -369,7 +369,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a nurse or care worker attending warmly to an elderly patient in a Singapore clinic or care setting, genuine caring moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -389,7 +389,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 4,
       "prompts": [
         "Candid, real photo: a patient service associate at a GP clinic front desk in Singapore, helping a patient, warm and genuine. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -409,7 +409,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 6,
       "prompts": [
         "Candid, real photo: a tired but caring nurse taking a short break at a clinic or hospital in Singapore, human moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -491,7 +491,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 11,
       "prompts": [
         "Candid, real photo: a warm, capable healthcare team (nurses and care staff) at a Singapore clinic or hospital, working together, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -531,7 +531,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a manager looking thoughtful while reviewing an employee's work/notes at a desk, weighing a decision. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -571,7 +571,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 7,
       "prompts": [
         "Candid, real photo: a business owner reviewing payroll/salary figures on a laptop with a slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
@@ -591,7 +591,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: an electrical engineer working on a switchboard / power distribution panel in a Singapore facility, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -611,7 +611,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 3,
       "prompts": [
         "Candid, real photo: a QA/QC engineer inspecting a product or part with measuring tools on a Singapore production line, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
@@ -631,7 +631,7 @@
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 0,
+      "supportingImages": 1,
       "internalLinks": 5,
       "prompts": [
         "Candid, real photo: a strong individual performer looking slightly out of their depth leading a small team meeting, genuine moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
