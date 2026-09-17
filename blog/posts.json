@@ -1,5 +1,38 @@
 [
   {
+    "slug": "healthcare-manpower-crunch-singapore",
+    "title": "Singapore&rsquo;s healthcare manpower crunch: what employers can actually do",
+    "tag": "Employer Guide",
+    "excerpt": "An ageing population, a global shortage, and everyone fishing in the same small pool. Why healthcare staffing is so hard right now &mdash; and the practical moves that actually help.",
+    "author": "Eugene Teo",
+    "date": "2026-12-01",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "staffing-clinic-vs-hospital-vs-nursing-home",
+    "title": "Staffing a clinic, a hospital, or a nursing home &mdash; what&rsquo;s actually different",
+    "tag": "Employer Guide",
+    "excerpt": "The same job titles mean very different things across a GP clinic, a hospital and a nursing home. What changes &mdash; and what to look for &mdash; when you hire for each.",
+    "author": "Eugene Teo",
+    "date": "2026-12-03",
+    "readTime": "6 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
+    "slug": "retaining-healthcare-staff-singapore",
+    "title": "Why your care staff keep leaving &mdash; and how to keep them",
+    "tag": "Employer Guide",
+    "excerpt": "In a market this tight, keeping good care staff matters as much as hiring them. Burnout, feeling unseen, and pay that fell behind &mdash; and the practical fixes that hold people.",
+    "author": "Eugene Teo",
+    "date": "2026-12-05",
+    "readTime": "6 min read",
+    "icon": "cog",
+    "draft": true
+  },
+  {
     "slug": "how-to-hire-tech-talent-singapore-guide",
     "title": "How to hire tech talent in Singapore: the complete employer&rsquo;s guide",
     "tag": "Employer Guide",

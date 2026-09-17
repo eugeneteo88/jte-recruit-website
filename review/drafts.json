@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-17T07:22:22.274Z",
-  "count": 18,
+  "generated": "2026-09-17T07:32:48.756Z",
+  "count": 21,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -355,6 +355,66 @@
         "Candid, real photo: a mixed tech team collaborating around a laptop in a modern Singapore office, genuine working moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: a founder and a developer discussing a product on a screen together, engaged. Natural light, candid. No text/logos/watermark. Landscape.",
         "Candid, real photo: a hiring manager welcoming a new tech hire, handshake or friendly greeting in a modern office. Natural light, unposed. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "healthcare-manpower-crunch-singapore",
+      "title": "Singapore&rsquo;s healthcare manpower crunch: what employers can actually do",
+      "tag": "Employer Guide",
+      "date": "2026-12-01",
+      "excerpt": "An ageing population, a global shortage, and everyone fishing in the same small pool. Why healthcare staffing is so hard right now &mdash; and the practical moves that actually help.",
+      "previewUrl": "/blog/healthcare-manpower-crunch-singapore/",
+      "heroUrl": "/blog/healthcare-manpower-crunch-singapore/hero.jpg",
+      "words": 966,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a nurse or care worker attending warmly to an elderly patient in a Singapore clinic or care setting, genuine caring moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a busy but calm healthcare team at a clinic reception or nurses' station in Singapore, working. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare manager reviewing rosters/schedules at a desk, slightly stretched, in a clinic office. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "staffing-clinic-vs-hospital-vs-nursing-home",
+      "title": "Staffing a clinic, a hospital, or a nursing home &mdash; what&rsquo;s actually different",
+      "tag": "Employer Guide",
+      "date": "2026-12-03",
+      "excerpt": "The same job titles mean very different things across a GP clinic, a hospital and a nursing home. What changes &mdash; and what to look for &mdash; when you hire for each.",
+      "previewUrl": "/blog/staffing-clinic-vs-hospital-vs-nursing-home/",
+      "heroUrl": "/blog/staffing-clinic-vs-hospital-vs-nursing-home/hero.jpg",
+      "words": 875,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 4,
+      "prompts": [
+        "Candid, real photo: a patient service associate at a GP clinic front desk in Singapore, helping a patient, warm and genuine. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: nurses working in a hospital ward corridor in Singapore, purposeful, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a care worker with an elderly resident in a nursing home common area, gentle and genuine. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "retaining-healthcare-staff-singapore",
+      "title": "Why your care staff keep leaving &mdash; and how to keep them",
+      "tag": "Employer Guide",
+      "date": "2026-12-05",
+      "excerpt": "In a market this tight, keeping good care staff matters as much as hiring them. Burnout, feeling unseen, and pay that fell behind &mdash; and the practical fixes that hold people.",
+      "previewUrl": "/blog/retaining-healthcare-staff-singapore/",
+      "heroUrl": "/blog/retaining-healthcare-staff-singapore/hero.jpg",
+      "words": 968,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a tired but caring nurse taking a short break at a clinic or hospital in Singapore, human moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare supervisor having a supportive one-on-one chat with a care worker, genuine, in a clinic setting. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare team sharing a light, positive moment together at a nurses' station or break room in Singapore. Natural light, candid. No text/logos/watermark. Landscape."
       ]
     }
   ]
