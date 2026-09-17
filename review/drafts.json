@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-17T08:24:06.180Z",
-  "count": 25,
+  "generated": "2026-09-17T08:28:25.540Z",
+  "count": 29,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -497,6 +497,86 @@
         "Candid, real photo: a warm, capable healthcare team (nurses and care staff) at a Singapore clinic or hospital, working together, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: a healthcare manager and a recruiter reviewing candidate profiles at a desk in a clinic office, discussing. Natural light, candid. No text/logos/watermark. Landscape.",
         "Candid, real photo: a nurse or care worker in a genuine caring moment with a patient in Singapore, warm and real. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "new-hire-quit-first-90-days",
+      "title": "Your new hire quit in the first 90 days &mdash; here&rsquo;s what went wrong",
+      "tag": "Employer Guide",
+      "date": "2026-12-17",
+      "excerpt": "You found the right person, and they walked before the probation was up. It&rsquo;s almost never the hire &mdash; it&rsquo;s the onboarding. What actually makes a new hire stick.",
+      "previewUrl": "/blog/new-hire-quit-first-90-days/",
+      "heroUrl": "/blog/new-hire-quit-first-90-days/hero.jpg",
+      "words": 955,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a new employee looking slightly lost or unsupported at a desk in a Singapore office on an early day, others busy around them. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a warm onboarding moment &mdash; a manager welcoming and orienting a new hire, showing them around. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and a new employee in a friendly check-in over coffee in the first weeks. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-decide-end-of-probation",
+      "title": "Probation&rsquo;s ending and you&rsquo;re not sure &mdash; how to decide",
+      "tag": "Employer Guide",
+      "date": "2026-12-19",
+      "excerpt": "The probation clock&rsquo;s run out and your gut says &lsquo;maybe&rsquo;. How to make the confirm-or-let-go call honestly &mdash; before it costs you either way.",
+      "previewUrl": "/blog/how-to-decide-end-of-probation/",
+      "heroUrl": "/blog/how-to-decide-end-of-probation/hero.jpg",
+      "words": 943,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a manager looking thoughtful while reviewing an employee's work/notes at a desk, weighing a decision. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and an employee having an honest one-on-one review conversation across a desk in a Singapore office. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employee working diligently at a desk, being quietly observed/assessed, in a modern office. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "reference-checks-that-work",
+      "title": "Reference checks that actually tell you something",
+      "tag": "Employer Guide",
+      "date": "2026-12-22",
+      "excerpt": "Most reference checks are a box-ticking waste of time. The questions that actually surface the truth &mdash; and how to read what&rsquo;s not said.",
+      "previewUrl": "/blog/reference-checks-that-work/",
+      "heroUrl": "/blog/reference-checks-that-work/hero.jpg",
+      "words": 875,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a manager on a phone call taking notes at a desk (a reference call), focused. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two professionals having a candid conversation, one listening intently and jotting notes. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a close-up of hands writing notes beside a laptop showing a candidate profile. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "are-you-overpaying-or-underpaying",
+      "title": "Are you overpaying or underpaying your team? How to actually know",
+      "tag": "Employer Guide",
+      "date": "2026-12-24",
+      "excerpt": "Overpay and you bleed margin; underpay and you bleed people. How to work out where your pay really sits against the market &mdash; and what to do about it.",
+      "previewUrl": "/blog/are-you-overpaying-or-underpaying/",
+      "heroUrl": "/blog/are-you-overpaying-or-underpaying/hero.jpg",
+      "words": 921,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a business owner reviewing payroll/salary figures on a laptop with a slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two managers discussing figures on a screen at a desk, weighing pay decisions. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employee looking quietly disengaged at a desk (the cost of underpaying), colleagues around. Natural light, candid. No text/logos/watermark. Landscape."
       ]
     }
   ]

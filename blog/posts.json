@@ -1,5 +1,49 @@
 [
   {
+    "slug": "new-hire-quit-first-90-days",
+    "title": "Your new hire quit in the first 90 days &mdash; here&rsquo;s what went wrong",
+    "tag": "Employer Guide",
+    "excerpt": "You found the right person, and they walked before the probation was up. It&rsquo;s almost never the hire &mdash; it&rsquo;s the onboarding. What actually makes a new hire stick.",
+    "author": "Eugene Teo",
+    "date": "2026-12-17",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": true
+  },
+  {
+    "slug": "how-to-decide-end-of-probation",
+    "title": "Probation&rsquo;s ending and you&rsquo;re not sure &mdash; how to decide",
+    "tag": "Employer Guide",
+    "excerpt": "The probation clock&rsquo;s run out and your gut says &lsquo;maybe&rsquo;. How to make the confirm-or-let-go call honestly &mdash; before it costs you either way.",
+    "author": "Eugene Teo",
+    "date": "2026-12-19",
+    "readTime": "6 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
+    "slug": "reference-checks-that-work",
+    "title": "Reference checks that actually tell you something",
+    "tag": "Employer Guide",
+    "excerpt": "Most reference checks are a box-ticking waste of time. The questions that actually surface the truth &mdash; and how to read what&rsquo;s not said.",
+    "author": "Eugene Teo",
+    "date": "2026-12-22",
+    "readTime": "6 min read",
+    "icon": "check",
+    "draft": true
+  },
+  {
+    "slug": "are-you-overpaying-or-underpaying",
+    "title": "Are you overpaying or underpaying your team? How to actually know",
+    "tag": "Employer Guide",
+    "excerpt": "Overpay and you bleed margin; underpay and you bleed people. How to work out where your pay really sits against the market &mdash; and what to do about it.",
+    "author": "Eugene Teo",
+    "date": "2026-12-24",
+    "readTime": "6 min read",
+    "icon": "coins",
+    "draft": true
+  },
+  {
     "slug": "how-to-staff-healthcare-singapore-guide",
     "title": "How to staff a healthcare business in Singapore: the complete guide",
     "tag": "Employer Guide",
