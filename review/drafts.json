@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-16T14:45:56.500Z",
-  "count": 12,
+  "generated": "2026-09-17T07:13:27.922Z",
+  "count": 15,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -235,6 +235,66 @@
         "Candid, real photo: a Singapore engineering team of mixed ages working together on a factory or workshop floor, natural collaborative moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: an employer and a recruiter reviewing engineer CVs together at a desk in a Singapore office, discussing a shortlist. Natural light, candid. No text/logos/watermark. Landscape.",
         "Candid, real photo: a hiring manager shaking hands with a new engineering hire on a factory floor or office, genuine welcome moment. Natural light, unposed. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "tech-salaries-singapore-what-is-market",
+      "title": "Why your tech salaries feel impossible &mdash; and what&rsquo;s actually market",
+      "tag": "Employer Guide",
+      "date": "2026-11-17",
+      "excerpt": "A few years of frenzy, then AI, distorted tech pay &mdash; so the numbers you hear feel mad. How to read tech salaries sanely and hire without overpaying or lowballing.",
+      "previewUrl": "/blog/tech-salaries-singapore-what-is-market/",
+      "heroUrl": "/blog/tech-salaries-singapore-what-is-market/hero.jpg",
+      "words": 1148,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a founder or manager at a laptop reviewing a spreadsheet of salaries, slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a software developer at a desk with multiple monitors of code in a modern SG tech office, focused, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two people in a hiring discussion at a table with a laptop, weighing a decision, genuine. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-test-if-a-developer-is-good",
+      "title": "How to tell if a developer is actually good (take-home, live coding, or portfolio)",
+      "tag": "Employer Guide",
+      "date": "2026-11-19",
+      "excerpt": "Whiteboard puzzles mostly test nerves. The signals that actually tell you a developer can do the job &mdash; and how to assess one when you&rsquo;re not technical yourself.",
+      "previewUrl": "/blog/how-to-test-if-a-developer-is-good/",
+      "heroUrl": "/blog/how-to-test-if-a-developer-is-good/hero.jpg",
+      "words": 1055,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: two developers pair-programming at one screen in a modern Singapore office, one explaining to the other, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a non-technical interviewer and a developer candidate talking across a laptop, the candidate showing something on screen. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: over-the-shoulder of a developer walking someone through a project on a screen, explaining. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-cybersecurity-talent-singapore",
+      "title": "Hiring cybersecurity talent when everyone&rsquo;s fighting for it",
+      "tag": "Employer Guide",
+      "date": "2026-11-21",
+      "excerpt": "Huge demand, a real shortage, and roles that get confusingly lumped together. Which security role you actually need, and a realistic playbook to staff it.",
+      "previewUrl": "/blog/how-to-hire-cybersecurity-talent-singapore/",
+      "heroUrl": "/blog/how-to-hire-cybersecurity-talent-singapore/hero.jpg",
+      "words": 1091,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a cybersecurity analyst in a security operations centre (SOC) with dashboards on multiple screens, focused, dim room, Singapore. Natural light mixed with screen glow, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an IT/security professional working at a laptop in a server room or modern office, concentrated. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two security team members discussing something on a screen in a modern SG office, genuine working moment. Natural light. No text/logos/watermark. Landscape."
       ]
     }
   ]

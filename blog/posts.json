@@ -1,5 +1,38 @@
 [
   {
+    "slug": "tech-salaries-singapore-what-is-market",
+    "title": "Why your tech salaries feel impossible &mdash; and what&rsquo;s actually market",
+    "tag": "Employer Guide",
+    "excerpt": "A few years of frenzy, then AI, distorted tech pay &mdash; so the numbers you hear feel mad. How to read tech salaries sanely and hire without overpaying or lowballing.",
+    "author": "Eugene Teo",
+    "date": "2026-11-17",
+    "readTime": "6 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
+    "slug": "how-to-test-if-a-developer-is-good",
+    "title": "How to tell if a developer is actually good (take-home, live coding, or portfolio)",
+    "tag": "Employer Guide",
+    "excerpt": "Whiteboard puzzles mostly test nerves. The signals that actually tell you a developer can do the job &mdash; and how to assess one when you&rsquo;re not technical yourself.",
+    "author": "Eugene Teo",
+    "date": "2026-11-19",
+    "readTime": "6 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
+    "slug": "how-to-hire-cybersecurity-talent-singapore",
+    "title": "Hiring cybersecurity talent when everyone&rsquo;s fighting for it",
+    "tag": "Employer Guide",
+    "excerpt": "Huge demand, a real shortage, and roles that get confusingly lumped together. Which security role you actually need, and a realistic playbook to staff it.",
+    "author": "Eugene Teo",
+    "date": "2026-11-21",
+    "readTime": "7 min read",
+    "icon": "shield",
+    "draft": true
+  },
+  {
     "slug": "how-to-hire-engineers-in-singapore-guide",
     "title": "How to hire engineers in Singapore: the complete employer&rsquo;s guide",
     "tag": "Employer Guide",
