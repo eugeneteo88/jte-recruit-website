@@ -1,5 +1,38 @@
 [
   {
+    "slug": "how-to-hire-tech-talent-singapore-guide",
+    "title": "How to hire tech talent in Singapore: the complete employer&rsquo;s guide",
+    "tag": "Employer Guide",
+    "excerpt": "The whole tech-hiring journey in one place &mdash; first hire, what to pay, in-house vs outsource, judging developers, cybersecurity and more &mdash; with links to the detail on each.",
+    "author": "Eugene Teo",
+    "date": "2026-11-28",
+    "readTime": "9 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
+    "slug": "hire-developers-or-outsource-software",
+    "title": "Hire developers, or outsource the software? (build vs buy for SMEs)",
+    "tag": "Employer Guide",
+    "excerpt": "Hire in-house when software is becoming core and you&rsquo;ll keep changing it; outsource for a one-off build or to move fast. How to decide &mdash; and the hidden costs of each.",
+    "author": "Eugene Teo",
+    "date": "2026-11-24",
+    "readTime": "6 min read",
+    "icon": "monitor",
+    "draft": true
+  },
+  {
+    "slug": "contract-freelance-or-full-time-developer",
+    "title": "Contract, freelance, or full-time &mdash; which for your developer role?",
+    "tag": "Employer Guide",
+    "excerpt": "Full-time for ongoing core work, contract for a project, freelance for small bounded tasks. How to match the engagement to the work &mdash; and not get the IP or the admin wrong.",
+    "author": "Eugene Teo",
+    "date": "2026-11-26",
+    "readTime": "6 min read",
+    "icon": "file",
+    "draft": true
+  },
+  {
     "slug": "tech-salaries-singapore-what-is-market",
     "title": "Why your tech salaries feel impossible &mdash; and what&rsquo;s actually market",
     "tag": "Employer Guide",

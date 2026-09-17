@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-17T07:13:27.922Z",
-  "count": 15,
+  "generated": "2026-09-17T07:22:22.274Z",
+  "count": 18,
   "drafts": [
     {
       "slug": "hiring-maintenance-and-reliability-engineer",
@@ -295,6 +295,66 @@
         "Candid, real photo: a cybersecurity analyst in a security operations centre (SOC) with dashboards on multiple screens, focused, dim room, Singapore. Natural light mixed with screen glow, not looking at camera. No text/logos/watermark. Landscape.",
         "Candid, real photo: an IT/security professional working at a laptop in a server room or modern office, concentrated. Natural light. No text/logos/watermark. Landscape.",
         "Candid, real photo: two security team members discussing something on a screen in a modern SG office, genuine working moment. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hire-developers-or-outsource-software",
+      "title": "Hire developers, or outsource the software? (build vs buy for SMEs)",
+      "tag": "Employer Guide",
+      "date": "2026-11-24",
+      "excerpt": "Hire in-house when software is becoming core and you&rsquo;ll keep changing it; outsource for a one-off build or to move fast. How to decide &mdash; and the hidden costs of each.",
+      "previewUrl": "/blog/hire-developers-or-outsource-software/",
+      "heroUrl": "/blog/hire-developers-or-outsource-software/hero.jpg",
+      "words": 1012,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a business owner weighing a decision at a desk with a laptop, thoughtful, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an in-house developer working at a desk in a small company office (not a big tech campus), focused. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a video call / meeting with an external software vendor shown on a laptop screen, employer listening. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "contract-freelance-or-full-time-developer",
+      "title": "Contract, freelance, or full-time &mdash; which for your developer role?",
+      "tag": "Employer Guide",
+      "date": "2026-11-26",
+      "excerpt": "Full-time for ongoing core work, contract for a project, freelance for small bounded tasks. How to match the engagement to the work &mdash; and not get the IP or the admin wrong.",
+      "previewUrl": "/blog/contract-freelance-or-full-time-developer/",
+      "heroUrl": "/blog/contract-freelance-or-full-time-developer/hero.jpg",
+      "words": 949,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a developer working on a laptop in a flexible setting (co-working or cafe) suggesting contract/freelance work, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and a developer signing or discussing a contract at a desk in a Singapore office. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a full-time developer settled at a permanent desk with personal items, in a modern SG office, candid. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-tech-talent-singapore-guide",
+      "title": "How to hire tech talent in Singapore: the complete employer&rsquo;s guide",
+      "tag": "Employer Guide",
+      "date": "2026-11-28",
+      "excerpt": "The whole tech-hiring journey in one place &mdash; first hire, what to pay, in-house vs outsource, judging developers, cybersecurity and more &mdash; with links to the detail on each.",
+      "previewUrl": "/blog/how-to-hire-tech-talent-singapore-guide/",
+      "heroUrl": "/blog/how-to-hire-tech-talent-singapore-guide/hero.jpg",
+      "words": 944,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 0,
+      "internalLinks": 13,
+      "prompts": [
+        "Candid, real photo: a mixed tech team collaborating around a laptop in a modern Singapore office, genuine working moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a founder and a developer discussing a product on a screen together, engaged. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager welcoming a new tech hire, handshake or friendly greeting in a modern office. Natural light, unposed. No text/logos/watermark. Landscape."
       ]
     }
   ]
