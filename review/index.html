@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JTE — Article Review</title>
+<style>
+  :root{--bg:#f6f4ef;--card:#fffdf9;--ink:#1c1a17;--muted:#6f685e;--line:#e4ddd0;--gold:#b8912f;--gold2:#C6A87C;--dark:#241B12;--green:#2f8f5b;--amber:#b7791f;--red:#c0392b;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:52rem;margin:0 auto;padding:1.4rem 1rem 5rem}
+  header.top{display:flex;align-items:baseline;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap}
+  header.top .logo{font-family:Georgia,serif;font-weight:700;letter-spacing:.08em;color:var(--gold)}
+  header.top h1{font-size:1.15rem;margin:0;font-weight:600}
+  header.top .count{margin-left:auto;font-size:.82rem;color:var(--muted)}
+  /* gate */
+  #gate{max-width:22rem;margin:4rem auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.4rem;text-align:center}
+  #gate .logo{font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);letter-spacing:.1em}
+  #gate p{color:var(--muted);font-size:.9rem;margin:.3rem 0 1.1rem}
+  #gate input{width:100%;padding:.7rem .9rem;border:1px solid var(--line);border-radius:9px;font-size:1rem;background:#fff;color:var(--ink)}
+  #gate button{margin-top:.7rem;width:100%;padding:.7rem;border:0;border-radius:9px;background:var(--dark);color:#F5F1E8;font-weight:600;cursor:pointer;font-size:.95rem}
+  #gate .err{color:var(--red);font-size:.82rem;margin-top:.5rem;min-height:1em}
+  .hidden{display:none!important}
+  /* cards */
+  article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.2rem;margin:1rem 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .a-tag{display:inline-block;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--dark);background:#efe3c9;border-radius:999px;padding:.2rem .55rem}
+  .a-date{font-size:.75rem;color:var(--muted);margin-left:.5rem}
+  h2.a-title{font-size:1.1rem;line-height:1.25;margin:.5rem 0 .3rem}
+  .a-ex{font-size:.88rem;color:var(--muted);margin:0 0 .7rem}
+  .hero{width:100%;border-radius:9px;border:1px solid var(--line);display:block;margin:.5rem 0 .8rem}
+  .qa{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+  .pill{font-size:.72rem;font-weight:600;padding:.24rem .55rem;border-radius:999px;border:1px solid transparent;white-space:nowrap}
+  .pg{background:#e7f4ec;color:var(--green);border-color:#bfe2cd}
+  .pa{background:#fdf3e0;color:var(--amber);border-color:#f0dcae}
+  .pr{background:#fbe9e7;color:var(--red);border-color:#f1c9c4}
+  .row{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0}
+  .btn{font-size:.85rem;font-weight:600;padding:.5rem .9rem;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.gold{background:var(--gold2);border-color:var(--gold2);color:#0a0a0a}
+  .btn.dark{background:var(--dark);border-color:var(--dark);color:#F5F1E8}
+  details.imgs{margin:.5rem 0;border:1px dashed var(--line);border-radius:9px;padding:.3rem .2rem}
+  details.imgs summary{cursor:pointer;font-size:.82rem;font-weight:600;padding:.4rem .6rem;color:var(--gold)}
+  .prompt{background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:.6rem .7rem;margin:.4rem .3rem;font-size:.82rem}
+  .prompt .pc{display:flex;justify-content:space-between;gap:.5rem;align-items:center;margin-bottom:.3rem}
+  .prompt .lbl{font-weight:700;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .copy{font-size:.72rem;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+  .fb{margin-top:.7rem;border-top:1px dashed var(--line);padding-top:.7rem}
+  .fb textarea{width:100%;min-height:4rem;border:1px solid var(--line);border-radius:8px;padding:.6rem .7rem;font:inherit;font-size:.88rem;resize:vertical;background:#fff;color:var(--ink)}
+  .status{font-size:.8rem;font-weight:600;margin-left:.4rem}
+  .status.ok{color:var(--green)}
+  .note{font-size:.8rem;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:.7rem .9rem;margin:.8rem 0}
+</style>
+</head>
+<body>
+<div id="gate">
+  <div class="logo">JTE</div>
+  <p>Article review &mdash; enter password</p>
+  <input id="pw" type="password" autocomplete="off" placeholder="Password" onkeydown="if(event.key==='Enter')tryPw()">
+  <button onclick="tryPw()">Enter</button>
+  <div class="err" id="err"></div>
+</div>
+
+<div id="app" class="hidden">
+  <div class="wrap">
+    <header class="top">
+      <span class="logo">JTE</span><h1>Article review</h1>
+      <span class="count" id="count"></span>
+    </header>
+    <div class="note">These are the <b>held / unpublished</b> articles. Read each one, check the QA row, then <b>Approve</b> or leave <b>feedback</b> (it emails straight to the team). Image prompts for each are inside &ldquo;Supporting images&rdquo; &mdash; generate them and send them over. Nothing here is live until it&rsquo;s approved and scheduled.</div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<script>
+const PW_HASH = "56989cc845cfcee9649be9cb9ae6f16c5f8605890b776af20910d0777789e8ec";
+const ACCESS_KEY = "4102fbb4-7429-499b-a1af-3099ae80705b";
+const STORE = "jte-review-state";
+
+async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
+async function tryPw(){
+  const v=document.getElementById("pw").value;
+  const h=await sha256(v);
+  if(h===PW_HASH){ sessionStorage.setItem("jte-review-auth",h); showApp(); }
+  else { document.getElementById("err").textContent="Wrong password."; }
+}
+function getState(){ try{return JSON.parse(localStorage.getItem(STORE)||"{}");}catch{return {};} }
+function setState(s){ localStorage.setItem(STORE, JSON.stringify(s)); }
+
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function unent(s){const d=document.createElement("textarea");d.innerHTML=s;return d.value;}
+
+function pill(label, level){ return `<span class="pill p${level}">${label}</span>`; }
+
+function qaRow(d){
+  const long = d.words>=1200;
+  const w = d.words>=1100?"g":(d.words>=700?"a":"r");
+  const f = d.faqCount>=4?"g":(d.faqCount>=1?"a":"r");
+  const sc = (d.hasFaqSchema&&d.hasBlogSchema)?"g":"r";
+  const he = d.heroUrl?"g":"r";
+  const si = d.supportingImages>=1?"g":(long?"a":"a");
+  const il = d.internalLinks>=3?"g":(d.internalLinks>=1?"a":"r");
+  return `<div class="qa">
+    ${pill(d.words.toLocaleString()+" words", w)}
+    ${pill(d.faqCount+" FAQ", f)}
+    ${pill((d.hasFaqSchema&&d.hasBlogSchema)?"Schema ✓":"Schema ✗", sc)}
+    ${pill(d.heroUrl?"Hero ✓":"Hero ✗", he)}
+    ${pill(d.supportingImages+" support img", si)}
+    ${pill(d.internalLinks+" links", il)}
+  </div>`;
+}
+
+function promptsBlock(d){
+  if(!d.prompts||!d.prompts.length) return `<div class="note" style="margin:.4rem .1rem">Hero is auto-generated. No supporting-image prompts set for this one yet.</div>`;
+  const items=d.prompts.map((p,i)=>`<div class="prompt">
+    <div class="pc"><span class="lbl">Supporting image ${i+1}</span><button class="copy" data-p="${esc(p)}">Copy</button></div>
+    <div>${esc(p)}</div></div>`).join("");
+  return `<details class="imgs"><summary>Supporting images &mdash; ${d.prompts.length} prompt(s) to generate</summary>
+    <div class="note" style="margin:.4rem .3rem">Hero is auto-generated (no need to make it). Generate these supporting images in the usual candid style and send them over &mdash; they go inside the article.</div>
+    ${items}</details>`;
+}
+
+function card(d){
+  const st=getState()[d.slug];
+  const done = st ? `<span class="status ok">${st.decision==="Approved"?"✓ Approved":"✓ Feedback sent"} </span>` : "";
+  return `<article data-slug="${d.slug}">
+    <div><span class="a-tag">${esc(d.tag)}</span><span class="a-date">${d.date?("target "+d.date):""}</span>${done}</div>
+    <h2 class="a-title">${esc(unent(d.title))}</h2>
+    <p class="a-ex">${esc(unent(d.excerpt))}</p>
+    ${d.heroUrl?`<img class="hero" src="${d.heroUrl}" alt="hero" loading="lazy">`:""}
+    ${qaRow(d)}
+    <div class="row">
+      <a class="btn" href="${d.previewUrl}" target="_blank" rel="noopener">Preview article ↗</a>
+      <button class="btn gold" data-act="approve">Approve</button>
+    </div>
+    ${promptsBlock(d)}
+    <div class="fb">
+      <textarea placeholder="Feedback for this article (voice-dictate or type)…"></textarea>
+      <div class="row" style="margin-top:.5rem"><button class="btn dark" data-act="feedback">Send feedback</button></div>
+    </div>
+  </article>`;
+}
+
+async function submit(slug, decision, message){
+  const fd=new FormData();
+  fd.append("access_key",ACCESS_KEY);
+  fd.append("subject","JTE Article Review: "+slug+" — "+decision);
+  fd.append("Article",slug);
+  fd.append("Decision",decision);
+  fd.append("Feedback",message||"(none)");
+  fd.append("botcheck","");
+  try{ await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd,headers:{Accept:"application/json"}}); }catch(e){}
+  const s=getState(); s[slug]={decision,ts:Date.now()}; setState(s);
+}
+
+function wire(){
+  document.getElementById("list").addEventListener("click", async (e)=>{
+    const copyBtn=e.target.closest(".copy");
+    if(copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.p); copyBtn.textContent="Copied ✓"; setTimeout(()=>copyBtn.textContent="Copy",1200); return; }
+    const btn=e.target.closest("button[data-act]"); if(!btn) return;
+    const art=e.target.closest("article"); const slug=art.dataset.slug;
+    const act=btn.dataset.act;
+    const ta=art.querySelector("textarea");
+    if(act==="approve"){ btn.textContent="Approving…"; await submit(slug,"Approved",ta.value.trim()); render(); }
+    if(act==="feedback"){ if(!ta.value.trim()){ta.focus();return;} btn.textContent="Sending…"; await submit(slug,"Feedback",ta.value.trim()); render(); }
+  });
+}
+
+let DATA=null;
+function render(){
+  const list=document.getElementById("list");
+  list.innerHTML=DATA.drafts.map(card).join("");
+  document.getElementById("count").textContent=DATA.count+" awaiting review";
+}
+async function showApp(){
+  document.getElementById("gate").classList.add("hidden");
+  document.getElementById("app").classList.remove("hidden");
+  if(!DATA){ DATA=await (await fetch("./drafts.json?"+Date.now())).json(); wire(); }
+  render();
+}
+if(sessionStorage.getItem("jte-review-auth")===PW_HASH){ showApp(); }
+</script>
+</body>
+</html>

@@ -1,0 +1,663 @@
+{
+  "generated": "2026-09-17T08:52:26.888Z",
+  "count": 33,
+  "drafts": [
+    {
+      "slug": "hiring-maintenance-and-reliability-engineer",
+      "title": "Want maintenance and reliability in one engineer? Here&rsquo;s how to make it work",
+      "tag": "Employer Guide",
+      "date": "2026-10-17",
+      "excerpt": "You want one engineer for both maintenance and reliability without paying for two. The honest reality, and three ways to make that hire work.",
+      "previewUrl": "/blog/hiring-maintenance-and-reliability-engineer/",
+      "heroUrl": "/blog/hiring-maintenance-and-reliability-engineer/hero.jpg",
+      "words": 1655,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a maintenance technician in a Singapore manufacturing plant using a tablet-based maintenance system beside a large pump-motor or rotating equipment, mid-task, focused, not looking at the camera. Natural light, slightly imperfect framing, subtle grain. No text, no logos, no watermark. Landscape.",
+        "Candid, real photo: a reliability engineer doing root-cause analysis — inspecting a bearing or using a vibration analyser on a machine on the factory floor. Concentrated, unposed. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-a-mechanical-engineer-singapore",
+      "title": "Why you get 200 CVs for a mechanical engineer role &mdash; and how to hire the right one",
+      "tag": "Employer Guide",
+      "date": "2026-10-20",
+      "excerpt": "Post a mechanical engineer role and you drown in near-miss CVs. Why the title is the problem, and how to hire the right flavour.",
+      "previewUrl": "/blog/how-to-hire-a-mechanical-engineer-singapore/",
+      "heroUrl": "/blog/how-to-hire-a-mechanical-engineer-singapore/hero.jpg",
+      "words": 1883,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a mechanical design engineer at a workstation with a 3D CAD model on screen and a physical prototype part in hand, examining it. Modern office, natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a plant/maintenance mechanical engineer in overalls working on machinery with a spanner on a Singapore factory floor — to contrast the different 'flavours' of mechanical engineer. Candid, real, natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-a-process-engineer-singapore",
+      "title": "Your process engineer role has been open for months. Here&rsquo;s how to fill it",
+      "tag": "Employer Guide",
+      "date": "2026-10-22",
+      "excerpt": "Process engineers move the P&amp;L, so the good ones are kept. Why your role stays open, and four ways to actually fill it.",
+      "previewUrl": "/blog/how-to-hire-a-process-engineer-singapore/",
+      "heroUrl": "/blog/how-to-hire-a-process-engineer-singapore/hero.jpg",
+      "words": 1665,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a process engineer on a manufacturing floor reviewing production data on a screen beside the production line, discussing with a line operator. Unposed, natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: close-up of a process engineer checking a product sample or reading a gauge on a production line, focused. Real, candid, natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "project-engineer-vs-project-manager-hiring",
+      "title": "Hiring a project engineer when you needed a project manager &mdash; the costly mix-up",
+      "tag": "Employer Guide",
+      "date": "2026-10-24",
+      "excerpt": "These titles get used interchangeably, so employers hire the wrong one. The clean difference, and how to spec it right.",
+      "previewUrl": "/blog/project-engineer-vs-project-manager-hiring/",
+      "heroUrl": "/blog/project-engineer-vs-project-manager-hiring/hero.jpg",
+      "words": 1586,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a project engineer on an industrial or construction site in a hard hat, reviewing technical drawings with a colleague. Unposed, natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a project manager in a site office at a laptop showing a project schedule / Gantt chart, on a phone call — to contrast with the hands-on engineer. Candid, real, natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-an-automation-controls-engineer",
+      "title": "Can&rsquo;t find an automation engineer who knows your PLC setup? The realistic playbook",
+      "tag": "Employer Guide",
+      "date": "2026-10-27",
+      "excerpt": "Automation is the tightest engineering market, and PLC brand mismatch kills your shortlist. The realistic playbook to hire one.",
+      "previewUrl": "/blog/how-to-hire-an-automation-controls-engineer/",
+      "heroUrl": "/blog/how-to-hire-an-automation-controls-engineer/hero.jpg",
+      "words": 1597,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a controls engineer wiring or testing an industrial PLC control panel, focused, close-up on hands and panel. Real, candid, natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer at an HMI / SCADA screen monitoring an automated production line, with a robot arm or automated equipment in the background. Unposed, natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "should-you-counter-offer-engineer-singapore",
+      "title": "Your best engineer just resigned. Should you counter-offer?",
+      "tag": "Employer Guide",
+      "date": "2026-10-31",
+      "excerpt": "As an employer myself, my first instinct is kiasu &mdash; throw money at it. But a counter-offer usually buys a few months, not loyalty. Why it backfires, and what actually keeps them.",
+      "previewUrl": "/blog/should-you-counter-offer-engineer-singapore/",
+      "heroUrl": "/blog/should-you-counter-offer-engineer-singapore/hero.jpg",
+      "words": 1492,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: an engineering manager and an engineer having a serious but respectful one-on-one conversation across a desk in a Singapore office, slightly tense, not looking at the camera. Natural light, unposed. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer at his desk looking thoughtful, laptop open, appearing to weigh a decision (a resignation moment). Natural light, real, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a boss/owner in a small Singapore office looking stressed at his desk, hand on chin, thinking hard (the panic-decision moment). Natural light, unposed. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-your-engineers-leave-singapore",
+      "title": "Why your engineers keep leaving &mdash; and how to keep them without overpaying",
+      "tag": "Employer Guide",
+      "date": "2026-11-03",
+      "excerpt": "It&rsquo;s rarely just the money, even though that&rsquo;s the reason they write down. The real drivers behind good engineers walking out &mdash; and how to keep them without overpaying everyone.",
+      "previewUrl": "/blog/why-your-engineers-leave-singapore/",
+      "heroUrl": "/blog/why-your-engineers-leave-singapore/hero.jpg",
+      "words": 1489,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a small engineering team working in a Singapore office, one person slightly apart and disengaged from the group, a natural candid moment. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and an engineer having a friendly, genuine chat over coffee (a stay-interview vibe), relaxed, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer quietly packing up his desk / looking at his phone with his back half-turned, subtle sign of disengagement, in a Singapore office. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-your-job-ad-gets-no-good-applicants",
+      "title": "Why your job ad gets no good applicants &mdash; and how to fix it",
+      "tag": "Employer Guide",
+      "date": "2026-11-05",
+      "excerpt": "Silence, or a pile of mismatches? The ad is almost always the problem, not the market. The usual culprits &mdash; vague spec, hidden salary, a wall of requirements &mdash; and how to fix each.",
+      "previewUrl": "/blog/why-your-job-ad-gets-no-good-applicants/",
+      "heroUrl": "/blog/why-your-job-ad-gets-no-good-applicants/hero.jpg",
+      "words": 1551,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a Singapore SME boss at his desk looking at a laptop with a slightly frustrated or unimpressed expression, reviewing job applications. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: over-the-shoulder view of a job seeker on a phone scrolling job listings, casual, in a cafe or on public transport in Singapore. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two colleagues in a small Singapore office discussing a document / job description together at a desk, natural working moment. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-interview-an-engineer-non-technical",
+      "title": "How to interview an engineer when you&rsquo;re not technical",
+      "tag": "Employer Guide",
+      "date": "2026-11-07",
+      "excerpt": "You don&rsquo;t need to test the deep engineering to hire well &mdash; you need to test what you can judge. The questions and signals that work when you can&rsquo;t check the tech yourself.",
+      "previewUrl": "/blog/how-to-interview-an-engineer-non-technical/",
+      "heroUrl": "/blog/how-to-interview-an-engineer-non-technical/hero.jpg",
+      "words": 1664,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a non-technical business owner (40s-50s) interviewing a younger engineer across a desk in a Singapore office, engaged conversation, listening. Natural light, unposed, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an engineer explaining something by sketching a diagram on paper or a whiteboard to an attentive listener, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a small interview panel (two people) with a candidate in a modern Singapore office meeting room, relaxed and genuine, not looking at camera. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-make-a-job-offer-they-wont-reject",
+      "title": "How to make a job offer they won&rsquo;t reject",
+      "tag": "Employer Guide",
+      "date": "2026-11-10",
+      "excerpt": "Most rejected offers aren&rsquo;t about the money &mdash; they&rsquo;re about how the offer was made. Know their expectations early, move fast, sell the role, and rejections become rare.",
+      "previewUrl": "/blog/how-to-make-a-job-offer-they-wont-reject/",
+      "heroUrl": "/blog/how-to-make-a-job-offer-they-wont-reject/hero.jpg",
+      "words": 1532,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a warm, genuine moment of an employer shaking hands with a candidate across a desk in a Singapore office, both pleased, natural. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a boss on a phone call at his desk making a warm offer, smiling slightly, relaxed body language. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a candidate reading an offer letter / email on a laptop at home, thoughtful and pleased. Natural light, real. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hiring-for-attitude-vs-experience",
+      "title": "Hiring for attitude vs experience &mdash; which actually wins?",
+      "tag": "Employer Guide",
+      "date": "2026-11-12",
+      "excerpt": "Skills can be taught; drive, honesty and coachability can&rsquo;t. When to back the eager learner over the seasoned pro &mdash; and when experience is genuinely non-negotiable.",
+      "previewUrl": "/blog/hiring-for-attitude-vs-experience/",
+      "heroUrl": "/blog/hiring-for-attitude-vs-experience/hero.jpg",
+      "words": 1517,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 2,
+      "internalLinks": 4,
+      "prompts": [
+        "Candid, real photo: a younger, eager employee being shown something by an older experienced colleague at a workbench or desk in a Singapore workplace, learning moment. Natural light, candid, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a diverse interview across a table, interviewer listening intently to an animated candidate, genuine. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two employees of different ages working together on a task, mentoring vibe, in a modern Singapore office or workshop. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-engineers-in-singapore-guide",
+      "title": "How to hire engineers in Singapore: the complete employer&rsquo;s guide",
+      "tag": "Employer Guide",
+      "date": "2026-11-14",
+      "excerpt": "The whole journey in one place &mdash; from writing the brief to making the offer to keeping them &mdash; with links to the deep-dive on every step. The map I wish every employer had before they started.",
+      "previewUrl": "/blog/how-to-hire-engineers-in-singapore-guide/",
+      "heroUrl": "/blog/how-to-hire-engineers-in-singapore-guide/hero.jpg",
+      "words": 1577,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 20,
+      "prompts": [
+        "Candid, real photo: a Singapore engineering team of mixed ages working together on a factory or workshop floor, natural collaborative moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employer and a recruiter reviewing engineer CVs together at a desk in a Singapore office, discussing a shortlist. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager shaking hands with a new engineering hire on a factory floor or office, genuine welcome moment. Natural light, unposed. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "tech-salaries-singapore-what-is-market",
+      "title": "Why your tech salaries feel impossible &mdash; and what&rsquo;s actually market",
+      "tag": "Employer Guide",
+      "date": "2026-11-17",
+      "excerpt": "A few years of frenzy, then AI, distorted tech pay &mdash; so the numbers you hear feel mad. How to read tech salaries sanely and hire without overpaying or lowballing.",
+      "previewUrl": "/blog/tech-salaries-singapore-what-is-market/",
+      "heroUrl": "/blog/tech-salaries-singapore-what-is-market/hero.jpg",
+      "words": 1165,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a founder or manager at a laptop reviewing a spreadsheet of salaries, slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a software developer at a desk with multiple monitors of code in a modern SG tech office, focused, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two people in a hiring discussion at a table with a laptop, weighing a decision, genuine. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-test-if-a-developer-is-good",
+      "title": "How to tell if a developer is actually good (take-home, live coding, or portfolio)",
+      "tag": "Employer Guide",
+      "date": "2026-11-19",
+      "excerpt": "Whiteboard puzzles mostly test nerves. The signals that actually tell you a developer can do the job &mdash; and how to assess one when you&rsquo;re not technical yourself.",
+      "previewUrl": "/blog/how-to-test-if-a-developer-is-good/",
+      "heroUrl": "/blog/how-to-test-if-a-developer-is-good/hero.jpg",
+      "words": 1071,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: two developers pair-programming at one screen in a modern Singapore office, one explaining to the other, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a non-technical interviewer and a developer candidate talking across a laptop, the candidate showing something on screen. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: over-the-shoulder of a developer walking someone through a project on a screen, explaining. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-cybersecurity-talent-singapore",
+      "title": "Hiring cybersecurity talent when everyone&rsquo;s fighting for it",
+      "tag": "Employer Guide",
+      "date": "2026-11-21",
+      "excerpt": "Huge demand, a real shortage, and roles that get confusingly lumped together. Which security role you actually need, and a realistic playbook to staff it.",
+      "previewUrl": "/blog/how-to-hire-cybersecurity-talent-singapore/",
+      "heroUrl": "/blog/how-to-hire-cybersecurity-talent-singapore/hero.jpg",
+      "words": 1104,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a cybersecurity analyst in a security operations centre (SOC) with dashboards on multiple screens, focused, dim room, Singapore. Natural light mixed with screen glow, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an IT/security professional working at a laptop in a server room or modern office, concentrated. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two security team members discussing something on a screen in a modern SG office, genuine working moment. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hire-developers-or-outsource-software",
+      "title": "Hire developers, or outsource the software? (build vs buy for SMEs)",
+      "tag": "Employer Guide",
+      "date": "2026-11-24",
+      "excerpt": "Hire in-house when software is becoming core and you&rsquo;ll keep changing it; outsource for a one-off build or to move fast. How to decide &mdash; and the hidden costs of each.",
+      "previewUrl": "/blog/hire-developers-or-outsource-software/",
+      "heroUrl": "/blog/hire-developers-or-outsource-software/hero.jpg",
+      "words": 1024,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a business owner weighing a decision at a desk with a laptop, thoughtful, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an in-house developer working at a desk in a small company office (not a big tech campus), focused. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a video call / meeting with an external software vendor shown on a laptop screen, employer listening. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "contract-freelance-or-full-time-developer",
+      "title": "Contract, freelance, or full-time &mdash; which for your developer role?",
+      "tag": "Employer Guide",
+      "date": "2026-11-26",
+      "excerpt": "Full-time for ongoing core work, contract for a project, freelance for small bounded tasks. How to match the engagement to the work &mdash; and not get the IP or the admin wrong.",
+      "previewUrl": "/blog/contract-freelance-or-full-time-developer/",
+      "heroUrl": "/blog/contract-freelance-or-full-time-developer/hero.jpg",
+      "words": 966,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a developer working on a laptop in a flexible setting (co-working or cafe) suggesting contract/freelance work, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and a developer signing or discussing a contract at a desk in a Singapore office. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a full-time developer settled at a permanent desk with personal items, in a modern SG office, candid. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-tech-talent-singapore-guide",
+      "title": "How to hire tech talent in Singapore: the complete employer&rsquo;s guide",
+      "tag": "Employer Guide",
+      "date": "2026-11-28",
+      "excerpt": "The whole tech-hiring journey in one place &mdash; first hire, what to pay, in-house vs outsource, judging developers, cybersecurity and more &mdash; with links to the detail on each.",
+      "previewUrl": "/blog/how-to-hire-tech-talent-singapore-guide/",
+      "heroUrl": "/blog/how-to-hire-tech-talent-singapore-guide/hero.jpg",
+      "words": 962,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 13,
+      "prompts": [
+        "Candid, real photo: a mixed tech team collaborating around a laptop in a modern Singapore office, genuine working moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a founder and a developer discussing a product on a screen together, engaged. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager welcoming a new tech hire, handshake or friendly greeting in a modern office. Natural light, unposed. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "healthcare-manpower-crunch-singapore",
+      "title": "Singapore&rsquo;s healthcare manpower crunch: what employers can actually do",
+      "tag": "Employer Guide",
+      "date": "2026-12-01",
+      "excerpt": "An ageing population, a global shortage, and everyone fishing in the same small pool. Why healthcare staffing is so hard right now &mdash; and the practical moves that actually help.",
+      "previewUrl": "/blog/healthcare-manpower-crunch-singapore/",
+      "heroUrl": "/blog/healthcare-manpower-crunch-singapore/hero.jpg",
+      "words": 988,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a nurse or care worker attending warmly to an elderly patient in a Singapore clinic or care setting, genuine caring moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a busy but calm healthcare team at a clinic reception or nurses' station in Singapore, working. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare manager reviewing rosters/schedules at a desk, slightly stretched, in a clinic office. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "staffing-clinic-vs-hospital-vs-nursing-home",
+      "title": "Staffing a clinic, a hospital, or a nursing home &mdash; what&rsquo;s actually different",
+      "tag": "Employer Guide",
+      "date": "2026-12-03",
+      "excerpt": "The same job titles mean very different things across a GP clinic, a hospital and a nursing home. What changes &mdash; and what to look for &mdash; when you hire for each.",
+      "previewUrl": "/blog/staffing-clinic-vs-hospital-vs-nursing-home/",
+      "heroUrl": "/blog/staffing-clinic-vs-hospital-vs-nursing-home/hero.jpg",
+      "words": 893,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 4,
+      "prompts": [
+        "Candid, real photo: a patient service associate at a GP clinic front desk in Singapore, helping a patient, warm and genuine. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: nurses working in a hospital ward corridor in Singapore, purposeful, candid. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a care worker with an elderly resident in a nursing home common area, gentle and genuine. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "retaining-healthcare-staff-singapore",
+      "title": "Why your care staff keep leaving &mdash; and how to keep them",
+      "tag": "Employer Guide",
+      "date": "2026-12-05",
+      "excerpt": "In a market this tight, keeping good care staff matters as much as hiring them. Burnout, feeling unseen, and pay that fell behind &mdash; and the practical fixes that hold people.",
+      "previewUrl": "/blog/retaining-healthcare-staff-singapore/",
+      "heroUrl": "/blog/retaining-healthcare-staff-singapore/hero.jpg",
+      "words": 982,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a tired but caring nurse taking a short break at a clinic or hospital in Singapore, human moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare supervisor having a supportive one-on-one chat with a care worker, genuine, in a clinic setting. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare team sharing a light, positive moment together at a nurses' station or break room in Singapore. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hiring-nurses-singapore-snb-registration",
+      "title": "Hiring nurses in Singapore: SNB registration, explained for employers",
+      "tag": "Employer Guide",
+      "date": "2026-12-08",
+      "excerpt": "Every nurse in Singapore must be registered or enrolled with the Singapore Nursing Board &mdash; it&rsquo;s the law. RN vs EN, the foreign-trained process, and the lead time employers must plan for.",
+      "previewUrl": "/blog/hiring-nurses-singapore-snb-registration/",
+      "heroUrl": "/blog/hiring-nurses-singapore-snb-registration/hero.jpg",
+      "words": 1240,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a registered nurse in a Singapore hospital ward attending to a patient, professional and warm, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a foreign-trained nurse studying / preparing for an exam with notes and a laptop, focused, at home or a quiet room. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare HR manager and a nurse candidate reviewing documents/credentials together at a desk in a Singapore clinic office. Natural light. No text/logos/watermark. Landscape.",
+        "GRAPHIC (optional, I can also generate this): a clean branded step-flow showing the path for a foreign-trained nurse to work in Singapore — Job offer → SNB qualification check → Licensure exam (RN/EN) → Registration → Probation. JTE house style (dark bg, gold accents). No stock-photo needed."
+      ]
+    },
+    {
+      "slug": "hiring-allied-health-ahpc-registration",
+      "title": "AHPC registration: which allied health roles legally need it",
+      "tag": "Employer Guide",
+      "date": "2026-12-10",
+      "excerpt": "Five allied health professions can&rsquo;t be practised in Singapore without AHPC registration and a valid Practising Certificate. Which ones, what employers must check, and the foreign-hire process.",
+      "previewUrl": "/blog/hiring-allied-health-ahpc-registration/",
+      "heroUrl": "/blog/hiring-allied-health-ahpc-registration/hero.jpg",
+      "words": 1007,
+      "faqCount": 6,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: a physiotherapist working with a patient on a rehab exercise in a Singapore clinic, genuine, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an occupational or speech therapist working one-on-one with a client at a table with therapy materials. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a radiographer at an imaging machine / console in a Singapore hospital, focused. Natural light mixed with equipment glow. No text/logos/watermark. Landscape.",
+        "GRAPHIC (optional, I can also generate this): a clean branded panel listing the 5 AHPC-regulated professions (Physiotherapist, Occupational Therapist, Speech-Language Therapist, Diagnostic Radiographer, Radiation Therapist). JTE house style (dark bg, gold accents)."
+      ]
+    },
+    {
+      "slug": "hiring-foreign-healthcare-workers-singapore",
+      "title": "You found the perfect foreign nurse. Here&rsquo;s why they can&rsquo;t start next week",
+      "tag": "Employer Guide",
+      "date": "2026-12-12",
+      "excerpt": "Two hurdles catch healthcare employers out on every foreign hire &mdash; professional registration and a work pass, running in parallel and both taking time. Why, and how to plan around it.",
+      "previewUrl": "/blog/hiring-foreign-healthcare-workers-singapore/",
+      "heroUrl": "/blog/hiring-foreign-healthcare-workers-singapore/hero.jpg",
+      "words": 954,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 8,
+      "prompts": [
+        "Candid, real photo: a foreign-trained nurse arriving/settling into a Singapore workplace, hopeful, candid, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an HR manager and a foreign healthcare candidate going through paperwork/documents together at a desk. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "GRAPHIC (optional, I can also generate this): a clean branded two-track panel showing the parallel hurdles for a foreign healthcare hire — 'Professional registration (SNB / AHPC)' and 'Work pass (MOM)' running side by side toward 'can start work'. JTE house style (dark bg, gold accents)."
+      ]
+    },
+    {
+      "slug": "how-to-staff-healthcare-singapore-guide",
+      "title": "How to staff a healthcare business in Singapore: the complete guide",
+      "tag": "Employer Guide",
+      "date": "2026-12-15",
+      "excerpt": "The whole healthcare-staffing picture in one place &mdash; the crunch, staffing by setting, registration and work passes, foreign hires and retention &mdash; with links to the detail on each.",
+      "previewUrl": "/blog/how-to-staff-healthcare-singapore-guide/",
+      "heroUrl": "/blog/how-to-staff-healthcare-singapore-guide/hero.jpg",
+      "words": 917,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 11,
+      "prompts": [
+        "Candid, real photo: a warm, capable healthcare team (nurses and care staff) at a Singapore clinic or hospital, working together, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a healthcare manager and a recruiter reviewing candidate profiles at a desk in a clinic office, discussing. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a nurse or care worker in a genuine caring moment with a patient in Singapore, warm and real. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "new-hire-quit-first-90-days",
+      "title": "Your new hire quit in the first 90 days &mdash; here&rsquo;s what went wrong",
+      "tag": "Employer Guide",
+      "date": "2026-12-17",
+      "excerpt": "You found the right person, and they walked before the probation was up. It&rsquo;s almost never the hire &mdash; it&rsquo;s the onboarding. What actually makes a new hire stick.",
+      "previewUrl": "/blog/new-hire-quit-first-90-days/",
+      "heroUrl": "/blog/new-hire-quit-first-90-days/hero.jpg",
+      "words": 970,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a new employee looking slightly lost or unsupported at a desk in a Singapore office on an early day, others busy around them. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a warm onboarding moment &mdash; a manager welcoming and orienting a new hire, showing them around. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and a new employee in a friendly check-in over coffee in the first weeks. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-decide-end-of-probation",
+      "title": "Probation&rsquo;s ending and you&rsquo;re not sure &mdash; how to decide",
+      "tag": "Employer Guide",
+      "date": "2026-12-19",
+      "excerpt": "The probation clock&rsquo;s run out and your gut says &lsquo;maybe&rsquo;. How to make the confirm-or-let-go call honestly &mdash; before it costs you either way.",
+      "previewUrl": "/blog/how-to-decide-end-of-probation/",
+      "heroUrl": "/blog/how-to-decide-end-of-probation/hero.jpg",
+      "words": 956,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a manager looking thoughtful while reviewing an employee's work/notes at a desk, weighing a decision. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a manager and an employee having an honest one-on-one review conversation across a desk in a Singapore office. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employee working diligently at a desk, being quietly observed/assessed, in a modern office. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "reference-checks-that-work",
+      "title": "Reference checks that actually tell you something",
+      "tag": "Employer Guide",
+      "date": "2026-12-22",
+      "excerpt": "Most reference checks are a box-ticking waste of time. The questions that actually surface the truth &mdash; and how to read what&rsquo;s not said.",
+      "previewUrl": "/blog/reference-checks-that-work/",
+      "heroUrl": "/blog/reference-checks-that-work/hero.jpg",
+      "words": 892,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a manager on a phone call taking notes at a desk (a reference call), focused. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two professionals having a candid conversation, one listening intently and jotting notes. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a close-up of hands writing notes beside a laptop showing a candidate profile. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "are-you-overpaying-or-underpaying",
+      "title": "Are you overpaying or underpaying your team? How to actually know",
+      "tag": "Employer Guide",
+      "date": "2026-12-24",
+      "excerpt": "Overpay and you bleed margin; underpay and you bleed people. How to work out where your pay really sits against the market &mdash; and what to do about it.",
+      "previewUrl": "/blog/are-you-overpaying-or-underpaying/",
+      "heroUrl": "/blog/are-you-overpaying-or-underpaying/hero.jpg",
+      "words": 938,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 7,
+      "prompts": [
+        "Candid, real photo: a business owner reviewing payroll/salary figures on a laptop with a slightly concerned expression, modern Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: two managers discussing figures on a screen at a desk, weighing pay decisions. Natural light, genuine. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an employee looking quietly disengaged at a desk (the cost of underpaying), colleagues around. Natural light, candid. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "how-to-hire-electrical-electronics-engineer",
+      "title": "Can&rsquo;t find an electrical engineer who fits? You may be hiring for the wrong one",
+      "tag": "Employer Guide",
+      "date": "2026-12-26",
+      "excerpt": "&lsquo;Electrical engineer&rsquo; covers power systems, controls, electronics and building services &mdash; very different people. Why your search stalls, and how to hire the right one.",
+      "previewUrl": "/blog/how-to-hire-electrical-electronics-engineer/",
+      "heroUrl": "/blog/how-to-hire-electrical-electronics-engineer/hero.jpg",
+      "words": 846,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: an electrical engineer working on a switchboard / power distribution panel in a Singapore facility, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an electronics engineer at a bench testing a circuit board with instruments (oscilloscope, multimeter). Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: an M&E electrical engineer in hi-vis checking building electrical systems on a site. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "hiring-qa-qc-engineer",
+      "title": "Your quality problems aren&rsquo;t bad luck &mdash; they&rsquo;re a QA/QC hiring problem",
+      "tag": "Employer Guide",
+      "date": "2026-12-29",
+      "excerpt": "When defects keep slipping through, the fix is usually a QA/QC engineer &mdash; but employers hire the wrong flavour, or treat it as a box-tick. What good actually looks like.",
+      "previewUrl": "/blog/hiring-qa-qc-engineer/",
+      "heroUrl": "/blog/hiring-qa-qc-engineer/hero.jpg",
+      "words": 860,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 2,
+      "internalLinks": 3,
+      "prompts": [
+        "Candid, real photo: a QA/QC engineer inspecting a product or part with measuring tools on a Singapore production line, focused, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a quality engineer reviewing inspection data / charts on a screen beside the production floor. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: close-up of hands measuring a component with a caliper/gauge on a workbench. Natural light. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "promote-from-within-or-hire-a-manager",
+      "title": "Your best doer isn&rsquo;t automatically your next manager &mdash; promote or hire?",
+      "tag": "Employer Guide",
+      "date": "2026-12-31",
+      "excerpt": "Promoting your top performer into management is the most common way to lose a great doer and gain a struggling boss. When to promote, when to hire, and how to decide.",
+      "previewUrl": "/blog/promote-from-within-or-hire-a-manager/",
+      "heroUrl": "/blog/promote-from-within-or-hire-a-manager/hero.jpg",
+      "words": 934,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 5,
+      "prompts": [
+        "Candid, real photo: a strong individual performer looking slightly out of their depth leading a small team meeting, genuine moment, not looking at camera. Natural light. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a business owner weighing a decision at a desk, considering an org chart or notes. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a confident new manager having a supportive one-on-one with a team member. Natural light, genuine. No text/logos/watermark. Landscape."
+      ]
+    },
+    {
+      "slug": "why-candidates-ghost-you",
+      "title": "Why good candidates ghost you &mdash; and what it says about your process",
+      "tag": "Employer Guide",
+      "date": "2027-01-02",
+      "excerpt": "Candidates going silent isn&rsquo;t just rudeness &mdash; it&rsquo;s usually feedback on your hiring process. Why it happens, and the fixes that keep good people engaged.",
+      "previewUrl": "/blog/why-candidates-ghost-you/",
+      "heroUrl": "/blog/why-candidates-ghost-you/hero.jpg",
+      "words": 895,
+      "faqCount": 5,
+      "hasFaqSchema": true,
+      "hasBlogSchema": true,
+      "supportingImages": 1,
+      "internalLinks": 6,
+      "prompts": [
+        "Candid, real photo: an employer looking at a phone/inbox with no reply, mild frustration, at a desk in a Singapore office. Natural light, not looking at camera. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a job candidate ignoring a call / setting phone face-down, ambivalent, casual setting. Natural light, candid. No text/logos/watermark. Landscape.",
+        "Candid, real photo: a hiring manager checking a laptop with an empty interview calendar slot, waiting. Natural light. No text/logos/watermark. Landscape."
+      ]
+    }
+  ]
+}
