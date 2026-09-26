@@ -38,6 +38,8 @@
   .btn{font-size:.85rem;font-weight:600;padding:.5rem .9rem;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block}
   .btn.gold{background:var(--gold2);border-color:var(--gold2);color:#0a0a0a}
   .btn.dark{background:var(--dark);border-color:var(--dark);color:#F5F1E8}
+  .btn.ok{background:var(--green);border-color:var(--green);color:#fff;font-weight:700;cursor:default}
+  .btn.ok:disabled{opacity:1}
   details.imgs{margin:.5rem 0;border:1px dashed var(--line);border-radius:9px;padding:.3rem .2rem}
   details.imgs summary{cursor:pointer;font-size:.82rem;font-weight:600;padding:.4rem .6rem;color:var(--gold)}
   .prompt{background:#faf7f0;border:1px solid var(--line);border-radius:8px;padding:.6rem .7rem;margin:.4rem .3rem;font-size:.82rem}
@@ -130,7 +132,7 @@ function card(d){
     ${qaRow(d)}
     <div class="row">
       <a class="btn" href="${d.previewUrl}" target="_blank" rel="noopener">Preview article ↗</a>
-      <button class="btn gold" data-act="approve">Approve</button>
+      ${(st&&st.decision==="Approved")?'<button class="btn ok" disabled>✓ Approved</button>':'<button class="btn gold" data-act="approve">Approve</button>'}
     </div>
     ${promptsBlock(d)}
     <div class="fb">
@@ -149,7 +151,6 @@ async function submit(slug, decision, message){
   fd.append("Feedback",message||"(none)");
   fd.append("botcheck","");
   try{ await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd,headers:{Accept:"application/json"}}); }catch(e){}
-  const s=getState(); s[slug]={decision,ts:Date.now()}; setState(s);
 }
 
 function wire(){
@@ -160,8 +161,20 @@ function wire(){
     const art=e.target.closest("article"); const slug=art.dataset.slug;
     const act=btn.dataset.act;
     const ta=art.querySelector("textarea");
-    if(act==="approve"){ btn.textContent="Approving…"; await submit(slug,"Approved",ta.value.trim()); render(); }
-    if(act==="feedback"){ if(!ta.value.trim()){ta.focus();return;} btn.textContent="Sending…"; await submit(slug,"Feedback",ta.value.trim()); render(); }
+    if(act==="approve"){
+      const s=getState(); s[slug]={decision:"Approved",ts:Date.now()}; setState(s);
+      btn.className="btn ok"; btn.textContent="✓ Approved"; btn.disabled=true; btn.removeAttribute("data-act");
+      const head=art.querySelector(".a-tag") && art.querySelector(".a-tag").parentElement;
+      if(head && !head.querySelector(".status")) head.insertAdjacentHTML("beforeend",' <span class="status ok">✓ Approved</span>');
+      submit(slug,"Approved",ta.value.trim());
+    }
+    if(act==="feedback"){
+      if(!ta.value.trim()){ta.focus();return;}
+      const s=getState(); s[slug]={decision:"Feedback",ts:Date.now()}; setState(s);
+      btn.className="btn ok"; btn.textContent="✓ Feedback sent"; btn.disabled=true;
+      submit(slug,"Feedback",ta.value.trim());
+      setTimeout(function(){btn.className="btn dark";btn.textContent="Send feedback";btn.disabled=false;},2500);
+    }
   });
 }
 
