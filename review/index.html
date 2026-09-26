@@ -51,6 +51,12 @@
   .status{font-size:.8rem;font-weight:600;margin-left:.4rem}
   .status.ok{color:var(--green)}
   .note{font-size:.8rem;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:.7rem .9rem;margin:.8rem 0}
+  .approved-drawer{margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem}
+  .approved-drawer>summary{cursor:pointer;list-style:none;font-weight:700;color:var(--green);padding:.7rem .9rem;background:rgba(126,196,143,.08);border:1px solid rgba(126,196,143,.25);border-radius:10px}
+  .approved-drawer>summary::-webkit-details-marker{display:none}
+  .approved-drawer>summary:hover{background:rgba(126,196,143,.14)}
+  .approved-body{margin-top:1rem;opacity:.72}
+  .empty{text-align:center;padding:2.5rem 1rem;color:var(--muted);font-size:1.05rem}
 </style>
 </head>
 <body>
@@ -68,8 +74,9 @@
       <span class="logo">JTE</span><h1>Article review</h1>
       <span class="count" id="count"></span>
     </header>
-    <div class="note">These are the <b>held / unpublished</b> articles. Read each one, check the QA row, then <b>Approve</b> or leave <b>feedback</b> (it emails straight to the team). Image prompts for each are inside &ldquo;Supporting images&rdquo; &mdash; generate them and send them over. Nothing here is live until it&rsquo;s approved and scheduled.</div>
+    <div class="note">These are the <b>held / unpublished</b> articles still to review. Read each, check the QA row, then <b>Approve</b> (it drops into the Approved drawer at the bottom, out of your way) or leave a <b>note</b> for yourself &mdash; then tell Claude the feedback in chat. Image prompts are inside &ldquo;Supporting images&rdquo; &mdash; generate them and send them over. Nothing here is live until it&rsquo;s approved and scheduled.</div>
     <div id="list"></div>
+    <div id="approvedWrap"></div>
   </div>
 </div>
 
@@ -146,7 +153,7 @@ function card(d){
 function submit(){ /* intentionally does nothing */ }
 
 function wire(){
-  document.getElementById("list").addEventListener("click", async (e)=>{
+  document.getElementById("app").addEventListener("click", async (e)=>{
     const copyBtn=e.target.closest(".copy");
     if(copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.p); copyBtn.textContent="Copied ✓"; setTimeout(()=>copyBtn.textContent="Copy",1200); return; }
     const btn=e.target.closest("button[data-act]"); if(!btn) return;
@@ -156,9 +163,8 @@ function wire(){
     if(act==="approve"){
       const s=getState(); s[slug]={decision:"Approved",ts:Date.now()}; setState(s);
       btn.className="btn ok"; btn.textContent="✓ Approved"; btn.disabled=true; btn.removeAttribute("data-act");
-      const head=art.querySelector(".a-tag") && art.querySelector(".a-tag").parentElement;
-      if(head && !head.querySelector(".status")) head.insertAdjacentHTML("beforeend",' <span class="status ok">✓ Approved</span>');
-      submit(slug,"Approved",ta.value.trim());
+      // brief confirmation, then re-render so it tucks into the Approved drawer
+      setTimeout(render, 650);
     }
     if(act==="feedback"){
       if(!ta.value.trim()){ta.focus();return;}
@@ -171,9 +177,19 @@ function wire(){
 
 let DATA=null;
 function render(){
-  const list=document.getElementById("list");
-  list.innerHTML=DATA.drafts.map(card).join("");
-  document.getElementById("count").textContent=DATA.count+" awaiting review";
+  const st=getState();
+  const isApproved=d=> st[d.slug] && st[d.slug].decision==="Approved";
+  const pending=DATA.drafts.filter(d=>!isApproved(d));
+  const approved=DATA.drafts.filter(isApproved);
+  document.getElementById("list").innerHTML = pending.length
+    ? pending.map(card).join("")
+    : '<div class="empty">&#127881; All caught up &mdash; nothing left to review.</div>';
+  document.getElementById("count").textContent =
+    pending.length+" to review" + (approved.length? " · "+approved.length+" approved" : "");
+  const aw=document.getElementById("approvedWrap");
+  aw.innerHTML = approved.length
+    ? '<details class="approved-drawer"><summary>&#10003; Approved ('+approved.length+') &mdash; click to view</summary><div class="approved-body">'+approved.map(card).join("")+'</div></details>'
+    : '';
 }
 async function showApp(){
   document.getElementById("gate").classList.add("hidden");
