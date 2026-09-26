@@ -75,7 +75,6 @@
 
 <script>
 const PW_HASH = "56989cc845cfcee9649be9cb9ae6f16c5f8605890b776af20910d0777789e8ec";
-const ACCESS_KEY = "4102fbb4-7429-499b-a1af-3099ae80705b";
 const STORE = "jte-review-state";
 
 async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
@@ -123,7 +122,7 @@ function promptsBlock(d){
 
 function card(d){
   const st=getState()[d.slug];
-  const done = st ? `<span class="status ok">${st.decision==="Approved"?"✓ Approved":"✓ Feedback sent"} </span>` : "";
+  const done = st ? `<span class="status ok">${st.decision==="Approved"?"✓ Approved":"✓ Feedback noted"} </span>` : "";
   return `<article data-slug="${d.slug}">
     <div><span class="a-tag">${esc(d.tag)}</span><span class="a-date">${d.date?("target "+d.date):""}</span>${done}</div>
     <h2 class="a-title">${esc(unent(d.title))}</h2>
@@ -136,22 +135,15 @@ function card(d){
     </div>
     ${promptsBlock(d)}
     <div class="fb">
-      <textarea placeholder="Feedback for this article (voice-dictate or type)…"></textarea>
-      <div class="row" style="margin-top:.5rem"><button class="btn dark" data-act="feedback">Send feedback</button></div>
+      <textarea placeholder="Jot feedback here for your own notes — then tell Claude in chat…"></textarea>
+      <div class="row" style="margin-top:.5rem"><button class="btn dark" data-act="feedback">Save note</button></div>
     </div>
   </article>`;
 }
 
-async function submit(slug, decision, message){
-  const fd=new FormData();
-  fd.append("access_key",ACCESS_KEY);
-  fd.append("subject","JTE Article Review: "+slug+" — "+decision);
-  fd.append("Article",slug);
-  fd.append("Decision",decision);
-  fd.append("Feedback",message||"(none)");
-  fd.append("botcheck","");
-  try{ await fetch("https://api.web3forms.com/submit",{method:"POST",body:fd,headers:{Accept:"application/json"}}); }catch(e){}
-}
+// No emails — this console is private to Eugene. Decisions are saved locally
+// (localStorage) for his own tracking; feedback is relayed to Claude in chat.
+function submit(){ /* intentionally does nothing */ }
 
 function wire(){
   document.getElementById("list").addEventListener("click", async (e)=>{
@@ -171,9 +163,8 @@ function wire(){
     if(act==="feedback"){
       if(!ta.value.trim()){ta.focus();return;}
       const s=getState(); s[slug]={decision:"Feedback",ts:Date.now()}; setState(s);
-      btn.className="btn ok"; btn.textContent="✓ Feedback sent"; btn.disabled=true;
-      submit(slug,"Feedback",ta.value.trim());
-      setTimeout(function(){btn.className="btn dark";btn.textContent="Send feedback";btn.disabled=false;},2500);
+      btn.className="btn ok"; btn.textContent="✓ Noted"; btn.disabled=true;
+      setTimeout(function(){btn.className="btn dark";btn.textContent="Save note";btn.disabled=false;},2500);
     }
   });
 }
