@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26T09:44:36.266Z",
+  "generated": "2026-09-26T09:47:51.402Z",
   "count": 31,
   "drafts": [
     {
@@ -52,7 +52,7 @@
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
-      "supportingImages": 1,
+      "supportingImages": 2,
       "internalLinks": 7,
       "prompts": [
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a controls engineer with sleeves rolled up, hands deep inside an open industrial control panel wiring a PLC, a laptop balanced nearby showing ladder logic, the neat rows of terminals and coloured wires sharply in focus. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
