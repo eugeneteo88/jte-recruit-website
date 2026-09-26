@@ -1,26 +1,7 @@
 {
-  "generated": "2026-09-26T08:48:19.766Z",
-  "count": 33,
+  "generated": "2026-09-26T09:03:30.599Z",
+  "count": 32,
   "drafts": [
-    {
-      "slug": "hiring-maintenance-and-reliability-engineer",
-      "title": "Want maintenance and reliability in one engineer? Here&rsquo;s how to make it work",
-      "tag": "Employer Guide",
-      "date": "2026-10-17",
-      "excerpt": "You want one engineer for both maintenance and reliability without paying for two. The honest reality, and three ways to make that hire work.",
-      "previewUrl": "/blog/hiring-maintenance-and-reliability-engineer/",
-      "heroUrl": "/blog/hiring-maintenance-and-reliability-engineer/hero.jpg",
-      "words": 1584,
-      "faqCount": 6,
-      "hasFaqSchema": true,
-      "hasBlogSchema": true,
-      "supportingImages": 3,
-      "internalLinks": 6,
-      "prompts": [
-        "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a maintenance technician in his 40s in a grey company polo and safety glasses, crouched beside a large grease-streaked pump-and-motor unit on a Singapore factory floor, frowning in concentration as he taps through a checklist on a rugged tablet held in one oil-smudged hand, an open toolbox and coiled hoses at his feet, pipework and pressure gauges filling the background. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
-        "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a reliability engineer kneeling at a running machine, pressing a handheld vibration analyser to a bearing housing, head tilted as if listening, a dog-eared notebook of readings balanced on his knee, a conveyor blurred with motion behind him. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage."
-      ]
-    },
     {
       "slug": "how-to-hire-a-mechanical-engineer-singapore",
       "title": "Why you get 200 CVs for a mechanical engineer role &mdash; and how to hire the right one",
