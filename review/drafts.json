@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26T09:58:37.680Z",
+  "generated": "2026-10-07T02:43:45.918Z",
   "count": 31,
   "drafts": [
     {
@@ -125,12 +125,12 @@
       "excerpt": "You don&rsquo;t need to test the deep engineering to hire well &mdash; you need to test what you can judge. The questions and signals that work when you can&rsquo;t check the tech yourself.",
       "previewUrl": "/blog/how-to-interview-an-engineer-non-technical/",
       "heroUrl": "/blog/how-to-interview-an-engineer-non-technical/hero.jpg",
-      "words": 1653,
+      "words": 1660,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
       "supportingImages": 1,
-      "internalLinks": 5,
+      "internalLinks": 7,
       "prompts": [
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a non-technical business owner in his 50s leaning forward and listening intently as a younger engineer, mid-explanation with expressive hands, sketches something on a notepad between them across an office desk. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: an engineer at a whiteboard drawing a simple diagram to explain a concept, half-turned toward an attentive non-technical listener sitting nearby, a genuine teaching moment. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage."
@@ -164,12 +164,12 @@
       "excerpt": "Skills can be taught; drive, honesty and coachability can&rsquo;t. When to back the eager learner over the seasoned pro &mdash; and when experience is genuinely non-negotiable.",
       "previewUrl": "/blog/hiring-for-attitude-vs-experience/",
       "heroUrl": "/blog/hiring-for-attitude-vs-experience/hero.jpg",
-      "words": 1513,
+      "words": 1538,
       "faqCount": 6,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
       "supportingImages": 2,
-      "internalLinks": 4,
+      "internalLinks": 6,
       "prompts": [
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: an eager young employee watching closely as an older, experienced colleague shows him how to do something at a workbench, a real mentoring moment, the younger one clearly keen and absorbing it. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a genuine interview across a table, the interviewer listening intently and half-smiling as an animated candidate talks with their hands, warm and unposed. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
@@ -552,12 +552,12 @@
       "excerpt": "When defects keep slipping through, the fix is usually a QA/QC engineer &mdash; but employers hire the wrong flavour, or treat it as a box-tick. What good actually looks like.",
       "previewUrl": "/blog/hiring-qa-qc-engineer/",
       "heroUrl": "/blog/hiring-qa-qc-engineer/hero.jpg",
-      "words": 860,
+      "words": 889,
       "faqCount": 5,
       "hasFaqSchema": true,
       "hasBlogSchema": true,
       "supportingImages": 2,
-      "internalLinks": 3,
+      "internalLinks": 6,
       "prompts": [
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: a quality engineer in a clean company shirt on a production line, carefully measuring a metal component with a digital caliper and reading it closely, inspection paperwork and more parts laid out on the bench beside her. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage.",
         "Candid, documentary-style photo that looks like a real, unposed moment snapped on a phone by a colleague — NOT a staged, glossy or stock shot. Scene: over-the-shoulder of a quality engineer studying a defect-trend chart on a screen beside the factory floor, a rejected part sitting in a red reject tray in the foreground. Real, ordinary Singaporean people with natural, unforced expressions; nobody looking at or aware of the camera; a genuine, lived-in setting with a little authentic clutter. Soft natural light, slightly imperfect off-centre framing, subtle film grain, real skin and textures, no beautifying or retouching. Landscape 16:9 (~1600x900). No text, no logos, no watermark, no readable signage."

@@ -31,6 +31,7 @@
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jte.com.sg/blog/spotting-recruitment-scams" }
     }
     </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does JTE Recruit ever ask job seekers for a deposit or fee?","acceptedAnswer":{"@type":"Answer","text":"No, never. A genuine recruitment agency is paid by the employers who hire, not by the people it helps find work. If anyone using our name asks you for a deposit, an activation fee or a refundable payment of any kind, it is a scam."}},{"@type":"Question","name":"How can I check if a number claiming to be JTE is real?","acceptedAnswer":{"@type":"Answer","text":"Use our verification tool at jte.com.sg/verify. Enter the number and you will get a straight answer in about ten seconds: a genuine JTE consultant, or not one of ours. There is no sign-up."}},{"@type":"Question","name":"What are the biggest warning signs of a recruitment scam?","acceptedAnswer":{"@type":"Answer","text":"Any request for payment to start; pay that is far too high for the work; a small early payout followed by pressure to top up; an offer for a job you never applied for; and a trusted name attached to a number you cannot confirm anywhere."}},{"@type":"Question","name":"What should I do if I have already paid a scammer?","acceptedAnswer":{"@type":"Answer","text":"Act quickly. Call the ScamShield Helpline on 1799 or the Police Anti-Scam Hotline on 1800-255-0000, report it at scamshield.gov.sg, block and report the number, and tell your bank straight away if money has left your account."}},{"@type":"Question","name":"Can a real recruiter contact me out of the blue?","acceptedAnswer":{"@type":"Answer","text":"It can happen, but a genuine recruiter will never ask you for a deposit or fee. If a message feels too good to be true, verify the number first and never pay to get a job."}}]}</script>
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BXT61GXYP"></script>
     <script>
@@ -108,6 +109,13 @@
         @media(min-width:1024px){.nav-desk{display:flex}.nav-verify{display:inline-flex}}
         #toTop{position:fixed;right:20px;bottom:20px;z-index:50;width:46px;height:46px;border-radius:999px;border:0;cursor:pointer;background:#C6A87C;color:#0a0a0a;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s ease;box-shadow:0 12px 26px -8px rgba(140,115,80,.6);}
         #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+        .faq{border:1px solid rgba(0,0,0,.09);border-radius:10px;margin:.65rem 0;background:#fff;overflow:hidden}
+        .faq summary{list-style:none;cursor:pointer;padding:1rem 1.25rem;font-family:'Playfair Display',serif;font-size:1.05rem;color:#0a0a1a;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+        .faq summary::-webkit-details-marker{display:none}
+        .faq summary::after{content:'';width:9px;height:9px;border-right:2px solid #C6A87C;border-bottom:2px solid #C6A87C;transform:rotate(45deg);transition:transform .25s ease;flex:none;margin-top:-3px}
+        .faq[open] summary::after{transform:rotate(-135deg)}
+        .faq .faq-a{padding:0 1.25rem 1.15rem}
+        .faq .faq-a p{margin:0;color:#4a4a4a;font-weight:300;line-height:1.8}
     </style>
 </head>
 <body class="antialiased bg-[#FBF9F4] text-[#1c1a17]">
@@ -223,6 +231,13 @@
         </ul>
 
         <p>When an offer feels too good to be true, it's usually doing exactly what it was built to do. Verify first, and never pay to get a job. A real opportunity can happily wait five minutes for a sanity check.</p>
+
+        <h2>Frequently asked questions</h2>
+        <details class="faq"><summary>Does JTE Recruit ever ask job seekers for a deposit or fee?</summary><div class="faq-a"><p>No, never. A genuine recruitment agency is paid by the employers who hire, not by the people it helps find work. If anyone using our name asks you for a deposit, an activation fee or a &ldquo;refundable&rdquo; payment of any kind, it is a scam.</p></div></details>
+        <details class="faq"><summary>How can I check if a number claiming to be JTE is real?</summary><div class="faq-a"><p>Use our verification tool at <a href="/verify">jte.com.sg/verify</a>. Enter the number and you will get a straight answer in about ten seconds: a genuine JTE consultant, or not one of ours. There is no sign-up.</p></div></details>
+        <details class="faq"><summary>What are the biggest warning signs of a recruitment scam?</summary><div class="faq-a"><p>Any request for payment to start; pay that is far too high for the work; a small early payout followed by pressure to top up; an offer for a job you never applied for; and a trusted name attached to a number you cannot confirm anywhere.</p></div></details>
+        <details class="faq"><summary>What should I do if I have already paid a scammer?</summary><div class="faq-a"><p>Act quickly. Call the ScamShield Helpline on 1799 or the Police Anti-Scam Hotline on 1800-255-0000, report it at <a href="https://www.scamshield.gov.sg" target="_blank" rel="noopener noreferrer">scamshield.gov.sg</a>, block and report the number, and tell your bank straight away if money has left your account.</p></div></details>
+        <details class="faq"><summary>Can a real recruiter contact me out of the blue?</summary><div class="faq-a"><p>It can happen, but a genuine recruiter will never ask you for a deposit or fee. If a message feels too good to be true, verify the number first and never pay to get a job.</p></div></details>
     </main>
 
     <aside class="max-w-3xl mx-auto px-6 pb-20">
@@ -230,16 +245,16 @@
         <div class="border-t border-black/10 pt-10">
           <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Keep reading</p>
           <div class="grid sm:grid-cols-2 gap-6 mt-5">
-          <a href="/blog/what-a-good-engineer-costs-singapore/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+          <a href="/blog/what-happens-with-a-good-recruiter/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
             <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">Employer Guide</span>
-            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">What a good engineer actually costs in Singapore right now</h3>
+            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">What actually happens when you work with a good recruiter</h3>
             <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>
           </a>
-          <a href="/blog/contract-vs-permanent-engineers-singapore/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+          <a href="/blog/hiring-maintenance-and-reliability-engineer/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
             <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">Employer Guide</span>
-            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">Contract vs permanent engineers &mdash; which does your project actually need?</h3>
+            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">Want maintenance and reliability in one engineer? Here&rsquo;s how to make it work</h3>
             <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </span>

@@ -75,6 +75,7 @@ for (const file of files) {
   for (const m of html.matchAll(/href=["']([^"']+)["']/gi)) {
     const href = m[1];
     if (/^(https?:|mailto:|tel:|javascript:|data:|#)/i.test(href)) continue;
+    if (href.includes('${')) continue; // JS template literal inside a script, not a real link
     if (!resolveLink(href, file)) add('FAIL', 'broken-internal-link', file, href);
   }
 
