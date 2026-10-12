@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-12",
+    "kind": "technical",
+    "title": "Business details refreshed for AI search",
+    "note": "Added JTE's UEN to the site's machine-readable details and footer, refreshed the Google review count to 338, and updated the year, so AI search tools and Google quote JTE's details accurately."
+  },
+  {
     "date": "2026-08-21",
     "kind": "technical",
     "title": "Search Console reporting set up",
