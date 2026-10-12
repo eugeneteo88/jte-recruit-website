@@ -2,6 +2,12 @@
   {
     "date": "2026-10-12",
     "kind": "technical",
+    "title": "Sector pages rewritten answer-first for AI search",
+    "note": "The manufacturing, mass-hiring and payroll/work-pass pages now open with a direct, quotable answer to who JTE hires for and how, and show the proof facts (21,000+ placements, 500+ clients, 12+ years, MOM EA Licence 14C7215, 4.8-star / 338 reviews) as plain text, so AI answer engines and Google can read and cite them."
+  },
+  {
+    "date": "2026-10-12",
+    "kind": "technical",
     "title": "Business details refreshed for AI search",
     "note": "Added JTE's UEN to the site's machine-readable details and footer, refreshed the Google review count to 338, and updated the year, so AI search tools and Google quote JTE's details accurately."
   },
