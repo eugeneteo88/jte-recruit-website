@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-10-13",
+    "kind": "technical",
+    "title": "Answer-first and proof facts across all sector and service pages",
+    "note": "Rolled the AI-search treatment to every sector page (engineering, logistics, healthcare, IT, commercial) and service page (permanent, contract, manpower outsourcing, employer branding, hire contract staff): each now opens with a direct, quotable answer and shows the proof facts (21,000+ placements, 500+ clients, 12+ years, MOM EA Licence 14C7215, 4.8-star / 338 reviews) as plain text. Also added full structured data to the hire contract staff page."
+  },
+  {
     "date": "2026-10-12",
     "kind": "technical",
     "title": "Sector pages rewritten answer-first for AI search",
