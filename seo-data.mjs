@@ -59,6 +59,25 @@ async function main(){
     .slice(0,12)
     .map(k => ({term:k.term, position:Math.round(k.position), impressions:Math.round(k.impressions)}));
 
+  // biggest week-over-week mover — non-branded queries with real volume
+  let mover = null;
+  try{
+    const curQ  = await gsc({startDate:daysAgo(7), endDate:daysAgo(1), dimensions:['query'],type:'web',rowLimit:1000});
+    const prevQ = await gsc({startDate:daysAgo(14),endDate:daysAgo(8),dimensions:['query'],type:'web',rowLimit:1000});
+    const pm = {}; for(const r of prevQ) pm[r.keys[0]] = {pos:num(r.position), impr:num(r.impressions)};
+    const cand = [];
+    for(const r of curQ){
+      const term = r.keys[0]; if(/jte/i.test(term)) continue;
+      const prev = pm[term]; if(!prev) continue;
+      const cur = {pos:num(r.position), impr:num(r.impressions)};
+      if(cur.impr < 10) continue;
+      cand.push({term, fromPosition:Math.round(prev.pos), toPosition:Math.round(cur.pos), deltaPosition:+(prev.pos-cur.pos).toFixed(1), imprChange:Math.round(cur.impr-prev.impr)});
+    }
+    const climbers = cand.filter(c=>c.deltaPosition>=1).sort((a,b)=> b.deltaPosition-a.deltaPosition || b.imprChange-a.imprChange);
+    if(climbers.length) mover = {...climbers[0], kind:'climb'};
+    else { const gain = cand.filter(c=>c.imprChange>0).sort((a,b)=>b.imprChange-a.imprChange); if(gain.length) mover = {...gain[0], kind:'impressions'}; }
+  }catch(e){ console.error('mover skipped:', e.message); }
+
   let submitted = null;
   try{
     const sm = await (await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE)}/sitemaps`,{headers:{Authorization:'Bearer '+gscTok}})).json();
@@ -104,6 +123,7 @@ async function main(){
     pagesSurfacing: pages.length,
     submitted,
     keywords,
+    mover,
     sources,
     ai,
   };

@@ -176,6 +176,10 @@
         <p>28-day impressions slid from ~23,600 in early September to 18,945 by early October. The cause isn't lost rankings (position actually improved) — it's August's one-off spike normalising, plus the pause in LinkedIn sharing. Indexing is healthy; the job now is ranking.</p>
       </div>
     </div>
+    <div class="callout good" id="moverBox" hidden style="margin-top:.9rem">
+      <h3>↑ Biggest mover this week</h3>
+      <p id="moverTxt"></p>
+    </div>
   </section>
 
   <section>
@@ -274,6 +278,7 @@
       if(Array.isArray(d.keywords)&&d.keywords.length) drawKw(d.keywords);
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
+      if(d.mover) drawMover(d.mover);
       if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Last updated <b>'+esc(d.updated)+'</b>'+(d.window?' · '+esc(d.window):'')+(d.source?' · '+esc(d.source):'');}
     }catch(e){/* keep static fallback */}
   }
@@ -290,6 +295,13 @@
   function drawSrc(s){
     const b=$('srcBox'); if(!b)return;
     b.innerHTML=s.map(x=>'<div class="row"><span>'+esc(x.name)+'</span><span class="bar"><i style="width:'+x.pct+'%"></i></span><span class="pct">'+x.pct+'%</span></div>').join('');
+  }
+  function drawMover(m){
+    const box=$('moverBox'), t=$('moverTxt'); if(!box||!t||!m) return;
+    const imp = m.imprChange ? ', '+(m.imprChange>0?'+':'')+m.imprChange+' impressions' : '';
+    if(m.kind==='climb') t.innerHTML='<b>'+esc(m.term)+'</b> climbed from position '+m.fromPosition+' to <b>'+m.toPosition+'</b> this week (up '+m.deltaPosition+' spots'+imp+').';
+    else t.innerHTML='<b>'+esc(m.term)+'</b> gained <b>'+(m.imprChange>0?'+':'')+m.imprChange+'</b> impressions this week (now position '+m.toPosition+').';
+    box.hidden=false;
   }
   function drawAi(ai){
     const b=$('aiNote'); if(!b)return;

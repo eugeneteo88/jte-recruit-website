@@ -26,6 +26,7 @@
     {"term": "it recruitment agency singapore", "position": 37, "impressions": 115},
     {"term": "engineering remote staffing singapore", "position": 41, "impressions": 172}
   ],
+  "mover": null,
   "sources": [
     {"name": "Organic Search", "pct": 56},
     {"name": "Direct", "pct": 30},
