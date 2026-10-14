@@ -149,6 +149,14 @@ for (const post of POSTS) {
   );
   html = html.replace(/"datePublished":\s*"\d{4}-\d{2}-\d{2}"/, `"datePublished":"${post.date}"`);
   html = html.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/, `"dateModified":"${post.updated || post.date}"`);
+  // Index a post only once it is actually live; keep held posts (draft or future-dated)
+  // noindexed. This makes publishing automatic: drop the draft flag and the post
+  // self-indexes on its scheduled date — no hand-editing the meta tag.
+  if (liveSlugs.has(post.slug)) {
+    html = html.replace(/\s*<meta name=["']robots["'][^>]*noindex[^>]*>/i, '');
+  } else if (!/<meta name=["']robots["']/i.test(html)) {
+    html = html.replace(/(<\/title>)/i, '$1\n    <meta name="robots" content="noindex, follow">');
+  }
   // "Keep reading" block (only for posts that carry the markers)
   if (html.includes('<!-- RELATED:START -->')) {
     const block = liveSlugs.has(post.slug) ? relatedBlock(post) : ''; // clear for not-yet-live posts
