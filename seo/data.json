@@ -1,0 +1,44 @@
+{
+  "updated": "2026-10-14",
+  "source": "manual snapshot (live auto-refresh begins on the next scheduled run)",
+  "window": "last 28 days",
+  "kpis": {
+    "impressions": 18945,
+    "clicks": 445,
+    "ctr": "2.3%",
+    "position": "16.0"
+  },
+  "trend": [23594, 23218, 23168, 21834, 18945],
+  "trendChange": "▼ ~20% vs a month ago",
+  "pagesSurfacing": 65,
+  "submitted": 51,
+  "keywords": [
+    {"term": "engineering recruiting firms", "position": 11, "impressions": 66},
+    {"term": "engineering recruitment agency singapore", "position": 12, "impressions": 93},
+    {"term": "manufacturing recruitment agencies", "position": 13, "impressions": 76},
+    {"term": "manufacturing recruiters", "position": 13, "impressions": 62},
+    {"term": "logistics recruitment companies", "position": 13, "impressions": 62},
+    {"term": "engineering job recruiter", "position": 16, "impressions": 57},
+    {"term": "career conversion programme", "position": 19, "impressions": 139},
+    {"term": "recruitment agency singapore", "position": 22, "impressions": 306},
+    {"term": "mid career conversion programme", "position": 23, "impressions": 138},
+    {"term": "engineering staffing services singapore", "position": 35, "impressions": 137},
+    {"term": "it recruitment agency singapore", "position": 37, "impressions": 115},
+    {"term": "engineering remote staffing singapore", "position": 41, "impressions": 172}
+  ],
+  "sources": [
+    {"name": "Organic Search", "pct": 56},
+    {"name": "Direct", "pct": 30},
+    {"name": "AI assistants", "pct": 9},
+    {"name": "Organic Social", "pct": 3},
+    {"name": "Referral", "pct": 2}
+  ],
+  "ai": {
+    "total": 118,
+    "breakdown": [
+      {"name": "ChatGPT", "sessions": 106},
+      {"name": "Copilot", "sessions": 11},
+      {"name": "Perplexity", "sessions": 1}
+    ]
+  }
+}

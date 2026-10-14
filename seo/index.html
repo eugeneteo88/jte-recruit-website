@@ -180,16 +180,16 @@
     <div class="sec-head"><h2>Where you stand now</h2></div>
     <p class="sec-sub">Google Search Console and Analytics, trailing 28 days to early October.</p>
     <div class="kpis">
-      <div class="kpi"><div class="v">18,945</div><div class="l">Impressions · 28 days</div><div class="d down">▼ ~20% vs a month ago</div></div>
-      <div class="kpi"><div class="v">445</div><div class="l">Clicks · 28 days</div><div class="d flat">CTR 2.3%</div></div>
-      <div class="kpi"><div class="v">16.0</div><div class="l">Avg. position</div><div class="d up">▲ improving</div></div>
-      <div class="kpi"><div class="v">65</div><div class="l">Pages indexed in Google</div><div class="d up">of ~51 submitted</div></div>
+      <div class="kpi"><div class="v" id="kImpr">18,945</div><div class="l">Impressions · 28 days</div><div class="d down" id="kImprD">▼ ~20% vs a month ago</div></div>
+      <div class="kpi"><div class="v" id="kClicks">445</div><div class="l">Clicks · 28 days</div><div class="d flat" id="kCtr">CTR 2.3%</div></div>
+      <div class="kpi"><div class="v" id="kPos">16.0</div><div class="l">Avg. position</div><div class="d flat">lower is better</div></div>
+      <div class="kpi"><div class="v" id="kPages">65</div><div class="l">Pages indexed in Google</div><div class="d up" id="kSubmitted">of ~51 submitted</div></div>
       <div class="kpi"><div class="v">4.8★</div><div class="l">Rating · 338 reviews</div><div class="d flat">strong trust signal</div></div>
     </div>
     <div class="trend">
       <svg width="190" height="64" viewBox="0 0 190 64" role="img" aria-label="Impressions trend declining over five weeks">
-        <polyline fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="6,14 51,18 96,19 141,33 184,50"/>
-        <circle cx="184" cy="50" r="3.5" fill="var(--crit)"/><circle cx="6" cy="14" r="3" fill="var(--gold)"/>
+        <polyline id="trendLine" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="6,14 51,18 96,19 141,33 184,50"/>
+        <circle id="trendEnd" cx="184" cy="50" r="3.5" fill="var(--crit)"/>
       </svg>
       <div class="t-txt">
         <h3>The dip is real — but not what it looks like</h3>
@@ -203,7 +203,7 @@
     <p class="sec-sub">High-intent, non-branded searches where JTE ranks on the edge of page 1 or top of page 2 — the fastest wins. Positions 8–20 are "one push" terms.</p>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Search term (employer intent)</th><th class="num">Position</th><th class="num">Impr./28d</th></tr></thead>
-      <tbody>
+      <tbody id="kwBody">
         <tr><td class="kw">engineering recruiting firms</td><td class="num"><span class="pos close">11</span></td><td class="num">66</td></tr>
         <tr><td class="kw">engineering recruitment agency singapore</td><td class="num"><span class="pos close">12</span></td><td class="num">93</td></tr>
         <tr><td class="kw">manufacturing recruitment agencies</td><td class="num"><span class="pos close">13</span></td><td class="num">76</td></tr>
@@ -224,14 +224,14 @@
   <section>
     <div class="sec-head"><h2>Where your visitors come from</h2></div>
     <p class="sec-sub">Share of sessions, last 28 days. Note how much already arrives from AI answer engines.</p>
-    <div class="panel"><div class="src">
+    <div class="panel"><div class="src" id="srcBox">
       <div class="row"><span>Organic search</span><span class="bar"><i style="width:56%"></i></span><span class="pct">56%</span></div>
       <div class="row"><span>Direct</span><span class="bar"><i style="width:30%"></i></span><span class="pct">30%</span></div>
       <div class="row"><span>AI assistants</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
       <div class="row"><span>Organic social</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
       <div class="row"><span>Referral</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
     </div>
-    <p style="margin-top:1rem;font-size:.86rem;color:var(--muted)">AI assistants = ~118 sessions/28d — <b>ChatGPT 106</b>, Copilot 11, Perplexity 1. A channel that didn't exist two years ago. Much of "Direct" is untagged LinkedIn traffic; UTM tags will reveal its true size.</p></div>
+    <p id="aiNote" style="margin-top:1rem;font-size:.86rem;color:var(--muted)">AI assistants = ~118 sessions/28d — <b>ChatGPT 106</b>, Copilot 11, Perplexity 1. A channel that didn't exist two years ago. Much of "Direct" is untagged LinkedIn traffic; UTM tags will reveal its true size.</p></div>
   </section>
 
   <section>
@@ -276,7 +276,49 @@
 <script>
   const PW_HASH="56989cc845cfcee9649be9cb9ae6f16c5f8605890b776af20910d0777789e8ec"; // same password as /review
   async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
-  function reveal(){document.getElementById("gate").hidden=true;document.getElementById("app").hidden=false;}
+  function reveal(){document.getElementById("gate").hidden=true;document.getElementById("app").hidden=false;loadLive();}
+  function $(id){return document.getElementById(id);}
+  function setTxt(id,t){const e=$(id);if(e&&t!=null)e.textContent=t;}
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  async function loadLive(){
+    try{
+      const r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok)return; const d=await r.json();
+      if(d.kpis){
+        if(d.kpis.impressions!=null) setTxt('kImpr',Number(d.kpis.impressions).toLocaleString());
+        if(d.kpis.clicks!=null) setTxt('kClicks',Number(d.kpis.clicks).toLocaleString());
+        if(d.kpis.ctr) setTxt('kCtr','CTR '+d.kpis.ctr);
+        if(d.kpis.position) setTxt('kPos',d.kpis.position);
+      }
+      if(d.trendChange){const e=$('kImprD'); if(e){e.textContent=d.trendChange; e.className='d '+(d.trendChange.indexOf('▲')>=0?'up':'down');}}
+      if(d.pagesSurfacing!=null) setTxt('kPages',Number(d.pagesSurfacing).toLocaleString());
+      if(d.submitted!=null) setTxt('kSubmitted','of ~'+d.submitted+' submitted');
+      if(Array.isArray(d.trend)&&d.trend.length>=2) drawTrend(d.trend);
+      if(Array.isArray(d.keywords)&&d.keywords.length) drawKw(d.keywords);
+      if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
+      if(d.ai&&d.ai.breakdown) drawAi(d.ai);
+      if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Last updated <b>'+esc(d.updated)+'</b>'+(d.window?' · '+esc(d.window):'')+(d.source?' · '+esc(d.source):'');}
+    }catch(e){/* keep static fallback */}
+  }
+  function drawTrend(v){
+    const n=v.length,x0=6,x1=184,y0=50,y1=14,mx=Math.max.apply(null,v),mn=Math.min.apply(null,v),sp=(mx-mn)||1;
+    const pts=v.map((val,i)=>{const x=x0+(x1-x0)*i/(n-1);const y=y1+(y0-y1)*(1-(val-mn)/sp);return Math.round(x)+','+Math.round(y);});
+    const l=$('trendLine'); if(l)l.setAttribute('points',pts.join(' '));
+    const e=$('trendEnd'); if(e){const p=pts[pts.length-1].split(',');e.setAttribute('cx',p[0]);e.setAttribute('cy',p[1]);e.setAttribute('fill',v[v.length-1]>=v[0]?'var(--good)':'var(--crit)');}
+  }
+  function drawKw(ks){
+    const b=$('kwBody'); if(!b)return;
+    b.innerHTML=ks.map(k=>{const c=k.position<=20?'close':'far';return '<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+c+'">'+k.position+'</span></td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>';}).join('');
+  }
+  function drawSrc(s){
+    const b=$('srcBox'); if(!b)return;
+    b.innerHTML=s.map(x=>'<div class="row"><span>'+esc(x.name)+'</span><span class="bar"><i style="width:'+x.pct+'%"></i></span><span class="pct">'+x.pct+'%</span></div>').join('');
+  }
+  function drawAi(ai){
+    const b=$('aiNote'); if(!b)return;
+    const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
+    b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?' &mdash; <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn traffic; UTM tags will reveal its true size.';
+  }
   async function unlock(){
     const v=document.getElementById("pw").value;
     if(await sha256(v)===PW_HASH){sessionStorage.setItem("jte-seo-auth",PW_HASH);reveal();}
