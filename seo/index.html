@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JTE — Search &amp; AI Visibility</title>
+<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+<style>
+  :root{
+    --bg:#FBF9F4; --surface:#ffffff; --surface-2:#F4EEE1;
+    --ink:#241B12; --muted:#6f685e; --line:rgba(36,27,18,.12);
+    --gold:#B4894E; --gold-soft:#C6A87C; --gold-ink:#8C7350;
+    --good:#3f7d5a; --good-bg:rgba(63,125,90,.12);
+    --warn:#b07813; --warn-bg:rgba(176,120,19,.12);
+    --crit:#b4462f; --crit-bg:rgba(180,70,47,.12);
+    --info:#5a6b8c; --info-bg:rgba(90,107,140,.12);
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#17130E; --surface:#1F1A13; --surface-2:#272018;
+      --ink:#F2ECE1; --muted:#a9a093; --line:rgba(242,236,225,.14);
+      --gold:#CBA86E; --gold-soft:#C6A87C; --gold-ink:#E5D4B3;
+      --good:#6cc08f; --good-bg:rgba(108,192,143,.14);
+      --warn:#e0b060; --warn-bg:rgba(224,176,96,.14);
+      --crit:#e38266; --crit-bg:rgba(227,130,102,.14);
+      --info:#9fb0d0; --info-bg:rgba(159,176,208,.14);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#FBF9F4; --surface:#ffffff; --surface-2:#F4EEE1; --ink:#241B12; --muted:#6f685e;
+    --line:rgba(36,27,18,.12); --gold:#B4894E; --gold-ink:#8C7350;
+    --good:#3f7d5a; --good-bg:rgba(63,125,90,.12); --warn:#b07813; --warn-bg:rgba(176,120,19,.12);
+    --crit:#b4462f; --crit-bg:rgba(180,70,47,.12); --info:#5a6b8c; --info-bg:rgba(90,107,140,.12);
+  }
+  :root[data-theme="dark"]{
+    --bg:#17130E; --surface:#1F1A13; --surface-2:#272018; --ink:#F2ECE1; --muted:#a9a093;
+    --line:rgba(242,236,225,.14); --gold:#CBA86E; --gold-ink:#E5D4B3;
+    --good:#6cc08f; --good-bg:rgba(108,192,143,.14); --warn:#e0b060; --warn-bg:rgba(224,176,96,.14);
+    --crit:#e38266; --crit-bg:rgba(227,130,102,.14); --info:#9fb0d0; --info-bg:rgba(159,176,208,.14);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;margin:0;-webkit-font-smoothing:antialiased;font-size:16px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
+  p{margin:0}
+  .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink);font-weight:700}
+
+  /* gate */
+  #gate{min-height:100vh;display:grid;place-items:center;padding:1.5rem}
+  .gate-card{width:100%;max-width:360px;text-align:center}
+  .gate-card .mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.08em}
+  .gate-card .mark span{display:block;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+  .gate-card p{color:var(--muted);font-size:.9rem;margin:1.4rem 0 1rem}
+  #pw{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font-size:1rem;font-family:var(--sans)}
+  #pw:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .gate-card button{margin-top:.8rem;width:100%;padding:.8rem;border:0;border-radius:10px;background:var(--gold);color:#17130E;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+  #err{color:var(--crit);font-size:.82rem;min-height:1.2em;margin-top:.6rem}
+
+  .wrap{max-width:900px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1.1rem,4vw,2rem) 5rem}
+  header.doc{border-bottom:1px solid var(--line);padding-bottom:2rem;margin-bottom:1rem}
+  .doc .mark{display:flex;align-items:baseline;gap:.5rem;margin-bottom:1.4rem}
+  .doc .mark b{font-family:var(--serif);font-size:1.25rem;letter-spacing:.08em}
+  .doc .mark span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:clamp(1.9rem,5vw,2.9rem);margin:.6rem 0 .8rem}
+  .lede{font-size:1.08rem;color:var(--muted);max-width:60ch}
+  .updated{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:.8rem;color:var(--muted);background:var(--surface-2);border-radius:999px;padding:.35rem .9rem}
+  .updated b{color:var(--ink)}
+  .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--good)}
+
+  section{margin:3rem 0}
+  .sec-head{display:flex;align-items:center;gap:.9rem;margin-bottom:.6rem}
+  h2{font-size:clamp(1.3rem,3vw,1.7rem)}
+  .sec-sub{color:var(--muted);font-size:.95rem;margin:0 0 1.3rem;max-width:66ch}
+
+  .chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.22rem .6rem;border-radius:999px;white-space:nowrap}
+  .chip::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
+  .chip.good{color:var(--good);background:var(--good-bg)} .chip.warn{color:var(--warn);background:var(--warn-bg)}
+  .chip.crit{color:var(--crit);background:var(--crit-bg)} .chip.info{color:var(--info);background:var(--info-bg)}
+
+  .scorecard{display:grid;gap:.9rem}
+  .score{display:grid;grid-template-columns:1fr auto;gap:.5rem 1.1rem;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.05rem 1.2rem}
+  .score .area{font-family:var(--serif);font-size:1.08rem;font-weight:600}
+  .score .note{grid-column:1/3;color:var(--muted);font-size:.9rem}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.9rem}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.15rem}
+  .kpi .v{font-family:var(--serif);font-size:1.9rem;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1}
+  .kpi .l{font-size:.78rem;color:var(--muted);margin-top:.45rem}
+  .kpi .d{font-size:.74rem;font-weight:700;margin-top:.5rem}
+  .kpi .d.down{color:var(--crit)} .kpi .d.up{color:var(--good)} .kpi .d.flat{color:var(--muted)}
+
+  .trend{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;margin-top:.9rem;display:flex;gap:1.3rem;align-items:center;flex-wrap:wrap}
+  .trend .t-txt{flex:1;min-width:220px}
+  .trend .t-txt h3{font-size:1rem;margin-bottom:.3rem} .trend .t-txt p{font-size:.88rem;color:var(--muted)}
+
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:420px}
+  th,td{text-align:left;padding:.7rem .95rem;border-bottom:1px solid var(--line)}
+  th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .kw{font-weight:600}
+  .pos{display:inline-block;min-width:2.3rem;text-align:center;font-family:var(--mono);font-weight:700;font-size:.8rem;padding:.12rem .4rem;border-radius:6px}
+  .pos.close{color:var(--warn);background:var(--warn-bg)} .pos.far{color:var(--crit);background:var(--crit-bg)}
+
+  .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:1.1rem 1.3rem;margin:1.3rem 0}
+  .callout h3{font-size:1rem;margin-bottom:.4rem} .callout p{font-size:.92rem;color:var(--ink)}
+  .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
+
+  ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
+  ul.clean li{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem;color:var(--ink)}
+  ul.clean li .b{flex:none;width:1.3rem;height:1.3rem;border-radius:50%;display:grid;place-items:center;font-size:.7rem;font-weight:700;margin-top:.1rem}
+  ul.clean li .b.g{color:var(--good);background:var(--good-bg)} ul.clean li .b.w{color:var(--warn);background:var(--warn-bg)} ul.clean li .b.i{color:var(--info);background:var(--info-bg)}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  @media(max-width:620px){.two-col{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem}
+  .panel h3{font-size:1.02rem;margin-bottom:.7rem} .panel p,.panel li{font-size:.9rem}
+
+  /* source bars */
+  .src{display:grid;gap:.6rem}
+  .src .row{display:grid;grid-template-columns:7.5rem 1fr 2.6rem;align-items:center;gap:.7rem;font-size:.85rem}
+  .src .bar{height:.55rem;border-radius:999px;background:var(--surface-2);overflow:hidden}
+  .src .bar i{display:block;height:100%;border-radius:999px;background:var(--gold)}
+  .src .pct{font-family:var(--mono);text-align:right;color:var(--muted)}
+
+  /* tracker */
+  .track{display:grid;gap:.6rem}
+  .track .item{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;font-size:.92rem}
+  .track .s{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:6px;white-space:nowrap;margin-top:.1rem}
+  .track .s.done{color:var(--good);background:var(--good-bg)} .track .s.next{color:var(--warn);background:var(--warn-bg)} .track .s.you{color:var(--info);background:var(--info-bg)}
+
+  footer.doc{margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);line-height:1.7}
+  a{color:var(--gold-ink)}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card">
+    <div class="mark">JTE<span>Recruit</span></div>
+    <p>Private search &amp; AI-visibility dashboard. Enter the password to continue.</p>
+    <input id="pw" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
+    <button onclick="unlock()">Unlock dashboard</button>
+    <div id="err"></div>
+  </div>
+</div>
+
+<div id="app" hidden>
+<div class="wrap">
+
+  <header class="doc">
+    <div class="mark"><b>JTE</b><span>Recruit</span></div>
+    <div class="eyebrow">Private dashboard · search &amp; AI visibility</div>
+    <h1>How JTE is doing in search</h1>
+    <p class="lede">The real picture of how jte.com.sg performs in Google and in AI answer engines — built from your own Search Console data. Honest, no scare tactics, no upsell.</p>
+    <span class="updated"><span class="dot"></span>Last updated <b>14 Oct 2026</b> · data window: GSC, Sep–early Oct 2026</span>
+  </header>
+
+  <section>
+    <div class="sec-head"><h2>The scorecard</h2></div>
+    <p class="sec-sub">The six areas a full SEO + AI audit covers, graded honestly against what's on the site and in your data.</p>
+    <div class="scorecard">
+      <div class="score"><div class="area">Technical &amp; on-page SEO</div><div><span class="chip good">Strong</span></div><div class="note">Fast static site, clean sitemap (54 URLs), structured data on every key page, correct indexing rules.</div></div>
+      <div class="score"><div class="area">Money keywords on page 1</div><div><span class="chip warn">Opportunity</span></div><div class="note">Brand terms rank #1, but the commercial terms that bring employers sit at positions 11–22. The single biggest lever.</div></div>
+      <div class="score"><div class="area">Content gaps</div><div><span class="chip info">In progress</span></div><div class="note">22 articles live, 31 scheduled, backlog mapped to timely hooks (COMPASS, CCP grant, year-end hiring).</div></div>
+      <div class="score"><div class="area">AI search visibility</div><div><span class="chip good">Just rebuilt</span></div><div class="note">Was absent for manufacturing / blue-collar / HR-payroll. Answer-first copy + schema shipped across every page 12–13 Oct.</div></div>
+      <div class="score"><div class="area">Missing AI queries</div><div><span class="chip good">Addressed</span></div><div class="note">The employer questions AI engines ask are now answered in quotable, machine-readable text at the top of each page.</div></div>
+      <div class="score"><div class="area">Competitor visibility gaps</div><div><span class="chip warn">Known</span></div><div class="note">Big agencies win on authority + answer-first pages. We out-specific them, not out-spend them.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Where you stand now</h2></div>
+    <p class="sec-sub">Google Search Console and Analytics, trailing 28 days to early October.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="v">18,945</div><div class="l">Impressions · 28 days</div><div class="d down">▼ ~20% vs a month ago</div></div>
+      <div class="kpi"><div class="v">445</div><div class="l">Clicks · 28 days</div><div class="d flat">CTR 2.3%</div></div>
+      <div class="kpi"><div class="v">16.0</div><div class="l">Avg. position</div><div class="d up">▲ improving</div></div>
+      <div class="kpi"><div class="v">65</div><div class="l">Pages indexed in Google</div><div class="d up">of ~51 submitted</div></div>
+      <div class="kpi"><div class="v">4.8★</div><div class="l">Rating · 338 reviews</div><div class="d flat">strong trust signal</div></div>
+    </div>
+    <div class="trend">
+      <svg width="190" height="64" viewBox="0 0 190 64" role="img" aria-label="Impressions trend declining over five weeks">
+        <polyline fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="6,14 51,18 96,19 141,33 184,50"/>
+        <circle cx="184" cy="50" r="3.5" fill="var(--crit)"/><circle cx="6" cy="14" r="3" fill="var(--gold)"/>
+      </svg>
+      <div class="t-txt">
+        <h3>The dip is real — but not what it looks like</h3>
+        <p>28-day impressions slid from ~23,600 in early September to 18,945 by early October. The cause isn't lost rankings (position actually improved) — it's August's one-off spike normalising, plus the pause in LinkedIn sharing. Indexing is healthy; the job now is ranking.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Money keywords not yet on page 1</h2></div>
+    <p class="sec-sub">High-intent, non-branded searches where JTE ranks on the edge of page 1 or top of page 2 — the fastest wins. Positions 8–20 are "one push" terms.</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Search term (employer intent)</th><th class="num">Position</th><th class="num">Impr./28d</th></tr></thead>
+      <tbody>
+        <tr><td class="kw">engineering recruiting firms</td><td class="num"><span class="pos close">11</span></td><td class="num">66</td></tr>
+        <tr><td class="kw">engineering recruitment agency singapore</td><td class="num"><span class="pos close">12</span></td><td class="num">93</td></tr>
+        <tr><td class="kw">manufacturing recruitment agencies</td><td class="num"><span class="pos close">13</span></td><td class="num">76</td></tr>
+        <tr><td class="kw">manufacturing recruiters</td><td class="num"><span class="pos close">13</span></td><td class="num">62</td></tr>
+        <tr><td class="kw">logistics recruitment companies</td><td class="num"><span class="pos close">13</span></td><td class="num">62</td></tr>
+        <tr><td class="kw">engineering job recruiter</td><td class="num"><span class="pos close">16</span></td><td class="num">57</td></tr>
+        <tr><td class="kw">career conversion programme</td><td class="num"><span class="pos close">19</span></td><td class="num">139</td></tr>
+        <tr><td class="kw">recruitment agency singapore</td><td class="num"><span class="pos far">22</span></td><td class="num">306</td></tr>
+        <tr><td class="kw">mid career conversion programme</td><td class="num"><span class="pos far">23</span></td><td class="num">138</td></tr>
+        <tr><td class="kw">engineering staffing services singapore</td><td class="num"><span class="pos far">35</span></td><td class="num">137</td></tr>
+        <tr><td class="kw">it recruitment agency singapore</td><td class="num"><span class="pos far">37</span></td><td class="num">115</td></tr>
+        <tr><td class="kw">engineering remote staffing singapore</td><td class="num"><span class="pos far">41</span></td><td class="num">172</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn"><h3>The read</h3><p>The engineering and manufacturing cluster is genuinely close — several terms at positions 11–13 need a sharper title, a stronger page, or an internal link or two to cross onto page 1. "recruitment agency singapore" (306 impressions, position 22) is the big prize sitting just out of reach.</p></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Where your visitors come from</h2></div>
+    <p class="sec-sub">Share of sessions, last 28 days. Note how much already arrives from AI answer engines.</p>
+    <div class="panel"><div class="src">
+      <div class="row"><span>Organic search</span><span class="bar"><i style="width:56%"></i></span><span class="pct">56%</span></div>
+      <div class="row"><span>Direct</span><span class="bar"><i style="width:30%"></i></span><span class="pct">30%</span></div>
+      <div class="row"><span>AI assistants</span><span class="bar"><i style="width:9%"></i></span><span class="pct">9%</span></div>
+      <div class="row"><span>Organic social</span><span class="bar"><i style="width:3%"></i></span><span class="pct">3%</span></div>
+      <div class="row"><span>Referral</span><span class="bar"><i style="width:2%"></i></span><span class="pct">2%</span></div>
+    </div>
+    <p style="margin-top:1rem;font-size:.86rem;color:var(--muted)">AI assistants = ~118 sessions/28d — <b>ChatGPT 106</b>, Copilot 11, Perplexity 1. A channel that didn't exist two years ago. Much of "Direct" is untagged LinkedIn traffic; UTM tags will reveal its true size.</p></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>AI search visibility</h2></div>
+    <div class="two-col">
+      <div class="panel"><h3>The gap we found — and closed</h3><p>JTE surfaced for logistics queries but was <b>absent for manufacturing, blue-collar mass hiring and HR/payroll</b> — though you sell all three. The cause: those pages led with marketing, not a direct answer AI could quote.</p><p style="margin-top:.7rem"><span class="chip good">Shipped 12–13 Oct</span></p><p style="margin-top:.6rem;font-size:.88rem">Every sector and service page now opens with a 40–60 word direct answer plus proof facts as plain text, backed by structured data.</p></div>
+      <div class="panel"><h3>Indexing &amp; coverage</h3><ul class="clean">
+        <li><span class="b g">✓</span><div><b>54 URLs</b> in the sitemap, all live pages included (fixed 2 missing)</div></li>
+        <li><span class="b g">✓</span><div><b>65 pages</b> surfacing in Google — more than submitted</div></li>
+        <li><span class="b g">✓</span><div><b>Schema</b> on every sector, service &amp; blog page</div></li>
+        <li><span class="b g">✓</span><div><b>0</b> broken links; noindex only on drafts &amp; internal pages</div></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Action tracker</h2></div>
+    <p class="sec-sub">What's been done, and what moves the needle next.</p>
+    <div class="track">
+      <div class="item"><span class="s done">Done</span><div>Structured data (schema) added/extended across the whole site, incl. UEN and refreshed review count.</div></div>
+      <div class="item"><span class="s done">Done</span><div>Answer-first openers + proof facts (as text) on every sector &amp; service page.</div></div>
+      <div class="item"><span class="s done">Done</span><div>FAQ + schema + interlinks added to all older live articles; sitemap regenerated.</div></div>
+      <div class="item"><span class="s next">Next</span><div>Rank the near-miss terms — sharpen titles &amp; internal links on the engineering/manufacturing pages at positions 11–13, strengthen the "recruitment agency singapore" page.</div></div>
+      <div class="item"><span class="s next">Next</span><div>Keep publishing 2×/week, leading with timely hooks (COMPASS, CCP grant, year-end resignations).</div></div>
+      <div class="item"><span class="s you">You</span><div>Resume LinkedIn with UTM-tagged links, and in Search Console request re-indexing of the rewritten pages.</div></div>
+      <div class="item"><span class="s you">You</span><div>In 2–4 weeks: re-run the AI-visibility test on manufacturing / mass-hiring / HR-payroll queries.</div></div>
+    </div>
+    <p style="margin-top:1rem;font-size:.85rem;color:var(--muted)">See the full running record of site work at <a href="/updates/">jte.com.sg/updates</a>.</p>
+  </section>
+
+  <section>
+    <div class="callout good"><h3>The honest verdict</h3><p>JTE is in better shape than a cold audit would tell you. The foundations are strong — crawlable, fully indexed, schema everywhere, real trust signals now surfaced as text, content engine live. Nothing is "broken." The work from here is ranking the near-miss commercial terms and letting the content library compound.</p></div>
+  </section>
+
+  <footer class="doc">
+    Private dashboard for JTE Recruit. Figures from Google Search Console and Google Analytics, trailing ~28 days to early October 2026; positions and impressions are averages over that window and move daily. Changes shipped 12–14 October are not yet reflected — search and AI engines recrawl on their own schedule. Refreshed manually; can be wired to live Search Console data later. No third-party tools or spend were used to produce this.
+  </footer>
+
+</div>
+</div>
+
+<script>
+  const PW_HASH="56989cc845cfcee9649be9cb9ae6f16c5f8605890b776af20910d0777789e8ec"; // same password as /review
+  async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
+  function reveal(){document.getElementById("gate").hidden=true;document.getElementById("app").hidden=false;}
+  async function unlock(){
+    const v=document.getElementById("pw").value;
+    if(await sha256(v)===PW_HASH){sessionStorage.setItem("jte-seo-auth",PW_HASH);reveal();}
+    else{document.getElementById("err").textContent="That password didn't match. Try again.";}
+  }
+  document.getElementById("pw").addEventListener("keydown",e=>{if(e.key==="Enter")unlock();});
+  if(sessionStorage.getItem("jte-seo-auth")===PW_HASH)reveal();
+</script>
+</body>
+</html>
