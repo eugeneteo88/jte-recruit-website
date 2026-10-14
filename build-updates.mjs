@@ -48,11 +48,11 @@ const all = combined.filter((e) => e.date && e.date <= today).sort((a, b) => b.d
 const upcoming = combined.filter((e) => e.date && e.date > today).sort((a, b) => a.date.localeCompare(b.date));
 
 const KIND = {
-  article: { label: 'New article', c: '#5b57d6', bg: '#e7e6fb' },
-  page: { label: 'Page updated', c: '#0b6fb0', bg: '#e2eefb' },
-  technical: { label: 'Technical', c: '#7a5c15', bg: '#fdf3d9' },
-  fix: { label: 'Fixed', c: '#12a06a', bg: '#e4f5ec' },
-  seo: { label: 'Search', c: '#a3306e', bg: '#fbe6f1' },
+  article: { label: 'New article', c: '#8C7350', bg: '#F1E9D9' },
+  page: { label: 'Page updated', c: '#2f6b6b', bg: '#e4efee' },
+  technical: { label: 'Technical', c: '#6b5a2e', bg: '#f1ead6' },
+  fix: { label: 'Fixed', c: '#3f7d5a', bg: '#e6f1ea' },
+  seo: { label: 'Search', c: '#9a5a33', bg: '#f3e6da' },
 };
 
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -90,42 +90,49 @@ const html = `<!doctype html><html lang="en"><head>
 <!-- Not secret, but not advertised: this is a working record for the client, not a
      page for search engines. -->
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#22252e;--soft:#5b6472;--muted:#666c7a;--line:#e2e4eb;--bg:#f5f6f9;--bg2:#edeef4;--accent:#5b57d6}
+:root{--bg:#FBF9F4;--surface:#fff;--ink:#241B12;--soft:#5f574c;--muted:#8a8378;--line:rgba(36,27,18,.10);--gold:#B4894E;--gold-ink:#8C7350;--panel:#F4EEE1;--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden;max-width:100%}
-body{background:var(--bg);color:var(--ink);font:16.5px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Roboto,sans-serif;letter-spacing:-.015em;-webkit-font-smoothing:antialiased}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px 70px}
-.head{padding:48px 0 22px;border-bottom:2px solid var(--ink)}
-.kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}
-h1{font-size:clamp(28px,5.2vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.08;margin:.3em 0 .25em}
-.head p{color:var(--soft);max-width:56ch}
-.sum{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
-.sum div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 15px;min-width:120px}
-.sum b{display:block;font-size:23px;line-height:1.15}
-.sum span{font-size:12.5px;color:var(--soft)}
-h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:34px 0 12px}
+body{background:var(--bg);color:var(--ink);font:16.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+.head{padding:52px 0 26px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;gap:.5rem;margin-bottom:1.5rem}
+.brand b{font-family:var(--serif);font-size:1.3rem;font-weight:600;letter-spacing:.06em}
+.brand span{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:700}
+h1{font-family:var(--serif);font-size:clamp(30px,5.4vw,44px);font-weight:600;line-height:1.1;margin:.35em 0 .3em}
+.head p{color:var(--soft);max-width:58ch;font-weight:300}
+.sum{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.sum div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 18px;min-width:118px}
+.sum b{display:block;font-family:var(--serif);font-size:26px;font-weight:600;line-height:1.1}
+.sum span{font-size:12px;color:var(--soft)}
+h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:40px 0 14px}
 ul{list-style:none}
-.it{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:9px}
-.tag{flex:none;font-size:11px;font-weight:800;letter-spacing:.03em;padding:4px 10px;border-radius:980px;height:fit-content;white-space:nowrap}
+.it{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px}
+.tag{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:980px;height:fit-content;white-space:nowrap}
 .body{flex:1;min-width:0;overflow-wrap:anywhere}
-.t{font-size:16.5px;font-weight:700;line-height:1.3;overflow-wrap:break-word}
-.t a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--line)}
-.t a:hover{border-color:var(--accent);color:var(--accent)}
-.body p{font-size:14.5px;color:#3a404d;margin-top:5px;line-height:1.5}
-.soon .it{background:#fbfbfd;border-style:dashed}
-.d{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}
-.note{background:var(--bg2);border-radius:13px;padding:16px 18px;margin:26px 0 0;font-size:15px;color:#3a404d}
-.foot{margin-top:30px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.foot a{color:var(--accent)}
-@media(max-width:560px){.it{flex-direction:column;gap:8px}.tag{align-self:flex-start}}
+.t{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.3}
+.t a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.t a:hover{border-color:var(--gold);color:var(--gold-ink)}
+.body p{font-size:14.5px;color:var(--soft);margin-top:6px;line-height:1.55;font-weight:300}
+.soon .it{background:var(--panel);border-style:dashed}
+.d{display:block;font-size:12px;color:var(--muted);margin-top:7px}
+.note{background:var(--panel);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;margin:30px 0 0;font-size:14.5px;color:var(--soft);line-height:1.6}
+.note b{color:var(--ink)}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.foot a{color:var(--gold-ink)}
+@media(max-width:560px){.it{flex-direction:column;gap:9px}.tag{align-self:flex-start}.sum div{flex:1;min-width:100px}}
 </style></head><body>
 <div class="wrap">
   <div class="head">
-    <div class="kicker">${esc(CLIENT)} · work log</div>
+    <div class="brand"><b>JTE</b><span>Recruit</span></div>
+    <div class="kicker">Work log</div>
     <h1>What we've done</h1>
-    <p>Everything we've changed on your website, newest first. Search work is mostly invisible from the outside — this is where you can see it.</p>
+    <p>Everything we've changed on your website, newest first. Search work is mostly invisible from the outside &mdash; this is where you can see it.</p>
     <div class="sum">
       <div><b>${all.length}</b><span>things shipped</span></div>
       <div><b>${all.filter((e) => e.kind === 'article').length}</b><span>articles published</span></div>
@@ -133,10 +140,10 @@ ul{list-style:none}
     </div>
   </div>
 
-  ${upcoming.length ? `<h2>Coming up</h2><ul class="soon">${upcoming.map((e) => `<li class="it">
-      <span class="tag" style="color:#666c7a;background:#edeef4">Scheduled</span>
+  ${upcoming.length ? `<h2>Coming up</h2><ul class="soon">${upcoming.slice(0, 6).map((e) => `<li class="it">
+      <span class="tag" style="color:#8a8378;background:#efe9df">Scheduled</span>
       <div class="body"><div class="t">${raw(e.title)}</div>${e.note ? `<p>${raw(e.note)}</p>` : ''}<span class="d">planned for ${human(e.date)}</span></div>
-    </li>`).join('')}</ul>` : ''}
+    </li>`).join('')}</ul>${upcoming.length > 6 ? `<p style="font-size:13px;color:var(--muted);margin:2px 2px 0">+ ${upcoming.length - 6} more articles scheduled through ${human(upcoming[upcoming.length - 1].date)}.</p>` : ''}` : ''}
 
   ${months.map((g) => `<h2>${monthName(g.key)}</h2><ul>${g.items.map(item).join('')}</ul>`).join('')}
 

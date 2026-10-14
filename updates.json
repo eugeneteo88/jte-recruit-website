@@ -1,5 +1,17 @@
 [
   {
+    "date": "2026-10-14",
+    "kind": "technical",
+    "title": "Live search & AI-visibility dashboard",
+    "note": "A private dashboard that pulls your Google Search Console and Analytics data every day, so you can see rankings, traffic, and how often AI search tools surface JTE, all in one place."
+  },
+  {
+    "date": "2026-10-07",
+    "kind": "seo",
+    "title": "FAQ and structured data added across the site",
+    "note": "Added machine-readable FAQ sections and business details to the older articles and service pages, so Google and AI assistants can read and quote JTE accurately, not guess."
+  },
+  {
     "date": "2026-10-13",
     "kind": "technical",
     "title": "Answer-first and proof facts across all sector and service pages",

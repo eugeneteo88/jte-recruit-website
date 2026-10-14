@@ -26,6 +26,9 @@ jobs:
       - name: Regenerate blog index + sitemap from posts.json
         run: node scripts/build-blog.mjs
 
+      - name: Rebuild the work log (/updates) from updates.json + posts.json
+        run: node build-updates.mjs
+
       # Refresh the private /seo dashboard from live Search Console + GA4,
       # reusing the same service account as the growth reports. Non-blocking:
       # if it fails, seo/data.json keeps its last good values and publish continues.
@@ -51,4 +54,4 @@ jobs:
           publish_dir: .
           force_orphan: true
           # Keep build tooling + raw data off the public site.
-          exclude_assets: '.github,node_modules,scripts,qa-reports,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,keyword-targets.mjs,seo-data.mjs,.ga-key.json'
+          exclude_assets: '.github,node_modules,scripts,qa-reports,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,keyword-targets.mjs,seo-data.mjs,build-updates.mjs,.ga-key.json'
