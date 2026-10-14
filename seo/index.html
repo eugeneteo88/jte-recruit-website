@@ -56,7 +56,10 @@
   .doc .mark span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   h1{font-size:clamp(1.9rem,5vw,2.9rem);margin:.6rem 0 .8rem}
   .lede{font-size:1.08rem;color:var(--muted);max-width:60ch}
-  .updated{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:.8rem;color:var(--muted);background:var(--surface-2);border-radius:999px;padding:.35rem .9rem}
+  .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1.3rem}
+  .updated{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);background:var(--surface-2);border-radius:999px;padding:.4rem .9rem;white-space:nowrap}
+  .meta .switch{font-size:.8rem;font-weight:600;color:var(--gold-ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem;white-space:nowrap}
+  .meta .source{flex-basis:100%;width:100%;margin:.15rem 0 0;font-size:.78rem;color:var(--muted);line-height:1.55}
   .updated b{color:var(--ink)}
   .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--good)}
 
@@ -137,9 +140,10 @@
     <div class="eyebrow">Private dashboard · search &amp; AI visibility</div>
     <h1>How JTE is doing in search</h1>
     <p class="lede">The real picture of how jte.com.sg performs in Google and in AI answer engines — built from your own Search Console data. Honest, no scare tactics, no upsell.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-top:1.3rem">
-      <span class="updated" id="updatedStamp"><span class="dot"></span>Last updated <b>14 Oct 2026</b> · data window: GSC, Sep–early Oct 2026</span>
-      <a href="/review/" style="font-size:.8rem;font-weight:600;color:var(--gold-ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;white-space:nowrap">Article review console &rarr;</a>
+    <div class="meta">
+      <span class="updated" id="updatedStamp"><span class="dot"></span>Updated <b>14 Oct 2026</b> · last 28 days</span>
+      <a class="switch" href="/review/">Article review console &rarr;</a>
+      <p class="source" id="sourceLine">Manual snapshot &mdash; live auto-refresh begins on the next scheduled run.</p>
     </div>
   </header>
 
@@ -285,7 +289,8 @@
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
       if(d.mover) drawMover(d.mover);
-      if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Last updated <b>'+esc(d.updated)+'</b>'+(d.window?' · '+esc(d.window):'')+(d.source?' · '+esc(d.source):'');}
+      if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Updated <b>'+esc(d.updated)+'</b>'+(d.window?' · '+esc(d.window):'');}
+      if(d.source){const sl=$('sourceLine'); if(sl)sl.textContent='Source: '+d.source;}
     }catch(e){/* keep static fallback */}
   }
   function drawTrend(v){
