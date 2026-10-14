@@ -90,12 +90,12 @@
   .trend .t-txt h3{font-size:1rem;margin-bottom:.3rem} .trend .t-txt p{font-size:.88rem;color:var(--muted)}
 
   .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
-  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:420px}
-  th,td{text-align:left;padding:.7rem .95rem;border-bottom:1px solid var(--line)}
+  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:0}
+  th,td{text-align:left;padding:.7rem .95rem;border-bottom:1px solid var(--line);vertical-align:middle}
   th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
   tr:last-child td{border-bottom:0}
   td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
-  .kw{font-weight:600}
+  .kw{font-weight:600;word-break:break-word;line-height:1.35}
   .pos{display:inline-block;min-width:2.3rem;text-align:center;font-family:var(--mono);font-weight:700;font-size:.8rem;padding:.12rem .4rem;border-radius:6px}
   .pos.close{color:var(--warn);background:var(--warn-bg)} .pos.far{color:var(--crit);background:var(--crit-bg)}
 
@@ -125,6 +125,16 @@
   .track .item{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;font-size:.92rem}
   .track .s{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .5rem;border-radius:6px;white-space:nowrap;margin-top:.1rem}
   .track .s.done{color:var(--good);background:var(--good-bg)} .track .s.next{color:var(--warn);background:var(--warn-bg)} .track .s.you{color:var(--info);background:var(--info-bg)}
+
+  @media(max-width:560px){
+    section{margin:2.3rem 0}
+    .kpi{padding:1rem 1.05rem}
+    .panel,.callout{padding:1rem 1.1rem}
+    .trend{padding:1.1rem}
+    th,td{padding:.6rem .6rem}
+    .score{align-items:start}
+    .src .row{grid-template-columns:5.8rem 1fr 2.4rem;gap:.55rem}
+  }
 
   footer.doc{margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted);line-height:1.7}
   a{color:var(--gold-ink)}
