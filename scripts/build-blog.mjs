@@ -154,7 +154,9 @@ for (const post of POSTS) {
   // self-indexes on its scheduled date — no hand-editing the meta tag.
   if (liveSlugs.has(post.slug)) {
     html = html.replace(/\s*<meta name=["']robots["'][^>]*noindex[^>]*>/i, '');
-  } else if (!/<meta name=["']robots["']/i.test(html)) {
+  } else if (/<meta name=["']robots["']/i.test(html)) {
+    html = html.replace(/<meta name=["']robots["'][^>]*>/i, '<meta name="robots" content="noindex, follow">');
+  } else {
     html = html.replace(/(<\/title>)/i, '$1\n    <meta name="robots" content="noindex, follow">');
   }
   // "Keep reading" block (only for posts that carry the markers)
