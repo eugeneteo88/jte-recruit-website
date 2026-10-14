@@ -40,6 +40,14 @@ async function main(){
     if(r.error) throw new Error('gsc: '+r.error.message); return r.rows||[];
   };
   const tot     = (await gsc({startDate:START,endDate:END,dimensions:[],type:'web'}))[0] || {};
+  const cur7    = (await gsc({startDate:daysAgo(7), endDate:daysAgo(1), dimensions:[],type:'web'}))[0] || {};
+  const prev7   = (await gsc({startDate:daysAgo(14),endDate:daysAgo(8),dimensions:[],type:'web'}))[0] || {};
+  const pctD = (c,p) => p ? Math.round((c-p)/p*100) : null;
+  const wow = {
+    impressions: pctD(num(cur7.impressions), num(prev7.impressions)),
+    clicks: pctD(num(cur7.clicks), num(prev7.clicks)),
+    position: (num(prev7.position) || num(cur7.position)) ? +(num(prev7.position) - num(cur7.position)).toFixed(1) : null,
+  };
   const queries = await gsc({startDate:START,endDate:END,dimensions:['query'],type:'web',rowLimit:1000});
   const pages   = await gsc({startDate:START,endDate:END,dimensions:['page'],type:'web',rowLimit:1000});
   const daily   = await gsc({startDate:daysAgo(35),endDate:END,dimensions:['date'],type:'web'});
@@ -120,6 +128,7 @@ async function main(){
     },
     trend,
     trendChange: (changePct>=0 ? '▲ +' : '▼ ') + Math.abs(changePct) + '% vs a month ago',
+    wow,
     pagesSurfacing: pages.length,
     submitted,
     keywords,

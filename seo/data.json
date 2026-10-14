@@ -10,6 +10,11 @@
   },
   "trend": [23594, 23218, 23168, 21834, 18945],
   "trendChange": "▼ ~20% vs a month ago",
+  "wow": {
+    "impressions": -53,
+    "clicks": -54,
+    "position": 0.7
+  },
   "pagesSurfacing": 65,
   "submitted": 51,
   "keywords": [

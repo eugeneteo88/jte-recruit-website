@@ -160,9 +160,9 @@
     <div class="sec-head"><h2>Where you stand now</h2></div>
     <p class="sec-sub">Google Search Console and Analytics, trailing 28 days to early October.</p>
     <div class="kpis">
-      <div class="kpi"><div class="v" id="kImpr">18,945</div><div class="l">Impressions · 28 days</div><div class="d down" id="kImprD">▼ ~20% vs a month ago</div></div>
-      <div class="kpi"><div class="v" id="kClicks">445</div><div class="l">Clicks · 28 days</div><div class="d flat" id="kCtr">CTR 2.3%</div></div>
-      <div class="kpi"><div class="v" id="kPos">16.0</div><div class="l">Avg. position</div><div class="d flat">lower is better</div></div>
+      <div class="kpi"><div class="v" id="kImpr">18,945</div><div class="l">Impressions · 28 days</div><div class="d down" id="kImprD">▼ 53% vs last week</div></div>
+      <div class="kpi"><div class="v" id="kClicks">445</div><div class="l">Clicks · 28 days</div><div class="d down" id="kClicksD">▼ 54% vs last week</div><div class="d flat" id="kCtr" style="margin-top:.25rem;font-weight:400">CTR 2.3%</div></div>
+      <div class="kpi"><div class="v" id="kPos">16.0</div><div class="l">Avg. position</div><div class="d up" id="kPosD">▲ improved 0.7 vs last week</div></div>
       <div class="kpi"><div class="v" id="kPages">65</div><div class="l">Pages indexed in Google</div><div class="d up" id="kSubmitted">of ~51 submitted</div></div>
       <div class="kpi"><div class="v">4.8★</div><div class="l">Rating · 338 reviews</div><div class="d flat">strong trust signal</div></div>
     </div>
@@ -260,6 +260,8 @@
 <script>
   function $(id){return document.getElementById(id);}
   function setTxt(id,t){const e=$(id);if(e&&t!=null)e.textContent=t;}
+  function setDelta(id,pct){const e=$(id);if(!e)return;const up=pct>=0;e.textContent=(up?'▲ +':'▼ ')+Math.abs(pct)+'% vs last week';e.className='d '+(up?'up':'down');}
+  function setPosDelta(id,delta){const e=$(id);if(!e)return;if(Math.abs(delta)<0.05){e.textContent='— flat vs last week';e.className='d flat';return;}const better=delta>0;e.textContent=(better?'▲ improved ':'▼ slipped ')+Math.abs(delta)+' vs last week';e.className='d '+(better?'up':'down');}
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
   async function loadLive(){
     try{
@@ -271,7 +273,11 @@
         if(d.kpis.ctr) setTxt('kCtr','CTR '+d.kpis.ctr);
         if(d.kpis.position) setTxt('kPos',d.kpis.position);
       }
-      if(d.trendChange){const e=$('kImprD'); if(e){e.textContent=d.trendChange; e.className='d '+(d.trendChange.indexOf('▲')>=0?'up':'down');}}
+      if(d.wow){
+        if(d.wow.impressions!=null) setDelta('kImprD', d.wow.impressions);
+        if(d.wow.clicks!=null) setDelta('kClicksD', d.wow.clicks);
+        if(d.wow.position!=null) setPosDelta('kPosD', d.wow.position);
+      }
       if(d.pagesSurfacing!=null) setTxt('kPages',Number(d.pagesSurfacing).toLocaleString());
       if(d.submitted!=null) setTxt('kSubmitted','of ~'+d.submitted+' submitted');
       if(Array.isArray(d.trend)&&d.trend.length>=2) drawTrend(d.trend);
