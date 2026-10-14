@@ -1,50 +1,139 @@
 {
-  "updated": "2026-10-14",
-  "source": "manual snapshot (live auto-refresh begins on the next scheduled run)",
+  "updated": "2026-10-15",
+  "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 18945,
-    "clicks": 445,
-    "ctr": "2.3%",
-    "position": "16.0"
+    "impressions": 19754,
+    "clicks": 440,
+    "ctr": "2.2%",
+    "position": "15.4"
   },
-  "trend": [23594, 23218, 23168, 21834, 18945],
-  "trendChange": "▼ ~20% vs a month ago",
-  "wow": {
-    "impressions": -53,
-    "clicks": -54,
-    "position": 0.7
-  },
-  "pagesSurfacing": 65,
-  "submitted": 51,
-  "keywords": [
-    {"term": "engineering recruiting firms", "position": 11, "impressions": 66},
-    {"term": "engineering recruitment agency singapore", "position": 12, "impressions": 93},
-    {"term": "manufacturing recruitment agencies", "position": 13, "impressions": 76},
-    {"term": "manufacturing recruiters", "position": 13, "impressions": 62},
-    {"term": "logistics recruitment companies", "position": 13, "impressions": 62},
-    {"term": "engineering job recruiter", "position": 16, "impressions": 57},
-    {"term": "career conversion programme", "position": 19, "impressions": 139},
-    {"term": "recruitment agency singapore", "position": 22, "impressions": 306},
-    {"term": "mid career conversion programme", "position": 23, "impressions": 138},
-    {"term": "engineering staffing services singapore", "position": 35, "impressions": 137},
-    {"term": "it recruitment agency singapore", "position": 37, "impressions": 115},
-    {"term": "engineering remote staffing singapore", "position": 41, "impressions": 172}
+  "trend": [
+    6066,
+    5340,
+    4986,
+    5469,
+    3959
   ],
-  "mover": null,
+  "trendChange": "▼ 35% vs a month ago",
+  "wow": {
+    "impressions": -28,
+    "clicks": -35,
+    "position": -0.3
+  },
+  "pagesSurfacing": 64,
+  "submitted": 53,
+  "keywords": [
+    {
+      "term": "mcp singapore",
+      "position": 9,
+      "impressions": 34
+    },
+    {
+      "term": "engineer salary",
+      "position": 9,
+      "impressions": 27
+    },
+    {
+      "term": "singapore job agency whatsapp number",
+      "position": 9,
+      "impressions": 24
+    },
+    {
+      "term": "job agent",
+      "position": 9,
+      "impressions": 21
+    },
+    {
+      "term": "mid career grant",
+      "position": 10,
+      "impressions": 27
+    },
+    {
+      "term": "engineer salary singapore",
+      "position": 12,
+      "impressions": 20
+    },
+    {
+      "term": "engineering salary",
+      "position": 12,
+      "impressions": 29
+    },
+    {
+      "term": "engineering recruitment agency singapore",
+      "position": 12,
+      "impressions": 84
+    },
+    {
+      "term": "engineering recruiting firms",
+      "position": 12,
+      "impressions": 72
+    },
+    {
+      "term": "hire engineers",
+      "position": 13,
+      "impressions": 25
+    },
+    {
+      "term": "healthcare recruitment agency singapore",
+      "position": 13,
+      "impressions": 25
+    },
+    {
+      "term": "manufacturing recruitment agencies",
+      "position": 13,
+      "impressions": 60
+    }
+  ],
+  "mover": {
+    "term": "remote engineering staffing services",
+    "fromPosition": 52,
+    "toPosition": 37,
+    "deltaPosition": 14.9,
+    "imprChange": 2,
+    "kind": "climb"
+  },
   "sources": [
-    {"name": "Organic Search", "pct": 56},
-    {"name": "Direct", "pct": 30},
-    {"name": "AI assistants", "pct": 9},
-    {"name": "Organic Social", "pct": 3},
-    {"name": "Referral", "pct": 2}
+    {
+      "name": "Organic Search",
+      "pct": 58
+    },
+    {
+      "name": "Direct",
+      "pct": 29
+    },
+    {
+      "name": "AI Assistant",
+      "pct": 9
+    },
+    {
+      "name": "Referral",
+      "pct": 2
+    },
+    {
+      "name": "Organic Social",
+      "pct": 1
+    },
+    {
+      "name": "Unassigned",
+      "pct": 1
+    }
   ],
   "ai": {
-    "total": 118,
+    "total": 100,
     "breakdown": [
-      {"name": "ChatGPT", "sessions": 106},
-      {"name": "Copilot", "sessions": 11},
-      {"name": "Perplexity", "sessions": 1}
+      {
+        "name": "ChatGPT",
+        "sessions": 90
+      },
+      {
+        "name": "Copilot",
+        "sessions": 9
+      },
+      {
+        "name": "Perplexity",
+        "sessions": 1
+      }
     ]
   }
 }
