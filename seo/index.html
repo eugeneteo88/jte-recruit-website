@@ -49,17 +49,6 @@
   p{margin:0}
   .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink);font-weight:700}
 
-  /* gate */
-  #gate{min-height:100vh;display:grid;place-items:center;padding:1.5rem}
-  .gate-card{width:100%;max-width:360px;text-align:center}
-  .gate-card .mark{font-family:var(--serif);font-size:1.5rem;letter-spacing:.08em}
-  .gate-card .mark span{display:block;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
-  .gate-card p{color:var(--muted);font-size:.9rem;margin:1.4rem 0 1rem}
-  #pw{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font-size:1rem;font-family:var(--sans)}
-  #pw:focus{outline:2px solid var(--gold);outline-offset:1px}
-  .gate-card button{margin-top:.8rem;width:100%;padding:.8rem;border:0;border-radius:10px;background:var(--gold);color:#17130E;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
-  #err{color:var(--crit);font-size:.82rem;min-height:1.2em;margin-top:.6rem}
-
   .wrap{max-width:900px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1.1rem,4vw,2rem) 5rem}
   header.doc{border-bottom:1px solid var(--line);padding-bottom:2rem;margin-bottom:1rem}
   .doc .mark{display:flex;align-items:baseline;gap:.5rem;margin-bottom:1.4rem}
@@ -140,17 +129,7 @@
 </head>
 <body>
 
-<div id="gate">
-  <div class="gate-card">
-    <div class="mark">JTE<span>Recruit</span></div>
-    <p>Private search &amp; AI-visibility dashboard. Enter the password to continue.</p>
-    <input id="pw" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password">
-    <button onclick="unlock()">Unlock dashboard</button>
-    <div id="err"></div>
-  </div>
-</div>
-
-<div id="app" hidden>
+<div id="app">
 <div class="wrap">
 
   <header class="doc">
@@ -275,9 +254,6 @@
 </div>
 
 <script>
-  const PW_HASH="56989cc845cfcee9649be9cb9ae6f16c5f8605890b776af20910d0777789e8ec"; // same password as /review
-  async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
-  function reveal(){document.getElementById("gate").hidden=true;document.getElementById("app").hidden=false;loadLive();}
   function $(id){return document.getElementById(id);}
   function setTxt(id,t){const e=$(id);if(e&&t!=null)e.textContent=t;}
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -320,13 +296,7 @@
     const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
     b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?' &mdash; <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn traffic; UTM tags will reveal its true size.';
   }
-  async function unlock(){
-    const v=document.getElementById("pw").value;
-    if(await sha256(v)===PW_HASH){sessionStorage.setItem("jte-seo-auth",PW_HASH);reveal();}
-    else{document.getElementById("err").textContent="That password didn't match. Try again.";}
-  }
-  document.getElementById("pw").addEventListener("keydown",e=>{if(e.key==="Enter")unlock();});
-  if(sessionStorage.getItem("jte-seo-auth")===PW_HASH)reveal();
+  loadLive();
 </script>
 </body>
 </html>
