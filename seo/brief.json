@@ -20,34 +20,44 @@
   },
   "trends": [
     {
-      "hook": "Tripartite recommendations on HR capabilities and AI in hiring (TWG‑HC report)",
-      "why_now": "Released 24 September 2026; introduces HR certification subsidy (from 1 Oct 2026 to 30 Jun 2028) and guidance on responsible AI in recruitment—notably requiring firms over 200 staff to have IHRP‑CP by July 2028.",
-      "source_url": "MOM press release on TWG‑HC recommendations, 24 September 2026",
-      "confidence": "verified"
+      "hook": "Tripartite recommendations on HR capabilities and AI in hiring (TWG-HC report)",
+      "why_now": "Released 24 Sep 2026. Firms with more than 200 employees must have at least one IHRP-CP (or higher) certified HR professional from 1 Jul 2028. An extra $100 certification subsidy runs 1 Oct 2026 to 30 Jun 2028. Guidance on responsible AI in recruitment is recommended but not yet published.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/2409-recommendations-by-twg-hc",
+      "source_name": "MOM press release, 24 Sep 2026",
+      "confidence": "verified",
+      "checked": "2026-10-15"
     },
     {
       "hook": "SME Cash Grant 2026 disbursement incoming",
-      "why_now": "IRAS disbursement begins from 2 Nov 2026 for eligible firms—up to S$2,500 per business based on local employee headcount between April and June 2026.",
-      "source_url": "IRAS SME Cash Grant 2026 details",
-      "confidence": "verified"
+      "why_now": "Paid automatically in Nov 2026 (from 2 Nov for firms on GIRO/PayNow Corporate), up to $2,500 per business based on the highest number of local qualifying employees in any month from Apr to Jun 2026. No application needed.",
+      "source_url": "https://www.iras.gov.sg/schemes/disbursement-schemes/SME-Cash-Grant-2026",
+      "source_name": "IRAS: SME Cash Grant 2026",
+      "confidence": "verified",
+      "checked": "2026-10-15"
     },
     {
-      "hook": "Labour Market Report 2Q 2026 shows improved hiring intentions",
-      "why_now": "Report published 21 September 2026 shows firms with hiring plans in next three months rose from 43.9 % in June to 48.7 % in July; total employment growth continued, especially in Professional, Financial Services, ICT, Transportation, Health & Social Services.",
-      "source_url": "MOM Labour Market Report Q2 2026, 21 September 2026",
-      "confidence": "verified"
+      "hook": "Labour Market Report 2Q 2026 shows improved hiring intentions",
+      "why_now": "Published 21 Sep 2026. Firms intending to hire in the next three months rose from 43.9% (June) to 48.7% (July), still below February levels. Employment grew 11,400 (19th straight quarter), but retrenchments rose to 4,620 and vacancies fell, mainly PMET roles in Financial Services and ICT. Still 1.48 vacancies per unemployed person.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0921-labour-market-report---second-quarter-2026",
+      "source_name": "MOM Labour Market Report 2Q 2026",
+      "confidence": "verified",
+      "checked": "2026-10-15"
     },
     {
-      "hook": "Enhancements to Workforce Transformation Credit (SFEC/EWTP)",
-      "why_now": "As of late 2026, SFEC redesigned: companies with ≥3 resident employees receive S$10,000 fresh credits to immediately offset transformation/course costs; Anchor PPs (SBF, SNEF) appointed for advisory support.",
-      "source_url": "Factsheet on Enterprise Workforce Transformation Package, late‑2026 redesign",
-      "confidence": "verified"
+      "hook": "Redesigned SkillsFuture Enterprise Credit (SFEC) under the Enterprise Workforce Transformation Package",
+      "why_now": "From 1 Dec 2026, companies with at least 3 resident employees get a fresh $10,000 credit in an online wallet that offsets costs upfront, instead of reimbursing later. The current SFEC ends 30 Nov 2026. SBF and SNEF are the free advisory Anchor Programme Partners.",
+      "source_url": "https://www.wsg.gov.sg/home/media-room/media-releases-speeches/factsheet-on-enterprise-workforce-transformation-package-(ewtp)",
+      "source_name": "WSG factsheet on the EWTP (Mar 2026)",
+      "confidence": "verified",
+      "checked": "2026-10-15"
     },
     {
-      "hook": "Career Conversion Programme (CCP) support deadlines for hires",
-      "why_now": "Grants up to 70 % (or 90 % for hires 40+ or long‑term unemployed) per hire under CCP; for hires 4 and 5, letter‑first applications must be filed by 19 Oct and 16 Nov 2026 respectively to meet approval deadlines.",
-      "source_url": "CCP hiring grants guidance, 7 October 2026 article",
-      "confidence": "verified"
+      "hook": "Career Conversion Programme (CCP) salary support for mid-career hires",
+      "why_now": "Employers get up to 70% of monthly salary (capped at $5,000) during CCP training, or 90% (capped at $7,500) for hires aged 40+ or long-term unemployed. Applications are open year-round, but must be approved within 3 months of the hire's start date. Now run by SWDA (WSG and SSG merged on 1 Jul 2026).",
+      "source_url": "https://www.wsg.gov.sg/docs/default-source/programme/career-conversion-programmes/ccp-factsheet-jan26.pdf?sfvrsn=8c4e792e_3",
+      "source_name": "WSG CCP factsheet (Jan 2026)",
+      "confidence": "verified",
+      "checked": "2026-10-15"
     }
   ],
   "recommended": [
