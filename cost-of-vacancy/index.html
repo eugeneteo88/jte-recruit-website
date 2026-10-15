@@ -16,6 +16,8 @@
 <link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6BXT61GXYP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6BXT61GXYP');</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JTE Cost of a Vacancy Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"SGD"},"url":"https://jte.com.sg/cost-of-vacancy/","publisher":{"@type":"Organization","name":"JTE Recruit"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate the cost of a vacancy?","acceptedAnswer":{"@type":"Answer","text":"An unfilled role costs more than the unpaid salary. The output that seat would have produced is lost, and the work spills onto other people in overtime, slips, or coverage. A common way to size it is the role's daily salary multiplied by the value an employee typically generates above their pay, then multiplied by the days open. This tool lets you adjust that multiplier to your business."}},{"@type":"Question","name":"What does a bad hire cost?","acceptedAnswer":{"@type":"Answer","text":"A widely cited rule of thumb puts the cost of a wrong hire at around 30% of their first-year salary once you add the original hiring cost, onboarding, lost productivity, and the cost of hiring again. For senior or specialist roles it is often higher."}},{"@type":"Question","name":"Is this an exact figure?","acceptedAnswer":{"@type":"Answer","text":"No. These are industry rules of thumb to size the problem, not an invoice. The point is directional: an open role is rarely as cheap as it feels, and speed and accuracy in hiring are worth paying attention to."}},{"@type":"Question","name":"How can JTE help reduce this cost?","acceptedAnswer":{"@type":"Answer","text":"The two levers are time-to-fill and getting it right the first time. A recruiter who knows your sector shortens the search and screens for fit, so the role closes sooner and the person stays. Talk to us about the role you are trying to fill."}}]}</script>
 <style>
@@ -195,7 +197,7 @@
     e.preventDefault(); const msg=$('capMsg'); msg.style.color='var(--muted)'; msg.textContent='Sending…';
     try{
       const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
-      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks — we&rsquo;ll be in touch shortly with your breakdown.';}
+      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks — we&rsquo;ll be in touch shortly with your breakdown.'; if(window.gtag)gtag('event','generate_lead',{method:'cost_of_vacancy'});}
       else throw new Error();
     }catch{ msg.style.color='var(--crit)'; msg.textContent='Something went wrong — email us at ask@jte.com.sg and we&rsquo;ll sort it.'; }
   });

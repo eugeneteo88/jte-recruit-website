@@ -180,6 +180,7 @@
     <div class="sec-head"><h2>Where you stand now</h2></div>
     <p class="sec-sub">Google Search Console and Analytics, trailing 28 days to early October.</p>
     <div class="kpis">
+      <div class="kpi" style="border-color:var(--gold)"><div class="v" id="kLeads" style="color:var(--gold)">—</div><div class="l">Inquiries · 28 days <span style="opacity:.65">calculator</span></div><div class="d flat" id="kLeadsSub">the number that matters</div></div>
       <div class="kpi"><div class="v" id="kImpr">18,945</div><div class="l">Impressions · 28 days</div><div class="d down" id="kImprD">▼ 53% vs last week</div></div>
       <div class="kpi"><div class="v" id="kClicks">445</div><div class="l">Clicks · 28 days</div><div class="d down" id="kClicksD">▼ 54% vs last week</div><div class="d flat" id="kCtr" style="margin-top:.25rem;font-weight:400">CTR 2.3%</div></div>
       <div class="kpi"><div class="v" id="kPos">16.0</div><div class="l">Avg. position</div><div class="d up" id="kPosD">▲ improved 0.7 vs last week</div></div>
@@ -293,6 +294,7 @@
         if(d.kpis.ctr) setTxt('kCtr','CTR '+d.kpis.ctr);
         if(d.kpis.position) setTxt('kPos',d.kpis.position);
       }
+      if(d.leads!=null){ setTxt('kLeads',Number(d.leads).toLocaleString()); setTxt('kLeadsSub', d.calcViews!=null ? Number(d.calcViews).toLocaleString()+' calculator views' : 'the number that matters'); }
       if(d.wow){
         if(d.wow.impressions!=null) setDelta('kImprD', d.wow.impressions);
         if(d.wow.clicks!=null) setDelta('kClicksD', d.wow.clicks);

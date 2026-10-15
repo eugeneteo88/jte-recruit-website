@@ -92,8 +92,8 @@ async function main(){
     submitted = (sm.sitemap||[]).reduce((a,s)=>a+(s.contents||[]).reduce((b,c)=>b+(+c.submitted||0),0),0) || null;
   }catch{}
 
-  // ---- Google Analytics (channels + AI answer engines) ----
-  let sources = [], ai = {total:0, breakdown:[]};
+  // ---- Google Analytics (channels + AI answer engines + leads) ----
+  let sources = [], ai = {total:0, breakdown:[]}, leads = null, calcViews = null;
   try{
     const gaTok = await token('https://www.googleapis.com/auth/analytics.readonly');
     const ga = async (body) => { const r = await (await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY}:runReport`,{method:'POST',headers:{Authorization:'Bearer '+gaTok,'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); if(r.error) throw new Error('ga: '+r.error.message); return r.rows||[]; };
@@ -114,6 +114,15 @@ async function main(){
     const eng = {}; for(const r of aiRows){ const nm=AI_LABEL(r.dimensionValues[0].value); eng[nm]=(eng[nm]||0)+num(r.metricValues[0].value); }
     const br = Object.entries(eng).map(([name,sessions])=>({name,sessions:Math.round(sessions)})).sort((a,b)=>b.sessions-a.sessions);
     ai = {total: br.reduce((a,b)=>a+b.sessions,0), breakdown: br};
+
+    // leads = the real KPI — cost-of-vacancy calculator form submissions (+ page views)
+    try{
+      const leadRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'eventName'}],metrics:[{name:'eventCount'}],dimensionFilter:{filter:{fieldName:'eventName',stringFilter:{value:'generate_lead'}}}});
+      leads = leadRows.length ? Math.round(num(leadRows[0].metricValues[0].value)) : 0;
+      const calcRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'pagePath'}],metrics:[{name:'screenPageViews'}],dimensionFilter:{filter:{fieldName:'pagePath',stringFilter:{matchType:'CONTAINS',value:'cost-of-vacancy'}}}});
+      calcViews = calcRows.reduce((a,r)=>a+num(r.metricValues[0].value),0);
+      calcViews = Math.round(calcViews);
+    }catch(e){ console.error('leads skipped:', e.message); }
   }catch(e){ console.error('GA skipped:', e.message); }
 
   const data = {
@@ -135,6 +144,8 @@ async function main(){
     mover,
     sources,
     ai,
+    leads,
+    calcViews,
   };
 
   mkdirSync('seo', {recursive:true});

@@ -27,6 +27,7 @@ const brief = {
     impressions: metrics?.kpis?.impressions ?? null,
     clicks: metrics?.kpis?.clicks ?? null,
     position: metrics?.kpis?.position ?? null,
+    leads: metrics?.leads ?? null,
     wow: metrics?.wow ?? null,
     mover: metrics?.mover ?? null,
   },
