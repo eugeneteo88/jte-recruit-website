@@ -8,6 +8,9 @@
 //   node content-ops/run.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 import { hasKey, ask, askJSON } from './llm.mjs';
+import { buildArticle } from './build-article.mjs';
+import { makeHero, pickBg } from '../scripts/hero-graphic.mjs';
+import { makeGraphic } from '../scripts/graphic.mjs';
 
 const read = (p, fb) => { try { return JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8')); } catch { return fb; } };
 // Models sometimes wrap the array in an object ({hooks:[...]}) — coerce to a bare array.
@@ -58,8 +61,55 @@ async function roles() {
     }));
   } catch (e) { brief.notes += ` [planner role skipped: ${e.message}]`; }
 
-  // Roles 4-7 (writer -> fact-check -> QA -> LinkedIn): next build increment.
-  // They will draft held articles from brief.recommended and populate brief.drafts/linkedin.
+  // Roles 4-7 — writer -> fact-check/fairness -> build -> LinkedIn. All drafts stay HELD.
+  const N = Number(process.env.WRITE_N || 2);
+  const existing = new Set(posts.map((p) => p.slug));
+  const slugList = posts.map((p) => p.slug).join(', ');
+  let addDate = (posts.map((p) => p.date).filter(Boolean).sort().pop()) || today;
+  const nextDate = () => { const d = new Date(addDate + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + 3); addDate = d.toISOString().slice(0, 10); return addDate; };
+
+  for (const topic of (brief.recommended || []).slice(0, N)) {
+    try {
+      const content = await askJSON({
+        tier: 'flagship', web: true, maxTokens: 5000,
+        system: `You are Eugene Teo, co-founder of JTE Recruit, writing a Field Notes article for EMPLOYERS. First-person, opinionated, plain professional English. NO Singlish (no lah/lor/kiasu/sian/blur/tahan). Open on the employer's PROBLEM — never a definition or a job-scope explainer. No nationality or local-vs-foreigner framing (TAFEP landmine). Lean on experience and judgement, which needs no citation. Do NOT state ANY specific statistic, salary, percentage, grant amount, or date UNLESS it appears verbatim in the provided verified facts; when you use one, keep it exact and add "confirm current figures with MOM / the relevant authority". When in doubt, go qualitative instead of inventing a number. Pull the reader toward engaging JTE.`,
+        user: `Write the article. Topic: ${topic.title}. Angle: ${topic.angle}. Target keyword: ${topic.target_keyword}.
+Verified facts/sources you may use for hard figures: ${JSON.stringify(brief.trends)}.
+Existing JTE articles you may cross-link (use 2-3, EXACT slugs, where natural): ${slugList}.
+Return ONLY JSON: {slug (kebab-case, new), title, metaDescription (<=160 chars), h1 (problem-led), heroAlt, lead:[1-2 intro paragraphs], sections:[{h2, paras:[2-4 paragraphs]} x5-7], callout (one-sentence takeaway), faq:[{q,a} x6], hero:{eyebrow, headline (<=4 words), accent (<=3 words), subtitle}, graphic:{type:"list"|"steps", title, items:[3-5 short]}, crossLinks:[{anchor (an exact phrase in your text), slug} x2-3]}`,
+      });
+      if (!content || !content.slug || existing.has(content.slug)) { brief.notes += ` [writer skipped ${topic.title}: dup/invalid slug]`; continue; }
+
+      let factcheck = { pass: true, issues: [] };
+      try {
+        factcheck = await askJSON({
+          tier: 'flagship', web: true, maxTokens: 1200,
+          system: 'You are a strict fact-checker and fairness reviewer for JTE Recruit. Be adversarial.',
+          user: `Review this article content. Flag: any hard figure/claim NOT supported by a primary source; any Singlish; any nationality/local-vs-foreigner framing; any logic error. Return {pass:boolean, issues:[strings]}. Content: ${JSON.stringify(content)}`,
+        });
+      } catch {}
+
+      const date = nextDate();
+      buildArticle(content, date);
+      const dir = `blog/${content.slug}/`;
+      try { const bg = pickBg('general', content.slug) || pickBg('tech', content.slug); await makeHero({ ...(content.hero || {}), bg, out: dir + 'hero.jpg' }); } catch (e) { brief.notes += ` [hero ${content.slug}: ${e.message}]`; }
+      try { await makeGraphic({ type: content.graphic?.type || 'list', eyebrow: 'In brief', title: content.graphic?.title || content.title, items: content.graphic?.items || [], out: dir + 'graphic-1.jpg' }); } catch (e) { brief.notes += ` [graphic ${content.slug}: ${e.message}]`; }
+
+      posts.push({ slug: content.slug, title: content.title, tag: 'Employer Guide', excerpt: content.metaDescription, author: 'Eugene Teo', date, readTime: '6 min read', icon: 'file-text', draft: true });
+      existing.add(content.slug);
+      brief.drafts.push({ slug: content.slug, title: content.title, preview: `https://jte.com.sg/blog/${content.slug}/`, factcheck });
+
+      try {
+        const li = await askJSON({
+          tier: 'mini', maxTokens: 800,
+          system: "Write LinkedIn posts in Eugene's first-person voice. Plain English, hook first, no Singlish, minimal emojis.",
+          user: `Two LinkedIn posts promoting "${content.title}" (link https://jte.com.sg/blog/${content.slug}/). Return {company, profile}. Each ~90 words, end with the link + 3 hashtags.`,
+        });
+        brief.linkedin.push({ slug: content.slug, company: li.company, profile: li.profile });
+      } catch {}
+    } catch (e) { brief.notes += ` [writer error ${topic.title}: ${e.message}]`; }
+  }
+  writeFileSync(new URL('../blog/posts.json', import.meta.url), JSON.stringify(posts, null, 2) + '\n');
 }
 
 await roles().catch((e) => { brief.notes += ` [engine error: ${e.message}]`; });

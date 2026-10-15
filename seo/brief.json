@@ -18,24 +18,55 @@
       "kind": "climb"
     }
   },
-  "trends": [],
-  "recommended": [
+  "trends": [
     {
-      "title": "Why Your Manufacturing Hiring Fails Even When You Use Agencies",
-      "angle": "Explore why many manufacturing employers still struggle with bad-fit hires or role churn despite partnering with recruitment agencies, and the hidden process or expectation mismatches that could be at fault.",
-      "target_keyword": "manufacturing recruitment agencies",
-      "why": "Striking-distance keyword, not yet addressed; problem-led angle goes beyond simple agency listings to probe real employer frustrations and root causes.",
-      "timely": false
+      "hook": "Tripartite recommendations on HR capabilities and AI in hiring (TWG‑HC report)",
+      "why_now": "Released 24 September 2026; introduces HR certification subsidy (from 1 Oct 2026 to 30 Jun 2028) and guidance on responsible AI in recruitment—notably requiring firms over 200 staff to have IHRP‑CP by July 2028.",
+      "source_url": "MOM press release on TWG‑HC recommendations, 24 September 2026",
+      "confidence": "verified"
     },
     {
-      "title": "Are You Losing Engineering Candidates to Your Salary Bands?",
-      "angle": "Investigate the hidden ways outdated or misaligned salary bands drive skilled engineers elsewhere, and how employers can get competitive without breaking the bank.",
-      "target_keyword": "engineer salary singapore",
-      "why": "Positions 9–12 for related terms; direct pain point for employers losing out on talent, moving beyond salary surveys to the practical problems in offer design.",
-      "timely": false
+      "hook": "SME Cash Grant 2026 disbursement incoming",
+      "why_now": "IRAS disbursement begins from 2 Nov 2026 for eligible firms—up to S$2,500 per business based on local employee headcount between April and June 2026.",
+      "source_url": "IRAS SME Cash Grant 2026 details",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Labour Market Report 2Q 2026 shows improved hiring intentions",
+      "why_now": "Report published 21 September 2026 shows firms with hiring plans in next three months rose from 43.9 % in June to 48.7 % in July; total employment growth continued, especially in Professional, Financial Services, ICT, Transportation, Health & Social Services.",
+      "source_url": "MOM Labour Market Report Q2 2026, 21 September 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Enhancements to Workforce Transformation Credit (SFEC/EWTP)",
+      "why_now": "As of late 2026, SFEC redesigned: companies with ≥3 resident employees receive S$10,000 fresh credits to immediately offset transformation/course costs; Anchor PPs (SBF, SNEF) appointed for advisory support.",
+      "source_url": "Factsheet on Enterprise Workforce Transformation Package, late‑2026 redesign",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Career Conversion Programme (CCP) support deadlines for hires",
+      "why_now": "Grants up to 70 % (or 90 % for hires 40+ or long‑term unemployed) per hire under CCP; for hires 4 and 5, letter‑first applications must be filed by 19 Oct and 16 Nov 2026 respectively to meet approval deadlines.",
+      "source_url": "CCP hiring grants guidance, 7 October 2026 article",
+      "confidence": "verified"
+    }
+  ],
+  "recommended": [
+    {
+      "title": "AI in Hiring: What Singapore Employers Need to Do Before 2028",
+      "angle": "The new Tripartite recommendations mean firms above 200 headcount must certify HR and use AI responsibly—here’s how to avoid compliance headaches, wasted spend, or audit risk.",
+      "target_keyword": "AI in hiring Singapore",
+      "why": "Singapore’s new tripartite guidelines and HR certification subsidy will directly impact mid-to-large employers’ hiring practices and compliance from 2026 to 2028, requiring urgent planning.",
+      "timely": true
+    },
+    {
+      "title": "How to Actually Use the 2026 SME Cash Grant to Solve Hiring Gaps",
+      "angle": "Most SMEs won’t use this November’s $2,500 cash for staffing—and will miss key opportunities to win growth hires. Here’s how to spend the grant where it actually fixes hiring problems.",
+      "target_keyword": "SME Cash Grant Singapore",
+      "why": "The 2026 Cash Grant is about to land for eligible SMEs, giving business owners a rare, time-sensitive lever to address staffing bottlenecks that impact growth.",
+      "timely": true
     }
   ],
   "drafts": [],
   "linkedin": [],
-  "notes": " [trend role skipped: Bad escaped character in JSON at position 384 (line 1 column 385)]"
+  "notes": ""
 }
