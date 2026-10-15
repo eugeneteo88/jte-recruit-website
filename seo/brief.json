@@ -1,0 +1,26 @@
+{
+  "updated": "2026-10-15",
+  "metrics": {
+    "impressions": 19754,
+    "clicks": 440,
+    "position": "15.4",
+    "wow": {
+      "impressions": -28,
+      "clicks": -35,
+      "position": -0.3
+    },
+    "mover": {
+      "term": "remote engineering staffing services",
+      "fromPosition": 52,
+      "toPosition": 37,
+      "deltaPosition": 14.9,
+      "imprChange": 2,
+      "kind": "climb"
+    }
+  },
+  "trends": [],
+  "recommended": [],
+  "drafts": [],
+  "linkedin": [],
+  "notes": "Planning + writing roles are dormant — set OPENAI_API_KEY (with a monthly cap) to activate the engine. This brief shows live metrics only."
+}

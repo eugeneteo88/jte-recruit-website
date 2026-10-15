@@ -1,0 +1,58 @@
+name: Growth Engine
+
+# The autonomous content operation. Runs Mon + Thu: refreshes metrics, runs the
+# roles (research/plan now; writing next), writes the CEO brief to seo/brief.json,
+# commits any held drafts, and redeploys so the /seo "This week" brief is current.
+# Dormant until the OPENAI_API_KEY secret is set — run.mjs no-ops without it.
+
+on:
+  schedule:
+    - cron: '0 0 * * 1,4'   # 00:00 UTC = 08:00 Singapore, Monday & Thursday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Refresh dashboard metrics (so the brief reads fresh numbers)
+        run: |
+          printf '%s' "$GA_KEY_JSON" > .ga-key.json
+          node seo-data.mjs || echo "seo-data skipped"
+          rm -f .ga-key.json
+        env:
+          GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
+
+      - name: Run the Growth Engine
+        run: node content-ops/run.mjs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MODEL_FLAGSHIP: ${{ vars.MODEL_FLAGSHIP }}
+          MODEL_MINI: ${{ vars.MODEL_MINI }}
+
+      - name: Rebuild blog + work log (held drafts stay held)
+        run: |
+          node scripts/build-blog.mjs
+          node build-updates.mjs
+
+      - name: Commit brief + any drafts
+        run: |
+          git config user.name "jte-growth-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "no change" || (git commit -m "Growth Engine: weekly brief + drafts" && (git push || echo "push skipped"))
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          force_orphan: true
+          exclude_assets: '.github,node_modules,scripts,qa-reports,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,keyword-targets.mjs,seo-data.mjs,build-updates.mjs,content-ops,.ga-key.json'

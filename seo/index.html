@@ -157,6 +157,12 @@
     </div>
   </header>
 
+  <section id="ceoBrief">
+    <div class="sec-head"><h2>This week</h2></div>
+    <p class="sec-sub">Your brief from the Growth Engine &mdash; approve what's ready, the rest runs on autopilot.</p>
+    <div class="panel" id="briefBox"><p style="color:var(--muted)">Loading this week&rsquo;s brief&hellip;</p></div>
+  </section>
+
   <section>
     <div class="sec-head"><h2>The scorecard</h2></div>
     <p class="sec-sub">The six areas a full SEO + AI audit covers, graded honestly against what's on the site and in your data.</p>
@@ -329,7 +335,23 @@
     const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
     b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?' &mdash; <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn traffic; UTM tags will reveal its true size.';
   }
+  async function loadBrief(){
+    const box=$('briefBox'); if(!box)return;
+    try{
+      const r=await fetch('./brief.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
+      const b=await r.json(); let h=''; const m=b.metrics||{};
+      if(m.impressions!=null){ const wi=(m.wow||{}).impressions;
+        h+='<p style="font-size:.95rem"><b>'+Number(m.impressions).toLocaleString()+'</b> impressions / 28d'+(wi!=null?' <span style="color:'+(wi>=0?'var(--good)':'var(--crit)')+';font-weight:700">('+(wi>=0?'▲ +':'▼ ')+Math.abs(wi)+'% WoW)</span>':'')+(m.position?' · avg position '+esc(m.position):'')+'.</p>'; }
+      if(b.drafts&&b.drafts.length){ h+='<h3 style="font-size:1rem;margin:1.1rem 0 .5rem">Awaiting your approval ('+b.drafts.length+')</h3><ul class="clean">'+b.drafts.map(d=>'<li><span class="b i">&#10003;</span><div><b>'+esc(d.title||d.slug)+'</b>'+(d.preview?' &mdash; <a href="'+esc(d.preview)+'" target="_blank" rel="noopener">preview</a>':'')+'</div></li>').join('')+'</ul>'; }
+      if(b.recommended&&b.recommended.length){ h+='<h3 style="font-size:1rem;margin:1.1rem 0 .5rem">Recommended next</h3><ul class="clean">'+b.recommended.map(t=>'<li><span class="b w">!</span><div><b>'+esc(t.title||'')+'</b>'+(t.angle?' &mdash; '+esc(t.angle):'')+(t.timely?' <span class="chip warn" style="margin-left:.35rem">timely</span>':'')+'</div></li>').join('')+'</ul>'; }
+      if(b.trends&&b.trends.length){ h+='<h3 style="font-size:1rem;margin:1.1rem 0 .5rem">Trending to ride</h3><ul class="clean">'+b.trends.map(t=>'<li><span class="b i">&#9656;</span><div>'+esc(t.hook||'')+(t.source_url?' <a href="'+esc(t.source_url)+'" target="_blank" rel="noopener">source</a>':'')+'</div></li>').join('')+'</ul>'; }
+      if(b.notes) h+='<p style="font-size:.84rem;color:var(--muted);margin-top:1rem">'+esc(b.notes)+'</p>';
+      if(b.updated) h+='<p style="font-size:.76rem;color:var(--muted);margin-top:.5rem">Brief generated '+esc(b.updated)+'.</p>';
+      box.innerHTML=h||'<p style="color:var(--muted)">No brief yet.</p>';
+    }catch(e){/* keep loading text */}
+  }
   loadLive();
+  loadBrief();
 </script>
 </body>
 </html>
