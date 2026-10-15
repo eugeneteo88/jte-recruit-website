@@ -76,6 +76,7 @@ async function roles() {
         user: `Write the article. Topic: ${topic.title}. Angle: ${topic.angle}. Target keyword: ${topic.target_keyword}.
 Verified facts/sources you may use for hard figures: ${JSON.stringify(brief.trends)}.
 Existing JTE articles you may cross-link (use 2-3, EXACT slugs, where natural): ${slugList}.
+You may ALSO link to the free cost-of-vacancy calculator with slug "/cost-of-vacancy/" where it fits the argument (it converts readers into inquiries).
 Return ONLY JSON: {slug (kebab-case, new), title, metaDescription (<=160 chars), h1 (problem-led), heroAlt, lead:[1-2 intro paragraphs], sections:[{h2, paras:[2-4 paragraphs]} x5-7], callout (one-sentence takeaway), faq:[{q,a} x6], hero:{eyebrow, headline (<=4 words), accent (<=3 words), subtitle}, graphic:{type:"list"|"steps", title, items:[3-5 short]}, crossLinks:[{anchor (an exact phrase in your text), slug} x2-3]}`,
       });
       if (!content || !content.slug || existing.has(content.slug)) { brief.notes += ` [writer skipped ${topic.title}: dup/invalid slug]`; continue; }
@@ -103,7 +104,7 @@ Return ONLY JSON: {slug (kebab-case, new), title, metaDescription (<=160 chars),
         const li = await askJSON({
           tier: 'mini', maxTokens: 800,
           system: "Write LinkedIn posts in Eugene's first-person voice. Plain English, hook first, no Singlish, minimal emojis.",
-          user: `Two LinkedIn posts promoting "${content.title}" (link https://jte.com.sg/blog/${content.slug}/). Return {company, profile}. Each ~90 words, end with the link + 3 hashtags.`,
+          user: `Two LinkedIn posts promoting "${content.title}" (link https://jte.com.sg/blog/${content.slug}/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine). Return {company, profile}. Each ~90 words, end with the link + 3 hashtags.`,
         });
         brief.linkedin.push({ slug: content.slug, company: li.company, profile: li.profile });
       } catch {}

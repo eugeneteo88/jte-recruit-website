@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is That Unfilled Role Really Costing You? | JTE Recruit</title>
+<meta name="description" content="A free calculator for Singapore employers: see what an open role costs you per day and in total, plus the cost of a wrong hire. Then fill it faster, and right, with JTE.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://jte.com.sg/cost-of-vacancy/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What is that unfilled role really costing you?">
+<meta property="og:description" content="A free calculator: the real cost of an open role per day and in total, plus the cost of a wrong hire.">
+<meta property="og:url" content="https://jte.com.sg/cost-of-vacancy/">
+<meta property="og:image" content="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/social%20media%20preview/Social%20Media%20Preview%20Image%20-%201200%20x%20630.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JTE Cost of a Vacancy Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"SGD"},"url":"https://jte.com.sg/cost-of-vacancy/","publisher":{"@type":"Organization","name":"JTE Recruit"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate the cost of a vacancy?","acceptedAnswer":{"@type":"Answer","text":"An unfilled role costs more than the unpaid salary. The output that seat would have produced is lost, and the work spills onto other people in overtime, slips, or coverage. A common way to size it is the role's daily salary multiplied by the value an employee typically generates above their pay, then multiplied by the days open. This tool lets you adjust that multiplier to your business."}},{"@type":"Question","name":"What does a bad hire cost?","acceptedAnswer":{"@type":"Answer","text":"A widely cited rule of thumb puts the cost of a wrong hire at around 30% of their first-year salary once you add the original hiring cost, onboarding, lost productivity, and the cost of hiring again. For senior or specialist roles it is often higher."}},{"@type":"Question","name":"Is this an exact figure?","acceptedAnswer":{"@type":"Answer","text":"No. These are industry rules of thumb to size the problem, not an invoice. The point is directional: an open role is rarely as cheap as it feels, and speed and accuracy in hiring are worth paying attention to."}},{"@type":"Question","name":"How can JTE help reduce this cost?","acceptedAnswer":{"@type":"Answer","text":"The two levers are time-to-fill and getting it right the first time. A recruiter who knows your sector shortens the search and screens for fit, so the role closes sooner and the person stays. Talk to us about the role you are trying to fill."}}]}</script>
+<style>
+  :root{--bg:#FBF9F4;--surface:#fff;--ink:#241B12;--soft:#5f574c;--muted:#8a8378;--line:rgba(36,27,18,.1);--gold:#B4894E;--gold-ink:#8C7350;--panel:#F4EEE1;--good:#3f7d5a;--crit:#b4462f;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:16.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:var(--gold-ink)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+  nav .mark{font-family:var(--serif);font-size:1.3rem;letter-spacing:.06em;text-decoration:none;color:var(--ink)}
+  nav .mark span{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:block;margin-top:1px}
+  nav .cta{background:var(--gold);color:#17130E;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.6rem 1.1rem;border-radius:999px;text-decoration:none;white-space:nowrap}
+  header{padding:3.5rem 0 1.5rem;text-align:center}
+  .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink);font-weight:700}
+  h1{font-family:var(--serif);font-size:clamp(2rem,5.5vw,3rem);font-weight:600;line-height:1.1;margin:.5rem auto .8rem;max-width:16ch;text-wrap:balance}
+  .lede{color:var(--soft);font-size:1.08rem;max-width:56ch;margin:0 auto;font-weight:300}
+
+  .calc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.3rem,4vw,2.2rem);margin:2.2rem 0;box-shadow:0 30px 60px -40px rgba(60,45,25,.5)}
+  .field{margin-bottom:1.5rem}
+  .field label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.1rem}
+  .field .hint{font-size:.8rem;color:var(--muted);margin-bottom:.6rem}
+  .field .valrow{display:flex;align-items:center;gap:.6rem}
+  input[type=range]{flex:1;accent-color:var(--gold);height:6px}
+  .num{font-family:var(--serif);font-size:1.3rem;font-weight:600;min-width:7.5rem;text-align:right;font-variant-numeric:tabular-nums}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{border:0;background:var(--surface);color:var(--soft);font:inherit;font-size:.85rem;padding:.5rem .9rem;cursor:pointer}
+  .seg button.on{background:var(--gold);color:#17130E;font-weight:700}
+
+  .out{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem}
+  @media(max-width:560px){.out{grid-template-columns:1fr}}
+  .stat{background:var(--panel);border-radius:14px;padding:1.2rem 1.3rem}
+  .stat.big{grid-column:1/-1;background:#241B12;color:#F2ECE1}
+  .stat .l{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .stat.big .l{color:#b9b0a4}
+  .stat .v{font-family:var(--serif);font-size:clamp(1.8rem,6vw,2.6rem);font-weight:600;line-height:1.05;margin-top:.3rem;font-variant-numeric:tabular-nums}
+  .stat .v small{font-size:1rem;font-weight:400;color:var(--muted)}
+  .stat.big .v small{color:#b9b0a4}
+
+  .assume{font-size:.82rem;color:var(--muted);margin-top:1.2rem;line-height:1.6;border-top:1px dashed var(--line);padding-top:1rem}
+
+  .pitch{background:var(--panel);border-left:3px solid var(--gold);border-radius:0 14px 14px 0;padding:1.4rem 1.6rem;margin:2rem 0}
+  .pitch h2{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.5rem}
+  .pitch p{color:var(--soft);font-weight:300}
+  .btn{display:inline-block;background:var(--gold);color:#17130E;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.85rem;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none;margin-top:1rem}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);margin-left:.5rem}
+
+  .capture{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(1.3rem,4vw,2rem);margin:2rem 0}
+  .capture h2{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:.3rem}
+  .capture p{color:var(--soft);font-size:.95rem;font-weight:300;margin-bottom:1.1rem}
+  .capture .row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  @media(max-width:560px){.capture .row{grid-template-columns:1fr}}
+  .capture input{width:100%;padding:.8rem 1rem;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink);margin-bottom:.8rem}
+  .capture input:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .capture button{background:var(--gold);color:#17130E;font-weight:700;border:0;border-radius:10px;padding:.85rem 1.4rem;font:inherit;cursor:pointer}
+  #capMsg{font-size:.85rem;margin-top:.7rem;min-height:1.2em}
+
+  .faq{max-width:720px;margin:2.5rem auto}
+  .faq h2{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:1rem;text-align:center}
+  details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:.6rem;overflow:hidden}
+  summary{cursor:pointer;list-style:none;padding:1rem 1.2rem;font-family:var(--serif);font-size:1.05rem;display:flex;justify-content:space-between;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'';width:9px;height:9px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);transition:.25s;flex:none;margin-top:4px}
+  details[open] summary::after{transform:rotate(-135deg)}
+  details .a{padding:0 1.2rem 1.1rem;color:var(--soft);font-weight:300;font-size:.95rem}
+
+  footer{border-top:1px solid var(--line);margin-top:3rem;padding:2rem 0 3rem;text-align:center;color:var(--muted);font-size:.8rem}
+  footer a{color:var(--gold-ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="mark" href="/">JTE<span>Recruit</span></a>
+    <a class="cta" href="/contact">Talk to us</a>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Free tool for employers</div>
+    <h1>What is that unfilled role really costing you?</h1>
+    <p class="lede">An open seat feels free because you&rsquo;re not paying the salary. It isn&rsquo;t. Here&rsquo;s a quick, honest sense of what it&rsquo;s costing you &mdash; and what a wrong hire would.</p>
+  </header>
+
+  <div class="calc">
+    <div class="field">
+      <label for="salary">Annual salary for the role</label>
+      <div class="hint">What you&rsquo;d pay the person, per year.</div>
+      <div class="valrow"><input id="salary" type="range" min="30000" max="300000" step="5000" value="80000"><span class="num" id="salaryVal"></span></div>
+    </div>
+    <div class="field">
+      <label for="days">Days the role has been open</label>
+      <div class="hint">Or how long you expect it to take to fill.</div>
+      <div class="valrow"><input id="days" type="range" min="7" max="180" step="1" value="60"><span class="num" id="daysVal"></span></div>
+    </div>
+    <div class="field">
+      <label>How much does this seat drive the business?</label>
+      <div class="hint">Roughly how much value a filled seat generates versus its pay.</div>
+      <div class="seg" id="mult" role="group" aria-label="Impact level">
+        <button data-m="1.5">Support role</button>
+        <button data-m="2" class="on">Core role</button>
+        <button data-m="2.75">Revenue / specialist</button>
+      </div>
+    </div>
+
+    <div class="out">
+      <div class="stat"><div class="l">Costing you per day</div><div class="v" id="perDay"></div></div>
+      <div class="stat"><div class="l">A wrong hire would cost</div><div class="v" id="badHire"></div></div>
+      <div class="stat big"><div class="l">Total cost of this vacancy so far</div><div class="v" id="total"></div></div>
+    </div>
+
+    <p class="assume">These are industry rules of thumb to size the problem, not an invoice. Cost per day = the role&rsquo;s daily salary &times; the value multiplier you picked (lost output plus the coverage, overtime and slips that fall on others). A wrong hire is estimated at ~30% of annual salary &mdash; a widely cited figure once you add hiring, onboarding, lost productivity and re-hiring. Adjust to your own numbers; the point is directional.</p>
+  </div>
+
+  <div class="pitch">
+    <h2>The fix is speed, and getting it right once.</h2>
+    <p>Every number above shrinks when the role closes sooner and the person stays. That&rsquo;s the whole job of a good recruiter who knows your sector &mdash; a shorter search, and a shortlist screened for fit, not just keywords. If this role has been open longer than you&rsquo;d like, let&rsquo;s talk.</p>
+    <a class="btn" href="/contact">Fill this role with JTE</a>
+    <a class="btn ghost" href="/blog/recruitment-agency-cost-singapore/">What a recruiter costs</a>
+  </div>
+
+  <div class="capture">
+    <h2>Want this breakdown, and a plan to fill the role?</h2>
+    <p>Leave your details and we&rsquo;ll send your numbers and a quick, no-obligation take on how to close the role faster.</p>
+    <form id="capForm">
+      <div class="row">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="text" name="company" placeholder="Company" required>
+      </div>
+      <input type="email" name="email" placeholder="Work email" required>
+      <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
+      <input type="hidden" name="subject" value="Cost-of-vacancy lead">
+      <input type="hidden" name="from_name" value="JTE Cost Calculator">
+      <input type="hidden" name="Calculated" id="capCalc" value="">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <button type="submit">Send me my breakdown</button>
+      <div id="capMsg"></div>
+    </form>
+  </div>
+
+  <div class="faq">
+    <h2>Common questions</h2>
+    <details><summary>How is the cost of a vacancy worked out?</summary><div class="a">An unfilled role costs more than the unpaid salary. The output that seat would have produced is lost, and the work spills onto other people. We size it as the role&rsquo;s daily salary &times; a value multiplier &times; the days open. You set the multiplier.</div></details>
+    <details><summary>Where does the 30% bad-hire figure come from?</summary><div class="a">It&rsquo;s a widely cited rule of thumb &mdash; once you add the original hiring cost, onboarding, lost productivity and hiring again, a wrong hire tends to land near a third of first-year salary, often more for senior roles.</div></details>
+    <details><summary>Is this exact?</summary><div class="a">No &mdash; it&rsquo;s directional. The point is that an open role is rarely as cheap as it feels, so speed and accuracy in hiring are worth money.</div></details>
+    <details><summary>How does JTE bring the cost down?</summary><div class="a">By shortening time-to-fill and screening for fit so the hire stays. <a href="/contact">Tell us the role</a> and we&rsquo;ll give you an honest read.</div></details>
+  </div>
+
+  <footer>
+    <p><a href="/">JTE Recruit</a> &middot; Recruitment with personality. Helping Singapore employers hire since 2014.<br>MOM EA Licence 14C7215 &middot; UEN 201417026C &middot; <a href="/contact">Contact</a></p>
+  </footer>
+</div>
+
+<script>
+  const $=id=>document.getElementById(id);
+  const sgd=n=>'S$'+Math.round(n).toLocaleString();
+  let mult=2;
+  function calc(){
+    const salary=+$('salary').value, days=+$('days').value;
+    const perDay=(salary/240)*mult;           // 240 working days/yr
+    const total=perDay*days;
+    const bad=salary*0.30;
+    $('salaryVal').textContent='S$'+salary.toLocaleString();
+    $('daysVal').textContent=days+' days';
+    $('perDay').innerHTML=sgd(perDay)+' <small>/day</small>';
+    $('total').textContent=sgd(total);
+    $('badHire').textContent='~'+sgd(bad);
+    $('capCalc').value='Salary '+sgd(salary)+', open '+days+' days, multiplier '+mult+' -> per day '+sgd(perDay)+', total '+sgd(total)+', bad hire ~'+sgd(bad);
+  }
+  $('salary').addEventListener('input',calc);
+  $('days').addEventListener('input',calc);
+  document.querySelectorAll('#mult button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#mult button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); mult=+b.dataset.m; calc();
+  }));
+  calc();
+  $('capForm').addEventListener('submit',async e=>{
+    e.preventDefault(); const msg=$('capMsg'); msg.style.color='var(--muted)'; msg.textContent='Sending…';
+    try{
+      const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
+      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks — we&rsquo;ll be in touch shortly with your breakdown.';}
+      else throw new Error();
+    }catch{ msg.style.color='var(--crit)'; msg.textContent='Something went wrong — email us at ask@jte.com.sg and we&rsquo;ll sort it.'; }
+  });
+</script>
+</body>
+</html>
