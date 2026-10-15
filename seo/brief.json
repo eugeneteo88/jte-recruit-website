@@ -19,8 +19,23 @@
     }
   },
   "trends": [],
-  "recommended": [],
+  "recommended": [
+    {
+      "title": "Why Your Manufacturing Hiring Fails Even When You Use Agencies",
+      "angle": "Explore why many manufacturing employers still struggle with bad-fit hires or role churn despite partnering with recruitment agencies, and the hidden process or expectation mismatches that could be at fault.",
+      "target_keyword": "manufacturing recruitment agencies",
+      "why": "Striking-distance keyword, not yet addressed; problem-led angle goes beyond simple agency listings to probe real employer frustrations and root causes.",
+      "timely": false
+    },
+    {
+      "title": "Are You Losing Engineering Candidates to Your Salary Bands?",
+      "angle": "Investigate the hidden ways outdated or misaligned salary bands drive skilled engineers elsewhere, and how employers can get competitive without breaking the bank.",
+      "target_keyword": "engineer salary singapore",
+      "why": "Positions 9–12 for related terms; direct pain point for employers losing out on talent, moving beyond salary surveys to the practical problems in offer design.",
+      "timely": false
+    }
+  ],
   "drafts": [],
   "linkedin": [],
-  "notes": "Planning + writing roles are dormant — set OPENAI_API_KEY (with a monthly cap) to activate the engine. This brief shows live metrics only."
+  "notes": " [trend role skipped: Bad escaped character in JSON at position 384 (line 1 column 385)]"
 }

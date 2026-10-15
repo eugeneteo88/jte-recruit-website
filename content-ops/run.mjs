@@ -10,6 +10,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { hasKey, ask, askJSON } from './llm.mjs';
 
 const read = (p, fb) => { try { return JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8')); } catch { return fb; } };
+// Models sometimes wrap the array in an object ({hooks:[...]}) — coerce to a bare array.
+const toArr = (x) => Array.isArray(x) ? x : (x && (x.hooks || x.items || x.trends || x.topics || x.recommended || x.results)) || [];
 const metrics = read('../seo/data.json', {});
 const posts = read('../blog/posts.json', []);
 const today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10); // SGT
@@ -39,21 +41,21 @@ async function roles() {
   }
   // Role 2 — trend & competitor watcher (web search)
   try {
-    brief.trends = await askJSON({
+    brief.trends = toArr(await askJSON({
       tier: 'flagship', web: true, maxTokens: 1200,
       system: 'You scout timely topics for a Singapore recruitment agency (JTE) that writes for EMPLOYERS. Only return items that are genuinely recent/timely and verifiable.',
       user: `Today is ${today}. Find 4-5 timely Singapore hiring/employment hooks from the last few weeks (MOM/policy changes, grants, sector hiring surges, seasonal patterns, competitor moves by Randstad/Manpower/Links/Michael Page). For each return {hook, why_now, source_url, confidence:"verified"|"trend"}. No nationality-based angles.`,
-    });
+    }));
   } catch (e) { brief.notes += ` [trend role skipped: ${e.message}]`; }
 
   // Role 3 — content planner: pick the next topics not already covered
   try {
     const strike = (metrics.keywords || []).map((k) => `${k.term} (pos ${k.position})`).join('; ');
-    brief.recommended = await askJSON({
+    brief.recommended = toArr(await askJSON({
       tier: 'flagship', maxTokens: 1200,
       system: 'You are the content planner for JTE Recruit. Recommend the next employer-intent articles to write. Problem-led, never job-scope explainers. Avoid topics already covered.',
       user: `Already-covered article titles: ${titles}\n\nStriking-distance keywords (near page 1): ${strike}\n\nTimely hooks: ${JSON.stringify(brief.trends)}\n\nRecommend the next 2 articles. For each return {title, angle, target_keyword, why, timely:true|false}.`,
-    });
+    }));
   } catch (e) { brief.notes += ` [planner role skipped: ${e.message}]`; }
 
   // Roles 4-7 (writer -> fact-check -> QA -> LinkedIn): next build increment.
