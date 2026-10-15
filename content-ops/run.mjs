@@ -7,7 +7,7 @@
 // notes that the planning/writing roles are dormant until OPENAI_API_KEY is set.
 //   node content-ops/run.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
-import { hasKey, ask, askJSON } from './llm.mjs';
+import { hasKey, ask, askJSON, lastCitations } from './llm.mjs';
 import { buildArticle } from './build-article.mjs';
 import { makeHero, pickBg } from '../scripts/hero-graphic.mjs';
 import { makeGraphic } from '../scripts/graphic.mjs';
@@ -48,8 +48,21 @@ async function roles() {
     brief.trends = toArr(await askJSON({
       tier: 'flagship', web: true, maxTokens: 1200,
       system: 'You scout timely topics for a Singapore recruitment agency (JTE) that writes for EMPLOYERS. Only return items that are genuinely recent/timely and verifiable.',
-      user: `Today is ${today}. Find 4-5 timely Singapore hiring/employment hooks from the last few weeks (MOM/policy changes, grants, sector hiring surges, seasonal patterns, competitor moves by Randstad/Manpower/Links/Michael Page). For each return {hook, why_now, source_url, confidence:"verified"|"trend"}. No nationality-based angles.`,
+      user: `Today is ${today}. Find 4-5 timely Singapore hiring/employment hooks from the last few weeks (MOM/policy changes, grants, sector hiring surges, seasonal patterns, competitor moves by Randstad/Manpower/Links/Michael Page). For each return {hook, why_now, source_url, source_name, confidence:"verified"|"trend"}. source_url MUST be the exact full https:// URL of the page you found (copied from your search results), never a description; source_name is the publisher + page title. No nationality-based angles.`,
     }));
+    // Keep only real links: use the model's URL if it is one, else the best-matching
+    // web_search citation, else drop the link (the dashboard then offers a search instead).
+    const cites = lastCitations();
+    const words = (t) => new Set(String(t || '').toLowerCase().match(/[a-z0-9]{3,}/g) || []);
+    for (const t of brief.trends) {
+      const raw = String(t.source_url || '').trim();
+      if (/^https?:\/\//.test(raw)) continue;
+      if (!t.source_name) t.source_name = raw;
+      const want = words(raw + ' ' + t.hook);
+      let best = null, score = 0;
+      for (const c of cites) { const n = [...words(c.title + ' ' + c.url)].filter((w) => want.has(w)).length; if (n > score) { score = n; best = c; } }
+      t.source_url = best && score >= 2 ? best.url : '';
+    }
   } catch (e) { brief.notes += ` [trend role skipped: ${e.message}]`; }
 
   // Role 3 — content planner: pick the next topics not already covered

@@ -15,6 +15,11 @@ export const MODELS = {
 };
 export const hasKey = () => !!KEY;
 
+// URLs the web_search tool actually cited in the most recent ask() — the only links
+// we trust (models often put a description, not a URL, in a "source_url" field).
+let _cites = [];
+export const lastCitations = () => _cites;
+
 // One call. `web:true` lets the model search the web (research + fact-check roles).
 // Returns the model's text output. Throws on hard API errors (caller decides).
 export async function ask({ system, user, tier = 'flagship', web = false, maxTokens = 2000 }) {
@@ -35,6 +40,9 @@ export async function ask({ system, user, tier = 'flagship', web = false, maxTok
   });
   const j = await r.json();
   if (j.error) throw new Error('llm: ' + (j.error.message || JSON.stringify(j.error)));
+  _cites = (j.output || []).flatMap((o) => o.content || []).flatMap((c) => c.annotations || [])
+    .filter((a) => a.type === 'url_citation' && /^https?:\/\//.test(a.url || ''))
+    .map((a) => ({ url: a.url, title: a.title || '' }));
   // Responses API: prefer output_text; fall back to walking the output array.
   if (typeof j.output_text === 'string' && j.output_text.trim()) return j.output_text.trim();
   const parts = (j.output || [])
