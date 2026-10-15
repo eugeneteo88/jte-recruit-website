@@ -1,0 +1,52 @@
+name: Approve draft
+
+# The CEO approval gate. Run this to publish a held draft the Growth Engine wrote.
+# Actions tab -> "Approve draft" -> Run workflow -> paste the slug (shown on /seo).
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Article slug to approve + publish (copy from the /seo brief)'
+        required: true
+      date:
+        description: 'Publish date YYYY-MM-DD (optional — blank keeps its scheduled date)'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Un-hold the draft
+        run: node content-ops/approve.mjs
+        env:
+          SLUG: ${{ inputs.slug }}
+          DATE: ${{ inputs.date }}
+
+      - name: Rebuild blog + sitemap + work log
+        run: |
+          node scripts/build-blog.mjs
+          node build-updates.mjs
+
+      - name: Commit
+        run: |
+          git config user.name "jte-growth-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "no change" || (git commit -m "Approve draft: ${{ inputs.slug }}" && (git push || echo "push skipped"))
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          force_orphan: true
+          exclude_assets: '.github,node_modules,scripts,qa-reports,package.json,package-lock.json,tailwind.config.cjs,assets/tw-input.css,salary-data.mjs,build-salary.mjs,salary-data.json,growth-report.mjs,keyword-targets.mjs,seo-data.mjs,build-updates.mjs,content-ops,.ga-key.json'
