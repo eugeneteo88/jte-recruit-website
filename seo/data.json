@@ -1,43 +1,48 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 19754,
-    "clicks": 440,
-    "ctr": "2.2%",
-    "position": "15.4"
+    "impressions": 20164,
+    "clicks": 465,
+    "ctr": "2.3%",
+    "position": "15.2"
   },
   "trend": [
-    6066,
-    5340,
-    4986,
-    5469,
-    3959
+    6099,
+    4894,
+    5134,
+    5625,
+    4511
   ],
-  "trendChange": "▼ 35% vs a month ago",
+  "trendChange": "▼ 26% vs a month ago",
   "wow": {
-    "impressions": -28,
-    "clicks": -35,
-    "position": -0.3
+    "impressions": -20,
+    "clicks": -11,
+    "position": 0.6
   },
-  "pagesSurfacing": 64,
-  "submitted": 53,
+  "pagesSurfacing": 65,
+  "submitted": 54,
   "keywords": [
     {
-      "term": "mcp singapore",
-      "position": 9,
-      "impressions": 34
-    },
-    {
       "term": "engineer salary",
-      "position": 9,
-      "impressions": 27
+      "position": 8,
+      "impressions": 28
     },
     {
       "term": "singapore job agency whatsapp number",
+      "position": 8,
+      "impressions": 25
+    },
+    {
+      "term": "manufacturing recruiting agency",
+      "position": 8,
+      "impressions": 20
+    },
+    {
+      "term": "mcp singapore",
       "position": 9,
-      "impressions": 24
+      "impressions": 35
     },
     {
       "term": "job agent",
@@ -47,50 +52,45 @@
     {
       "term": "mid career grant",
       "position": 10,
-      "impressions": 27
+      "impressions": 29
     },
     {
       "term": "engineer salary singapore",
       "position": 12,
-      "impressions": 20
+      "impressions": 22
     },
     {
-      "term": "engineering salary",
+      "term": "healthcare recruitment agency singapore",
       "position": 12,
-      "impressions": 29
+      "impressions": 28
     },
     {
       "term": "engineering recruitment agency singapore",
       "position": 12,
-      "impressions": 84
+      "impressions": 81
+    },
+    {
+      "term": "engineering salary",
+      "position": 12,
+      "impressions": 30
     },
     {
       "term": "engineering recruiting firms",
-      "position": 12,
-      "impressions": 72
+      "position": 13,
+      "impressions": 74
     },
     {
       "term": "hire engineers",
       "position": 13,
-      "impressions": 25
-    },
-    {
-      "term": "healthcare recruitment agency singapore",
-      "position": 13,
-      "impressions": 25
-    },
-    {
-      "term": "manufacturing recruitment agencies",
-      "position": 13,
-      "impressions": 60
+      "impressions": 26
     }
   ],
   "mover": {
-    "term": "remote engineering staffing services",
-    "fromPosition": 52,
-    "toPosition": 37,
-    "deltaPosition": 14.9,
-    "imprChange": 2,
+    "term": "engineering headhunter",
+    "fromPosition": 44,
+    "toPosition": 24,
+    "deltaPosition": 19.8,
+    "imprChange": 8,
     "kind": "climb"
   },
   "sources": [
@@ -104,11 +104,11 @@
     },
     {
       "name": "AI Assistant",
-      "pct": 9
+      "pct": 8
     },
     {
       "name": "Referral",
-      "pct": 2
+      "pct": 1
     },
     {
       "name": "Organic Social",
@@ -120,11 +120,11 @@
     }
   ],
   "ai": {
-    "total": 100,
+    "total": 99,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 90
+        "sessions": 89
       },
       {
         "name": "Copilot",
@@ -135,5 +135,7 @@
         "sessions": 1
       }
     ]
-  }
+  },
+  "leads": 0,
+  "calcViews": 0
 }
