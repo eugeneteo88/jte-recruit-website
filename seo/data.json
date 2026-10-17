@@ -1,29 +1,34 @@
 {
-  "updated": "2026-10-17",
+  "updated": "2026-10-18",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 20437,
-    "clicks": 470,
+    "impressions": 19745,
+    "clicks": 460,
     "ctr": "2.3%",
-    "position": "15.4"
+    "position": "15.3"
   },
   "trend": [
-    5843,
-    5054,
-    5167,
-    5596,
-    4620
+    5938,
+    4989,
+    5249,
+    5578,
+    3929
   ],
-  "trendChange": "▼ 21% vs a month ago",
+  "trendChange": "▼ 34% vs a month ago",
   "wow": {
-    "impressions": -17,
-    "clicks": -22,
-    "position": -0.1
+    "impressions": -30,
+    "clicks": -28,
+    "position": -0.2
   },
-  "pagesSurfacing": 65,
-  "submitted": 54,
+  "pagesSurfacing": 61,
+  "submitted": 56,
   "keywords": [
+    {
+      "term": "manufacturing recruiting agency",
+      "position": 8,
+      "impressions": 20
+    },
     {
       "term": "engineer salary",
       "position": 8,
@@ -45,9 +50,9 @@
       "impressions": 21
     },
     {
-      "term": "manufacturing recruiting agency",
-      "position": 9,
-      "impressions": 21
+      "term": "mid career grant",
+      "position": 10,
+      "impressions": 30
     },
     {
       "term": "engineer salary singapore",
@@ -57,58 +62,53 @@
     {
       "term": "healthcare recruitment agency singapore",
       "position": 12,
-      "impressions": 28
+      "impressions": 27
     },
     {
       "term": "engineering salary",
       "position": 12,
-      "impressions": 30
+      "impressions": 27
     },
     {
       "term": "hire engineers",
       "position": 13,
-      "impressions": 26
-    },
-    {
-      "term": "engineering recruitment agency singapore",
-      "position": 13,
-      "impressions": 79
-    },
-    {
-      "term": "engineering recruiting firms",
-      "position": 13,
-      "impressions": 74
+      "impressions": 25
     },
     {
       "term": "manufacturing recruitment agencies",
       "position": 13,
       "impressions": 66
+    },
+    {
+      "term": "job agency singapore",
+      "position": 13,
+      "impressions": 21
     }
   ],
   "mover": {
-    "term": "headhunter singapore",
-    "fromPosition": 41,
-    "toPosition": 30,
-    "deltaPosition": 11.9,
-    "imprChange": 5,
+    "term": "remote engineering staffing services",
+    "fromPosition": 45,
+    "toPosition": 38,
+    "deltaPosition": 7.1,
+    "imprChange": 6,
     "kind": "climb"
   },
   "sources": [
     {
       "name": "Organic Search",
-      "pct": 58
+      "pct": 51
     },
     {
       "name": "Direct",
-      "pct": 30
+      "pct": 38
     },
     {
       "name": "AI Assistant",
-      "pct": 8
+      "pct": 7
     },
     {
       "name": "Referral",
-      "pct": 2
+      "pct": 1
     },
     {
       "name": "Organic Social",
@@ -120,15 +120,15 @@
     }
   ],
   "ai": {
-    "total": 94,
+    "total": 95,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 84
+        "sessions": 87
       },
       {
         "name": "Copilot",
-        "sessions": 9
+        "sessions": 7
       },
       {
         "name": "Perplexity",
