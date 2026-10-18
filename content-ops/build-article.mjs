@@ -39,7 +39,12 @@ export function buildArticle(c, date) {
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://jte.com.sg/blog/${slug}` },
   };
   const faqLD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: (c.faq || []).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
-  const schema = `    <script type="application/ld+json">${JSON.stringify(blog)}</script>\n    <script type="application/ld+json">${JSON.stringify(faqLD)}</script>\n    `;
+  const crumbLD = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jte.com.sg/' },
+    { '@type': 'ListItem', position: 2, name: 'Field Notes', item: 'https://jte.com.sg/blog/' },
+    { '@type': 'ListItem', position: 3, name: c.title, item: `https://jte.com.sg/blog/${slug}/` },
+  ] };
+  const schema = `    <script type="application/ld+json">${JSON.stringify(blog)}</script>\n    <script type="application/ld+json">${JSON.stringify(faqLD)}</script>\n    <script type="application/ld+json">${JSON.stringify(crumbLD)}</script>\n    `;
   h = h.replace('<!-- Google Analytics 4 -->', schema + '<!-- Google Analytics 4 -->');
 
   // ---- H1 ----
