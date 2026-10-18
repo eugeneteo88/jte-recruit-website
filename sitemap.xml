@@ -230,7 +230,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jte.com.sg/blog/staffing-clinic-vs-hospital-vs-nursing-home/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/first-tech-hire-non-tech-company/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/retaining-healthcare-staff-singapore/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -260,6 +272,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jte.com.sg/blog/healthcare-manpower-crunch-singapore/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/how-to-hire-a-mechanical-engineer-singapore/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -273,6 +291,12 @@
   </url>
   <url>
     <loc>https://jte.com.sg/blog/what-happens-with-a-good-recruiter/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/contract-freelance-or-full-time-developer/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -308,8 +332,32 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jte.com.sg/blog/hire-developers-or-outsource-software/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/how-to-test-if-a-developer-is-good/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/contract-staffing-payroll-one-invoice/</loc>
     <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/why-your-job-ad-gets-no-good-applicants/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/how-to-make-a-job-offer-they-wont-reject/</loc>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -320,8 +368,32 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jte.com.sg/blog/how-to-interview-an-engineer-non-technical/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/hiring-for-attitude-vs-experience/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/why-your-engineers-leave-singapore/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/contract-vs-permanent-engineers-singapore/</loc>
     <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://jte.com.sg/blog/should-you-counter-offer-engineer-singapore/</loc>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
