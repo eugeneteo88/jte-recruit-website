@@ -1,25 +1,25 @@
 {
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 20314,
-    "clicks": 476,
+    "impressions": 20370,
+    "clicks": 469,
     "ctr": "2.3%",
-    "position": "15.6"
+    "position": "15.7"
   },
   "trend": [
-    5340,
-    4986,
-    5469,
-    5541,
-    4318
+    4894,
+    5134,
+    5625,
+    5416,
+    4195
   ],
-  "trendChange": "▼ 19% vs a month ago",
+  "trendChange": "▼ 14% vs a month ago",
   "wow": {
-    "impressions": -22,
-    "clicks": -21,
-    "position": -1.5
+    "impressions": -23,
+    "clicks": -28,
+    "position": -1.2
   },
   "pagesSurfacing": 62,
   "submitted": 83,
@@ -27,17 +27,22 @@
     {
       "term": "engineer salary",
       "position": 8,
-      "impressions": 31
+      "impressions": 32
     },
     {
       "term": "cost of agency",
       "position": 8,
-      "impressions": 23
+      "impressions": 22
+    },
+    {
+      "term": "mcp singapore",
+      "position": 9,
+      "impressions": 37
     },
     {
       "term": "singapore job agency whatsapp number",
       "position": 9,
-      "impressions": 27
+      "impressions": 26
     },
     {
       "term": "job agent",
@@ -45,34 +50,29 @@
       "impressions": 20
     },
     {
-      "term": "engineer salary singapore",
-      "position": 10,
-      "impressions": 21
-    },
-    {
       "term": "engineering salary",
       "position": 11,
-      "impressions": 23
-    },
-    {
-      "term": "healthcare recruitment agency singapore",
-      "position": 11,
-      "impressions": 29
+      "impressions": 22
     },
     {
       "term": "employer brand agency singapore",
-      "position": 12,
-      "impressions": 38
+      "position": 11,
+      "impressions": 39
     },
     {
-      "term": "engineering recruiting firms",
-      "position": 13,
-      "impressions": 69
+      "term": "healthcare recruitment agency singapore",
+      "position": 12,
+      "impressions": 30
     },
     {
       "term": "hire engineers",
       "position": 13,
       "impressions": 26
+    },
+    {
+      "term": "engineering recruiting firms",
+      "position": 13,
+      "impressions": 68
     },
     {
       "term": "engineering recruitment agency singapore",
@@ -82,15 +82,15 @@
     {
       "term": "manufacturing recruitment agencies",
       "position": 15,
-      "impressions": 64
+      "impressions": 66
     }
   ],
   "mover": {
-    "term": "funding for hires",
-    "fromPosition": 33,
-    "toPosition": 25,
-    "deltaPosition": 8.3,
-    "imprChange": 1,
+    "term": "grants for hiring",
+    "fromPosition": 45,
+    "toPosition": 32,
+    "deltaPosition": 13.1,
+    "imprChange": 0,
     "kind": "climb"
   },
   "sources": [
@@ -120,11 +120,11 @@
     }
   ],
   "ai": {
-    "total": 104,
+    "total": 103,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 100
+        "sessions": 99
       },
       {
         "name": "Copilot",
