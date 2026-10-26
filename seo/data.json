@@ -1,27 +1,27 @@
 {
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 21578,
-    "clicks": 468,
-    "ctr": "2.2%",
-    "position": "16.1"
+    "impressions": 21653,
+    "clicks": 459,
+    "ctr": "2.1%",
+    "position": "16.2"
   },
   "trend": [
-    4962,
-    5248,
-    5660,
-    5152,
-    5518
+    4991,
+    5313,
+    5761,
+    5132,
+    5447
   ],
-  "trendChange": "▲ +11% vs a month ago",
+  "trendChange": "▲ +9% vs a month ago",
   "wow": {
-    "impressions": 7,
-    "clicks": -32,
+    "impressions": 6,
+    "clicks": -36,
     "position": -1
   },
-  "pagesSurfacing": 68,
+  "pagesSurfacing": 71,
   "submitted": 83,
   "keywords": [
     {
@@ -30,24 +30,19 @@
       "impressions": 21
     },
     {
-      "term": "cost of agency",
+      "term": "employer brand agency singapore",
       "position": 9,
-      "impressions": 22
+      "impressions": 45
     },
     {
-      "term": "engineer salary singapore",
+      "term": "cost of agency",
       "position": 9,
       "impressions": 23
     },
     {
-      "term": "employer brand agency singapore",
-      "position": 10,
-      "impressions": 47
-    },
-    {
-      "term": "job agent",
-      "position": 12,
-      "impressions": 21
+      "term": "engineer salary singapore",
+      "position": 9,
+      "impressions": 28
     },
     {
       "term": "healthcare recruitment agency singapore",
@@ -56,18 +51,18 @@
     },
     {
       "term": "engineering recruiting firms",
-      "position": 12,
-      "impressions": 69
+      "position": 13,
+      "impressions": 68
     },
     {
       "term": "hire engineers",
       "position": 13,
-      "impressions": 23
+      "impressions": 22
     },
     {
-      "term": "engineering recruitment agency singapore",
-      "position": 15,
-      "impressions": 67
+      "term": "job agent",
+      "position": 14,
+      "impressions": 20
     },
     {
       "term": "how to hire engineers",
@@ -75,9 +70,14 @@
       "impressions": 36
     },
     {
+      "term": "engineering recruitment agency singapore",
+      "position": 16,
+      "impressions": 69
+    },
+    {
       "term": "job agency singapore",
       "position": 16,
-      "impressions": 24
+      "impressions": 25
     },
     {
       "term": "job recruitment",
@@ -86,17 +86,17 @@
     }
   ],
   "mover": {
-    "term": "hr recruitment agency",
-    "fromPosition": 28,
-    "toPosition": 16,
-    "deltaPosition": 11.3,
-    "imprChange": 7,
+    "term": "it recruitment",
+    "fromPosition": 27,
+    "toPosition": 19,
+    "deltaPosition": 8,
+    "imprChange": 0,
     "kind": "climb"
   },
   "sources": [
     {
       "name": "Direct",
-      "pct": 47
+      "pct": 48
     },
     {
       "name": "Organic Search",
@@ -113,14 +113,18 @@
     {
       "name": "Referral",
       "pct": 1
+    },
+    {
+      "name": "Unassigned",
+      "pct": 1
     }
   ],
   "ai": {
-    "total": 117,
+    "total": 121,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 116
+        "sessions": 120
       },
       {
         "name": "Perplexity",
