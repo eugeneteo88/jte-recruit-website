@@ -124,9 +124,9 @@
       <span class="eyebrow">IT &amp; Tech Recruitment</span>
       <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-4 mb-6 leading-[1.1]">IT &amp; tech recruitment agency in Singapore</h1>
       <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed mb-8 max-w-xl">JTE Recruit (MOM EA Licence 14C7215) is a Singapore recruitment agency that hires for IT and tech employers &mdash; from IT support and helpdesk to system, software and application engineers, with senior, specialist and AI/data hires on demand. Since 2014 we&rsquo;ve made 21,000+ placements for 500+ companies, pairing advisory-led hiring with fast delivery for permanent, contract and payroll needs.</p>
-      <div class="flex flex-wrap gap-4">
-        <a href="/contact" class="btn-primary px-8 py-3.5 rounded-md text-sm font-semibold tracking-wide">Hire tech talent</a>
-        <a href="/services" class="btn-ghost px-8 py-3.5 rounded-md text-sm font-semibold tracking-wide">Explore all services</a>
+      <div class="flex gap-3 sm:flex-wrap sm:gap-4">
+        <a href="/contact" class="btn-primary flex-1 sm:flex-none text-center px-4 sm:px-8 py-3.5 rounded-md text-[13px] sm:text-sm font-semibold tracking-wide whitespace-nowrap">Hire tech talent</a>
+        <a href="/services" class="btn-ghost flex-1 sm:flex-none text-center px-4 sm:px-8 py-3.5 rounded-md text-[13px] sm:text-sm font-semibold tracking-wide whitespace-nowrap">Explore all services</a>
       </div>
     </div>
     <div class="relative">
@@ -284,9 +284,35 @@
 
 <section class="py-20 px-6 md:px-12" style="background:#F3ECDE;">
   <div class="max-w-2xl mx-auto text-center">
-    <h2 class="font-serif text-3xl md:text-4xl mb-5">Need to hire IT &amp; tech talent?</h2>
+    <span class="eyebrow">For employers hiring</span>
+    <h2 class="font-serif text-3xl md:text-4xl mt-3 mb-5">Need to hire IT &amp; tech talent?</h2>
     <p class="text-gray-600 leading-relaxed mb-9 font-light">Tell us the role and how you&rsquo;d like to engage &mdash; permanent, contract or payroll. No obligations &mdash; just a straight conversation with recruiters who understand the brief. Hiring? See our <a href="/employers" class="text-luxury-goldDark hover-gold-line">employer services</a> or the <a href="/salary-guide" class="text-luxury-goldDark hover-gold-line">salary guide</a>.</p>
-    <a href="/contact" class="btn-primary inline-block px-10 py-4 rounded-md text-sm font-semibold tracking-wide">Start the conversation</a>
+    <div id="hq-success" class="hq-msg">&#10003; Thanks &mdash; we&rsquo;ll be in touch within 24 hours.</div>
+    <form id="hq-form" action="https://api.web3forms.com/submit" method="POST" class="text-left max-w-xl mx-auto">
+      <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
+      <input type="hidden" name="subject" value="New hiring enquiry &mdash; IT and Tech (sector page)">
+      <input type="checkbox" name="botcheck" style="display:none">
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
+        <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
+      </div>
+      <input type="text" name="company_role" class="hq-fld" placeholder="Company and the role you&rsquo;re hiring for" required aria-label="Company and role" style="margin-bottom:1.25rem">
+      <button type="submit" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-xs flex items-center justify-center gap-2 rounded-md">
+        Get my hiring quote
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+      <p class="text-[11px] text-gray-500 text-center mt-3 leading-relaxed"><b class="text-[#8C7350]">Employers only.</b> By submitting you agree to our <a href="/privacy" class="underline hover:text-luxury-goldDark">Privacy Policy</a>. Looking for a job? We don&rsquo;t take applications here.</p>
+    </form>
+    <style>
+      .hq-fld{width:100%;background:#fff;border:1px solid #e0d6c3;border-radius:8px;padding:.85rem 1rem;font-size:.92rem;color:#241B12;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+      .hq-fld::placeholder{color:#9a9186}
+      .hq-fld:focus{outline:none;border-color:#C6A87C;box-shadow:0 0 0 3px rgba(198,168,124,.18)}
+      .hq-msg{display:none;background:rgba(63,125,90,.10);border:1px solid #9cc3ad;border-radius:8px;color:#2f6b49;padding:.9rem 1rem;margin-bottom:1.2rem;font-size:.9rem;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto}
+      .hq-msg.show{display:block}
+    </style>
+    <script>
+      (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');msg.scrollIntoView({behavior:'smooth',block:'center'});if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'sector_it'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+    </script>
   </div>
 </section>
 
