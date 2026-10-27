@@ -271,7 +271,7 @@
       try{
         var res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         if(res.ok){
-          success.classList.add('show');form.reset();btn.innerHTML='Message Sent';
+          success.classList.add('show');form.reset();if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'contact'});btn.innerHTML='Message Sent';
           success.scrollIntoView({behavior:'smooth',block:'center'});
           setTimeout(function(){success.classList.remove('show');btn.disabled=false;btn.innerHTML=original;},6000);
         }else{throw new Error('fail');}

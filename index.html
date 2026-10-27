@@ -1912,6 +1912,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         if (response.ok) {
             successMsg.classList.add('show');
             form.reset();
+            if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'home'});
             btnText.textContent = 'Message Sent';
             btnLoader.classList.add('hidden');
             btnIcon.classList.remove('hidden');
