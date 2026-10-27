@@ -1,34 +1,29 @@
 {
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 21653,
-    "clicks": 459,
-    "ctr": "2.1%",
-    "position": "16.2"
+    "impressions": 22036,
+    "clicks": 450,
+    "ctr": "2.0%",
+    "position": "16.4"
   },
   "trend": [
-    4991,
-    5313,
-    5761,
-    5132,
-    5447
+    4929,
+    5453,
+    5617,
+    5094,
+    5872
   ],
-  "trendChange": "▲ +9% vs a month ago",
+  "trendChange": "▲ +19% vs a month ago",
   "wow": {
-    "impressions": 6,
-    "clicks": -36,
+    "impressions": 15,
+    "clicks": -35,
     "position": -1
   },
-  "pagesSurfacing": 71,
+  "pagesSurfacing": 73,
   "submitted": 83,
   "keywords": [
-    {
-      "term": "engineering recruitment agencies in singapore",
-      "position": 8,
-      "impressions": 21
-    },
     {
       "term": "employer brand agency singapore",
       "position": 9,
@@ -37,12 +32,12 @@
     {
       "term": "cost of agency",
       "position": 9,
-      "impressions": 23
+      "impressions": 24
     },
     {
       "term": "engineer salary singapore",
       "position": 9,
-      "impressions": 28
+      "impressions": 29
     },
     {
       "term": "healthcare recruitment agency singapore",
@@ -51,8 +46,8 @@
     },
     {
       "term": "engineering recruiting firms",
-      "position": 13,
-      "impressions": 68
+      "position": 12,
+      "impressions": 67
     },
     {
       "term": "hire engineers",
@@ -67,12 +62,7 @@
     {
       "term": "how to hire engineers",
       "position": 15,
-      "impressions": 36
-    },
-    {
-      "term": "engineering recruitment agency singapore",
-      "position": 16,
-      "impressions": 69
+      "impressions": 37
     },
     {
       "term": "job agency singapore",
@@ -80,27 +70,37 @@
       "impressions": 25
     },
     {
-      "term": "job recruitment",
+      "term": "engineering recruitment agency singapore",
       "position": 16,
-      "impressions": 24
+      "impressions": 65
+    },
+    {
+      "term": "ict recruitment",
+      "position": 17,
+      "impressions": 57
+    },
+    {
+      "term": "it contract recruitment",
+      "position": 17,
+      "impressions": 41
     }
   ],
   "mover": {
-    "term": "it recruitment",
-    "fromPosition": 27,
-    "toPosition": 19,
-    "deltaPosition": 8,
-    "imprChange": 0,
+    "term": "hr recruitment agency",
+    "fromPosition": 28,
+    "toPosition": 16,
+    "deltaPosition": 11.6,
+    "imprChange": 6,
     "kind": "climb"
   },
   "sources": [
     {
       "name": "Direct",
-      "pct": 48
+      "pct": 47
     },
     {
       "name": "Organic Search",
-      "pct": 42
+      "pct": 41
     },
     {
       "name": "AI Assistant",
@@ -120,11 +120,11 @@
     }
   ],
   "ai": {
-    "total": 121,
+    "total": 125,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 120
+        "sessions": 124
       },
       {
         "name": "Perplexity",
