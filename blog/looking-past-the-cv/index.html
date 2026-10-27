@@ -210,6 +210,55 @@
         <p style="text-align:center; margin-top:1.5rem">
             <a href="/contact" class="btn-pill inline-block px-8 py-3.5 rounded-md text-xs uppercase tracking-wider font-semibold" style="text-decoration:none">Let's talk hiring</a>
         </p>
+        <!-- RELATED:START -->
+        <div style="background:#F3ECDE;border-radius:16px;padding:2rem 1.5rem;margin:2.5rem 0;text-align:center">
+          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers hiring</p>
+          <h3 class="font-serif" style="font-size:1.5rem;color:#241B12;margin:.5rem 0 .4rem;line-height:1.2">Hiring for a role like this?</h3>
+          <p style="color:#6b6358;font-size:.92rem;font-weight:300;line-height:1.6;max-width:30rem;margin:0 auto 1.3rem">Tell us the role and we&rsquo;ll come back within 24 hours with who we&rsquo;d put forward and what it costs &mdash; no obligation.</p>
+          <div id="hq-success" class="hq-msg">&#10003; Thanks &mdash; we&rsquo;ll be in touch within 24 hours.</div>
+          <form id="hq-form" action="https://api.web3forms.com/submit" method="POST" style="max-width:30rem;margin:0 auto;text-align:left">
+            <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
+            <input type="hidden" name="subject" value="New hiring enquiry &mdash; blog: looking-past-the-cv">
+            <input type="checkbox" name="botcheck" style="display:none">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-bottom:.6rem">
+              <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
+              <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
+            </div>
+            <input type="text" name="company_role" class="hq-fld" placeholder="Company and the role you&rsquo;re hiring for" required aria-label="Company and role" style="margin-bottom:.9rem">
+            <button type="submit" class="btn-pill" style="display:block;width:100%;padding:.95rem;border:none;border-radius:8px;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer">Get my hiring quote</button>
+            <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Looking for a job? We don&rsquo;t take applications here.</p>
+          </form>
+        </div>
+        <style>
+          .hq-fld{width:100%;background:#fff;border:1px solid #e0d6c3;border-radius:8px;padding:.8rem .9rem;font-size:.9rem;color:#241B12;font-family:inherit;transition:border-color .2s,box-shadow .2s}
+          .hq-fld::placeholder{color:#9a9186}
+          .hq-fld:focus{outline:none;border-color:#C6A87C;box-shadow:0 0 0 3px rgba(198,168,124,.18)}
+          .hq-msg{display:none;background:rgba(63,125,90,.10);border:1px solid #9cc3ad;border-radius:8px;color:#2f6b49;padding:.8rem;margin-bottom:1rem;font-size:.88rem;text-align:center}
+          .hq-msg.show{display:block}
+        </style>
+        <script>
+          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'looking-past-the-cv'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+        </script>
+        <div class="border-t border-black/10 pt-10">
+          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Keep reading</p>
+          <div class="grid sm:grid-cols-2 gap-6 mt-5">
+          <a href="/blog/employment-pass-compass-changes-2026/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+            <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">Employer Guide</span>
+            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">The Employment Pass keeps getting more expensive. Here&rsquo;s how to plan for 2027</h3>
+            <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          <a href="/blog/how-to-hire-engineers-in-singapore-guide/" class="group block bg-white rounded-xl border border-black/5 shadow-[0_14px_40px_-28px_rgba(60,45,25,.5)] p-6 hover:shadow-[0_22px_50px_-26px_rgba(60,45,25,.55)] transition-shadow">
+            <span class="text-luxury-goldDark text-[11px] uppercase tracking-[0.15em] font-medium">Employer Guide</span>
+            <h3 class="font-serif text-lg leading-snug text-luxury-black mt-2 group-hover:text-luxury-goldDark transition-colors">How to hire engineers in Singapore: the complete employer&rsquo;s guide</h3>
+            <span class="inline-flex items-center gap-1.5 text-luxury-goldDark text-xs font-medium uppercase tracking-[0.12em] mt-4 group-hover:gap-3 transition-all">Read the article
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </a>
+          </div>
+        </div>
+        <!-- RELATED:END -->
     </main>
 
         <aside class="max-w-3xl mx-auto px-6 pb-16 fn-disclaimer">
