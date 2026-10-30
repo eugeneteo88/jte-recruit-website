@@ -34,8 +34,8 @@ export function buildArticle(c, date) {
   const blog = {
     '@context': 'https://schema.org', '@type': 'BlogPosting', headline: c.title, description: c.metaDescription,
     datePublished: date, dateModified: date,
-    author: { '@type': 'Person', name: 'Eugene Teo', jobTitle: 'Co-Founder', worksFor: { '@type': 'Organization', name: 'JTE Recruit' }, url: 'https://www.linkedin.com/in/teoeugene', sameAs: ['https://www.linkedin.com/in/teoeugene'] },
-    publisher: { '@type': 'Organization', name: 'JTE Recruit', logo: { '@type': 'ImageObject', url: 'https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png' } },
+    author: { '@type': 'Person', name: 'Eugene Teo', jobTitle: 'Co-Founder', worksFor: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd' }, url: 'https://www.linkedin.com/in/teoeugene', sameAs: ['https://www.linkedin.com/in/teoeugene'] },
+    publisher: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd', logo: { '@type': 'ImageObject', url: 'https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png' } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://jte.com.sg/blog/${slug}` },
   };
   const faqLD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: (c.faq || []).map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
