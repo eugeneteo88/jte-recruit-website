@@ -16,6 +16,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
 jobs:
   approve:
     runs-on: ubuntu-latest
