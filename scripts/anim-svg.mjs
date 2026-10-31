@@ -32,25 +32,30 @@ export function animBars({ title, subtitle = '', bars, label }) {
   return frame(title, subtitle, inner, label);
 }
 
-// Horizontal step flow. steps:[string] (keep short)
+// Vertical step timeline — numbered cards stacked, connected by a line. Reads well on
+// mobile (scales to width, stays tall) and never crams boxes across. steps:[string].
 export function animSteps({ title, subtitle = '', steps, label }) {
-  const n = steps.length, x0 = 150, x1 = 1450, span = x1 - x0;
-  const bw = Math.min(300, span / n - 40), gap = n > 1 ? (span - bw * n) / (n - 1) : 0;
-  const y = 250, h = 160;
-  let out = '';
+  const n = steps.length, VW = 1280;
+  const topH = title ? (subtitle ? 190 : 150) : 40;
+  const rowH = 172, H = topH + n * rowH + 30;
+  const numX = 104, numR = 40, cardX = 184, cardR = VW - 60;
+  const yAt = (i) => topH + i * rowH + rowH / 2;
+  let out = `<rect width="${VW}" height="${H}" rx="22" fill="${CREAM}"/>`;
+  if (title) out += `<text x="60" y="80" font-family="Georgia,serif" font-size="42" fill="${INK}">${esc(title)}</text>`;
+  if (subtitle) out += `<text x="60" y="124" font-family="Arial,Helvetica,sans-serif" font-size="25" fill="${MUT}">${esc(subtitle)}</text>`;
+  // connector behind the number circles
+  out += `<line x1="${numX}" y1="${yAt(0)}" x2="${numX}" y2="${yAt(n - 1)}" stroke="${GOLD}" stroke-opacity="0.45" stroke-width="5"/>`;
   steps.forEach((s, i) => {
-    const x = Math.round(x0 + i * (bw + gap)), begin = (i * 0.45).toFixed(2);
-    const words = String(s).split(' '); const mid = Math.ceil(words.length / 2);
-    const l1 = words.length > 3 ? words.slice(0, mid).join(' ') : s;
-    const l2 = words.length > 3 ? words.slice(mid).join(' ') : '';
-    out += `<g opacity="1"><animate attributeName="opacity" values="0;1;1" keyTimes="0;0.25;1" dur="4.5s" begin="${begin}s" fill="freeze"/>` +
-      `<rect x="${x}" y="${y}" width="${Math.round(bw)}" height="${h}" rx="14" fill="#ffffff" stroke="${GOLD}" stroke-width="2"/>` +
-      `<circle cx="${x + 36}" cy="${y + 36}" r="21" fill="${GOLD}"/><text x="${x + 36}" y="${y + 44}" font-family="Georgia,serif" font-size="24" fill="#fff" text-anchor="middle">${i + 1}</text>` +
-      `<text x="${Math.round(x + bw / 2)}" y="${y + (l2 ? 96 : 108)}" font-family="Arial,sans-serif" font-size="23" fill="${INK}" text-anchor="middle">${esc(l1)}</text>` +
-      (l2 ? `<text x="${Math.round(x + bw / 2)}" y="${y + 124}" font-family="Arial,sans-serif" font-size="23" fill="${INK}" text-anchor="middle">${esc(l2)}</text>` : '') + `</g>`;
-    if (i < n - 1) { const ax = Math.round(x + bw + gap / 2); out += `<text x="${ax}" y="${y + h / 2 + 12}" font-family="Arial,sans-serif" font-size="44" fill="${GOLD}" text-anchor="middle">&#8594;</text>`; }
+    const y = yAt(i), begin = (i * 0.4).toFixed(2);
+    const words = String(s).split(' '); let l1 = s, l2 = '';
+    if (s.length > 34) { const mid = Math.ceil(words.length / 2); l1 = words.slice(0, mid).join(' '); l2 = words.slice(mid).join(' '); }
+    out += `<g opacity="1"><animate attributeName="opacity" values="0;1" dur="0.7s" begin="${begin}s" fill="freeze"/>` +
+      `<rect x="${cardX}" y="${y - 58}" width="${cardR - cardX}" height="116" rx="16" fill="#ffffff" stroke="${GOLD}" stroke-width="2"/>` +
+      `<circle cx="${numX}" cy="${y}" r="${numR}" fill="${GOLD}"/><text x="${numX}" y="${y + 13}" font-family="Georgia,serif" font-size="36" fill="#fff" text-anchor="middle">${i + 1}</text>` +
+      `<text x="${cardX + 44}" y="${y + (l2 ? -4 : 12)}" font-family="Arial,Helvetica,sans-serif" font-size="33" fill="${INK}">${esc(l1)}</text>` +
+      (l2 ? `<text x="${cardX + 44}" y="${y + 38}" font-family="Arial,Helvetica,sans-serif" font-size="33" fill="${INK}">${esc(l2)}</text>` : '') + `</g>`;
   });
-  return frame(title, subtitle, out, label);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${VW} ${H}" width="100%" height="auto" style="display:block;border-radius:14px" role="img" aria-label="${attr(label || title)}">${out}</svg>`;
 }
 
 // A big number/word that fades in.

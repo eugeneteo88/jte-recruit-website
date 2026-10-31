@@ -11,6 +11,32 @@ const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
 function wrap(t,max){const w=String(t).split(' ');const L=[];let c='';for(const x of w){if((c+' '+x).trim().length>max){if(c)L.push(c);c=x;}else c=(c+' '+x).trim();}if(c)L.push(c);return L;}
 
 const W=1600,H=900,GOLD='#C6A87C',CREAM='#F5F1E8',MUT='#b9ad99';
+const INK='#241B12',GOLDINK='#8C7350',LINEC='#e3dac9',MUTC='#8a8175';
+const deDash=s=>String(s==null?'':s).replace(/\s*(?:&mdash;|&#8212;|—)\s*/g,', ').replace(/\s+,/g,',').replace(/,\s*,/g,',').replace(/,\s{2,}/g,', ');
+
+// Cream, full-width checklist — matches the animated SVG graphics. Dynamic height so it never
+// leaves a big empty void. Big rows, gold check icons, hairline dividers, JTE mark.
+function listGraphicCream({eyebrow,title,items}){
+  items=(items||[]).map(deDash);
+  const n=items.length, headH=258, rowH=138, H2=headH+n*rowH+56;
+  const tl=wrap(title,30).slice(0,2);
+  let s=`<rect width="${W}" height="${H2}" rx="24" fill="${CREAM}"/>`;
+  s+=`<text x="100" y="92" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="${GOLDINK}" letter-spacing="5">${esc((eyebrow||'IN BRIEF').toUpperCase())}</text>`;
+  s+=`<rect x="100" y="116" width="72" height="4" fill="${GOLD}"/>`;
+  s+=tl.map((ln,i)=>`<text x="100" y="${190+i*60}" font-family="Georgia,serif" font-size="56" fill="${INK}">${esc(ln)}</text>`).join('');
+  items.forEach((it,i)=>{
+    const y=headH+i*rowH+rowH/2;
+    s+=`<circle cx="142" cy="${y}" r="27" fill="${GOLD}"/>`;
+    s+=`<path d="M127 ${y} l11 12 l19 -23" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const lines=wrap(it,42).slice(0,2);
+    const sy=y+(lines.length>1?-7:12);
+    lines.forEach((ln,j)=>{ s+=`<text x="204" y="${sy+j*42}" font-family="Arial,Helvetica,sans-serif" font-size="37" fill="${INK}">${esc(ln)}</text>`; });
+    if(i<n-1) s+=`<line x1="100" y1="${headH+(i+1)*rowH}" x2="1500" y2="${headH+(i+1)*rowH}" stroke="${LINEC}" stroke-width="2"/>`;
+  });
+  s+=`<text x="1500" y="${H2-42}" text-anchor="end" font-family="Georgia,serif" font-size="30" fill="${GOLDINK}" letter-spacing="2">JTE</text>`;
+  s+=`<text x="1500" y="${H2-20}" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="${MUTC}" letter-spacing="6">RECRUIT</text>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H2}" viewBox="0 0 ${W} ${H2}">${s}</svg>`;
+}
 const defs=`<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#241B12"/><stop offset="0.6" stop-color="#1d160e"/><stop offset="1" stop-color="#120d08"/></linearGradient></defs>`;
 const head=(eyebrow,title)=>{
   const tl=wrap(title,34).slice(0,2);
@@ -64,11 +90,14 @@ function tracksSvg(items){
 }
 
 export async function makeGraphic({type,eyebrow,title,items,out}){
-  let inner='';
-  if(type==='steps') inner=stepsSvg(items);
-  else if(type==='list') inner=listSvg(items);
-  else if(type==='tracks') inner=tracksSvg(items);
-  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${defs}${head(eyebrow,title)}${inner}</svg>`;
+  let svg;
+  if(type==='list'){ svg=listGraphicCream({eyebrow,title,items}); }
+  else {
+    let inner='';
+    if(type==='steps') inner=stepsSvg(items);
+    else if(type==='tracks') inner=tracksSvg(items);
+    svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${defs}${head(eyebrow,title)}${inner}</svg>`;
+  }
   await sharp(Buffer.from(svg)).jpeg({quality:88}).toFile(out);
   return out;
 }
