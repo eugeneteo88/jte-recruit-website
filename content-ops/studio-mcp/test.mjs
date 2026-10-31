@@ -1,0 +1,17 @@
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
+import { fileURLToPath } from 'node:url'; import { dirname, join } from 'node:path';
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const transport = new StdioClientTransport({ command: 'node', args: [join(__dirname,'server.mjs')] });
+const client = new Client({ name: 'probe', version: '1' }, { capabilities: {} });
+await client.connect(transport);
+const tools = await client.listTools();
+console.log('TOOLS:', tools.tools.map(t=>t.name).join(', '));
+const sp = await client.callTool({ name:'spend_status', arguments:{} });
+console.log('spend_status ->', sp.content[0].text.replace(/\s+/g,' '));
+const an = await client.callTool({ name:'make_animation', arguments:{ kind:'bars', title:'Test', bars:[{label:'A',val:10},{label:'B',val:30,emphasis:true}] } });
+console.log('make_animation -> svg bytes:', an.content[0].text.length, '| starts:', an.content[0].text.slice(0,32));
+const dr = await client.callTool({ name:'design_reference', arguments:{} });
+console.log('design_reference -> chars:', dr.content[0].text.length, '| first line:', dr.content[0].text.split('\n')[0]);
+await client.close();
+console.log('ALL OK');

@@ -1,3 +1,5 @@
 node_modules/
 .DS_Store
 .ga-key.json
+content-ops/image-spend.json
+content-ops/studio-mcp/node_modules/

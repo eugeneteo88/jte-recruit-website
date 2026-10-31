@@ -1,0 +1,12 @@
+{
+  "name": "jte-studio-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "JTE content studio — MCP server exposing the article visual/assembly toolbox",
+  "bin": { "jte-studio-mcp": "server.mjs" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.8"
+  }
+}
