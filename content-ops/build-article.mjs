@@ -65,9 +65,20 @@ export function buildArticle(c, date) {
   const hero = `<figure class="mb-10"><img src="hero.jpg" alt="${attr(c.heroAlt || c.title)}" class="w-full rounded-xl" style="aspect-ratio:1600/820;" loading="eager" width="1600" height="820"></figure>`;
   const graphic = `<figure class="mb-10"><img src="graphic-1.jpg" alt="${attr(c.graphic?.title || c.title)}" class="w-full rounded-xl" loading="lazy" width="1600" height="900"></figure>`;
   const lead = (Array.isArray(c.lead) ? c.lead : [c.lead]).filter(Boolean).map((p) => `<p>${linkify(p)}</p>`).join('\n        ');
+  // Per-section media: a free-form mix of photos / graphics / animations. Each section
+  // may carry media:[{type:'image'|'graphic'|'animation', src|html, alt, caption}]. Set
+  // autoGraphic:false to suppress the default single graphic after section 0.
+  const renderMedia = (m) => {
+    const cap = m.caption ? `<figcaption style="text-align:center;font-size:.85rem;color:#8a8175;margin-top:.7rem;font-style:italic">${esc(m.caption)}</figcaption>` : '';
+    if (m.type === 'animation') return `<figure class="my-10">${m.html || ''}${cap}</figure>`;
+    const dims = m.w ? ` width="${m.w}" height="${m.h}"` : '';
+    return `<figure class="my-10"><img src="${attr(m.src)}" alt="${attr(m.alt || c.title)}" class="w-full rounded-xl" loading="lazy"${dims}>${cap}</figure>`;
+  };
   const secHtml = (c.sections || []).map((s, i) => {
     const body = (s.paras || []).map((p) => `<p>${linkify(p)}</p>`).join('\n        ');
-    return `<h2>${esc(s.h2)}</h2>\n        ${body}${i === 0 ? '\n\n        ' + graphic : ''}`;
+    const auto = (i === 0 && c.autoGraphic !== false) ? '\n\n        ' + graphic : '';
+    const media = (s.media || []).map(renderMedia).join('\n\n        ');
+    return `<h2>${esc(s.h2)}</h2>\n        ${body}${auto}${media ? '\n\n        ' + media : ''}`;
   }).join('\n\n        ');
   const callout = c.callout ? `\n\n        <div class="callout"><p><strong>The takeaway</strong> ${linkify(c.callout)}</p></div>` : '';
   const faqRows = (c.faq || []).map((f) => `<details class="faq"><summary>${esc(f.q)}</summary><div class="faq-a"><p>${esc(f.a)}</p></div></details>`).join('\n        ');

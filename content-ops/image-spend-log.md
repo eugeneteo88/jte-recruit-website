@@ -18,4 +18,6 @@ Record every generation run below: date, what it was for, how many images, est. 
 | 2026-10-31 | Face-based hero samples with Eugene's likeness (why-first-year, lessons) | 2 | 0.08 |
 | 2026-10-31 | 3 more face heroes live (hire-HR-or-not, admin-nobody, temp-HR) | 3 | 0.12 |
 
-**October 2026 total: ~US$0.72** (cap US$20).
+| 2026-10-31 | Showcase inline photo (project-staffing article rich-media mix) | 1 | 0.04 |
+
+**October 2026 total: ~US$0.76** (cap US$20).
