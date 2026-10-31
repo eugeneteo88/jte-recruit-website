@@ -49,6 +49,8 @@ export function buildArticle(c, date) {
 
   // ---- H1 ----
   h = h.replace(/(<h1 class="font-serif[^"]*">)[\s\S]*?(<\/h1>)/, `$1${esc(c.h1)}$2`);
+  // dek (the italic subtitle under the H1) — the template's must be replaced or it leaks through
+  h = h.replace(/(<p class="dek[^"]*">)[\s\S]*?(<\/p>)/, `$1${esc(c.dek || c.metaDescription)}$2`);
 
   // ---- main body ----
   const links = {}; for (const l of (c.crossLinks || [])) links[l.anchor] = l.slug;
