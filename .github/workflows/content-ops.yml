@@ -43,7 +43,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MODEL_FLAGSHIP: ${{ vars.MODEL_FLAGSHIP }}
           MODEL_MINI: ${{ vars.MODEL_MINI }}
-          WRITE_N: '1'   # drafts per run — 1 Mon + 1 Thu = 2/week. Bump once quality is proven.
+          WRITE_N: '2'   # drafts per run — 2 Mon + 2 Thu = 4/week (Eugene's target). Fact-check + CEO approval gate protect quality.
 
       - name: Rebuild blog + work log (held drafts stay held)
         run: |
