@@ -41,6 +41,15 @@ visuals (an animated chart/flow/stat, plus the occasional photo). Match count to
   `image-spend-log.md`. Graphics + animations are free; only Gemini photos cost (~$0.04 each).
 - Re-compositing an overlay / regenerating an SVG graphic on existing photos = $0.
 
+## Updating a published article (newspaper style)
+When info changes (regulation change, new figures, better angle), **update the existing
+article — never publish a duplicate.** Edit the content in place, then set `"updated":
+"YYYY-MM-DD"` on that post in `blog/posts.json` and rebuild. The byline then shows two rows,
+**Updated &lt;date&gt;** (gold) on top and **Published &lt;date&gt;** below, and the JSON-LD
+`dateModified` bumps to the updated date (tells Google it's fresh). The original `date`
+(published) never changes. Only stamp `updated` for real content/info changes, not cosmetic
+tweaks. Mechanism lives in `scripts/build-blog.mjs` (idempotent across rebuilds).
+
 ## Mobile first
 Render checks at phone width. Wide SVGs must keep text large enough to read when scaled down;
 prefer vertical layouts for sequences (see animSteps).

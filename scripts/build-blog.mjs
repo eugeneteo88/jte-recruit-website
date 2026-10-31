@@ -174,10 +174,14 @@ for (const post of POSTS) {
   try { html = readFileSync(fp, 'utf8'); } catch { continue; }
   // posts.json is the single source of truth for dates — stamp the byline date + read time and the JSON-LD
   // dates from it, so reordering the queue never leaves a hand-typed date behind (no more drift).
-  html = html.replace(
-    /(<p class="text-gray-500 text-xs mt-0\.5">[^<]*?&middot; )[^<]*(<\/p>)/,
-    `$1${fmtDate(post.date)} &middot; ${post.readTime}$2`
-  );
+  // Byline date. Newspaper-style: if the post has been revised (post.updated set), show two
+  // rows — "Updated <date>" on top, "Published <date>" below — instead of a new article.
+  // Regex also consumes any previously-stamped Updated/Published rows so rebuilds stay idempotent.
+  const dateRe = /(<p class="text-gray-500 text-xs mt-0\.5">[^<]*?&middot; )[^<]*<\/p>(?:\s*<p[^>]*>Updated[^<]*<\/p>\s*<p[^>]*>Published[^<]*<\/p>)?/;
+  const dateRepl = post.updated
+    ? `$1${post.readTime}</p>\n                    <p class="text-xs mt-1" style="color:#8C7350;font-weight:600">Updated ${fmtDate(post.updated)}</p>\n                    <p class="text-gray-400 text-[11px]">Published ${fmtDate(post.date)}</p>`
+    : `$1${fmtDate(post.date)} &middot; ${post.readTime}</p>`;
+  html = html.replace(dateRe, dateRepl);
   html = html.replace(/"datePublished":\s*"\d{4}-\d{2}-\d{2}"/, `"datePublished":"${post.date}"`);
   html = html.replace(/"dateModified":\s*"\d{4}-\d{2}-\d{2}"/, `"dateModified":"${post.updated || post.date}"`);
   // Index a post only once it is actually live; keep held posts (draft or future-dated)
