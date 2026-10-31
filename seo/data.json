@@ -1,27 +1,27 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-01",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 22377,
-    "clicks": 448,
+    "impressions": 23433,
+    "clicks": 464,
     "ctr": "2.0%",
-    "position": "16.2"
+    "position": "16.0"
   },
   "trend": [
     5249,
     5578,
     5195,
     6068,
-    5536
+    6592
   ],
-  "trendChange": "▲ +5% vs a month ago",
+  "trendChange": "▲ +26% vs a month ago",
   "wow": {
-    "impressions": -9,
-    "clicks": -8,
-    "position": 2.1
+    "impressions": 9,
+    "clicks": 8,
+    "position": 2.7
   },
-  "pagesSurfacing": 85,
+  "pagesSurfacing": 86,
   "submitted": 84,
   "keywords": [
     {
@@ -47,22 +47,22 @@
     {
       "term": "healthcare recruitment agency singapore",
       "position": 10,
-      "impressions": 30
+      "impressions": 31
     },
     {
       "term": "engineering recruiting firms",
       "position": 12,
-      "impressions": 60
+      "impressions": 65
     },
     {
       "term": "how to hire engineers",
       "position": 14,
-      "impressions": 36
+      "impressions": 37
     },
     {
       "term": "ict recruitment",
       "position": 15,
-      "impressions": 49
+      "impressions": 50
     },
     {
       "term": "hire engineers",
@@ -81,16 +81,16 @@
     },
     {
       "term": "ccp singapore",
-      "position": 16,
-      "impressions": 23
+      "position": 17,
+      "impressions": 24
     }
   ],
   "mover": {
-    "term": "it recruitment singapore",
-    "fromPosition": 40,
-    "toPosition": 30,
-    "deltaPosition": 9.5,
-    "imprChange": -3,
+    "term": "it job consultancy services",
+    "fromPosition": 57,
+    "toPosition": 35,
+    "deltaPosition": 22,
+    "imprChange": 3,
     "kind": "climb"
   },
   "sources": [
