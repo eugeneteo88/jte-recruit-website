@@ -21,85 +21,97 @@
   },
   "trends": [
     {
-      "hook": "Advance 3Q 2026 labour market data shows strong job growth of +27,700, but sector recovery remains uneven",
-      "why_now": "Released 30 October 2026, the latest quarterly data reveals overall employment recovery—with continued strength in essential/public services and non‑resident hiring despite weakness in outward‑oriented sectors, signalling both opportunity and caution for employers.",
+      "hook": "Labour market expanded in Q3 2026 with stronger employment growth, especially in construction and manufacturing",
+      "why_now": "Latest advance labour data released 30 October shows total employment grew 27,700 in Q3 2026—double Q2—and non-resident hiring led growth in construction and manufacturing, while hiring intentions improved in September.",
       "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1030-labour-market-advance-release-3q-2026",
-      "source_name": "Ministry of Manpower – Labour Market Advance Release 3Q 2026",
+      "source_name": "Ministry of Manpower – Labour Market Advance Release 3Q 2026",
       "confidence": "verified"
     },
     {
-      "hook": "Singapore accelerates retirement and re‑employment ages to 65/70 effective 1 January 2029, plus launches Flexi‑Load programme",
-      "why_now": "Announced 26 October 2026 by the Tripartite Workgroup, this policy shift offers employers earlier clarity on managing ageing workforce and redesigning roles—critical for hiring strategies now.",
-      "source_url": "https://www.hcamag.com/asia/specialisation/employment-law/singapore-fast-tracks-retirement-age-hike-overhauls-senior-workforce-rules/595493",
-      "source_name": "Human Resources Director – Singapore fast‑tracks retirement age hike, overhauls senior workforce rules",
+      "hook": "Employers increasingly selective and holding headcount steady—stronger hiring in Trade & Logistics, Finance & Insurance, and Tech & IT",
+      "why_now": "ManpowerGroup’s Q4 2026 Employment Outlook (released 8 September) reports net employment outlook at +13%, with nearly half maintaining staffing levels, and strongest hiring intentions in Trade & Logistics (+22%), Finance & Insurance (+20%) and Tech & IT Services (+18%).",
+      "source_url": "https://www.manpower.com.sg/insights/blogs/2026/09/singapore-employers-take-a-more-selective-approach-to-hiring-as-more-plan-to-hold-headcount-steady",
+      "source_name": "ManpowerGroup Singapore – Singapore Employers Take a More Selective Approach to Hiring … Q4 2026",
       "confidence": "verified"
     },
     {
-      "hook": "TWG‑HC recommendations mandate IHRP‑CP HR certification for firms with >200 employees from 1 July 2028 with subsidies available now",
-      "why_now": "Released 24 September 2026, government accepted recommendations requiring certified HR professionals, with enhanced subsidy from 1 October 2026, making it timely for employers planning HR hiring/training.",
+      "hook": "MOM issues new auto‑fill enhancement for work‑pass applications live from 29 October 2026",
+      "why_now": "As of 29 October, work‑pass application forms now auto‑populate passport data for applicants with existing FINs, streamlining submission via the myMOM Portal.",
+      "source_url": "https://tamaranews.com/2026/10/24/singapore-work-pass-changes-october-2026/",
+      "source_name": "TamaraNews – Singapore Work Pass Changes Take Effect October 29",
+      "confidence": "verified"
+    },
+    {
+      "hook": "MOM imposes new Employment Agencies Licence Conditions advisory effective 1 October 2026",
+      "why_now": "A 28 September EA Alert warns all employment agencies to comply with amended licence conditions taking effect 1 October, including ensuring foreign staff hold valid work passes and avoiding false declarations.",
+      "source_url": "https://www.mom.gov.sg/employment-agencies/employment-agency-publications/ea-alerts",
+      "source_name": "Ministry of Manpower – EA Alert: Amendments to EALC to take effect from 1 October 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Construction hiring lead times to fall significantly from 2027 as overseas skills tests drop",
+      "why_now": "From January 2027, BCA will eliminate mandatory overseas skills testing for construction foreign workers from China and Thailand, cutting hiring lead times from four months to about one month; rollout to all source countries in 2028.",
+      "source_url": "https://www.channelnewsasia.com/singapore/construction-workers-shorter-hiring-process-work-permit-holders-6091296",
+      "source_name": "Channel NewsAsia – Singapore to shorten hiring time for foreign construction workers from 2027",
+      "confidence": "verified"
+    },
+    {
+      "hook": "New PATH initiative gives SMEs access to AI HR help and subsidies from October 2026",
+      "why_now": "Tripartite Workgroup recommendations (accepted by Government 24 September) include PATH—AI Starter Kits, training, subsidies and playbooks to help SMEs adopt responsible AI in HR; additional $100 subsidy per IHRP certification starts 1 October.",
       "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1610-enforcement-action-against-false-declarations-in-work-pass-applications",
       "source_name": "Ministry of Manpower – Recommendations by Tripartite Workgroup to Strengthen Human Capital in Every Workplace for Every Worker",
       "confidence": "verified"
-    },
-    {
-      "hook": "ManpowerGroup’s Q4 2026 Net Employment Outlook stable at +13%, with strongest hiring intentions in Trade & Logistics (+22%), Finance & Insurance (+20%), Tech & IT Services (+18%)",
-      "why_now": "Published early September 2026, this survey captures employers’ sector‑specific hiring sentiment entering Q4—informing recruitment focus amid selective hiring environment.",
-      "source_url": "https://www.manpower.com.sg/en/insights/blogs/2026/09/singapore-employers-take-a-more-selective-approach-to-hiring-as-more-plan-to-hold-headcount-steady",
-      "source_name": "ManpowerGroup – Singapore Employers Take a More Selective Approach to Hiring as More Plan to Hold Headcount Steady: Latest ManpowerGroup Employment Outlook Survey",
-      "confidence": "verified"
-    },
-    {
-      "hook": "SkillsFuture Enterprise Credit (SFEC) redesigned to launch December 2026 to support workforce transformation",
-      "why_now": "Announced in COS 2026 highlights, the refreshed SFEC timing is approaching—employers can plan to tap credits late this year for hiring and transformation costs.",
-      "source_url": "https://www.mwc.org.sg/news/Ministry-of-Manpower-COS-2026-The-Ministry-outlines-various-measures/?isSerp=true",
-      "source_name": "MWC – Ministry of Manpower COS 2026: The Ministry outlines various measures to help Singaporeans build good careers, promote inclusive workplaces",
-      "confidence": "trend"
     }
   ],
   "recommended": [
     {
-      "title": "How Singapore's accelerated retirement age changes your hiring plan—for better and worse",
-      "angle": "The government's move to raise the retirement and re-employment ages to 65/70 by 2029 means more experienced workers will stay in the workforce longer, but it also raises tough questions about role redesign, succession planning, and productivity. What can employers do now to prepare—and where do the pitfalls lie?",
-      "target_keyword": "retirement age singapore employers",
-      "why": "This is a direct response to the recent policy announcement fast-tracking retirement and re-employment ages. Many employers haven't yet understood how this shift impacts talent planning, job design, and costs. It’s an urgent and under-addressed topic.",
+      "title": "Why Outsourcing Payroll in Singapore Isn’t Just About Cost—It’s Your Best Shield Against Non-Compliance Fines",
+      "angle": "Singapore’s regulatory landscape is tightening for employers (e.g., new EA licence conditions from October 2026). Many companies underestimate how easy it is to slip up on CPF, IRAS, or MOM reporting—especially amid evolving rules. This article discusses recent compliance updates, showcases real-world errors that got firms fined, and positions free outsourced payroll as the lowest-risk way for startups and multinationals alike to stay safe.",
+      "target_keyword": "payroll outsourcing singapore",
+      "why": "Employers are increasingly nervous about compliance with ongoing MOM, CPF, and IRAS changes. Recent licence amendments and enforcement news are top-of-mind. We can ride the news hook to establish trust, push our free offer, and capture high-intent searches.",
       "timely": true
     },
     {
-      "title": "Should you require HR certification for your HR hires? The new landscape for employers",
-      "angle": "With IHRP-CP certification soon mandatory for firms with 200+ staff, many businesses are scrambling to understand how this will impact their HR recruitment, training budgets, and compliance risk. What should you look out for to avoid legal missteps, and how do the new subsidies factor in?",
-      "target_keyword": "hr certification singapore employers",
-      "why": "Employers need immediate clarity on integrating mandatory HR certification into their hiring and compliance strategies, given the fast-approaching enforcement and available subsidies. This will be a key decision point for heads of HR and business leaders.",
+      "title": "Hiring in Singapore Without Setting Up an Entity: The Employer-of-Record Option Explained (and Who It's For)",
+      "angle": "Many global businesses are seeking fast market entry but are hesitant about the cost and commitment of establishing a Singapore entity. This guide outlines how Employer-of-Record (EOR) services work, real use-cases for tech, manufacturing, and support teams, and why leveraging free payroll EOR is a savvy move for risk mitigation and speed. Includes a checklist to tell if EOR is right for you.",
+      "target_keyword": "employer of record singapore",
+      "why": "There’s clear demand from overseas firms hiring in Singapore, and ‘employer of record singapore’ is a fast-rising query. This article builds authority and funnels directly to the free payroll page while supporting international expansion clusters.",
+      "timely": false
+    },
+    {
+      "title": "Why Payroll Outsourcing Is Becoming the Secret Weapon for Singapore’s Manufacturing & Logistics Employers",
+      "angle": "With Q3 2026 data showing the biggest jumps in non-resident employment in manufacturing and construction, many SMEs are struggling to process larger, more complex payrolls—often with costly and avoidable mistakes. Break down those sector-specific headaches (multiple worker types, overtime, work pass compliance) and spell out why now’s the time to outsource—especially with payroll free for the first year.",
+      "target_keyword": "payroll outsourcing manufacturing singapore",
+      "why": "The latest MOM stats highlight hiring surges (and thus payroll complexity) in manufacturing/logistics, both striking-distance sectors for us. This positions our free payroll service as a timely, high-value operational solution.",
       "timely": true
     }
   ],
   "drafts": [
     {
-      "slug": "retirement-age-singapore-employers",
-      "title": "How Singapore’s Accelerated Retirement Age Changes Your Hiring Plan—For Better, and Worse",
-      "preview": "https://jte.com.sg/blog/retirement-age-singapore-employers/",
+      "slug": "employer-of-record-singapore",
+      "title": "Hiring in Singapore Without Setting Up an Entity: The Employer-of-Record Option Explained (and Who It's For)",
+      "preview": "https://jte.com.sg/blog/employer-of-record-singapore/",
       "factcheck": {
         "pass": false,
         "issues": [
-          "Hard figure/claim not supported by a primary source: 'when the government announced that the retirement and re-employment ages would rise to 65 and 70 by 2029'—no direct citation of a Singapore government act, press release, or MOM source.",
-          "Hard figure/claim not supported: 'advance 3Q 2026 labour market data shows strong job growth of +27,700'—no citation or data source given for this statistic.",
-          "Instruction to 'Confirm current figures with MOM / the relevant authority.' in multiple places signals acknowledged lack of primary data/citation; still, hard figures are used without direct sources.",
-          "ManpowerGroup’s Q4 2026 Net Employment Outlook mentioned—no primary source or reference for the stated 'strong intent'.",
-          "Claim about 'recommendations mandating IHRP-CP certification for larger firms by 2028' not backed by a primary law, regulation, or authoritative document.",
-          "Mentions of Flexi-Load programme and SkillsFuture Enterprise Credit (SFEC) refresh lack citation of official government sources defining scope, eligibility, or existence.",
-          "Singlish: None detected.",
-          "Nationality/local-vs-foreigner framing: None detected.",
-          "Logic error: The article equates 'longer tenure of experienced staff' with reduced risk of talent shortages but warns of 'bottlenecks' around succession without reconciling these two issues.",
-          "Logic error: States 'hidden costs' like 'carrying an unproductive role', but does not specify how longer employment of older workers necessarily causes this, nor backs up with data."
+          "Some hard figures/claims are NOT supported by primary sources: 'ManpowerGroup Singapore Q4 2026 report says hiring in Tech & IT is up (+18%)', 'total employment in construction and manufacturing just shot up by 27,700 in Q3 2026', and 'September 2026’s EA alert is only the latest reminder'. No links or citations are provided.",
+          "Several statements instruct readers to 'confirm current figures with MOM / the relevant authority', highlighting that these claims may not be verified.",
+          "\"Trick to get your first year of EOR payroll free if you’re quick\" is a claim needing substantiation by a primary source. If it's a time-sensitive offer, this requires a link to terms.",
+          "The phrases 'local hoops', 'no entity needed', 'no corporate mess left behind' are informal but do not constitute Singlish. No explicit Singlish detected.",
+          "No nationality or local-vs-foreigner framing is present—the article focuses on process and efficiency, not national or ethnic distinctions.",
+          "No formal logic errors detected in reasoning.",
+          "General callout/CTA for 'free payroll for the first year' and cross-links repeat an unsubstantiated hard claim.",
+          "Grant/subsidy FAQ: 'Some new tech and HR grants exist, but they’re not set up for EOR alone. Always confirm…' is ambiguous and lacks a source."
         ]
       }
     }
   ],
   "linkedin": [
     {
-      "slug": "retirement-age-singapore-employers",
-      "company": "The retirement age in Singapore is changing, and it impacts how we hire talent. As the retirement age extends, companies must rethink workforce planning—not just to retain experience but also to manage costs and fresh talent influx. It's both an opportunity and a challenge for employers to balance seasoned expertise with new energy. Understanding these shifts early helps us create hiring strategies that are sustainable and forward-thinking. If you haven't considered this yet, it’s time to start. Read more on how to adapt your hiring plan here: https://jte.com.sg/blog/retirement-age-singapore-employers/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #HiringStrategy #WorkforcePlanning #SingaporeWorkforce",
-      "profile": "Singapore’s updated retirement age changes the hiring landscape dramatically. This isn’t just about extending careers—it’s about how we manage talent acquisition and retention in a shifting market. Are you ready to rethink your hiring approach to accommodate a longer working lifespan and evolving employee expectations? This change brings fresh challenges but also new opportunities for growth. Dive into the key impacts and how to navigate them effectively. Learn more here: https://jte.com.sg/blog/retirement-age-singapore-employers/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #TalentAcquisition #RetirementAge #WorkforceTrends"
+      "slug": "employer-of-record-singapore",
+      "company": "Looking to hire talent in Singapore but don’t want the hassle of setting up a local entity? The Employer-of-Record (EOR) solution might be the perfect fit. It allows companies to onboard employees legally and compliantly without the overhead of registration and administration. If you’re expanding quickly or testing the market, this option saves time and reduces risk. Learn exactly how it works and whether it’s right for your business. Dive into the details here: https://jte.com.sg/blog/employer-of-record-singapore/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #Hiring #EmployerOfRecord #SingaporeExpansion",
+      "profile": "Expanding your team in Singapore without establishing a local branch? Using an Employer-of-Record (EOR) can streamline hiring, ensuring compliance and saving you operational headaches. This approach suits startups, SMEs, or any company testing the Singapore market fast and efficiently. If you want a hassle-free entry with legal certainty, this read is essential. Get the full picture and decide if EOR fits your growth plans. More here: https://jte.com.sg/blog/employer-of-record-singapore/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #HR #EmployerOfRecord #Singapore"
     }
   ],
-  "notes": ""
+  "notes": " [writer error Why Outsourcing Payroll in Singapore Isn’t Just About Cost—It’s Your Best Shield Against Non-Compliance Fines: Bad control character in string literal in JSON at position 7072 (line 66 column 135)]"
 }
