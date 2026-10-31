@@ -686,5 +686,49 @@
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
+  },
+  {
+    "slug": "lessons-handling-payroll-singapore",
+    "title": "A few things handling payroll for other companies taught me",
+    "tag": "Field Notes",
+    "excerpt": "After years of running payroll and onboarding for other businesses, the same patterns keep showing up. Here's what I've learned.",
+    "author": "Eugene Teo",
+    "date": "2026-10-22",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "admin-nobody-warns-new-boss",
+    "title": "The admin nobody warns you about when you become the boss",
+    "tag": "Field Notes",
+    "excerpt": "Everyone warns new bosses about customers and cashflow. Nobody mentions the payroll admin that lands on you the moment you hire. Here's the part they skip.",
+    "author": "Eugene Teo",
+    "date": "2026-10-23",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "growing-5-to-20-staff-payroll",
+    "title": "Growing from 5 to 20 staff? This is when payroll gets real",
+    "tag": "Field Notes",
+    "excerpt": "The jump from a handful of staff to twenty is where doing payroll yourself quietly stops working. Here's what changes — and how to get ahead of it.",
+    "author": "Eugene Teo",
+    "date": "2026-10-24",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "when-to-hire-real-hr-singapore",
+    "title": "When you should hire a real HR person (and when you shouldn't)",
+    "tag": "Field Notes",
+    "excerpt": "A good HR hire is worth a lot — for the right reasons. Here's the honest line on when it's time, and when you're really just hiring for payroll.",
+    "author": "Eugene Teo",
+    "date": "2026-10-25",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
   }
 ]
