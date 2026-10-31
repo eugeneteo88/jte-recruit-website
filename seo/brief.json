@@ -1,82 +1,27 @@
 {
-  "updated": "2026-10-15",
+  "updated": "2026-10-31",
   "metrics": {
-    "impressions": 19754,
-    "clicks": 440,
-    "position": "15.4",
+    "impressions": 22377,
+    "clicks": 448,
+    "position": "16.2",
+    "leads": 6,
     "wow": {
-      "impressions": -28,
-      "clicks": -35,
-      "position": -0.3
+      "impressions": -9,
+      "clicks": -8,
+      "position": 2.1
     },
     "mover": {
-      "term": "remote engineering staffing services",
-      "fromPosition": 52,
-      "toPosition": 37,
-      "deltaPosition": 14.9,
-      "imprChange": 2,
+      "term": "it recruitment singapore",
+      "fromPosition": 40,
+      "toPosition": 30,
+      "deltaPosition": 9.5,
+      "imprChange": -3,
       "kind": "climb"
     }
   },
-  "trends": [
-    {
-      "hook": "Tripartite recommendations on HR capabilities and AI in hiring (TWG-HC report)",
-      "why_now": "Released 24 Sep 2026. Firms with more than 200 employees must have at least one IHRP-CP (or higher) certified HR professional from 1 Jul 2028. An extra $100 certification subsidy runs 1 Oct 2026 to 30 Jun 2028. Guidance on responsible AI in recruitment is recommended but not yet published.",
-      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/2409-recommendations-by-twg-hc",
-      "source_name": "MOM press release, 24 Sep 2026",
-      "confidence": "verified",
-      "checked": "2026-10-15"
-    },
-    {
-      "hook": "SME Cash Grant 2026 disbursement incoming",
-      "why_now": "Paid automatically in Nov 2026 (from 2 Nov for firms on GIRO/PayNow Corporate), up to $2,500 per business based on the highest number of local qualifying employees in any month from Apr to Jun 2026. No application needed.",
-      "source_url": "https://www.iras.gov.sg/schemes/disbursement-schemes/SME-Cash-Grant-2026",
-      "source_name": "IRAS: SME Cash Grant 2026",
-      "confidence": "verified",
-      "checked": "2026-10-15"
-    },
-    {
-      "hook": "Labour Market Report 2Q 2026 shows improved hiring intentions",
-      "why_now": "Published 21 Sep 2026. Firms intending to hire in the next three months rose from 43.9% (June) to 48.7% (July), still below February levels. Employment grew 11,400 (19th straight quarter), but retrenchments rose to 4,620 and vacancies fell, mainly PMET roles in Financial Services and ICT. Still 1.48 vacancies per unemployed person.",
-      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/0921-labour-market-report---second-quarter-2026",
-      "source_name": "MOM Labour Market Report 2Q 2026",
-      "confidence": "verified",
-      "checked": "2026-10-15"
-    },
-    {
-      "hook": "Redesigned SkillsFuture Enterprise Credit (SFEC) under the Enterprise Workforce Transformation Package",
-      "why_now": "From 1 Dec 2026, companies with at least 3 resident employees get a fresh $10,000 credit in an online wallet that offsets costs upfront, instead of reimbursing later. The current SFEC ends 30 Nov 2026. SBF and SNEF are the free advisory Anchor Programme Partners.",
-      "source_url": "https://www.wsg.gov.sg/home/media-room/media-releases-speeches/factsheet-on-enterprise-workforce-transformation-package-(ewtp)",
-      "source_name": "WSG factsheet on the EWTP (Mar 2026)",
-      "confidence": "verified",
-      "checked": "2026-10-15"
-    },
-    {
-      "hook": "Career Conversion Programme (CCP) salary support for mid-career hires",
-      "why_now": "Employers get up to 70% of monthly salary (capped at $5,000) during CCP training, or 90% (capped at $7,500) for hires aged 40+ or long-term unemployed. Applications are open year-round, but must be approved within 3 months of the hire's start date. Now run by SWDA (WSG and SSG merged on 1 Jul 2026).",
-      "source_url": "https://www.wsg.gov.sg/docs/default-source/programme/career-conversion-programmes/ccp-factsheet-jan26.pdf?sfvrsn=8c4e792e_3",
-      "source_name": "WSG CCP factsheet (Jan 2026)",
-      "confidence": "verified",
-      "checked": "2026-10-15"
-    }
-  ],
-  "recommended": [
-    {
-      "title": "AI in Hiring: What Singapore Employers Need to Do Before 2028",
-      "angle": "The new Tripartite recommendations mean firms above 200 headcount must certify HR and use AI responsibly—here’s how to avoid compliance headaches, wasted spend, or audit risk.",
-      "target_keyword": "AI in hiring Singapore",
-      "why": "Singapore’s new tripartite guidelines and HR certification subsidy will directly impact mid-to-large employers’ hiring practices and compliance from 2026 to 2028, requiring urgent planning.",
-      "timely": true
-    },
-    {
-      "title": "How to Actually Use the 2026 SME Cash Grant to Solve Hiring Gaps",
-      "angle": "Most SMEs won’t use this November’s $2,500 cash for staffing—and will miss key opportunities to win growth hires. Here’s how to spend the grant where it actually fixes hiring problems.",
-      "target_keyword": "SME Cash Grant Singapore",
-      "why": "The 2026 Cash Grant is about to land for eligible SMEs, giving business owners a rare, time-sensitive lever to address staffing bottlenecks that impact growth.",
-      "timely": true
-    }
-  ],
+  "trends": [],
+  "recommended": [],
   "drafts": [],
   "linkedin": [],
-  "notes": ""
+  "notes": " [trend role skipped: llm: Incorrect API key provided: sk-proj-********************************************************************************************************************************************************FowA. You can find your API key at https://platform.openai.com/account/api-keys.] [planner role skipped: llm: Incorrect API key provided: sk-proj-********************************************************************************************************************************************************FowA. You can find your API key at https://platform.openai.com/account/api-keys.]"
 }
