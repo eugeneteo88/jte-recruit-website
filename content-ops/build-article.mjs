@@ -8,8 +8,12 @@ const ROOT = new URL('../', import.meta.url);
 const TEMPLATE = new URL('blog/how-to-hire-a-process-engineer-singapore/index.html', ROOT);
 const esc = (s) => String(s == null ? '' : s).replace(/&(?!(amp|lt|gt|quot|#?\w+);)/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => String(s == null ? '' : s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// Em/long dashes read as AI — strip them from all copy (commas instead). Hyphens and en-dash ranges are left alone.
+const deDash = (s) => String(s).replace(/\s*(?:&mdash;|&#8212;|—)\s*/g, ', ').replace(/\s+,/g, ',').replace(/,\s*,/g, ',').replace(/,\s{2,}/g, ', ');
+const deepDeDash = (v) => typeof v === 'string' ? deDash(v) : Array.isArray(v) ? v.map(deepDeDash) : (v && typeof v === 'object') ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, deepDeDash(x)])) : v;
 
 export function buildArticle(c, date) {
+  c = deepDeDash(c);
   const slug = c.slug;
   const url = `https://jte.com.sg/blog/${slug}/`;
   const heroImg = `${url}hero.jpg`;

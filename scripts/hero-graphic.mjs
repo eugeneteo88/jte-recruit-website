@@ -41,7 +41,10 @@ export async function makeHero({eyebrow='', headline='', accent='', subtitle='',
     return `<text x="${HL_X}" y="${HL_Y0+i*HL_LH}" font-family="Georgia,'Times New Roman',serif" font-size="${HL_SIZE}" fill="#F7F4EE">${esc(ln)}${accentSpan}</text>`;
   }).join('');
   const subY = HL_Y0 + hlLines.length*HL_LH + 18;
-  const subLines = wrap(subtitle, 52).slice(0,2);
+  // Prefer a clean break at a sentence boundary (full stop / ? / !); otherwise word-wrap.
+  // Never leave an orphan mid-phrase. No em-dashes in subtitles (reads as AI).
+  const subSents = String(subtitle||'').split(/(?<=[.?!])\s+/).map(s=>s.trim()).filter(Boolean);
+  const subLines = (subSents.length>=2 && subSents.every(s=>s.length<=60)) ? subSents.slice(0,2) : wrap(subtitle, 60).slice(0,2);
   const subSvg = subLines.map((ln,i)=>`<text x="${HL_X}" y="${subY+i*34}" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#E9E4DB">${esc(ln)}</text>`).join('');
 
   const overlay = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="820" viewBox="0 0 1600 820">
