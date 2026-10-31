@@ -112,6 +112,18 @@
   @media(max-width:620px){.two-col{grid-template-columns:1fr}}
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem}
   .panel h3{font-size:1.02rem;margin-bottom:.7rem} .panel p,.panel li{font-size:.9rem}
+  #bankBox{display:grid;gap:.9rem}
+  .pb-card{border:1px solid var(--line);border-radius:12px;padding:.95rem 1rem;background:var(--bg)}
+  .pb-top{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin-bottom:.45rem}
+  .pb-num{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--gold);color:#fff;font-weight:700;font-size:.78rem;display:grid;place-items:center}
+  .pb-for{color:var(--muted);font-size:.78rem;margin-left:auto}
+  .pb-title{font-family:var(--serif,Georgia,serif);font-weight:700;font-size:1.02rem;line-height:1.25;margin:.1rem 0 .55rem}
+  pre.pb-cap{white-space:pre-wrap;word-wrap:break-word;font-family:var(--sans);font-size:.9rem;line-height:1.55;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:.7rem .8rem;margin:0 0 .6rem;color:var(--ink)}
+  .pb-actions{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+  button.pb-copy{appearance:none;border:0;cursor:pointer;background:var(--gold);color:#fff;font-weight:700;font-size:.82rem;padding:.5rem .95rem;border-radius:8px;font-family:var(--sans)}
+  button.pb-copy:hover{filter:brightness(1.05)} button.pb-copy.done{background:var(--good)}
+  button.pb-copy:focus-visible{outline:2px solid var(--gold-ink);outline-offset:2px}
+  a.pb-open{color:var(--gold-ink);font-size:.8rem;font-weight:700;text-decoration:none} a.pb-open:hover{text-decoration:underline}
 
   /* source bars */
   .src{display:grid;gap:.6rem}
@@ -161,6 +173,12 @@
     <div class="sec-head"><h2>This week</h2></div>
     <p class="sec-sub">Your brief from the Growth Engine &mdash; approve what's ready, the rest runs on autopilot.</p>
     <div class="panel" id="briefBox"><p style="color:var(--muted)">Loading this week&rsquo;s brief&hellip;</p></div>
+  </section>
+
+  <section id="postBank">
+    <div class="sec-head"><h2>LinkedIn post bank</h2></div>
+    <p class="sec-sub">Payroll posts in Eugene&rsquo;s voice, ready for your personal profile. Tap <b>Copy</b>, paste into LinkedIn &mdash; post now, or use the native Schedule (&#128337;) button. 3&ndash;4 a week, mix the segments. (Zapier can only auto-post the company page, not your profile.)</p>
+    <div class="panel" id="bankBox"><p style="color:var(--muted)">Loading post bank&hellip;</p></div>
   </section>
 
   <section>
@@ -355,8 +373,32 @@
       box.innerHTML=h||'<p style="color:var(--muted)">No brief yet.</p>';
     }catch(e){/* keep loading text */}
   }
+  async function loadPostBank(){
+    const box=$('bankBox'); if(!box)return;
+    try{
+      const r=await fetch('./post-bank.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
+      const data=await r.json(); const posts=data.posts||[]; if(!posts.length)return;
+      box.innerHTML=posts.map((p,i)=>'<div class="pb-card">'
+        +'<div class="pb-top"><span class="pb-num">'+(i+1)+'</span><span class="chip info">'+esc(p.chip||'')+'</span>'+(p.for?'<span class="pb-for">'+esc(p.for)+'</span>':'')+'</div>'
+        +'<div class="pb-title">'+esc(p.title||'')+'</div>'
+        +'<pre class="pb-cap">'+esc(p.cap||'')+'</pre>'
+        +'<div class="pb-actions"><button type="button" class="pb-copy">Copy post</button>'
+        +'<a class="pb-open" target="_blank" rel="noopener" href="'+esc((String(p.cap||'').match(/https?:\/\/\S+/)||[''])[0])+'">Open article &uarr;</a></div>'
+        +'</div>').join('');
+    }catch(e){/* keep loading text */}
+  }
+  // delegated copy handler
+  document.addEventListener('click',function(e){
+    const btn=e.target.closest&&e.target.closest('.pb-copy'); if(!btn)return;
+    const card=btn.closest('.pb-card'); const pre=card&&card.querySelector('.pb-cap'); if(!pre)return;
+    const txt=pre.textContent;
+    const done=()=>{const o=btn.textContent;btn.textContent='Copied ✓';btn.classList.add('done');setTimeout(()=>{btn.textContent=o;btn.classList.remove('done');},1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,()=>{fallback();});}else{fallback();}
+    function fallback(){const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');}catch(_){}s.removeAllRanges();done();}
+  });
   loadLive();
   loadBrief();
+  loadPostBank();
 </script>
 </body>
 </html>
