@@ -3,8 +3,10 @@
 // usage: makeGraphic({type, eyebrow, title, items, out})  — items: array of strings
 //        tracks: items = [ [leftLabel, rightLabel], endLabel ]
 import { createRequire } from 'module';
-const require = createRequire('C:/Users/eugen/jte-website/package.json');
-const sharp = require('sharp');
+const require = createRequire(import.meta.url);
+let sharp;
+try { sharp = require('sharp'); } // repo node_modules (CI installs it; see package.json + content-ops.yml)
+catch { sharp = createRequire('C:/Users/eugen/jte-website/package.json')('sharp'); } // local-dev fallback
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function wrap(t,max){const w=String(t).split(' ');const L=[];let c='';for(const x of w){if((c+' '+x).trim().length>max){if(c)L.push(c);c=x;}else c=(c+' '+x).trim();}if(c)L.push(c);return L;}
 

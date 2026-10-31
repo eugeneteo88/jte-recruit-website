@@ -22,6 +22,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies (sharp, for hero/graphic image generation)
+        run: npm install --no-audit --no-fund
+
       - name: Refresh dashboard metrics (so the brief reads fresh numbers)
         run: |
           printf '%s' "$GA_KEY_JSON" > .ga-key.json

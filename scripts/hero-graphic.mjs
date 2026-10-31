@@ -5,8 +5,10 @@
 import { createRequire } from 'module';
 import fs from 'fs';
 import path from 'path';
-const require = createRequire('C:/Users/eugen/jte-website/package.json');
-const sharp = require('sharp');
+const require = createRequire(import.meta.url);
+let sharp;
+try { sharp = require('sharp'); } // repo node_modules (CI installs it; see package.json + content-ops.yml)
+catch { sharp = createRequire('C:/Users/eugen/jte-website/package.json')('sharp'); } // local-dev fallback
 
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
