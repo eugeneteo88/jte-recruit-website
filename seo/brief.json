@@ -19,9 +19,87 @@
       "kind": "climb"
     }
   },
-  "trends": [],
-  "recommended": [],
-  "drafts": [],
-  "linkedin": [],
-  "notes": " [trend role skipped: llm: Incorrect API key provided: sk-proj-********************************************************************************************************************************************************FowA. You can find your API key at https://platform.openai.com/account/api-keys.] [planner role skipped: llm: Incorrect API key provided: sk-proj-********************************************************************************************************************************************************FowA. You can find your API key at https://platform.openai.com/account/api-keys.]"
+  "trends": [
+    {
+      "hook": "Advance 3Q 2026 labour market data shows strong job growth of +27,700, but sector recovery remains uneven",
+      "why_now": "Released 30 October 2026, the latest quarterly data reveals overall employment recovery—with continued strength in essential/public services and non‑resident hiring despite weakness in outward‑oriented sectors, signalling both opportunity and caution for employers.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1030-labour-market-advance-release-3q-2026",
+      "source_name": "Ministry of Manpower – Labour Market Advance Release 3Q 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Singapore accelerates retirement and re‑employment ages to 65/70 effective 1 January 2029, plus launches Flexi‑Load programme",
+      "why_now": "Announced 26 October 2026 by the Tripartite Workgroup, this policy shift offers employers earlier clarity on managing ageing workforce and redesigning roles—critical for hiring strategies now.",
+      "source_url": "https://www.hcamag.com/asia/specialisation/employment-law/singapore-fast-tracks-retirement-age-hike-overhauls-senior-workforce-rules/595493",
+      "source_name": "Human Resources Director – Singapore fast‑tracks retirement age hike, overhauls senior workforce rules",
+      "confidence": "verified"
+    },
+    {
+      "hook": "TWG‑HC recommendations mandate IHRP‑CP HR certification for firms with >200 employees from 1 July 2028 with subsidies available now",
+      "why_now": "Released 24 September 2026, government accepted recommendations requiring certified HR professionals, with enhanced subsidy from 1 October 2026, making it timely for employers planning HR hiring/training.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1610-enforcement-action-against-false-declarations-in-work-pass-applications",
+      "source_name": "Ministry of Manpower – Recommendations by Tripartite Workgroup to Strengthen Human Capital in Every Workplace for Every Worker",
+      "confidence": "verified"
+    },
+    {
+      "hook": "ManpowerGroup’s Q4 2026 Net Employment Outlook stable at +13%, with strongest hiring intentions in Trade & Logistics (+22%), Finance & Insurance (+20%), Tech & IT Services (+18%)",
+      "why_now": "Published early September 2026, this survey captures employers’ sector‑specific hiring sentiment entering Q4—informing recruitment focus amid selective hiring environment.",
+      "source_url": "https://www.manpower.com.sg/en/insights/blogs/2026/09/singapore-employers-take-a-more-selective-approach-to-hiring-as-more-plan-to-hold-headcount-steady",
+      "source_name": "ManpowerGroup – Singapore Employers Take a More Selective Approach to Hiring as More Plan to Hold Headcount Steady: Latest ManpowerGroup Employment Outlook Survey",
+      "confidence": "verified"
+    },
+    {
+      "hook": "SkillsFuture Enterprise Credit (SFEC) redesigned to launch December 2026 to support workforce transformation",
+      "why_now": "Announced in COS 2026 highlights, the refreshed SFEC timing is approaching—employers can plan to tap credits late this year for hiring and transformation costs.",
+      "source_url": "https://www.mwc.org.sg/news/Ministry-of-Manpower-COS-2026-The-Ministry-outlines-various-measures/?isSerp=true",
+      "source_name": "MWC – Ministry of Manpower COS 2026: The Ministry outlines various measures to help Singaporeans build good careers, promote inclusive workplaces",
+      "confidence": "trend"
+    }
+  ],
+  "recommended": [
+    {
+      "title": "How Singapore's accelerated retirement age changes your hiring plan—for better and worse",
+      "angle": "The government's move to raise the retirement and re-employment ages to 65/70 by 2029 means more experienced workers will stay in the workforce longer, but it also raises tough questions about role redesign, succession planning, and productivity. What can employers do now to prepare—and where do the pitfalls lie?",
+      "target_keyword": "retirement age singapore employers",
+      "why": "This is a direct response to the recent policy announcement fast-tracking retirement and re-employment ages. Many employers haven't yet understood how this shift impacts talent planning, job design, and costs. It’s an urgent and under-addressed topic.",
+      "timely": true
+    },
+    {
+      "title": "Should you require HR certification for your HR hires? The new landscape for employers",
+      "angle": "With IHRP-CP certification soon mandatory for firms with 200+ staff, many businesses are scrambling to understand how this will impact their HR recruitment, training budgets, and compliance risk. What should you look out for to avoid legal missteps, and how do the new subsidies factor in?",
+      "target_keyword": "hr certification singapore employers",
+      "why": "Employers need immediate clarity on integrating mandatory HR certification into their hiring and compliance strategies, given the fast-approaching enforcement and available subsidies. This will be a key decision point for heads of HR and business leaders.",
+      "timely": true
+    }
+  ],
+  "drafts": [
+    {
+      "slug": "retirement-age-singapore-employers",
+      "title": "How Singapore’s Accelerated Retirement Age Changes Your Hiring Plan—For Better, and Worse",
+      "preview": "https://jte.com.sg/blog/retirement-age-singapore-employers/",
+      "factcheck": {
+        "pass": false,
+        "issues": [
+          "Hard figure/claim not supported by a primary source: 'when the government announced that the retirement and re-employment ages would rise to 65 and 70 by 2029'—no direct citation of a Singapore government act, press release, or MOM source.",
+          "Hard figure/claim not supported: 'advance 3Q 2026 labour market data shows strong job growth of +27,700'—no citation or data source given for this statistic.",
+          "Instruction to 'Confirm current figures with MOM / the relevant authority.' in multiple places signals acknowledged lack of primary data/citation; still, hard figures are used without direct sources.",
+          "ManpowerGroup’s Q4 2026 Net Employment Outlook mentioned—no primary source or reference for the stated 'strong intent'.",
+          "Claim about 'recommendations mandating IHRP-CP certification for larger firms by 2028' not backed by a primary law, regulation, or authoritative document.",
+          "Mentions of Flexi-Load programme and SkillsFuture Enterprise Credit (SFEC) refresh lack citation of official government sources defining scope, eligibility, or existence.",
+          "Singlish: None detected.",
+          "Nationality/local-vs-foreigner framing: None detected.",
+          "Logic error: The article equates 'longer tenure of experienced staff' with reduced risk of talent shortages but warns of 'bottlenecks' around succession without reconciling these two issues.",
+          "Logic error: States 'hidden costs' like 'carrying an unproductive role', but does not specify how longer employment of older workers necessarily causes this, nor backs up with data."
+        ]
+      }
+    }
+  ],
+  "linkedin": [
+    {
+      "slug": "retirement-age-singapore-employers",
+      "company": "The retirement age in Singapore is changing, and it impacts how we hire talent. As the retirement age extends, companies must rethink workforce planning—not just to retain experience but also to manage costs and fresh talent influx. It's both an opportunity and a challenge for employers to balance seasoned expertise with new energy. Understanding these shifts early helps us create hiring strategies that are sustainable and forward-thinking. If you haven't considered this yet, it’s time to start. Read more on how to adapt your hiring plan here: https://jte.com.sg/blog/retirement-age-singapore-employers/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #HiringStrategy #WorkforcePlanning #SingaporeWorkforce",
+      "profile": "Singapore’s updated retirement age changes the hiring landscape dramatically. This isn’t just about extending careers—it’s about how we manage talent acquisition and retention in a shifting market. Are you ready to rethink your hiring approach to accommodate a longer working lifespan and evolving employee expectations? This change brings fresh challenges but also new opportunities for growth. Dive into the key impacts and how to navigate them effectively. Learn more here: https://jte.com.sg/blog/retirement-age-singapore-employers/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #TalentAcquisition #RetirementAge #WorkforceTrends"
+    }
+  ],
+  "notes": ""
 }
