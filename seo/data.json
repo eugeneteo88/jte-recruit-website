@@ -1,0 +1,137 @@
+{
+  "updated": "2026-10-31",
+  "source": "Google Search Console + Analytics (auto)",
+  "window": "last 28 days",
+  "kpis": {
+    "impressions": 22377,
+    "clicks": 448,
+    "ctr": "2.0%",
+    "position": "16.2"
+  },
+  "trend": [
+    5249,
+    5578,
+    5195,
+    6068,
+    5536
+  ],
+  "trendChange": "▲ +5% vs a month ago",
+  "wow": {
+    "impressions": -9,
+    "clicks": -8,
+    "position": 2.1
+  },
+  "pagesSurfacing": 85,
+  "submitted": 84,
+  "keywords": [
+    {
+      "term": "green industry recruiters",
+      "position": 8,
+      "impressions": 35
+    },
+    {
+      "term": "engineer salary singapore",
+      "position": 9,
+      "impressions": 30
+    },
+    {
+      "term": "employer brand agency singapore",
+      "position": 9,
+      "impressions": 42
+    },
+    {
+      "term": "cost of agency",
+      "position": 10,
+      "impressions": 24
+    },
+    {
+      "term": "healthcare recruitment agency singapore",
+      "position": 10,
+      "impressions": 30
+    },
+    {
+      "term": "engineering recruiting firms",
+      "position": 12,
+      "impressions": 60
+    },
+    {
+      "term": "how to hire engineers",
+      "position": 14,
+      "impressions": 36
+    },
+    {
+      "term": "ict recruitment",
+      "position": 15,
+      "impressions": 49
+    },
+    {
+      "term": "hire engineers",
+      "position": 15,
+      "impressions": 20
+    },
+    {
+      "term": "job agency singapore",
+      "position": 16,
+      "impressions": 28
+    },
+    {
+      "term": "engineering recruitment agency singapore",
+      "position": 16,
+      "impressions": 62
+    },
+    {
+      "term": "ccp singapore",
+      "position": 16,
+      "impressions": 23
+    }
+  ],
+  "mover": {
+    "term": "it recruitment singapore",
+    "fromPosition": 40,
+    "toPosition": 30,
+    "deltaPosition": 9.5,
+    "imprChange": -3,
+    "kind": "climb"
+  },
+  "sources": [
+    {
+      "name": "Direct",
+      "pct": 47
+    },
+    {
+      "name": "Organic Search",
+      "pct": 40
+    },
+    {
+      "name": "AI Assistant",
+      "pct": 10
+    },
+    {
+      "name": "Organic Social",
+      "pct": 2
+    },
+    {
+      "name": "Referral",
+      "pct": 1
+    },
+    {
+      "name": "Unassigned",
+      "pct": 1
+    }
+  ],
+  "ai": {
+    "total": 158,
+    "breakdown": [
+      {
+        "name": "ChatGPT",
+        "sessions": 157
+      },
+      {
+        "name": "Perplexity",
+        "sessions": 1
+      }
+    ]
+  },
+  "leads": 6,
+  "calcViews": 0
+}

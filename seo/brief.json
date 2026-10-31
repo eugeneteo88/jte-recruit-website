@@ -1,0 +1,117 @@
+{
+  "updated": "2026-10-31",
+  "metrics": {
+    "impressions": 22377,
+    "clicks": 448,
+    "position": "16.2",
+    "leads": 6,
+    "wow": {
+      "impressions": -9,
+      "clicks": -8,
+      "position": 2.1
+    },
+    "mover": {
+      "term": "it recruitment singapore",
+      "fromPosition": 40,
+      "toPosition": 30,
+      "deltaPosition": 9.5,
+      "imprChange": -3,
+      "kind": "climb"
+    }
+  },
+  "trends": [
+    {
+      "hook": "Labour market expanded in Q3 2026 with stronger employment growth, especially in construction and manufacturing",
+      "why_now": "Latest advance labour data released 30 October shows total employment grew 27,700 in Q3 2026—double Q2—and non-resident hiring led growth in construction and manufacturing, while hiring intentions improved in September.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1030-labour-market-advance-release-3q-2026",
+      "source_name": "Ministry of Manpower – Labour Market Advance Release 3Q 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Employers increasingly selective and holding headcount steady—stronger hiring in Trade & Logistics, Finance & Insurance, and Tech & IT",
+      "why_now": "ManpowerGroup’s Q4 2026 Employment Outlook (released 8 September) reports net employment outlook at +13%, with nearly half maintaining staffing levels, and strongest hiring intentions in Trade & Logistics (+22%), Finance & Insurance (+20%) and Tech & IT Services (+18%).",
+      "source_url": "https://www.manpower.com.sg/insights/blogs/2026/09/singapore-employers-take-a-more-selective-approach-to-hiring-as-more-plan-to-hold-headcount-steady",
+      "source_name": "ManpowerGroup Singapore – Singapore Employers Take a More Selective Approach to Hiring … Q4 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "MOM issues new auto‑fill enhancement for work‑pass applications live from 29 October 2026",
+      "why_now": "As of 29 October, work‑pass application forms now auto‑populate passport data for applicants with existing FINs, streamlining submission via the myMOM Portal.",
+      "source_url": "https://tamaranews.com/2026/10/24/singapore-work-pass-changes-october-2026/",
+      "source_name": "TamaraNews – Singapore Work Pass Changes Take Effect October 29",
+      "confidence": "verified"
+    },
+    {
+      "hook": "MOM imposes new Employment Agencies Licence Conditions advisory effective 1 October 2026",
+      "why_now": "A 28 September EA Alert warns all employment agencies to comply with amended licence conditions taking effect 1 October, including ensuring foreign staff hold valid work passes and avoiding false declarations.",
+      "source_url": "https://www.mom.gov.sg/employment-agencies/employment-agency-publications/ea-alerts",
+      "source_name": "Ministry of Manpower – EA Alert: Amendments to EALC to take effect from 1 October 2026",
+      "confidence": "verified"
+    },
+    {
+      "hook": "Construction hiring lead times to fall significantly from 2027 as overseas skills tests drop",
+      "why_now": "From January 2027, BCA will eliminate mandatory overseas skills testing for construction foreign workers from China and Thailand, cutting hiring lead times from four months to about one month; rollout to all source countries in 2028.",
+      "source_url": "https://www.channelnewsasia.com/singapore/construction-workers-shorter-hiring-process-work-permit-holders-6091296",
+      "source_name": "Channel NewsAsia – Singapore to shorten hiring time for foreign construction workers from 2027",
+      "confidence": "verified"
+    },
+    {
+      "hook": "New PATH initiative gives SMEs access to AI HR help and subsidies from October 2026",
+      "why_now": "Tripartite Workgroup recommendations (accepted by Government 24 September) include PATH—AI Starter Kits, training, subsidies and playbooks to help SMEs adopt responsible AI in HR; additional $100 subsidy per IHRP certification starts 1 October.",
+      "source_url": "https://www.mom.gov.sg/newsroom/press-releases/2026/1610-enforcement-action-against-false-declarations-in-work-pass-applications",
+      "source_name": "Ministry of Manpower – Recommendations by Tripartite Workgroup to Strengthen Human Capital in Every Workplace for Every Worker",
+      "confidence": "verified"
+    }
+  ],
+  "recommended": [
+    {
+      "title": "Why Outsourcing Payroll in Singapore Isn’t Just About Cost—It’s Your Best Shield Against Non-Compliance Fines",
+      "angle": "Singapore’s regulatory landscape is tightening for employers (e.g., new EA licence conditions from October 2026). Many companies underestimate how easy it is to slip up on CPF, IRAS, or MOM reporting—especially amid evolving rules. This article discusses recent compliance updates, showcases real-world errors that got firms fined, and positions free outsourced payroll as the lowest-risk way for startups and multinationals alike to stay safe.",
+      "target_keyword": "payroll outsourcing singapore",
+      "why": "Employers are increasingly nervous about compliance with ongoing MOM, CPF, and IRAS changes. Recent licence amendments and enforcement news are top-of-mind. We can ride the news hook to establish trust, push our free offer, and capture high-intent searches.",
+      "timely": true
+    },
+    {
+      "title": "Hiring in Singapore Without Setting Up an Entity: The Employer-of-Record Option Explained (and Who It's For)",
+      "angle": "Many global businesses are seeking fast market entry but are hesitant about the cost and commitment of establishing a Singapore entity. This guide outlines how Employer-of-Record (EOR) services work, real use-cases for tech, manufacturing, and support teams, and why leveraging free payroll EOR is a savvy move for risk mitigation and speed. Includes a checklist to tell if EOR is right for you.",
+      "target_keyword": "employer of record singapore",
+      "why": "There’s clear demand from overseas firms hiring in Singapore, and ‘employer of record singapore’ is a fast-rising query. This article builds authority and funnels directly to the free payroll page while supporting international expansion clusters.",
+      "timely": false
+    },
+    {
+      "title": "Why Payroll Outsourcing Is Becoming the Secret Weapon for Singapore’s Manufacturing & Logistics Employers",
+      "angle": "With Q3 2026 data showing the biggest jumps in non-resident employment in manufacturing and construction, many SMEs are struggling to process larger, more complex payrolls—often with costly and avoidable mistakes. Break down those sector-specific headaches (multiple worker types, overtime, work pass compliance) and spell out why now’s the time to outsource—especially with payroll free for the first year.",
+      "target_keyword": "payroll outsourcing manufacturing singapore",
+      "why": "The latest MOM stats highlight hiring surges (and thus payroll complexity) in manufacturing/logistics, both striking-distance sectors for us. This positions our free payroll service as a timely, high-value operational solution.",
+      "timely": true
+    }
+  ],
+  "drafts": [
+    {
+      "slug": "employer-of-record-singapore",
+      "title": "Hiring in Singapore Without Setting Up an Entity: The Employer-of-Record Option Explained (and Who It's For)",
+      "preview": "https://jte.com.sg/blog/employer-of-record-singapore/",
+      "factcheck": {
+        "pass": false,
+        "issues": [
+          "Some hard figures/claims are NOT supported by primary sources: 'ManpowerGroup Singapore Q4 2026 report says hiring in Tech & IT is up (+18%)', 'total employment in construction and manufacturing just shot up by 27,700 in Q3 2026', and 'September 2026’s EA alert is only the latest reminder'. No links or citations are provided.",
+          "Several statements instruct readers to 'confirm current figures with MOM / the relevant authority', highlighting that these claims may not be verified.",
+          "\"Trick to get your first year of EOR payroll free if you’re quick\" is a claim needing substantiation by a primary source. If it's a time-sensitive offer, this requires a link to terms.",
+          "The phrases 'local hoops', 'no entity needed', 'no corporate mess left behind' are informal but do not constitute Singlish. No explicit Singlish detected.",
+          "No nationality or local-vs-foreigner framing is present—the article focuses on process and efficiency, not national or ethnic distinctions.",
+          "No formal logic errors detected in reasoning.",
+          "General callout/CTA for 'free payroll for the first year' and cross-links repeat an unsubstantiated hard claim.",
+          "Grant/subsidy FAQ: 'Some new tech and HR grants exist, but they’re not set up for EOR alone. Always confirm…' is ambiguous and lacks a source."
+        ]
+      }
+    }
+  ],
+  "linkedin": [
+    {
+      "slug": "employer-of-record-singapore",
+      "company": "Looking to hire talent in Singapore but don’t want the hassle of setting up a local entity? The Employer-of-Record (EOR) solution might be the perfect fit. It allows companies to onboard employees legally and compliantly without the overhead of registration and administration. If you’re expanding quickly or testing the market, this option saves time and reduces risk. Learn exactly how it works and whether it’s right for your business. Dive into the details here: https://jte.com.sg/blog/employer-of-record-singapore/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #Hiring #EmployerOfRecord #SingaporeExpansion",
+      "profile": "Expanding your team in Singapore without establishing a local branch? Using an Employer-of-Record (EOR) can streamline hiring, ensuring compliance and saving you operational headaches. This approach suits startups, SMEs, or any company testing the Singapore market fast and efficiently. If you want a hassle-free entry with legal certainty, this read is essential. Get the full picture and decide if EOR fits your growth plans. More here: https://jte.com.sg/blog/employer-of-record-singapore/?utm_source=linkedin&utm_medium=social&utm_campaign=growth_engine #HR #EmployerOfRecord #Singapore"
+    }
+  ],
+  "notes": " [writer error Why Outsourcing Payroll in Singapore Isn’t Just About Cost—It’s Your Best Shield Against Non-Compliance Fines: Bad control character in string literal in JSON at position 7072 (line 66 column 135)]"
+}
