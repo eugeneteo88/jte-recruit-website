@@ -200,6 +200,12 @@
   </url>
   <!-- BLOGPOSTS:START -->
   <url>
+    <loc>https://jte.com.sg/blog/cost-of-running-payroll-singapore/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/employment-pass-compass-changes-2026/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
