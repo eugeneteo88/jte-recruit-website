@@ -15,5 +15,7 @@ Record every generation run below: date, what it was for, how many images, est. 
 | 2026-10-31 | Test image (validate key + billing) | 1 | 0.04 |
 | 2026-10-31 | 12 payroll-cluster article heroes (first generation) | 12 | 0.48 |
 | 2026-10-31 | Re-composite 12 heroes with clean subtitles (reused cached photos, no API) | 0 | 0.00 |
+| 2026-10-31 | Face-based hero samples with Eugene's likeness (why-first-year, lessons) | 2 | 0.08 |
+| 2026-10-31 | 3 more face heroes live (hire-HR-or-not, admin-nobody, temp-HR) | 3 | 0.12 |
 
-**October 2026 total: ~US$0.52** (cap US$20).
+**October 2026 total: ~US$0.72** (cap US$20).
