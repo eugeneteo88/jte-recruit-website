@@ -570,28 +570,6 @@
     "icon": "coins"
   },
   {
-    "slug": "retirement-age-singapore-employers",
-    "title": "How Singapore’s Accelerated Retirement Age Changes Your Hiring Plan—For Better, and Worse",
-    "tag": "Employer Guide",
-    "excerpt": "Singapore’s move to raise the retirement age to 65 impacts employers’ hiring, redesign and productivity. What to do now, and where the pitfalls lie.",
-    "author": "Eugene Teo",
-    "date": "2027-01-05",
-    "readTime": "6 min read",
-    "icon": "file-text",
-    "draft": true
-  },
-  {
-    "slug": "employer-of-record-singapore",
-    "title": "Hiring in Singapore Without Setting Up an Entity: The Employer-of-Record Option Explained (and Who It's For)",
-    "tag": "Employer Guide",
-    "excerpt": "Need to hire fast in Singapore but not ready to set up a company? Here’s the honest guide to how employer of record Singapore works, with a simple checklist.",
-    "author": "Eugene Teo",
-    "date": "2027-01-08",
-    "readTime": "6 min read",
-    "icon": "file-text",
-    "draft": true
-  },
-  {
     "slug": "do-you-need-a-company-to-hire-in-singapore",
     "title": "Do you need your own company to hire staff in Singapore?",
     "tag": "Field Notes",
@@ -620,5 +598,49 @@
     "date": "2026-10-31",
     "readTime": "6 min read",
     "icon": "users"
+  },
+  {
+    "slug": "project-staffing-payroll-singapore",
+    "title": "You just won a 2-year project. Who runs payroll for 200 new hires?",
+    "tag": "Field Notes",
+    "excerpt": "Winning a big contract is great — until you realise you've got to onboard and pay a couple of hundred people, fast. Here's the way I'd handle it.",
+    "author": "Eugene Teo",
+    "date": "2026-10-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "temp-hr-for-project-contract",
+    "title": "Why hiring temp HR for a project usually backfires",
+    "tag": "Field Notes",
+    "excerpt": "When a project spikes your headcount, temp HR feels like the fix. In my experience it rarely is. Here's the honest reason, and a better option.",
+    "author": "Eugene Teo",
+    "date": "2026-10-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "scaling-headcount-project-hiring-singapore",
+    "title": "How to scale headcount for a project without burning out your HR",
+    "tag": "Field Notes",
+    "excerpt": "A project can take you from 50 staff to 300 in a matter of weeks. Here's how to handle that spike without breaking the HR team you've got.",
+    "author": "Eugene Teo",
+    "date": "2026-10-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "contract-manufacturing-logistics-payroll",
+    "title": "Contract manufacturers and logistics: the payroll move that saves your HR",
+    "tag": "Field Notes",
+    "excerpt": "If you run on project and contract work — manufacturing, logistics, engineering — your headcount is always moving. Here's a payroll setup built for that.",
+    "author": "Eugene Teo",
+    "date": "2026-10-31",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
   }
 ]
