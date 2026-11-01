@@ -1,27 +1,27 @@
 {
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 23433,
-    "clicks": 464,
+    "impressions": 23838,
+    "clicks": 473,
     "ctr": "2.0%",
-    "position": "16.0"
+    "position": "15.9"
   },
   "trend": [
-    5249,
-    5578,
-    5195,
-    6068,
-    6592
+    5248,
+    5660,
+    5152,
+    6276,
+    6750
   ],
-  "trendChange": "▲ +26% vs a month ago",
+  "trendChange": "▲ +29% vs a month ago",
   "wow": {
-    "impressions": 9,
-    "clicks": 8,
-    "position": 2.7
+    "impressions": 8,
+    "clicks": 29,
+    "position": 3.2
   },
-  "pagesSurfacing": 86,
+  "pagesSurfacing": 88,
   "submitted": 84,
   "keywords": [
     {
@@ -32,12 +32,12 @@
     {
       "term": "engineer salary singapore",
       "position": 9,
-      "impressions": 30
+      "impressions": 27
     },
     {
       "term": "employer brand agency singapore",
       "position": 9,
-      "impressions": 42
+      "impressions": 44
     },
     {
       "term": "cost of agency",
@@ -52,45 +52,45 @@
     {
       "term": "engineering recruiting firms",
       "position": 12,
-      "impressions": 65
+      "impressions": 66
     },
     {
       "term": "how to hire engineers",
-      "position": 14,
+      "position": 13,
       "impressions": 37
     },
     {
       "term": "ict recruitment",
       "position": 15,
-      "impressions": 50
-    },
-    {
-      "term": "hire engineers",
-      "position": 15,
-      "impressions": 20
-    },
-    {
-      "term": "job agency singapore",
-      "position": 16,
-      "impressions": 28
+      "impressions": 48
     },
     {
       "term": "engineering recruitment agency singapore",
       "position": 16,
-      "impressions": 62
+      "impressions": 59
+    },
+    {
+      "term": "job agency singapore",
+      "position": 16,
+      "impressions": 29
     },
     {
       "term": "ccp singapore",
-      "position": 17,
+      "position": 16,
       "impressions": 24
+    },
+    {
+      "term": "it staffing services",
+      "position": 17,
+      "impressions": 23
     }
   ],
   "mover": {
-    "term": "it job consultancy services",
-    "fromPosition": 57,
-    "toPosition": 35,
-    "deltaPosition": 22,
-    "imprChange": 3,
+    "term": "specialist it recruitment agency in singapore",
+    "fromPosition": 62,
+    "toPosition": 26,
+    "deltaPosition": 35.6,
+    "imprChange": 7,
     "kind": "climb"
   },
   "sources": [
@@ -120,11 +120,11 @@
     }
   ],
   "ai": {
-    "total": 158,
+    "total": 166,
     "breakdown": [
       {
         "name": "ChatGPT",
-        "sessions": 157
+        "sessions": 165
       },
       {
         "name": "Perplexity",
