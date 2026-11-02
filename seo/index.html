@@ -120,6 +120,15 @@
   .dcard .dv{font-family:var(--serif);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
   .dcard .dv.up{color:var(--good)} .dcard .dv.down{color:var(--crit)} .dcard .dv.flat{color:var(--muted)}
   .dcard .dl{font-size:.72rem;color:var(--muted);margin-top:.3rem}
+  [data-kw]{cursor:pointer}
+  td.kw[data-kw]{color:var(--gold-ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
+  .mv-term[data-kw]:hover{color:var(--gold-ink)}
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(20,15,10,.55);display:flex;align-items:flex-end;justify-content:center}
+  @media(min-width:680px){.modal{align-items:center;padding:1rem}}
+  .modal-card{background:var(--surface);border:1px solid var(--line);border-radius:18px 18px 0 0;max-width:520px;width:100%;max-height:85vh;overflow-y:auto;padding:1.3rem 1.3rem calc(1.4rem + env(safe-area-inset-bottom,0px));position:relative}
+  @media(min-width:680px){.modal-card{border-radius:18px}}
+  .modal-x{position:absolute;top:.75rem;right:.85rem;border:0;background:var(--surface-2);color:var(--ink);width:2rem;height:2rem;border-radius:50%;font-size:1.25rem;cursor:pointer;line-height:1.9;text-align:center}
+  .modal-card h3{font-size:1.15rem;margin:.1rem 2rem .3rem 0;line-height:1.25}
 
   .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.9rem 1.1rem;margin:1rem 0}
   .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
@@ -332,6 +341,19 @@
   <a href="#history" data-nav="history"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>History</a>
 </nav>
 
+<div id="kwModal" class="modal" hidden>
+  <div class="modal-card">
+    <button class="modal-x" id="kwClose" aria-label="Close">&times;</button>
+    <div class="eyebrow">Keyword</div>
+    <h3 id="kwTitle"></h3>
+    <div id="kwStat" class="mut" style="font-size:.86rem"></div>
+    <div class="bsub" style="margin:.9rem 0 .3rem;font-weight:700;color:var(--ink);font-size:.9rem">Position over time</div>
+    <div class="bsub" style="font-size:.8rem;margin-bottom:.4rem">Higher on the chart = closer to page 1.</div>
+    <div id="kwChart" class="hline"></div>
+    <div id="kwPts" style="margin-top:.6rem"></div>
+  </div>
+</div>
+
 <script>
   function $(id){return document.getElementById(id);}
   function setTxt(id,t){const e=$(id);if(e&&t!=null)e.textContent=t;}
@@ -402,7 +424,7 @@
       const slip=m.kind==='slip'||m.deltaPosition<0, sp=Math.abs(m.deltaPosition);
       const dir=slip?'<span class="down">▼ '+sp+' spots</span>':'<span class="up">▲ '+sp+' spots</span>';
       const impr=m.imprChange?'<span class="mut">'+(m.imprChange>0?'+':'')+m.imprChange+' impr</span>':'';
-      return '<div class="mv"><div class="mv-term">'+esc(m.term)+'</div><div class="mv-chg"><span class="posjump'+(slip?' slip':'')+'">#'+m.fromPosition+' → #'+m.toPosition+'</span>'+dir+impr+'</div></div>';
+      return '<div class="mv"><div class="mv-term" data-kw="'+esc(m.term)+'">'+esc(m.term)+'</div><div class="mv-chg"><span class="posjump'+(slip?' slip':'')+'">#'+m.fromPosition+' → #'+m.toPosition+'</span>'+dir+impr+'</div></div>';
     }).join('');
   }
   function drawScorecard(sc){
@@ -420,7 +442,7 @@
     }).sort((a,b)=> b.weeks-a.weeks || b.impressions-a.impressions).slice(0,8);
     if(!opps.length){box.innerHTML='<p class="mut">Everything near page 1 is currently moving. Nice.</p>';return;}
     const stuckCell=w=> w>=3?('<b style="color:var(--crit)">'+w+'w</b>') : w===2?('<b style="color:var(--warn)">2w</b>') : w===1?'1w':'<span class="mut">new</span>';
-    box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Stuck</th><th class="num">Impr.</th></tr></thead><tbody>'+opps.map(k=>'<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+stuckCell(k.weeks)+'</td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
+    box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Stuck</th><th class="num">Impr.</th></tr></thead><tbody>'+opps.map(k=>'<tr><td class="kw" data-kw="'+esc(k.term)+'">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+stuckCell(k.weeks)+'</td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
   }
   function whatChanged(snaps){
     if(snaps.length<2)return;
@@ -452,7 +474,7 @@
       const am={}; a.kw.forEach(x=>am[String(x.t).toLowerCase()]=x.p);
       const moves=[]; b.kw.forEach(x=>{const ap=am[String(x.t).toLowerCase()]; if(ap!=null){const d=ap-x.p; if(Math.abs(d)>=1) moves.push({term:x.t,from:ap,to:x.p,delta:d});}});
       const up=moves.filter(m=>m.delta>0).sort((x,y)=>y.delta-x.delta), dn=moves.filter(m=>m.delta<0).sort((x,y)=>x.delta-y.delta);
-      const list=(arr,slip)=>arr.slice(0,6).map(m=>'<div class="srow"><span class="posjump'+(slip?' slip':'')+'">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      const list=(arr,slip)=>arr.slice(0,6).map(m=>'<div class="srow"><span class="posjump'+(slip?' slip':'')+'">#'+m.from+' → #'+m.to+'</span><span data-kw="'+esc(m.term)+'">'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
       h+='<div class="sgrp"><b>Climbed</b>'+list(up,false)+'</div><div class="sgrp"><b>Slipped</b>'+list(dn,true)+'</div>';
     } else {
       h+='<p class="mut" style="font-size:.82rem">Term-by-term movement is tracked from mid-October on &mdash; pick two of the more recent dates to see which keywords moved.</p>';
@@ -488,14 +510,14 @@
   function renderSnaps(snaps){
     const box=$('hSnaps'); if(!box)return;
     box.innerHTML=snaps.slice().reverse().map((s,i)=>{
-      const mv=(s.topMovers||[]).map(m=>'<div class="srow"><span class="posjump">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
-      const sl=(s.topSlippers||[]).map(m=>'<div class="srow"><span class="posjump slip">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      const mv=(s.topMovers||[]).map(m=>'<div class="srow"><span class="posjump">#'+m.from+' → #'+m.to+'</span><span data-kw="'+esc(m.term)+'">'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      const sl=(s.topSlippers||[]).map(m=>'<div class="srow"><span class="posjump slip">#'+m.from+' → #'+m.to+'</span><span data-kw="'+esc(m.term)+'">'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
       return '<details class="hsnap"'+(i===0?' open':'')+'><summary><span class="sdate">'+dLabel(s.date)+" '"+String(s.date).slice(2,4)+'</span><span class="smetric"><b>'+Number(s.impressions).toLocaleString()+'</b> impr · pos <b>'+s.position+'</b> · <b>'+(s.leads||0)+'</b> inq</span></summary><div class="sbody"><div class="sgrp"><b>Climbing</b>'+mv+'</div><div class="sgrp"><b>Slipping</b>'+sl+'</div></div></details>';
     }).join('');
   }
   function drawKw(ks){
     const b=$('kwBody'); if(!b)return;
-    b.innerHTML=ks.map((k,i)=>'<tr'+(i>=8?' class="xtra"':'')+'><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('');
+    b.innerHTML=ks.map((k,i)=>'<tr'+(i>=8?' class="xtra"':'')+'><td class="kw" data-kw="'+esc(k.term)+'">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('');
     const mw=$('kwMore'); if(mw){ if(ks.length>8){ mw.innerHTML='<button class="more" type="button">Show all '+ks.length+' keywords</button>'; mw.querySelector('button').onclick=function(){b.querySelectorAll('.xtra').forEach(r=>r.classList.remove('xtra'));mw.innerHTML='';}; } else mw.innerHTML=''; }
   }
   function drawPages(ps){
@@ -512,6 +534,29 @@
     const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
     b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?' &mdash; <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn.';
   }
+
+  function kwChartSvg(pts){
+    if(pts.length<2) return '<p class="mut" style="font-size:.85rem">Not enough history yet for this term &mdash; its line fills in as we track each week.</p>';
+    const W=600,H=150,pad=18,vals=pts.map(p=>p.p),max=Math.max.apply(null,vals),min=Math.min.apply(null,vals),rng=(max-min)||1;
+    const X=i=>pad+(W-2*pad)*i/(pts.length-1), Y=v=>pad+(H-2*pad)*(v-min)/rng; // smaller position number = higher on chart
+    const P=pts.map((p,i)=>X(i).toFixed(0)+','+Y(p.p).toFixed(0));
+    const area='M'+X(0).toFixed(0)+','+(H-pad)+' L'+P.join(' L')+' L'+X(pts.length-1).toFixed(0)+','+(H-pad)+' Z';
+    return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="height:120px;width:100%;display:block"><path d="'+area+'" fill="var(--gold-soft)" opacity="0.14"/><polyline fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" points="'+P.join(' ')+'"/>'+pts.map((p,i)=>'<circle cx="'+X(i).toFixed(0)+'" cy="'+Y(p.p).toFixed(0)+'" r="4" fill="var(--gold)"/>').join('')+'</svg>';
+  }
+  function openKw(term){
+    const m=$('kwModal'); if(!m)return;
+    const pts=[]; (HIST||[]).forEach(s=>{const k=(s.kw||[]).find(x=>String(x.t).toLowerCase()===String(term).toLowerCase()); if(k)pts.push({date:s.date,p:k.p});});
+    const cur=((LIVE&&LIVE.keywords)||[]).find(k=>String(k.term).toLowerCase()===String(term).toLowerCase());
+    $('kwTitle').textContent=term;
+    let stat='';
+    if(cur) stat+='Now position <b style="color:var(--ink)">'+cur.position+'</b> · '+Number(cur.impressions).toLocaleString()+' impr/28d';
+    if(pts.length>=2){const best=Math.min.apply(null,pts.map(p=>p.p)); stat+=(stat?' · ':'')+'best <b style="color:var(--ink)">#'+best+'</b>';}
+    $('kwStat').innerHTML=stat;
+    $('kwChart').innerHTML=kwChartSvg(pts);
+    $('kwPts').innerHTML=pts.length?('<div class="sgrp"><b>By date</b>'+pts.map(p=>'<div class="srow"><span class="smetric">'+dLabel(p.date)+" '"+String(p.date).slice(2,4)+'</span><span class="posjump">#'+p.p+'</span></div>').join('')+'</div>'):'';
+    m.hidden=false;
+  }
+  function closeKw(){const m=$('kwModal'); if(m)m.hidden=true;}
 
   async function loadBrief(){
     try{
@@ -549,6 +594,9 @@
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fb);}else fb();
     function fb(){const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');}catch(_){}s.removeAllRanges();done();}
   });
+
+  document.addEventListener('click',function(e){var k=e.target.closest&&e.target.closest('[data-kw]');if(k)openKw(k.getAttribute('data-kw'));});
+  (function(){var x=$('kwClose'),m=$('kwModal');if(x)x.onclick=closeKw;if(m)m.addEventListener('click',function(e){if(e.target===m)closeKw();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeKw();});})();
 
   route();
   loadLive(); loadBrief(); loadPostBank(); loadHistory();
