@@ -201,6 +201,7 @@ async function main(){
       leads: data.leads, pages: data.pagesSurfacing, onPage1: onP1,
       climbing: movers.length, slipping: slippers.length,
       topMovers: slim(movers), topSlippers: slim(slippers),
+      kw: (keywords||[]).map(k=>({t:k.term, p:k.position})),  // near-miss positions, for stuck-over-time
     };
     hist.snapshots = hist.snapshots.filter(s=>s.date!==key).concat([snap]).slice(-90);
     writeFileSync('seo/history.json', JSON.stringify(hist,null,2)+'\n');

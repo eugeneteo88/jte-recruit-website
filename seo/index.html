@@ -290,9 +290,13 @@
     <h1 class="vtitle">History</h1>
     <p class="vsub">Scroll back through time &mdash; reach, ranking, and what was moving on every tracked date.</p>
 
+    <div class="callout good" id="hChanged" hidden style="margin:0 0 1.1rem"></div>
+
     <div class="growth"><div class="ghead"><div><h3>Impressions over time</h3><div class="gsub">Every tracked snapshot.</div></div><div class="mgrow" id="hGrow">&nbsp;</div></div><div class="mchart" id="hChart"><p class="mut">Loading&hellip;</p></div></div>
 
     <div class="block"><h3>Average position over time</h3><div class="bsub">Lower is better &mdash; the climb toward page 1.</div><div class="panel hline" id="hPos"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Clicks over time</h3><div class="bsub">Actual visits from search, snapshot by snapshot.</div><div class="panel hline" id="hClicks"><p class="mut">Loading&hellip;</p></div></div>
 
     <div class="block"><h3>Look back &mdash; tap a date</h3><div class="bsub">The numbers, and what was climbing vs slipping, on each date.</div><div id="hSnaps"><p class="mut">Loading&hellip;</p></div></div>
 
@@ -324,7 +328,7 @@
 
   /* ---- routing ---- */
   const VIEWS=['overview','content','search','analytics','history'];
-  let LIVE=null;
+  let LIVE=null, HIST=null;
   function dLabel(iso){const p=String(iso).split('-');return (+p[2])+' '+MON[(+p[1])-1];}
   function go(v){
     if(VIEWS.indexOf(v)<0)v='overview';
@@ -354,7 +358,7 @@
       if(Array.isArray(d.scorecard)&&d.scorecard.length) drawScorecard(d.scorecard);
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
-      drawStuck();
+      maybeStuck();
       if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Updated <b>'+esc(d.updated)+'</b>';}
     }catch(e){}
   }
@@ -390,18 +394,33 @@
     const lbl={good:'Good',warn:'Watch',crit:'Fix'};
     box.innerHTML=sc.map(s=>'<div class="score"><div class="top"><span class="area">'+esc(s.area)+'</span><span class="chip '+esc(s.status)+'">'+(lbl[s.status]||esc(s.status))+'</span></div><div class="note">'+esc(s.note)+'</div></div>').join('');
   }
-  function drawStuck(){
+  function maybeStuck(){
     const box=$('stuckBox'); if(!box||!LIVE)return;
     const moving=new Set((LIVE.movers||[]).map(m=>String(m.term).toLowerCase()));
-    const stuck=(LIVE.keywords||[]).filter(k=>k.position<=20 && !moving.has(String(k.term).toLowerCase())).slice(0,8);
-    if(!stuck.length){box.innerHTML='<p class="mut">Everything near page 1 is currently moving. Nice.</p>';return;}
-    box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Impr.</th></tr></thead><tbody>'+stuck.map(k=>'<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
+    const snaps=(HIST||[]);
+    let opps=(LIVE.keywords||[]).filter(k=>k.position<=20 && !moving.has(String(k.term).toLowerCase())).map(k=>{
+      let weeks=0; for(let i=snaps.length-1;i>=0;i--){ const kw=snaps[i].kw||[]; if(kw.some(x=>String(x.t).toLowerCase()===String(k.term).toLowerCase())) weeks++; else if(weeks>0) break; }
+      return {...k, weeks};
+    }).sort((a,b)=> b.weeks-a.weeks || b.impressions-a.impressions).slice(0,8);
+    if(!opps.length){box.innerHTML='<p class="mut">Everything near page 1 is currently moving. Nice.</p>';return;}
+    const stuckCell=w=> w>=3?('<b style="color:var(--crit)">'+w+'w</b>') : w===2?('<b style="color:var(--warn)">2w</b>') : w===1?'1w':'<span class="mut">new</span>';
+    box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Stuck</th><th class="num">Impr.</th></tr></thead><tbody>'+opps.map(k=>'<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+stuckCell(k.weeks)+'</td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
+  }
+  function whatChanged(snaps){
+    const box=$('hChanged'); if(!box||snaps.length<2)return;
+    const a=snaps[snaps.length-2], b=snaps[snaps.length-1];
+    const di=b.impressions-a.impressions, dp=+(a.position-b.position).toFixed(1); // position lower is better
+    const diTxt='<span class="'+(di>=0?'up':'down')+'">'+(di>=0?'▲ +':'▼ ')+Math.abs(di).toLocaleString()+' impressions</span>';
+    const dpTxt=Math.abs(dp)<0.05?'<span class="mut">flat position</span>':('<span class="'+(dp>=0?'up':'down')+'">'+(dp>=0?'▲ ':'▼ ')+Math.abs(dp)+' position</span>');
+    box.innerHTML='<h3 style="font-size:.98rem;margin-bottom:.35rem">Since '+dLabel(a.date)+" '"+String(a.date).slice(2,4)+'</h3><p style="font-size:.9rem">'+diTxt+' · '+dpTxt+' · <span class="up">'+b.climbing+' climbing</span> · <span class="down">'+b.slipping+' slipping</span></p>';
+    box.hidden=false;
   }
   async function loadHistory(){
     try{
       const r=await fetch('/seo/history.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
-      const snaps=(await r.json()).snapshots||[]; if(!snaps.length)return;
-      histBars('hChart',snaps); histLine('hPos',snaps,'position',{invert:true}); renderSnaps(snaps);
+      const snaps=(await r.json()).snapshots||[]; if(!snaps.length)return; HIST=snaps;
+      histBars('hChart',snaps); histLine('hPos',snaps,'position',{invert:true}); histLine('hClicks',snaps,'clicks',{});
+      whatChanged(snaps); renderSnaps(snaps); maybeStuck();
     }catch(e){}
   }
   function histBars(id,snaps){
