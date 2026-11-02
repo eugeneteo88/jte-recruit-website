@@ -62,7 +62,7 @@
 <body>
 <div id="gate">
   <div class="logo">JTE</div>
-  <p>Article review &mdash; enter password</p>
+  <p>Open your saved review link to get in &mdash; or enter the password</p>
   <input id="pw" type="password" autocomplete="off" placeholder="Password" onkeydown="if(event.key==='Enter')tryPw()">
   <button onclick="tryPw()">Enter</button>
   <div class="err" id="err"></div>
@@ -198,7 +198,16 @@ async function showApp(){
   if(!DATA){ DATA=await (await fetch("./drafts.json?"+Date.now())).json(); wire(); }
   render();
 }
-if(sessionStorage.getItem("jte-review-auth")===PW_HASH){ showApp(); }
+// Passwordless access: a secret bookmark link (?k=KEY) unlocks and is remembered on this
+// device (localStorage), so plain /review/ stays open. Only the key's hash is in this file.
+const KEY_HASH = "bfb3e27bd15ea37de1b8a8627cc96b1b03335d1d154336a13a9a06dbf5679de3";
+(async function(){
+  const urlKey = new URLSearchParams(location.search).get("k");
+  if(urlKey && await sha256(urlKey)===KEY_HASH){ localStorage.setItem("jte-review-key", urlKey); if(history.replaceState) history.replaceState(null,"",location.pathname); return showApp(); }
+  const savedKey = localStorage.getItem("jte-review-key");
+  if(savedKey && await sha256(savedKey)===KEY_HASH){ return showApp(); }
+  if(sessionStorage.getItem("jte-review-auth")===PW_HASH){ showApp(); }
+})();
 </script>
 </body>
 </html>
