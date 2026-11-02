@@ -15,6 +15,14 @@
     6276,
     6750
   ],
+  "monthly": [
+    { "month": "2026-06", "impressions": 8600, "clicks": 175, "partial": false },
+    { "month": "2026-07", "impressions": 10200, "clicks": 206, "partial": false },
+    { "month": "2026-08", "impressions": 13400, "clicks": 268, "partial": false },
+    { "month": "2026-09", "impressions": 17900, "clicks": 360, "partial": false },
+    { "month": "2026-10", "impressions": 22400, "clicks": 458, "partial": false },
+    { "month": "2026-11", "impressions": 1650, "clicks": 34, "partial": true }
+  ],
   "trendChange": "▲ +29% vs a month ago",
   "wow": {
     "impressions": 8,

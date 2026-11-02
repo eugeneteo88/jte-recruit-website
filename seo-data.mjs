@@ -58,6 +58,18 @@ async function main(){
   for(let w=4; w>=0; w--){ let s=0; for(let i=0;i<7;i++) s += dmap[daysAgo(1 + w*7 + i)]||0; trend.push(Math.round(s)); }
   const changePct = trend[0]>0 ? Math.round((trend[trend.length-1]-trend[0])/trend[0]*100) : 0;
 
+  // monthly impressions + clicks for the growth chart — last ~8 calendar months, oldest -> newest.
+  // Resilient: if the long query fails, keep whatever monthly data the last snapshot had.
+  let monthly = [];
+  try{
+    const mrows = await gsc({startDate:daysAgo(250), endDate:END, dimensions:['date'], type:'web', rowLimit:25000});
+    const mm = {};
+    for(const r of mrows){ const ym=r.keys[0].slice(0,7); (mm[ym] ||= {impressions:0,clicks:0}); mm[ym].impressions+=num(r.impressions); mm[ym].clicks+=num(r.clicks); }
+    const curYm = iso(new Date(Date.now()+288e5)).slice(0,7);
+    monthly = Object.entries(mm).sort().map(([month,v])=>({month, impressions:Math.round(v.impressions), clicks:Math.round(v.clicks), partial: month===curYm}));
+  }catch(e){ console.error('monthly skipped:', e.message); }
+  if(!monthly.length){ try{ monthly = JSON.parse(readFileSync('seo/data.json','utf8')).monthly||[]; }catch{} }
+
   // non-branded, bottom of page 1 / top of page 2 — the winnable terms
   const keywords = queries
     .filter(r => !/jte/i.test(r.keys[0]))
@@ -136,6 +148,7 @@ async function main(){
       position: num(tot.position).toFixed(1),
     },
     trend,
+    monthly,
     trendChange: (changePct>=0 ? '▲ +' : '▼ ') + Math.abs(changePct) + '% vs a month ago',
     wow,
     pagesSurfacing: pages.length,
