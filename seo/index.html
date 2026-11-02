@@ -136,6 +136,12 @@
   .mstone .md{flex:none;font-family:var(--mono);font-size:.74rem;color:var(--gold-ink);font-weight:700;width:5.1rem;padding-top:.1rem}
   .mstone .ml{font-size:.9rem;line-height:1.35}
   .mstone .mt{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:.15rem}
+  .act{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.8rem .95rem;margin-bottom:.6rem}
+  .act.hi{border-left-color:var(--crit)}
+  .act-h{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+  .act-h b{font-size:.94rem;line-height:1.3}
+  .act-h b[data-kw]{color:var(--gold-ink)}
+  .act-w{font-size:.84rem;color:var(--muted);line-height:1.4}
 
   .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.9rem 1.1rem;margin:1rem 0}
   .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
@@ -224,6 +230,7 @@
     <h1 class="vtitle">Overview</h1>
     <p class="vsub">The numbers that matter, and what moved them this week.</p>
     <div class="callout good" id="ovChanged" hidden style="margin:0 0 1rem"></div>
+    <div class="block" style="margin-top:.4rem"><h3>Do next</h3><div class="bsub">The highest-impact moves right now, ranked from your own data. Tap a term for its history.</div><div id="doNext"><p class="mut">Loading&hellip;</p></div></div>
     <div class="kpis">
       <div class="kpi" style="border-color:var(--gold)"><div class="v" id="kLeads" style="color:var(--gold)">,</div><div class="l">Inquiries · 28d</div><div class="d flat" id="kLeadsSub">the one that matters</div></div>
       <div class="kpi"><div class="v" id="kImpr">,</div><div class="l">Impressions · 28d</div><div class="d flat" id="kImprD">&nbsp;</div></div>
@@ -406,7 +413,7 @@
       if(Array.isArray(d.scorecard)&&d.scorecard.length) drawScorecard(d.scorecard);
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
-      maybeStuck();
+      maybeStuck(); renderActions();
       if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Updated <b>'+esc(d.updated)+'</b>';}
     }catch(e){}
   }
@@ -454,6 +461,25 @@
     const stuckCell=w=> w>=3?('<b style="color:var(--crit)">'+w+'w</b>') : w===2?('<b style="color:var(--warn)">2w</b>') : w===1?'1w':'<span class="mut">new</span>';
     box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Stuck</th><th class="num">Impr.</th></tr></thead><tbody>'+opps.map(k=>'<tr><td class="kw" data-kw="'+esc(k.term)+'">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+stuckCell(k.weeks)+'</td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
   }
+  function weeksStuck(term){let w=0;const snaps=HIST||[];for(let i=snaps.length-1;i>=0;i--){if((snaps[i].kw||[]).some(x=>String(x.t).toLowerCase()===String(term).toLowerCase()))w++;else if(w>0)break;}return w;}
+  function computeActions(){
+    if(!LIVE)return [];
+    const kws=LIVE.keywords||[], moving=new Set((LIVE.movers||[]).map(m=>String(m.term).toLowerCase())), cand=[];
+    kws.filter(k=>k.position>=11 && k.position<=18 && !moving.has(String(k.term).toLowerCase())).forEach(k=>{const w=weeksStuck(k.term);
+      cand.push({pri:(k.impressions>=60||w>=3)?'high':'med', act:'Push onto page 1: '+k.term, why:'Position '+k.position+', '+Number(k.impressions).toLocaleString()+' impr/28d'+(w>=2?', stuck '+w+'w':'')+'. Sharpen the title and add internal links.', kw:k.term, score:k.impressions*(1+w*0.6)});});
+    const prize=kws.filter(k=>k.position>10).sort((a,b)=>b.impressions-a.impressions)[0];
+    if(prize) cand.push({pri:'high', act:'Go after the big one: '+prize.term, why:Number(prize.impressions).toLocaleString()+' impr/28d at position '+prize.position+'. The largest opportunity on the board.', kw:prize.term, score:prize.impressions*2.2});
+    (LIVE.slippers||[]).slice(0,2).forEach(s=>cand.push({pri:'med', act:'Check what slipped: '+s.term, why:'Dropped from #'+s.fromPosition+' to #'+s.toPosition+'. See whether a recent change hurt it.', kw:s.term, score:Math.abs(s.imprChange||3)*9}));
+    if((LIVE.leads||0)<10) cand.push({pri:'med', act:'Lift inquiries', why:(LIVE.leads||0)+' in the last 28 days. Post the LinkedIn bank and point ads at the free-payroll page.', score:28});
+    const byKey={}; cand.forEach(a=>{const key=String(a.kw||a.act).toLowerCase(); if(!byKey[key]||a.score>byKey[key].score) byKey[key]=a;});
+    return Object.keys(byKey).map(k=>byKey[k]).sort((a,b)=>b.score-a.score).slice(0,5);
+  }
+  function renderActions(){
+    const box=$('doNext'); if(!box||!LIVE)return;
+    const acts=computeActions();
+    if(!acts.length){box.innerHTML='<p class="mut">No urgent actions right now. Keep publishing and posting.</p>';return;}
+    box.innerHTML=acts.map(a=>'<div class="act'+(a.pri==='high'?' hi':'')+'"><div class="act-h"><span class="chip '+(a.pri==='high'?'crit':'warn')+'">'+(a.pri==='high'?'High':'Next')+'</span><b'+(a.kw?' data-kw="'+esc(a.kw)+'"':'')+'>'+esc(a.act)+'</b></div><div class="act-w">'+esc(a.why)+'</div></div>').join('');
+  }
   function whatChanged(snaps){
     if(snaps.length<2)return;
     const a=snaps[snaps.length-2], b=snaps[snaps.length-1];
@@ -496,7 +522,7 @@
       const r=await fetch('/seo/history.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
       const snaps=(await r.json()).snapshots||[]; if(!snaps.length)return; HIST=snaps;
       histBars('hChart',snaps); histLine('hPos',snaps,'position',{invert:true}); histLine('hClicks',snaps,'clicks',{});
-      whatChanged(snaps); renderSnaps(snaps); maybeStuck(); initCompare();
+      whatChanged(snaps); renderSnaps(snaps); maybeStuck(); renderActions(); initCompare();
     }catch(e){}
   }
   function histBars(id,snaps){
