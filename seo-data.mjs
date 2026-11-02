@@ -80,7 +80,7 @@ async function main(){
     .map(k => ({term:k.term, position:Math.round(k.position), impressions:Math.round(k.impressions)}));
 
   // biggest week-over-week mover — non-branded queries with real volume
-  let mover = null;
+  let mover = null, movers = [];
   try{
     const curQ  = await gsc({startDate:daysAgo(7), endDate:daysAgo(1), dimensions:['query'],type:'web',rowLimit:1000});
     const prevQ = await gsc({startDate:daysAgo(14),endDate:daysAgo(8),dimensions:['query'],type:'web',rowLimit:1000});
@@ -94,6 +94,7 @@ async function main(){
       cand.push({term, fromPosition:Math.round(prev.pos), toPosition:Math.round(cur.pos), deltaPosition:+(prev.pos-cur.pos).toFixed(1), imprChange:Math.round(cur.impr-prev.impr)});
     }
     const climbers = cand.filter(c=>c.deltaPosition>=1).sort((a,b)=> b.deltaPosition-a.deltaPosition || b.imprChange-a.imprChange);
+    movers = climbers.slice(0,8).map(c=>({...c, kind:'climb'}));
     if(climbers.length) mover = {...climbers[0], kind:'climb'};
     else { const gain = cand.filter(c=>c.imprChange>0).sort((a,b)=>b.imprChange-a.imprChange); if(gain.length) mover = {...gain[0], kind:'impressions'}; }
   }catch(e){ console.error('mover skipped:', e.message); }
@@ -137,6 +138,11 @@ async function main(){
     }catch(e){ console.error('leads skipped:', e.message); }
   }catch(e){ console.error('GA skipped:', e.message); }
 
+  // top pages by impressions (28d) — what's actually pulling the reach
+  const topPages = (pages||[])
+    .map(r=>({url:(r.keys[0]||'').replace(/^https?:\/\/[^/]+/,'')||'/', impressions:Math.round(num(r.impressions)), clicks:Math.round(num(r.clicks)), position:+num(r.position).toFixed(1)}))
+    .sort((a,b)=>b.impressions-a.impressions).slice(0,8);
+
   const data = {
     updated: iso(new Date(Date.now()+288e5)),        // Singapore date
     source: 'Google Search Console + Analytics (auto)',
@@ -155,6 +161,8 @@ async function main(){
     submitted,
     keywords,
     mover,
+    movers,
+    topPages,
     sources,
     ai,
     leads,

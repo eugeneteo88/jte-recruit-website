@@ -101,6 +101,24 @@
     "imprChange": 7,
     "kind": "climb"
   },
+  "movers": [
+    { "term": "specialist it recruitment agency in singapore", "fromPosition": 62, "toPosition": 26, "deltaPosition": 35.6, "imprChange": 7, "kind": "climb" },
+    { "term": "engineering recruitment agency singapore", "fromPosition": 24, "toPosition": 16, "deltaPosition": 8.0, "imprChange": 18, "kind": "climb" },
+    { "term": "healthcare recruitment agency singapore", "fromPosition": 18, "toPosition": 10, "deltaPosition": 8.0, "imprChange": 9, "kind": "climb" },
+    { "term": "career conversion programme", "fromPosition": 26, "toPosition": 19, "deltaPosition": 7.0, "imprChange": 22, "kind": "climb" },
+    { "term": "manufacturing recruiters", "fromPosition": 20, "toPosition": 13, "deltaPosition": 7.0, "imprChange": 12, "kind": "climb" },
+    { "term": "how to hire engineers", "fromPosition": 21, "toPosition": 13, "deltaPosition": 8.0, "imprChange": 11, "kind": "climb" }
+  ],
+  "topPages": [
+    { "url": "/", "impressions": 4200, "clicks": 120, "position": 8.2 },
+    { "url": "/employers", "impressions": 2100, "clicks": 55, "position": 11.0 },
+    { "url": "/sectors/engineering", "impressions": 1850, "clicks": 40, "position": 12.3 },
+    { "url": "/free-payroll-singapore/", "impressions": 1400, "clicks": 38, "position": 9.5 },
+    { "url": "/salary-guide", "impressions": 1200, "clicks": 28, "position": 14.1 },
+    { "url": "/blog/singapore-hiring-market-cooling-2026/", "impressions": 980, "clicks": 22, "position": 10.8 },
+    { "url": "/hiring-grants", "impressions": 760, "clicks": 18, "position": 16.2 },
+    { "url": "/sectors/healthcare", "impressions": 640, "clicks": 14, "position": 13.5 }
+  ],
   "sources": [
     {
       "name": "Direct",
