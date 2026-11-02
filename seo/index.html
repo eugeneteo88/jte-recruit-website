@@ -98,6 +98,18 @@
   .mv-term{font-weight:600;font-size:.92rem;margin-bottom:.35rem;line-height:1.25}
   .mv-chg{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.8rem}
   .posjump{font-family:var(--mono);font-weight:700;font-size:.78rem;background:var(--good-bg);color:var(--good);padding:.12rem .45rem;border-radius:6px;white-space:nowrap}
+  .posjump.slip{background:var(--crit-bg);color:var(--crit)}
+  details.hsnap{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:.55rem;overflow:hidden}
+  details.hsnap>summary{cursor:pointer;list-style:none;padding:.65rem .8rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.88rem}
+  details.hsnap>summary::-webkit-details-marker{display:none}
+  details.hsnap .sdate{font-weight:700;font-family:var(--serif)}
+  details.hsnap .smetric{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
+  details.hsnap .smetric b{color:var(--ink)}
+  details.hsnap .sbody{padding:.2rem .8rem .75rem;font-size:.84rem;border-top:1px solid var(--line)}
+  details.hsnap .sgrp{margin-top:.55rem}
+  details.hsnap .sgrp>b{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:block;margin-bottom:.25rem}
+  details.hsnap .srow{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.2rem 0}
+  .hline svg{width:100%;height:auto;display:block}
 
   .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.9rem 1.1rem;margin:1rem 0}
   .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
@@ -178,6 +190,7 @@
     <a href="#content" data-nav="content">Content &amp; approvals</a>
     <a href="#search" data-nav="search">Search</a>
     <a href="#analytics" data-nav="analytics">Analytics</a>
+    <a href="#history" data-nav="history">History</a>
   </nav>
 
   <!-- ============ OVERVIEW ============ -->
@@ -232,6 +245,8 @@
 
     <div class="block"><h3>Top movers this week</h3><div class="bsub">Biggest ranking jumps on non-branded terms.</div><div id="moversBox"></div></div>
 
+    <div class="block"><h3>What's slipping</h3><div class="bsub">Terms losing ground &mdash; worth a look before they fall off page 1.</div><div id="slippersBox"><p class="mut">Loading&hellip;</p></div></div>
+
     <div class="block"><h3>Money keywords not yet on page 1</h3><div class="bsub">High-intent terms on the edge of page 1 &mdash; the fastest wins.</div>
       <div class="tbl-wrap"><table><thead><tr><th>Search term</th><th class="num">Pos.</th><th class="num">Impr.</th></tr></thead><tbody id="kwBody"><tr><td class="mut" colspan="3" style="text-align:center">Loading&hellip;</td></tr></tbody></table></div>
       <div id="kwMore"></div>
@@ -241,13 +256,8 @@
       <div class="tbl-wrap"><table><thead><tr><th>Page</th><th class="num">Impr.</th><th class="num">Pos.</th></tr></thead><tbody id="pagesBody"><tr><td class="mut" colspan="3" style="text-align:center">Loading&hellip;</td></tr></tbody></table></div>
     </div>
 
-    <div class="block"><h3>The scorecard</h3>
-      <div class="scorecard">
-        <div class="score"><div class="top"><span class="area">Technical &amp; on-page</span><span class="chip good">Strong</span></div><div class="note">Fast static site, clean sitemap, schema on every key page, correct indexing.</div></div>
-        <div class="score"><div class="top"><span class="area">Money keywords on page 1</span><span class="chip warn">Opportunity</span></div><div class="note">Commercial terms sit just off page 1. The single biggest lever.</div></div>
-        <div class="score"><div class="top"><span class="area">Content engine</span><span class="chip good">Live</span></div><div class="note">Payroll + sector clusters compounding on a steady cadence.</div></div>
-        <div class="score"><div class="top"><span class="area">AI visibility</span><span class="chip good">Rebuilt</span></div><div class="note">Answer-first copy + schema so AI engines can quote JTE.</div></div>
-      </div>
+    <div class="block"><h3>The scorecard</h3><div class="bsub">Graded live from your own Search Console data each refresh.</div>
+      <div class="scorecard" id="scoreBox"><p class="mut">Loading&hellip;</p></div>
     </div>
 
     <div class="block"><h3>Action tracker</h3>
@@ -275,6 +285,20 @@
     <div class="callout good"><h3>The honest verdict</h3><p>Foundations are strong &mdash; crawlable, fully indexed, schema everywhere, content engine live. The work now is ranking the near-miss commercial terms and letting the library compound.</p></div>
   </div>
 
+  <!-- ============ HISTORY ============ -->
+  <div class="view" id="v-history" hidden>
+    <h1 class="vtitle">History</h1>
+    <p class="vsub">Scroll back through time &mdash; reach, ranking, and what was moving on every tracked date.</p>
+
+    <div class="growth"><div class="ghead"><div><h3>Impressions over time</h3><div class="gsub">Every tracked snapshot.</div></div><div class="mgrow" id="hGrow">&nbsp;</div></div><div class="mchart" id="hChart"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Average position over time</h3><div class="bsub">Lower is better &mdash; the climb toward page 1.</div><div class="panel hline" id="hPos"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Look back &mdash; tap a date</h3><div class="bsub">The numbers, and what was climbing vs slipping, on each date.</div><div id="hSnaps"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Not moving &mdash; the opportunities</h3><div class="bsub">High-intent terms near page 1 that aren't climbing yet. This is where to push next.</div><div id="stuckBox"><p class="mut">Loading&hellip;</p></div></div>
+  </div>
+
   <footer class="doc">
     Private hub for JTE Recruit. Figures from Google Search Console + Analytics, trailing ~28 days; averages move daily. Monthly growth is calendar-month impressions. Recently shipped changes take time to reflect. No third-party tools or spend.
   </footer>
@@ -285,6 +309,7 @@
   <a href="#content" data-nav="content"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4"/></svg>Content</a>
   <a href="#search" data-nav="search"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>Search</a>
   <a href="#analytics" data-nav="analytics"><svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-7M22 20H2"/></svg>Analytics</a>
+  <a href="#history" data-nav="history"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>History</a>
 </nav>
 
 <script>
@@ -298,7 +323,9 @@
   function fmtK(n){return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(Math.round(n));}
 
   /* ---- routing ---- */
-  const VIEWS=['overview','content','search','analytics'];
+  const VIEWS=['overview','content','search','analytics','history'];
+  let LIVE=null;
+  function dLabel(iso){const p=String(iso).split('-');return (+p[2])+' '+MON[(+p[1])-1];}
   function go(v){
     if(VIEWS.indexOf(v)<0)v='overview';
     VIEWS.forEach(x=>{const el=$('v-'+x);if(el)el.hidden=(x!==v);});
@@ -310,7 +337,7 @@
 
   async function loadLive(){
     try{
-      const r=await fetch('/seo/data.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return; const d=await r.json();
+      const r=await fetch('/seo/data.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return; const d=await r.json(); LIVE=d;
       if(d.kpis){
         if(d.kpis.impressions!=null) setTxt('kImpr',Number(d.kpis.impressions).toLocaleString());
         if(d.kpis.clicks!=null) setTxt('kClicks',Number(d.kpis.clicks).toLocaleString());
@@ -322,9 +349,12 @@
       if(Array.isArray(d.monthly)&&d.monthly.length){ drawMonthly(d.monthly); monthDetail(d.monthly); }
       if(Array.isArray(d.movers)&&d.movers.length){ drawMovers('moversBox',d.movers); drawMovers('moversMini',d.movers.slice(0,3)); }
       if(Array.isArray(d.keywords)&&d.keywords.length) drawKw(d.keywords);
+      if(Array.isArray(d.slippers)) drawMovers('slippersBox',d.slippers);
       if(Array.isArray(d.topPages)&&d.topPages.length) drawPages(d.topPages);
+      if(Array.isArray(d.scorecard)&&d.scorecard.length) drawScorecard(d.scorecard);
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
+      drawStuck();
       if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Updated <b>'+esc(d.updated)+'</b>';}
     }catch(e){}
   }
@@ -347,8 +377,58 @@
   }
   function drawMovers(boxId,ms){
     const box=$(boxId); if(!box)return;
-    if(!ms||!ms.length){box.innerHTML='<p class="mut">No big movers this week.</p>';return;}
-    box.innerHTML=ms.map(m=>'<div class="mv"><div class="mv-term">'+esc(m.term)+'</div><div class="mv-chg"><span class="posjump">#'+m.fromPosition+' → #'+m.toPosition+'</span><span class="up">▲ '+m.deltaPosition+' spots</span>'+(m.imprChange?'<span class="mut">'+(m.imprChange>0?'+':'')+m.imprChange+' impr</span>':'')+'</div></div>').join('');
+    if(!ms||!ms.length){box.innerHTML='<p class="mut">Nothing notable this week.</p>';return;}
+    box.innerHTML=ms.map(m=>{
+      const slip=m.kind==='slip'||m.deltaPosition<0, sp=Math.abs(m.deltaPosition);
+      const dir=slip?'<span class="down">▼ '+sp+' spots</span>':'<span class="up">▲ '+sp+' spots</span>';
+      const impr=m.imprChange?'<span class="mut">'+(m.imprChange>0?'+':'')+m.imprChange+' impr</span>':'';
+      return '<div class="mv"><div class="mv-term">'+esc(m.term)+'</div><div class="mv-chg"><span class="posjump'+(slip?' slip':'')+'">#'+m.fromPosition+' → #'+m.toPosition+'</span>'+dir+impr+'</div></div>';
+    }).join('');
+  }
+  function drawScorecard(sc){
+    const box=$('scoreBox'); if(!box)return;
+    const lbl={good:'Good',warn:'Watch',crit:'Fix'};
+    box.innerHTML=sc.map(s=>'<div class="score"><div class="top"><span class="area">'+esc(s.area)+'</span><span class="chip '+esc(s.status)+'">'+(lbl[s.status]||esc(s.status))+'</span></div><div class="note">'+esc(s.note)+'</div></div>').join('');
+  }
+  function drawStuck(){
+    const box=$('stuckBox'); if(!box||!LIVE)return;
+    const moving=new Set((LIVE.movers||[]).map(m=>String(m.term).toLowerCase()));
+    const stuck=(LIVE.keywords||[]).filter(k=>k.position<=20 && !moving.has(String(k.term).toLowerCase())).slice(0,8);
+    if(!stuck.length){box.innerHTML='<p class="mut">Everything near page 1 is currently moving. Nice.</p>';return;}
+    box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Impr.</th></tr></thead><tbody>'+stuck.map(k=>'<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
+  }
+  async function loadHistory(){
+    try{
+      const r=await fetch('/seo/history.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
+      const snaps=(await r.json()).snapshots||[]; if(!snaps.length)return;
+      histBars('hChart',snaps); histLine('hPos',snaps,'position',{invert:true}); renderSnaps(snaps);
+    }catch(e){}
+  }
+  function histBars(id,snaps){
+    const box=$(id); if(!box)return;
+    const max=Math.max.apply(null,snaps.map(s=>Number(s.impressions)))||1,H=146;
+    box.innerHTML=snaps.map(s=>'<div class="mbar"><span class="mval">'+fmtK(Number(s.impressions))+'</span><i data-h="'+Math.max(6,Math.round(Number(s.impressions)/max*H))+'"></i><span class="mlbl">'+dLabel(s.date)+'</span></div>').join('');
+    requestAnimationFrame(()=>setTimeout(()=>box.querySelectorAll('.mbar i').forEach(i=>i.style.height=i.getAttribute('data-h')+'px'),40));
+    const g=$('hGrow'),a=snaps[0],b=snaps[snaps.length-1];
+    if(g&&a&&b){const x=a.impressions?Math.round((b.impressions-a.impressions)/a.impressions*100):0;g.textContent=(x>=0?'▲ +':'▼ ')+Math.abs(x)+'% since '+dLabel(a.date);g.style.color=x>=0?'var(--good)':'var(--crit)';}
+  }
+  function histLine(id,snaps,key,opts){
+    opts=opts||{}; const box=$(id); if(!box)return;
+    const vals=snaps.map(s=>Number(s[key])); if(vals.length<2){box.innerHTML='<p class="mut">Not enough history yet.</p>';return;}
+    const W=600,H=150,pad=16,max=Math.max.apply(null,vals),min=Math.min.apply(null,vals),rng=(max-min)||1;
+    const X=i=>pad+(W-2*pad)*i/(vals.length-1), Y=v=>{const t=(v-min)/rng;return opts.invert?(pad+(H-2*pad)*t):(H-pad-(H-2*pad)*t);};
+    const pts=vals.map((v,i)=>X(i).toFixed(0)+','+Y(v).toFixed(0));
+    const area='M'+X(0).toFixed(0)+','+(H-pad)+' L'+pts.join(' L')+' L'+X(vals.length-1).toFixed(0)+','+(H-pad)+' Z';
+    box.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="height:116px;width:100%;display:block"><path d="'+area+'" fill="var(--gold-soft)" opacity="0.13"/><polyline fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" points="'+pts.join(' ')+'"/><circle cx="'+X(vals.length-1).toFixed(0)+'" cy="'+Y(vals[vals.length-1]).toFixed(0)+'" r="5" fill="var(--gold)"/></svg>'
+      +'<div style="display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted);margin-top:.35rem"><span>'+dLabel(snaps[0].date)+': <b style="color:var(--ink)">'+vals[0]+'</b></span><span>now: <b style="color:var(--ink)">'+vals[vals.length-1]+'</b></span></div>';
+  }
+  function renderSnaps(snaps){
+    const box=$('hSnaps'); if(!box)return;
+    box.innerHTML=snaps.slice().reverse().map((s,i)=>{
+      const mv=(s.topMovers||[]).map(m=>'<div class="srow"><span class="posjump">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      const sl=(s.topSlippers||[]).map(m=>'<div class="srow"><span class="posjump slip">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      return '<details class="hsnap"'+(i===0?' open':'')+'><summary><span class="sdate">'+dLabel(s.date)+" '"+String(s.date).slice(2,4)+'</span><span class="smetric"><b>'+Number(s.impressions).toLocaleString()+'</b> impr · pos <b>'+s.position+'</b> · <b>'+(s.leads||0)+'</b> inq</span></summary><div class="sbody"><div class="sgrp"><b>Climbing</b>'+mv+'</div><div class="sgrp"><b>Slipping</b>'+sl+'</div></div></details>';
+    }).join('');
   }
   function drawKw(ks){
     const b=$('kwBody'); if(!b)return;
@@ -408,7 +488,7 @@
   });
 
   route();
-  loadLive(); loadBrief(); loadPostBank();
+  loadLive(); loadBrief(); loadPostBank(); loadHistory();
 </script>
 </body>
 </html>

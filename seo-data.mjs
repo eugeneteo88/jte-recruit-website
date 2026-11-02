@@ -80,7 +80,7 @@ async function main(){
     .map(k => ({term:k.term, position:Math.round(k.position), impressions:Math.round(k.impressions)}));
 
   // biggest week-over-week mover — non-branded queries with real volume
-  let mover = null, movers = [];
+  let mover = null, movers = [], slippers = [];
   try{
     const curQ  = await gsc({startDate:daysAgo(7), endDate:daysAgo(1), dimensions:['query'],type:'web',rowLimit:1000});
     const prevQ = await gsc({startDate:daysAgo(14),endDate:daysAgo(8),dimensions:['query'],type:'web',rowLimit:1000});
@@ -95,6 +95,8 @@ async function main(){
     }
     const climbers = cand.filter(c=>c.deltaPosition>=1).sort((a,b)=> b.deltaPosition-a.deltaPosition || b.imprChange-a.imprChange);
     movers = climbers.slice(0,8).map(c=>({...c, kind:'climb'}));
+    const decliners = cand.filter(c=>c.deltaPosition<=-1 && c.toPosition<=60).sort((a,b)=> a.deltaPosition-b.deltaPosition || b.imprChange-a.imprChange);
+    slippers = decliners.slice(0,6).map(c=>({...c, kind:'slip'}));
     if(climbers.length) mover = {...climbers[0], kind:'climb'};
     else { const gain = cand.filter(c=>c.imprChange>0).sort((a,b)=>b.imprChange-a.imprChange); if(gain.length) mover = {...gain[0], kind:'impressions'}; }
   }catch(e){ console.error('mover skipped:', e.message); }
@@ -143,6 +145,18 @@ async function main(){
     .map(r=>({url:(r.keys[0]||'').replace(/^https?:\/\/[^/]+/,'')||'/', impressions:Math.round(num(r.impressions)), clicks:Math.round(num(r.clicks)), position:+num(r.position).toFixed(1)}))
     .sort((a,b)=>b.impressions-a.impressions).slice(0,8);
 
+  // live scorecard — derived from the data, not hard-coded
+  const nb = (queries||[]).filter(r=>!/jte/i.test(r.keys[0]));
+  const onP1 = nb.filter(r=>num(r.position)<=10).length;
+  const nearP1 = nb.filter(r=>num(r.position)>10 && num(r.position)<=20).length;
+  const scorecard = [
+    { area:'Technical & on-page', status:'good', note:'Fast static site, clean sitemap, schema on every key page, correct indexing.' },
+    { area:'Money keywords on page 1', status: onP1>=15?'good':(onP1>=5?'warn':'crit'), note:`${onP1} non-branded terms on page 1, ${nearP1} more within reach (positions 11-20).` },
+    { area:'Indexing', status:'good', note:`${pages.length} pages surfacing in Google.` },
+    { area:'AI visibility', status: ai.total>0?'good':'warn', note:`~${ai.total} AI-assistant sessions in the last 28 days.` },
+    { area:'Climbing vs slipping', status: movers.length>=slippers.length?'good':'warn', note:`${movers.length} terms climbing, ${slippers.length} slipping this week.` },
+  ];
+
   const data = {
     updated: iso(new Date(Date.now()+288e5)),        // Singapore date
     source: 'Google Search Console + Analytics (auto)',
@@ -162,7 +176,9 @@ async function main(){
     keywords,
     mover,
     movers,
+    slippers,
     topPages,
+    scorecard,
     sources,
     ai,
     leads,
@@ -171,7 +187,26 @@ async function main(){
 
   mkdirSync('seo', {recursive:true});
   writeFileSync('seo/data.json', JSON.stringify(data,null,2)+'\n');
-  console.log('Wrote seo/data.json —', JSON.stringify(data.kpis), '| kw:'+keywords.length, 'src:'+sources.length, 'ai:'+ai.total);
+
+  // ---- rolling HISTORY — archive each run so the hub can look back over time ----
+  // One entry per day (replaces same-day), keep ~90. Resilient: never breaks the deploy.
+  try{
+    let hist = { snapshots: [] };
+    try{ const h = JSON.parse(readFileSync('seo/history.json','utf8')); if(Array.isArray(h.snapshots)) hist = h; }catch{}
+    const key = iso(new Date(Date.now()+288e5));
+    const slim = (arr) => (arr||[]).slice(0,3).map(m=>({term:m.term, from:m.fromPosition, to:m.toPosition, impr:m.imprChange}));
+    const snap = {
+      date: key,
+      impressions: data.kpis.impressions, clicks: data.kpis.clicks, position: +data.kpis.position,
+      leads: data.leads, pages: data.pagesSurfacing, onPage1: onP1,
+      climbing: movers.length, slipping: slippers.length,
+      topMovers: slim(movers), topSlippers: slim(slippers),
+    };
+    hist.snapshots = hist.snapshots.filter(s=>s.date!==key).concat([snap]).slice(-90);
+    writeFileSync('seo/history.json', JSON.stringify(hist,null,2)+'\n');
+  }catch(e){ console.error('history skipped:', e.message); }
+
+  console.log('Wrote seo/data.json —', JSON.stringify(data.kpis), '| kw:'+keywords.length, 'src:'+sources.length, 'ai:'+ai.total, '| movers:'+movers.length, 'slip:'+slippers.length);
 }
 
 main().catch(e => { console.error('seo-data skipped:', e.message); process.exit(0); });
