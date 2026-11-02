@@ -129,6 +129,13 @@
   @media(min-width:680px){.modal-card{border-radius:18px}}
   .modal-x{position:absolute;top:.75rem;right:.85rem;border:0;background:var(--surface-2);color:var(--ink);width:2rem;height:2rem;border-radius:50%;font-size:1.25rem;cursor:pointer;line-height:1.9;text-align:center}
   .modal-card h3{font-size:1.15rem;margin:.1rem 2rem .3rem 0;line-height:1.25}
+  .mbar .mflag{font-size:.6rem;line-height:1;color:var(--gold-ink);height:.7rem}
+  .mbar.flagged i{background:linear-gradient(180deg,var(--gold),var(--gold-ink))}
+  .mstone{display:flex;gap:.8rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+  .mstone:last-child{border-bottom:0}
+  .mstone .md{flex:none;font-family:var(--mono);font-size:.74rem;color:var(--gold-ink);font-weight:700;width:5.1rem;padding-top:.1rem}
+  .mstone .ml{font-size:.9rem;line-height:1.35}
+  .mstone .mt{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:.15rem}
 
   .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.9rem 1.1rem;margin:1rem 0}
   .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
@@ -200,7 +207,7 @@
 
   <header class="doc">
     <div class="mark">JTE<span>Control Hub</span></div>
-    <span class="updated" id="updatedStamp"><span class="dot"></span>Updated <b>&mdash;</b></span>
+    <span class="updated" id="updatedStamp"><span class="dot"></span>Updated <b>,</b></span>
     <a class="rev" href="/review/">Review &rarr;</a>
   </header>
 
@@ -218,10 +225,10 @@
     <p class="vsub">The numbers that matter, and what moved them this week.</p>
     <div class="callout good" id="ovChanged" hidden style="margin:0 0 1rem"></div>
     <div class="kpis">
-      <div class="kpi" style="border-color:var(--gold)"><div class="v" id="kLeads" style="color:var(--gold)">&mdash;</div><div class="l">Inquiries · 28d</div><div class="d flat" id="kLeadsSub">the one that matters</div></div>
-      <div class="kpi"><div class="v" id="kImpr">&mdash;</div><div class="l">Impressions · 28d</div><div class="d flat" id="kImprD">&nbsp;</div></div>
-      <div class="kpi"><div class="v" id="kClicks">&mdash;</div><div class="l">Clicks · 28d</div><div class="d flat" id="kClicksD">&nbsp;</div></div>
-      <div class="kpi"><div class="v" id="kPos">&mdash;</div><div class="l">Avg. position</div><div class="d flat" id="kPosD">&nbsp;</div></div>
+      <div class="kpi" style="border-color:var(--gold)"><div class="v" id="kLeads" style="color:var(--gold)">,</div><div class="l">Inquiries · 28d</div><div class="d flat" id="kLeadsSub">the one that matters</div></div>
+      <div class="kpi"><div class="v" id="kImpr">,</div><div class="l">Impressions · 28d</div><div class="d flat" id="kImprD">&nbsp;</div></div>
+      <div class="kpi"><div class="v" id="kClicks">,</div><div class="l">Clicks · 28d</div><div class="d flat" id="kClicksD">&nbsp;</div></div>
+      <div class="kpi"><div class="v" id="kPos">,</div><div class="l">Avg. position</div><div class="d flat" id="kPosD">&nbsp;</div></div>
     </div>
 
     <div class="growth">
@@ -236,7 +243,7 @@
 
     <div class="block">
       <h3>What's moving the needle</h3>
-      <div class="bsub">Keywords climbing fastest this week &mdash; these are what to push onto page 1.</div>
+      <div class="bsub">Keywords climbing fastest this week, these are what to push onto page 1.</div>
       <div id="moversMini"></div>
       <a href="#search" data-nav="search" class="more" style="color:var(--gold-ink)">See all movers &amp; keywords &rarr;</a>
     </div>
@@ -265,9 +272,9 @@
 
     <div class="block"><h3>Top movers this week</h3><div class="bsub">Biggest ranking jumps on non-branded terms.</div><div id="moversBox"></div></div>
 
-    <div class="block"><h3>What's slipping</h3><div class="bsub">Terms losing ground &mdash; worth a look before they fall off page 1.</div><div id="slippersBox"><p class="mut">Loading&hellip;</p></div></div>
+    <div class="block"><h3>What's slipping</h3><div class="bsub">Terms losing ground, worth a look before they fall off page 1.</div><div id="slippersBox"><p class="mut">Loading&hellip;</p></div></div>
 
-    <div class="block"><h3>Money keywords not yet on page 1</h3><div class="bsub">High-intent terms on the edge of page 1 &mdash; the fastest wins.</div>
+    <div class="block"><h3>Money keywords not yet on page 1</h3><div class="bsub">High-intent terms on the edge of page 1, the fastest wins.</div>
       <div class="tbl-wrap"><table><thead><tr><th>Search term</th><th class="num">Pos.</th><th class="num">Impr.</th></tr></thead><tbody id="kwBody"><tr><td class="mut" colspan="3" style="text-align:center">Loading&hellip;</td></tr></tbody></table></div>
       <div id="kwMore"></div>
     </div>
@@ -283,7 +290,7 @@
     <div class="block"><h3>Action tracker</h3>
       <ul class="clean">
         <li><span class="b g">&#10003;</span><div>Schema + answer-first openers across the whole site.</div></li>
-        <li><span class="b w">!</span><div>Rank the near-miss terms &mdash; sharpen titles &amp; internal links on the engineering/manufacturing pages.</div></li>
+        <li><span class="b w">!</span><div>Rank the near-miss terms, sharpen titles &amp; internal links on the engineering/manufacturing pages.</div></li>
         <li><span class="b i">&#9656;</span><div>You: post the LinkedIn bank with UTM links; re-run the AI-visibility test in a few weeks.</div></li>
       </ul>
     </div>
@@ -297,24 +304,26 @@
       <p id="aiNote" style="margin-top:.9rem;font-size:.84rem;color:var(--muted)">&nbsp;</p></div>
     <div class="block"><h3>Indexing &amp; coverage</h3>
       <ul class="clean">
-        <li><span class="b g">&#10003;</span><div><b id="covPages">&mdash;</b> pages surfacing in Google</div></li>
+        <li><span class="b g">&#10003;</span><div><b id="covPages">,</b> pages surfacing in Google</div></li>
         <li><span class="b g">&#10003;</span><div>Schema on every sector, service &amp; blog page</div></li>
         <li><span class="b g">&#10003;</span><div><b>0</b> broken links; noindex only on drafts &amp; internal pages</div></li>
       </ul>
     </div>
-    <div class="callout good"><h3>The honest verdict</h3><p>Foundations are strong &mdash; crawlable, fully indexed, schema everywhere, content engine live. The work now is ranking the near-miss commercial terms and letting the library compound.</p></div>
+    <div class="callout good"><h3>The honest verdict</h3><p>Foundations are strong, crawlable, fully indexed, schema everywhere, content engine live. The work now is ranking the near-miss commercial terms and letting the library compound.</p></div>
   </div>
 
   <!-- ============ HISTORY ============ -->
   <div class="view" id="v-history" hidden>
     <h1 class="vtitle">History</h1>
-    <p class="vsub">Scroll back through time &mdash; reach, ranking, and what was moving on every tracked date.</p>
+    <p class="vsub">Scroll back through time, reach, ranking, and what was moving on every tracked date.</p>
 
     <div class="callout good" id="hChanged" hidden style="margin:0 0 1.1rem"></div>
 
-    <div class="growth"><div class="ghead"><div><h3>Impressions over time</h3><div class="gsub">Every tracked snapshot.</div></div><div class="mgrow" id="hGrow">&nbsp;</div></div><div class="mchart" id="hChart"><p class="mut">Loading&hellip;</p></div></div>
+    <div class="growth"><div class="ghead"><div><h3>Impressions over time</h3><div class="gsub">Every tracked snapshot. Gold dots mark what we shipped.</div></div><div class="mgrow" id="hGrow">&nbsp;</div></div><div class="mchart" id="hChart"><p class="mut">Loading&hellip;</p></div></div>
 
-    <div class="block"><h3>Average position over time</h3><div class="bsub">Lower is better &mdash; the climb toward page 1.</div><div class="panel hline" id="hPos"><p class="mut">Loading&hellip;</p></div></div>
+    <div class="block"><h3>What we shipped</h3><div class="bsub">Milestones on the timeline, so you can see what moved the needle.</div><div id="milestones"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Average position over time</h3><div class="bsub">Lower is better, the climb toward page 1.</div><div class="panel hline" id="hPos"><p class="mut">Loading&hellip;</p></div></div>
 
     <div class="block"><h3>Clicks over time</h3><div class="bsub">Actual visits from search, snapshot by snapshot.</div><div class="panel hline" id="hClicks"><p class="mut">Loading&hellip;</p></div></div>
 
@@ -323,9 +332,9 @@
       <div id="cmpOut"><p class="mut">Loading&hellip;</p></div>
     </div>
 
-    <div class="block"><h3>Look back &mdash; tap a date</h3><div class="bsub">The numbers, and what was climbing vs slipping, on each date.</div><div id="hSnaps"><p class="mut">Loading&hellip;</p></div></div>
+    <div class="block"><h3>Look back, tap a date</h3><div class="bsub">The numbers, and what was climbing vs slipping, on each date.</div><div id="hSnaps"><p class="mut">Loading&hellip;</p></div></div>
 
-    <div class="block"><h3>Not moving &mdash; the opportunities</h3><div class="bsub">High-intent terms near page 1 that aren't climbing yet. This is where to push next.</div><div id="stuckBox"><p class="mut">Loading&hellip;</p></div></div>
+    <div class="block"><h3>Not moving, the opportunities</h3><div class="bsub">High-intent terms near page 1 that aren't climbing yet. This is where to push next.</div><div id="stuckBox"><p class="mut">Loading&hellip;</p></div></div>
   </div>
 
   <footer class="doc">
@@ -366,8 +375,9 @@
 
   /* ---- routing ---- */
   const VIEWS=['overview','content','search','analytics','history'];
-  let LIVE=null, HIST=null;
+  let LIVE=null, HIST=null, ANN=[];
   function dLabel(iso){const p=String(iso).split('-');return (+p[2])+' '+MON[(+p[1])-1];}
+  function dayNum(iso){const p=String(iso).split('-').map(Number);return p[0]*372+p[1]*31+p[2];}
   function go(v){
     if(VIEWS.indexOf(v)<0)v='overview';
     VIEWS.forEach(x=>{const el=$('v-'+x);if(el)el.hidden=(x!==v);});
@@ -405,7 +415,7 @@
     const full=mon.filter(m=>!m.partial);
     if(!full.length){box.innerHTML='<p class="mut">Not enough history yet.</p>';return;}
     const max=Math.max.apply(null,full.map(m=>Number(m.impressions)))||1,H=150;
-    box.innerHTML=full.map(m=>'<div class="mbar"><span class="mval">'+fmtK(Number(m.impressions))+'</span><i data-h="'+Math.max(6,Math.round(Number(m.impressions)/max*H))+'"></i><span class="mlbl">'+monLabel(m.month)+'</span></div>').join('');
+    box.innerHTML=full.map(m=>{const an=(ANN||[]).filter(a=>String(a.date).slice(0,7)===m.month);const fl='<span class="mflag"'+(an.length?' title="'+esc(an.map(a=>a.label).join(' · '))+'"':'')+'>'+(an.length?'●':'')+'</span>';return '<div class="mbar'+(an.length?' flagged':'')+'">'+fl+'<span class="mval">'+fmtK(Number(m.impressions))+'</span><i data-h="'+Math.max(6,Math.round(Number(m.impressions)/max*H))+'"></i><span class="mlbl">'+monLabel(m.month)+'</span></div>';}).join('');
     requestAnimationFrame(()=>setTimeout(()=>box.querySelectorAll('.mbar i').forEach(i=>i.style.height=i.getAttribute('data-h')+'px'),40));
     const g=$('mGrow'),a=full[0],b=full[full.length-1];
     if(g&&a&&b){const x=a.impressions?Math.round((b.impressions-a.impressions)/a.impressions*100):0;g.textContent=(x>=0?'▲ +':'▼ ')+Math.abs(x)+'% since '+monLabel(a.month);g.style.color=x>=0?'var(--good)':'var(--crit)';}
@@ -477,7 +487,7 @@
       const list=(arr,slip)=>arr.slice(0,6).map(m=>'<div class="srow"><span class="posjump'+(slip?' slip':'')+'">#'+m.from+' → #'+m.to+'</span><span data-kw="'+esc(m.term)+'">'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
       h+='<div class="sgrp"><b>Climbed</b>'+list(up,false)+'</div><div class="sgrp"><b>Slipped</b>'+list(dn,true)+'</div>';
     } else {
-      h+='<p class="mut" style="font-size:.82rem">Term-by-term movement is tracked from mid-October on &mdash; pick two of the more recent dates to see which keywords moved.</p>';
+      h+='<p class="mut" style="font-size:.82rem">Term-by-term movement is tracked from mid-October on, pick two of the more recent dates to see which keywords moved.</p>';
     }
     out.innerHTML=h;
   }
@@ -492,7 +502,8 @@
   function histBars(id,snaps){
     const box=$(id); if(!box)return;
     const max=Math.max.apply(null,snaps.map(s=>Number(s.impressions)))||1,H=146;
-    box.innerHTML=snaps.map(s=>'<div class="mbar"><span class="mval">'+fmtK(Number(s.impressions))+'</span><i data-h="'+Math.max(6,Math.round(Number(s.impressions)/max*H))+'"></i><span class="mlbl">'+dLabel(s.date)+'</span></div>').join('');
+    const flag={}; (ANN||[]).forEach(a=>{let bi=0,bd=1e9;snaps.forEach((s,i)=>{const d=Math.abs(dayNum(s.date)-dayNum(a.date));if(d<bd){bd=d;bi=i;}});(flag[bi]=flag[bi]||[]).push(a.label);});
+    box.innerHTML=snaps.map((s,i)=>{const an=flag[i]||[];const fl='<span class="mflag"'+(an.length?' title="'+esc(an.join(' · '))+'"':'')+'>'+(an.length?'●':'')+'</span>';return '<div class="mbar'+(an.length?' flagged':'')+'">'+fl+'<span class="mval">'+fmtK(Number(s.impressions))+'</span><i data-h="'+Math.max(6,Math.round(Number(s.impressions)/max*H))+'"></i><span class="mlbl">'+dLabel(s.date)+'</span></div>';}).join('');
     requestAnimationFrame(()=>setTimeout(()=>box.querySelectorAll('.mbar i').forEach(i=>i.style.height=i.getAttribute('data-h')+'px'),40));
     const g=$('hGrow'),a=snaps[0],b=snaps[snaps.length-1];
     if(g&&a&&b){const x=a.impressions?Math.round((b.impressions-a.impressions)/a.impressions*100):0;g.textContent=(x>=0?'▲ +':'▼ ')+Math.abs(x)+'% since '+dLabel(a.date);g.style.color=x>=0?'var(--good)':'var(--crit)';}
@@ -532,11 +543,11 @@
   function drawAi(ai){
     const b=$('aiNote'); if(!b)return;
     const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
-    b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?' &mdash; <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn.';
+    b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?', <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn.';
   }
 
   function kwChartSvg(pts){
-    if(pts.length<2) return '<p class="mut" style="font-size:.85rem">Not enough history yet for this term &mdash; its line fills in as we track each week.</p>';
+    if(pts.length<2) return '<p class="mut" style="font-size:.85rem">Not enough history yet for this term, its line fills in as we track each week.</p>';
     const W=600,H=150,pad=18,vals=pts.map(p=>p.p),max=Math.max.apply(null,vals),min=Math.min.apply(null,vals),rng=(max-min)||1;
     const X=i=>pad+(W-2*pad)*i/(pts.length-1), Y=v=>pad+(H-2*pad)*(v-min)/rng; // smaller position number = higher on chart
     const P=pts.map((p,i)=>X(i).toFixed(0)+','+Y(p.p).toFixed(0));
@@ -558,13 +569,23 @@
   }
   function closeKw(){const m=$('kwModal'); if(m)m.hidden=true;}
 
+  async function loadAnnotations(){
+    try{const r=await fetch('/seo/annotations.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();ANN=j.items||[];}}catch(e){}
+    renderMilestones();
+  }
+  function renderMilestones(){
+    const box=$('milestones'); if(!box)return;
+    const items=(ANN||[]).slice().sort((a,b)=>a.date<b.date?1:-1);
+    box.innerHTML=items.length?items.map(a=>'<div class="mstone"><div class="md">'+dLabel(a.date)+" '"+String(a.date).slice(2,4)+'</div><div><div class="ml">'+esc(a.label)+'</div>'+(a.tag?'<div class="mt">'+esc(a.tag)+'</div>':'')+'</div></div>').join(''):'<p class="mut">No milestones logged yet.</p>';
+  }
+
   async function loadBrief(){
     try{
       const r=await fetch('/seo/brief.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return; const b=await r.json();
       const AURL='https://github.com/eugeneteo88/jte-recruit-website/actions/workflows/approve-draft.yml';
       const ap=$('approvalsBox');
       if(ap) ap.innerHTML=(b.drafts&&b.drafts.length)? b.drafts.map(d=>{const fc=d.factcheck?(d.factcheck.pass===false?'<span class="chip crit">fact-check: review</span>':'<span class="chip good">fact-check: ok</span>'):'';
-        return '<div class="appr"><div class="appr-top"><b>'+esc(d.title||d.slug)+'</b>'+fc+'</div><div class="appr-act">'+(d.preview?'<a class="btn-sm" href="'+esc(d.preview)+'" target="_blank" rel="noopener">Preview ↗</a>':'')+'<a class="btn-sm gold" href="'+AURL+'" target="_blank" rel="noopener">Approve ↗</a><code>'+esc(d.slug)+'</code></div></div>';}).join('') : '<p class="mut">Nothing waiting &mdash; all caught up. New drafts appear here when the engine runs (Mon &amp; Thu).</p>';
+        return '<div class="appr"><div class="appr-top"><b>'+esc(d.title||d.slug)+'</b>'+fc+'</div><div class="appr-act">'+(d.preview?'<a class="btn-sm" href="'+esc(d.preview)+'" target="_blank" rel="noopener">Preview ↗</a>':'')+'<a class="btn-sm gold" href="'+AURL+'" target="_blank" rel="noopener">Approve ↗</a><code>'+esc(d.slug)+'</code></div></div>';}).join('') : '<p class="mut">Nothing waiting, all caught up. New drafts appear here when the engine runs (Mon &amp; Thu).</p>';
       const rc=$('recoBox');
       if(rc) rc.innerHTML=(b.recommended&&b.recommended.length)?('<ul class="clean">'+b.recommended.map(t=>'<li><span class="b w">!</span><div><b>'+esc(t.title||'')+'</b>'+(t.timely?' <span class="chip warn">timely</span>':'')+'</div></li>').join('')+'</ul>'):'<p class="mut">No new topics queued.</p>';
       const srcLink=t=>{const u=String(t.source_url||'').trim(),n=t.source_name||u; if(/^https?:\/\//i.test(u))return ' <a href="'+esc(u)+'" target="_blank" rel="noopener">source</a>'; if(n)return ' <a href="https://www.google.com/search?q='+encodeURIComponent(n)+'" target="_blank" rel="noopener">find</a>'; return '';};
@@ -599,7 +620,7 @@
   (function(){var x=$('kwClose'),m=$('kwModal');if(x)x.onclick=closeKw;if(m)m.addEventListener('click',function(e){if(e.target===m)closeKw();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeKw();});})();
 
   route();
-  loadLive(); loadBrief(); loadPostBank(); loadHistory();
+  (async function(){ await loadAnnotations(); loadLive(); loadBrief(); loadPostBank(); loadHistory(); })();
 </script>
 </body>
 </html>

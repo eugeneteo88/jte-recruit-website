@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "date": "2026-10-13", "label": "AI-visibility rewrite: answer-first copy + schema on every sector and service page", "tag": "SEO" },
+    { "date": "2026-10-15", "label": "Growth Engine went live (autonomous content pipeline)", "tag": "Content" },
+    { "date": "2026-10-22", "label": "Payroll cluster publishing began", "tag": "Content" },
+    { "date": "2026-10-31", "label": "Free-payroll money page + full 16-article payroll cluster shipped", "tag": "Content" },
+    { "date": "2026-11-02", "label": "Control Hub redesign (this dashboard)", "tag": "Ops" }
+  ]
+}
