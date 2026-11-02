@@ -110,6 +110,16 @@
   details.hsnap .sgrp>b{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:block;margin-bottom:.25rem}
   details.hsnap .srow{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.2rem 0}
   .hline svg{width:100%;height:auto;display:block}
+  .sgrp{margin-top:.55rem} .sgrp>b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:.25rem}
+  .srow{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.2rem 0;font-size:.84rem}
+  .cmp-ctl{display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem;flex-wrap:wrap}
+  .cmp-ctl select{font:inherit;font-size:.85rem;font-weight:600;padding:.5rem .6rem;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);flex:1;min-width:0}
+  .cmp-ctl .arw{color:var(--gold-ink);font-weight:800;flex:none}
+  .dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin-bottom:.8rem}
+  .dcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.75rem .85rem}
+  .dcard .dv{font-family:var(--serif);font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+  .dcard .dv.up{color:var(--good)} .dcard .dv.down{color:var(--crit)} .dcard .dv.flat{color:var(--muted)}
+  .dcard .dl{font-size:.72rem;color:var(--muted);margin-top:.3rem}
 
   .callout{background:var(--surface-2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:.9rem 1.1rem;margin:1rem 0}
   .callout.good{border-left-color:var(--good)} .callout.warn{border-left-color:var(--warn)}
@@ -197,6 +207,7 @@
   <div class="view" id="v-overview">
     <h1 class="vtitle">Overview</h1>
     <p class="vsub">The numbers that matter, and what moved them this week.</p>
+    <div class="callout good" id="ovChanged" hidden style="margin:0 0 1rem"></div>
     <div class="kpis">
       <div class="kpi" style="border-color:var(--gold)"><div class="v" id="kLeads" style="color:var(--gold)">&mdash;</div><div class="l">Inquiries · 28d</div><div class="d flat" id="kLeadsSub">the one that matters</div></div>
       <div class="kpi"><div class="v" id="kImpr">&mdash;</div><div class="l">Impressions · 28d</div><div class="d flat" id="kImprD">&nbsp;</div></div>
@@ -297,6 +308,11 @@
     <div class="block"><h3>Average position over time</h3><div class="bsub">Lower is better &mdash; the climb toward page 1.</div><div class="panel hline" id="hPos"><p class="mut">Loading&hellip;</p></div></div>
 
     <div class="block"><h3>Clicks over time</h3><div class="bsub">Actual visits from search, snapshot by snapshot.</div><div class="panel hline" id="hClicks"><p class="mut">Loading&hellip;</p></div></div>
+
+    <div class="block"><h3>Compare any two dates</h3><div class="bsub">Pick two snapshots to see exactly what changed between them.</div>
+      <div class="cmp-ctl"><select id="cmpA" aria-label="From date"></select><span class="arw">&rarr;</span><select id="cmpB" aria-label="To date"></select></div>
+      <div id="cmpOut"><p class="mut">Loading&hellip;</p></div>
+    </div>
 
     <div class="block"><h3>Look back &mdash; tap a date</h3><div class="bsub">The numbers, and what was climbing vs slipping, on each date.</div><div id="hSnaps"><p class="mut">Loading&hellip;</p></div></div>
 
@@ -407,20 +423,48 @@
     box.innerHTML='<div class="tbl-wrap"><table><thead><tr><th>Opportunity term</th><th class="num">Pos.</th><th class="num">Stuck</th><th class="num">Impr.</th></tr></thead><tbody>'+opps.map(k=>'<tr><td class="kw">'+esc(k.term)+'</td><td class="num"><span class="pos '+(k.position<=20?'close':'far')+'">'+k.position+'</span></td><td class="num">'+stuckCell(k.weeks)+'</td><td class="num">'+Number(k.impressions).toLocaleString()+'</td></tr>').join('')+'</tbody></table></div>';
   }
   function whatChanged(snaps){
-    const box=$('hChanged'); if(!box||snaps.length<2)return;
+    if(snaps.length<2)return;
     const a=snaps[snaps.length-2], b=snaps[snaps.length-1];
     const di=b.impressions-a.impressions, dp=+(a.position-b.position).toFixed(1); // position lower is better
     const diTxt='<span class="'+(di>=0?'up':'down')+'">'+(di>=0?'▲ +':'▼ ')+Math.abs(di).toLocaleString()+' impressions</span>';
     const dpTxt=Math.abs(dp)<0.05?'<span class="mut">flat position</span>':('<span class="'+(dp>=0?'up':'down')+'">'+(dp>=0?'▲ ':'▼ ')+Math.abs(dp)+' position</span>');
-    box.innerHTML='<h3 style="font-size:.98rem;margin-bottom:.35rem">Since '+dLabel(a.date)+" '"+String(a.date).slice(2,4)+'</h3><p style="font-size:.9rem">'+diTxt+' · '+dpTxt+' · <span class="up">'+b.climbing+' climbing</span> · <span class="down">'+b.slipping+' slipping</span></p>';
-    box.hidden=false;
+    const html='<h3 style="font-size:.98rem;margin-bottom:.35rem">Since '+dLabel(a.date)+" '"+String(a.date).slice(2,4)+'</h3><p style="font-size:.9rem">'+diTxt+' · '+dpTxt+' · <span class="up">'+b.climbing+' climbing</span> · <span class="down">'+b.slipping+' slipping</span></p>';
+    ['hChanged','ovChanged'].forEach(id=>{const el=$(id); if(el){el.innerHTML=html; el.hidden=false;}});
+  }
+  function initCompare(){
+    const A=$('cmpA'),B=$('cmpB'); if(!A||!B||!HIST||HIST.length<2){const o=$('cmpOut');if(o)o.innerHTML='<p class="mut">Need at least two snapshots to compare.</p>';return;}
+    const opts=HIST.map((s,i)=>'<option value="'+i+'">'+dLabel(s.date)+" '"+String(s.date).slice(2,4)+'</option>').join('');
+    A.innerHTML=opts; B.innerHTML=opts; A.value='0'; B.value=String(HIST.length-1);
+    A.onchange=B.onchange=renderCompare; renderCompare();
+  }
+  function renderCompare(){
+    const out=$('cmpOut'); if(!out||!HIST)return;
+    const ai=+$('cmpA').value, bi=+$('cmpB').value;
+    if(ai===bi){out.innerHTML='<p class="mut">Pick two different dates.</p>';return;}
+    const a=HIST[Math.min(ai,bi)], b=HIST[Math.max(ai,bi)];
+    const dc=(label,av,bv,fmt,invert)=>{const d=+(bv-av).toFixed(1);const flat=Math.abs(d)<(invert?0.05:0.5);const good=invert?d<0:d>=0;const disp=fmt?fmt(Math.abs(d)):Math.abs(d);return '<div class="dcard"><div class="dv '+(flat?'flat':(good?'up':'down'))+'">'+(flat?'—':((good?'▲ ':'▼ ')+disp))+'</div><div class="dl">'+label+'</div></div>';};
+    let h='<p class="mut" style="font-size:.82rem;margin-bottom:.7rem">'+dLabel(a.date)+" '"+String(a.date).slice(2,4)+' → '+dLabel(b.date)+" '"+String(b.date).slice(2,4)+'</p><div class="dgrid">'
+      +dc('Impressions',a.impressions,b.impressions,n=>Math.round(n).toLocaleString())
+      +dc('Clicks',a.clicks,b.clicks,n=>Math.round(n).toLocaleString())
+      +dc('Avg position',a.position,b.position,n=>n.toFixed(1),true)
+      +dc('Inquiries',a.leads||0,b.leads||0)+'</div>';
+    if(a.kw&&b.kw){
+      const am={}; a.kw.forEach(x=>am[String(x.t).toLowerCase()]=x.p);
+      const moves=[]; b.kw.forEach(x=>{const ap=am[String(x.t).toLowerCase()]; if(ap!=null){const d=ap-x.p; if(Math.abs(d)>=1) moves.push({term:x.t,from:ap,to:x.p,delta:d});}});
+      const up=moves.filter(m=>m.delta>0).sort((x,y)=>y.delta-x.delta), dn=moves.filter(m=>m.delta<0).sort((x,y)=>x.delta-y.delta);
+      const list=(arr,slip)=>arr.slice(0,6).map(m=>'<div class="srow"><span class="posjump'+(slip?' slip':'')+'">#'+m.from+' → #'+m.to+'</span><span>'+esc(m.term)+'</span></div>').join('')||'<span class="mut">—</span>';
+      h+='<div class="sgrp"><b>Climbed</b>'+list(up,false)+'</div><div class="sgrp"><b>Slipped</b>'+list(dn,true)+'</div>';
+    } else {
+      h+='<p class="mut" style="font-size:.82rem">Term-by-term movement is tracked from mid-October on &mdash; pick two of the more recent dates to see which keywords moved.</p>';
+    }
+    out.innerHTML=h;
   }
   async function loadHistory(){
     try{
       const r=await fetch('/seo/history.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
       const snaps=(await r.json()).snapshots||[]; if(!snaps.length)return; HIST=snaps;
       histBars('hChart',snaps); histLine('hPos',snaps,'position',{invert:true}); histLine('hClicks',snaps,'clicks',{});
-      whatChanged(snaps); renderSnaps(snaps); maybeStuck();
+      whatChanged(snaps); renderSnaps(snaps); maybeStuck(); initCompare();
     }catch(e){}
   }
   function histBars(id,snaps){
