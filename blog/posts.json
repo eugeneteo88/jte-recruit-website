@@ -774,5 +774,49 @@
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
+  },
+  {
+    "slug": "work-pass-payroll-compliance-singapore",
+    "title": "MOM is checking work passes harder than ever. The part you can't wing.",
+    "tag": "Field Notes",
+    "excerpt": "MOM is actively investigating work-pass compliance right now. Here's what employers need to get right, and why the admin is where it usually slips.",
+    "author": "Eugene Teo",
+    "date": "2026-11-21",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "it-staffing-firm-payroll-parking-singapore",
+    "title": "Why IT staffing firms park their contractors' payroll with us",
+    "tag": "Field Notes",
+    "excerpt": "If you run an IT staffing or recruitment firm, your contractors are a payroll operation on their own. Here's why many firms hand that part to us.",
+    "author": "Eugene Teo",
+    "date": "2026-11-25",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "payroll-outsourcing-vs-in-house-maths",
+    "title": "Payroll outsourcing vs doing it in-house: the honest maths",
+    "tag": "Field Notes",
+    "excerpt": "Cheaper to run payroll yourself or hand it off? Here's the honest maths, including the costs people forget to count.",
+    "author": "Eugene Teo",
+    "date": "2026-11-28",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "year-end-payroll-before-january-singapore",
+    "title": "Year-end? Get your payroll sorted before January",
+    "tag": "Field Notes",
+    "excerpt": "Year-end is the right moment to get payroll in order before the new year, new hires, the 2027 pass changes and tax season all land at once.",
+    "author": "Eugene Teo",
+    "date": "2026-12-02",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
   }
 ]

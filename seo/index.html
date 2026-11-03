@@ -260,6 +260,7 @@
   <div class="view" id="v-content" hidden>
     <h1 class="vtitle">Content &amp; approvals</h1>
     <p class="vsub">Approve what's ready, see what's queued, grab your LinkedIn posts. <span id="briefStamp"></span></p>
+    <div class="block"><h3>Scheduled to publish</h3><div class="bsub">What's lined up to go live, in order. The rest of the year is payroll-focused.</div><div id="upcomingBox"><p class="mut">Loading&hellip;</p></div></div>
     <div class="block"><h3>Awaiting your approval</h3><div id="approvalsBox"><p class="mut">Loading&hellip;</p></div></div>
     <div class="two">
       <div class="panel"><h3>Recommended next</h3><div id="recoBox"><p class="mut">Loading&hellip;</p></div></div>
@@ -595,6 +596,16 @@
   }
   function closeKw(){const m=$('kwModal'); if(m)m.hidden=true;}
 
+  function decodeEnt(s){const t=document.createElement('textarea');t.innerHTML=String(s||'');return t.value;}
+  async function loadUpcoming(){
+    const box=$('upcomingBox'); if(!box)return;
+    try{
+      const r=await fetch('/blog/posts.json?t='+Date.now(),{cache:'no-store'}); if(!r.ok)return;
+      const posts=await r.json(); const today=new Date().toISOString().slice(0,10);
+      const up=posts.filter(p=>!p.draft && p.date>today).sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(0,24);
+      box.innerHTML=up.length? up.map(p=>'<div class="mstone"><div class="md">'+dLabel(p.date)+" '"+String(p.date).slice(2,4)+'</div><div class="ml">'+esc(decodeEnt(p.title))+'</div></div>').join('') : '<p class="mut">Nothing scheduled ahead right now.</p>';
+    }catch(e){}
+  }
   async function loadAnnotations(){
     try{const r=await fetch('/seo/annotations.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();ANN=j.items||[];}}catch(e){}
     renderMilestones();
@@ -646,7 +657,7 @@
   (function(){var x=$('kwClose'),m=$('kwModal');if(x)x.onclick=closeKw;if(m)m.addEventListener('click',function(e){if(e.target===m)closeKw();});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeKw();});})();
 
   route();
-  (async function(){ await loadAnnotations(); loadLive(); loadBrief(); loadPostBank(); loadHistory(); })();
+  (async function(){ await loadAnnotations(); loadLive(); loadBrief(); loadPostBank(); loadHistory(); loadUpcoming(); })();
 </script>
 </body>
 </html>
