@@ -145,13 +145,15 @@ async function main(){
     .map(r=>({url:(r.keys[0]||'').replace(/^https?:\/\/[^/]+/,'')||'/', impressions:Math.round(num(r.impressions)), clicks:Math.round(num(r.clicks)), position:+num(r.position).toFixed(1)}))
     .sort((a,b)=>b.impressions-a.impressions).slice(0,8);
 
-  // live scorecard — derived from the data, not hard-coded
-  const nb = (queries||[]).filter(r=>!/jte/i.test(r.keys[0]));
+  // live scorecard — derived from the data, not hard-coded.
+  // Only count terms with REAL search volume (>=10 impr/28d), so the number is meaningful
+  // and not inflated by hundreds of 1-impression long-tail queries.
+  const nb = (queries||[]).filter(r=>!/jte/i.test(r.keys[0]) && num(r.impressions)>=10);
   const onP1 = nb.filter(r=>num(r.position)<=10).length;
   const nearP1 = nb.filter(r=>num(r.position)>10 && num(r.position)<=20).length;
   const scorecard = [
     { area:'Technical & on-page', status:'good', note:'Fast static site, clean sitemap, schema on every key page, correct indexing.' },
-    { area:'Money keywords on page 1', status: onP1>=15?'good':(onP1>=5?'warn':'crit'), note:`${onP1} non-branded terms on page 1, ${nearP1} more within reach (positions 11-20).` },
+    { area:'Money keywords on page 1', status: onP1>=15?'good':(onP1>=5?'warn':'crit'), note:`${onP1} non-branded terms with real volume on page 1, ${nearP1} more within reach (positions 11-20).` },
     { area:'Indexing', status:'good', note:`${pages.length} pages surfacing in Google.` },
     { area:'AI visibility', status: ai.total>0?'good':'warn', note:`~${ai.total} AI-assistant sessions in the last 28 days.` },
     { area:'Climbing vs slipping', status: movers.length>=slippers.length?'good':'warn', note:`${movers.length} terms climbing, ${slippers.length} slipping this week.` },
