@@ -23,4 +23,7 @@ Record every generation run below: date, what it was for, how many images, est. 
 | 2026-10-31 | Rich-media rollout: 2 inline photos (scaling onboarding, lessons desk) | 2 | 0.08 |
 
 **October 2026 total: ~US$0.84** (cap US$20). Note: most article visuals are free animated SVG / branded graphics; only photos cost.
-| 2026-11-03 | | 2026-11-03 | | 2026-11-03 | IT-weighted payroll batch 3 (4 article heroes) | 4 | 0.16 |
+| 2026-11-03 | IT-weighted payroll batch 3 (4 article heroes) | 4 | 0.16 |
+| 2026-11-03 | December payroll batch 4 (4 article heroes: hybrid-team, outsourcing, contractor-cost, SOL-EP) | 4 | 0.16 |
+
+**November 2026 running total: ~US$0.32** (cap US$20).

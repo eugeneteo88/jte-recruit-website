@@ -737,7 +737,7 @@
     "tag": "Field Notes",
     "excerpt": "IT runs on contractors, project hires and short-term specialists. Here's the payroll question to sort before you bring them on.",
     "author": "Eugene Teo",
-    "date": "2026-11-07",
+    "date": "2026-11-13",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -748,7 +748,7 @@
     "tag": "Field Notes",
     "excerpt": "You win the IT project, then realise you need a team on the ground fast. Here's the payroll and onboarding part most people only plan for too late.",
     "author": "Eugene Teo",
-    "date": "2026-11-11",
+    "date": "2026-11-14",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -759,7 +759,7 @@
     "tag": "Field Notes",
     "excerpt": "Singapore's Employment Pass qualifying salary goes up from January 2027. If you hire foreign IT talent, here's the plain-English version and how to keep it simple.",
     "author": "Eugene Teo",
-    "date": "2026-11-14",
+    "date": "2026-11-09",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -770,7 +770,7 @@
     "tag": "Field Notes",
     "excerpt": "Contract or permanent for that IT role? Here's the payroll, cost and flexibility difference, and the part that often tips the decision.",
     "author": "Eugene Teo",
-    "date": "2026-11-18",
+    "date": "2026-11-16",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -781,7 +781,7 @@
     "tag": "Field Notes",
     "excerpt": "MOM is actively investigating work-pass compliance right now. Here's what employers need to get right, and why the admin is where it usually slips.",
     "author": "Eugene Teo",
-    "date": "2026-11-21",
+    "date": "2026-11-07",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -792,7 +792,7 @@
     "tag": "Field Notes",
     "excerpt": "If you run an IT staffing or recruitment firm, your contractors are a payroll operation on their own. Here's why many firms hand that part to us.",
     "author": "Eugene Teo",
-    "date": "2026-11-25",
+    "date": "2026-11-18",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -803,7 +803,7 @@
     "tag": "Field Notes",
     "excerpt": "Cheaper to run payroll yourself or hand it off? Here's the honest maths, including the costs people forget to count.",
     "author": "Eugene Teo",
-    "date": "2026-11-28",
+    "date": "2026-11-21",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -814,7 +814,7 @@
     "tag": "Field Notes",
     "excerpt": "Year-end is the right moment to get payroll in order before the new year, new hires, the 2027 pass changes and tax season all land at once.",
     "author": "Eugene Teo",
-    "date": "2026-12-02",
+    "date": "2026-11-27",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -825,7 +825,7 @@
     "tag": "Field Notes",
     "excerpt": "CPF contribution rates rise again from January 2027 for older workers. Here's the plain version, and why keeping the right rate by age is where payroll trips up.",
     "author": "Eugene Teo",
-    "date": "2026-12-05",
+    "date": "2026-11-11",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -836,7 +836,7 @@
     "tag": "Field Notes",
     "excerpt": "A project lands and you need a cluster of IT contractors productive fast. Here's the payroll reality of onboarding at speed, and how to make it painless.",
     "author": "Eugene Teo",
-    "date": "2026-12-09",
+    "date": "2026-11-20",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -847,7 +847,7 @@
     "tag": "Field Notes",
     "excerpt": "You keep hearing 'employer of record' but what does it actually cover? Here's the plain-English rundown of what we handle, and what stays with you.",
     "author": "Eugene Teo",
-    "date": "2026-12-12",
+    "date": "2026-11-23",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
@@ -858,7 +858,51 @@
     "tag": "Field Notes",
     "excerpt": "Overseas tech company making your first hire in Singapore? You don't need a local entity to start. Here's the lean way to employ and pay your first people here.",
     "author": "Eugene Teo",
-    "date": "2026-12-16",
+    "date": "2026-11-25",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "hybrid-tech-team-payroll-singapore",
+    "title": "The hybrid tech team is the 2026 default. Who runs the contractors' payroll?",
+    "tag": "Field Notes",
+    "excerpt": "Analysts say 2026's defining shift is a lean permanent core flexed with contractors. We think it's smart. Here's the payroll part that decides whether it works.",
+    "author": "Eugene Teo",
+    "date": "2026-11-30",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "outsourcing-tech-talent-payroll-singapore",
+    "title": "74% of Singapore firms are outsourcing tech talent. Here's the payroll part they sort out last.",
+    "tag": "Field Notes",
+    "excerpt": "Three in four Singapore employers already outsource tech talent or plan to. The sourcing gets the attention. The payroll underneath is what actually trips people up.",
+    "author": "Eugene Teo",
+    "date": "2026-12-02",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "cost-to-employ-contract-tech-specialist-singapore",
+    "title": "What it really costs to employ a contract data or AI engineer in Singapore",
+    "tag": "Field Notes",
+    "excerpt": "A contract data or AI engineer's day rate is only the headline. Here's what sits on top to employ them properly, and why it's smaller than you fear.",
+    "author": "Eugene Teo",
+    "date": "2026-12-04",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "tech-shortage-occupation-list-ep-payroll-singapore",
+    "title": "Some tech roles get a 5-year Employment Pass. Here's what that means for you.",
+    "tag": "Field Notes",
+    "excerpt": "Certain tech roles on Singapore's Shortage Occupation List can earn bonus COMPASS points and a longer EP. Here's the plain version, and the payroll side of it.",
+    "author": "Eugene Teo",
+    "date": "2026-12-06",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
