@@ -906,5 +906,49 @@
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
+  },
+  {
+    "slug": "changes-for-employers-january-2027-singapore",
+    "title": "Everything that changes for employers on 1 January 2027",
+    "tag": "Field Notes",
+    "excerpt": "EP and S Pass floors up, CPF senior rates up, LQS already at S$1,800. Here's the one-page version of what changes for employers in January, and how to not have to track it.",
+    "author": "Eugene Teo",
+    "date": "2026-12-08",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "it-freelancer-contractor-employee-singapore-payroll",
+    "title": "Freelancer, contractor or employee? The line that decides who owes CPF.",
+    "tag": "Field Notes",
+    "excerpt": "Hiring IT help as a freelancer, contractor or staff member isn't just a label. It decides who owes CPF, and getting it wrong is costly. Here's the plain line.",
+    "author": "Eugene Teo",
+    "date": "2026-12-10",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "remote-distributed-dev-team-singapore-payroll",
+    "title": "Your dev team is spread across three countries. Here's the Singapore piece.",
+    "tag": "Field Notes",
+    "excerpt": "Distributed engineering teams are normal now. When one or two of your people sit in Singapore, here's the clean way to employ and pay them without opening an entity.",
+    "author": "Eugene Teo",
+    "date": "2026-12-12",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "switching-payroll-provider-year-end-singapore",
+    "title": "Thinking of moving your payroll? Year-end is the clean moment.",
+    "tag": "Field Notes",
+    "excerpt": "If your payroll setup isn't working, the turn of the year is the cleanest time to switch. Here's why year-end makes the move painless, and how we handle the changeover.",
+    "author": "Eugene Teo",
+    "date": "2026-12-14",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
   }
 ]
