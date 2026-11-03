@@ -148,9 +148,11 @@ const articleCapture = (post) => `        <div style="background:#F3ECDE;border-
             <input type="checkbox" name="botcheck" style="display:none">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-bottom:.6rem">
               <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
+              <input type="text" name="company" class="hq-fld" placeholder="Company name" required aria-label="Company name">
               <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
+              <input type="tel" name="phone" class="hq-fld" placeholder="Contact number" required aria-label="Contact number">
             </div>
-            <input type="text" name="company_role" class="hq-fld" placeholder="Company and the role you&rsquo;re hiring for" required aria-label="Company and role" style="margin-bottom:.9rem">
+            <input type="text" name="hiring_for" class="hq-fld" placeholder="What role(s) are you hiring for?" required aria-label="What you are hiring for" style="margin-bottom:.9rem">
             <button type="submit" class="btn-pill" style="display:block;width:100%;padding:.95rem;border:none;border-radius:8px;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer">Get my hiring quote</button>
             <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Looking for a job? We don&rsquo;t take applications here.</p>
           </form>

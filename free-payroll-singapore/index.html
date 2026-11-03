@@ -243,13 +243,14 @@
     <div id="fp-success" class="fp-msg">&#10003; Got it &mdash; I&rsquo;ll be in touch within a day.</div>
     <form id="fp-form" action="https://api.web3forms.com/submit" method="POST" class="text-left">
       <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
-      <input type="hidden" name="subject" value="Free payroll enquiry &mdash; free-payroll-singapore landing page">
+      <input type="hidden" name="subject" value="Free payroll enquiry: free-payroll-singapore landing page">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="grid sm:grid-cols-2 gap-4 mb-4">
         <input type="text" name="name" class="fp-fld" placeholder="Your name" required aria-label="Your name">
         <input type="email" name="email" class="fp-fld" placeholder="Work email" required aria-label="Work email">
       </div>
       <input type="text" name="company" class="fp-fld" placeholder="Company name" required aria-label="Company" style="margin-bottom:1rem">
+      <input type="tel" name="phone" class="fp-fld" placeholder="Contact number" required aria-label="Contact number" style="margin-bottom:1rem">
       <input type="text" name="team" class="fp-fld" placeholder="How many staff (or roles you&rsquo;re hiring)?" required aria-label="Team size" style="margin-bottom:1.25rem">
       <button type="submit" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-xs flex items-center justify-center gap-2 rounded-md">
         Send it over

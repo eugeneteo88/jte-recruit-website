@@ -317,13 +317,17 @@
     <div id="hq-success" class="hq-msg">&#10003; Thanks &mdash; we&rsquo;ll be in touch within 24 hours.</div>
     <form id="hq-form" action="https://api.web3forms.com/submit" method="POST" class="text-left max-w-xl mx-auto">
       <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
-      <input type="hidden" name="subject" value="New hiring enquiry &mdash; IT and Tech (sector page)">
+      <input type="hidden" name="subject" value="New hiring enquiry: IT and Tech (sector page)">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="grid sm:grid-cols-2 gap-4 mb-4">
         <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
-        <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
+        <input type="text" name="company" class="hq-fld" placeholder="Company name" required aria-label="Company name">
       </div>
-      <input type="text" name="company_role" class="hq-fld" placeholder="Company and the role you&rsquo;re hiring for" required aria-label="Company and role" style="margin-bottom:1.25rem">
+      <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
+        <input type="tel" name="phone" class="hq-fld" placeholder="Contact number" required aria-label="Contact number">
+      </div>
+      <input type="text" name="hiring_for" class="hq-fld" placeholder="What role(s) are you hiring for?" required aria-label="What you are hiring for" style="margin-bottom:1.25rem">
       <button type="submit" class="btn-primary w-full py-4 uppercase tracking-wider font-semibold text-xs flex items-center justify-center gap-2 rounded-md">
         Get my hiring quote
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
