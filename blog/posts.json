@@ -818,5 +818,49 @@
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
+  },
+  {
+    "slug": "cpf-rates-2027-payroll-singapore",
+    "title": "CPF rates change again in January 2027. Here's what it means for your payroll.",
+    "tag": "Field Notes",
+    "excerpt": "CPF contribution rates rise again from January 2027 for older workers. Here's the plain version, and why keeping the right rate by age is where payroll trips up.",
+    "author": "Eugene Teo",
+    "date": "2026-12-05",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "onboarding-it-contractors-fast-singapore",
+    "title": "Onboarding 20 IT contractors in two weeks: the payroll reality",
+    "tag": "Field Notes",
+    "excerpt": "A project lands and you need a cluster of IT contractors productive fast. Here's the payroll reality of onboarding at speed, and how to make it painless.",
+    "author": "Eugene Teo",
+    "date": "2026-12-09",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "what-employer-of-record-covers-singapore",
+    "title": "What an employer of record actually covers in Singapore",
+    "tag": "Field Notes",
+    "excerpt": "You keep hearing 'employer of record' but what does it actually cover? Here's the plain-English rundown of what we handle, and what stays with you.",
+    "author": "Eugene Teo",
+    "date": "2026-12-12",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "first-dev-hire-singapore-overseas-company",
+    "title": "Making your first dev hire in Singapore as an overseas tech company",
+    "tag": "Field Notes",
+    "excerpt": "Overseas tech company making your first hire in Singapore? You don't need a local entity to start. Here's the lean way to employ and pay your first people here.",
+    "author": "Eugene Teo",
+    "date": "2026-12-16",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
   }
 ]
