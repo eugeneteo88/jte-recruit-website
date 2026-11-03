@@ -25,7 +25,7 @@
     "tag": "Employer Guide",
     "excerpt": "Promoting your top performer into management is the most common way to lose a great doer and gain a struggling boss. When to promote, when to hire, and how to decide.",
     "author": "Eugene Teo",
-    "date": "2027-01-02",
+    "date": "2027-03-04",
     "readTime": "6 min read",
     "icon": "users"
   },
@@ -35,7 +35,7 @@
     "tag": "Employer Guide",
     "excerpt": "Candidates going silent isn&rsquo;t just rudeness &mdash; it&rsquo;s usually feedback on your hiring process. Why it happens, and the fixes that keep good people engaged.",
     "author": "Eugene Teo",
-    "date": "2026-11-07",
+    "date": "2027-02-04",
     "readTime": "6 min read",
     "icon": "monitor"
   },
@@ -55,7 +55,7 @@
     "tag": "Employer Guide",
     "excerpt": "The probation clock&rsquo;s run out and your gut says &lsquo;maybe&rsquo;. How to make the confirm-or-let-go call honestly &mdash; before it costs you either way.",
     "author": "Eugene Teo",
-    "date": "2026-12-29",
+    "date": "2027-02-18",
     "readTime": "6 min read",
     "icon": "check"
   },
@@ -65,7 +65,7 @@
     "tag": "Employer Guide",
     "excerpt": "Most reference checks are a box-ticking waste of time. The questions that actually surface the truth &mdash; and how to read what&rsquo;s not said.",
     "author": "Eugene Teo",
-    "date": "2026-11-10",
+    "date": "2027-02-11",
     "readTime": "6 min read",
     "icon": "check"
   },
@@ -75,7 +75,7 @@
     "tag": "Employer Guide",
     "excerpt": "Overpay and you bleed margin; underpay and you bleed people. How to work out where your pay really sits against the market &mdash; and what to do about it.",
     "author": "Eugene Teo",
-    "date": "2026-12-31",
+    "date": "2027-02-25",
     "readTime": "6 min read",
     "icon": "coins"
   },
@@ -727,6 +727,50 @@
     "excerpt": "A good HR hire is worth a lot, for the right reasons. Here's the honest line on when it's time, and when you're really just hiring for payroll.",
     "author": "Eugene Teo",
     "date": "2026-10-25",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "it-contract-staffing-payroll-singapore",
+    "title": "Hiring IT contractors in Singapore? Here's who runs their payroll",
+    "tag": "Field Notes",
+    "excerpt": "IT runs on contractors, project hires and short-term specialists. Here's the payroll question to sort before you bring them on.",
+    "author": "Eugene Teo",
+    "date": "2026-11-07",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "it-project-team-payroll-singapore",
+    "title": "Your IT project needs a team fast. The payroll part nobody plans for.",
+    "tag": "Field Notes",
+    "excerpt": "You win the IT project, then realise you need a team on the ground fast. Here's the payroll and onboarding part most people only plan for too late.",
+    "author": "Eugene Teo",
+    "date": "2026-11-11",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "ep-salary-rise-2027-foreign-it-hiring",
+    "title": "EP salaries rise in January 2027: what it means if you hire foreign IT talent",
+    "tag": "Field Notes",
+    "excerpt": "Singapore's Employment Pass qualifying salary goes up from January 2027. If you hire foreign IT talent, here's the plain-English version and how to keep it simple.",
+    "author": "Eugene Teo",
+    "date": "2026-11-14",
+    "readTime": "6 min read",
+    "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "contract-vs-permanent-it-hire-payroll",
+    "title": "Contract or permanent IT hire? The bit about payroll that tips it",
+    "tag": "Field Notes",
+    "excerpt": "Contract or permanent for that IT role? Here's the payroll, cost and flexibility difference, and the part that often tips the decision.",
+    "author": "Eugene Teo",
+    "date": "2026-11-18",
     "readTime": "6 min read",
     "icon": "users",
     "draft": false
