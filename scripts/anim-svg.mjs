@@ -49,7 +49,7 @@ export function animSteps({ title, subtitle = '', steps, label }) {
     const y = yAt(i), begin = (i * 0.4).toFixed(2);
     const words = String(s).split(' '); let l1 = s, l2 = '';
     if (s.length > 34) { const mid = Math.ceil(words.length / 2); l1 = words.slice(0, mid).join(' '); l2 = words.slice(mid).join(' '); }
-    out += `<g opacity="1"><animate attributeName="opacity" values="0;1" dur="0.7s" begin="${begin}s" fill="freeze"/>` +
+    out += `<g opacity="1">` +
       `<rect x="${cardX}" y="${y - 58}" width="${cardR - cardX}" height="116" rx="16" fill="#ffffff" stroke="${GOLD}" stroke-width="2"/>` +
       `<circle cx="${numX}" cy="${y}" r="${numR}" fill="${GOLD}"/><text x="${numX}" y="${y + 13}" font-family="Georgia,serif" font-size="36" fill="#fff" text-anchor="middle">${i + 1}</text>` +
       `<text x="${cardX + 44}" y="${y + (l2 ? -4 : 12)}" font-family="Arial,Helvetica,sans-serif" font-size="33" fill="${INK}">${esc(l1)}</text>` +
