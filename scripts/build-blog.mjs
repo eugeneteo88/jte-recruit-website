@@ -137,36 +137,49 @@ ${others.map(relatedCard).join('\n')}
 
 // Inline "Get a hiring quote" capture — employer-only, Web3Forms, fires generate_lead.
 // Injected at the end of each live article (ahead of "Keep reading"). Brand gold #C6A87C.
-const articleCapture = (post) => `        <div style="background:#F3ECDE;border-radius:16px;padding:2rem 1.5rem;margin:2.5rem 0;text-align:center">
-          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers hiring</p>
-          <h3 class="font-serif" style="font-size:1.5rem;color:#241B12;margin:.5rem 0 .4rem;line-height:1.2">Hiring for a role like this?</h3>
-          <p style="color:#6b6358;font-size:.92rem;font-weight:300;line-height:1.6;max-width:30rem;margin:0 auto 1.3rem">Tell us the role and we&rsquo;ll come back within 24 hours with who we&rsquo;d put forward and what it costs. No obligation.</p>
-          <div id="hq-success" class="hq-msg">&#10003; Thanks, we&rsquo;ll be in touch within 24 hours.</div>
+const isPayrollPost = (post) => /payroll|cpf|eor|employer-of-record|contractor|outsourc|work-pass|ep-salary|first-dev-hire|hybrid-tech|staffing|contract-|changes-for-employers|shortage-occupation|freelancer|do-you-need-a-company|sales-office/i.test((post.slug || '') + ' ' + (post.title || ''));
+const articleCapture = (post) => {
+  const pay = isPayrollPost(post);
+  const h3 = pay ? 'Want payroll off your plate?' : 'Hiring for a role like this?';
+  const sub = pay
+    ? 'Tell us about your team and we&rsquo;ll come back within one business day. No obligation, and for most employers the first year is free.'
+    : 'Tell us the role and we&rsquo;ll come back within one business day with who we&rsquo;d put forward and what it costs. No obligation.';
+  const btn = pay ? 'Send it over' : 'Get my hiring quote';
+  const subj = (pay ? 'Payroll enquiry, blog: ' : 'New hiring enquiry, blog: ') + post.slug;
+  const method = pay ? 'blog_payroll' : 'blog_hiring';
+  const needPh = pay ? 'What do you need? e.g. payroll for 20 staff, CPF and payslips sorted, help hiring' : 'Who are you hiring? e.g. 3 software engineers, a finance manager';
+  return `        <div style="background:#F3ECDE;border-radius:16px;padding:2rem 1.5rem;margin:2.5rem 0;text-align:center">
+          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers</p>
+          <h3 class="font-serif" style="font-size:1.5rem;color:#241B12;margin:.5rem 0 .4rem;line-height:1.2">${h3}</h3>
+          <p style="color:#6b6358;font-size:.92rem;font-weight:300;line-height:1.6;max-width:30rem;margin:0 auto 1.3rem">${sub}</p>
+          <div id="hq-success" class="hq-msg">&#10003; Got it. One of us will call or email you within one business day.</div>
           <form id="hq-form" action="https://api.web3forms.com/submit" method="POST" style="max-width:30rem;margin:0 auto;text-align:left">
             <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
-            <input type="hidden" name="subject" value="New hiring enquiry, blog: ${post.slug}">
+            <input type="hidden" name="subject" value="${subj}">
+            <input type="hidden" name="redirect" value="https://jte.com.sg/thank-you/">
             <input type="checkbox" name="botcheck" style="display:none">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-bottom:.6rem">
-              <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
-              <input type="text" name="company" class="hq-fld" placeholder="Company name" required aria-label="Company name">
-              <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
-              <input type="tel" name="phone" class="hq-fld" placeholder="Contact number" required aria-label="Contact number">
+              <input type="text" name="name" class="hq-fld" placeholder="Your name" required autocomplete="name" aria-label="Your name">
+              <input type="text" name="company" class="hq-fld" placeholder="Company name" required autocomplete="organization" aria-label="Company name">
+              <input type="email" name="email" class="hq-fld" placeholder="Work email" required autocomplete="email" inputmode="email" aria-label="Work email">
+              <input type="tel" name="phone" class="hq-fld" placeholder="9123 4567" required autocomplete="tel" inputmode="tel" pattern="[0-9+ ]{8,}" aria-label="Mobile number">
             </div>
-            <input type="text" name="hiring_for" class="hq-fld" placeholder="What role(s) are you hiring for?" required aria-label="What you are hiring for" style="margin-bottom:.9rem">
-            <button type="submit" class="btn-pill" style="display:block;width:100%;padding:.95rem;border:none;border-radius:8px;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer">Get my hiring quote</button>
-            <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Looking for a job? We don&rsquo;t take applications here.</p>
+            <input type="text" name="hiring_for" class="hq-fld" placeholder="${needPh}" required aria-label="What you need" style="margin-bottom:.9rem">
+            <button type="submit" class="btn-pill" style="display:block;width:100%;padding:.95rem;border:none;border-radius:8px;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer">${btn}</button>
+            <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Rather talk? Call <a href="tel:+6567157450" style="text-decoration:underline">+65 6715 7450</a>.</p>
           </form>
         </div>
         <style>
           .hq-fld{width:100%;background:#fff;border:1px solid #e0d6c3;border-radius:8px;padding:.8rem .9rem;font-size:.9rem;color:#241B12;font-family:inherit;transition:border-color .2s,box-shadow .2s}
-          .hq-fld::placeholder{color:#9a9186}
+          .hq-fld::placeholder{color:#6e665b}
           .hq-fld:focus{outline:none;border-color:#C6A87C;box-shadow:0 0 0 3px rgba(198,168,124,.18)}
           .hq-msg{display:none;background:rgba(63,125,90,.10);border:1px solid #9cc3ad;border-radius:8px;color:#2f6b49;padding:.8rem;margin-bottom:1rem;font-size:.88rem;text-align:center}
           .hq-msg.show{display:block}
         </style>
         <script>
-          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'${post.slug}'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'${method}',page:'${post.slug}'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
         </script>`;
+};
 
 const liveSlugs = new Set(live.map(x => x.slug));
 let related = 0;

@@ -207,23 +207,24 @@
     <aside class="max-w-3xl mx-auto px-6 pb-20">
       <!-- RELATED:START -->
         <div style="background:#F3ECDE;border-radius:16px;padding:2rem 1.5rem;margin:2.5rem 0;text-align:center">
-          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers hiring</p>
+          <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers</p>
           <h3 class="font-serif" style="font-size:1.5rem;color:#241B12;margin:.5rem 0 .4rem;line-height:1.2">Hiring for a role like this?</h3>
-          <p style="color:#6b6358;font-size:.92rem;font-weight:300;line-height:1.6;max-width:30rem;margin:0 auto 1.3rem">Tell us the role and we&rsquo;ll come back within 24 hours with who we&rsquo;d put forward and what it costs. No obligation.</p>
-          <div id="hq-success" class="hq-msg">&#10003; Thanks, we&rsquo;ll be in touch within 24 hours.</div>
+          <p style="color:#6b6358;font-size:.92rem;font-weight:300;line-height:1.6;max-width:30rem;margin:0 auto 1.3rem">Tell us the role and we&rsquo;ll come back within one business day with who we&rsquo;d put forward and what it costs. No obligation.</p>
+          <div id="hq-success" class="hq-msg">&#10003; Got it. One of us will call or email you within one business day.</div>
           <form id="hq-form" action="https://api.web3forms.com/submit" method="POST" style="max-width:30rem;margin:0 auto;text-align:left">
             <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
             <input type="hidden" name="subject" value="New hiring enquiry, blog: scaling-headcount-project-hiring-singapore">
+            <input type="hidden" name="redirect" value="https://jte.com.sg/thank-you/">
             <input type="checkbox" name="botcheck" style="display:none">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-bottom:.6rem">
-              <input type="text" name="name" class="hq-fld" placeholder="Your name" required aria-label="Your name">
-              <input type="text" name="company" class="hq-fld" placeholder="Company name" required aria-label="Company name">
-              <input type="email" name="email" class="hq-fld" placeholder="Work email" required aria-label="Work email">
-              <input type="tel" name="phone" class="hq-fld" placeholder="Contact number" required aria-label="Contact number">
+              <input type="text" name="name" class="hq-fld" placeholder="Your name" required autocomplete="name" aria-label="Your name">
+              <input type="text" name="company" class="hq-fld" placeholder="Company name" required autocomplete="organization" aria-label="Company name">
+              <input type="email" name="email" class="hq-fld" placeholder="Work email" required autocomplete="email" inputmode="email" aria-label="Work email">
+              <input type="tel" name="phone" class="hq-fld" placeholder="9123 4567" required autocomplete="tel" inputmode="tel" pattern="[0-9+ ]{8,}" aria-label="Mobile number">
             </div>
-            <input type="text" name="hiring_for" class="hq-fld" placeholder="What role(s) are you hiring for?" required aria-label="What you are hiring for" style="margin-bottom:.9rem">
+            <input type="text" name="hiring_for" class="hq-fld" placeholder="Who are you hiring? e.g. 3 software engineers, a finance manager" required aria-label="What you need" style="margin-bottom:.9rem">
             <button type="submit" class="btn-pill" style="display:block;width:100%;padding:.95rem;border:none;border-radius:8px;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer">Get my hiring quote</button>
-            <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Looking for a job? We don&rsquo;t take applications here.</p>
+            <p style="font-size:11px;color:#8a8175;text-align:center;margin:.7rem 0 0;line-height:1.5"><b style="color:#8C7350">Employers only.</b> By submitting you agree to our <a href="/privacy" style="text-decoration:underline">Privacy Policy</a>. Rather talk? Call <a href="tel:+6567157450" style="text-decoration:underline">+65 6715 7450</a>.</p>
           </form>
         </div>
         <style>
@@ -234,7 +235,7 @@
           .hq-msg.show{display:block}
         </style>
         <script>
-          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'scaling-headcount-project-hiring-singapore'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'blog_hiring',page:'scaling-headcount-project-hiring-singapore'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
         </script>
         <div class="border-t border-black/10 pt-10">
           <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;">Keep reading</p>
