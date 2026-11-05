@@ -698,9 +698,28 @@
             <p class="font-sans font-light text-gray-300 text-sm md:text-base tracking-wide max-w-xl mx-auto leading-relaxed mb-10">
                 Singapore&rsquo;s proactive recruitment agency &mdash; a decade connecting real people with the right roles, with a human touch.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
+            <style>
+              .hero-ctas .hero-pill{background:rgba(28,20,12,.72);border:1px solid rgba(198,168,124,.65);border-radius:999px;padding:.6rem 1.2rem;color:#fff;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;font-size:.875rem;transition:transform .2s;text-decoration:none}
+              .hero-ctas .hero-pill:hover{transform:scale(1.03)}
+              .hero-ctas .hero-pill .chip{background:#C6A87C;color:#0a0a0a;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:999px;padding:.18rem .55rem}
+              @media(max-width:639px){
+                .hero-ctas .hero-row{flex-direction:column;align-items:stretch;max-width:20rem;margin-left:auto;margin-right:auto}
+                .hero-ctas .hero-row .btn-primary,.hero-ctas .hero-row .btn-outline{width:100%;text-align:center}
+                .hero-ctas .hero-pill{display:flex;max-width:20rem;margin-left:auto;margin-right:auto}
+              }
+            </style>
+            <div class="hero-ctas">
+              <div class="hero-row flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
                 <a href="#services" class="btn-primary px-8 py-4 text-xs uppercase tracking-wider">Explore Services</a>
                 <a href="#contact" class="btn-outline px-8 py-4 text-xs uppercase tracking-wider">Get in Touch</a>
+              </div>
+              <div style="margin-top:1.25rem;display:flex;justify-content:center">
+                <a href="/free-payroll-singapore" class="hero-pill">
+                  <span class="chip">New</span>
+                  <span style="font-weight:400">Free payroll for your first year</span>
+                  <span aria-hidden="true" style="color:#C6A87C;font-weight:600">&rarr;</span>
+                </a>
+              </div>
             </div>
         </div>
         
