@@ -27,4 +27,6 @@ Record every generation run below: date, what it was for, how many images, est. 
 | 2026-11-03 | December payroll batch 4 (4 article heroes: hybrid-team, outsourcing, contractor-cost, SOL-EP) | 4 | 0.16 |
 | 2026-11-03 | Mid-Dec payroll batch 5 (4 heroes: 1-Jan-2027 roundup, freelancer-vs-employee, remote dev team, year-end switch) | 4 | 0.16 |
 
-**November 2026 running total: ~US$0.48** (cap US$20).
+| 2026-11-05 | Homepage free-payroll section candid photos (3 gen, Singapore context; 1 used: home-free-payroll) | 3 | 0.12 |
+
+**November 2026 running total: ~US$0.60** (cap US$20).
