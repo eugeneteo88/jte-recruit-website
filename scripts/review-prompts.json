@@ -1,0 +1,145 @@
+{
+  "_note": "SUPPORTING in-body photo scenes per article (the hero + info-graphics are auto-generated — no need to make those). Each entry below is just the SPECIFIC SCENE; scripts/build-review.mjs wraps it with the shared candid/real/anti-stock photography direction (lighting, framing, grain, no-logos, landscape) so the prompt you copy from /review is already complete and detailed. Style = a real, unposed moment snapped on a phone by a colleague, meaningful to the article — NOT glossy stock. Generate, then paste the image back to place it.",
+  "hiring-maintenance-and-reliability-engineer": [
+    "a maintenance technician in his 40s in a grey company polo and safety glasses, crouched beside a large grease-streaked pump-and-motor unit on a Singapore factory floor, frowning in concentration as he taps through a checklist on a rugged tablet held in one oil-smudged hand, an open toolbox and coiled hoses at his feet, pipework and pressure gauges filling the background",
+    "a reliability engineer kneeling at a running machine, pressing a handheld vibration analyser to a bearing housing, head tilted as if listening, a dog-eared notebook of readings balanced on his knee, a conveyor blurred with motion behind him"
+  ],
+  "how-to-hire-a-mechanical-engineer-singapore": [
+    "a mechanical design engineer in her 30s at a cluttered desk, one hand slowly turning a small 3D-printed prototype part up to the light while a detailed CAD model glows on dual monitors beside her, sticky notes and a half-drunk coffee around, a quietly busy design office behind",
+    "a completely different kind of 'mechanical engineer' for contrast — a man in navy overalls and gloves, sleeves rolled up, leaning his weight into a spanner to loosen a bolt on a big machine on a hot Singapore factory floor, sweat on his brow, metal shavings and tools scattered nearby"
+  ],
+  "how-to-hire-a-process-engineer-singapore": [
+    "a process engineer in a hi-vis vest and safety glasses standing at the edge of a production line, pointing at a trend chart on a wall-mounted screen while explaining something to a line operator beside him, product trays and machinery moving softly in the background",
+    "a tight close-up of a process engineer's hands holding a product sample up to the light while reading a dial gauge on the line, brow furrowed, the factory softly blurred behind"
+  ],
+  "project-engineer-vs-project-manager-hiring": [
+    "a project engineer in a hard hat and hi-vis on a dusty construction or plant site, leaning over a rolled-out technical drawing on a makeshift table, pointing at a detail while a colleague nods, scaffolding and half-built structure behind them",
+    "the contrast in one frame the other day: a project manager in a site portacabin office at a laptop showing a colourful Gantt-chart schedule, phone wedged to his ear mid-call, a hard hat sitting on the desk and a coffee going cold"
+  ],
+  "how-to-hire-an-automation-controls-engineer": [
+    "a controls engineer with sleeves rolled up, hands deep inside an open industrial control panel wiring a PLC, a laptop balanced nearby showing ladder logic, the neat rows of terminals and coloured wires sharply in focus",
+    "an engineer standing at a large HMI / SCADA touchscreen monitoring a running automated line, a robotic arm working in the softly blurred background of a modern Singapore factory"
+  ],
+  "how-to-hire-electrical-electronics-engineer": [
+    "an electrical engineer in a hard hat and insulated gloves working at a large power distribution switchboard, carefully testing a connection with a multimeter, rows of breakers and thick cables around him, a serious focused expression",
+    "a very different electrical role for contrast — an electronics engineer hunched at a lab bench probing a small circuit board with an oscilloscope, its green trace glowing, tiny components and tools scattered under the pool of a desk lamp"
+  ],
+  "hiring-qa-qc-engineer": [
+    "a quality engineer in a clean company shirt on a production line, carefully measuring a metal component with a digital caliper and reading it closely, inspection paperwork and more parts laid out on the bench beside her",
+    "over-the-shoulder of a quality engineer studying a defect-trend chart on a screen beside the factory floor, a rejected part sitting in a red reject tray in the foreground"
+  ],
+  "how-to-hire-engineers-in-singapore-guide": [
+    "a mixed-age Singapore engineering team gathered around a workbench on a workshop floor, mid-discussion over a piece of equipment, one gesturing to make a point, genuine work energy, tools and machines around them",
+    "an employer and a recruiter side by side at a desk, a small stack of printed CVs and a laptop between them, mid-conversation weighing a shortlist, a warm modern office",
+    "a hiring manager on a factory floor giving a warm handshake to a new engineering hire in a company polo, both smiling, a genuine welcome moment with machines behind them"
+  ],
+  "should-you-counter-offer-engineer-singapore": [
+    "a tense but respectful moment: an engineering manager and a younger engineer sitting across a desk in a glass-walled meeting room, a resignation letter on the table between them, both leaning in, serious",
+    "a small-business owner alone at his desk after hours, hand on his chin, staring at a laptop and visibly weighing a hard decision, the office quiet and half-lit"
+  ],
+  "why-your-engineers-leave-singapore": [
+    "a small engineering team busy together at a bench, and slightly apart one engineer sitting back with arms folded, quietly checked-out while the others lean in",
+    "a warm, honest stay-interview moment: a manager and an engineer chatting over coffee at a break-room table, relaxed body language, a real conversation"
+  ],
+  "why-your-job-ad-gets-no-good-applicants": [
+    "a Singapore SME boss at his desk, unimpressed, scrolling a thin pile of job applications on his laptop with his chin resting on his hand, a lukewarm coffee beside him",
+    "over-the-shoulder of a young jobseeker on the MRT scrolling a job-listings app on her phone, thumb already flicking past a listing, everyday commuter surroundings",
+    "two colleagues in a small Singapore office leaning over a laptop together, rewriting a job advert, one pointing at the screen, a fixing-it moment"
+  ],
+  "how-to-interview-an-engineer-non-technical": [
+    "a non-technical business owner in his 50s leaning forward and listening intently as a younger engineer, mid-explanation with expressive hands, sketches something on a notepad between them across an office desk",
+    "an engineer at a whiteboard drawing a simple diagram to explain a concept, half-turned toward an attentive non-technical listener sitting nearby, a genuine teaching moment"
+  ],
+  "how-to-make-a-job-offer-they-wont-reject": [
+    "a warm, genuine handshake across a desk between a pleased employer and a candidate at the end of a good meeting, both smiling naturally, a modern Singapore office softly lit behind",
+    "a boss at his desk on the phone making an offer, leaning back relaxed with a small genuine smile, clearly delivering good news",
+    "a candidate at home reading an offer email on a laptop at the kitchen table, a quiet pleased smile, an evening domestic setting"
+  ],
+  "hiring-for-attitude-vs-experience": [
+    "an eager young employee watching closely as an older, experienced colleague shows him how to do something at a workbench, a real mentoring moment, the younger one clearly keen and absorbing it",
+    "a genuine interview across a table, the interviewer listening intently and half-smiling as an animated candidate talks with their hands, warm and unposed",
+    "two employees of different ages working side by side on a task at a bench in a Singapore workshop, the older showing and the younger doing, an easy mentoring rhythm"
+  ],
+  "how-to-decide-end-of-probation": [
+    "a manager at her desk quietly reviewing a probationer's work in an open folder, pen in hand, a thoughtful, genuinely undecided expression on her face",
+    "an honest one-on-one review across a desk, manager and employee both a little serious, mid-conversation, in a modern Singapore office"
+  ],
+  "new-hire-quit-first-90-days": [
+    "a new employee sitting a little stiffly at a fresh, bare desk on an early day, unsure what to do, colleagues around him absorbed in their own screens and not noticing him, a subtly lonely feeling",
+    "a warmer contrast: a manager welcoming a new hire on day one, walking her through the office with a friendly gesture, the new hire smiling and clearly feeling expected"
+  ],
+  "reference-checks-that-work": [
+    "a hiring manager at his desk on a phone call, phone to his ear and pen paused over a notepad of scribbled notes, listening carefully with a slightly reading-between-the-lines expression",
+    "a close-up of a hand jotting quick notes on a pad beside a laptop showing a candidate's profile, mid reference-call"
+  ],
+  "are-you-overpaying-or-underpaying": [
+    "a business owner at her desk frowning slightly at a payroll spreadsheet on her laptop, pen tapping her chin as she weighs the numbers, a modern SME office",
+    "a quietly disengaged employee at his desk doing the bare minimum while colleagues work around him — the hidden cost of underpaying"
+  ],
+  "promote-from-within-or-hire-a-manager": [
+    "a former top-performer now leading his first team meeting, standing a little awkwardly at the head of a table, a couple of team members looking unconvinced — the strain of a great doer thrust into managing",
+    "a business owner at a desk studying a simple org chart on paper, pen in hand, weighing who to put where"
+  ],
+  "tech-salaries-singapore-what-is-market": [
+    "a startup founder at a laptop reviewing a salary spreadsheet with a slightly alarmed look at the numbers, in a modern but modest Singapore office",
+    "a software developer in a hoodie at a desk with dual monitors of code and headphones on, focused, an ordinary busy tech office around him"
+  ],
+  "how-to-test-if-a-developer-is-good": [
+    "two developers pair-programming shoulder to shoulder at one screen, one pointing and explaining while the other types, a genuine collaborative coding moment in a modern office",
+    "a non-technical interviewer nodding as a developer candidate turns a laptop around to walk her through a project on screen, both engaged"
+  ],
+  "how-to-hire-cybersecurity-talent-singapore": [
+    "a cybersecurity analyst in a dim security-operations room lit by the glow of several dashboard-filled monitors, leaning in to study an alert, focused and serious",
+    "an IT security professional crouched at a rack in a cool server room, a laptop balanced on one arm, cables and blinking lights around, concentrating",
+    "two security team members standing at a monitor discussing an incident, one pointing at a chart on screen, a serious collaborative moment in a modern Singapore office"
+  ],
+  "hire-developers-or-outsource-software": [
+    "a non-tech SME owner at his desk weighing a decision, laptop open and a thoughtful look, some notes about a software project in front of him",
+    "an in-house developer working alone at a modest desk in a small non-tech company office (not a flashy tech campus), focused on code, ordinary surroundings"
+  ],
+  "contract-freelance-or-full-time-developer": [
+    "a freelance developer working on a laptop at a co-working space or cafe table with a coffee, relaxed and mobile, the flexible-work vibe",
+    "a manager and a developer at a desk reviewing and discussing a contract document together, a pen pointing at a clause, professional but friendly"
+  ],
+  "how-to-hire-tech-talent-singapore-guide": [
+    "a small mixed tech team clustered around one laptop in a modern Singapore office, mid-discussion over something on screen, genuine collaborative energy",
+    "a founder and a developer side by side pointing at a product on a monitor, working through it together, engaged and unposed",
+    "a founder welcoming a new developer at a modern Singapore office, a friendly greeting while a laptop is being set up at a fresh desk, an ordinary tech-office moment"
+  ],
+  "healthcare-manpower-crunch-singapore": [
+    "a nurse gently helping an elderly patient in a Singapore clinic or ward, a genuine caring moment, warm and unposed, the everyday reality of care work",
+    "a stretched-but-composed healthcare team at a busy nurses' station, one nurse mid-stride with a folder and another on the phone, real clinical bustle",
+    "a healthcare manager at a cramped clinic office desk frowning over a printed shift roster full of gaps, pen hovering, quietly stretched"
+  ],
+  "staffing-clinic-vs-hospital-vs-nursing-home": [
+    "a friendly patient service associate at a GP clinic front desk handing something to a patient with a warm smile, a small neighbourhood-clinic setting",
+    "a care worker sitting with an elderly resident in a nursing-home common room, holding her hand and chatting gently, a tender ongoing-care moment",
+    "nurses moving purposefully through a busy Singapore hospital ward corridor, one pushing a medication trolley, the higher-acuity pace of ward work"
+  ],
+  "retaining-healthcare-staff-singapore": [
+    "a tired nurse taking a quiet moment on a bench in a hospital corridor, coffee in hand, a worn-out but caring expression — the reality of burnout",
+    "a supportive supervisor and a care worker having a genuine, kind one-on-one chat in a quiet clinic corner, real warmth"
+  ],
+  "hiring-nurses-singapore-snb-registration": [
+    "a registered nurse in scrubs attentively checking on a patient in a Singapore hospital ward, professional and warm, everyday clinical detail around her",
+    "a foreign-trained nurse at a small home desk late at night, studying thick exam notes with a laptop and a mug of tea, focused and determined, preparing for the licensure exam",
+    "a healthcare HR manager and a nurse candidate seated together going through a folder of certificates and credentials at a clinic office desk, mid-verification"
+  ],
+  "hiring-allied-health-ahpc-registration": [
+    "a physiotherapist guiding an older patient through a rehab exercise in a bright Singapore clinic, hands supporting the patient's arm, a genuine therapy moment",
+    "a radiographer at the control console of an imaging machine, glancing at the screen while positioning for a scan, the equipment glow lighting her face"
+  ],
+  "hiring-foreign-healthcare-workers-singapore": [
+    "a foreign-trained nurse in fresh scrubs on her first day, standing a little hopeful and nervous at the entrance of a Singapore healthcare facility, a bag over her shoulder",
+    "an HR manager and a foreign healthcare candidate seated at a desk going through a stack of documents and forms together, mid-process"
+  ],
+  "how-to-staff-healthcare-singapore-guide": [
+    "a warm, capable Singapore healthcare team — a couple of nurses and a care worker — working together at a nurses' station, genuine everyday teamwork",
+    "a healthcare manager and a recruiter at a desk reviewing candidate profiles together, discussing, in a small clinic office",
+    "a nurse and a care worker sharing a light, tired-but-genuine laugh at a break-room table between shifts, a human moment of a team that sticks together"
+  ],
+  "why-candidates-ghost-you": [
+    "a Singapore hiring manager at his desk staring at a phone showing an unanswered message thread, mild frustration, a laptop with an open inbox beside him",
+    "over-the-shoulder of a jobseeker glancing at a call coming in on her phone and quietly setting it face-down on a cafe table, ambivalent"
+  ]
+}

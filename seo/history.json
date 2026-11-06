@@ -1,0 +1,512 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-09-08",
+      "impressions": 16200,
+      "clicks": 320,
+      "position": 18.5,
+      "leads": 2,
+      "pages": 70,
+      "onPage1": 2,
+      "climbing": 3,
+      "slipping": 4,
+      "topMovers": [
+        {
+          "term": "logistics recruitment companies",
+          "from": 28,
+          "to": 19,
+          "impr": 9
+        },
+        {
+          "term": "engineering recruiting firms",
+          "from": 22,
+          "to": 16,
+          "impr": 6
+        },
+        {
+          "term": "green industry recruiters",
+          "from": 31,
+          "to": 22,
+          "impr": 5
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "recruitment agency singapore",
+          "from": 18,
+          "to": 24,
+          "impr": -12
+        },
+        {
+          "term": "it staffing services",
+          "from": 15,
+          "to": 20,
+          "impr": -6
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "impressions": 17100,
+      "clicks": 340,
+      "position": 18,
+      "leads": 3,
+      "pages": 72,
+      "onPage1": 2,
+      "climbing": 4,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "manufacturing recruiters",
+          "from": 24,
+          "to": 16,
+          "impr": 11
+        },
+        {
+          "term": "how to hire engineers",
+          "from": 21,
+          "to": 15,
+          "impr": 7
+        },
+        {
+          "term": "career conversion programme",
+          "from": 30,
+          "to": 22,
+          "impr": 14
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "staffing agency singapore",
+          "from": 22,
+          "to": 27,
+          "impr": -7
+        },
+        {
+          "term": "recruitment firms singapore",
+          "from": 35,
+          "to": 40,
+          "impr": -4
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "impressions": 18300,
+      "clicks": 365,
+      "position": 17.4,
+      "leads": 3,
+      "pages": 75,
+      "onPage1": 3,
+      "climbing": 5,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "healthcare recruitment agency singapore",
+          "from": 22,
+          "to": 13,
+          "impr": 10
+        },
+        {
+          "term": "engineering recruitment agency singapore",
+          "from": 26,
+          "to": 18,
+          "impr": 15
+        },
+        {
+          "term": "ict recruitment",
+          "from": 24,
+          "to": 17,
+          "impr": 6
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "it recruitment agency singapore",
+          "from": 30,
+          "to": 35,
+          "impr": -6
+        },
+        {
+          "term": "job agency singapore",
+          "from": 14,
+          "to": 18,
+          "impr": -5
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "impressions": 19600,
+      "clicks": 395,
+      "position": 16.9,
+      "leads": 4,
+      "pages": 78,
+      "onPage1": 3,
+      "climbing": 5,
+      "slipping": 2,
+      "topMovers": [
+        {
+          "term": "specialist it recruitment agency in singapore",
+          "from": 78,
+          "to": 40,
+          "impr": 5
+        },
+        {
+          "term": "cost of agency",
+          "from": 18,
+          "to": 11,
+          "impr": 8
+        },
+        {
+          "term": "employer brand agency singapore",
+          "from": 16,
+          "to": 9,
+          "impr": 12
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "recruitment firms singapore",
+          "from": 38,
+          "to": 42,
+          "impr": -3
+        },
+        {
+          "term": "staffing agency singapore",
+          "from": 25,
+          "to": 28,
+          "impr": -4
+        }
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "impressions": 21200,
+      "clicks": 430,
+      "position": 16.3,
+      "leads": 4,
+      "pages": 82,
+      "onPage1": 4,
+      "climbing": 6,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "engineering recruitment agency singapore",
+          "from": 24,
+          "to": 16,
+          "impr": 18
+        },
+        {
+          "term": "career conversion programme",
+          "from": 26,
+          "to": 19,
+          "impr": 22
+        },
+        {
+          "term": "how to hire engineers",
+          "from": 21,
+          "to": 13,
+          "impr": 11
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "it recruitment agency singapore",
+          "from": 31,
+          "to": 35,
+          "impr": -5
+        },
+        {
+          "term": "recruitment agency singapore",
+          "from": 20,
+          "to": 23,
+          "impr": -9
+        }
+      ],
+      "kw": [
+        {
+          "t": "green industry recruiters",
+          "p": 11
+        },
+        {
+          "t": "engineer salary singapore",
+          "p": 11
+        },
+        {
+          "t": "cost of agency",
+          "p": 12
+        },
+        {
+          "t": "ict recruitment",
+          "p": 17
+        },
+        {
+          "t": "job agency singapore",
+          "p": 18
+        },
+        {
+          "t": "ccp singapore",
+          "p": 18
+        }
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "impressions": 22100,
+      "clicks": 450,
+      "position": 16.1,
+      "leads": 5,
+      "pages": 84,
+      "onPage1": 4,
+      "climbing": 6,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "manufacturing recruiters",
+          "from": 20,
+          "to": 13,
+          "impr": 12
+        },
+        {
+          "term": "healthcare recruitment agency singapore",
+          "from": 18,
+          "to": 10,
+          "impr": 9
+        },
+        {
+          "term": "green industry recruiters",
+          "from": 15,
+          "to": 8,
+          "impr": 6
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "staffing agency singapore",
+          "from": 28,
+          "to": 34,
+          "impr": -5
+        },
+        {
+          "term": "it recruitment agency singapore",
+          "from": 33,
+          "to": 37,
+          "impr": -8
+        }
+      ],
+      "kw": [
+        {
+          "t": "green industry recruiters",
+          "p": 10
+        },
+        {
+          "t": "engineer salary singapore",
+          "p": 10
+        },
+        {
+          "t": "employer brand agency singapore",
+          "p": 11
+        },
+        {
+          "t": "cost of agency",
+          "p": 11
+        },
+        {
+          "t": "ict recruitment",
+          "p": 16
+        },
+        {
+          "t": "job agency singapore",
+          "p": 17
+        },
+        {
+          "t": "ccp singapore",
+          "p": 17
+        },
+        {
+          "t": "it staffing services",
+          "p": 19
+        }
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "impressions": 23100,
+      "clicks": 465,
+      "position": 16,
+      "leads": 5,
+      "pages": 86,
+      "onPage1": 5,
+      "climbing": 6,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "specialist it recruitment agency in singapore",
+          "from": 62,
+          "to": 26,
+          "impr": 7
+        },
+        {
+          "term": "engineering recruitment agency singapore",
+          "from": 24,
+          "to": 16,
+          "impr": 18
+        },
+        {
+          "term": "healthcare recruitment agency singapore",
+          "from": 18,
+          "to": 10,
+          "impr": 9
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "it recruitment agency singapore",
+          "from": 33,
+          "to": 37,
+          "impr": -8
+        },
+        {
+          "term": "recruitment firms singapore",
+          "from": 40,
+          "to": 45,
+          "impr": -3
+        }
+      ],
+      "kw": [
+        {
+          "t": "green industry recruiters",
+          "p": 9
+        },
+        {
+          "t": "engineer salary singapore",
+          "p": 9
+        },
+        {
+          "t": "employer brand agency singapore",
+          "p": 10
+        },
+        {
+          "t": "cost of agency",
+          "p": 11
+        },
+        {
+          "t": "engineering recruiting firms",
+          "p": 13
+        },
+        {
+          "t": "ict recruitment",
+          "p": 15
+        },
+        {
+          "t": "job agency singapore",
+          "p": 17
+        },
+        {
+          "t": "ccp singapore",
+          "p": 16
+        },
+        {
+          "t": "it staffing services",
+          "p": 18
+        }
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "impressions": 23838,
+      "clicks": 473,
+      "position": 15.9,
+      "leads": 6,
+      "pages": 88,
+      "onPage1": 5,
+      "climbing": 6,
+      "slipping": 3,
+      "topMovers": [
+        {
+          "term": "specialist it recruitment agency in singapore",
+          "from": 62,
+          "to": 26,
+          "impr": 7
+        },
+        {
+          "term": "engineering recruitment agency singapore",
+          "from": 24,
+          "to": 16,
+          "impr": 18
+        },
+        {
+          "term": "healthcare recruitment agency singapore",
+          "from": 18,
+          "to": 10,
+          "impr": 9
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "it recruitment agency singapore",
+          "from": 33,
+          "to": 37,
+          "impr": -8
+        },
+        {
+          "term": "staffing agency singapore",
+          "from": 28,
+          "to": 34,
+          "impr": -5
+        }
+      ],
+      "kw": [
+        {
+          "t": "green industry recruiters",
+          "p": 8
+        },
+        {
+          "t": "engineer salary singapore",
+          "p": 9
+        },
+        {
+          "t": "employer brand agency singapore",
+          "p": 9
+        },
+        {
+          "t": "cost of agency",
+          "p": 10
+        },
+        {
+          "t": "healthcare recruitment agency singapore",
+          "p": 10
+        },
+        {
+          "t": "engineering recruiting firms",
+          "p": 12
+        },
+        {
+          "t": "how to hire engineers",
+          "p": 13
+        },
+        {
+          "t": "ict recruitment",
+          "p": 15
+        },
+        {
+          "t": "engineering recruitment agency singapore",
+          "p": 16
+        },
+        {
+          "t": "job agency singapore",
+          "p": 16
+        },
+        {
+          "t": "ccp singapore",
+          "p": 16
+        },
+        {
+          "t": "it staffing services",
+          "p": 17
+        }
+      ]
+    }
+  ]
+}
