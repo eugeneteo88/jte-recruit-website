@@ -264,6 +264,7 @@
       <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
       <input type="hidden" name="subject" value="Free payroll enquiry: free-payroll-singapore landing page">
       <input type="hidden" name="redirect" value="https://jte.com.sg/thank-you/">
+      <input type="hidden" name="sector" value="payroll">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="grid sm:grid-cols-2 gap-4 mb-4">
         <input type="text" name="name" class="fp-fld" placeholder="Your name" required autocomplete="name" aria-label="Your name">
@@ -352,7 +353,7 @@
   function closeMenu(){document.body.classList.remove('menu-open');}
   var _t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ if(window.scrollY>500){_t.classList.add('show');}else{_t.classList.remove('show');} });
-  (function(){var f=document.getElementById('fp-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('fp-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');msg.scrollIntoView({behavior:'smooth',block:'center'});if(window.gtag)gtag('event','generate_lead',{method:'free_payroll'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+  (function(){var f=document.getElementById('fp-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('fp-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');msg.scrollIntoView({behavior:'smooth',block:'center'});if(window.gtag)gtag('event','generate_lead',{method:'free_payroll',sector:'payroll'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
 </script>
 
 <script>(function(){var items=[].slice.call(document.querySelectorAll("details.faq-item"));function closeItem(d){if(!d.open||d.classList.contains("closing"))return;d.classList.add("closing");setTimeout(function(){d.open=false;d.classList.remove("closing");},330);}items.forEach(function(d){var s=d.querySelector("summary");s.addEventListener("click",function(e){e.preventDefault();if(d.classList.contains("closing"))return;if(d.open){closeItem(d);}else{items.forEach(function(o){if(o!==d)closeItem(o);});d.open=true;}});});})();</script>

@@ -162,6 +162,7 @@
           <input type="hidden" name="subject" value="New contract-staffing enquiry, hire-contract-staff (Google Ads)">
           <input type="hidden" name="source" value="google-ads-contract-payroll">
           <input type="hidden" name="redirect" value="https://jte.com.sg/services/hire-contract-staff/?sent=1">
+          <input type="hidden" name="sector" value="payroll">
           <input type="checkbox" name="botcheck" style="display:none">
           <label style="font-size:12px;font-weight:600;color:#1c1a17;display:block;margin:12px 0 5px">Company name</label><input name="company" type="text" required style="width:100%;border:1px solid rgba(28,26,23,.15);border-radius:8px;padding:11px 12px;font-size:14px;background:#fdfcfa;color:#1c1a17;font-family:inherit" placeholder="Company">
           <label style="font-size:12px;font-weight:600;color:#1c1a17;display:block;margin:12px 0 5px">Your name</label><input name="name" type="text" required style="width:100%;border:1px solid rgba(28,26,23,.15);border-radius:8px;padding:11px 12px;font-size:14px;background:#fdfcfa;color:#1c1a17;font-family:inherit" placeholder="Full name">
@@ -341,6 +342,7 @@
     var w = document.getElementById('lp-form-wrap'), t = document.getElementById('lp-thanks');
     if (w && t) { w.style.display = 'none'; t.style.display = 'block'; }
     document.getElementById('enquire').scrollIntoView({behavior:'smooth'});
+    if (window.gtag) gtag('event','generate_lead',{method:'contract_staffing_lp',page:'hire_contract_staff',sector:'payroll'});
   }
   (function(){
     var track=document.getElementById('lpTrack'),prev=document.getElementById('lpPrev'),next=document.getElementById('lpNext'),count=document.getElementById('lpCount');

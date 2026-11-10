@@ -182,6 +182,18 @@
             <div><label class="flabel" for="cf-mobile">Mobile Number</label><input id="cf-mobile" type="tel" name="mobile" class="fld" placeholder="+65"></div>
           </div>
           <div><label class="flabel" for="cf-message">What are you hiring for? *</label><textarea id="cf-message" name="message" rows="5" class="fld resize-none" placeholder="e.g. We&rsquo;re hiring 3 warehouse assistants in Tuas&hellip;" required></textarea></div>
+          <div><label class="flabel" for="cf-sector">Sector (optional)</label>
+            <select id="cf-sector" name="sector" class="fld" aria-label="Sector" style="appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238C7350%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>');background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.75rem">
+              <option value="general" selected>Not sure / general enquiry</option>
+              <option value="it">IT &amp; Tech</option>
+              <option value="engineering">Engineering</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="logistics">Logistics &amp; Supply Chain</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="commercial">Commercial &amp; Support</option>
+              <option value="payroll">Payroll / EOR</option>
+            </select>
+          </div>
           <div><label class="flabel" for="cf-source">How did you find us?</label>
             <select id="cf-source" name="How they found us" class="fld" aria-label="How did you find us?" style="appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238C7350%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><polyline points=%226 9 12 15 18 9%22/></svg>');background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.75rem">
               <option value="" disabled selected>Please select&hellip;</option>
@@ -292,7 +304,7 @@
       try{
         var res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
         if(res.ok){
-          success.classList.add('show');form.reset();if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'contact'});btn.innerHTML='Message Sent';
+          success.classList.add('show');var sectorVal=(form.sector&&form.sector.value)||'general';form.reset();if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'contact',sector:sectorVal});btn.innerHTML='Message Sent';
           success.scrollIntoView({behavior:'smooth',block:'center'});
           setTimeout(function(){success.classList.remove('show');btn.disabled=false;btn.innerHTML=original;},6000);
         }else{throw new Error('fail');}

@@ -310,6 +310,14 @@
     <p class="vsub">Where visitors come from, and how much already arrives from AI answer engines.</p>
     <div class="panel"><h3>Traffic by source · 28d</h3><div class="src" id="srcBox"><p class="mut">Loading&hellip;</p></div>
       <p id="aiNote" style="margin-top:.9rem;font-size:.84rem;color:var(--muted)">&nbsp;</p></div>
+
+    <div class="block"><h3>Organic search &rarr; leads</h3><div class="bsub">The number that matters: is organic traffic actually turning into payroll enquiries?</div>
+      <div class="panel"><div id="orgLeadBox"><p class="mut">Loading&hellip;</p></div></div>
+    </div>
+    <div class="block"><h3>Leads by sector · 28d</h3><div class="bsub">Which sector the enquiry landed on (hidden form field, set by page context).</div>
+      <div class="panel"><div class="src" id="sectorLeadBox"><p class="mut">Loading&hellip;</p></div></div>
+    </div>
+
     <div class="block"><h3>Indexing &amp; coverage</h3>
       <ul class="clean">
         <li><span class="b g">&#10003;</span><div><b id="covPages">,</b> pages surfacing in Google</div></li>
@@ -414,6 +422,8 @@
       if(Array.isArray(d.scorecard)&&d.scorecard.length) drawScorecard(d.scorecard);
       if(Array.isArray(d.sources)&&d.sources.length) drawSrc(d.sources);
       if(d.ai&&d.ai.breakdown) drawAi(d.ai);
+      drawOrgLeads(d);
+      drawSectorLeads(d.leadsBySector);
       maybeStuck(); renderActions();
       if(d.updated){const u=$('updatedStamp'); if(u)u.innerHTML='<span class="dot"></span>Updated <b>'+esc(d.updated)+'</b>';}
     }catch(e){}
@@ -571,6 +581,30 @@
     const b=$('aiNote'); if(!b)return;
     const parts=(ai.breakdown||[]).map(e=>esc(e.name)+' '+e.sessions).join(', ');
     b.innerHTML='AI assistants = ~'+(ai.total||0)+' sessions/28d'+(parts?', <b>'+parts+'</b>':'')+'. A channel that didn&rsquo;t exist two years ago. Much of &ldquo;Direct&rdquo; is untagged LinkedIn.';
+  }
+  function drawOrgLeads(d){
+    const b=$('orgLeadBox'); if(!b)return;
+    if(d.leads==null){ b.innerHTML='<p class="mut">Loading&hellip;</p>'; return; }
+    const total=Number(d.leads||0), og=Number(d.leadsOrganic||0);
+    const pct=total?Math.round(og/total*100):null;
+    const chans=(d.leadsByChannel||[]).slice(0,6);
+    let html='<div class="src"><div class="row" style="grid-template-columns:8.5rem 1fr 2.4rem"><span><b style="color:var(--gold)">'+og+'</b> of '+total+'</span><span class="bar"><i data-w="'+(pct||0)+'"></i></span><span class="pct">'+(pct==null?'—':pct+'%')+'</span></div></div>';
+    html+='<p class="mut" style="margin-top:.6rem;font-size:.82rem">of the last 28 days&rsquo; enquiries arrived via <b>Organic Search</b>'+(pct!=null?' ('+pct+'%)':'')+'. The rest below, by channel.</p>';
+    if(chans.length){
+      html+='<div class="src" style="margin-top:.7rem">'+chans.map(c=>{const p=total?Math.round(c.leads/total*100):0;return '<div class="row"><span>'+esc(c.name)+'</span><span class="bar"><i data-w="'+p+'"></i></span><span class="pct">'+c.leads+'</span></div>';}).join('')+'</div>';
+    }
+    b.innerHTML=html;
+    requestAnimationFrame(()=>setTimeout(()=>b.querySelectorAll('.bar i').forEach(i=>i.style.width=i.getAttribute('data-w')+'%'),40));
+  }
+  function drawSectorLeads(list){
+    const b=$('sectorLeadBox'); if(!b)return;
+    if(!Array.isArray(list)||!list.length){
+      b.innerHTML='<p class="mut">No sector split yet. The <code>sector</code> event parameter is firing on every lead form, but GA4 only exposes it via the API once a matching custom dimension is registered: GA4 Admin &rarr; Custom definitions &rarr; Create custom dimension &rarr; scope <b>Event</b>, parameter name <b>sector</b>. Data populates from the day it&rsquo;s registered (not retroactive).</p>';
+      return;
+    }
+    const total=list.reduce((a,s)=>a+s.leads,0)||1;
+    b.innerHTML=list.map(s=>{const p=Math.round(s.leads/total*100);return '<div class="row"><span>'+esc(s.sector)+'</span><span class="bar"><i data-w="'+p+'"></i></span><span class="pct">'+s.leads+'</span></div>';}).join('');
+    requestAnimationFrame(()=>setTimeout(()=>b.querySelectorAll('.bar i').forEach(i=>i.style.width=i.getAttribute('data-w')+'%'),40));
   }
 
   function kwChartSvg(pts){

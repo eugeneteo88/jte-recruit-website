@@ -151,6 +151,7 @@
       <input type="hidden" name="subject" value="Cost-of-vacancy lead">
       <input type="hidden" name="from_name" value="JTE Cost Calculator">
       <input type="hidden" name="Calculated" id="capCalc" value="">
+      <input type="hidden" name="sector" value="general">
       <input type="checkbox" name="botcheck" style="display:none">
       <button type="submit">Send me my breakdown</button>
       <div id="capMsg"></div>
@@ -197,7 +198,7 @@
     e.preventDefault(); const msg=$('capMsg'); msg.style.color='var(--muted)'; msg.textContent='Sending…';
     try{
       const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
-      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks, we&rsquo;ll be in touch shortly with your breakdown.'; if(window.gtag)gtag('event','generate_lead',{method:'cost_of_vacancy'});}
+      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks, we&rsquo;ll be in touch shortly with your breakdown.'; if(window.gtag)gtag('event','generate_lead',{method:'cost_of_vacancy',sector:'general'});}
       else throw new Error();
     }catch{ msg.style.color='var(--crit)'; msg.textContent='Something went wrong, email us at ask@jte.com.sg and we&rsquo;ll sort it.'; }
   });

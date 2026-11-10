@@ -109,6 +109,7 @@ async function main(){
 
   // ---- Google Analytics (channels + AI answer engines + leads) ----
   let sources = [], ai = {total:0, breakdown:[]}, leads = null, calcViews = null;
+  let leadsByChannel = [], leadsOrganic = null, leadsBySector = [];
   try{
     const gaTok = await token('https://www.googleapis.com/auth/analytics.readonly');
     const ga = async (body) => { const r = await (await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${GA_PROPERTY}:runReport`,{method:'POST',headers:{Authorization:'Bearer '+gaTok,'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); if(r.error) throw new Error('ga: '+r.error.message); return r.rows||[]; };
@@ -138,6 +139,26 @@ async function main(){
       calcViews = calcRows.reduce((a,r)=>a+num(r.metricValues[0].value),0);
       calcViews = Math.round(calcViews);
     }catch(e){ console.error('leads skipped:', e.message); }
+
+    // ---- ROADMAP #5: organic-search -> conversion breakdown ----
+    // leads by acquisition channel, so we can say "X of Y leads came from Organic Search".
+    try{
+      const chLeadRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'sessionDefaultChannelGroup'}],metrics:[{name:'eventCount'}],dimensionFilter:{filter:{fieldName:'eventName',stringFilter:{value:'generate_lead'}}},orderBys:[{metric:{metricName:'eventCount'},desc:true}]});
+      leadsByChannel = chLeadRows.map(r=>({name:r.dimensionValues[0].value||'(unknown)', leads:Math.round(num(r.metricValues[0].value))})).filter(c=>c.leads>0);
+      const og = leadsByChannel.find(c=>/organic search/i.test(c.name));
+      leadsOrganic = og ? og.leads : 0;
+    }catch(e){ console.error('leadsByChannel skipped:', e.message); }
+
+    // leads by sector — needs a GA4 event-scoped custom dimension registered for the
+    // "sector" event parameter on generate_lead (GA4 Admin -> Custom definitions -> Create
+    // custom dimension -> scope Event, parameter name "sector"). The event param itself has
+    // been firing since this change shipped; until that dimension exists in the GA4 UI the
+    // API call below throws and we just skip it (resilient, never breaks the deploy) and the
+    // hub shows a "needs setup" note instead of fake data.
+    try{
+      const sectorRows = await ga({dateRanges:[{startDate:START,endDate:END}],dimensions:[{name:'customEvent:sector'}],metrics:[{name:'eventCount'}],dimensionFilter:{filter:{fieldName:'eventName',stringFilter:{value:'generate_lead'}}},orderBys:[{metric:{metricName:'eventCount'},desc:true}]});
+      leadsBySector = sectorRows.map(r=>({sector:r.dimensionValues[0].value||'(not set)', leads:Math.round(num(r.metricValues[0].value))})).filter(s=>s.leads>0);
+    }catch(e){ console.error('leadsBySector skipped (needs customEvent:sector dimension registered in GA4 Admin):', e.message); }
   }catch(e){ console.error('GA skipped:', e.message); }
 
   // top pages by impressions (28d) — what's actually pulling the reach
@@ -185,6 +206,9 @@ async function main(){
     ai,
     leads,
     calcViews,
+    leadsByChannel,
+    leadsOrganic,
+    leadsBySector,
   };
 
   mkdirSync('seo', {recursive:true});
@@ -200,7 +224,7 @@ async function main(){
     const snap = {
       date: key,
       impressions: data.kpis.impressions, clicks: data.kpis.clicks, position: +data.kpis.position,
-      leads: data.leads, pages: data.pagesSurfacing, onPage1: onP1,
+      leads: data.leads, leadsOrganic: data.leadsOrganic, pages: data.pagesSurfacing, onPage1: onP1,
       climbing: movers.length, slipping: slippers.length,
       topMovers: slim(movers), topSlippers: slim(slippers),
       kw: (keywords||[]).map(k=>({t:k.term, p:k.position})),  // near-miss positions, for stuck-over-time
@@ -209,7 +233,7 @@ async function main(){
     writeFileSync('seo/history.json', JSON.stringify(hist,null,2)+'\n');
   }catch(e){ console.error('history skipped:', e.message); }
 
-  console.log('Wrote seo/data.json —', JSON.stringify(data.kpis), '| kw:'+keywords.length, 'src:'+sources.length, 'ai:'+ai.total, '| movers:'+movers.length, 'slip:'+slippers.length);
+  console.log('Wrote seo/data.json —', JSON.stringify(data.kpis), '| kw:'+keywords.length, 'src:'+sources.length, 'ai:'+ai.total, '| movers:'+movers.length, 'slip:'+slippers.length, '| leads:'+leads, 'organic:'+leadsOrganic, 'bySector:'+leadsBySector.length);
 }
 
 main().catch(e => { console.error('seo-data skipped:', e.message); process.exit(0); });

@@ -1612,6 +1612,7 @@
                     <form class="space-y-6" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
                     <input type="hidden" name="subject" value="New enquiry from JTE Website">
+                    <input type="hidden" name="sector" value="general">
                     <input type="checkbox" name="botcheck" style="display:none">
                     
                     <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
@@ -2011,7 +2012,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
         if (response.ok) {
             successMsg.classList.add('show');
             form.reset();
-            if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'home'});
+            if(window.gtag)gtag('event','generate_lead',{method:'contact_form',page:'home',sector:'general'});
             btnText.textContent = 'Message Sent';
             btnLoader.classList.add('hidden');
             btnIcon.classList.remove('hidden');

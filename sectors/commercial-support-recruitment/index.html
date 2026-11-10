@@ -287,6 +287,7 @@
       <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
       <input type="hidden" name="subject" value="New hiring enquiry: Commercial and Support (sector page)">
       <input type="hidden" name="redirect" value="https://jte.com.sg/thank-you/">
+      <input type="hidden" name="sector" value="commercial">
       <input type="checkbox" name="botcheck" style="display:none">
       <div class="grid sm:grid-cols-2 gap-4 mb-4">
         <input type="text" name="name" class="hq-fld" placeholder="Your name" required autocomplete="name" aria-label="Your name">
@@ -312,7 +313,7 @@
       .hq-msg.show{display:block}
     </style>
     <script>
-      (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');msg.scrollIntoView({behavior:'smooth',block:'center'});if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'sector_commercial'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+      (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending…';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');msg.scrollIntoView({behavior:'smooth',block:'center'});if(window.gtag)gtag('event','generate_lead',{method:'hiring_quote',page:'sector_commercial',sector:'commercial'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
     </script>
   </div>
 </section>

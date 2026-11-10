@@ -147,6 +147,7 @@ const articleCapture = (post) => {
   const btn = pay ? 'Send it over' : 'Get my hiring quote';
   const subj = (pay ? 'Payroll enquiry, blog: ' : 'New hiring enquiry, blog: ') + post.slug;
   const method = pay ? 'blog_payroll' : 'blog_hiring';
+  const sector = pay ? 'payroll' : 'general';
   const needPh = pay ? 'What do you need? e.g. payroll for 20 staff, CPF and payslips sorted, help hiring' : 'Who are you hiring? e.g. 3 software engineers, a finance manager';
   return `        <div style="background:#F3ECDE;border-radius:16px;padding:2rem 1.5rem;margin:2.5rem 0;text-align:center">
           <p style="color:#8C7350;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin:0">For employers</p>
@@ -157,6 +158,7 @@ const articleCapture = (post) => {
             <input type="hidden" name="access_key" value="4102fbb4-7429-499b-a1af-3099ae80705b">
             <input type="hidden" name="subject" value="${subj}">
             <input type="hidden" name="redirect" value="https://jte.com.sg/thank-you/">
+            <input type="hidden" name="sector" value="${sector}">
             <input type="checkbox" name="botcheck" style="display:none">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-bottom:.6rem">
               <input type="text" name="name" class="hq-fld" placeholder="Your name" required autocomplete="name" aria-label="Your name">
@@ -177,7 +179,7 @@ const articleCapture = (post) => {
           .hq-msg.show{display:block}
         </style>
         <script>
-          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'${method}',page:'${post.slug}'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
+          (function(){var f=document.getElementById('hq-form');if(!f)return;f.addEventListener('submit',async function(e){e.preventDefault();var btn=f.querySelector('button[type=submit]'),msg=document.getElementById('hq-success'),orig=btn.innerHTML;btn.disabled=true;btn.textContent='Sending\\u2026';try{var r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});if(r.ok){f.reset();f.style.display='none';msg.classList.add('show');if(window.gtag)gtag('event','generate_lead',{method:'${method}',page:'${post.slug}',sector:'${sector}'});}else{throw new Error();}}catch(err){btn.disabled=false;btn.innerHTML=orig;alert('Sorry, something went wrong. Please email ask@jte.com.sg');}});})();
         </script>`;
 };
 
