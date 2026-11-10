@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>JTE — Article Review</title>
+<title>JTE, Article Review</title>
 <style>
   :root{--bg:#f6f4ef;--card:#fffdf9;--ink:#1c1a17;--muted:#6f685e;--line:#e4ddd0;--gold:#b8912f;--gold2:#C6A87C;--dark:#241B12;--green:#2f8f5b;--amber:#b7791f;--red:#c0392b;}
   *{box-sizing:border-box}
@@ -62,7 +62,7 @@
 <body>
 <div id="gate">
   <div class="logo">JTE</div>
-  <p>Open your saved review link to get in &mdash; or enter the password</p>
+  <p>Open your saved review link to get in, or enter the password</p>
   <input id="pw" type="password" autocomplete="off" placeholder="Password" onkeydown="if(event.key==='Enter')tryPw()">
   <button onclick="tryPw()">Enter</button>
   <div class="err" id="err"></div>
@@ -75,7 +75,7 @@
       <span class="count" id="count"></span>
       <a href="/seo/" style="margin-left:auto;font-size:.8rem;font-weight:600;color:#C6A87C;text-decoration:none;border:1px solid rgba(198,168,124,.35);border-radius:999px;padding:.3rem .8rem;white-space:nowrap">SEO dashboard &rarr;</a>
     </header>
-    <div class="note">These are the <b>held / unpublished</b> articles still to review. Read each, check the QA row, then <b>Approve</b> (it drops into the Approved drawer at the bottom, out of your way) or leave a <b>note</b> for yourself &mdash; then tell Claude the feedback in chat. Image prompts are inside &ldquo;Supporting images&rdquo; &mdash; generate them and send them over. Nothing here is live until it&rsquo;s approved and scheduled.</div>
+    <div class="note">These are the <b>held / unpublished</b> articles still to review. Read each, check the QA row, then <b>Approve</b> (it drops into the Approved drawer at the bottom, out of your way) or leave a <b>note</b> for yourself, then tell Claude the feedback in chat. Image prompts are inside &ldquo;Supporting images&rdquo;, generate them and send them over. Nothing here is live until it&rsquo;s approved and scheduled.</div>
     <div id="list"></div>
     <div id="approvedWrap"></div>
   </div>
@@ -123,8 +123,8 @@ function promptsBlock(d){
   const items=d.prompts.map((p,i)=>`<div class="prompt">
     <div class="pc"><span class="lbl">Supporting image ${i+1}</span><button class="copy" data-p="${esc(p)}">Copy</button></div>
     <div>${esc(p)}</div></div>`).join("");
-  return `<details class="imgs"><summary>Supporting images &mdash; ${d.prompts.length} prompt(s) to generate</summary>
-    <div class="note" style="margin:.4rem .3rem">Hero is auto-generated (no need to make it). Generate these supporting images in the usual candid style and send them over &mdash; they go inside the article.</div>
+  return `<details class="imgs"><summary>Supporting images, ${d.prompts.length} prompt(s) to generate</summary>
+    <div class="note" style="margin:.4rem .3rem">Hero is auto-generated (no need to make it). Generate these supporting images in the usual candid style and send them over, they go inside the article.</div>
     ${items}</details>`;
 }
 
@@ -143,13 +143,13 @@ function card(d){
     </div>
     ${promptsBlock(d)}
     <div class="fb">
-      <textarea placeholder="Jot feedback here for your own notes — then tell Claude in chat…"></textarea>
+      <textarea placeholder="Jot feedback here for your own notes, then tell Claude in chat…"></textarea>
       <div class="row" style="margin-top:.5rem"><button class="btn dark" data-act="feedback">Save note</button></div>
     </div>
   </article>`;
 }
 
-// No emails — this console is private to Eugene. Decisions are saved locally
+// No emails, this console is private to Eugene. Decisions are saved locally
 // (localStorage) for his own tracking; feedback is relayed to Claude in chat.
 function submit(){ /* intentionally does nothing */ }
 
@@ -184,12 +184,12 @@ function render(){
   const approved=DATA.drafts.filter(isApproved);
   document.getElementById("list").innerHTML = pending.length
     ? pending.map(card).join("")
-    : '<div class="empty">&#127881; All caught up &mdash; nothing left to review.</div>';
+    : '<div class="empty">&#127881; All caught up, nothing left to review.</div>';
   document.getElementById("count").textContent =
     pending.length+" to review" + (approved.length? " · "+approved.length+" approved" : "");
   const aw=document.getElementById("approvedWrap");
   aw.innerHTML = approved.length
-    ? '<details class="approved-drawer"><summary>&#10003; Approved ('+approved.length+') &mdash; click to view</summary><div class="approved-body">'+approved.map(card).join("")+'</div></details>'
+    ? '<details class="approved-drawer"><summary>&#10003; Approved ('+approved.length+'), click to view</summary><div class="approved-body">'+approved.map(card).join("")+'</div></details>'
     : '';
 }
 async function showApp(){

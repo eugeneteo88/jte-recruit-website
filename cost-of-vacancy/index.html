@@ -98,7 +98,7 @@
   <header>
     <div class="eyebrow">Free tool for employers</div>
     <h1>What is that unfilled role really costing you?</h1>
-    <p class="lede">An open seat feels free because you&rsquo;re not paying the salary. It isn&rsquo;t. Here&rsquo;s a quick, honest sense of what it&rsquo;s costing you &mdash; and what a wrong hire would.</p>
+    <p class="lede">An open seat feels free because you&rsquo;re not paying the salary. It isn&rsquo;t. Here&rsquo;s a quick, honest sense of what it&rsquo;s costing you, and what a wrong hire would.</p>
   </header>
 
   <div class="calc">
@@ -128,12 +128,12 @@
       <div class="stat big"><div class="l">Total cost of this vacancy so far</div><div class="v" id="total"></div></div>
     </div>
 
-    <p class="assume">These are industry rules of thumb to size the problem, not an invoice. Cost per day = the role&rsquo;s daily salary &times; the value multiplier you picked (lost output plus the coverage, overtime and slips that fall on others). A wrong hire is estimated at ~30% of annual salary &mdash; a widely cited figure once you add hiring, onboarding, lost productivity and re-hiring. Adjust to your own numbers; the point is directional.</p>
+    <p class="assume">These are industry rules of thumb to size the problem, not an invoice. Cost per day = the role&rsquo;s daily salary &times; the value multiplier you picked (lost output plus the coverage, overtime and slips that fall on others). A wrong hire is estimated at ~30% of annual salary, a widely cited figure once you add hiring, onboarding, lost productivity and re-hiring. Adjust to your own numbers; the point is directional.</p>
   </div>
 
   <div class="pitch">
     <h2>The fix is speed, and getting it right once.</h2>
-    <p>Every number above shrinks when the role closes sooner and the person stays. That&rsquo;s the whole job of a good recruiter who knows your sector &mdash; a shorter search, and a shortlist screened for fit, not just keywords. If this role has been open longer than you&rsquo;d like, let&rsquo;s talk.</p>
+    <p>Every number above shrinks when the role closes sooner and the person stays. That&rsquo;s the whole job of a good recruiter who knows your sector, a shorter search, and a shortlist screened for fit, not just keywords. If this role has been open longer than you&rsquo;d like, let&rsquo;s talk.</p>
     <a class="btn" href="/contact">Fill this role with JTE</a>
     <a class="btn ghost" href="/blog/recruitment-agency-cost-singapore/">What a recruiter costs</a>
   </div>
@@ -160,8 +160,8 @@
   <div class="faq">
     <h2>Common questions</h2>
     <details><summary>How is the cost of a vacancy worked out?</summary><div class="a">An unfilled role costs more than the unpaid salary. The output that seat would have produced is lost, and the work spills onto other people. We size it as the role&rsquo;s daily salary &times; a value multiplier &times; the days open. You set the multiplier.</div></details>
-    <details><summary>Where does the 30% bad-hire figure come from?</summary><div class="a">It&rsquo;s a widely cited rule of thumb &mdash; once you add the original hiring cost, onboarding, lost productivity and hiring again, a wrong hire tends to land near a third of first-year salary, often more for senior roles.</div></details>
-    <details><summary>Is this exact?</summary><div class="a">No &mdash; it&rsquo;s directional. The point is that an open role is rarely as cheap as it feels, so speed and accuracy in hiring are worth money.</div></details>
+    <details><summary>Where does the 30% bad-hire figure come from?</summary><div class="a">It&rsquo;s a widely cited rule of thumb, once you add the original hiring cost, onboarding, lost productivity and hiring again, a wrong hire tends to land near a third of first-year salary, often more for senior roles.</div></details>
+    <details><summary>Is this exact?</summary><div class="a">No, it&rsquo;s directional. The point is that an open role is rarely as cheap as it feels, so speed and accuracy in hiring are worth money.</div></details>
     <details><summary>How does JTE bring the cost down?</summary><div class="a">By shortening time-to-fill and screening for fit so the hire stays. <a href="/contact">Tell us the role</a> and we&rsquo;ll give you an honest read.</div></details>
   </div>
 
@@ -197,9 +197,9 @@
     e.preventDefault(); const msg=$('capMsg'); msg.style.color='var(--muted)'; msg.textContent='Sending…';
     try{
       const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
-      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks — we&rsquo;ll be in touch shortly with your breakdown.'; if(window.gtag)gtag('event','generate_lead',{method:'cost_of_vacancy'});}
+      if(r.ok){e.target.reset(); msg.style.color='var(--good)'; msg.textContent='Thanks, we&rsquo;ll be in touch shortly with your breakdown.'; if(window.gtag)gtag('event','generate_lead',{method:'cost_of_vacancy'});}
       else throw new Error();
-    }catch{ msg.style.color='var(--crit)'; msg.textContent='Something went wrong — email us at ask@jte.com.sg and we&rsquo;ll sort it.'; }
+    }catch{ msg.style.color='var(--crit)'; msg.textContent='Something went wrong, email us at ask@jte.com.sg and we&rsquo;ll sort it.'; }
   });
 </script>
 </body>
