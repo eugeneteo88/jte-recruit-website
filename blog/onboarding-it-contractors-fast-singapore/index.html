@@ -111,17 +111,34 @@
             <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-500 mt-1 group-hover:text-luxury-goldDark transition-colors">Recruit</span>
         </a>
         <div class="flex items-center gap-4 md:gap-8">
-            <div class="nav-desk items-center space-x-6">
-                <a href="/employers" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">For Employers</a>
-        <a href="/sectors" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Sectors</a>
-                <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
-                <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
-                <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line nav-active">Field Notes</a>
-                <a href="/hiring-grants" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Hiring Grants</a>
-                <a href="/salary-guide" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Salary Guide</a>
-                <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
+            <div class="nav-desk items-center">
+                <div class="nav-grp"><a href="/employers">What We Do<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Our Services</div>
+                    <a class="lead" href="/employers">For Employers</a>
+                    <a href="/services/permanent-recruitment">Permanent Hiring</a>
+                    <a href="/services/contract-staffing">Temp &amp; Contract Staffing</a>
+                    <a href="/services/manpower-outsourcing">Manpower Outsourcing</a>
+                    <a href="/services/payroll-work-pass">Payroll &amp; Work Pass</a>
+                    <a href="/services/mass-hiring">Project &amp; Mass Hiring</a>
+                    <a href="/services/employer-branding">Employer Branding</a></div></div>
+                <div class="nav-grp"><a href="/sectors">Sectors<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Sectors We Serve</div>
+                    <a href="/sectors/engineering-recruitment">Engineering</a>
+                    <a href="/sectors/logistics-recruitment">Logistics &amp; Supply Chain</a>
+                    <a href="/sectors/manufacturing-recruitment">Manufacturing</a>
+                    <a href="/sectors/healthcare-recruitment">Healthcare</a>
+                    <a href="/sectors/commercial-support-recruitment">Commercial &amp; Support</a>
+                    <a href="/sectors/it-recruitment">IT &amp; Tech</a></div></div>
+                <a class="nav-lnk gold" href="/free-payroll-singapore">Free Payroll</a>
+                <div class="nav-grp"><a href="/blog">Resources<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Resources</div>
+                    <a href="/blog">Field Notes</a>
+                    <a href="/salary-guide">Salary Guide</a>
+                    <a href="/hiring-grants">Hiring Grants</a>
+                    <a href="/our-story">Our Story</a></div></div>
+                <a class="nav-lnk" href="/contact">Let&rsquo;s Talk</a>
             </div>
-            <a href="/verify" class="nav-verify items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+            <a href="/verify" class="nav-verify items-center gap-1.5 bg-transparent border border-luxury-gold/70 text-luxury-gold hover:bg-luxury-gold/10 text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 Verify a Number
             </a>
@@ -130,14 +147,13 @@
 
     <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
     <div id="mmenu">
+      <a class="mlk" href="/free-payroll-singapore" onclick="closeMenu()"><span class="idx" style="color:#C6A87C">&#9733;</span>Free Payroll</a>
       <a class="mlk" href="/services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
-    <a class="mlk" href="/sectors" onclick="closeMenu()"><span class="idx">02</span>Sectors</a>
-      <a class="mlk" href="/employers" onclick="closeMenu()"><span class="idx">03</span>For Employers</a>
-      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">04</span>Our Story</a>
-      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">05</span>Field Notes</a>
-      <a class="mlk" href="/hiring-grants" onclick="closeMenu()"><span class="idx">06</span>Hiring Grants</a>
-      <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">07</span>Salary Guide</a>
-      <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">08</span>Contact</a>
+      <a class="mlk" href="/sectors" onclick="closeMenu()"><span class="idx">02</span>Sectors</a>
+      <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">03</span>Salary Guide</a>
+      <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Field Notes</a>
+      <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">05</span>Our Story</a>
+      <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">06</span>Let&rsquo;s Talk</a>
       <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
     </div>
 
