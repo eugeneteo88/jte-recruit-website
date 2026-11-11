@@ -27,7 +27,8 @@
     "author": "Eugene Teo",
     "date": "2027-03-04",
     "readTime": "6 min read",
-    "icon": "users"
+    "icon": "users",
+    "draft": true
   },
   {
     "slug": "why-candidates-ghost-you",
@@ -57,7 +58,8 @@
     "author": "Eugene Teo",
     "date": "2027-02-18",
     "readTime": "6 min read",
-    "icon": "check"
+    "icon": "check",
+    "draft": true
   },
   {
     "slug": "reference-checks-that-work",
@@ -67,7 +69,8 @@
     "author": "Eugene Teo",
     "date": "2027-02-11",
     "readTime": "6 min read",
-    "icon": "check"
+    "icon": "check",
+    "draft": true
   },
   {
     "slug": "are-you-overpaying-or-underpaying",
@@ -949,6 +952,50 @@
     "date": "2026-12-14",
     "readTime": "6 min read",
     "icon": "users",
+    "draft": false
+  },
+  {
+    "slug": "locum-healthcare-payroll-singapore",
+    "title": "Locum doctors and nurses: who sorts the CPF and payslips?",
+    "tag": "Field Notes",
+    "excerpt": "Running locums at your clinic or ward? Here is who owes CPF, who issues payslips, and the clean way to pay sessional healthcare staff in Singapore.",
+    "author": "Eugene Teo",
+    "date": "2026-12-16",
+    "readTime": "6 min read",
+    "icon": "stethoscope",
+    "draft": false
+  },
+  {
+    "slug": "nursing-home-contract-staffing-payroll",
+    "title": "Nursing home staffing: one invoice, no in-house payroll team",
+    "tag": "Field Notes",
+    "excerpt": "Staffing a nursing home with contract care workers? Here is how to scale headcount up and down on one invoice, with no in-house payroll team to build.",
+    "author": "Eugene Teo",
+    "date": "2026-12-18",
+    "readTime": "6 min read",
+    "icon": "heart-handshake",
+    "draft": false
+  },
+  {
+    "slug": "healthcare-work-pass-payroll-singapore",
+    "title": "Healthcare staff on a work pass: the payroll side to sort first",
+    "tag": "Field Notes",
+    "excerpt": "Bringing healthcare staff in on a work pass? Here is the payroll side nobody warns you about, levies, CPF rules, passes and the year-end filings.",
+    "author": "Eugene Teo",
+    "date": "2026-12-23",
+    "readTime": "6 min read",
+    "icon": "clipboard-check",
+    "draft": false
+  },
+  {
+    "slug": "it-staff-augmentation-payroll-singapore",
+    "title": "IT staff augmentation in Singapore: park the payroll with us",
+    "tag": "Field Notes",
+    "excerpt": "Scaling an IT team with contractors or staff augmentation in Singapore? Here is how to park their payroll cleanly, CPF, passes and filings handled, one invoice.",
+    "author": "Eugene Teo",
+    "date": "2026-12-30",
+    "readTime": "6 min read",
+    "icon": "server",
     "draft": false
   }
 ]

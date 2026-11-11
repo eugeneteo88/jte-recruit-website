@@ -218,6 +218,12 @@
   </url>
   <!-- BLOGPOSTS:START -->
   <url>
+    <loc>https://jte.com.sg/blog/cpf-rates-2027-payroll-singapore/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jte.com.sg/blog/ep-salary-rise-2027-foreign-it-hiring/</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
