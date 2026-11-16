@@ -12,6 +12,10 @@ import { dirname, join } from 'node:path';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const data = JSON.parse(readFileSync(join(ROOT, 'salary-data.json'), 'utf8'));
+// FAQ + Dataset schema per page. Kept in a data file so a rebuild can't strip it:
+// it used to be hand-added to the built HTML, and every `npm run build` (the deploy
+// workflow's included) wiped it straight back out.
+const schema = JSON.parse(readFileSync(join(ROOT, 'salary-schema.json'), 'utf8'));
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -26,10 +30,10 @@ const BAND_SUB = { 'Junior': 'Fresh · non-exec · junior', 'Mid': 'Executive ·
 const SERVICE_SLUG = { engineering: 'engineering-recruitment', logistics: 'logistics-recruitment', manufacturing: 'manufacturing-recruitment', healthcare: 'healthcare-recruitment', commercial: 'commercial-support-recruitment', it: 'it-recruitment' };
 const DRIVERS = {
   engineering: 'Discipline (M&amp;E vs civil), project vs plant work, professional registration and site allowances move pay the most.',
-  logistics: 'Shift work and overtime can lift take-home well above base &mdash; especially for warehouse, driver and operations roles.',
+  logistics: 'Shift work and overtime can lift take-home well above base, especially for warehouse, driver and operations roles.',
   manufacturing: 'Cleanroom / precision experience, shift patterns and supervisory scope drive the range; OT is common on the floor.',
   healthcare: 'Registration and licensing, ward vs clinic setting, and shift / on-call allowances shape pay well beyond the base figure.',
-  commercial: 'Industry, portfolio size and revenue responsibility matter more than the job title &mdash; a &ldquo;manager&rdquo; in one firm is a different job in another.',
+  commercial: 'Industry, portfolio size and revenue responsibility matter more than the job title, a &ldquo;manager&rdquo; in one firm is a different job in another.',
   it: 'Tech stack, cloud &amp; security specialisation and product-vs-services environments move pay fastest. Senior engineers are usually headhunted rather than job-hunting, so they command a premium.',
 };
 const BLURB = {
@@ -42,6 +46,43 @@ const BLURB = {
 };
 
 /* ---------- shared chrome ---------- */
+const jsonScript = o => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
+const extraSchema = (key, path) => {
+  const rec = schema[key];
+  if (!rec) return '';
+  const out = [];
+  if (rec.faq && rec.faq.length) out.push(jsonScript({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: rec.faq.map(f => ({ '@type': 'Question', name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  }));
+  if (rec.dataset) out.push(jsonScript({
+    '@context': 'https://schema.org', '@type': 'Dataset',
+    name: rec.dataset.name, description: rec.dataset.description,
+    url: `https://jte.com.sg${path}`,
+    creator: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd' },
+    spatialCoverage: { '@type': 'Place', name: 'Singapore' },
+    temporalCoverage: rec.dataset.temporalCoverage,
+    variableMeasured: rec.dataset.variableMeasured,
+    isAccessibleForFree: true,
+  }));
+  return out.length ? '\n' + out.join('\n') : '';
+};
+
+const faqSection = (key) => {
+  const rec = schema[key];
+  if (!rec || !rec.faq || !rec.faq.length) return '';
+  const items = rec.faq.map((f, i) => `    <details${i === 0 ? ' open' : ''} class="py-5"><summary class="font-serif text-lg flex justify-between items-center cursor-pointer">${f.q}<span class="text-luxury-goldDark ml-4">${i === 0 ? '&ndash;' : '+'}</span></summary><p class="text-gray-600 leading-relaxed mt-3 font-light">${f.a}</p></details>`).join('\n');
+  return `  <!-- FAQ -->
+  <section class="px-6 md:px-12 py-14">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8"><span class="eyebrow">Questions</span><h2 class="font-serif text-2xl md:text-3xl mt-3 text-luxury-black">Common questions</h2></div>
+${items}
+    </div>
+  </section>
+`;
+};
+
 const head = ({ title, desc, path, jsonld }) => `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${desc}">
@@ -71,7 +112,7 @@ ${jsonld}
   .hover-gold-line::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#C6A87C;transition:width .4s ease}
   .hover-gold-line:hover::after{width:100%}
   nav{background:linear-gradient(to bottom,rgba(245,241,232,.98) 62%,rgba(245,241,232,0))}
-  nav a.nav-active{color:#C6A87C !important}
+  nav a.nav-active{color:#8C7350 !important}
   nav a.nav-active::after{width:100% !important}
   .btn-primary{background:#C6A87C;color:#0a0a0a;transition:all .3s ease}
   .btn-primary:hover{background:#E5D4B3}
@@ -141,16 +182,34 @@ ${jsonld}
       <span class="block text-[9px] uppercase tracking-[0.3em] text-gray-500 mt-1 group-hover:text-luxury-goldDark transition-colors">Recruit</span>
     </a>
     <div class="flex items-center gap-4 md:gap-8">
-      <div class="nav-desk items-center space-x-7">
-        <a href="/employers" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">For Employers</a>
-        <a href="/services" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">What We Do</a>
-        <a href="/our-story" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Our Story</a>
-        <a href="/blog" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Field Notes</a>
-        <a href="/hiring-grants" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Hiring Grants</a>
-        <a href="/salary-guide" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover-gold-line nav-active">Salary Guide</a>
-        <a href="/contact" class="text-xs uppercase tracking-[0.15em] text-gray-600 hover:text-luxury-black transition-colors hover-gold-line">Let&rsquo;s Talk</a>
-      </div>
-      <a href="/verify" class="nav-verify items-center gap-1.5 bg-luxury-gold hover:bg-luxury-goldLight text-luxury-black text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
+      <div class="nav-desk items-center">
+                <div class="nav-grp"><a href="/employers">What We Do<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Our Services</div>
+                    <a class="lead" href="/employers">For Employers</a>
+                    <a href="/services/permanent-recruitment">Permanent Hiring</a>
+                    <a href="/services/contract-staffing">Temp &amp; Contract Staffing</a>
+                    <a href="/services/manpower-outsourcing">Manpower Outsourcing</a>
+                    <a href="/services/payroll-work-pass">Payroll &amp; Work Pass</a>
+                    <a href="/services/mass-hiring">Project &amp; Mass Hiring</a>
+                    <a href="/services/employer-branding">Employer Branding</a></div></div>
+                <div class="nav-grp"><a href="/sectors">Sectors<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Sectors We Serve</div>
+                    <a href="/sectors/engineering-recruitment">Engineering</a>
+                    <a href="/sectors/logistics-recruitment">Logistics &amp; Supply Chain</a>
+                    <a href="/sectors/manufacturing-recruitment">Manufacturing</a>
+                    <a href="/sectors/healthcare-recruitment">Healthcare</a>
+                    <a href="/sectors/commercial-support-recruitment">Commercial &amp; Support</a>
+                    <a href="/sectors/it-recruitment">IT &amp; Tech</a></div></div>
+                <a class="nav-lnk gold" href="/free-payroll-singapore">Free Payroll</a>
+                <div class="nav-grp"><a href="/blog">Resources<span class="nav-car"></span></a>
+                  <div class="nav-dd"><div class="eyb">Resources</div>
+                    <a href="/blog">Field Notes</a>
+                    <a href="/salary-guide">Salary Guide</a>
+                    <a href="/hiring-grants">Hiring Grants</a>
+                    <a href="/our-story">Our Story</a></div></div>
+                <a class="nav-lnk" href="/contact">Let&rsquo;s Talk</a>
+            </div>
+      <a href="/verify" class="nav-verify items-center gap-1.5 bg-transparent border border-luxury-gold/70 text-luxury-gold hover:bg-luxury-gold/10 text-[10px] md:text-xs font-semibold uppercase tracking-[0.06em] px-4 py-2 rounded-full transition-colors whitespace-nowrap">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         Verify a Number
       </a>
@@ -159,13 +218,13 @@ ${jsonld}
 
   <button id="mburger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <div id="mmenu">
+    <a class="mlk" href="/free-payroll-singapore" onclick="closeMenu()"><span class="idx" style="color:#C6A87C">&#9733;</span>Free Payroll</a>
     <a class="mlk" href="/services" onclick="closeMenu()"><span class="idx">01</span>What We Do</a>
-    <a class="mlk" href="/employers" onclick="closeMenu()"><span class="idx">02</span>For Employers</a>
-    <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">03</span>Our Story</a>
+    <a class="mlk" href="/sectors" onclick="closeMenu()"><span class="idx">02</span>Sectors</a>
+    <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">03</span>Salary Guide</a>
     <a class="mlk" href="/blog" onclick="closeMenu()"><span class="idx">04</span>Field Notes</a>
-    <a class="mlk" href="/hiring-grants" onclick="closeMenu()"><span class="idx">05</span>Hiring Grants</a>
-    <a class="mlk" href="/salary-guide" onclick="closeMenu()"><span class="idx">06</span>Salary Guide</a>
-    <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">07</span>Contact</a>
+    <a class="mlk" href="/our-story" onclick="closeMenu()"><span class="idx">05</span>Our Story</a>
+    <a class="mlk" href="/contact" onclick="closeMenu()"><span class="idx">06</span>Let&rsquo;s Talk</a>
     <a class="mverify" href="/verify" onclick="closeMenu()">&#10003; Verify a Number</a>
   </div>
 `;
@@ -258,9 +317,9 @@ const disclaimer = `
         <span class="eyebrow">Please read this</span>
         <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-4">A guide, not a guarantee</h2>
         <div class="text-gray-600 text-[13px] md:text-sm font-light leading-relaxed space-y-3">
-          <p>These figures are the <b class="font-medium text-luxury-goldDark">typical monthly base range</b> we see for each role and seniority across the Singapore market. They are <b class="font-medium text-luxury-goldDark">indicative, not a quote or a promise</b> &mdash; real offers land higher and lower depending on the company.</p>
-          <p>They show <b class="font-medium">base pay only</b> &mdash; before bonus, AWS, commission, overtime, shift and site allowances, and benefits. For many roles (warehouse, drivers, production, nursing) overtime and allowances make a real difference to take-home, so the base range under-states what people actually earn.</p>
-          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills &mdash; two jobs with the same title can be very different. These ranges reflect our own experience <b class="font-medium">recruiting across Singapore since 2014</b> and the combined market knowledge of our consultants &mdash; read them as our honest guide, not a fixed rate card.</p>
+          <p>These figures are the <b class="font-medium text-luxury-goldDark">typical monthly base range</b> we see for each role and seniority across the Singapore market. They are <b class="font-medium text-luxury-goldDark">indicative, not a quote or a promise</b>, real offers land higher and lower depending on the company.</p>
+          <p>They show <b class="font-medium">base pay only</b>, before bonus, AWS, commission, overtime, shift and site allowances, and benefits. For many roles (warehouse, drivers, production, nursing) overtime and allowances make a real difference to take-home, so the base range under-states what people actually earn.</p>
+          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills, two jobs with the same title can be very different. These ranges reflect our own experience <b class="font-medium">recruiting across Singapore since 2014</b> and the combined market knowledge of our consultants, read them as our honest guide, not a fixed rate card.</p>
         </div>
       </div>
     </div>
@@ -273,7 +332,7 @@ const reportCTA = `
     <div class="why max-w-4xl mx-auto p-8 md:p-12 text-center">
       <span class="eyebrow" style="color:#E5D4B3">Hiring for a specific role?</span>
       <h2 class="font-serif text-2xl md:text-[2rem] mt-3 mb-3 leading-tight">Get a tailored read on your role</h2>
-      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto mb-8">Tell us the title, the scope and where you&rsquo;re based &mdash; we&rsquo;ll come back with a sharper range for your exact hire, what similar employers are paying, and how to win the right person. No cost, no obligation.</p>
+      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto mb-8">Tell us the title, the scope and where you&rsquo;re based, we&rsquo;ll come back with a sharper range for your exact hire, what similar employers are paying, and how to win the right person. No cost, no obligation.</p>
       <a href="/contact" class="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-md uppercase tracking-wider font-semibold text-xs">
         Ask us about your role
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -290,18 +349,18 @@ const reportCTA = `
 const legend = `
   <div class="max-w-4xl mx-auto mt-5 text-[12px] text-gray-500">
     <div class="flex flex-wrap gap-x-7 gap-y-2">
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Junior</b> &mdash; fresh grads, non-executive &amp; junior roles</span>
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Mid</b> &mdash; executives, senior execs &amp; professionals</span>
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Senior / Lead</b> &mdash; managers &amp; management</span>
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Junior</b>, fresh grads, non-executive &amp; junior roles</span>
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Mid</b>, executives, senior execs &amp; professionals</span>
+      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Senior / Lead</b>, managers &amp; management</span>
     </div>
-    <p class="text-gray-400 mt-2.5">A dash (&mdash;) means we don&rsquo;t place enough of that role at that level to quote a fair range.</p>
+    <p class="text-gray-400 mt-2.5">A dash (&ndash;) means we don&rsquo;t place enough of that role at that level to quote a fair range.</p>
   </div>`;
 
 /* build one salary table for a sector */
 function tableHTML(sector) {
   const cell = c => c
     ? `<span class="rng">$${fmt(c.low)} &ndash; $${fmt(c.high)}</span>`
-    : `<span class="dash">&mdash;</span>`;
+    : `<span class="dash">&ndash;</span>`;
   const rows = sector.roles.map(r => `        <tr>
           <td class="role">${esc(r.name)}</td>
           <td data-label="Junior">${cell(r.bands['Junior'])}</td>
@@ -325,7 +384,7 @@ function sectorPage(sec) {
   const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. Real monthly salary ranges from JTE Recruit. Updated ${UPDATED}.`;
   const path = `/salary-guide/${sec.slug}/`;
   const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from JTE Recruit's market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>`;
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>` + extraSchema(sec.slug, path);
 
   const otherSectors = data.sectors.filter(s => s.slug !== sec.slug).map(s =>
     `<a href="/salary-guide/${s.slug}" class="inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.12em] text-gray-600 hover:text-luxury-goldDark border border-black/10 hover:border-luxury-gold rounded-full px-4 py-2 transition-colors">${s.name}</a>`).join('\n        ');
@@ -339,7 +398,7 @@ function sectorPage(sec) {
       </nav>
       <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore &middot; ${YEAR} &middot; JTE Salary Guide</span>
       <h1 class="font-serif text-4xl md:text-5xl text-luxury-black font-semibold mt-6 mb-5 leading-[1.1]">${sec.name} Salary Guide<br>Singapore ${YEAR}</h1>
-      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed max-w-2xl">What ${sec.name.replace(/&amp;/g,'&')} roles pay in Singapore, by seniority &mdash; ${BLURB[sec.slug]} The typical monthly ranges we see across the market.</p>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed max-w-2xl">What ${sec.name.replace(/&amp;/g,'&')} roles pay in Singapore, by seniority, ${BLURB[sec.slug]} The typical monthly ranges we see across the market.</p>
     </div>
   </header>
 
@@ -360,11 +419,12 @@ function sectorPage(sec) {
     <div class="max-w-3xl mx-auto sg-card p-7 md:p-9">
       <span class="eyebrow">What moves the number</span>
       <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-3">Why two people in the same role earn differently</h2>
-      <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses sit on top of the base figures above &mdash; so actual take-home often runs higher, especially for shift and hands-on roles.</p>
-      <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week &mdash; <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>. Open to a mid-career hire? A <a href="/hiring-grants/" class="text-luxury-goldDark hover:underline font-medium">hiring grant</a> can cover up to 70&ndash;90% of the salary.</p>
+      <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses sit on top of the base figures above, so actual take-home often runs higher, especially for shift and hands-on roles.</p>
+      <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week, <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>. Open to a mid-career hire? A <a href="/hiring-grants/" class="text-luxury-goldDark hover:underline font-medium">hiring grant</a> can cover up to 70&ndash;90% of the salary.</p>
     </div>
   </section>
 ${disclaimer}
+${faqSection(sec.slug)}
   <!-- OTHER SECTORS -->
   <section class="px-6 md:px-12 pb-20">
     <div class="max-w-4xl mx-auto text-center">
@@ -385,7 +445,7 @@ function hubPage() {
   const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from JTE Recruit's market experience. Updated ${UPDATED}.`;
   const path = `/salary-guide/`;
   const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from JTE Recruit's years of market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>`;
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>` + extraSchema('index', path);
 
   const cards = data.sectors.map(s => {
     const examples = s.roles.slice(0, 3).map(r => {
@@ -415,7 +475,7 @@ function hubPage() {
     <div class="max-w-3xl mx-auto">
       <span class="sg-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>Singapore Salary Guide &middot; ${YEAR}</span>
       <h1 class="font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-luxury-black font-semibold mt-6 mb-6 leading-[1.1]">Singapore Salary Guide ${YEAR}:<br>what roles really pay</h1>
-      <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed max-w-2xl mx-auto">Honest salary ranges by role <b class="font-medium text-luxury-black">and</b> seniority &mdash; not one misleading average per job. Built on <b class="font-medium text-luxury-black">50+ years&rsquo; combined experience</b> recruiting across Singapore, these are the real ranges we see for the roles we fill &mdash; from warehouse to software engineer.</p>
+      <p class="text-gray-600 text-[13px] md:text-base font-light leading-relaxed max-w-2xl mx-auto">Honest salary ranges by role <b class="font-medium text-luxury-black">and</b> seniority, not one misleading average per job. Built on <b class="font-medium text-luxury-black">50+ years&rsquo; combined experience</b> recruiting across Singapore, these are the real ranges we see for the roles we fill, from warehouse to software engineer.</p>
       <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mt-6 text-[12px] text-gray-500">
         <span>&#128336; Updated <b class="font-medium text-gray-700">${UPDATED}</b></span>
         <span>&#127775; Free &middot; no sign-up</span>
@@ -428,7 +488,7 @@ function hubPage() {
     <div class="max-w-2xl mx-auto text-center mb-9">
       <span class="eyebrow">Pick your sector</span>
       <h2 class="font-serif text-2xl md:text-3xl text-luxury-black mt-3">Salary ranges by sector</h2>
-      <p class="text-gray-500 text-sm font-light mt-2">Each opens a full breakdown &mdash; every role, split by junior, mid and senior.</p>
+      <p class="text-gray-500 text-sm font-light mt-2">Each opens a full breakdown, every role, split by junior, mid and senior.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
 ${cards}
@@ -442,8 +502,8 @@ ${cards}
         <span class="eyebrow">How to read this guide</span>
         <h2 class="font-serif text-2xl md:text-3xl text-luxury-black mt-3">Why we split every role by seniority</h2>
       </div>
-      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed mb-4">Most salary guides give you one number per job title. That&rsquo;s where they mislead &mdash; &ldquo;IT&rdquo; isn&rsquo;t a salary, and an IT support hire and a senior software engineer are worlds apart. So we split every role into three seniority bands and show the <b class="font-medium text-luxury-black">typical range</b> &mdash; where most offers land &mdash; not a single average that no real job actually pays.</p>
-      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed">It&rsquo;s the market as we see it from the desk, day in and day out &mdash; built to <b class="font-medium text-luxury-goldDark">guide your decision, not make it for you</b>. The finer print on what&rsquo;s included is in the note further down.</p>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed mb-4">Most salary guides give you one number per job title. That&rsquo;s where they mislead, &ldquo;IT&rdquo; isn&rsquo;t a salary, and an IT support hire and a senior software engineer are worlds apart. So we split every role into three seniority bands and show the <b class="font-medium text-luxury-black">typical range</b>, where most offers land, not a single average that no real job actually pays.</p>
+      <p class="text-gray-600 text-sm md:text-base font-light leading-relaxed">It&rsquo;s the market as we see it from the desk, day in and day out, built to <b class="font-medium text-luxury-goldDark">guide your decision, not make it for you</b>. The finer print on what&rsquo;s included is in the note further down.</p>
     </div>
   </section>
 
@@ -452,10 +512,11 @@ ${cards}
     <div class="why max-w-6xl mx-auto p-8 md:p-12">
       <span class="eyebrow" style="color:#E5D4B3">Why is it free?</span>
       <h2 class="font-serif text-2xl md:text-[1.9rem] mt-3 mb-3 leading-tight" style="max-width:24ch">Because when you&rsquo;re ready to hire, we hope you&rsquo;ll call us.</h2>
-      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed" style="max-width:62ch">We&rsquo;ve placed talent across Singapore since 2014. Sharing what we know about the market is how we start the relationship &mdash; no cost, no obligation. If the data helps you hire on your own, wonderful. If you&rsquo;d rather we handle it, we&rsquo;re right here.</p>
+      <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed" style="max-width:62ch">We&rsquo;ve placed talent across Singapore since 2014. Sharing what we know about the market is how we start the relationship, no cost, no obligation. If the data helps you hire on your own, wonderful. If you&rsquo;d rather we handle it, we&rsquo;re right here.</p>
     </div>
   </section>
 ${disclaimer}
+${faqSection('index')}
 ${reportCTA}
 ${footer}`;
 }
