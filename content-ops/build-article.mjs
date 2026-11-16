@@ -59,7 +59,7 @@ export function buildArticle(c, date) {
   // ---- main body ----
   const links = {}; for (const l of (c.crossLinks || [])) links[l.anchor] = l.slug;
   // Top-level (non-blog) pages the writer may link to — don't prefix these with /blog/.
-  const TOPLEVEL = new Set(['free-payroll-singapore', 'cost-of-vacancy', 'services', 'sectors', 'employers', 'contact', 'salary-guide', 'hiring-grants', 'our-story', 'reviews', 'verify']);
+  const TOPLEVEL = new Set(['free-payroll-singapore', 'employer-of-record-singapore', 'payroll-outsourcing-singapore', 'hire-in-singapore-without-a-company', 'cost-of-vacancy', 'services', 'sectors', 'employers', 'contact', 'salary-guide', 'hiring-grants', 'our-story', 'reviews', 'verify']);
   const hrefFor = (sl) => { const bare = String(sl).trim().replace(/^\/?(blog\/)?/, '').replace(/\/$/, ''); if (TOPLEVEL.has(bare)) return `/${bare}/`; if (String(sl).startsWith('/')) return String(sl); return `/blog/${bare}/`; };
   const linkify = (t) => { let s = esc(t); for (const [anchor, sl] of Object.entries(links)) { if (s.includes(anchor)) { s = s.replace(anchor, `<a href="${hrefFor(sl)}">${anchor}</a>`); break; } } return s; };
   const hero = `<figure class="mb-10"><img src="hero.jpg" alt="${attr(c.heroAlt || c.title)}" class="w-full rounded-xl" style="aspect-ratio:1600/820;" loading="eager" width="1600" height="820"></figure>`;
