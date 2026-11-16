@@ -37,6 +37,9 @@ jobs:
         env:
           GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
 
+      - name: GEO watch (are AI crawlers still allowed through Cloudflare?)
+        run: node scripts/geo-watch.mjs || echo "geo-watch skipped"
+
       - name: Run the Growth Engine
         run: node content-ops/run.mjs
         env:

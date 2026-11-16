@@ -311,6 +311,9 @@
     <div class="panel"><h3>Traffic by source · 28d</h3><div class="src" id="srcBox"><p class="mut">Loading&hellip;</p></div>
       <p id="aiNote" style="margin-top:.9rem;font-size:.84rem;color:var(--muted)">&nbsp;</p></div>
 
+    <div class="block"><h3>AI crawler access</h3><div class="bsub">Can the answer engines actually reach the site? Checked against the live robots.txt every Monday and Thursday, because a Cloudflare setting can block them above the repo without anything in the code changing.</div>
+      <div class="panel"><div id="geoBox"><p class="mut">Loading&hellip;</p></div></div></div>
+
     <div class="block"><h3>Organic search &rarr; leads</h3><div class="bsub">The number that matters: is organic traffic actually turning into payroll enquiries?</div>
       <div class="panel"><div id="orgLeadBox"><p class="mut">Loading&hellip;</p></div></div>
     </div>
@@ -642,6 +645,29 @@
   }
   async function loadAnnotations(){
     try{const r=await fetch('/seo/annotations.json?t='+Date.now(),{cache:'no-store'});if(r.ok){const j=await r.json();ANN=j.items||[];}}catch(e){}
+    (async()=>{ // GEO watch: AI crawler reachability, written by scripts/geo-watch.mjs
+      const el=document.getElementById('geoBox'); if(!el) return;
+      try{
+        const r=await fetch('/seo/geo.json?t='+Date.now(),{cache:'no-store'});
+        if(!r.ok){el.innerHTML='<p class="mut">Not checked yet.</p>';return;}
+        const g=await r.json();
+        const TONE={ok:['#1a7f4b','All clear'],warn:['#b4761f','Some crawlers blocked'],critical:['#b3261e','Search and answer bots blocked'],unknown:['#8a8175','Could not check']};
+        const [col,label]=TONE[g.status]||TONE.unknown;
+        const rows=(g.crawlers||[]).map(c=>{
+          const bad=c.blocked===true, unk=c.blocked===null;
+          const dot=unk?'#c9c2b6':(bad?'#b3261e':'#1a7f4b');
+          return '<div style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(0,0,0,.05)">'
+            +'<span style="width:8px;height:8px;border-radius:50%;background:'+dot+';flex:none"></span>'
+            +'<b style="font-size:.86rem">'+c.ua+'</b>'
+            +'<span class="mut" style="font-size:.78rem">'+c.why+'</span>'
+            +'<span style="margin-left:auto;font-size:.76rem;color:'+dot+'">'+(unk?'unknown':(bad?'BLOCKED':'allowed'))+'</span></div>';
+        }).join('');
+        el.innerHTML='<div style="font-weight:600;color:'+col+';margin-bottom:.5rem">'+label+'</div>'+rows
+          +'<p class="mut" style="margin-top:.7rem;font-size:.78rem">robots.txt '+g.robotsStatus+', '+g.robotsLines+' lines'
+          +(g.managedBlockLikely?'. <b style="color:#b3261e">A Cloudflare managed block is being injected above the repo file.</b>':'')
+          +' &middot; llms.txt '+(g.llms&&g.llms.status)+' &middot; checked '+(g.checkedAt||'')+'</p>';
+      }catch(e){el.innerHTML='<p class="mut">Not checked yet.</p>';}
+    })();
     renderMilestones();
   }
   function renderMilestones(){
