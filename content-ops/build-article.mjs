@@ -38,7 +38,11 @@ export function buildArticle(c, date) {
   const blog = {
     '@context': 'https://schema.org', '@type': 'BlogPosting', headline: c.title, description: c.metaDescription,
     datePublished: date, dateModified: date,
-    author: { '@type': 'Person', name: 'Eugene Teo', jobTitle: 'Co-Founder', worksFor: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd' }, url: 'https://www.linkedin.com/in/teoeugene', sameAs: ['https://www.linkedin.com/in/teoeugene'] },
+    // Stable @id so every article's author resolves to the one Person entity
+    // defined on /our-story (see its #eugene-teo node), rather than minting a
+    // fresh anonymous node per page. That is what lets search and AI engines
+    // treat the whole blog as one author's body of work.
+    author: { '@type': 'Person', '@id': 'https://jte.com.sg/our-story#eugene-teo', name: 'Eugene Teo', jobTitle: 'Co-Founder', worksFor: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd' }, url: 'https://jte.com.sg/our-story', sameAs: ['https://www.linkedin.com/in/teoeugene'] },
     publisher: { '@type': 'Organization', '@id': 'https://jte.com.sg/#organization', name: 'JTE Recruit Pte Ltd', logo: { '@type': 'ImageObject', url: 'https://cqkzlykkshlzemiiloeo.supabase.co/storage/v1/object/public/jte-images/favicon/JTE%20Favicon.png' } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://jte.com.sg/blog/${slug}` },
   };

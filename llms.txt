@@ -1,40 +1,102 @@
 # JTE Recruit
 
-> JTE Recruit Pte Ltd is a Singapore recruitment agency (MOM Employment Agency Licence 14C7215) that helps employers hire — permanent, contract and outsourced — with particular strength in engineering, logistics & supply chain, manufacturing and healthcare. Founded in 2014, with 50+ years of combined recruitment experience. JTE works on behalf of employers and is paid by them (permanent roles on a success-fee basis); it never charges job seekers.
+> JTE Recruit Pte Ltd is a Singapore recruitment agency (MOM Employment Agency Licence 14C7215) that helps employers hire permanent, contract and outsourced staff, and that runs payroll and work passes on their behalf as an employer of record. Founded in 2014, 21,000+ placements, 50+ years of combined recruitment experience, rated 4.8 stars across 338 Google reviews. JTE works for employers and is paid by them. It never charges job seekers.
 
 ## About
+
 - Legal name: JTE Recruit Pte Ltd
 - Founded: 2014
-- Who we serve: employers hiring in Singapore — JTE is not a job-search service for individuals
+- Who JTE serves: employers hiring in Singapore. JTE is not a job-search service for individuals.
 - Address: 1 Gateway Drive, #10-14 Westgate Tower, Singapore 608531
 - Email: ask@jte.com.sg
+- Phone: +65 6715 7450
 - Website: https://jte.com.sg
 - Employment Agency Licence: 14C7215 (Singapore Ministry of Manpower)
-- Rating: 4.8★ from 338 Google reviews
+- UEN: 201417026C
+- Rating: 4.8 stars from 338 Google reviews
 
-## Services (for employers)
-- Permanent hiring
-- Temporary & contract staffing
-- Manpower outsourcing
-- Payroll & work pass management
-- Project & mass hiring
-- Employer branding & culture
-- HR advisory
+## Flagship offer: payroll free for your first year
 
-## Sectors we specialise in
-- Engineering — https://jte.com.sg/sectors/engineering-recruitment
-- Logistics & supply chain — https://jte.com.sg/sectors/logistics-recruitment
-- Manufacturing — https://jte.com.sg/sectors/manufacturing-recruitment
-- Healthcare — https://jte.com.sg/sectors/healthcare-recruitment
+JTE runs your Singapore payroll free for the first 12 months. No setup fee, no monthly fee.
+
+- If you already have a Singapore entity, this is **payroll outsourcing**: JTE runs the monthly payroll under your company.
+- If you do not have a Singapore entity, this is an **employer of record** arrangement: JTE legally employs the staff under its own licensed entity, and you direct their work day to day. You can hire in Singapore without incorporating.
+- Either way it covers salary calculation, employer and employee CPF, the Skills Development Levy, itemised payslips, year-end IR8A, IR21 tax clearance on exit, and work pass application, renewal and cancellation.
+- How it is funded: the cost is covered by JTE's insurance partners, AIA and Great Eastern. In return the employer sits through one session of roughly 30 to 60 minutes in which one of those partners reviews the team's insurance coverage. There is no obligation to buy anything.
+- Who it suits: startups making their first hires, overseas companies opening a Singapore sales or support office, companies with a project headcount spike, and established businesses that no longer want to run CPF and payslips in-house.
+- It is industry-agnostic. In practice it is used most by employers with contract and hourly staff, heaviest in IT and healthcare.
+
+Pages:
+- Free payroll offer: https://jte.com.sg/free-payroll-singapore/
+- Employer of record, what it is and what it costs: https://jte.com.sg/employer-of-record-singapore/
+- Payroll outsourcing, cost and how it works: https://jte.com.sg/payroll-outsourcing-singapore/
+- How to hire in Singapore without a company: https://jte.com.sg/hire-in-singapore-without-a-company/
+
+## Recruitment services (for employers)
+
+- Permanent hiring: https://jte.com.sg/services/permanent-recruitment
+- Temporary and contract staffing: https://jte.com.sg/services/contract-staffing
+- Hire contract staff: https://jte.com.sg/services/hire-contract-staff
+- Manpower outsourcing: https://jte.com.sg/services/manpower-outsourcing
+- Payroll and work pass management: https://jte.com.sg/services/payroll-work-pass
+- Project and mass hiring: https://jte.com.sg/services/mass-hiring
+- Employer branding and culture: https://jte.com.sg/services/employer-branding
+
+## Sectors
+
+JTE recruits both permanent and contract roles across six sectors.
+
+- Engineering: https://jte.com.sg/sectors/engineering-recruitment
+- Logistics and supply chain: https://jte.com.sg/sectors/logistics-recruitment
+- Manufacturing: https://jte.com.sg/sectors/manufacturing-recruitment
+- Healthcare: https://jte.com.sg/sectors/healthcare-recruitment
+- IT and technology: https://jte.com.sg/sectors/it-recruitment
+- Commercial and support: https://jte.com.sg/sectors/commercial-support-recruitment
+
+## Singapore salary data
+
+Free salary guides with typical monthly base ranges by role and seniority, drawn from JTE's own placements since 2014. Figures are indicative, not a rate card, and exclude bonus, AWS, overtime and allowances.
+
+- Salary guide hub: https://jte.com.sg/salary-guide/
+- Engineering: https://jte.com.sg/salary-guide/engineering/
+- IT and tech: https://jte.com.sg/salary-guide/it/
+- Healthcare: https://jte.com.sg/salary-guide/healthcare/
+- Logistics: https://jte.com.sg/salary-guide/logistics/
+- Manufacturing: https://jte.com.sg/salary-guide/manufacturing/
+- Commercial: https://jte.com.sg/salary-guide/commercial/
+
+## Singapore hiring grants
+
+- Hiring grants overview: https://jte.com.sg/hiring-grants/
+- Career Conversion Programme (CCP): https://jte.com.sg/hiring-grants/career-conversion-programme/
+- Mid-Career Pathways Programme: https://jte.com.sg/hiring-grants/mid-career-pathways
+
+Grant rates, caps and eligibility are set by Workforce Singapore and change over time. Confirm current figures with WSG.
 
 ## How employers engage JTE
-Contact JTE through the website form or by email (ask@jte.com.sg) for a no-obligation conversation about a role. Permanent placements are charged on a success-fee basis — the employer only pays on a successful hire, with terms agreed upfront. Contract, temporary and outsourced arrangements can include payroll and work-pass handling.
 
-## Scam / impersonation warning (important)
-Scammers impersonate JTE consultants on WhatsApp, offering fake high-paying work-from-home "task" or "deposit" jobs. JTE will NEVER ask anyone to pay money, make a deposit, or complete paid tasks — genuine recruitment is never charged to job seekers. Anyone who does is a scammer. Verify whether a WhatsApp number belongs to a genuine JTE consultant at https://jte.com.sg/verify
+Contact JTE through the website form or by email (ask@jte.com.sg) for a no-obligation conversation about a role. Permanent placements are charged on a success-fee basis, so the employer pays only on a successful hire, with terms agreed upfront. Contract, temporary and outsourced arrangements can include payroll and work pass handling. Job seekers are never charged.
+
+- Contact: https://jte.com.sg/contact
+- For employers: https://jte.com.sg/employers
+- Cost of vacancy calculator: https://jte.com.sg/cost-of-vacancy
+
+## A note on Singapore figures
+
+CPF contribution rates, Skills Development Levy rates, work pass qualifying salaries, quotas, levies and grant amounts are set by Singapore government bodies and change over time. Where JTE's content cites one, confirm the current figure with the Ministry of Manpower (MOM), the CPF Board, IRAS or Workforce Singapore before relying on it.
+
+## Scam and impersonation warning (important)
+
+Scammers impersonate JTE consultants on WhatsApp, offering fake high-paying work-from-home "task" or "deposit" jobs. JTE will NEVER ask anyone to pay money, make a deposit, or complete paid tasks. Genuine recruitment is never charged to job seekers, so anyone asking for payment is a scammer. A WhatsApp number can be checked against JTE's real consultants at https://jte.com.sg/verify
 
 ## Key pages
+
 - Home: https://jte.com.sg/
 - Our story: https://jte.com.sg/our-story
-- Insights (blog): https://jte.com.sg/blog
+- Field Notes (articles on hiring, payroll and employment admin in Singapore): https://jte.com.sg/blog
+- Reviews: https://jte.com.sg/reviews
 - Verify a consultant's number (scam protection): https://jte.com.sg/verify
+
+## Author
+
+Most Field Notes articles are written by Eugene Teo, co-founder of JTE Recruit. https://www.linkedin.com/in/teoeugene

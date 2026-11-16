@@ -86,7 +86,7 @@ const item = (e) => {
 
 const html = `<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What we've done — ${CLIENT}</title>
+<title>What we've done, ${CLIENT}</title>
 <!-- Not secret, but not advertised: this is a working record for the client, not a
      page for search engines. -->
 <meta name="robots" content="noindex, nofollow">

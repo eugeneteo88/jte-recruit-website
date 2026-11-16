@@ -118,6 +118,23 @@ for (const file of files) {
   // FAQ section without an open/close control
   if (/id=["']faq["']|frequently asked questions/i.test(html) && !/<details\b/i.test(html))
     add('WARN', 'faq-no-toggle', file, 'FAQ section has no <details> open/close control');
+
+  // Em-dashes. House rule: never ship one, they read as AI. Scripts in <script>
+  // blocks are exempt, the /seo dashboard legitimately uses one as a "flat" glyph.
+  const prose = html.replace(/<script[\s\S]*?<\/script>/gi, ' ');
+  for (const m of prose.matchAll(/.{0,40}\u2014.{0,40}/g))
+    add('FAIL', 'em-dash', file, m[0].replace(/\s+/g, ' ').trim());
+}
+
+// ---- non-HTML files that still ship to readers and AI crawlers ---------------
+// llms.txt is what AI engines read to understand the business, and it sat with
+// 8 em-dashes through a whole site-wide sweep because QA only looked at .html.
+for (const extra of ['llms.txt', 'robots.txt']) {
+  const fp = path.join(ROOT, extra);
+  if (!fs.existsSync(fp)) continue;
+  const txt = fs.readFileSync(fp, 'utf8');
+  for (const m of txt.matchAll(/.{0,40}\u2014.{0,40}/g))
+    add('FAIL', 'em-dash', extra, m[0].replace(/\s+/g, ' ').trim());
 }
 
 // ---- write dated report -----------------------------------------------------
