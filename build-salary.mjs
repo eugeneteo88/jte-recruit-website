@@ -21,6 +21,7 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const fmtDate = iso => { const [y, m, d] = iso.split('-'); return `${+d} ${MON[+m - 1]} ${y}`; };
+const MIN_PUBLISH = 6;   // mirrors MIN_N in salary-data.mjs
 const UPDATED = fmtDate(data.updated);              // e.g. 25 Jul 2026
 const YEAR = data.updated.slice(0, 4);
 
@@ -319,7 +320,7 @@ const disclaimer = `
         <div class="text-gray-600 text-[13px] md:text-sm font-light leading-relaxed space-y-3">
           <p>These figures are the <b class="font-medium text-luxury-goldDark">typical monthly base range</b> we see for each role and seniority across the Singapore market. They are <b class="font-medium text-luxury-goldDark">indicative, not a quote or a promise</b>, real offers land higher and lower depending on the company.</p>
           <p>They show <b class="font-medium">base pay only</b>, before bonus, AWS, commission, overtime, shift and site allowances, and benefits. For many roles (warehouse, drivers, production, nursing) overtime and allowances make a real difference to take-home, so the base range under-states what people actually earn.</p>
-          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills, two jobs with the same title can be very different. These ranges reflect our own experience <b class="font-medium">recruiting across Singapore since 2014</b> and the combined market knowledge of our consultants, read them as our honest guide, not a fixed rate card.</p>
+          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills, two jobs with the same title can be very different. These ranges are built from <b class="font-medium">live job postings on MyCareersFuture</b>, the Singapore government’s job portal, refreshed every week. We take the 25th to 75th percentile of the advertised base monthly salary for each role and seniority, across ${fmt(data.totalPostings)} postings in the latest pull, and only publish a band where there are at least ${MIN_PUBLISH} postings behind it. That means they show what employers are <b class="font-medium">advertising</b>, which is a good guide to the market but not the same as what any one company pays. Read them as an honest guide, not a fixed rate card.</p>
           <p><b class="font-medium">Using these figures?</b> You are welcome to quote them. Please credit <b class="font-medium">JTE Recruit Singapore Salary Guide ${YEAR}</b> and link to <a href="https://jte.com.sg/salary-guide/" class="text-luxury-goldDark hover:underline">jte.com.sg/salary-guide</a>, and say which month you took them from, since we revise the ranges as the market moves. Journalists and researchers who want a sector breakdown or a figure checked can email <a href="mailto:ask@jte.com.sg" class="text-luxury-goldDark hover:underline">ask@jte.com.sg</a>.</p>
         </div>
       </div>
@@ -382,9 +383,9 @@ function sectorPage(sec) {
   const svc = SERVICE_SLUG[sec.slug];
   const topRoles = sec.roles.slice(0, 4).map(r => r.name).join(', ');
   const title = `${sec.name} Salary Guide Singapore ${YEAR} | JTE Recruit`;
-  const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. Real monthly salary ranges from JTE Recruit. Updated ${UPDATED}.`;
+  const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. Monthly salary ranges from live MyCareersFuture postings. Updated ${UPDATED}.`;
   const path = `/salary-guide/${sec.slug}/`;
-  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from JTE Recruit's market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from live MyCareersFuture job postings.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>` + extraSchema(sec.slug, path);
 
   const otherSectors = data.sectors.filter(s => s.slug !== sec.slug).map(s =>
@@ -443,9 +444,9 @@ ${footer}`;
 /* ---------- HUB ---------- */
 function hubPage() {
   const title = `Singapore Salary Guide ${YEAR}: Pay by Role | JTE Recruit`;
-  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from JTE Recruit's market experience. Updated ${UPDATED}.`;
+  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from live MyCareersFuture job postings. Updated ${UPDATED}.`;
   const path = `/salary-guide/`;
-  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from JTE Recruit's years of market experience.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from live MyCareersFuture job postings.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>` + extraSchema('index', path);
 
   const cards = data.sectors.map(s => {

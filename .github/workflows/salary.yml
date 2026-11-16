@@ -37,6 +37,25 @@ jobs:
       - name: Regenerate blog index + sitemap
         run: node scripts/build-blog.mjs
 
+      # Without this, the refresh is thrown away. salary.yml deploys fresh data
+      # but never commits it, while deploy.yml runs `npm run build` on every push
+      # to main, which rebuilds the salary pages from the repo's copy of
+      # salary-data.json and overwrites the fresh version. The committed file was
+      # last refreshed 25 Jul 2026, so that July snapshot won every deploy and the
+      # guide sat ~4 months stale in public.
+      - name: Commit the refreshed data so the next deploy keeps it
+        run: |
+          git config user.name "jte-salary-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add salary-data.json salary-guide sitemap.xml
+          if git diff --cached --quiet; then
+            echo "no change in salary data"
+          else
+            git commit -m "chore: refresh salary guide data (MyCareersFuture)"
+            git pull --rebase --autostash origin main || true
+            git push origin HEAD:main || echo "push skipped"
+          fi
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
