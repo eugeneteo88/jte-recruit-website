@@ -7,7 +7,11 @@
     "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
     "source": "JTE, November 2026",
     "short": "Below about S$2,500 basic a month, a role gets much harder to fill locally.",
-    "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now."
+    "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now.",
+    "exemptBasis": [
+      "gross"
+    ],
+    "exemptNote": "The S$2,500 guide is about basic pay. Roles paid as a package, like drivers, are judged on the gross, so the basic sitting lower is normal rather than a warning sign."
   },
   "tracks": {
     "operative": {
@@ -49,6 +53,11 @@
           "track": "professional",
           "n": 667,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3500,
@@ -75,6 +84,11 @@
           "track": "operative",
           "n": 155,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -97,6 +111,11 @@
           "track": "professional",
           "n": 149,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3100,
@@ -119,6 +138,11 @@
           "track": "professional",
           "n": 148,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -141,6 +165,11 @@
           "track": "professional",
           "n": 140,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3400,
@@ -163,6 +192,11 @@
           "track": "professional",
           "n": 114,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3000,
@@ -185,6 +219,11 @@
           "track": "professional",
           "n": 85,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -203,6 +242,11 @@
           "track": "professional",
           "n": 47,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -221,6 +265,11 @@
           "track": "professional",
           "n": 45,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2900,
@@ -250,21 +299,20 @@
           "track": "operative",
           "n": 450,
           "scope": "Picking, packing, scanning, sorting. 5-day week.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": "Above this you are into team leader or assistant supervisor, which is more responsibility rather than a wider job scope. We list that separately.",
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
-              "high": null,
+              "high": 2900,
               "n": 337,
-              "openEnded": true,
-              "needsJte": true,
               "verified": true,
-              "verifiedNote": "JTE, Nov 2026: averaging at least S$2,500 on a 5-day week. Lower than that is not the norm any more."
+              "verifiedNote": "JTE, Nov 2026. Below S$2,500 is not the norm any more."
             },
-            "With experience": {
-              "low": 2600,
-              "high": 3650,
-              "n": 89
-            }
+            "With experience": null
           },
           "flags": [
             "jte-verified"
@@ -276,16 +324,25 @@
           "originalName": "Driver",
           "track": "operative",
           "n": 441,
-          "scope": null,
+          "scope": "Typically a 5.5 to 6 day week.",
+          "basis": "gross",
+          "basisLabel": "gross monthly",
+          "basicNote": "Basic is usually around S$1,800 to S$1,900, with trip incentives and overtime on top. Judge a driver package on the gross, not the basic.",
+          "aboveNote": null,
+          "daysPerWeek": "5.5 to 6",
           "bands": {
             "Typical": {
-              "low": 2550,
-              "high": 3900,
-              "n": 386
+              "low": 3000,
+              "high": 4000,
+              "n": 386,
+              "verified": true,
+              "verifiedNote": "JTE, Nov 2026. A driver on S$2,500 gross is rare. If a package comes in under this, the scope or the hours are lighter."
             },
             "With experience": null
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
@@ -294,6 +351,11 @@
           "track": "professional",
           "n": 252,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -320,6 +382,11 @@
           "track": "professional",
           "n": 236,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2750,
@@ -346,6 +413,11 @@
           "track": "professional",
           "n": 218,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2650,
@@ -372,6 +444,11 @@
           "track": "professional",
           "n": 179,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -399,6 +476,11 @@
           "track": "professional",
           "n": 97,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2750,
@@ -425,6 +507,11 @@
           "track": "professional",
           "n": 56,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -443,6 +530,11 @@
           "track": "professional",
           "n": 43,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -461,6 +553,11 @@
           "track": "professional",
           "n": 41,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -486,6 +583,11 @@
           "track": "operative",
           "n": 209,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -508,6 +610,11 @@
           "track": "professional",
           "n": 159,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3400,
@@ -530,6 +637,11 @@
           "track": "operative",
           "n": 153,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -547,6 +659,11 @@
           "track": "professional",
           "n": 83,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -570,6 +687,11 @@
           "track": "professional",
           "n": 64,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -588,6 +710,11 @@
           "track": "operative",
           "n": 55,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -608,6 +735,11 @@
           "track": "operative",
           "n": 43,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": null,
             "With experience": {
@@ -625,6 +757,11 @@
           "track": "operative",
           "n": 31,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -650,6 +787,11 @@
           "track": "professional",
           "n": 651,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3000,
@@ -676,6 +818,11 @@
           "track": "professional",
           "n": 259,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3250,
@@ -698,6 +845,11 @@
           "track": "operative",
           "n": 245,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -720,6 +872,11 @@
           "track": "operative",
           "n": 191,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -742,6 +899,11 @@
           "track": "professional",
           "n": 144,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 4250,
@@ -764,6 +926,11 @@
           "track": "professional",
           "n": 138,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -787,6 +954,11 @@
           "track": "professional",
           "n": 100,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -809,6 +981,11 @@
           "track": "professional",
           "n": 46,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2500,
@@ -828,6 +1005,11 @@
           "track": "operative",
           "n": 27,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -855,6 +1037,11 @@
           "track": "professional",
           "n": 386,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3000,
@@ -881,6 +1068,11 @@
           "track": "operative",
           "n": 315,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "Typical": {
               "low": 2500,
@@ -903,6 +1095,11 @@
           "track": "professional",
           "n": 272,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2650,
@@ -929,6 +1126,11 @@
           "track": "professional",
           "n": 210,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3750,
@@ -951,6 +1153,11 @@
           "track": "professional",
           "n": 108,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -973,6 +1180,11 @@
           "track": "professional",
           "n": 61,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2600,
@@ -991,6 +1203,11 @@
           "track": "professional",
           "n": 60,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1009,6 +1226,11 @@
           "track": "professional",
           "n": 56,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1027,6 +1249,11 @@
           "track": "professional",
           "n": 49,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1045,6 +1272,11 @@
           "track": "professional",
           "n": 41,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1070,6 +1302,11 @@
           "track": "professional",
           "n": 263,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 4150,
@@ -1092,6 +1329,11 @@
           "track": "professional",
           "n": 228,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 4150,
@@ -1114,6 +1356,11 @@
           "track": "professional",
           "n": 194,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1136,6 +1383,11 @@
           "track": "professional",
           "n": 170,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1154,6 +1406,11 @@
           "track": "professional",
           "n": 144,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 3600,
@@ -1176,6 +1433,11 @@
           "track": "professional",
           "n": 100,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1194,6 +1456,11 @@
           "track": "professional",
           "n": 95,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1212,6 +1479,11 @@
           "track": "professional",
           "n": 85,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1230,6 +1502,11 @@
           "track": "professional",
           "n": 67,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1248,6 +1525,11 @@
           "track": "professional",
           "n": 61,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
               "low": 2600,
@@ -1270,6 +1552,11 @@
           "track": "professional",
           "n": 54,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1288,6 +1575,11 @@
           "track": "professional",
           "n": 28,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
@@ -1306,6 +1598,11 @@
           "track": "professional",
           "n": 27,
           "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {

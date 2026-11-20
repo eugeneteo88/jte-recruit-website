@@ -136,6 +136,8 @@ ${jsonld}
   .sal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table.sal{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
   table.sal th,table.sal td{text-align:left;padding:.95rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  table.sal td.role .basis{display:inline-block;margin-left:.45rem;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:#6e665b;background:rgba(0,0,0,.05);border-radius:3px;padding:.1rem .3rem;vertical-align:.12rem}
+  table.sal td.role .scope.jte{color:#8C7350;border-left:2px solid rgba(198,168,124,.5);padding-left:.5rem;margin-top:.35rem}
   table.sal caption.tcap{caption-side:top;text-align:left;font-family:'Playfair Display',serif;font-size:1.05rem;color:#241B12;padding:0 0 .55rem}
   table.sal td.role .scope{display:block;font-size:.7rem;color:#8a8175;font-weight:400;margin-top:.15rem;line-height:1.35}
   .vfd{display:inline-block;margin-left:.4rem;font-size:.58rem;letter-spacing:.08em;font-weight:700;color:#8C7350;background:rgba(198,168,124,.18);border:1px solid rgba(198,168,124,.45);border-radius:3px;padding:.1rem .25rem;vertical-align:.08rem}
@@ -143,6 +145,7 @@ ${jsonld}
   .floorbox .fnum{font-family:'Playfair Display',serif;font-size:2.1rem;color:#C6A87C;line-height:1;display:block;margin-bottom:.5rem}
   .floorbox .fhead{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.6rem;color:#F5F1E8}
   .floorbox p{font-size:.88rem;line-height:1.65;color:#cdbfa7;font-weight:300}
+  .floorbox .fnote{font-size:.8rem;color:#b8a888;margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(198,168,124,.22)}
   .floorbox .fsrc{font-size:.72rem;color:#8a8175;margin-top:.8rem}
   @media(max-width:640px){.floorbox{padding:1.2rem 1.1rem}.floorbox .fnum{font-size:1.7rem}}
   table.sal thead th{background:#241B12;color:#F5F1E8;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;border:0}
@@ -368,6 +371,7 @@ const floorBox = `
       <span class="fnum">S$${fmt(data.floor.amount)}</span>
       <div class="fhead">${esc(data.floor.short)}</div>
       <p>${esc(data.floor.long)}</p>
+      ${data.floor.exemptNote ? `<p class="fnote">${esc(data.floor.exemptNote)}</p>` : ''}
       <p class="fsrc">${esc(data.floor.appliesTo)} &middot; ${esc(data.floor.source)}</p>
     </div>
   </section>`;
@@ -402,10 +406,13 @@ function tableHTML(sector) {
   return tracks.map((t) => {
     const tr = data.tracks[t];
     const roles = sector.roles.filter(r => r.track === t);
-    const th = tr.bands.map(b => `<th>${b}<span class="sub">${tr.sub[b]}</span></th>`).join('');
+    // Drop a band column nothing in this table fills. An empty column is just a
+    // row of dashes pretending to be information.
+    const bands = tr.bands.filter(b => roles.some(r => r.bands[b]));
+    const th = bands.map(b => `<th>${b}<span class="sub">${tr.sub[b]}</span></th>`).join('');
     const rows = roles.map(r => `        <tr>
-          <td class="role">${esc(r.name)}${r.scope ? `<span class="scope">${esc(r.scope)}</span>` : ''}</td>
-${tr.bands.map(b => `          <td data-label="${b}">${cell(r.bands[b])}</td>`).join('\n')}
+          <td class="role">${esc(r.name)}${r.basis === 'gross' ? `<span class="basis">gross package</span>` : ''}${r.scope ? `<span class="scope">${esc(r.scope)}</span>` : ''}${r.basicNote ? `<span class="scope jte">${esc(r.basicNote)}</span>` : ''}${r.aboveNote ? `<span class="scope jte">${esc(r.aboveNote)}</span>` : ''}</td>
+${bands.map(b => `          <td data-label="${b}">${cell(r.bands[b])}</td>`).join('\n')}
         </tr>`).join('\n');
     const head = tracks.length > 1 ? `<caption class="tcap">${tr.label}</caption>` : '';
     return `<div class="sal-wrap"><table class="sal">

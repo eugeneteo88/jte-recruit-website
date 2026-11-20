@@ -36,12 +36,18 @@ function resolveRole(sectorSlug, role) {
   const key = `${sectorSlug}/${role.name}`;
   const cfg = ov.roles[key] || { track: ov.sectors[sectorSlug]?.defaultTrack || 'professional' };
   const track = cfg.track;
+  const basis = cfg.basis || 'basic';
   const out = {
     name: cfg.rename || role.name,
     originalName: role.name,
     track,
     n: role.n,
     scope: cfg.scope || null,
+    basis,
+    basisLabel: (ov.basis && ov.basis[basis] && ov.basis[basis].label) || null,
+    basicNote: cfg.basicNote || null,
+    aboveNote: cfg.aboveNote || null,
+    daysPerWeek: cfg.daysPerWeek || null,
     bands: {},
     flags: [],
   };
@@ -68,10 +74,16 @@ function resolveRole(sectorSlug, role) {
   }
 
   // ---- 2. guards ----
+  const suppress = new Set(cfg.suppressBands || []);
   const bandNames = ov.tracks[track].bands;
   let prevLow = 0;
   for (const name of bandNames) {
     let b = src[name] ? { ...src[name] } : null;
+    if (suppress.has(name)) {
+      notes.push(`${key} [${name}] suppressed by override`);
+      out.bands[name] = null;
+      continue;
+    }
     if (!b) { out.bands[name] = null; continue; }
 
     // G1: too few postings to be a finding
@@ -88,7 +100,8 @@ function resolveRole(sectorSlug, role) {
     // computed over a population that included sub-market ads. Where that
     // happens we stop pretending to know the top and publish an open "from"
     // figure instead, and the role goes on the list for a real number.
-    if (b.low < FLOOR) {
+    const floorExempt = (ov.floor.exemptBasis || []).includes(basis);
+    if (b.low < FLOOR && !floorExempt) {
       stats.floorRaised++;
       b.low = FLOOR;
       b.floored = true;
@@ -119,7 +132,14 @@ function resolveRole(sectorSlug, role) {
     const first = bandNames[0];
     const b = out.bands[first] || { high: null, n: role.n };
     b.low = cfg.verifiedLow;
-    if (cfg.verifiedHigh != null) b.high = cfg.verifiedHigh;
+    if (cfg.verifiedHigh != null) {
+      // A JTE top end clears any open-ended marker the floor guard set earlier:
+      // we were open-ended only because we did not have a real ceiling, and now
+      // we do.
+      b.high = cfg.verifiedHigh;
+      delete b.openEnded;
+      delete b.needsJte;
+    }
     // Eugene gave a floor, not a ceiling. Do not invent one, and do not keep a
     // scraped high that sits almost on top of it.
     if (b.high != null && b.high < b.low * 1.15) { b.high = null; b.openEnded = true; b.needsJte = true; }

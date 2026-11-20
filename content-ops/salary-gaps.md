@@ -9,13 +9,12 @@ figure, marked as ours, and it survives every weekly refresh after that.
 To answer one, just tell me the role and a range. "Warehouse assistant, 2500 to 2900"
 is enough. A floor on its own is fine too, I will show it as "from".
 
-## 1. Showing a floor but no top end (3)
+## 1. Showing a floor but no top end (2)
 
 These read "from S$X" on the page. They need a realistic top end.
 
 | Sector | Role | Band | Currently |
 |---|---|---|---|
-| logistics | Warehouse Assistant | Typical | from S$2,500 |
 | manufacturing | Machine Operator | Typical | from S$2,500 |
 | healthcare | Patient Service | Typical | from S$2,500 |
 
@@ -35,12 +34,13 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 7 |
 | logistics | Forklift Operator | 7 |
 
-## 3. Published roles with a blank band (64)
+## 3. Published roles with a blank band (65)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
 | Sector | Role | Blank band | Postings for the role |
 |---|---|---|---|
+| logistics | Warehouse Assistant | With experience | 450 |
 | logistics | Driver | With experience | 441 |
 | it | Software Engineer | 8+ yrs | 263 |
 | healthcare | Therapist | 8+ yrs | 259 |
@@ -100,8 +100,7 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | commercial | Recruitment / TA | 0-3 yrs | 41 |
 | commercial | Recruitment / TA | 8+ yrs | 41 |
 | manufacturing | Assembly / Line | With experience | 31 |
-| it | QA / Test Engineer | 0-3 yrs | 28 |
-| … | _4 more_ | | |
+| … | _5 more_ | | |
 
 ## 4. Role names worth a second look
 
@@ -128,4 +127,4 @@ advertise for. Tell me the title you would use and I will rename them.
 
 ---
 
-Already answered: 1 role(s) carry a JTE figure.
+Already answered: 2 role(s) carry a JTE figure.

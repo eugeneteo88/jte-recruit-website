@@ -50,6 +50,8 @@
   .sal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table.sal{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
   table.sal th,table.sal td{text-align:left;padding:.95rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  table.sal td.role .basis{display:inline-block;margin-left:.45rem;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:#6e665b;background:rgba(0,0,0,.05);border-radius:3px;padding:.1rem .3rem;vertical-align:.12rem}
+  table.sal td.role .scope.jte{color:#8C7350;border-left:2px solid rgba(198,168,124,.5);padding-left:.5rem;margin-top:.35rem}
   table.sal caption.tcap{caption-side:top;text-align:left;font-family:'Playfair Display',serif;font-size:1.05rem;color:#241B12;padding:0 0 .55rem}
   table.sal td.role .scope{display:block;font-size:.7rem;color:#8a8175;font-weight:400;margin-top:.15rem;line-height:1.35}
   .vfd{display:inline-block;margin-left:.4rem;font-size:.58rem;letter-spacing:.08em;font-weight:700;color:#8C7350;background:rgba(198,168,124,.18);border:1px solid rgba(198,168,124,.45);border-radius:3px;padding:.1rem .25rem;vertical-align:.08rem}
@@ -57,6 +59,7 @@
   .floorbox .fnum{font-family:'Playfair Display',serif;font-size:2.1rem;color:#C6A87C;line-height:1;display:block;margin-bottom:.5rem}
   .floorbox .fhead{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.6rem;color:#F5F1E8}
   .floorbox p{font-size:.88rem;line-height:1.65;color:#cdbfa7;font-weight:300}
+  .floorbox .fnote{font-size:.8rem;color:#b8a888;margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(198,168,124,.22)}
   .floorbox .fsrc{font-size:.72rem;color:#8a8175;margin-top:.8rem}
   @media(max-width:640px){.floorbox{padding:1.2rem 1.1rem}.floorbox .fnum{font-size:1.7rem}}
   table.sal thead th{background:#241B12;color:#F5F1E8;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;border:0}
@@ -207,11 +210,11 @@
           <div class="mb-4">
             <div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
               <span class="text-[13px] text-gray-600">Warehouse Assistant</span>
-              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">from $2,500</span>
+              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$2,500 &ndash; $2,900</span>
             </div>
             <div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
               <span class="text-[13px] text-gray-600">Driver</span>
-              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$2,550 &ndash; $3,900</span>
+              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$3,000 &ndash; $4,000</span>
             </div>
             <div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
               <span class="text-[13px] text-gray-600">Operations Executive</span>
@@ -337,6 +340,7 @@
       <span class="fnum">S$2,500</span>
       <div class="fhead">Below about S$2,500 basic a month, a role gets much harder to fill locally.</div>
       <p>This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now.</p>
+      <p class="fnote">The S$2,500 guide is about basic pay. Roles paid as a package, like drivers, are judged on the gross, so the basic sitting lower is normal rather than a warning sign.</p>
       <p class="fsrc">Full-time basic monthly salary, Singapore, 5-day week &middot; JTE, November 2026</p>
     </div>
   </section>
