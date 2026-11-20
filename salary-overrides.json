@@ -1,0 +1,274 @@
+{
+  "_comment": [
+    "JTE's own layer on top of the weekly market pull. salary-data.json is",
+    "overwritten every Saturday by the refresh, so anything we know that the",
+    "raw numbers do not must live HERE or it gets wiped.",
+    "scripts/resolve-salary.mjs merges this over the raw pull."
+  ],
+  "floor": {
+    "amount": 2500,
+    "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
+    "source": "JTE, November 2026",
+    "short": "Below about S$2,500 basic a month, a role gets much harder to fill locally.",
+    "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now."
+  },
+  "tracks": {
+    "operative": {
+      "label": "Hands-on roles",
+      "bands": [
+        "Typical",
+        "With experience"
+      ],
+      "sub": {
+        "Typical": "the going rate",
+        "With experience": "with real time on the job"
+      },
+      "note": "Hands-on roles do not have a junior-to-senior ladder. There is the going rate, and what experience adds. Supervisor and manager roles sit separately, because they are a different job rather than the same job with more years."
+    },
+    "professional": {
+      "label": "Professional & executive roles",
+      "bands": [
+        "0-3 yrs",
+        "3-8 yrs",
+        "8+ yrs"
+      ],
+      "sub": {
+        "0-3 yrs": "early career",
+        "3-8 yrs": "experienced",
+        "8+ yrs": "senior, lead, manager"
+      },
+      "note": "Banded by experience, because that is how employers brief us."
+    }
+  },
+  "sectors": {
+    "engineering": {
+      "defaultTrack": "professional"
+    },
+    "logistics": {
+      "defaultTrack": "professional"
+    },
+    "manufacturing": {
+      "defaultTrack": "professional"
+    },
+    "healthcare": {
+      "defaultTrack": "professional"
+    },
+    "commercial": {
+      "defaultTrack": "professional"
+    },
+    "it": {
+      "defaultTrack": "professional"
+    }
+  },
+  "roles": {
+    "engineering/Engineer (general)": {
+      "track": "professional"
+    },
+    "engineering/Engineering Technician": {
+      "track": "operative"
+    },
+    "engineering/Electrical Engineer": {
+      "track": "professional"
+    },
+    "engineering/Project Manager": {
+      "track": "professional"
+    },
+    "engineering/Project Engineer": {
+      "track": "professional"
+    },
+    "engineering/Mechanical Engineer": {
+      "track": "professional"
+    },
+    "engineering/Civil / Structural Engineer": {
+      "track": "professional"
+    },
+    "engineering/Site Engineer": {
+      "track": "professional"
+    },
+    "engineering/Maintenance Engineer": {
+      "track": "professional"
+    },
+    "engineering/Process Engineer": {
+      "track": "professional"
+    },
+    "engineering/Design Engineer": {
+      "track": "professional"
+    },
+    "engineering/QA / QC Engineer": {
+      "track": "professional"
+    },
+    "logistics/Warehouse / Store": {
+      "track": "operative",
+      "rename": "Warehouse Assistant",
+      "scope": "Picking, packing, scanning, sorting. 5-day week.",
+      "verifiedLow": 2500,
+      "verifiedNote": "JTE, Nov 2026: averaging at least S$2,500 on a 5-day week. Lower than that is not the norm any more.",
+      "verifiedOn": "2026-11-20"
+    },
+    "logistics/Driver": {
+      "track": "operative"
+    },
+    "logistics/Operations Executive": {
+      "track": "professional"
+    },
+    "logistics/Shipping / Freight": {
+      "track": "professional"
+    },
+    "logistics/Procurement / Purchasing": {
+      "track": "professional"
+    },
+    "logistics/Logistics (general)": {
+      "track": "professional"
+    },
+    "logistics/Supply Chain Executive": {
+      "track": "professional"
+    },
+    "logistics/Planner": {
+      "track": "professional"
+    },
+    "logistics/Logistics Coordinator": {
+      "track": "professional"
+    },
+    "logistics/Logistics Executive": {
+      "track": "professional"
+    },
+    "logistics/Forklift Operator": {
+      "track": "operative"
+    },
+    "manufacturing/Production": {
+      "track": "operative"
+    },
+    "manufacturing/Manufacturing Engineer": {
+      "track": "professional"
+    },
+    "manufacturing/Technician": {
+      "track": "operative"
+    },
+    "manufacturing/Quality (QA / QC)": {
+      "track": "professional"
+    },
+    "manufacturing/Production Supervisor": {
+      "track": "professional"
+    },
+    "manufacturing/Machine Operator": {
+      "track": "operative"
+    },
+    "manufacturing/Process": {
+      "track": "operative"
+    },
+    "manufacturing/Assembly / Line": {
+      "track": "operative"
+    },
+    "healthcare/Nurse": {
+      "track": "professional"
+    },
+    "healthcare/Therapist": {
+      "track": "professional"
+    },
+    "healthcare/Clinic Staff": {
+      "track": "operative"
+    },
+    "healthcare/Care / Support Staff": {
+      "track": "operative"
+    },
+    "healthcare/Physiotherapist": {
+      "track": "professional"
+    },
+    "healthcare/Pharmacy": {
+      "track": "professional"
+    },
+    "healthcare/Medical / Allied Health": {
+      "track": "professional"
+    },
+    "healthcare/Laboratory": {
+      "track": "professional"
+    },
+    "healthcare/Patient Service": {
+      "track": "operative"
+    },
+    "healthcare/Radiographer": {
+      "track": "professional"
+    },
+    "commercial/Sales Executive": {
+      "track": "professional"
+    },
+    "commercial/Admin / Secretarial": {
+      "track": "operative"
+    },
+    "commercial/Accountant / Accounts": {
+      "track": "professional"
+    },
+    "commercial/Marketing": {
+      "track": "professional"
+    },
+    "commercial/Finance": {
+      "track": "professional"
+    },
+    "commercial/Customer Service": {
+      "track": "professional"
+    },
+    "commercial/Audit / Tax": {
+      "track": "professional"
+    },
+    "commercial/Business Analyst": {
+      "track": "professional"
+    },
+    "commercial/Business Development": {
+      "track": "professional"
+    },
+    "commercial/Recruitment / TA": {
+      "track": "professional"
+    },
+    "commercial/Legal": {
+      "track": "professional"
+    },
+    "commercial/HR": {
+      "track": "professional"
+    },
+    "it/Software Engineer": {
+      "track": "professional"
+    },
+    "it/Software Developer": {
+      "track": "professional"
+    },
+    "it/Cybersecurity": {
+      "track": "professional"
+    },
+    "it/DevOps / Cloud Engineer": {
+      "track": "professional"
+    },
+    "it/Network / Infrastructure": {
+      "track": "professional"
+    },
+    "it/IT Business Analyst": {
+      "track": "professional"
+    },
+    "it/IT Project Manager": {
+      "track": "professional"
+    },
+    "it/Application Engineer": {
+      "track": "professional"
+    },
+    "it/Data Engineer": {
+      "track": "professional"
+    },
+    "it/IT Support / Helpdesk": {
+      "track": "professional"
+    },
+    "it/Systems Engineer": {
+      "track": "professional"
+    },
+    "it/QA / Test Engineer": {
+      "track": "professional"
+    },
+    "it/Data Scientist": {
+      "track": "professional"
+    },
+    "it/Data Analyst": {
+      "track": "professional"
+    },
+    "it/UI / UX Designer": {
+      "track": "professional"
+    }
+  }
+}

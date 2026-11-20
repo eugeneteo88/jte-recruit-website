@@ -11,7 +11,10 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const data = JSON.parse(readFileSync(join(ROOT, 'salary-data.json'), 'utf8'));
+// Resolved = the weekly market pull with JTE's own layer merged over it.
+// See scripts/resolve-salary.mjs. Never render salary-data.json directly:
+// it carries sub-market lows, backwards bands and 7-posting findings.
+const data = JSON.parse(readFileSync(join(ROOT, 'salary-resolved.json'), 'utf8'));
 // FAQ + Dataset schema per page. Kept in a data file so a rebuild can't strip it:
 // it used to be hand-added to the built HTML, and every `npm run build` (the deploy
 // workflow's included) wiped it straight back out.
@@ -133,6 +136,15 @@ ${jsonld}
   .sal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
   table.sal{width:100%;border-collapse:collapse;min-width:560px;font-variant-numeric:tabular-nums}
   table.sal th,table.sal td{text-align:left;padding:.95rem 1rem;border-bottom:1px solid rgba(0,0,0,.06)}
+  table.sal caption.tcap{caption-side:top;text-align:left;font-family:'Playfair Display',serif;font-size:1.05rem;color:#241B12;padding:0 0 .55rem}
+  table.sal td.role .scope{display:block;font-size:.7rem;color:#8a8175;font-weight:400;margin-top:.15rem;line-height:1.35}
+  .vfd{display:inline-block;margin-left:.4rem;font-size:.58rem;letter-spacing:.08em;font-weight:700;color:#8C7350;background:rgba(198,168,124,.18);border:1px solid rgba(198,168,124,.45);border-radius:3px;padding:.1rem .25rem;vertical-align:.08rem}
+  .floorbox{background:#241B12;color:#F5F1E8;border-radius:.75rem;padding:1.5rem 1.6rem;margin:0 auto;max-width:56rem}
+  .floorbox .fnum{font-family:'Playfair Display',serif;font-size:2.1rem;color:#C6A87C;line-height:1;display:block;margin-bottom:.5rem}
+  .floorbox .fhead{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.6rem;color:#F5F1E8}
+  .floorbox p{font-size:.88rem;line-height:1.65;color:#cdbfa7;font-weight:300}
+  .floorbox .fsrc{font-size:.72rem;color:#8a8175;margin-top:.8rem}
+  @media(max-width:640px){.floorbox{padding:1.2rem 1.1rem}.floorbox .fnum{font-size:1.7rem}}
   table.sal thead th{background:#241B12;color:#F5F1E8;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;border:0}
   table.sal thead th:first-child{border-top-left-radius:.6rem}
   table.sal thead th:last-child{border-top-right-radius:.6rem}
@@ -320,7 +332,7 @@ const disclaimer = `
         <div class="text-gray-600 text-[13px] md:text-sm font-light leading-relaxed space-y-3">
           <p>These figures are the <b class="font-medium text-luxury-goldDark">typical monthly base range</b> we see for each role and seniority across the Singapore market. They are <b class="font-medium text-luxury-goldDark">indicative, not a quote or a promise</b>, real offers land higher and lower depending on the company.</p>
           <p>They show <b class="font-medium">base pay only</b>, before bonus, AWS, commission, overtime, shift and site allowances, and benefits. For many roles (warehouse, drivers, production, nursing) overtime and allowances make a real difference to take-home, so the base range under-states what people actually earn.</p>
-          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills, two jobs with the same title can be very different. These ranges are built from <b class="font-medium">live job postings on MyCareersFuture</b>, the Singapore government’s job portal, refreshed every week. We take the 25th to 75th percentile of the advertised base monthly salary for each role and seniority, across ${fmt(data.totalPostings)} postings in the latest pull, and only publish a band where there are at least ${MIN_PUBLISH} postings behind it. That means they show what employers are <b class="font-medium">advertising</b>, which is a good guide to the market but not the same as what any one company pays. Read them as an honest guide, not a fixed rate card.</p>
+          <p>What a specific role pays depends on the company, the industry, the exact scope, and the person&rsquo;s experience and skills, two jobs with the same title can be very different. This is <b class="font-medium">our own read of the Singapore market</b>, and we keep it current. We track what employers across the market are advertising for each role and seniority, then set that against what we see when we actually fill these roles, and publish the range we would stand behind. Where the two disagree, ours wins and is marked <b class="font-medium text-luxury-goldDark">JTE</b>. Where we do not see enough of a role to quote a range honestly, we leave it blank rather than guess. These are <b class="font-medium">Singapore figures for Singapore employers</b>, basic monthly salary on a standard full-time week, before bonus, AWS, overtime and allowances. Read them as our guide, not a fixed rate card.</p>
           <p><b class="font-medium">Using these figures?</b> You are welcome to quote them. Please credit <b class="font-medium">JTE Recruit Singapore Salary Guide ${YEAR}</b> and link to <a href="https://jte.com.sg/salary-guide/" class="text-luxury-goldDark hover:underline">jte.com.sg/salary-guide</a>, and say which month you took them from, since we revise the ranges as the market moves. Journalists and researchers who want a sector breakdown or a figure checked can email <a href="mailto:ask@jte.com.sg" class="text-luxury-goldDark hover:underline">ask@jte.com.sg</a>.</p>
         </div>
       </div>
@@ -347,35 +359,63 @@ const reportCTA = `
     </div>
   </section>`;
 
-/* legend explaining the seniority bands */
-const legend = `
-  <div class="max-w-4xl mx-auto mt-5 text-[12px] text-gray-500">
-    <div class="flex flex-wrap gap-x-7 gap-y-2">
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Junior</b>, fresh grads, non-executive &amp; junior roles</span>
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Mid</b>, executives, senior execs &amp; professionals</span>
-      <span><span class="legend-dot"></span><b class="text-gray-700 font-medium">Senior / Lead</b>, managers &amp; management</span>
+/* The S$2,500 reality. This is JTE's read, not advertised data, and it is the
+   most useful thing on the page: it tells an employer what their budget will
+   actually get them, which is the question behind every salary search. */
+const floorBox = `
+  <section class="px-6 md:px-12 pb-10">
+    <div class="floorbox">
+      <span class="fnum">S$${fmt(data.floor.amount)}</span>
+      <div class="fhead">${esc(data.floor.short)}</div>
+      <p>${esc(data.floor.long)}</p>
+      <p class="fsrc">${esc(data.floor.appliesTo)} &middot; ${esc(data.floor.source)}</p>
     </div>
-    <p class="text-gray-400 mt-2.5">A dash (&ndash;) means we don&rsquo;t place enough of that role at that level to quote a fair range.</p>
-  </div>`;
+  </section>`;
 
-/* build one salary table for a sector */
+/* legend, built from whichever tracks a sector actually uses */
+const legendFor = (sector) => {
+  const tracks = [...new Set(sector.roles.map(r => r.track))];
+  const blocks = tracks.map((t) => {
+    const tr = data.tracks[t];
+    const items = tr.bands.map(b => `<span><span class="legend-dot"></span><b class="text-gray-700 font-medium">${b}</b>, ${tr.sub[b]}</span>`).join('');
+    return `<div class="mb-2.5"><div class="text-gray-700 font-medium text-[12px] mb-1">${tr.label}</div>
+      <div class="flex flex-wrap gap-x-7 gap-y-2">${items}</div>
+      <p class="text-gray-400 mt-1.5">${tr.note}</p></div>`;
+  }).join('');
+  return `
+  <div class="max-w-4xl mx-auto mt-5 text-[12px] text-gray-500">
+    ${blocks}
+    <p class="text-gray-400 mt-2.5">A dash (&ndash;) means we don&rsquo;t see enough of that role at that level to quote a range we&rsquo;d stand behind. Ask us and we&rsquo;ll tell you what we&rsquo;re actually seeing.</p>
+  </div>`;
+};
+
+/* one table per track, because a warehouse role and a supply chain manager
+   do not share a seniority ladder */
 function tableHTML(sector) {
-  const cell = c => c
-    ? `<span class="rng">$${fmt(c.low)} &ndash; $${fmt(c.high)}</span>`
-    : `<span class="dash">&ndash;</span>`;
-  const rows = sector.roles.map(r => `        <tr>
-          <td class="role">${esc(r.name)}</td>
-          <td data-label="Junior">${cell(r.bands['Junior'])}</td>
-          <td data-label="Mid">${cell(r.bands['Mid'])}</td>
-          <td data-label="Senior / Lead">${cell(r.bands['Senior / Lead'])}</td>
+  const cell = (c) => {
+    if (!c) return `<span class="dash">&ndash;</span>`;
+    const val = c.openEnded ? `from $${fmt(c.low)}` : `$${fmt(c.low)} &ndash; $${fmt(c.high)}`;
+    const mark = c.verified ? `<span class="vfd" title="JTE figure, not advertised data">JTE</span>` : '';
+    return `<span class="rng">${val}</span>${mark}`;
+  };
+  const tracks = [...new Set(sector.roles.map(r => r.track))];
+  return tracks.map((t) => {
+    const tr = data.tracks[t];
+    const roles = sector.roles.filter(r => r.track === t);
+    const th = tr.bands.map(b => `<th>${b}<span class="sub">${tr.sub[b]}</span></th>`).join('');
+    const rows = roles.map(r => `        <tr>
+          <td class="role">${esc(r.name)}${r.scope ? `<span class="scope">${esc(r.scope)}</span>` : ''}</td>
+${tr.bands.map(b => `          <td data-label="${b}">${cell(r.bands[b])}</td>`).join('\n')}
         </tr>`).join('\n');
-  const th = BANDS.map(b => `<th>${b}<span class="sub">${BAND_SUB[b]}</span></th>`).join('');
-  return `<div class="sal-wrap"><table class="sal">
-      <thead><tr><th>Role<span class="sub">${sector.roles.length} roles &middot; SGD / month</span></th>${th}</tr></thead>
+    const head = tracks.length > 1 ? `<caption class="tcap">${tr.label}</caption>` : '';
+    return `<div class="sal-wrap"><table class="sal">
+      ${head}
+      <thead><tr><th>Role<span class="sub">${roles.length} role${roles.length === 1 ? '' : 's'} &middot; SGD / month</span></th>${th}</tr></thead>
       <tbody>
 ${rows}
       </tbody>
     </table></div>`;
+  }).join('\n');
 }
 
 /* ---------- SECTOR PAGES ---------- */
@@ -383,9 +423,9 @@ function sectorPage(sec) {
   const svc = SERVICE_SLUG[sec.slug];
   const topRoles = sec.roles.slice(0, 4).map(r => r.name).join(', ');
   const title = `${sec.name} Salary Guide Singapore ${YEAR} | JTE Recruit`;
-  const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. Monthly salary ranges from live MyCareersFuture postings. Updated ${UPDATED}.`;
+  const desc = `What ${sec.name.replace(/&amp;|&/g,'and')} roles pay in Singapore by seniority, ${YEAR}. JTE's own read of what these roles pay. Updated ${UPDATED}.`;
   const path = `/salary-guide/${sec.slug}/`;
-  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from live MyCareersFuture job postings.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${sec.name.replace(/&amp;/g,'and')} Salary Guide Singapore ${YEAR}","url":"https://jte.com.sg${path}","description":"${sec.name.replace(/&amp;/g,'and')} salary ranges by role and seniority in Singapore, from JTE's own read of the Singapore market.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"},{"@type":"ListItem","position":3,"name":"${sec.name.replace(/&amp;/g,'and')}","item":"https://jte.com.sg${path}"}]}</script>` + extraSchema(sec.slug, path);
 
   const otherSectors = data.sectors.filter(s => s.slug !== sec.slug).map(s =>
@@ -404,6 +444,7 @@ function sectorPage(sec) {
     </div>
   </header>
 
+${floorBox}
   <!-- TABLE -->
   <section class="px-6 md:px-12 pb-6">
     <div class="max-w-4xl mx-auto">
@@ -413,7 +454,7 @@ function sectorPage(sec) {
         <span>Updated <b class="font-medium text-gray-700">${UPDATED}</b></span>
       </div>
     </div>
-    ${legend}
+    ${legendFor(sec)}
   </section>
 
   <!-- WHAT MOVES THE NUMBER -->
@@ -444,19 +485,24 @@ ${footer}`;
 /* ---------- HUB ---------- */
 function hubPage() {
   const title = `Singapore Salary Guide ${YEAR}: Pay by Role | JTE Recruit`;
-  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from live MyCareersFuture job postings. Updated ${UPDATED}.`;
+  const desc = `Free Singapore salary guide ${YEAR}: monthly pay ranges by role and seniority across six sectors, from JTE's own read of the Singapore market. Updated ${UPDATED}.`;
   const path = `/salary-guide/`;
-  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from live MyCareersFuture job postings.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
+  const jsonld = `<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Singapore Salary Guide ${YEAR}","url":"https://jte.com.sg/salary-guide/","description":"Singapore salary ranges by role and seniority across six sectors, from JTE's own read of the Singapore market.","isPartOf":{"@type":"WebSite","name":"JTE Recruit","url":"https://jte.com.sg/"},"publisher":{"@type":"EmploymentAgency","name":"JTE Recruit Pte Ltd","url":"https://jte.com.sg/"},"dateModified":"${data.updated}"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jte.com.sg/"},{"@type":"ListItem","position":2,"name":"Salary Guide","item":"https://jte.com.sg/salary-guide/"}]}</script>` + extraSchema('index', path);
 
   const cards = data.sectors.map(s => {
+    // Band names differ per track now, so take the first band this role actually
+    // has rather than guessing at a fixed name.
     const examples = s.roles.slice(0, 3).map(r => {
-      const c = r.bands['Mid'] || r.bands['Junior'] || r.bands['Senior / Lead'];
+      const bands = data.tracks[r.track].bands;
+      const c = bands.map(b => r.bands[b]).find(Boolean);
+      if (!c) return '';
+      const val = c.openEnded ? `from $${fmt(c.low)}` : `$${fmt(c.low)} &ndash; $${fmt(c.high)}`;
       return `<div class="flex justify-between items-baseline gap-3 py-1.5 border-b border-black/5 last:border-0">
               <span class="text-[13px] text-gray-600">${esc(r.name)}</span>
-              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">$${fmt(c.low)} &ndash; $${fmt(c.high)}</span>
+              <span class="text-[13px] font-semibold text-luxury-black whitespace-nowrap">${val}</span>
             </div>`;
-    }).join('\n            ');
+    }).filter(Boolean).join('\n            ');
     const roleWord = s.roles.length === 1 ? 'role' : 'roles';
     return `        <a href="/salary-guide/${s.slug}" class="group sg-card p-6 md:p-7 block hover:-translate-y-0.5 transition-transform">
           <div class="flex items-center justify-between mb-3">
@@ -517,6 +563,7 @@ ${cards}
       <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed" style="max-width:62ch">We&rsquo;ve placed talent across Singapore since 2014. Sharing what we know about the market is how we start the relationship, no cost, no obligation. If the data helps you hire on your own, wonderful. If you&rsquo;d rather we handle it, we&rsquo;re right here.</p>
     </div>
   </section>
+${floorBox}
 ${disclaimer}
 ${faqSection('index')}
 ${reportCTA}

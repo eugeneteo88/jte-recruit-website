@@ -1,0 +1,1324 @@
+{
+  "updated": "2026-07-25",
+  "resolvedOn": "2026-11-20",
+  "totalPostings": 9487,
+  "floor": {
+    "amount": 2500,
+    "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
+    "source": "JTE, November 2026",
+    "short": "Below about S$2,500 basic a month, a role gets much harder to fill locally.",
+    "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now."
+  },
+  "tracks": {
+    "operative": {
+      "label": "Hands-on roles",
+      "bands": [
+        "Typical",
+        "With experience"
+      ],
+      "sub": {
+        "Typical": "the going rate",
+        "With experience": "with real time on the job"
+      },
+      "note": "Hands-on roles do not have a junior-to-senior ladder. There is the going rate, and what experience adds. Supervisor and manager roles sit separately, because they are a different job rather than the same job with more years."
+    },
+    "professional": {
+      "label": "Professional & executive roles",
+      "bands": [
+        "0-3 yrs",
+        "3-8 yrs",
+        "8+ yrs"
+      ],
+      "sub": {
+        "0-3 yrs": "early career",
+        "3-8 yrs": "experienced",
+        "8+ yrs": "senior, lead, manager"
+      },
+      "note": "Banded by experience, because that is how employers brief us."
+    }
+  },
+  "sectors": [
+    {
+      "slug": "engineering",
+      "name": "Engineering",
+      "n": 1622,
+      "roles": [
+        {
+          "name": "Engineer (general)",
+          "originalName": "Engineer (general)",
+          "track": "professional",
+          "n": 667,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3500,
+              "high": 5300,
+              "n": 200
+            },
+            "3-8 yrs": {
+              "low": 4400,
+              "high": 6750,
+              "n": 430
+            },
+            "8+ yrs": {
+              "low": 5000,
+              "high": 10500,
+              "n": 37
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Engineering Technician",
+          "originalName": "Engineering Technician",
+          "track": "operative",
+          "n": 155,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3150,
+              "n": 132,
+              "floored": true
+            },
+            "With experience": {
+              "low": 3000,
+              "high": 3650,
+              "n": 23
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Electrical Engineer",
+          "originalName": "Electrical Engineer",
+          "track": "professional",
+          "n": 149,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3100,
+              "high": 4250,
+              "n": 45
+            },
+            "3-8 yrs": {
+              "low": 3900,
+              "high": 5750,
+              "n": 90
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Project Manager",
+          "originalName": "Project Manager",
+          "track": "professional",
+          "n": 148,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5250,
+              "high": 8500,
+              "n": 28
+            },
+            "8+ yrs": {
+              "low": 6000,
+              "high": 10000,
+              "n": 120
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Project Engineer",
+          "originalName": "Project Engineer",
+          "track": "professional",
+          "n": 140,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3400,
+              "high": 4250,
+              "n": 34
+            },
+            "3-8 yrs": {
+              "low": 4000,
+              "high": 5250,
+              "n": 106
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Mechanical Engineer",
+          "originalName": "Mechanical Engineer",
+          "track": "professional",
+          "n": 114,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3000,
+              "high": 4250,
+              "n": 41
+            },
+            "3-8 yrs": {
+              "low": 4150,
+              "high": 6250,
+              "n": 73
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Civil / Structural Engineer",
+          "originalName": "Civil / Structural Engineer",
+          "track": "professional",
+          "n": 85,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4050,
+              "high": 6000,
+              "n": 54
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Site Engineer",
+          "originalName": "Site Engineer",
+          "track": "professional",
+          "n": 47,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4200,
+              "high": 5250,
+              "n": 32
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Maintenance Engineer",
+          "originalName": "Maintenance Engineer",
+          "track": "professional",
+          "n": 45,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2900,
+              "high": 3750,
+              "n": 25
+            },
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 6250,
+              "n": 20
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    },
+    {
+      "slug": "logistics",
+      "name": "Logistics & Supply Chain",
+      "n": 2028,
+      "roles": [
+        {
+          "name": "Warehouse Assistant",
+          "originalName": "Warehouse / Store",
+          "track": "operative",
+          "n": 450,
+          "scope": "Picking, packing, scanning, sorting. 5-day week.",
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": null,
+              "n": 337,
+              "openEnded": true,
+              "needsJte": true,
+              "verified": true,
+              "verifiedNote": "JTE, Nov 2026: averaging at least S$2,500 on a 5-day week. Lower than that is not the norm any more."
+            },
+            "With experience": {
+              "low": 2600,
+              "high": 3650,
+              "n": 89
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Driver",
+          "originalName": "Driver",
+          "track": "operative",
+          "n": 441,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2550,
+              "high": 3900,
+              "n": 386
+            },
+            "With experience": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Operations Executive",
+          "originalName": "Operations Executive",
+          "track": "professional",
+          "n": 252,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3400,
+              "n": 71
+            },
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 5500,
+              "n": 142
+            },
+            "8+ yrs": {
+              "low": 6300,
+              "high": 12500,
+              "n": 39
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Shipping / Freight",
+          "originalName": "Shipping / Freight",
+          "track": "professional",
+          "n": 236,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3250,
+              "n": 78
+            },
+            "3-8 yrs": {
+              "low": 3050,
+              "high": 4150,
+              "n": 129
+            },
+            "8+ yrs": {
+              "low": 4750,
+              "high": 6500,
+              "n": 29
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Procurement / Purchasing",
+          "originalName": "Procurement / Purchasing",
+          "track": "professional",
+          "n": 218,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2650,
+              "high": 3250,
+              "n": 50
+            },
+            "3-8 yrs": {
+              "low": 3400,
+              "high": 4500,
+              "n": 131
+            },
+            "8+ yrs": {
+              "low": 5750,
+              "high": 12000,
+              "n": 37
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Logistics (general)",
+          "originalName": "Logistics (general)",
+          "track": "professional",
+          "n": 179,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3000,
+              "n": 71,
+              "floored": true
+            },
+            "3-8 yrs": {
+              "low": 3350,
+              "high": 5500,
+              "n": 68
+            },
+            "8+ yrs": {
+              "low": 6000,
+              "high": 10000,
+              "n": 40
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Supply Chain Executive",
+          "originalName": "Supply Chain Executive",
+          "track": "professional",
+          "n": 97,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3650,
+              "n": 23
+            },
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 5750,
+              "n": 44
+            },
+            "8+ yrs": {
+              "low": 6250,
+              "high": 14000,
+              "n": 30
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Planner",
+          "originalName": "Planner",
+          "track": "professional",
+          "n": 56,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4150,
+              "high": 5600,
+              "n": 37
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Logistics Coordinator",
+          "originalName": "Logistics Coordinator",
+          "track": "professional",
+          "n": 43,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3200,
+              "n": 34
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Logistics Executive",
+          "originalName": "Logistics Executive",
+          "track": "professional",
+          "n": 41,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3250,
+              "high": 4000,
+              "n": 27
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    },
+    {
+      "slug": "manufacturing",
+      "name": "Manufacturing",
+      "n": 814,
+      "roles": [
+        {
+          "name": "Production",
+          "originalName": "Production",
+          "track": "operative",
+          "n": 209,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3000,
+              "n": 135,
+              "floored": true
+            },
+            "With experience": {
+              "low": 3500,
+              "high": 4700,
+              "n": 54
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Manufacturing Engineer",
+          "originalName": "Manufacturing Engineer",
+          "track": "professional",
+          "n": 159,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3400,
+              "high": 4750,
+              "n": 32
+            },
+            "3-8 yrs": {
+              "low": 4000,
+              "high": 6000,
+              "n": 118
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Technician",
+          "originalName": "Technician",
+          "track": "operative",
+          "n": 153,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3450,
+              "n": 136
+            },
+            "With experience": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Quality (QA / QC)",
+          "originalName": "Quality (QA / QC)",
+          "track": "professional",
+          "n": 83,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3000,
+              "n": 35,
+              "floored": true
+            },
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 5250,
+              "n": 37
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Production Supervisor",
+          "originalName": "Production Supervisor",
+          "track": "professional",
+          "n": 64,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3850,
+              "high": 4750,
+              "n": 35
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Machine Operator",
+          "originalName": "Machine Operator",
+          "track": "operative",
+          "n": 55,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": null,
+              "n": 55,
+              "floored": true,
+              "openEnded": true,
+              "needsJte": true
+            },
+            "With experience": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Process",
+          "originalName": "Process",
+          "track": "operative",
+          "n": 43,
+          "scope": null,
+          "bands": {
+            "Typical": null,
+            "With experience": {
+              "low": 4250,
+              "high": 5750,
+              "n": 27
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Assembly / Line",
+          "originalName": "Assembly / Line",
+          "track": "operative",
+          "n": 31,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3000,
+              "n": 31,
+              "floored": true
+            },
+            "With experience": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    },
+    {
+      "slug": "healthcare",
+      "name": "Healthcare",
+      "n": 1845,
+      "roles": [
+        {
+          "name": "Nurse",
+          "originalName": "Nurse",
+          "track": "professional",
+          "n": 651,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3000,
+              "high": 4250,
+              "n": 344
+            },
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 4750,
+              "n": 277
+            },
+            "8+ yrs": {
+              "low": 6450,
+              "high": 8000,
+              "n": 30
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Therapist",
+          "originalName": "Therapist",
+          "track": "professional",
+          "n": 259,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3250,
+              "high": 4500,
+              "n": 95
+            },
+            "3-8 yrs": {
+              "low": 4500,
+              "high": 6000,
+              "n": 164
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Clinic Staff",
+          "originalName": "Clinic Staff",
+          "track": "operative",
+          "n": 245,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3000,
+              "n": 128,
+              "floored": true
+            },
+            "With experience": {
+              "low": 2900,
+              "high": 5750,
+              "n": 98
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Care / Support Staff",
+          "originalName": "Care / Support Staff",
+          "track": "operative",
+          "n": 191,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 2900,
+              "n": 122,
+              "floored": true
+            },
+            "With experience": {
+              "low": 3100,
+              "high": 5500,
+              "n": 51
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Physiotherapist",
+          "originalName": "Physiotherapist",
+          "track": "professional",
+          "n": 144,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4250,
+              "high": 5250,
+              "n": 34
+            },
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 7000,
+              "n": 110
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Pharmacy",
+          "originalName": "Pharmacy",
+          "track": "professional",
+          "n": 138,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3400,
+              "n": 65,
+              "floored": true
+            },
+            "3-8 yrs": {
+              "low": 4750,
+              "high": 5600,
+              "n": 73
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Medical / Allied Health",
+          "originalName": "Medical / Allied Health",
+          "track": "professional",
+          "n": 100,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 4000,
+              "n": 37
+            },
+            "3-8 yrs": {
+              "low": 3600,
+              "high": 5750,
+              "n": 47
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Laboratory",
+          "originalName": "Laboratory",
+          "track": "professional",
+          "n": 46,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3150,
+              "n": 28,
+              "floored": true
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Patient Service",
+          "originalName": "Patient Service",
+          "track": "operative",
+          "n": 27,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": null,
+              "n": 27,
+              "floored": true,
+              "openEnded": true,
+              "needsJte": true
+            },
+            "With experience": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    },
+    {
+      "slug": "commercial",
+      "name": "Commercial & Support",
+      "n": 1620,
+      "roles": [
+        {
+          "name": "Sales Executive",
+          "originalName": "Sales Executive",
+          "track": "professional",
+          "n": 386,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3000,
+              "high": 4000,
+              "n": 192
+            },
+            "3-8 yrs": {
+              "low": 3250,
+              "high": 4850,
+              "n": 136
+            },
+            "8+ yrs": {
+              "low": 4750,
+              "high": 9000,
+              "n": 58
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Admin / Secretarial",
+          "originalName": "Admin / Secretarial",
+          "track": "operative",
+          "n": 315,
+          "scope": null,
+          "bands": {
+            "Typical": {
+              "low": 2500,
+              "high": 3000,
+              "n": 183,
+              "floored": true
+            },
+            "With experience": {
+              "low": 2750,
+              "high": 4000,
+              "n": 117
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Accountant / Accounts",
+          "originalName": "Accountant / Accounts",
+          "track": "professional",
+          "n": 272,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2650,
+              "high": 3400,
+              "n": 86
+            },
+            "3-8 yrs": {
+              "low": 3150,
+              "high": 4400,
+              "n": 154
+            },
+            "8+ yrs": {
+              "low": 4800,
+              "high": 7250,
+              "n": 32
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Marketing",
+          "originalName": "Marketing",
+          "track": "professional",
+          "n": 210,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3750,
+              "high": 4250,
+              "n": 131
+            },
+            "3-8 yrs": null,
+            "8+ yrs": {
+              "low": 5750,
+              "high": 9000,
+              "n": 22
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Finance",
+          "originalName": "Finance",
+          "track": "professional",
+          "n": 108,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3650,
+              "high": 5500,
+              "n": 56
+            },
+            "8+ yrs": {
+              "low": 6000,
+              "high": 10950,
+              "n": 36
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Customer Service",
+          "originalName": "Customer Service",
+          "track": "professional",
+          "n": 61,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2600,
+              "high": 3200,
+              "n": 38
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Audit / Tax",
+          "originalName": "Audit / Tax",
+          "track": "professional",
+          "n": 60,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 5000,
+              "n": 36
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Business Analyst",
+          "originalName": "Business Analyst",
+          "track": "professional",
+          "n": 56,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5150,
+              "high": 7000,
+              "n": 39
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Business Development",
+          "originalName": "Business Development",
+          "track": "professional",
+          "n": 49,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4500,
+              "high": 6250,
+              "n": 20
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Recruitment / TA",
+          "originalName": "Recruitment / TA",
+          "track": "professional",
+          "n": 41,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3650,
+              "high": 5250,
+              "n": 24
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    },
+    {
+      "slug": "it",
+      "name": "IT & Tech",
+      "n": 1558,
+      "roles": [
+        {
+          "name": "Software Engineer",
+          "originalName": "Software Engineer",
+          "track": "professional",
+          "n": 263,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4150,
+              "high": 6650,
+              "n": 33
+            },
+            "3-8 yrs": {
+              "low": 6050,
+              "high": 9000,
+              "n": 220
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Software Developer",
+          "originalName": "Software Developer",
+          "track": "professional",
+          "n": 228,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4150,
+              "high": 6750,
+              "n": 25
+            },
+            "3-8 yrs": {
+              "low": 6000,
+              "high": 9000,
+              "n": 187
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Cybersecurity",
+          "originalName": "Cybersecurity",
+          "track": "professional",
+          "n": 194,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6000,
+              "high": 9500,
+              "n": 140
+            },
+            "8+ yrs": {
+              "low": 7500,
+              "high": 14000,
+              "n": 36
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "DevOps / Cloud Engineer",
+          "originalName": "DevOps / Cloud Engineer",
+          "track": "professional",
+          "n": 170,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6900,
+              "high": 10000,
+              "n": 141
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Network / Infrastructure",
+          "originalName": "Network / Infrastructure",
+          "track": "professional",
+          "n": 144,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3600,
+              "high": 5400,
+              "n": 23
+            },
+            "3-8 yrs": {
+              "low": 5150,
+              "high": 8600,
+              "n": 104
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Business Analyst",
+          "originalName": "IT Business Analyst",
+          "track": "professional",
+          "n": 100,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6250,
+              "high": 9500,
+              "n": 79
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Project Manager",
+          "originalName": "IT Project Manager",
+          "track": "professional",
+          "n": 95,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7000,
+              "high": 10000,
+              "n": 54
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Application Engineer",
+          "originalName": "Application Engineer",
+          "track": "professional",
+          "n": 85,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5850,
+              "high": 9500,
+              "n": 61
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Engineer",
+          "originalName": "Data Engineer",
+          "track": "professional",
+          "n": 67,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7050,
+              "high": 9000,
+              "n": 59
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Support / Helpdesk",
+          "originalName": "IT Support / Helpdesk",
+          "track": "professional",
+          "n": 61,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2600,
+              "high": 3400,
+              "n": 22
+            },
+            "3-8 yrs": {
+              "low": 3000,
+              "high": 4550,
+              "n": 39
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Systems Engineer",
+          "originalName": "Systems Engineer",
+          "track": "professional",
+          "n": 54,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4500,
+              "high": 6750,
+              "n": 54
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "QA / Test Engineer",
+          "originalName": "QA / Test Engineer",
+          "track": "professional",
+          "n": 28,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5500,
+              "high": 9000,
+              "n": 21
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Scientist",
+          "originalName": "Data Scientist",
+          "track": "professional",
+          "n": 27,
+          "scope": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6750,
+              "high": 9500,
+              "n": 27
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ]
+    }
+  ]
+}

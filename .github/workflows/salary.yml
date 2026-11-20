@@ -31,6 +31,9 @@ jobs:
       - name: Pull the latest market picture
         run: node salary-data.mjs
 
+      - name: Merge JTE's own layer over the raw pull
+        run: node scripts/resolve-salary.mjs
+
       - name: Rebuild the salary-guide pages
         run: node build-salary.mjs
 
@@ -47,7 +50,7 @@ jobs:
         run: |
           git config user.name "jte-salary-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add salary-data.json salary-guide sitemap.xml
+          git add salary-data.json salary-resolved.json salary-guide sitemap.xml
           if git diff --cached --quiet; then
             echo "no change in salary data"
           else
