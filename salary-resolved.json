@@ -81,10 +81,10 @@
           "originalName": "Engineering Technician",
           "track": "operative",
           "n": 155,
-          "scope": null,
+          "scope": "ITE-level technical and maintenance work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -290,7 +290,7 @@
         }
       ],
       "floor": null,
-      "note": null
+      "note": "Two different entry points here. ITE-level technical roles start around S$2,500 to S$2,750 basic. A local diploma engineering hire starts at S$3,000 and above, which is what the bands below show. Shift and site allowances sit on top for the hands-on roles."
     },
     {
       "slug": "logistics",
@@ -683,10 +683,10 @@
           "originalName": "Technician",
           "track": "operative",
           "n": 153,
-          "scope": null,
+          "scope": "Maintenance, setup and line support.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,

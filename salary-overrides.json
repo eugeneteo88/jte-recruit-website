@@ -43,7 +43,8 @@
   },
   "sectors": {
     "engineering": {
-      "defaultTrack": "professional"
+      "defaultTrack": "professional",
+      "note": "Two different entry points here. ITE-level technical roles start around S$2,500 to S$2,750 basic. A local diploma engineering hire starts at S$3,000 and above, which is what the bands below show. Shift and site allowances sit on top for the hands-on roles."
     },
     "logistics": {
       "defaultTrack": "professional"
@@ -74,7 +75,9 @@
       "track": "professional"
     },
     "engineering/Engineering Technician": {
-      "track": "operative"
+      "track": "operative",
+      "scope": "ITE-level technical and maintenance work.",
+      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
     },
     "engineering/Electrical Engineer": {
       "track": "professional"
@@ -193,7 +196,9 @@
       "track": "professional"
     },
     "manufacturing/Technician": {
-      "track": "operative"
+      "track": "operative",
+      "scope": "Maintenance, setup and line support.",
+      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
     },
     "manufacturing/Quality (QA / QC)": {
       "track": "professional"
