@@ -1,0 +1,50 @@
+{
+  "_comment": [
+    "External benchmarks gathered for the salary guide, with how good each one is.",
+    "This file is the audit trail: what we checked, what it said, and how much we",
+    "trust it. Nothing here publishes automatically. It feeds content-ops/salary-review.md,",
+    "which Eugene reviews, and only what he confirms moves into salary-overrides.json.",
+    "",
+    "Confidence levels:",
+    "  primary   - read directly from the issuing agency's own page or dataset",
+    "  secondary - a figure attributed to an official source but read off a third-party site",
+    "  blocked   - the official source exists but we could not reach it, figure unverified"
+  ],
+  "gathered": "2026-11-20",
+  "sources": {
+    "mom_ows": {
+      "name": "MOM Occupational Wages",
+      "what": "Median, 25th and 75th percentile gross monthly wage by occupation. Covers 523 occupations. Citizens and PRs only. Gross, before employee CPF and tax, excluding bonuses.",
+      "reference": "June 2025 reference period",
+      "confidence": "secondary",
+      "caveat": "stats.mom.gov.sg returns 403 to us, so these were read off sites citing MOM rather than from MOM's own table. Two sites give slightly different numbers for the same roles. Treat as indicative until the primary table is read.",
+      "url": "https://stats.mom.gov.sg"
+    },
+    "community_care_guidelines": {
+      "name": "Salary Guidelines for the Community Care Sector",
+      "what": "Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.",
+      "reference": "updated 8 April 2026",
+      "confidence": "blocked",
+      "caveat": "The PDF is hosted behind CloudFront and returns 403 to both our curl and the fetch proxy. This is the single best source for care and support staff and it is still unread.",
+      "url": "https://isomer-user-content.by.gov.sg/3/c7cbc25a-06bf-44f4-954e-317ffe17c29d/"
+    },
+    "mcf": {
+      "name": "MyCareersFuture",
+      "what": "Advertised basic salary on live job postings, aggregated to 25th-75th percentile by role and seniority.",
+      "reference": "pull dated 2026-07-25, 9,487 postings",
+      "confidence": "primary",
+      "caveat": "Advertised pay, not agreed pay, and it is a basic figure. Understates roles where overtime and allowances carry the package."
+    }
+  },
+  "benchmarks": [
+    { "role": "Registered Nurse",   "sector": "healthcare", "medianGross": 5210, "alsoSeen": 5276, "source": "mom_ows", "note": "Median across all experience, not a starting figure." },
+    { "role": "Pharmacist",         "sector": "healthcare", "medianGross": 5612, "alsoSeen": 5466, "source": "mom_ows", "note": "Patient care pharmacist." },
+    { "role": "Physiotherapist",    "sector": "healthcare", "medianGross": 5349, "alsoSeen": 4814, "source": "mom_ows", "note": "The two figures are a year apart, so the gap is probably the 2024 to 2025 move." },
+    { "role": "Healthcare Assistant", "sector": "healthcare", "medianGross": 2432, "source": "mom_ows", "note": "MATTERS: this is a gross median and it sits BELOW our S$2,500 basic floor. Healthcare hands-on pay looks like manufacturing, not like logistics." }
+  ],
+  "openQuestions": [
+    "Community care guidelines PDF unread. It is the right source for care and support staff and patient service.",
+    "MOM's own wage table unread, so every mom_ows figure above is second-hand.",
+    "No official source found yet for commercial admin and secretarial."
+  ]
+}
