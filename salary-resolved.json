@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-25",
+  "updated": "2026-11-21",
   "resolvedOn": "2026-11-20",
-  "totalPostings": 9487,
+  "totalPostings": 9608,
   "floor": {
     "amount": 2500,
     "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
@@ -42,13 +42,13 @@
     {
       "slug": "engineering",
       "name": "Engineering",
-      "n": 1622,
+      "n": 1631,
       "roles": [
         {
           "name": "Engineer (general)",
           "originalName": "Engineer (general)",
           "track": "professional",
-          "n": 667,
+          "n": 702,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -58,19 +58,19 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3500,
-              "high": 5300,
-              "n": 200
+              "low": 3250,
+              "high": 5500,
+              "n": 199
             },
             "3-8 yrs": {
-              "low": 4400,
-              "high": 6750,
-              "n": 430
+              "low": 4500,
+              "high": 6500,
+              "n": 464
             },
             "8+ yrs": {
-              "low": 5000,
-              "high": 10500,
-              "n": 37
+              "low": 5500,
+              "high": 9500,
+              "n": 39
             }
           },
           "flags": [],
@@ -80,7 +80,7 @@
           "name": "Engineering Technician",
           "originalName": "Engineering Technician",
           "track": "operative",
-          "n": 155,
+          "n": 151,
           "scope": "ITE-level technical and maintenance work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -91,39 +91,10 @@
           "bands": {
             "Basic": {
               "low": 2500,
-              "high": 3150,
-              "n": 132,
-              "floored": true
+              "high": 3400,
+              "n": 127
             },
             "Gross": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Electrical Engineer",
-          "originalName": "Electrical Engineer",
-          "track": "professional",
-          "n": 149,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 3100,
-              "high": 4250,
-              "n": 45
-            },
-            "3-8 yrs": {
-              "low": 3900,
-              "high": 5750,
-              "n": 90
-            },
-            "8+ yrs": null
           },
           "flags": [],
           "published": true
@@ -132,7 +103,7 @@
           "name": "Project Manager",
           "originalName": "Project Manager",
           "track": "professional",
-          "n": 148,
+          "n": 142,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -143,24 +114,24 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 5250,
-              "high": 8500,
-              "n": 28
+              "low": 4500,
+              "high": 7000,
+              "n": 21
             },
             "8+ yrs": {
               "low": 6000,
-              "high": 10000,
-              "n": 120
+              "high": 9500,
+              "n": 121
             }
           },
           "flags": [],
           "published": true
         },
         {
-          "name": "Project Engineer",
-          "originalName": "Project Engineer",
+          "name": "Electrical Engineer",
+          "originalName": "Electrical Engineer",
           "track": "professional",
-          "n": 140,
+          "n": 131,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -170,14 +141,42 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3400,
-              "high": 4250,
-              "n": 34
+              "low": 3250,
+              "high": 4300,
+              "n": 38
             },
             "3-8 yrs": {
-              "low": 4000,
+              "low": 4050,
+              "high": 6000,
+              "n": 82
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Project Engineer",
+          "originalName": "Project Engineer",
+          "track": "professional",
+          "n": 125,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3500,
+              "high": 4500,
+              "n": 28
+            },
+            "3-8 yrs": {
+              "low": 3900,
               "high": 5250,
-              "n": 106
+              "n": 97
             },
             "8+ yrs": null
           },
@@ -188,7 +187,7 @@
           "name": "Mechanical Engineer",
           "originalName": "Mechanical Engineer",
           "track": "professional",
-          "n": 114,
+          "n": 105,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -198,14 +197,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3000,
-              "high": 4250,
-              "n": 41
+              "low": 2750,
+              "high": 3900,
+              "n": 26
             },
             "3-8 yrs": {
-              "low": 4150,
-              "high": 6250,
-              "n": 73
+              "low": 4000,
+              "high": 6000,
+              "n": 67
             },
             "8+ yrs": null
           },
@@ -216,7 +215,7 @@
           "name": "Civil / Structural Engineer",
           "originalName": "Civil / Structural Engineer",
           "track": "professional",
-          "n": 85,
+          "n": 88,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -227,33 +226,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 4050,
-              "high": 6000,
-              "n": 54
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Site Engineer",
-          "originalName": "Site Engineer",
-          "track": "professional",
-          "n": 47,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 4200,
-              "high": 5250,
-              "n": 32
+              "low": 4500,
+              "high": 6250,
+              "n": 58
             },
             "8+ yrs": null
           },
@@ -264,7 +239,7 @@
           "name": "Maintenance Engineer",
           "originalName": "Maintenance Engineer",
           "track": "professional",
-          "n": 45,
+          "n": 49,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -274,14 +249,86 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2900,
+              "low": 2750,
               "high": 3750,
-              "n": 25
+              "n": 29
             },
             "3-8 yrs": {
-              "low": 3500,
-              "high": 6250,
+              "low": 3250,
+              "high": 4750,
               "n": 20
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Process Engineer",
+          "originalName": "Process Engineer",
+          "track": "professional",
+          "n": 40,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4600,
+              "high": 6250,
+              "n": 32
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Site Engineer",
+          "originalName": "Site Engineer",
+          "track": "professional",
+          "n": 33,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 5250,
+              "n": 23
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Design Engineer",
+          "originalName": "Design Engineer",
+          "track": "professional",
+          "n": 24,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 7500,
+              "n": 24
             },
             "8+ yrs": null
           },
@@ -295,13 +342,13 @@
     {
       "slug": "logistics",
       "name": "Logistics & Supply Chain",
-      "n": 2028,
+      "n": 2059,
       "roles": [
         {
           "name": "Warehouse Assistant",
           "originalName": "Warehouse / Store",
           "track": "operative",
-          "n": 450,
+          "n": 515,
           "scope": "Picking, packing, scanning, sorting. 5-day week.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -313,7 +360,7 @@
             "Basic": {
               "low": 2500,
               "high": 2900,
-              "n": 450,
+              "n": 515,
               "verified": true,
               "openEnded": false,
               "note": null,
@@ -322,7 +369,7 @@
             "Gross": {
               "low": 3500,
               "high": 4000,
-              "n": 450,
+              "n": 515,
               "verified": true,
               "openEnded": false,
               "note": "with allowances and OT",
@@ -338,7 +385,7 @@
           "name": "Driver",
           "originalName": "Driver",
           "track": "operative",
-          "n": 441,
+          "n": 426,
           "scope": "Typically a 5.5 to 6 day week.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -350,7 +397,7 @@
             "Basic": {
               "low": 1800,
               "high": 2500,
-              "n": 441,
+              "n": 426,
               "verified": true,
               "openEnded": false,
               "note": "varies with how physically demanding the run is",
@@ -359,7 +406,7 @@
             "Gross": {
               "low": 3000,
               "high": 4000,
-              "n": 441,
+              "n": 426,
               "verified": true,
               "openEnded": false,
               "note": "with trip incentives and OT",
@@ -375,7 +422,7 @@
           "name": "Operations Executive",
           "originalName": "Operations Executive",
           "track": "professional",
-          "n": 252,
+          "n": 296,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -385,19 +432,51 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
-              "high": 3400,
-              "n": 71
+              "low": 2750,
+              "high": 3500,
+              "n": 83
             },
             "3-8 yrs": {
-              "low": 3500,
-              "high": 5500,
-              "n": 142
+              "low": 3250,
+              "high": 4500,
+              "n": 161
             },
             "8+ yrs": {
-              "low": 6300,
-              "high": 12500,
-              "n": 39
+              "low": 6000,
+              "high": 10250,
+              "n": 52
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Procurement / Purchasing",
+          "originalName": "Procurement / Purchasing",
+          "track": "professional",
+          "n": 220,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3500,
+              "n": 49
+            },
+            "3-8 yrs": {
+              "low": 3400,
+              "high": 4750,
+              "n": 138
+            },
+            "8+ yrs": {
+              "low": 6250,
+              "high": 11000,
+              "n": 33
             }
           },
           "flags": [],
@@ -407,7 +486,7 @@
           "name": "Shipping / Freight",
           "originalName": "Shipping / Freight",
           "track": "professional",
-          "n": 236,
+          "n": 188,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -419,49 +498,17 @@
             "0-3 yrs": {
               "low": 2750,
               "high": 3250,
-              "n": 78
+              "n": 51
             },
             "3-8 yrs": {
-              "low": 3050,
-              "high": 4150,
-              "n": 129
-            },
-            "8+ yrs": {
-              "low": 4750,
-              "high": 6500,
-              "n": 29
-            }
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Procurement / Purchasing",
-          "originalName": "Procurement / Purchasing",
-          "track": "professional",
-          "n": 218,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 2650,
-              "high": 3250,
-              "n": 50
-            },
-            "3-8 yrs": {
-              "low": 3400,
+              "low": 3150,
               "high": 4500,
-              "n": 131
+              "n": 109
             },
             "8+ yrs": {
-              "low": 5750,
-              "high": 12000,
-              "n": 37
+              "low": 5500,
+              "high": 8500,
+              "n": 28
             }
           },
           "flags": [],
@@ -483,18 +530,18 @@
             "0-3 yrs": {
               "low": 2500,
               "high": 3000,
-              "n": 71,
+              "n": 81,
               "floored": true
             },
             "3-8 yrs": {
-              "low": 3350,
-              "high": 5500,
-              "n": 68
+              "low": 3200,
+              "high": 4750,
+              "n": 53
             },
             "8+ yrs": {
-              "low": 6000,
-              "high": 10000,
-              "n": 40
+              "low": 7850,
+              "high": 10500,
+              "n": 45
             }
           },
           "flags": [],
@@ -504,7 +551,7 @@
           "name": "Supply Chain Executive",
           "originalName": "Supply Chain Executive",
           "track": "professional",
-          "n": 97,
+          "n": 95,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -514,19 +561,19 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2750,
-              "high": 3650,
-              "n": 23
+              "low": 3000,
+              "high": 4250,
+              "n": 20
             },
             "3-8 yrs": {
-              "low": 3500,
-              "high": 5750,
-              "n": 44
+              "low": 3550,
+              "high": 5000,
+              "n": 48
             },
             "8+ yrs": {
-              "low": 6250,
-              "high": 14000,
-              "n": 30
+              "low": 6000,
+              "high": 10500,
+              "n": 27
             }
           },
           "flags": [],
@@ -536,31 +583,7 @@
           "name": "Planner",
           "originalName": "Planner",
           "track": "professional",
-          "n": 56,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 4150,
-              "high": 5600,
-              "n": 37
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Logistics Coordinator",
-          "originalName": "Logistics Coordinator",
-          "track": "professional",
-          "n": 43,
+          "n": 62,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -570,11 +593,15 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
-              "high": 3200,
-              "n": 34
+              "low": 2950,
+              "high": 4050,
+              "n": 25
             },
-            "3-8 yrs": null,
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 5250,
+              "n": 37
+            },
             "8+ yrs": null
           },
           "flags": [],
@@ -584,7 +611,7 @@
           "name": "Logistics Executive",
           "originalName": "Logistics Executive",
           "track": "professional",
-          "n": 41,
+          "n": 31,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -595,9 +622,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 3250,
-              "high": 4000,
-              "n": 27
+              "low": 3500,
+              "high": 4500,
+              "n": 23
             },
             "8+ yrs": null
           },
@@ -611,13 +638,13 @@
     {
       "slug": "manufacturing",
       "name": "Manufacturing",
-      "n": 814,
+      "n": 771,
       "roles": [
         {
           "name": "Production",
           "originalName": "Production",
           "track": "operative",
-          "n": 209,
+          "n": 205,
           "scope": "Production and line work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -629,7 +656,7 @@
             "Basic": {
               "low": 2000,
               "high": 2300,
-              "n": 209,
+              "n": 205,
               "verified": true,
               "openEnded": false,
               "note": "S$2,200 to S$2,500 attracts better staff",
@@ -638,7 +665,7 @@
             "Gross": {
               "low": 3000,
               "high": null,
-              "n": 209,
+              "n": 205,
               "verified": true,
               "openEnded": true,
               "note": "with OT and incentives, this is the level that attracts",
@@ -654,7 +681,7 @@
           "name": "Manufacturing Engineer",
           "originalName": "Manufacturing Engineer",
           "track": "professional",
-          "n": 159,
+          "n": 170,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -664,14 +691,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3400,
-              "high": 4750,
-              "n": 32
+              "low": 3250,
+              "high": 4200,
+              "n": 43
             },
             "3-8 yrs": {
-              "low": 4000,
-              "high": 6000,
-              "n": 118
+              "low": 4150,
+              "high": 5750,
+              "n": 121
             },
             "8+ yrs": null
           },
@@ -682,7 +709,7 @@
           "name": "Technician",
           "originalName": "Technician",
           "track": "operative",
-          "n": 153,
+          "n": 129,
           "scope": "Maintenance, setup and line support.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -692,9 +719,9 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
-              "high": 3450,
-              "n": 136
+              "low": 2400,
+              "high": 3200,
+              "n": 110
             },
             "Gross": null
           },
@@ -705,7 +732,7 @@
           "name": "Quality (QA / QC)",
           "originalName": "Quality (QA / QC)",
           "track": "professional",
-          "n": 83,
+          "n": 81,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -716,13 +743,13 @@
           "bands": {
             "0-3 yrs": {
               "low": 2250,
-              "high": 3000,
-              "n": 35
+              "high": 3200,
+              "n": 39
             },
             "3-8 yrs": {
-              "low": 3500,
-              "high": 5250,
-              "n": 37
+              "low": 3750,
+              "high": 4750,
+              "n": 34
             },
             "8+ yrs": null
           },
@@ -733,7 +760,7 @@
           "name": "Production Supervisor",
           "originalName": "Production Supervisor",
           "track": "professional",
-          "n": 64,
+          "n": 63,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -742,11 +769,15 @@
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": null,
+            "0-3 yrs": {
+              "low": 3550,
+              "high": 4500,
+              "n": 22
+            },
             "3-8 yrs": {
-              "low": 3850,
-              "high": 4750,
-              "n": 35
+              "low": 3750,
+              "high": 4650,
+              "n": 34
             },
             "8+ yrs": null
           },
@@ -757,7 +788,7 @@
           "name": "Machine Operator",
           "originalName": "Machine Operator",
           "track": "operative",
-          "n": 55,
+          "n": 45,
           "scope": "Machine minding, loading, monitoring, basic checks.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -769,7 +800,7 @@
             "Basic": {
               "low": 2000,
               "high": 2300,
-              "n": 55,
+              "n": 45,
               "verified": true,
               "openEnded": false,
               "note": "S$2,200 to S$2,500 attracts better staff",
@@ -778,7 +809,7 @@
             "Gross": {
               "low": 3000,
               "high": null,
-              "n": 55,
+              "n": 45,
               "verified": true,
               "openEnded": true,
               "note": "with OT and incentives, this is the level that attracts",
@@ -791,34 +822,10 @@
           "published": true
         },
         {
-          "name": "Process",
-          "originalName": "Process",
-          "track": "professional",
-          "n": 43,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 4250,
-              "high": 5750,
-              "n": 27
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
           "name": "Assembly / Line",
           "originalName": "Assembly / Line",
           "track": "operative",
-          "n": 31,
+          "n": 28,
           "scope": "Assembly and line work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -830,7 +837,7 @@
             "Basic": {
               "low": 2000,
               "high": 2300,
-              "n": 31,
+              "n": 28,
               "verified": true,
               "openEnded": false,
               "note": "S$2,200 to S$2,500 attracts better staff",
@@ -839,7 +846,7 @@
             "Gross": {
               "low": 3000,
               "high": null,
-              "n": 31,
+              "n": 28,
               "verified": true,
               "openEnded": true,
               "note": "with OT and incentives, this is the level that attracts",
@@ -864,45 +871,13 @@
     {
       "slug": "healthcare",
       "name": "Healthcare",
-      "n": 1845,
+      "n": 1987,
       "roles": [
         {
           "name": "Nurse",
           "originalName": "Nurse",
           "track": "professional",
-          "n": 651,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 3000,
-              "high": 4250,
-              "n": 344
-            },
-            "3-8 yrs": {
-              "low": 3750,
-              "high": 4750,
-              "n": 277
-            },
-            "8+ yrs": {
-              "low": 6450,
-              "high": 8000,
-              "n": 30
-            }
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Therapist",
-          "originalName": "Therapist",
-          "track": "professional",
-          "n": 259,
+          "n": 716,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -913,15 +888,19 @@
           "bands": {
             "0-3 yrs": {
               "low": 3250,
-              "high": 4500,
-              "n": 95
+              "high": 4250,
+              "n": 323
             },
             "3-8 yrs": {
-              "low": 4500,
-              "high": 6000,
-              "n": 164
+              "low": 3850,
+              "high": 4750,
+              "n": 361
             },
-            "8+ yrs": null
+            "8+ yrs": {
+              "low": 6250,
+              "high": 7500,
+              "n": 32
+            }
           },
           "flags": [],
           "published": true
@@ -930,31 +909,7 @@
           "name": "Clinic Staff",
           "originalName": "Clinic Staff",
           "track": "operative",
-          "n": 245,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "Basic": {
-              "low": 2500,
-              "high": 3000,
-              "n": 128,
-              "floored": true
-            },
-            "Gross": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Care / Support Staff",
-          "originalName": "Care / Support Staff",
-          "track": "operative",
-          "n": 191,
+          "n": 265,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -966,10 +921,90 @@
             "Basic": {
               "low": 2500,
               "high": 2900,
-              "n": 122,
+              "n": 136
+            },
+            "Gross": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Care / Support Staff",
+          "originalName": "Care / Support Staff",
+          "track": "operative",
+          "n": 228,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2500,
+              "high": 2900,
+              "n": 152,
               "floored": true
             },
             "Gross": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Therapist",
+          "originalName": "Therapist",
+          "track": "professional",
+          "n": 203,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3250,
+              "high": 4750,
+              "n": 59
+            },
+            "3-8 yrs": {
+              "low": 4750,
+              "high": 6750,
+              "n": 144
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Pharmacy",
+          "originalName": "Pharmacy",
+          "track": "professional",
+          "n": 197,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3400,
+              "n": 126,
+              "floored": true
+            },
+            "3-8 yrs": {
+              "low": 3600,
+              "high": 5500,
+              "n": 71
+            },
+            "8+ yrs": null
           },
           "flags": [],
           "published": true
@@ -988,43 +1023,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 4250,
-              "high": 5250,
-              "n": 34
+              "low": 3750,
+              "high": 5500,
+              "n": 32
             },
             "3-8 yrs": {
-              "low": 5000,
-              "high": 7000,
-              "n": 110
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Pharmacy",
-          "originalName": "Pharmacy",
-          "track": "professional",
-          "n": 138,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 2500,
-              "high": 3400,
-              "n": 65,
-              "floored": true
-            },
-            "3-8 yrs": {
-              "low": 4750,
-              "high": 5600,
-              "n": 73
+              "low": 5400,
+              "high": 7500,
+              "n": 112
             },
             "8+ yrs": null
           },
@@ -1035,7 +1041,7 @@
           "name": "Medical / Allied Health",
           "originalName": "Medical / Allied Health",
           "track": "professional",
-          "n": 100,
+          "n": 79,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1045,14 +1051,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
-              "high": 4000,
-              "n": 37
+              "low": 3200,
+              "high": 4500,
+              "n": 28
             },
             "3-8 yrs": {
-              "low": 3600,
-              "high": 5750,
-              "n": 47
+              "low": 4250,
+              "high": 5500,
+              "n": 42
             },
             "8+ yrs": null
           },
@@ -1063,7 +1069,7 @@
           "name": "Laboratory",
           "originalName": "Laboratory",
           "track": "professional",
-          "n": 46,
+          "n": 55,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1073,12 +1079,39 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
-              "high": 3150,
-              "n": 28,
-              "floored": true
+              "low": 2600,
+              "high": 4100,
+              "n": 34
             },
-            "3-8 yrs": null,
+            "3-8 yrs": {
+              "low": 4900,
+              "high": 5550,
+              "n": 21
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Radiographer",
+          "originalName": "Radiographer",
+          "track": "professional",
+          "n": 44,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 6500,
+              "n": 32
+            },
             "8+ yrs": null
           },
           "flags": [],
@@ -1088,7 +1121,7 @@
           "name": "Patient Service",
           "originalName": "Patient Service",
           "track": "operative",
-          "n": 27,
+          "n": 39,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1099,11 +1132,8 @@
           "bands": {
             "Basic": {
               "low": 2500,
-              "high": null,
-              "n": 27,
-              "floored": true,
-              "openEnded": true,
-              "needsJte": true
+              "high": 2750,
+              "n": 39
             },
             "Gross": null
           },
@@ -1117,13 +1147,13 @@
     {
       "slug": "commercial",
       "name": "Commercial & Support",
-      "n": 1620,
+      "n": 1540,
       "roles": [
         {
           "name": "Sales Executive",
           "originalName": "Sales Executive",
           "track": "professional",
-          "n": 386,
+          "n": 387,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1133,19 +1163,19 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3000,
+              "low": 2750,
               "high": 4000,
-              "n": 192
+              "n": 206
             },
             "3-8 yrs": {
               "low": 3250,
-              "high": 4850,
-              "n": 136
+              "high": 4750,
+              "n": 128
             },
             "8+ yrs": {
-              "low": 4750,
+              "low": 5000,
               "high": 9000,
-              "n": 58
+              "n": 53
             }
           },
           "flags": [],
@@ -1155,7 +1185,7 @@
           "name": "Admin / Secretarial",
           "originalName": "Admin / Secretarial",
           "track": "operative",
-          "n": 315,
+          "n": 309,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1166,7 +1196,7 @@
           "bands": {
             "Basic": {
               "low": 2500,
-              "high": 3000,
+              "high": 3100,
               "n": 183,
               "floored": true
             },
@@ -1179,7 +1209,7 @@
           "name": "Accountant / Accounts",
           "originalName": "Accountant / Accounts",
           "track": "professional",
-          "n": 272,
+          "n": 258,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1190,18 +1220,18 @@
           "bands": {
             "0-3 yrs": {
               "low": 2650,
-              "high": 3400,
-              "n": 86
+              "high": 3500,
+              "n": 73
             },
             "3-8 yrs": {
-              "low": 3150,
-              "high": 4400,
-              "n": 154
+              "low": 3350,
+              "high": 4800,
+              "n": 156
             },
             "8+ yrs": {
-              "low": 4800,
-              "high": 7250,
-              "n": 32
+              "low": 5250,
+              "high": 9250,
+              "n": 29
             }
           },
           "flags": [],
@@ -1211,7 +1241,7 @@
           "name": "Marketing",
           "originalName": "Marketing",
           "track": "professional",
-          "n": 210,
+          "n": 120,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1221,15 +1251,19 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 3750,
-              "high": 4250,
-              "n": 131
+              "low": 3300,
+              "high": 4150,
+              "n": 38
             },
-            "3-8 yrs": null,
+            "3-8 yrs": {
+              "low": 3350,
+              "high": 4500,
+              "n": 50
+            },
             "8+ yrs": {
-              "low": 5750,
-              "high": 9000,
-              "n": 22
+              "low": 4600,
+              "high": 7500,
+              "n": 32
             }
           },
           "flags": [],
@@ -1239,59 +1273,7 @@
           "name": "Finance",
           "originalName": "Finance",
           "track": "professional",
-          "n": 108,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 3650,
-              "high": 5500,
-              "n": 56
-            },
-            "8+ yrs": {
-              "low": 6000,
-              "high": 10950,
-              "n": 36
-            }
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Customer Service",
-          "originalName": "Customer Service",
-          "track": "professional",
-          "n": 61,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 2600,
-              "high": 3200,
-              "n": 38
-            },
-            "3-8 yrs": null,
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Audit / Tax",
-          "originalName": "Audit / Tax",
-          "track": "professional",
-          "n": 60,
+          "n": 95,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1303,19 +1285,23 @@
             "0-3 yrs": null,
             "3-8 yrs": {
               "low": 3750,
-              "high": 5000,
-              "n": 36
+              "high": 5500,
+              "n": 42
             },
-            "8+ yrs": null
+            "8+ yrs": {
+              "low": 5250,
+              "high": 8500,
+              "n": 38
+            }
           },
           "flags": [],
           "published": true
         },
         {
-          "name": "Business Analyst",
-          "originalName": "Business Analyst",
+          "name": "Customer Service",
+          "originalName": "Customer Service",
           "track": "professional",
-          "n": 56,
+          "n": 95,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1324,11 +1310,15 @@
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": null,
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3250,
+              "n": 52
+            },
             "3-8 yrs": {
-              "low": 5150,
-              "high": 7000,
-              "n": 39
+              "low": 2900,
+              "high": 3750,
+              "n": 43
             },
             "8+ yrs": null
           },
@@ -1339,7 +1329,7 @@
           "name": "Business Development",
           "originalName": "Business Development",
           "track": "professional",
-          "n": 49,
+          "n": 66,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1350,9 +1340,37 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 4500,
-              "high": 6250,
-              "n": 20
+              "low": 3400,
+              "high": 5500,
+              "n": 32
+            },
+            "8+ yrs": {
+              "low": 6500,
+              "high": 10250,
+              "n": 21
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Business Analyst",
+          "originalName": "Business Analyst",
+          "track": "professional",
+          "n": 59,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4250,
+              "high": 7500,
+              "n": 47
             },
             "8+ yrs": null
           },
@@ -1360,10 +1378,10 @@
           "published": true
         },
         {
-          "name": "Recruitment / TA",
-          "originalName": "Recruitment / TA",
+          "name": "Audit / Tax",
+          "originalName": "Audit / Tax",
           "track": "professional",
-          "n": 41,
+          "n": 53,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1374,9 +1392,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 3650,
-              "high": 5250,
-              "n": 24
+              "low": 3750,
+              "high": 6000,
+              "n": 20
             },
             "8+ yrs": null
           },
@@ -1390,13 +1408,13 @@
     {
       "slug": "it",
       "name": "IT & Tech",
-      "n": 1558,
+      "n": 1620,
       "roles": [
         {
           "name": "Software Engineer",
           "originalName": "Software Engineer",
           "track": "professional",
-          "n": 263,
+          "n": 293,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1406,42 +1424,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 4150,
-              "high": 6650,
-              "n": 33
+              "low": 5000,
+              "high": 8150,
+              "n": 28
             },
             "3-8 yrs": {
-              "low": 6050,
-              "high": 9000,
-              "n": 220
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Software Developer",
-          "originalName": "Software Developer",
-          "track": "professional",
-          "n": 228,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 4150,
-              "high": 6750,
-              "n": 25
-            },
-            "3-8 yrs": {
-              "low": 6000,
-              "high": 9000,
-              "n": 187
+              "low": 6500,
+              "high": 10000,
+              "n": 247
             },
             "8+ yrs": null
           },
@@ -1452,7 +1442,63 @@
           "name": "Cybersecurity",
           "originalName": "Cybersecurity",
           "track": "professional",
-          "n": 194,
+          "n": 214,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6000,
+              "high": 9250,
+              "n": 155
+            },
+            "8+ yrs": {
+              "low": 7500,
+              "high": 12000,
+              "n": 46
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Network / Infrastructure",
+          "originalName": "Network / Infrastructure",
+          "track": "professional",
+          "n": 188,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3500,
+              "high": 5400,
+              "n": 22
+            },
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 9000,
+              "n": 149
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Software Developer",
+          "originalName": "Software Developer",
+          "track": "professional",
+          "n": 187,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1465,13 +1511,9 @@
             "3-8 yrs": {
               "low": 6000,
               "high": 9500,
-              "n": 140
+              "n": 162
             },
-            "8+ yrs": {
-              "low": 7500,
-              "high": 14000,
-              "n": 36
-            }
+            "8+ yrs": null
           },
           "flags": [],
           "published": true
@@ -1480,7 +1522,7 @@
           "name": "DevOps / Cloud Engineer",
           "originalName": "DevOps / Cloud Engineer",
           "track": "professional",
-          "n": 170,
+          "n": 156,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1491,9 +1533,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 6900,
+              "low": 6500,
               "high": 10000,
-              "n": 141
+              "n": 129
             },
             "8+ yrs": null
           },
@@ -1501,10 +1543,10 @@
           "published": true
         },
         {
-          "name": "Network / Infrastructure",
-          "originalName": "Network / Infrastructure",
+          "name": "Application Engineer",
+          "originalName": "Application Engineer",
           "track": "professional",
-          "n": 144,
+          "n": 98,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1513,17 +1555,17 @@
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": {
-              "low": 3600,
-              "high": 5400,
-              "n": 23
-            },
+            "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 5150,
-              "high": 8600,
-              "n": 104
+              "low": 5550,
+              "high": 10000,
+              "n": 72
             },
-            "8+ yrs": null
+            "8+ yrs": {
+              "low": 8000,
+              "high": 13000,
+              "n": 26
+            }
           },
           "flags": [],
           "published": true
@@ -1532,7 +1574,7 @@
           "name": "IT Business Analyst",
           "originalName": "IT Business Analyst",
           "track": "professional",
-          "n": 100,
+          "n": 98,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1543,9 +1585,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 6250,
-              "high": 9500,
-              "n": 79
+              "low": 6650,
+              "high": 9000,
+              "n": 82
             },
             "8+ yrs": null
           },
@@ -1556,7 +1598,31 @@
           "name": "IT Project Manager",
           "originalName": "IT Project Manager",
           "track": "professional",
-          "n": 95,
+          "n": 84,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7750,
+              "high": 10000,
+              "n": 51
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Engineer",
+          "originalName": "Data Engineer",
+          "track": "professional",
+          "n": 70,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1568,56 +1634,8 @@
             "0-3 yrs": null,
             "3-8 yrs": {
               "low": 7000,
-              "high": 10000,
-              "n": 54
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Application Engineer",
-          "originalName": "Application Engineer",
-          "track": "professional",
-          "n": 85,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 5850,
-              "high": 9500,
-              "n": 61
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Data Engineer",
-          "originalName": "Data Engineer",
-          "track": "professional",
-          "n": 67,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 7050,
-              "high": 9000,
-              "n": 59
+              "high": 9750,
+              "n": 64
             },
             "8+ yrs": null
           },
@@ -1628,7 +1646,7 @@
           "name": "IT Support / Helpdesk",
           "originalName": "IT Support / Helpdesk",
           "track": "professional",
-          "n": 61,
+          "n": 65,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1638,14 +1656,14 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2600,
-              "high": 3400,
-              "n": 22
+              "low": 2900,
+              "high": 3800,
+              "n": 30
             },
             "3-8 yrs": {
               "low": 3000,
-              "high": 4550,
-              "n": 39
+              "high": 4250,
+              "n": 35
             },
             "8+ yrs": null
           },
@@ -1656,7 +1674,7 @@
           "name": "Systems Engineer",
           "originalName": "Systems Engineer",
           "track": "professional",
-          "n": 54,
+          "n": 60,
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
@@ -1667,9 +1685,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 4500,
-              "high": 6750,
-              "n": 54
+              "low": 5000,
+              "high": 7500,
+              "n": 51
             },
             "8+ yrs": null
           },
@@ -1679,6 +1697,30 @@
         {
           "name": "QA / Test Engineer",
           "originalName": "QA / Test Engineer",
+          "track": "professional",
+          "n": 31,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5250,
+              "high": 8000,
+              "n": 31
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Scientist",
+          "originalName": "Data Scientist",
           "track": "professional",
           "n": 28,
           "scope": null,
@@ -1691,33 +1733,9 @@
           "bands": {
             "0-3 yrs": null,
             "3-8 yrs": {
-              "low": 5500,
-              "high": 9000,
-              "n": 21
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Data Scientist",
-          "originalName": "Data Scientist",
-          "track": "professional",
-          "n": 27,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 6750,
-              "high": 9500,
-              "n": 27
+              "low": 7500,
+              "high": 11500,
+              "n": 28
             },
             "8+ yrs": null
           },
