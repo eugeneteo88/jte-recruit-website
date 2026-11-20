@@ -140,6 +140,7 @@ ${jsonld}
   table.sal td.role .scope.jte{color:#8C7350;border-left:2px solid rgba(198,168,124,.5);padding-left:.5rem;margin-top:.35rem}
   table.sal caption.tcap{caption-side:top;text-align:left;font-family:'Playfair Display',serif;font-size:1.05rem;color:#241B12;padding:0 0 .55rem}
   table.sal td.role .scope{display:block;font-size:.7rem;color:#8a8175;font-weight:400;margin-top:.15rem;line-height:1.35}
+  table.sal .cnote{display:block;font-size:.66rem;color:#8a8175;font-weight:400;margin-top:.2rem;line-height:1.3}
   .vfd{display:inline-block;margin-left:.4rem;font-size:.58rem;letter-spacing:.08em;font-weight:700;color:#8C7350;background:rgba(198,168,124,.18);border:1px solid rgba(198,168,124,.45);border-radius:3px;padding:.1rem .25rem;vertical-align:.08rem}
   .floorbox{background:#241B12;color:#F5F1E8;border-radius:.75rem;padding:1.5rem 1.6rem;margin:0 auto;max-width:56rem}
   .floorbox .fnum{font-family:'Playfair Display',serif;font-size:2.1rem;color:#C6A87C;line-height:1;display:block;margin-bottom:.5rem}
@@ -400,7 +401,8 @@ function tableHTML(sector) {
     if (!c) return `<span class="dash">&ndash;</span>`;
     const val = c.openEnded ? `from $${fmt(c.low)}` : `$${fmt(c.low)} &ndash; $${fmt(c.high)}`;
     const mark = c.verified ? `<span class="vfd" title="JTE figure, not advertised data">JTE</span>` : '';
-    return `<span class="rng">${val}</span>${mark}`;
+    const note = c.note ? `<span class="cnote">${esc(c.note)}</span>` : '';
+    return `<span class="rng">${val}</span>${mark}${note}`;
   };
   const tracks = [...new Set(sector.roles.map(r => r.track))];
   return tracks.map((t) => {
@@ -411,7 +413,7 @@ function tableHTML(sector) {
     const bands = tr.bands.filter(b => roles.some(r => r.bands[b]));
     const th = bands.map(b => `<th>${b}<span class="sub">${tr.sub[b]}</span></th>`).join('');
     const rows = roles.map(r => `        <tr>
-          <td class="role">${esc(r.name)}${r.basis === 'gross' ? `<span class="basis">gross package</span>` : ''}${r.scope ? `<span class="scope">${esc(r.scope)}</span>` : ''}${r.basicNote ? `<span class="scope jte">${esc(r.basicNote)}</span>` : ''}${r.aboveNote ? `<span class="scope jte">${esc(r.aboveNote)}</span>` : ''}</td>
+          <td class="role">${esc(r.name)}${r.basis === 'gross' ? `<span class="basis">gross package</span>` : ''}${r.scope ? `<span class="scope">${esc(r.scope)}</span>` : ''}${r.basicNote ? `<span class="scope jte">${esc(r.basicNote)}</span>` : ''}${r.aboveNote ? `<span class="scope jte">${esc(r.aboveNote)}</span>` : ''}${r.benefitNote ? `<span class="scope jte">${esc(r.benefitNote)}</span>` : ''}</td>
 ${bands.map(b => `          <td data-label="${b}">${cell(r.bands[b])}</td>`).join('\n')}
         </tr>`).join('\n');
     const head = tracks.length > 1 ? `<caption class="tcap">${tr.label}</caption>` : '';

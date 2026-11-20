@@ -8,23 +8,20 @@
     "source": "JTE, November 2026",
     "short": "Below about S$2,500 basic a month, a role gets much harder to fill locally.",
     "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now.",
-    "exemptBasis": [
-      "gross"
-    ],
-    "exemptNote": "The S$2,500 guide is about basic pay. Roles paid as a package, like drivers, are judged on the gross, so the basic sitting lower is normal rather than a warning sign."
+    "exemptNote": "The S$2,500 guide is about basic pay where the basic is the whole package. Plenty of hands-on roles run a lower basic with overtime and incentives on top, and there you judge the gross instead. Where we know both, we show both."
   },
   "tracks": {
     "operative": {
       "label": "Hands-on roles",
       "bands": [
-        "Typical",
-        "With experience"
+        "Basic",
+        "Gross"
       ],
       "sub": {
-        "Typical": "the going rate",
-        "With experience": "with real time on the job"
+        "Basic": "contract basic, monthly",
+        "Gross": "take-home with OT and allowances"
       },
-      "note": "Hands-on roles do not have a junior-to-senior ladder. There is the going rate, and what experience adds. Supervisor and manager roles sit separately, because they are a different job rather than the same job with more years."
+      "note": "Hands-on roles do not really have a junior-to-senior ladder, but they do have two numbers that matter. The basic is what you commit to. The gross is what the person takes home once overtime, incentives and allowances land, and it is the number they compare against the employer up the road. Supervisor and team leader roles sit separately, because that is more responsibility rather than the same job for longer."
     },
     "professional": {
       "label": "Professional & executive roles",
@@ -57,6 +54,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -88,19 +86,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3150,
               "n": 132,
               "floored": true
             },
-            "With experience": {
-              "low": 3000,
-              "high": 3650,
-              "n": 23
-            }
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -115,6 +110,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -142,6 +138,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -169,6 +166,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -196,6 +194,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -223,6 +222,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -246,6 +246,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -269,6 +270,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -303,16 +305,27 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": "Above this you are into team leader or assistant supervisor, which is more responsibility rather than a wider job scope. We list that separately.",
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 2900,
-              "n": 337,
+              "n": 450,
               "verified": true,
-              "verifiedNote": "JTE, Nov 2026. Below S$2,500 is not the norm any more."
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026. Below S$2,500 basic is not the norm any more."
             },
-            "With experience": null
+            "Gross": {
+              "low": 3500,
+              "high": 4000,
+              "n": 450,
+              "verified": true,
+              "openEnded": false,
+              "note": "with allowances and OT",
+              "verifiedNote": "JTE, Nov 2026. Below S$2,500 basic is not the norm any more."
+            }
           },
           "flags": [
             "jte-verified"
@@ -325,20 +338,31 @@
           "track": "operative",
           "n": 441,
           "scope": "Typically a 5.5 to 6 day week.",
-          "basis": "gross",
-          "basisLabel": "gross monthly",
-          "basicNote": "Basic is usually around S$1,800 to S$1,900, with trip incentives and overtime on top. Judge a driver package on the gross, not the basic.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Judge a driver package on the gross, not the basic. A low basic with strong incentives is normal here, and how demanding the run is moves the basic as much as experience does.",
           "aboveNote": null,
-          "daysPerWeek": "5.5 to 6",
+          "benefitNote": "Drivers can usually take the vehicle home, which is worth real money to them and is often what wins the hire.",
+          "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
+              "low": 1800,
+              "high": 2500,
+              "n": 441,
+              "verified": true,
+              "openEnded": false,
+              "note": "varies with how physically demanding the run is",
+              "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers."
+            },
+            "Gross": {
               "low": 3000,
               "high": 4000,
-              "n": 386,
+              "n": 441,
               "verified": true,
-              "verifiedNote": "JTE, Nov 2026. A driver on S$2,500 gross is rare. If a package comes in under this, the scope or the hours are lighter."
-            },
-            "With experience": null
+              "openEnded": false,
+              "note": "with trip incentives and OT",
+              "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers."
+            }
           },
           "flags": [
             "jte-verified"
@@ -355,6 +379,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -386,6 +411,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -417,6 +443,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -448,6 +475,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -480,6 +508,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -511,6 +540,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -534,6 +564,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -557,6 +588,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -587,19 +619,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3000,
               "n": 135,
               "floored": true
             },
-            "With experience": {
-              "low": 3500,
-              "high": 4700,
-              "n": 54
-            }
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -614,6 +643,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -641,14 +671,15 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3450,
               "n": 136
             },
-            "With experience": null
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -663,6 +694,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -691,6 +723,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -714,9 +747,10 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": null,
               "n": 55,
@@ -724,7 +758,7 @@
               "openEnded": true,
               "needsJte": true
             },
-            "With experience": null
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -739,14 +773,15 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": null,
-            "With experience": {
+            "Basic": {
               "low": 4250,
               "high": 5750,
               "n": 27
-            }
+            },
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -761,15 +796,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3000,
               "n": 31,
               "floored": true
             },
-            "With experience": null
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -791,6 +827,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -822,6 +859,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -849,19 +887,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3000,
               "n": 128,
               "floored": true
             },
-            "With experience": {
-              "low": 2900,
-              "high": 5750,
-              "n": 98
-            }
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -876,19 +911,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 2900,
               "n": 122,
               "floored": true
             },
-            "With experience": {
-              "low": 3100,
-              "high": 5500,
-              "n": 51
-            }
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -903,6 +935,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -930,6 +963,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -958,6 +992,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -985,6 +1020,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1009,9 +1045,10 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": null,
               "n": 27,
@@ -1019,7 +1056,7 @@
               "openEnded": true,
               "needsJte": true
             },
-            "With experience": null
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -1041,6 +1078,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1072,19 +1110,16 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Typical": {
+            "Basic": {
               "low": 2500,
               "high": 3000,
               "n": 183,
               "floored": true
             },
-            "With experience": {
-              "low": 2750,
-              "high": 4000,
-              "n": 117
-            }
+            "Gross": null
           },
           "flags": [],
           "published": true
@@ -1099,6 +1134,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1130,6 +1166,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1157,6 +1194,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1184,6 +1222,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1207,6 +1246,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1230,6 +1270,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1253,6 +1294,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1276,6 +1318,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1306,6 +1349,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1333,6 +1377,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1360,6 +1405,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1387,6 +1433,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1410,6 +1457,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1437,6 +1485,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1460,6 +1509,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1483,6 +1533,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1506,6 +1557,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1529,6 +1581,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
@@ -1556,6 +1609,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1579,6 +1633,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,
@@ -1602,6 +1657,7 @@
           "basisLabel": "basic monthly",
           "basicNote": null,
           "aboveNote": null,
+          "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": null,

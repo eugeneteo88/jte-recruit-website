@@ -15,8 +15,8 @@ These read "from S$X" on the page. They need a realistic top end.
 
 | Sector | Role | Band | Currently |
 |---|---|---|---|
-| manufacturing | Machine Operator | Typical | from S$2,500 |
-| healthcare | Patient Service | Typical | from S$2,500 |
+| manufacturing | Machine Operator | Basic | from S$2,500 |
+| healthcare | Patient Service | Basic | from S$2,500 |
 
 ## 2. Roles dropped entirely (9)
 
@@ -34,23 +34,26 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 7 |
 | logistics | Forklift Operator | 7 |
 
-## 3. Published roles with a blank band (65)
+## 3. Published roles with a blank band (68)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
 | Sector | Role | Blank band | Postings for the role |
 |---|---|---|---|
-| logistics | Warehouse Assistant | With experience | 450 |
-| logistics | Driver | With experience | 441 |
+| commercial | Admin / Secretarial | Gross | 315 |
 | it | Software Engineer | 8+ yrs | 263 |
 | healthcare | Therapist | 8+ yrs | 259 |
+| healthcare | Clinic Staff | Gross | 245 |
 | it | Software Developer | 8+ yrs | 228 |
 | commercial | Marketing | 3-8 yrs | 210 |
+| manufacturing | Production | Gross | 209 |
 | it | Cybersecurity | 0-3 yrs | 194 |
+| healthcare | Care / Support Staff | Gross | 191 |
 | it | DevOps / Cloud Engineer | 0-3 yrs | 170 |
 | it | DevOps / Cloud Engineer | 8+ yrs | 170 |
 | manufacturing | Manufacturing Engineer | 8+ yrs | 159 |
-| manufacturing | Technician | With experience | 153 |
+| engineering | Engineering Technician | Gross | 155 |
+| manufacturing | Technician | Gross | 153 |
 | engineering | Electrical Engineer | 8+ yrs | 149 |
 | engineering | Project Manager | 0-3 yrs | 148 |
 | healthcare | Physiotherapist | 8+ yrs | 144 |
@@ -82,7 +85,7 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | logistics | Planner | 8+ yrs | 56 |
 | commercial | Business Analyst | 0-3 yrs | 56 |
 | commercial | Business Analyst | 8+ yrs | 56 |
-| manufacturing | Machine Operator | With experience | 55 |
+| manufacturing | Machine Operator | Gross | 55 |
 | it | Systems Engineer | 0-3 yrs | 54 |
 | it | Systems Engineer | 8+ yrs | 54 |
 | commercial | Business Development | 0-3 yrs | 49 |
@@ -94,13 +97,10 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | engineering | Maintenance Engineer | 8+ yrs | 45 |
 | logistics | Logistics Coordinator | 3-8 yrs | 43 |
 | logistics | Logistics Coordinator | 8+ yrs | 43 |
-| manufacturing | Process | Typical | 43 |
+| manufacturing | Process | Gross | 43 |
 | logistics | Logistics Executive | 0-3 yrs | 41 |
 | logistics | Logistics Executive | 8+ yrs | 41 |
-| commercial | Recruitment / TA | 0-3 yrs | 41 |
-| commercial | Recruitment / TA | 8+ yrs | 41 |
-| manufacturing | Assembly / Line | With experience | 31 |
-| … | _5 more_ | | |
+| … | _8 more_ | | |
 
 ## 4. Role names worth a second look
 
@@ -127,4 +127,4 @@ advertise for. Tell me the title you would use and I will rename them.
 
 ---
 
-Already answered: 2 role(s) carry a JTE figure.
+Already answered: 0 role(s) carry a JTE figure.

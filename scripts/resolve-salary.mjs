@@ -47,6 +47,7 @@ function resolveRole(sectorSlug, role) {
     basisLabel: (ov.basis && ov.basis[basis] && ov.basis[basis].label) || null,
     basicNote: cfg.basicNote || null,
     aboveNote: cfg.aboveNote || null,
+    benefitNote: cfg.benefitNote || null,
     daysPerWeek: cfg.daysPerWeek || null,
     bands: {},
     flags: [],
@@ -55,19 +56,17 @@ function resolveRole(sectorSlug, role) {
   // ---- 1. shape the raw bands into this track's bands ----
   let src;
   if (track === 'operative') {
-    // A hands-on role has a going rate, not a ladder. The junior band holds the
-    // bulk of the postings (warehouse: 337 of 450), so it IS the going rate.
-    // Mid and senior get merged into one "with experience" band.
-    const base = role.bands['Junior'];
-    // Deliberately NOT merging the senior band in here. For a hands-on role the
-    // senior tail is a different job, not the same job with more experience:
-    // warehouse "senior" postings top out near S$6,900, which is a warehouse
-    // manager, not an experienced assistant. Merging it produced a 2,600-6,900
-    // range that told an employer nothing. Supervisor and manager roles belong
-    // as their own entries, not as a band on the operative role.
-    const mid = role.bands['Mid'] || null;
-    if (role.bands['Senior / Lead']) stats.collapsed++;
-    src = { 'Typical': base || null, 'With experience': mid };
+    // Advertised pay for a hands-on role is the basic. The junior band holds the
+    // bulk of the postings (warehouse: 337 of 450), so that is the going basic.
+    // Gross is never in the ads, so it only ever comes from JTE.
+    // Take whichever advertised band has the most evidence behind it, not just
+    // the first that exists. Warehouse: Junior wins on 337 postings. Process:
+    // Mid wins on 27 against Junior's 16, and taking Junior first dropped the
+    // role entirely for thin data.
+    const base = [role.bands['Junior'], role.bands['Mid']]
+      .filter(Boolean)
+      .sort((a, b) => b.n - a.n)[0] || null;
+    src = { 'Basic': base, 'Gross': null };
   } else {
     src = {};
     for (const [from, to] of Object.entries(PRO_MAP)) src[to] = role.bands[from] || null;
@@ -100,7 +99,9 @@ function resolveRole(sectorSlug, role) {
     // computed over a population that included sub-market ads. Where that
     // happens we stop pretending to know the top and publish an open "from"
     // figure instead, and the role goes on the list for a real number.
-    const floorExempt = (ov.floor.exemptBasis || []).includes(basis);
+    // Where JTE has given a gross, the basic is not the whole story and a lower
+    // basic is normal, so we publish it as it stands rather than floor it.
+    const floorExempt = !!(cfg.pay && cfg.pay['Gross']);
     if (b.low < FLOOR && !floorExempt) {
       stats.floorRaised++;
       b.low = FLOOR;
@@ -128,26 +129,17 @@ function resolveRole(sectorSlug, role) {
   }
 
   // ---- 3. JTE's own figures win ----
-  if (cfg.verifiedLow != null) {
-    const first = bandNames[0];
-    const b = out.bands[first] || { high: null, n: role.n };
-    b.low = cfg.verifiedLow;
-    if (cfg.verifiedHigh != null) {
-      // A JTE top end clears any open-ended marker the floor guard set earlier:
-      // we were open-ended only because we did not have a real ceiling, and now
-      // we do.
-      b.high = cfg.verifiedHigh;
-      delete b.openEnded;
-      delete b.needsJte;
+  if (cfg.pay) {
+    for (const [band, v] of Object.entries(cfg.pay)) {
+      if (!bandNames.includes(band)) continue;
+      out.bands[band] = {
+        low: v.low, high: v.high ?? null, n: role.n,
+        verified: true,
+        openEnded: v.high == null,
+        note: v.note || null,
+        verifiedNote: cfg.verifiedNote || null,
+      };
     }
-    // Eugene gave a floor, not a ceiling. Do not invent one, and do not keep a
-    // scraped high that sits almost on top of it.
-    if (b.high != null && b.high < b.low * 1.15) { b.high = null; b.openEnded = true; b.needsJte = true; }
-    b.verified = true;
-    b.verifiedNote = cfg.verifiedNote || null;
-    delete b.floored;
-    if (b.needsJte) stats.needsJte++;
-    out.bands[first] = b;
     out.flags.push('jte-verified');
     stats.verified++;
   }
