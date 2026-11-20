@@ -9,13 +9,15 @@ figure, marked as ours, and it survives every weekly refresh after that.
 To answer one, just tell me the role and a range. "Warehouse assistant, 2500 to 2900"
 is enough. A floor on its own is fine too, I will show it as "from".
 
-## 1. Showing a floor but no top end (2)
+## 1. Showing a floor but no top end (4)
 
 These read "from S$X" on the page. They need a realistic top end.
 
 | Sector | Role | Band | Currently |
 |---|---|---|---|
-| manufacturing | Machine Operator | Basic | from S$2,500 |
+| manufacturing | Production | Gross | from S$3,000 |
+| manufacturing | Machine Operator | Gross | from S$3,000 |
+| manufacturing | Assembly / Line | Gross | from S$3,000 |
 | healthcare | Patient Service | Basic | from S$2,500 |
 
 ## 2. Roles dropped entirely (9)
@@ -34,7 +36,7 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 7 |
 | logistics | Forklift Operator | 7 |
 
-## 3. Published roles with a blank band (68)
+## 3. Published roles with a blank band (66)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
@@ -46,7 +48,6 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | healthcare | Clinic Staff | Gross | 245 |
 | it | Software Developer | 8+ yrs | 228 |
 | commercial | Marketing | 3-8 yrs | 210 |
-| manufacturing | Production | Gross | 209 |
 | it | Cybersecurity | 0-3 yrs | 194 |
 | healthcare | Care / Support Staff | Gross | 191 |
 | it | DevOps / Cloud Engineer | 0-3 yrs | 170 |
@@ -85,7 +86,6 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | logistics | Planner | 8+ yrs | 56 |
 | commercial | Business Analyst | 0-3 yrs | 56 |
 | commercial | Business Analyst | 8+ yrs | 56 |
-| manufacturing | Machine Operator | Gross | 55 |
 | it | Systems Engineer | 0-3 yrs | 54 |
 | it | Systems Engineer | 8+ yrs | 54 |
 | commercial | Business Development | 0-3 yrs | 49 |
@@ -97,10 +97,12 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | engineering | Maintenance Engineer | 8+ yrs | 45 |
 | logistics | Logistics Coordinator | 3-8 yrs | 43 |
 | logistics | Logistics Coordinator | 8+ yrs | 43 |
-| manufacturing | Process | Gross | 43 |
+| manufacturing | Process | 0-3 yrs | 43 |
+| manufacturing | Process | 8+ yrs | 43 |
 | logistics | Logistics Executive | 0-3 yrs | 41 |
 | logistics | Logistics Executive | 8+ yrs | 41 |
-| … | _8 more_ | | |
+| commercial | Recruitment / TA | 0-3 yrs | 41 |
+| … | _6 more_ | | |
 
 ## 4. Role names worth a second look
 

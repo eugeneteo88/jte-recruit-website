@@ -25,7 +25,7 @@ const raw = JSON.parse(readFileSync(join(ROOT, 'salary-data.json'), 'utf8'));
 const ov = JSON.parse(readFileSync(join(ROOT, 'salary-overrides.json'), 'utf8'));
 
 const MIN_N = 20;            // postings needed before we publish a band at all
-const FLOOR = ov.floor.amount;
+const GLOBAL_FLOOR = ov.floor.amount;
 const PRO_MAP = { 'Junior': '0-3 yrs', 'Mid': '3-8 yrs', 'Senior / Lead': '8+ yrs' };
 
 const r50 = (n) => Math.round(n / 50) * 50;
@@ -33,6 +33,9 @@ const stats = { floorRaised: 0, backwards: 0, thinDropped: 0, collapsed: 0, veri
 const notes = [];
 
 function resolveRole(sectorSlug, role) {
+  // A sector can set its own floor. Manufacturing runs lower basics with OT
+  // doing the work, so the S$2,500 guide would publish wrong numbers there.
+  const FLOOR = ov.sectors[sectorSlug]?.floor?.amount ?? GLOBAL_FLOOR;
   const key = `${sectorSlug}/${role.name}`;
   const cfg = ov.roles[key] || { track: ov.sectors[sectorSlug]?.defaultTrack || 'professional' };
   const track = cfg.track;
@@ -156,7 +159,8 @@ const resolved = {
   tracks: ov.tracks,
   sectors: raw.sectors.map((s) => {
     const roles = s.roles.map((r) => resolveRole(s.slug, r)).filter((r) => r.published);
-    return { slug: s.slug, name: s.name, n: s.n, roles };
+    const cfg = ov.sectors[s.slug] || {};
+    return { slug: s.slug, name: s.name, n: s.n, roles, floor: cfg.floor || null, note: cfg.note || null };
   }),
 };
 
@@ -165,7 +169,7 @@ writeFileSync(join(ROOT, 'salary-resolved.json'), JSON.stringify(resolved, null,
 const before = raw.sectors.reduce((a, s) => a + s.roles.length, 0);
 const after = resolved.sectors.reduce((a, s) => a + s.roles.length, 0);
 console.log(`resolve-salary: ${before} roles in -> ${after} published`);
-console.log(`  floor raised to S$${FLOOR}: ${stats.floorRaised} band(s)`);
+console.log(`  floor raised (sector floor, default S$${GLOBAL_FLOOR}): ${stats.floorRaised} band(s)`);
 console.log(`  backwards bands dropped:   ${stats.backwards}`);
 console.log(`  thin bands dropped (<${MIN_N}):  ${stats.thinDropped}`);
 console.log(`  operative ladders collapsed: ${stats.collapsed}`);

@@ -288,7 +288,9 @@
           "flags": [],
           "published": true
         }
-      ]
+      ],
+      "floor": null,
+      "note": null
     },
     {
       "slug": "logistics",
@@ -602,7 +604,9 @@
           "flags": [],
           "published": true
         }
-      ]
+      ],
+      "floor": null,
+      "note": null
     },
     {
       "slug": "manufacturing",
@@ -614,7 +618,7 @@
           "originalName": "Production",
           "track": "operative",
           "n": 209,
-          "scope": null,
+          "scope": "Production and line work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
@@ -623,14 +627,27 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
-              "high": 3000,
-              "n": 135,
-              "floored": true
+              "low": 2000,
+              "high": 2300,
+              "n": 209,
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
             },
-            "Gross": null
+            "Gross": {
+              "low": 3000,
+              "high": null,
+              "n": 209,
+              "verified": true,
+              "openEnded": true,
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
@@ -698,10 +715,9 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
+              "low": 2250,
               "high": 3000,
-              "n": 35,
-              "floored": true
+              "n": 35
             },
             "3-8 yrs": {
               "low": 3500,
@@ -742,7 +758,7 @@
           "originalName": "Machine Operator",
           "track": "operative",
           "n": 55,
-          "scope": null,
+          "scope": "Machine minding, loading, monitoring, basic checks.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
@@ -751,22 +767,33 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
+              "low": 2000,
+              "high": 2300,
+              "n": 55,
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            },
+            "Gross": {
+              "low": 3000,
               "high": null,
               "n": 55,
-              "floored": true,
+              "verified": true,
               "openEnded": true,
-              "needsJte": true
-            },
-            "Gross": null
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
           "name": "Process",
           "originalName": "Process",
-          "track": "operative",
+          "track": "professional",
           "n": 43,
           "scope": null,
           "basis": "basic",
@@ -776,12 +803,13 @@
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Basic": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
               "low": 4250,
               "high": 5750,
               "n": 27
             },
-            "Gross": null
+            "8+ yrs": null
           },
           "flags": [],
           "published": true
@@ -791,7 +819,7 @@
           "originalName": "Assembly / Line",
           "track": "operative",
           "n": 31,
-          "scope": null,
+          "scope": "Assembly and line work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
@@ -800,17 +828,38 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
-              "high": 3000,
+              "low": 2000,
+              "high": 2300,
               "n": 31,
-              "floored": true
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
             },
-            "Gross": null
+            "Gross": {
+              "low": 3000,
+              "high": null,
+              "n": 31,
+              "verified": true,
+              "openEnded": true,
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         }
-      ]
+      ],
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Basic monthly salary, Singapore production and operator roles",
+        "source": "JTE, November 2026",
+        "short": "In manufacturing the basic is only half the story. Aim for a gross around S$3,000.",
+        "long": "Production and operator pay runs a lower basic than most sectors, with overtime and incentives doing a lot of the work. Around S$1,800 basic is the practical minimum anyone will take. Start the basic at S$2,000 and you are in the normal range; S$2,200 to S$2,500 and you attract noticeably better production staff. But the number people actually judge is the gross, and around S$3,000 a month is what tends to win them. Fewer people want to chase overtime these days, so a package that only works with heavy OT is a harder sell."
+      },
+      "note": "Pay is only half of it here. How straightforward the scope is moves the number as much as the band does, and at the lower end of the basic range the pool is smaller and the search takes longer. Tell us the scope and we will tell you what it will actually take to fill."
     },
     {
       "slug": "healthcare",
@@ -1061,7 +1110,9 @@
           "flags": [],
           "published": true
         }
-      ]
+      ],
+      "floor": null,
+      "note": null
     },
     {
       "slug": "commercial",
@@ -1332,7 +1383,9 @@
           "flags": [],
           "published": true
         }
-      ]
+      ],
+      "floor": null,
+      "note": null
     },
     {
       "slug": "it",
@@ -1671,7 +1724,9 @@
           "flags": [],
           "published": true
         }
-      ]
+      ],
+      "floor": null,
+      "note": null
     }
   ]
 }

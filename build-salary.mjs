@@ -146,6 +146,8 @@ ${jsonld}
   .floorbox .fnum{font-family:'Playfair Display',serif;font-size:2.1rem;color:#C6A87C;line-height:1;display:block;margin-bottom:.5rem}
   .floorbox .fhead{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:.6rem;color:#F5F1E8}
   .floorbox p{font-size:.88rem;line-height:1.65;color:#cdbfa7;font-weight:300}
+  .secnote{border-left:3px solid #C6A87C;padding:.15rem 0 .15rem 1rem}
+  .secnote p{font-size:.9rem;line-height:1.7;color:#4b5563;font-weight:300;margin:0}
   .floorbox .fnote{font-size:.8rem;color:#b8a888;margin-top:.7rem;padding-top:.7rem;border-top:1px solid rgba(198,168,124,.22)}
   .floorbox .fsrc{font-size:.72rem;color:#8a8175;margin-top:.8rem}
   @media(max-width:640px){.floorbox{padding:1.2rem 1.1rem}.floorbox .fnum{font-size:1.7rem}}
@@ -366,16 +368,19 @@ const reportCTA = `
 /* The S$2,500 reality. This is JTE's read, not advertised data, and it is the
    most useful thing on the page: it tells an employer what their budget will
    actually get them, which is the question behind every salary search. */
-const floorBox = `
+const floorBoxFor = (sector) => {
+  const f = (sector && sector.floor) || data.floor;
+  return `
   <section class="px-6 md:px-12 pb-10">
     <div class="floorbox">
-      <span class="fnum">S$${fmt(data.floor.amount)}</span>
-      <div class="fhead">${esc(data.floor.short)}</div>
-      <p>${esc(data.floor.long)}</p>
-      ${data.floor.exemptNote ? `<p class="fnote">${esc(data.floor.exemptNote)}</p>` : ''}
-      <p class="fsrc">${esc(data.floor.appliesTo)} &middot; ${esc(data.floor.source)}</p>
+      <span class="fnum">S$${fmt(f.amount)}</span>
+      <div class="fhead">${esc(f.short)}</div>
+      <p>${esc(f.long)}</p>
+      ${!sector || !sector.floor ? (data.floor.exemptNote ? `<p class="fnote">${esc(data.floor.exemptNote)}</p>` : '') : ''}
+      <p class="fsrc">${esc(f.appliesTo)} &middot; ${esc(f.source)}</p>
     </div>
   </section>`;
+};
 
 /* legend, built from whichever tracks a sector actually uses */
 const legendFor = (sector) => {
@@ -453,7 +458,8 @@ function sectorPage(sec) {
     </div>
   </header>
 
-${floorBox}
+${floorBoxFor(sec)}
+${sec.note ? `  <section class="px-6 md:px-12 pb-8"><div class="max-w-4xl mx-auto secnote"><p>${esc(sec.note)}</p></div></section>` : ''}
   <!-- TABLE -->
   <section class="px-6 md:px-12 pb-6">
     <div class="max-w-4xl mx-auto">
@@ -572,7 +578,7 @@ ${cards}
       <p class="text-[#cdbfa7] text-sm md:text-base font-light leading-relaxed" style="max-width:62ch">We&rsquo;ve placed talent across Singapore since 2014. Sharing what we know about the market is how we start the relationship, no cost, no obligation. If the data helps you hire on your own, wonderful. If you&rsquo;d rather we handle it, we&rsquo;re right here.</p>
     </div>
   </section>
-${floorBox}
+${floorBoxFor(null)}
 ${disclaimer}
 ${faqSection('index')}
 ${reportCTA}
