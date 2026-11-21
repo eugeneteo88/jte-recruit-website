@@ -222,9 +222,18 @@
       "track": "professional"
     },
     "manufacturing/Technician": {
-      "track": "operative",
+      "track": "scope",
       "scope": "Maintenance, setup and line support.",
-      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
+      "basicNote": "A broad title, so the job scope decides the number. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing sits a little under engineering for equivalent technical work.",
+      "pay": {
+        "Typical range": {
+          "low": 2700,
+          "high": 3200,
+          "note": "scope drives this more than years do"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
     },
     "manufacturing/Quality (QA / QC)": {
       "track": "professional"
@@ -296,17 +305,17 @@
     },
     "healthcare/Care / Support Staff": {
       "track": "operative",
-      "scope": "Care staff and healthcare assistant work in community care.",
+      "scope": "Healthcare assistant and care staff. Certification needed, but easier to get than nursing.",
       "pay": {
         "Basic": {
-          "low": 2480,
-          "high": 3300,
-          "note": "entry to experienced"
+          "low": 2500,
+          "high": 3200,
+          "note": "start at the floor and expect a slow search"
         }
       },
-      "verifiedNote": "JTE, Nov 2026. Base salary, not gross. Overtime and allowances on top.",
+      "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21",
-      "basicNote": "Depends a lot on what kind of care the role covers. Allowances only really come in when the job requires going out to clients, so for most of these the basic is close to what the person takes home."
+      "basicNote": "Lower than nursing because the certification is easier to get, but do not read that as cheap. Even at S$2,500 this is a difficult hire now, so S$2,500 is where we would start rather than where we would aim. Allowances only really come in when the job requires going out to clients, so for most of these the basic is close to what the person takes home."
     },
     "healthcare/Physiotherapist": {
       "track": "professional"

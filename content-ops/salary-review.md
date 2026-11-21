@@ -102,7 +102,6 @@ Sector note on the page: _Pay is only half of it here. How straightforward the s
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
 | Production | $2,000 – $2,300 | from $3,000 | **JTE** | 205 |
-| Technician | $2,400 – $3,200 | — | ad data | 129 |
 | Machine Operator | $2,000 – $2,300 | from $3,000 | **JTE** | 45 |
 | Assembly / Line | $2,000 – $2,300 | from $3,000 | **JTE** | 28 |
 
@@ -113,6 +112,12 @@ Sector note on the page: _Pay is only half of it here. How straightforward the s
 | Manufacturing Engineer | $3,250 – $4,200 | $4,150 – $5,750 | — | ad data | 170 |
 | Quality (QA / QC) | $2,250 – $3,200 | $3,750 – $4,750 | — | ad data | 81 |
 | Production Supervisor | $3,550 – $4,500 | $3,750 – $4,650 | — | ad data | 63 |
+
+**Priced by scope** — Typical range
+
+| Role | Typical range | Where from | Postings |
+|---|---|---|---|
+| Technician | $2,700 – $3,200 | **JTE** | 129 |
 
 ### Healthcare
 
@@ -138,7 +143,7 @@ Sector note on the page: _Pay here depends more on which band a role sits in tha
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
 | Clinic Assistant | $2,500 – $3,000 | — | **JTE** | 265 |
-| Care / Support Staff | $2,480 – $3,300 | — | **JTE** | 228 |
+| Care / Support Staff | $2,500 – $3,200 | — | **JTE** | 228 |
 | Patient Service Associate | $2,600 – $3,100 | — | **JTE** | 39 |
 
 ### Commercial & Support
@@ -218,12 +223,13 @@ basic bands, but they are a useful sanity check.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 - Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **13**
+Roles carrying your figures so far: **14**
 
 - Engineering Technician (engineering)
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
+- Technician (manufacturing)
 - Machine Operator (manufacturing)
 - Assembly  (manufacturing)
 - Clinic Assistant (healthcare)

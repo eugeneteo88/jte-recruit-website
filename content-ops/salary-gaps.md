@@ -35,7 +35,7 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 8 |
 | it | UI / UX Designer | 6 |
 
-## 3. Published roles with a blank band (58)
+## 3. Published roles with a blank band (57)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
@@ -56,7 +56,6 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | healthcare | Physiotherapist | 8+ yrs | 144 |
 | engineering | Project Manager | 0-3 yrs | 142 |
 | engineering | Electrical Engineer | 8+ yrs | 131 |
-| manufacturing | Technician | Gross | 129 |
 | engineering | Project Engineer | 8+ yrs | 125 |
 | engineering | Mechanical Engineer | 8+ yrs | 105 |
 | it | Application Engineer | 0-3 yrs | 98 |
