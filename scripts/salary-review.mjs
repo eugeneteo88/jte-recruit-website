@@ -55,12 +55,26 @@ L.push(`MOM's Occupational Wages puts the **gross** median for a healthcare assi
 L.push('Our guide currently shows healthcare hands-on roles at a **basic** floored up to S$2,500.');
 L.push('');
 L.push('A gross median below our basic floor means the floor is wrong for healthcare, the same way it');
-L.push('was wrong for manufacturing. I have not changed it, because the right number is yours to give,');
-L.push('but I would not trust any healthcare hands-on figure on the guide today.');
+L.push('was wrong for manufacturing. The guidelines below now give us something to check the floor');
+L.push('against, and the floored ranges sit inside the official bands, so the figures are less shaky');
+L.push('than they looked — but the floor itself is still yours to set, and I have not changed it.');
 L.push('');
-L.push('The official Community Care salary guidelines would settle it. The PDF is behind CloudFront and');
-L.push('returns 403 to us. If you can open it and paste the table, that one document probably fixes every');
-L.push('healthcare hands-on role at once.');
+L.push('The official Community Care salary guidelines are now read, directly from the');
+L.push('Agency for Integrated Care PDF published 8 April 2026 (Muse, 20 Nov 2026, now');
+L.push('primary in salary-research.json under communityCare). What they say, in base salary:');
+L.push('a Healthcare Assistant / Care Staff sits in Band 3, starting $2,480, mid-point $3,300.');
+L.push('Our Care / Support Staff shows basic $2,500 - $2,900, floored, which sits inside Band 3,');
+L.push('so the $2,500 basic floor is defensible for that role, but only just: Band 3 starts');
+L.push('at $2,480, $20 below the floor. Patient Service now shows basic $2,500 - $2,750,');
+L.push('no longer floored or open-ended after the 21 Nov data refresh; that range sits');
+L.push('mostly inside the guidelines\' administrative Band 4 ($2,580 - $4,020), with its');
+L.push('bottom just below Band 4\'s starting point. No figure has been changed.');
+L.push('The floor decision is yours, and the numbers above are the evidence for it.');
+L.push('');
+L.push('MOM\'s own wage table is now read too, directly from stats.mom.gov.sg (Table 4,');
+L.push('June 2025, Muse, 20 Nov 2026), so the benchmarks below are primary. The check');
+L.push('corrected one figure: healthcare assistant gross median was $2,432 second-hand,');
+L.push('the table says $2,410. RN, pharmacist and physiotherapist matched exactly.');
 L.push('');
 
 // ---- roles ----

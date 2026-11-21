@@ -1,6 +1,6 @@
 # Salary guide: everything, for your review
 
-Generated 2026-11-20. Market pull dated 2026-07-25, 9,487 postings.
+Generated 2026-11-21. Market pull dated 2026-11-21, 9,608 postings.
 
 Every published role is below with where its number came from. Mark up anything that
 looks wrong and I will put it in as a JTE figure, which then survives every weekly refresh.
@@ -14,16 +14,30 @@ looks wrong and I will put it in as a JTE figure, which then survives every week
 
 ## Read this first
 
-MOM's Occupational Wages puts the **gross** median for a healthcare assistant at **S$2,432**.
+MOM's Occupational Wages puts the **gross** median for a healthcare assistant at **S$2,410**.
 Our guide currently shows healthcare hands-on roles at a **basic** floored up to S$2,500.
 
 A gross median below our basic floor means the floor is wrong for healthcare, the same way it
-was wrong for manufacturing. I have not changed it, because the right number is yours to give,
-but I would not trust any healthcare hands-on figure on the guide today.
+was wrong for manufacturing. The guidelines below now give us something to check the floor
+against, and the floored ranges sit inside the official bands, so the figures are less shaky
+than they looked — but the floor itself is still yours to set, and I have not changed it.
 
-The official Community Care salary guidelines would settle it. The PDF is behind CloudFront and
-returns 403 to us. If you can open it and paste the table, that one document probably fixes every
-healthcare hands-on role at once.
+The official Community Care salary guidelines are now read, directly from the
+Agency for Integrated Care PDF published 8 April 2026 (Muse, 20 Nov 2026, now
+primary in salary-research.json under communityCare). What they say, in base salary:
+a Healthcare Assistant / Care Staff sits in Band 3, starting $2,480, mid-point $3,300.
+Our Care / Support Staff shows basic $2,500 - $2,900, floored, which sits inside Band 3,
+so the $2,500 basic floor is defensible for that role, but only just: Band 3 starts
+at $2,480, $20 below the floor. Patient Service now shows basic $2,500 - $2,750,
+no longer floored or open-ended after the 21 Nov data refresh; that range sits
+mostly inside the guidelines' administrative Band 4 ($2,580 - $4,020), with its
+bottom just below Band 4's starting point. No figure has been changed.
+The floor decision is yours, and the numbers above are the evidence for it.
+
+MOM's own wage table is now read too, directly from stats.mom.gov.sg (Table 4,
+June 2025, Muse, 20 Nov 2026), so the benchmarks below are primary. The check
+corrected one figure: healthcare assistant gross median was $2,432 second-hand,
+the table says $2,410. RN, pharmacist and physiotherapist matched exactly.
 
 ## Every role
 
@@ -37,20 +51,22 @@ Sector note on the page: _Two different entry points here. ITE-level technical r
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Engineer (general) | $3,500 – $5,300 | $4,400 – $6,750 | $5,000 – $10,500 | ad data | 667 |
-| Electrical Engineer | $3,100 – $4,250 | $3,900 – $5,750 | — | ad data | 149 |
-| Project Manager | — | $5,250 – $8,500 | $6,000 – $10,000 | ad data | 148 |
-| Project Engineer | $3,400 – $4,250 | $4,000 – $5,250 | — | ad data | 140 |
-| Mechanical Engineer | $3,000 – $4,250 | $4,150 – $6,250 | — | ad data | 114 |
-| Civil / Structural Engineer | — | $4,050 – $6,000 | — | ad data | 85 |
-| Site Engineer | — | $4,200 – $5,250 | — | ad data | 47 |
-| Maintenance Engineer | $2,900 – $3,750 | $3,500 – $6,250 | — | ad data | 45 |
+| Engineer (general) | $3,250 – $5,500 | $4,500 – $6,500 | $5,500 – $9,500 | ad data | 702 |
+| Project Manager | — | $4,500 – $7,000 | $6,000 – $9,500 | ad data | 142 |
+| Electrical Engineer | $3,250 – $4,300 | $4,050 – $6,000 | — | ad data | 131 |
+| Project Engineer | $3,500 – $4,500 | $3,900 – $5,250 | — | ad data | 125 |
+| Mechanical Engineer | $2,750 – $3,900 | $4,000 – $6,000 | — | ad data | 105 |
+| Civil / Structural Engineer | — | $4,500 – $6,250 | — | ad data | 88 |
+| Maintenance Engineer | $2,750 – $3,750 | $3,250 – $4,750 | — | ad data | 49 |
+| Process Engineer | — | $4,600 – $6,250 | — | ad data | 40 |
+| Site Engineer | — | $3,750 – $5,250 | — | ad data | 33 |
+| Design Engineer | — | $5,000 – $7,500 | — | ad data | 24 |
 
 **Hands-on roles** — Basic · Gross
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Engineering Technician | $2,500 – $3,150 | — | ad data, floored | 155 |
+| Engineering Technician | $2,500 – $3,400 | — | ad data | 151 |
 
 ### Logistics & Supply Chain
 
@@ -60,21 +76,20 @@ Floor in use: **S$2,500**
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Warehouse Assistant | $2,500 – $2,900 | $3,500 – $4,000 | **JTE** | 450 |
-| Driver | $1,800 – $2,500 | $3,000 – $4,000 | **JTE** | 441 |
+| Warehouse Assistant | $2,500 – $2,900 | $3,500 – $4,000 | **JTE** | 515 |
+| Driver | $1,800 – $2,500 | $3,000 – $4,000 | **JTE** | 426 |
 
 **Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Operations Executive | $2,500 – $3,400 | $3,500 – $5,500 | $6,300 – $12,500 | ad data | 252 |
-| Shipping / Freight | $2,750 – $3,250 | $3,050 – $4,150 | $4,750 – $6,500 | ad data | 236 |
-| Procurement / Purchasing | $2,650 – $3,250 | $3,400 – $4,500 | $5,750 – $12,000 | ad data | 218 |
-| Logistics (general) | $2,500 – $3,000 | $3,350 – $5,500 | $6,000 – $10,000 | ad data, floored | 179 |
-| Supply Chain Executive | $2,750 – $3,650 | $3,500 – $5,750 | $6,250 – $14,000 | ad data | 97 |
-| Planner | — | $4,150 – $5,600 | — | ad data | 56 |
-| Logistics Coordinator | $2,500 – $3,200 | — | — | ad data | 43 |
-| Logistics Executive | — | $3,250 – $4,000 | — | ad data | 41 |
+| Operations Executive | $2,750 – $3,500 | $3,250 – $4,500 | $6,000 – $10,250 | ad data | 296 |
+| Procurement / Purchasing | $2,750 – $3,500 | $3,400 – $4,750 | $6,250 – $11,000 | ad data | 220 |
+| Shipping / Freight | $2,750 – $3,250 | $3,150 – $4,500 | $5,500 – $8,500 | ad data | 188 |
+| Logistics (general) | $2,500 – $3,000 | $3,200 – $4,750 | $7,850 – $10,500 | ad data, floored | 179 |
+| Supply Chain Executive | $3,000 – $4,250 | $3,550 – $5,000 | $6,000 – $10,500 | ad data | 95 |
+| Planner | $2,950 – $4,050 | $3,750 – $5,250 | — | ad data | 62 |
+| Logistics Executive | — | $3,500 – $4,500 | — | ad data | 31 |
 
 ### Manufacturing
 
@@ -86,19 +101,18 @@ Sector note on the page: _Pay is only half of it here. How straightforward the s
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Production | $2,000 – $2,300 | from $3,000 | **JTE** | 209 |
-| Technician | $2,500 – $3,450 | — | ad data | 153 |
-| Machine Operator | $2,000 – $2,300 | from $3,000 | **JTE** | 55 |
-| Assembly / Line | $2,000 – $2,300 | from $3,000 | **JTE** | 31 |
+| Production | $2,000 – $2,300 | from $3,000 | **JTE** | 205 |
+| Technician | $2,400 – $3,200 | — | ad data | 129 |
+| Machine Operator | $2,000 – $2,300 | from $3,000 | **JTE** | 45 |
+| Assembly / Line | $2,000 – $2,300 | from $3,000 | **JTE** | 28 |
 
 **Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Manufacturing Engineer | $3,400 – $4,750 | $4,000 – $6,000 | — | ad data | 159 |
-| Quality (QA / QC) | $2,250 – $3,000 | $3,500 – $5,250 | — | ad data | 83 |
-| Production Supervisor | — | $3,850 – $4,750 | — | ad data | 64 |
-| Process | — | $4,250 – $5,750 | — | ad data | 43 |
+| Manufacturing Engineer | $3,250 – $4,200 | $4,150 – $5,750 | — | ad data | 170 |
+| Quality (QA / QC) | $2,250 – $3,200 | $3,750 – $4,750 | — | ad data | 81 |
+| Production Supervisor | $3,550 – $4,500 | $3,750 – $4,650 | — | ad data | 63 |
 
 ### Healthcare
 
@@ -108,20 +122,21 @@ Floor in use: **S$2,500**
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Nurse | $3,000 – $4,250 | $3,750 – $4,750 | $6,450 – $8,000 | ad data | 651 |
-| Therapist | $3,250 – $4,500 | $4,500 – $6,000 | — | ad data | 259 |
-| Physiotherapist | $4,250 – $5,250 | $5,000 – $7,000 | — | ad data | 144 |
-| Pharmacy | $2,500 – $3,400 | $4,750 – $5,600 | — | ad data, floored | 138 |
-| Medical / Allied Health | $2,500 – $4,000 | $3,600 – $5,750 | — | ad data | 100 |
-| Laboratory | $2,500 – $3,150 | — | — | ad data, floored | 46 |
+| Nurse | $3,250 – $4,250 | $3,850 – $4,750 | $6,250 – $7,500 | ad data | 716 |
+| Therapist | $3,250 – $4,750 | $4,750 – $6,750 | — | ad data | 203 |
+| Pharmacy | $2,500 – $3,400 | $3,600 – $5,500 | — | ad data, floored | 197 |
+| Physiotherapist | $3,750 – $5,500 | $5,400 – $7,500 | — | ad data | 144 |
+| Medical / Allied Health | $3,200 – $4,500 | $4,250 – $5,500 | — | ad data | 79 |
+| Laboratory | $2,600 – $4,100 | $4,900 – $5,550 | — | ad data | 55 |
+| Radiographer | — | $5,000 – $6,500 | — | ad data | 44 |
 
 **Hands-on roles** — Basic · Gross
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Clinic Staff | $2,500 – $3,000 | — | ad data, floored | 245 |
-| Care / Support Staff | $2,500 – $2,900 | — | ad data, floored | 191 |
-| Patient Service | from $2,500 | — | ad data, floored | 27 |
+| Clinic Staff | $2,500 – $2,900 | — | ad data | 265 |
+| Care / Support Staff | $2,500 – $2,900 | — | ad data, floored | 228 |
+| Patient Service | $2,500 – $2,750 | — | ad data | 39 |
 
 ### Commercial & Support
 
@@ -131,21 +146,20 @@ Floor in use: **S$2,500**
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Sales Executive | $3,000 – $4,000 | $3,250 – $4,850 | $4,750 – $9,000 | ad data | 386 |
-| Accountant / Accounts | $2,650 – $3,400 | $3,150 – $4,400 | $4,800 – $7,250 | ad data | 272 |
-| Marketing | $3,750 – $4,250 | — | $5,750 – $9,000 | ad data | 210 |
-| Finance | — | $3,650 – $5,500 | $6,000 – $10,950 | ad data | 108 |
-| Customer Service | $2,600 – $3,200 | — | — | ad data | 61 |
-| Audit / Tax | — | $3,750 – $5,000 | — | ad data | 60 |
-| Business Analyst | — | $5,150 – $7,000 | — | ad data | 56 |
-| Business Development | — | $4,500 – $6,250 | — | ad data | 49 |
-| Recruitment / TA | — | $3,650 – $5,250 | — | ad data | 41 |
+| Sales Executive | $2,750 – $4,000 | $3,250 – $4,750 | $5,000 – $9,000 | ad data | 387 |
+| Accountant / Accounts | $2,650 – $3,500 | $3,350 – $4,800 | $5,250 – $9,250 | ad data | 258 |
+| Marketing | $3,300 – $4,150 | $3,350 – $4,500 | $4,600 – $7,500 | ad data | 120 |
+| Finance | — | $3,750 – $5,500 | $5,250 – $8,500 | ad data | 95 |
+| Customer Service | $2,500 – $3,250 | $2,900 – $3,750 | — | ad data | 95 |
+| Business Development | — | $3,400 – $5,500 | $6,500 – $10,250 | ad data | 66 |
+| Business Analyst | — | $4,250 – $7,500 | — | ad data | 59 |
+| Audit / Tax | — | $3,750 – $6,000 | — | ad data | 53 |
 
 **Hands-on roles** — Basic · Gross
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Admin / Secretarial | $2,500 – $3,000 | — | ad data, floored | 315 |
+| Admin / Secretarial | $2,500 – $3,100 | — | ad data, floored | 309 |
 
 ### IT & Tech
 
@@ -155,19 +169,19 @@ Floor in use: **S$2,500**
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Software Engineer | $4,150 – $6,650 | $6,050 – $9,000 | — | ad data | 263 |
-| Software Developer | $4,150 – $6,750 | $6,000 – $9,000 | — | ad data | 228 |
-| Cybersecurity | — | $6,000 – $9,500 | $7,500 – $14,000 | ad data | 194 |
-| DevOps / Cloud Engineer | — | $6,900 – $10,000 | — | ad data | 170 |
-| Network / Infrastructure | $3,600 – $5,400 | $5,150 – $8,600 | — | ad data | 144 |
-| IT Business Analyst | — | $6,250 – $9,500 | — | ad data | 100 |
-| IT Project Manager | — | $7,000 – $10,000 | — | ad data | 95 |
-| Application Engineer | — | $5,850 – $9,500 | — | ad data | 85 |
-| Data Engineer | — | $7,050 – $9,000 | — | ad data | 67 |
-| IT Support / Helpdesk | $2,600 – $3,400 | $3,000 – $4,550 | — | ad data | 61 |
-| Systems Engineer | — | $4,500 – $6,750 | — | ad data | 54 |
-| QA / Test Engineer | — | $5,500 – $9,000 | — | ad data | 28 |
-| Data Scientist | — | $6,750 – $9,500 | — | ad data | 27 |
+| Software Engineer | $5,000 – $8,150 | $6,500 – $10,000 | — | ad data | 293 |
+| Cybersecurity | — | $6,000 – $9,250 | $7,500 – $12,000 | ad data | 214 |
+| Network / Infrastructure | $3,500 – $5,400 | $5,000 – $9,000 | — | ad data | 188 |
+| Software Developer | — | $6,000 – $9,500 | — | ad data | 187 |
+| DevOps / Cloud Engineer | — | $6,500 – $10,000 | — | ad data | 156 |
+| Application Engineer | — | $5,550 – $10,000 | $8,000 – $13,000 | ad data | 98 |
+| IT Business Analyst | — | $6,650 – $9,000 | — | ad data | 98 |
+| IT Project Manager | — | $7,750 – $10,000 | — | ad data | 84 |
+| Data Engineer | — | $7,000 – $9,750 | — | ad data | 70 |
+| IT Support / Helpdesk | $2,900 – $3,800 | $3,000 – $4,250 | — | ad data | 65 |
+| Systems Engineer | — | $5,000 – $7,500 | — | ad data | 60 |
+| QA / Test Engineer | — | $5,250 – $8,000 | — | ad data | 31 |
+| Data Scientist | — | $7,500 – $11,500 | — | ad data | 28 |
 
 ## Official benchmarks I found
 
@@ -176,27 +190,27 @@ basic bands, but they are a useful sanity check.
 
 | Role | Median gross | Also seen | Note |
 |---|---|---|---|
-| Registered Nurse | S$5,210 | S$5,276 | Median across all experience, not a starting figure. |
-| Pharmacist | S$5,612 | S$5,466 | Patient care pharmacist. |
-| Physiotherapist | S$5,349 | S$4,814 | The two figures are a year apart, so the gap is probably the 2024 to 2025 move. |
-| Healthcare Assistant | S$2,432 | — | MATTERS: this is a gross median and it sits BELOW our S$2,500 basic floor. Healthcare hands-on pay looks like manufacturing, not like logistics. |
+| Registered Nurse | S$5,210 | — | Median across all experience, not a starting figure. The 5,276 figure seen elsewhere does not appear in the June 2025 table. |
+| Pharmacist | S$5,612 | — | Patient care pharmacist. The 5,466 figure seen elsewhere does not appear in the June 2025 table. |
+| Physiotherapist | S$5,349 | — | The two figures seen earlier are a year apart, so the gap is probably the 2024 to 2025 move. The 4,814 figure does not appear in the June 2025 table. |
+| Healthcare Assistant | S$2,410 | — | CORRECTED 20 Nov 2026: was 2,432 second-hand; MOM Table 4 (all industries) says 2,410. Health and social services median is 2,476. MATTERS: this is a gross median and it sits BELOW our S$2,500 basic floor. Healthcare hands-on pay looks like manufacturing, not like logistics. |
+| Enrolled/Assistant Nurse | S$3,439 | — | Excluding registered nurse. Compare the Community Care guidelines: Enrolled Nurse N2B starts at $2,050 base, mid-point $3,570. |
 
 ### How much to trust them
 
-**MOM Occupational Wages** (secondary) — Median, 25th and 75th percentile gross monthly wage by occupation. Covers 523 occupations. Citizens and PRs only. Gross, before employee CPF and tax, excluding bonuses.
-  _stats.mom.gov.sg returns 403 to us, so these were read off sites citing MOM rather than from MOM's own table. Two sites give slightly different numbers for the same roles. Treat as indicative until the primary table is read._
-
-**Salary Guidelines for the Community Care Sector** (blocked) — Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.
-  _The PDF is hosted behind CloudFront and returns 403 to both our curl and the fetch proxy. This is the single best source for care and support staff and it is still unread._
+**Salary Guidelines for the Community Care Sector** (primary) — Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.
+  _Figures are monthly BASE salary (starting and mid-point of the range), not monthly gross. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Guidelines are recommendations, not mandatory; MOH asks CCOs below the published salaries to adjust by early 2027. Average housing allowance for foreign staff is about $500 a month._
 
 **MyCareersFuture** (primary) — Advertised basic salary on live job postings, aggregated to 25th-75th percentile by role and seniority.
   _Advertised pay, not agreed pay, and it is a basic figure. Understates roles where overtime and allowances carry the package._
 
+**MOM Occupational Wages** (primary) — Median, 25th and 75th percentile gross monthly wage by occupation. Covers 523 occupations. Citizens and PRs only. Gross, before employee CPF and tax, excluding bonuses.
+  _Table 4 read directly 20 Nov 2026 from MOM's own download (mrsd_2025Wages_table4.xlsx, Occupational Wage 2025 Statistical Tables, June 2025). Coverage, from MOM's Coverage and Methodology note: full-time resident employees in private-sector establishments with at least 25 employees (5,230 establishments, about 391,300 employees, 98% response rate), supplemented with administrative records. Excludes apprentices/trainees, temporary, part-time and piece-rated workers, and anyone who worked only part of June 2025. Gross = basic + overtime, commissions and allowances, before employee CPF and tax; it excludes employer CPF, bonuses, stock options, lump sums and payments-in-kind. The earlier second-hand figures were checked against it: RN, pharmacist and physiotherapist matched exactly; healthcare assistant did not._
+
 ## What I still need
 
-- Community care guidelines PDF unread. It is the right source for care and support staff and patient service.
-- MOM's own wage table unread, so every mom_ows figure above is second-hand.
 - No official source found yet for commercial admin and secretarial.
+- Healthcare floor: the Community Care guidelines are now read (see communityCare). Eugene to decide whether the $2,500 basic floor holds for healthcare hands-on roles, or drops toward the guidelines' Band 3 starting point of $2,480.
 
 Roles carrying your figures so far: **5**
 
