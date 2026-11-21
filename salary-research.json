@@ -18,14 +18,16 @@
   "gathered": "2026-11-20",
   "sources": {
     "community_care_guidelines": {
-      "caveat": "Figures are monthly BASE salary (starting and mid-point of the range), not monthly gross. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Guidelines are recommendations, not mandatory; MOH asks CCOs below the published salaries to adjust by early 2027. Average housing allowance for foreign staff is about $500 a month.",
+      "caveat": "Figures are monthly BASE salary (starting and mid-point of the band), not gross. The document says so explicitly: it 'does not refer to the monthly gross salaries'. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Issued jointly by MOH and AIC. The job roles listed are examples and non-exhaustive. The document reminds CCOs to meet the prevailing PWM or Occupational Progressive Wages for Singapore citizens and PRs.",
       "confidence": "primary",
       "name": "Salary Guidelines for the Community Care Sector",
       "readBy": "Muse, read directly from the PDF on the Agency for Integrated Care host",
       "readOn": "2026-11-20",
       "reference": "Published as of 8 April 2026",
       "url": "https://edge.sitecorecloud.io/agencyforinb6cc-agencyforin73f5-production08ac-d178/media/agency-for-integrated-care/Files/Partners/2026-Community-Care-Salary-Guidelines.pdf",
-      "what": "Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in."
+      "what": "Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.",
+      "verifiedBy": "Claude, downloaded and read the PDF directly 2026-11-21, independently of Muse's read",
+      "correction": "An earlier note here said MOH asks CCOs below the guidelines to adjust by early 2027. That is NOT in the document. The PDF is a single page and contains no occurrence of '2027', 'adjust', 'comply', 'encourage', 'expect' or 'review'. Claim withdrawn and never published."
     },
     "mcf": {
       "caveat": "Advertised pay, not agreed pay, and it is a basic figure. Understates roles where overtime and allowances carry the package.",
@@ -293,6 +295,7 @@
   },
   "openQuestions": [
     "No official source found yet for commercial admin and secretarial.",
-    "Healthcare floor: the Community Care guidelines are now read (see communityCare). Eugene to decide whether the $2,500 basic floor holds for healthcare hands-on roles, or drops toward the guidelines' Band 3 starting point of $2,480."
+    "Our single 'Nurse' row conflates Registered and Enrolled Nurse. The guidelines price them very differently: Staff Nurse (N1C) starts at $2,730 base, Enrolled Nurse (N2B) at $2,050. Worth splitting into two roles.",
+    "Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only."
   ]
 }

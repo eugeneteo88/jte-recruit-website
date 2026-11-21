@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-21",
-  "resolvedOn": "2026-11-20",
+  "resolvedOn": "2026-11-21",
   "totalPostings": 9608,
   "floor": {
     "amount": 2500,
@@ -933,7 +933,7 @@
           "originalName": "Care / Support Staff",
           "track": "operative",
           "n": 228,
-          "scope": null,
+          "scope": "Care staff and healthcare assistant work in community care.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
@@ -942,14 +942,19 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
-              "high": 2900,
-              "n": 152,
-              "floored": true
+              "low": 2480,
+              "high": 3300,
+              "n": 228,
+              "verified": true,
+              "openEnded": false,
+              "note": "start to mid-point of the band",
+              "verifiedNote": "JTE, Nov 2026. Base salary, not gross. Overtime and allowances on top."
             },
             "Gross": null
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
@@ -994,10 +999,9 @@
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2500,
+              "low": 2000,
               "high": 3400,
-              "n": 126,
-              "floored": true
+              "n": 126
             },
             "3-8 yrs": {
               "low": 3600,
@@ -1141,8 +1145,14 @@
           "published": true
         }
       ],
-      "floor": null,
-      "note": null
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Base monthly salary, Singapore community care and support roles",
+        "source": "JTE, November 2026",
+        "short": "Care roles run on published base bands. A care staff role starts around S$2,480.",
+        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. These are base figures, so overtime, shift and other allowances sit on top of them. Clinic and hospital front-of-house roles are priced differently, and nursing is different again, so ask us rather than reading across."
+      },
+      "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
     },
     {
       "slug": "commercial",

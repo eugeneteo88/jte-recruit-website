@@ -116,7 +116,9 @@ Sector note on the page: _Pay is only half of it here. How straightforward the s
 
 ### Healthcare
 
-Floor in use: **S$2,500**
+Floor in use: **S$1,800** (sector-specific)
+
+Sector note on the page: _Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill._
 
 **Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
 
@@ -124,7 +126,7 @@ Floor in use: **S$2,500**
 |---|---|---|---|---|---|
 | Nurse | $3,250 – $4,250 | $3,850 – $4,750 | $6,250 – $7,500 | ad data | 716 |
 | Therapist | $3,250 – $4,750 | $4,750 – $6,750 | — | ad data | 203 |
-| Pharmacy | $2,500 – $3,400 | $3,600 – $5,500 | — | ad data, floored | 197 |
+| Pharmacy | $2,000 – $3,400 | $3,600 – $5,500 | — | ad data | 197 |
 | Physiotherapist | $3,750 – $5,500 | $5,400 – $7,500 | — | ad data | 144 |
 | Medical / Allied Health | $3,200 – $4,500 | $4,250 – $5,500 | — | ad data | 79 |
 | Laboratory | $2,600 – $4,100 | $4,900 – $5,550 | — | ad data | 55 |
@@ -135,7 +137,7 @@ Floor in use: **S$2,500**
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
 | Clinic Staff | $2,500 – $2,900 | — | ad data | 265 |
-| Care / Support Staff | $2,500 – $2,900 | — | ad data, floored | 228 |
+| Care / Support Staff | $2,480 – $3,300 | — | **JTE** | 228 |
 | Patient Service | $2,500 – $2,750 | — | ad data | 39 |
 
 ### Commercial & Support
@@ -199,7 +201,7 @@ basic bands, but they are a useful sanity check.
 ### How much to trust them
 
 **Salary Guidelines for the Community Care Sector** (primary) — Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.
-  _Figures are monthly BASE salary (starting and mid-point of the range), not monthly gross. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Guidelines are recommendations, not mandatory; MOH asks CCOs below the published salaries to adjust by early 2027. Average housing allowance for foreign staff is about $500 a month._
+  _Figures are monthly BASE salary (starting and mid-point of the band), not gross. The document says so explicitly: it 'does not refer to the monthly gross salaries'. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Issued jointly by MOH and AIC. The job roles listed are examples and non-exhaustive. The document reminds CCOs to meet the prevailing PWM or Occupational Progressive Wages for Singapore citizens and PRs._
 
 **MyCareersFuture** (primary) — Advertised basic salary on live job postings, aggregated to 25th-75th percentile by role and seniority.
   _Advertised pay, not agreed pay, and it is a basic figure. Understates roles where overtime and allowances carry the package._
@@ -210,12 +212,14 @@ basic bands, but they are a useful sanity check.
 ## What I still need
 
 - No official source found yet for commercial admin and secretarial.
-- Healthcare floor: the Community Care guidelines are now read (see communityCare). Eugene to decide whether the $2,500 basic floor holds for healthcare hands-on roles, or drops toward the guidelines' Band 3 starting point of $2,480.
+- Our single 'Nurse' row conflates Registered and Enrolled Nurse. The guidelines price them very differently: Staff Nurse (N1C) starts at $2,730 base, Enrolled Nurse (N2B) at $2,050. Worth splitting into two roles.
+- Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 
-Roles carrying your figures so far: **5**
+Roles carrying your figures so far: **6**
 
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
 - Machine Operator (manufacturing)
 - Assembly  (manufacturing)
+- Care  (healthcare)

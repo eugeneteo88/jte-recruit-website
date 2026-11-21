@@ -61,7 +61,15 @@
       "note": "Pay is only half of it here. How straightforward the scope is moves the number as much as the band does, and at the lower end of the basic range the pool is smaller and the search takes longer. Tell us the scope and we will tell you what it will actually take to fill."
     },
     "healthcare": {
-      "defaultTrack": "professional"
+      "defaultTrack": "professional",
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Base monthly salary, Singapore community care and support roles",
+        "source": "JTE, November 2026",
+        "short": "Care roles run on published base bands. A care staff role starts around S$2,480.",
+        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. These are base figures, so overtime, shift and other allowances sit on top of them. Clinic and hospital front-of-house roles are priced differently, and nursing is different again, so ask us rather than reading across."
+      },
+      "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
     },
     "commercial": {
       "defaultTrack": "professional"
@@ -254,7 +262,17 @@
       "track": "operative"
     },
     "healthcare/Care / Support Staff": {
-      "track": "operative"
+      "track": "operative",
+      "scope": "Care staff and healthcare assistant work in community care.",
+      "pay": {
+        "Basic": {
+          "low": 2480,
+          "high": 3300,
+          "note": "start to mid-point of the band"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026. Base salary, not gross. Overtime and allowances on top.",
+      "verifiedOn": "2026-11-21"
     },
     "healthcare/Physiotherapist": {
       "track": "professional"
