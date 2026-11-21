@@ -67,7 +67,7 @@
         "appliesTo": "Base monthly salary, Singapore community care and support roles",
         "source": "JTE, November 2026",
         "short": "Care roles run on published base bands. A care staff role starts around S$2,480.",
-        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. All of those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch: the published base bands are real, but they are not what a nurse compares. Budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
+        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. All of those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch. The published base bands are real, but they are not what a nurse compares, and they are not what closes a hire. For scale: we recently placed a dental assistant, ITE level without much experience, at S$2,800 basic with no allowances at all. A nurse carries far more responsibility than that, so budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
       },
       "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
     },
@@ -399,10 +399,25 @@
           "note": "published band, start to mid-point"
         }
       },
-      "basicNote": "Published base only, and base is the problem here. S$2,050 will not attract anyone in this market. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
+      "basicNote": "Published base only, and base is the problem here. S$2,050 will not attract anyone in this market, and it sits below what a dental assistant with little experience now costs. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21",
       "nextTo": "Nurse"
+    },
+    "healthcare/Dental Assistant": {
+      "track": "operative",
+      "extra": true,
+      "nextTo": "Clinic Staff",
+      "scope": "Chairside dental support. 5-day week, 44 hours, shift work with no midnight shift.",
+      "pay": {
+        "Basic": {
+          "low": 2800,
+          "note": "entry level, from a placement closed Nov 2026"
+        }
+      },
+      "basicNote": "No allowances on this one, so the basic is the whole package. This was an ITE-level hire without much experience, which makes S$2,800 the entry point rather than the going rate. Lower than this and the role will not close.",
+      "verifiedNote": "JTE, Nov 2026, from a placement we closed.",
+      "verifiedOn": "2026-11-21"
     }
   },
   "basis": {
