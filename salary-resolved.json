@@ -1164,11 +1164,11 @@
           "published": true
         },
         {
-          "name": "Patient Service",
+          "name": "Patient Service Associate",
           "originalName": "Patient Service",
           "track": "operative",
           "n": 39,
-          "scope": null,
+          "scope": "Registration, appointments and patient queries.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
@@ -1177,13 +1177,19 @@
           "daysPerWeek": null,
           "bands": {
             "Basic": {
-              "low": 2500,
-              "high": 2750,
-              "n": 39
+              "low": 2600,
+              "high": 3100,
+              "n": 39,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
             },
             "Gross": null
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         }
       ],

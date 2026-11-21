@@ -311,7 +311,17 @@
       "track": "professional"
     },
     "healthcare/Patient Service": {
-      "track": "operative"
+      "track": "operative",
+      "rename": "Patient Service Associate",
+      "scope": "Registration, appointments and patient queries.",
+      "pay": {
+        "Basic": {
+          "low": 2600,
+          "high": 3100
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
     },
     "healthcare/Radiographer": {
       "track": "professional"
