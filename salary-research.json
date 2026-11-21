@@ -296,6 +296,7 @@
   "openQuestions": [
     "No official source found yet for commercial admin and secretarial.",
     "Our single 'Nurse' row conflates Registered and Enrolled Nurse. The guidelines price them very differently: Staff Nurse (N1C) starts at $2,730 base, Enrolled Nurse (N2B) at $2,050. Worth splitting into two roles.",
-    "Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only."
+    "Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.",
+    "Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses."
   ]
 }

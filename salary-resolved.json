@@ -874,14 +874,14 @@
       "n": 1987,
       "roles": [
         {
-          "name": "Nurse",
+          "name": "Registered Nurse",
           "originalName": "Nurse",
           "track": "professional",
           "n": 716,
-          "scope": null,
+          "scope": "Staff nurse and above.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "The bands here are what employers advertise. The published starting band for a staff nurse is lower, around S$2,730 base, but base is not what a nurse compares. Shift and department allowances sit on top of all of these.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -906,26 +906,62 @@
           "published": true
         },
         {
+          "name": "Enrolled Nurse",
+          "originalName": "Enrolled Nurse",
+          "track": "professional",
+          "n": 0,
+          "scope": "Enrolled and assistant nurse.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Published base only, and base is the problem here. S$2,050 will not attract anyone in this market. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2050,
+              "high": 3570,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "published band, start to mid-point",
+              "verifiedNote": "JTE, Nov 2026."
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
           "name": "Clinic Staff",
           "originalName": "Clinic Staff",
           "track": "operative",
           "n": 265,
-          "scope": null,
+          "scope": "Clinic assistant, appointments and front desk.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Below S$2,500 is challenging in this market. And hiring is not the hard part, keeping someone is: without a package close to S$3,000 people move on.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "Basic": {
               "low": 2500,
-              "high": 2900,
-              "n": 136
+              "high": 2600,
+              "n": 265,
+              "verified": true,
+              "openEnded": false,
+              "note": "what employers are actually hiring at",
+              "verifiedNote": "JTE, Nov 2026."
             },
             "Gross": null
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
@@ -993,7 +1029,7 @@
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. A registered pharmacist starts materially higher, from about S$3,850 base on the published band. Ask us which one you are hiring.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -1150,7 +1186,7 @@
         "appliesTo": "Base monthly salary, Singapore community care and support roles",
         "source": "JTE, November 2026",
         "short": "Care roles run on published base bands. A care staff role starts around S$2,480.",
-        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. These are base figures, so overtime, shift and other allowances sit on top of them. Clinic and hospital front-of-house roles are priced differently, and nursing is different again, so ask us rather than reading across."
+        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. All of those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch: the published base bands are real, but they are not what a nurse compares. Budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
       },
       "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
     },

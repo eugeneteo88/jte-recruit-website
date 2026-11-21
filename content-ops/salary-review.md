@@ -124,7 +124,8 @@ Sector note on the page: _Pay here depends more on which band a role sits in tha
 
 | Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
 |---|---|---|---|---|---|
-| Nurse | $3,250 – $4,250 | $3,850 – $4,750 | $6,250 – $7,500 | ad data | 716 |
+| Registered Nurse | $3,250 – $4,250 | $3,850 – $4,750 | $6,250 – $7,500 | ad data | 716 |
+| Enrolled Nurse | $2,050 – $3,570 | — | — | **JTE** | 0 |
 | Therapist | $3,250 – $4,750 | $4,750 – $6,750 | — | ad data | 203 |
 | Pharmacy | $2,000 – $3,400 | $3,600 – $5,500 | — | ad data | 197 |
 | Physiotherapist | $3,750 – $5,500 | $5,400 – $7,500 | — | ad data | 144 |
@@ -136,7 +137,7 @@ Sector note on the page: _Pay here depends more on which band a role sits in tha
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Clinic Staff | $2,500 – $2,900 | — | ad data | 265 |
+| Clinic Staff | $2,500 – $2,600 | — | **JTE** | 265 |
 | Care / Support Staff | $2,480 – $3,300 | — | **JTE** | 228 |
 | Patient Service | $2,500 – $2,750 | — | ad data | 39 |
 
@@ -214,12 +215,15 @@ basic bands, but they are a useful sanity check.
 - No official source found yet for commercial admin and secretarial.
 - Our single 'Nurse' row conflates Registered and Enrolled Nurse. The guidelines price them very differently: Staff Nurse (N1C) starts at $2,730 base, Enrolled Nurse (N2B) at $2,050. Worth splitting into two roles.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
+- Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **6**
+Roles carrying your figures so far: **8**
 
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
 - Machine Operator (manufacturing)
 - Assembly  (manufacturing)
+- Clinic Staff (healthcare)
 - Care  (healthcare)
+- Enrolled Nurse (healthcare)

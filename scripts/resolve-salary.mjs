@@ -158,7 +158,20 @@ const resolved = {
   floor: ov.floor,
   tracks: ov.tracks,
   sectors: raw.sectors.map((s) => {
-    const roles = s.roles.map((r) => resolveRole(s.slug, r)).filter((r) => r.published);
+    // Roles that exist only because JTE says so. The scrape lumps all nurses
+    // into one bucket, but an enrolled nurse and a registered nurse are priced
+    // hundreds of dollars apart, so the split has to come from us.
+    const extras = Object.entries(ov.roles)
+      .filter(([k, v]) => k.startsWith(s.slug + '/') && v.extra)
+      .map(([k, v]) => resolveRole(s.slug, { name: k.slice(s.slug.length + 1), n: v.n || 0, bands: {} }));
+    const roles = [...s.roles.map((r) => resolveRole(s.slug, r))].filter((r) => r.published);
+    // Place each extra next to the role it belongs with, so Enrolled Nurse sits
+    // under Registered Nurse rather than orphaned at the end of the table.
+    for (const e of extras.filter((r) => r.published)) {
+      const anchor = ov.roles[s.slug + '/' + e.originalName].nextTo;
+      const at = anchor ? roles.findIndex((r) => r.originalName === anchor || r.name === anchor) : -1;
+      if (at >= 0) roles.splice(at + 1, 0, e); else roles.push(e);
+    }
     const cfg = ov.sectors[s.slug] || {};
     return { slug: s.slug, name: s.name, n: s.n, roles, floor: cfg.floor || null, note: cfg.note || null };
   }),
