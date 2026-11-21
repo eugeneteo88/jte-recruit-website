@@ -54,7 +54,7 @@
   "sectors": {
     "engineering": {
       "defaultTrack": "professional",
-      "note": "Two different entry points here. ITE-level technical roles start around S$2,500 to S$2,750 basic. A local diploma engineering hire starts at S$3,000 and above, which is what the bands below show. Shift and site allowances sit on top for the hands-on roles."
+      "note": "Priced by level, not by discipline. There are more engineering job titles than anyone can usefully list, and two roles with the same title can sit a thousand dollars apart. What actually decides the number is how technical the work is and how much the role carries. Tell us the duties and we will place it for you. ITE-level technical roles sit in the first band below; a local diploma engineering hire starts at S$3,000 and above."
     },
     "logistics": {
       "defaultTrack": "professional"
@@ -90,11 +90,12 @@
   },
   "roles": {
     "engineering/Engineer (general)": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Engineering Technician": {
       "track": "scope",
-      "scope": "ITE-level technical and maintenance work.",
+      "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
       "basicNote": "S$2,750 is where technical entry pay has settled, and below S$2,500 you will struggle for quality candidates. Not much rides on allowances here, it depends whether the role is shift or non-shift.",
       "pay": {
         "Typical range": {
@@ -103,37 +104,48 @@
         }
       },
       "verifiedNote": "JTE, Nov 2026.",
-      "verifiedOn": "2026-11-21"
+      "verifiedOn": "2026-11-21",
+      "rename": "Engineering Assistant / Technician"
     },
     "engineering/Electrical Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Project Manager": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Project Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Mechanical Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Civil / Structural Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Site Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Maintenance Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Process Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/Design Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "engineering/QA / QC Engineer": {
-      "track": "professional"
+      "track": "professional",
+      "hide": true
     },
     "logistics/Warehouse / Store": {
       "track": "operative",
@@ -476,6 +488,40 @@
         }
       },
       "basicNote": "A different job from administrative support, not a promotion from it. The top of this range is for someone supporting senior leadership.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "engineering/Engineer": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Engineering Technician",
+      "n": 702,
+      "scope": "Mechanical, electrical, design, process, site, project, civil and structural, QA and QC.",
+      "pay": {
+        "Typical range": {
+          "low": 3000,
+          "high": 4500,
+          "note": "complexity and responsibility decide where in the range"
+        }
+      },
+      "basicNote": "The discipline matters less than you would think. What moves the number is how technical the work is and how much the role is accountable for. A complex, technical brief starts higher than a straightforward one with the same job title.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "engineering/Senior Engineer": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Engineer",
+      "n": 0,
+      "scope": "Senior mechanical, senior design, lead engineer and equivalent.",
+      "pay": {
+        "Typical range": {
+          "low": 4500,
+          "high": 6500,
+          "note": "industry and company move this as much as years do"
+        }
+      },
+      "basicNote": "Years of experience get you into this range, but they do not set the number. The industry and the company do, and the same senior title pays very differently across the two.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21"
     }

@@ -55,43 +55,11 @@
       "n": 1631,
       "roles": [
         {
-          "name": "Engineer (general)",
-          "originalName": "Engineer (general)",
-          "track": "professional",
-          "n": 702,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 3250,
-              "high": 5500,
-              "n": 199
-            },
-            "3-8 yrs": {
-              "low": 4500,
-              "high": 6500,
-              "n": 464
-            },
-            "8+ yrs": {
-              "low": 5500,
-              "high": 9500,
-              "n": 39
-            }
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Engineering Technician",
+          "name": "Engineering Assistant / Technician",
           "originalName": "Engineering Technician",
           "track": "scope",
           "n": 151,
-          "scope": "ITE-level technical and maintenance work.",
+          "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": "S$2,750 is where technical entry pay has settled, and below S$2,500 you will struggle for quality candidates. Not much rides on allowances here, it depends whether the role is shift or non-shift.",
@@ -115,244 +83,64 @@
           "published": true
         },
         {
-          "name": "Project Manager",
-          "originalName": "Project Manager",
-          "track": "professional",
-          "n": 142,
-          "scope": null,
+          "name": "Engineer",
+          "originalName": "Engineer",
+          "track": "scope",
+          "n": 702,
+          "scope": "Mechanical, electrical, design, process, site, project, civil and structural, QA and QC.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "The discipline matters less than you would think. What moves the number is how technical the work is and how much the role is accountable for. A complex, technical brief starts higher than a straightforward one with the same job title.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 4500,
-              "high": 7000,
-              "n": 21
-            },
-            "8+ yrs": {
-              "low": 6000,
-              "high": 9500,
-              "n": 121
+            "Typical range": {
+              "low": 3000,
+              "high": 4500,
+              "n": 702,
+              "verified": true,
+              "openEnded": false,
+              "note": "complexity and responsibility decide where in the range",
+              "verifiedNote": "JTE, Nov 2026."
             }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
-          "name": "Electrical Engineer",
-          "originalName": "Electrical Engineer",
-          "track": "professional",
-          "n": 131,
-          "scope": null,
+          "name": "Senior Engineer",
+          "originalName": "Senior Engineer",
+          "track": "scope",
+          "n": 0,
+          "scope": "Senior mechanical, senior design, lead engineer and equivalent.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Years of experience get you into this range, but they do not set the number. The industry and the company do, and the same senior title pays very differently across the two.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": {
-              "low": 3250,
-              "high": 4300,
-              "n": 38
-            },
-            "3-8 yrs": {
-              "low": 4050,
-              "high": 6000,
-              "n": 82
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Project Engineer",
-          "originalName": "Project Engineer",
-          "track": "professional",
-          "n": 125,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 3500,
-              "high": 4500,
-              "n": 28
-            },
-            "3-8 yrs": {
-              "low": 3900,
-              "high": 5250,
-              "n": 97
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Mechanical Engineer",
-          "originalName": "Mechanical Engineer",
-          "track": "professional",
-          "n": 105,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 2750,
-              "high": 3900,
-              "n": 26
-            },
-            "3-8 yrs": {
-              "low": 4000,
-              "high": 6000,
-              "n": 67
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Civil / Structural Engineer",
-          "originalName": "Civil / Structural Engineer",
-          "track": "professional",
-          "n": 88,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
+            "Typical range": {
               "low": 4500,
-              "high": 6250,
-              "n": 58
-            },
-            "8+ yrs": null
+              "high": 6500,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "industry and company move this as much as years do",
+              "verifiedNote": "JTE, Nov 2026."
+            }
           },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Maintenance Engineer",
-          "originalName": "Maintenance Engineer",
-          "track": "professional",
-          "n": 49,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": {
-              "low": 2750,
-              "high": 3750,
-              "n": 29
-            },
-            "3-8 yrs": {
-              "low": 3250,
-              "high": 4750,
-              "n": 20
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Process Engineer",
-          "originalName": "Process Engineer",
-          "track": "professional",
-          "n": 40,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 4600,
-              "high": 6250,
-              "n": 32
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Site Engineer",
-          "originalName": "Site Engineer",
-          "track": "professional",
-          "n": 33,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 3750,
-              "high": 5250,
-              "n": 23
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
-          "published": true
-        },
-        {
-          "name": "Design Engineer",
-          "originalName": "Design Engineer",
-          "track": "professional",
-          "n": 24,
-          "scope": null,
-          "basis": "basic",
-          "basisLabel": "basic monthly",
-          "basicNote": null,
-          "aboveNote": null,
-          "benefitNote": null,
-          "daysPerWeek": null,
-          "bands": {
-            "0-3 yrs": null,
-            "3-8 yrs": {
-              "low": 5000,
-              "high": 7500,
-              "n": 24
-            },
-            "8+ yrs": null
-          },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         }
       ],
       "floor": null,
-      "note": "Two different entry points here. ITE-level technical roles start around S$2,500 to S$2,750 basic. A local diploma engineering hire starts at S$3,000 and above, which is what the bands below show. Shift and site allowances sit on top for the hands-on roles."
+      "note": "Priced by level, not by discipline. There are more engineering job titles than anyone can usefully list, and two roles with the same title can sit a thousand dollars apart. What actually decides the number is how technical the work is and how much the role carries. Tell us the duties and we will place it for you. ITE-level technical roles sit in the first band below; a local diploma engineering hire starts at S$3,000 and above."
     },
     {
       "slug": "logistics",

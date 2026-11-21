@@ -19,15 +19,25 @@ These read "from S$X" on the page. They need a realistic top end.
 | manufacturing | Machine Operator | Gross | from S$3,000 |
 | manufacturing | Assembly / Line | Gross | from S$3,000 |
 
-## 2. Roles dropped entirely (9)
+## 2. Roles dropped entirely (19)
 
 Not enough postings behind any band to publish. They are off the guide until we have a figure.
 
 | Sector | Role | Postings seen |
 |---|---|---|
+| engineering | Engineer (general) | 702 |
+| engineering | Project Manager | 142 |
+| engineering | Electrical Engineer | 131 |
+| engineering | Project Engineer | 125 |
+| engineering | Mechanical Engineer | 105 |
+| engineering | Civil / Structural Engineer | 88 |
+| engineering | Maintenance Engineer | 49 |
+| engineering | Process Engineer | 40 |
 | commercial | Recruitment / TA | 34 |
 | commercial | HR | 34 |
+| engineering | Site Engineer | 33 |
 | manufacturing | Process | 30 |
+| engineering | Design Engineer | 24 |
 | logistics | Logistics Coordinator | 21 |
 | it | Data Analyst | 15 |
 | commercial | Legal | 14 |
@@ -35,7 +45,7 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 8 |
 | it | UI / UX Designer | 6 |
 
-## 3. Published roles with a blank band (57)
+## 3. Published roles with a blank band (44)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
@@ -54,17 +64,11 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | it | DevOps / Cloud Engineer | 0-3 yrs | 156 |
 | it | DevOps / Cloud Engineer | 8+ yrs | 156 |
 | healthcare | Physiotherapist | 8+ yrs | 144 |
-| engineering | Project Manager | 0-3 yrs | 142 |
-| engineering | Electrical Engineer | 8+ yrs | 131 |
-| engineering | Project Engineer | 8+ yrs | 125 |
-| engineering | Mechanical Engineer | 8+ yrs | 105 |
 | it | Application Engineer | 0-3 yrs | 98 |
 | it | IT Business Analyst | 0-3 yrs | 98 |
 | it | IT Business Analyst | 8+ yrs | 98 |
 | commercial | Finance | 0-3 yrs | 95 |
 | commercial | Customer Service | 8+ yrs | 95 |
-| engineering | Civil / Structural Engineer | 0-3 yrs | 88 |
-| engineering | Civil / Structural Engineer | 8+ yrs | 88 |
 | it | IT Project Manager | 0-3 yrs | 84 |
 | it | IT Project Manager | 8+ yrs | 84 |
 | manufacturing | Quality (QA / QC) | 8+ yrs | 81 |
@@ -82,30 +86,21 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | healthcare | Laboratory | 8+ yrs | 55 |
 | commercial | Audit / Tax | 0-3 yrs | 53 |
 | commercial | Audit / Tax | 8+ yrs | 53 |
-| engineering | Maintenance Engineer | 8+ yrs | 49 |
 | healthcare | Radiographer | 0-3 yrs | 44 |
 | healthcare | Radiographer | 8+ yrs | 44 |
-| engineering | Process Engineer | 0-3 yrs | 40 |
-| engineering | Process Engineer | 8+ yrs | 40 |
 | healthcare | Patient Service Associate | Gross | 39 |
-| engineering | Site Engineer | 0-3 yrs | 33 |
-| engineering | Site Engineer | 8+ yrs | 33 |
 | logistics | Logistics Executive | 0-3 yrs | 31 |
 | logistics | Logistics Executive | 8+ yrs | 31 |
 | it | QA / Test Engineer | 0-3 yrs | 31 |
 | it | QA / Test Engineer | 8+ yrs | 31 |
 | it | Data Scientist | 0-3 yrs | 28 |
 | it | Data Scientist | 8+ yrs | 28 |
-| engineering | Design Engineer | 0-3 yrs | 24 |
-| engineering | Design Engineer | 8+ yrs | 24 |
 
 ## 4. Role names worth a second look
 
 These came from grouping job ads, so they read like buckets rather than jobs people
 advertise for. Tell me the title you would use and I will rename them.
 
-- **engineering** · Engineer (general)
-- **engineering** · Civil / Structural Engineer
 - **logistics** · Procurement / Purchasing
 - **logistics** · Shipping / Freight
 - **logistics** · Logistics (general)

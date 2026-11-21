@@ -45,28 +45,15 @@ the table says $2,410. RN, pharmacist and physiotherapist matched exactly.
 
 Floor in use: **S$2,500**
 
-Sector note on the page: _Two different entry points here. ITE-level technical roles start around S$2,500 to S$2,750 basic. A local diploma engineering hire starts at S$3,000 and above, which is what the bands below show. Shift and site allowances sit on top for the hands-on roles._
-
-**Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
-
-| Role | 0-3 yrs | 3-8 yrs | 8+ yrs | Where from | Postings |
-|---|---|---|---|---|---|
-| Engineer (general) | $3,250 – $5,500 | $4,500 – $6,500 | $5,500 – $9,500 | ad data | 702 |
-| Project Manager | — | $4,500 – $7,000 | $6,000 – $9,500 | ad data | 142 |
-| Electrical Engineer | $3,250 – $4,300 | $4,050 – $6,000 | — | ad data | 131 |
-| Project Engineer | $3,500 – $4,500 | $3,900 – $5,250 | — | ad data | 125 |
-| Mechanical Engineer | $2,750 – $3,900 | $4,000 – $6,000 | — | ad data | 105 |
-| Civil / Structural Engineer | — | $4,500 – $6,250 | — | ad data | 88 |
-| Maintenance Engineer | $2,750 – $3,750 | $3,250 – $4,750 | — | ad data | 49 |
-| Process Engineer | — | $4,600 – $6,250 | — | ad data | 40 |
-| Site Engineer | — | $3,750 – $5,250 | — | ad data | 33 |
-| Design Engineer | — | $5,000 – $7,500 | — | ad data | 24 |
+Sector note on the page: _Priced by level, not by discipline. There are more engineering job titles than anyone can usefully list, and two roles with the same title can sit a thousand dollars apart. What actually decides the number is how technical the work is and how much the role carries. Tell us the duties and we will place it for you. ITE-level technical roles sit in the first band below; a local diploma engineering hire starts at S$3,000 and above._
 
 **Priced by scope** — Typical range
 
 | Role | Typical range | Where from | Postings |
 |---|---|---|---|
-| Engineering Technician | $2,750 – $3,400 | **JTE** | 151 |
+| Engineering Assistant / Technician | $2,750 – $3,400 | **JTE** | 151 |
+| Engineer | $3,000 – $4,500 | **JTE** | 702 |
+| Senior Engineer | $4,500 – $6,500 | **JTE** | 0 |
 
 ### Logistics & Supply Chain
 
@@ -223,9 +210,9 @@ basic bands, but they are a useful sanity check.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 - Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **14**
+Roles carrying your figures so far: **16**
 
-- Engineering Technician (engineering)
+- Engineering Assistant / Technician (engineering)
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
@@ -239,3 +226,5 @@ Roles carrying your figures so far: **14**
 - Administrative (commercial)
 - Enrolled Nurse (healthcare)
 - Secretary (commercial)
+- Engineer (engineering)
+- Senior Engineer (engineering)

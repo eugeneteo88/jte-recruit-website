@@ -38,6 +38,9 @@ function resolveRole(sectorSlug, role) {
   const FLOOR = ov.sectors[sectorSlug]?.floor?.amount ?? GLOBAL_FLOOR;
   const key = `${sectorSlug}/${role.name}`;
   const cfg = ov.roles[key] || { track: ov.sectors[sectorSlug]?.defaultTrack || 'professional' };
+  // A scraped row can be hidden when we price that work by level instead. The
+  // raw data still feeds the band, it just does not get its own line.
+  if (cfg.hide) return { name: role.name, originalName: role.name, track: cfg.track || 'professional', bands: {}, flags: ['hidden'], published: false };
   const track = cfg.track;
   const basis = cfg.basis || 'basic';
   const out = {
