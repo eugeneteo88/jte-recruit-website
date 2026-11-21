@@ -66,8 +66,8 @@
         "amount": 1800,
         "appliesTo": "Base monthly salary, Singapore community care and support roles",
         "source": "JTE, November 2026",
-        "short": "Care roles run on published base bands. A care staff role starts around S$2,480.",
-        "long": "Community care pay sits on base salary bands rather than one market rate. The entry band, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. All of those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch. The published base bands are real, but they are not what a nurse compares, and they are not what closes a hire. For scale: we recently placed a dental assistant, ITE level without much experience, at S$2,800 basic with no allowances at all. A nurse carries far more responsibility than that, so budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
+        "short": "Care roles run on bands, not one rate. A care staff role starts around S$2,480.",
+        "long": "Community care pay sits on salary bands rather than one market rate. The entry level, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. Those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch. Base bands are real, but they are not what a nurse compares and not what closes a hire. For scale: we recently placed a dental assistant, ITE level without much experience, at S$2,800 basic with no allowances at all. A nurse carries far more responsibility than that, so budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
       },
       "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
     },
@@ -85,7 +85,7 @@
     "engineering/Engineering Technician": {
       "track": "operative",
       "scope": "ITE-level technical and maintenance work.",
-      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
+      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
     },
     "engineering/Electrical Engineer": {
       "track": "professional"
@@ -206,7 +206,7 @@
     "manufacturing/Technician": {
       "track": "operative",
       "scope": "Maintenance, setup and line support.",
-      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because employer-sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
+      "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this."
     },
     "manufacturing/Quality (QA / QC)": {
       "track": "professional"
@@ -256,7 +256,7 @@
       "track": "professional",
       "rename": "Registered Nurse",
       "scope": "Staff nurse and above.",
-      "basicNote": "The bands here are what employers advertise. The published starting band for a staff nurse is lower, around S$2,730 base, but base is not what a nurse compares. Shift and department allowances sit on top of all of these."
+      "basicNote": "These bands are what the market is paying. A staff nurse can start lower, around S$2,730 base, but base is not what a nurse compares and it is not what closes a hire. Shift and department allowances sit on top of all of these."
     },
     "healthcare/Therapist": {
       "track": "professional"
@@ -282,7 +282,7 @@
         "Basic": {
           "low": 2480,
           "high": 3300,
-          "note": "start to mid-point of the band"
+          "note": "entry to experienced"
         }
       },
       "verifiedNote": "JTE, Nov 2026. Base salary, not gross. Overtime and allowances on top.",
@@ -404,10 +404,10 @@
         "0-3 yrs": {
           "low": 2050,
           "high": 3570,
-          "note": "published band, start to mid-point"
+          "note": "entry to mid-career"
         }
       },
-      "basicNote": "Published base only, and base is the problem here. S$2,050 will not attract anyone in this market, and it sits below what a dental assistant with little experience now costs. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
+      "basicNote": "Base only, and base is the problem here. S$2,050 will not attract anyone in this market, and it sits below what a dental assistant with little experience now costs. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21",
       "nextTo": "Nurse"
