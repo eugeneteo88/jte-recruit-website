@@ -1,0 +1,302 @@
+{
+  "_comment": [
+    "External benchmarks gathered for the salary guide, with how good each one is.",
+    "This file is the audit trail: what we checked, what it said, and how much we",
+    "trust it. Nothing here publishes automatically. It feeds content-ops/salary-review.md,",
+    "which Eugene reviews, and only what he confirms moves into salary-overrides.json.",
+    "",
+    "Confidence levels:",
+    "  primary   - read directly from the issuing agency's own page or dataset",
+    "  secondary - a figure attributed to an official source but read off a third-party site",
+    "  blocked   - the official source exists but we could not reach it, figure unverified",
+    "",
+    "Update 2026-11-20 (Muse): the Community Care guidelines PDF was read directly",
+    "from the issuing agency's host after it 403'd for Claude. It is now primary, with",
+    "Update 2026-11-20 (Muse): MOM Table 4 also read directly from stats.mom.gov.sg;",
+    "mom_ows is now primary. Healthcare assistant corrected 2,432 -> 2,410."
+  ],
+  "gathered": "2026-11-20",
+  "sources": {
+    "community_care_guidelines": {
+      "caveat": "Figures are monthly BASE salary (starting and mid-point of the band), not gross. The document says so explicitly: it 'does not refer to the monthly gross salaries'. ATC is the sector median ANNUAL total compensation, base plus 13th month, bonuses and allowances. Issued jointly by MOH and AIC. The job roles listed are examples and non-exhaustive. The document reminds CCOs to meet the prevailing PWM or Occupational Progressive Wages for Singapore citizens and PRs.",
+      "confidence": "primary",
+      "name": "Salary Guidelines for the Community Care Sector",
+      "readBy": "Muse, read directly from the PDF on the Agency for Integrated Care host",
+      "readOn": "2026-11-20",
+      "reference": "Published as of 8 April 2026",
+      "url": "https://edge.sitecorecloud.io/agencyforinb6cc-agencyforin73f5-production08ac-d178/media/agency-for-integrated-care/Files/Partners/2026-Community-Care-Salary-Guidelines.pdf",
+      "what": "Official recommended salaries for community care roles, which is exactly the band our healthcare hands-on roles sit in.",
+      "verifiedBy": "Claude, downloaded and read the PDF directly 2026-11-21, independently of Muse's read",
+      "correction": "An earlier note here said MOH asks CCOs below the guidelines to adjust by early 2027. That is NOT in the document. The PDF is a single page and contains no occurrence of '2027', 'adjust', 'comply', 'encourage', 'expect' or 'review'. Claim withdrawn and never published."
+    },
+    "mcf": {
+      "caveat": "Advertised pay, not agreed pay, and it is a basic figure. Understates roles where overtime and allowances carry the package.",
+      "confidence": "primary",
+      "name": "MyCareersFuture",
+      "reference": "pull dated 2026-07-25, 9,487 postings",
+      "what": "Advertised basic salary on live job postings, aggregated to 25th-75th percentile by role and seniority."
+    },
+    "mom_ows": {
+      "caveat": "Table 4 read directly 20 Nov 2026 from MOM's own download (mrsd_2025Wages_table4.xlsx, Occupational Wage 2025 Statistical Tables, June 2025). Coverage, from MOM's Coverage and Methodology note: full-time resident employees in private-sector establishments with at least 25 employees (5,230 establishments, about 391,300 employees, 98% response rate), supplemented with administrative records. Excludes apprentices/trainees, temporary, part-time and piece-rated workers, and anyone who worked only part of June 2025. Gross = basic + overtime, commissions and allowances, before employee CPF and tax; it excludes employer CPF, bonuses, stock options, lump sums and payments-in-kind. The earlier second-hand figures were checked against it: RN, pharmacist and physiotherapist matched exactly; healthcare assistant did not.",
+      "confidence": "primary",
+      "name": "MOM Occupational Wages",
+      "reference": "June 2025 reference period",
+      "url": "https://stats.mom.gov.sg/publications/statistical-tables-occupational-wages-2025/",
+      "what": "Median, 25th and 75th percentile gross monthly wage by occupation. Covers 523 occupations. Citizens and PRs only. Gross, before employee CPF and tax, excluding bonuses.",
+      "readOn": "2026-11-20",
+      "readBy": "Muse, from MOM's own Table 4 download"
+    }
+  },
+  "benchmarks": [
+    {
+      "medianGross": 5210,
+      "note": "Median across all experience, not a starting figure. The 5,276 figure seen elsewhere does not appear in the June 2025 table.",
+      "role": "Registered Nurse",
+      "sector": "healthcare",
+      "source": "mom_ows",
+      "p25Gross": 4261,
+      "p75Gross": 6843,
+      "medianBasic": 4943
+    },
+    {
+      "medianGross": 5612,
+      "note": "Patient care pharmacist. The 5,466 figure seen elsewhere does not appear in the June 2025 table.",
+      "role": "Pharmacist",
+      "sector": "healthcare",
+      "source": "mom_ows",
+      "p25Gross": 4682,
+      "p75Gross": 7123,
+      "medianBasic": 5578
+    },
+    {
+      "medianGross": 5349,
+      "note": "The two figures seen earlier are a year apart, so the gap is probably the 2024 to 2025 move. The 4,814 figure does not appear in the June 2025 table.",
+      "role": "Physiotherapist",
+      "sector": "healthcare",
+      "source": "mom_ows",
+      "p25Gross": 4579,
+      "p75Gross": 7000,
+      "medianBasic": 5323
+    },
+    {
+      "medianGross": 2410,
+      "note": "CORRECTED 20 Nov 2026: was 2,432 second-hand; MOM Table 4 (all industries) says 2,410. Health and social services median is 2,476. MATTERS: this is a gross median and it sits BELOW our S$2,500 basic floor. Healthcare hands-on pay looks like manufacturing, not like logistics.",
+      "role": "Healthcare Assistant",
+      "sector": "healthcare",
+      "source": "mom_ows",
+      "p25Gross": 2100,
+      "p75Gross": 2766,
+      "medianBasic": 2352
+    },
+    {
+      "role": "Enrolled/Assistant Nurse",
+      "sector": "healthcare",
+      "medianGross": 3439,
+      "p25Gross": 2825,
+      "p75Gross": 4279,
+      "medianBasic": 3280,
+      "source": "mom_ows",
+      "note": "Excluding registered nurse. Compare the Community Care guidelines: Enrolled Nurse N2B starts at $2,050 base, mid-point $3,570."
+    }
+  ],
+  "communityCare": {
+    "groups": [
+      {
+        "profession": "Support care staff",
+        "rows": [
+          {
+            "atc": 60280,
+            "band": "Band 4",
+            "midPoint": 4020,
+            "roles": "Senior Community Care Associate, Senior Nursing/Therapy Aide, Senior Healthcare Assistant, Senior Care Staff",
+            "starting": 3020
+          },
+          {
+            "atc": 49360,
+            "band": "Band 3",
+            "midPoint": 3300,
+            "roles": "Community Care Associate, Nursing/Therapy Aide, Healthcare Assistant, Care Staff, Senior Care Associate",
+            "starting": 2480
+          },
+          {
+            "atc": 37480,
+            "band": "Band 2",
+            "midPoint": 2500,
+            "roles": "Senior Health Attendant, Care Assistant, Care Associate, Senior/Therapy Assistant",
+            "starting": 2000
+          },
+          {
+            "atc": 30550,
+            "band": "Band 1",
+            "midPoint": 2040,
+            "roles": "Health Attendant",
+            "starting": 1800
+          }
+        ]
+      },
+      {
+        "profession": "Administrative & ancillary staff",
+        "rows": [
+          {
+            "atc": 106730,
+            "band": "Band 7",
+            "midPoint": 7120,
+            "roles": "Senior Community Care Manager, Manager, Lead/Senior Centre Manager",
+            "starting": 5340
+          },
+          {
+            "atc": 75440,
+            "band": "Band 6",
+            "midPoint": 5030,
+            "roles": "Community Care Manager, Centre Head/Manager, Senior Executive",
+            "starting": 3650
+          },
+          {
+            "atc": 65530,
+            "band": "Band 5",
+            "midPoint": 4370,
+            "roles": "Executive, Assistant Centre Manager, Medical Social Work Associate",
+            "starting": 3060
+          },
+          {
+            "atc": 60280,
+            "band": "Band 4",
+            "midPoint": 4020,
+            "roles": "Executive, Social Work Associate",
+            "starting": 2580
+          },
+          {
+            "atc": 49360,
+            "band": "Band 3",
+            "midPoint": 3300,
+            "roles": "Assistant, Social Service Assistant",
+            "starting": 2480
+          },
+          {
+            "atc": 37480,
+            "band": "Band 2",
+            "midPoint": 2500,
+            "roles": "Assistant, Associate (With Experience)",
+            "starting": 2000
+          },
+          {
+            "atc": 30550,
+            "band": "Band 1",
+            "midPoint": 2040,
+            "roles": "Assistant, Associate",
+            "starting": 1800
+          }
+        ]
+      },
+      {
+        "profession": "Nurses",
+        "rows": [
+          {
+            "atc": 140220,
+            "band": "N1A",
+            "midPoint": 9350,
+            "roles": "Nurse Manager/Clinician/Educator",
+            "starting": 7020
+          },
+          {
+            "atc": 107160,
+            "band": "N1B",
+            "midPoint": 7150,
+            "roles": "Senior Staff Nurse",
+            "starting": 5370
+          },
+          {
+            "atc": 74610,
+            "band": "N1C",
+            "midPoint": 4980,
+            "roles": "Staff Nurse",
+            "starting": 2730
+          },
+          {
+            "atc": 66670,
+            "band": "N2A",
+            "midPoint": 4450,
+            "roles": "Senior Enrolled Nurse",
+            "starting": 2900
+          },
+          {
+            "atc": 53420,
+            "band": "N2B",
+            "midPoint": 3570,
+            "roles": "Enrolled Nurse",
+            "starting": 2050
+          }
+        ]
+      },
+      {
+        "profession": "Allied health professionals",
+        "rows": [
+          {
+            "atc": 144250,
+            "band": "AH3",
+            "midPoint": 9620,
+            "note": "Excluding Heads and Senior Principal Therapists and Social Workers equivalent staff.",
+            "roles": "Principal Therapist, Principal Social Worker",
+            "starting": 7220
+          },
+          {
+            "atc": 108270,
+            "band": "AH2",
+            "midPoint": 7220,
+            "roles": "Senior Therapist, Senior Social Worker",
+            "starting": 5420
+          },
+          {
+            "atc": 73630,
+            "band": "AH1",
+            "midPoint": 4910,
+            "roles": "Therapist, Social Worker",
+            "starting": 3000
+          }
+        ]
+      },
+      {
+        "profession": "Pharmacists",
+        "rows": [
+          {
+            "atc": 151140,
+            "band": "P3",
+            "midPoint": 10080,
+            "note": "Excluding Head Pharmacists and Pharmacy Managers equivalent staff.",
+            "roles": "Principal Pharmacist",
+            "starting": 7560
+          },
+          {
+            "atc": 109390,
+            "band": "P2",
+            "midPoint": 7300,
+            "roles": "Senior Pharmacist",
+            "starting": 5480
+          },
+          {
+            "atc": 80910,
+            "band": "P1",
+            "midPoint": 5400,
+            "roles": "Pharmacist",
+            "starting": 3850
+          }
+        ]
+      }
+    ],
+    "note": "Recommended starting and mid-point MONTHLY BASE salary, plus median annual total compensation (ATC), for the community care sector. Base, not gross. Job roles are examples of typical titles in the band and are non-exhaustive.",
+    "source": "community_care_guidelines",
+    "whatItMeansForTheGuide": [
+      "Care / Support Staff on the guide shows basic $2,500 - $2,900, floored. The guidelines put a Healthcare Assistant / Care Staff at Band 3, starting $2,480 and mid-point $3,300 base. The guide's floored range sits inside Band 3, so the $2,500 basic floor is defensible for this role, but only just: Band 3 starts at $2,480, $20 below the floor.",
+      "Clinic Staff on the guide now shows basic $2,500 - $2,900 after the 21 Nov 2026 data refresh (no longer floored). The closest guidelines bands are administrative Band 3 (Assistant / Social Service Assistant, $2,480 - $3,300) and Band 4 (Executive / Social Work Associate, $2,580 - $4,020). The guide's range sits inside those bands.",
+      "Patient Service on the guide now shows basic $2,500 - $2,750 after the 21 Nov 2026 data refresh (no longer floored or open-ended). The guidelines' administrative Band 4 (Executive / Social Work Associate) runs $2,580 - $4,020, so the guide's range sits mostly inside Band 4, its bottom just below Band 4's starting point.",
+      "The MOM gross median for a healthcare assistant ($2,410, corrected from $2,432 on 20 Nov 2026) still sits below the $2,500 basic floor. This is not like-for-like: gross includes overtime and allowances, basic does not. The point is that healthcare hands-on pay looks like manufacturing, not like logistics.",
+      "No guide figure has been changed here. The floor decision is Eugene's, and the numbers above are the evidence for it."
+    ]
+  },
+  "openQuestions": [
+    "No official source found yet for commercial admin and secretarial.",
+    "Our single 'Nurse' row conflates Registered and Enrolled Nurse. The guidelines price them very differently: Staff Nurse (N1C) starts at $2,730 base, Enrolled Nurse (N2B) at $2,050. Worth splitting into two roles.",
+    "Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.",
+    "Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses."
+  ]
+}
