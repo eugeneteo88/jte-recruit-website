@@ -43,7 +43,7 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 |---|---|---|---|
 | commercial | Admin / Secretarial | Gross | 309 |
 | it | Software Engineer | 8+ yrs | 293 |
-| healthcare | Clinic Staff | Gross | 265 |
+| healthcare | Clinic Assistant | Gross | 265 |
 | healthcare | Care / Support Staff | Gross | 228 |
 | it | Cybersecurity | 0-3 yrs | 214 |
 | healthcare | Therapist | 8+ yrs | 203 |

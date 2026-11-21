@@ -137,8 +137,7 @@ Sector note on the page: _Pay here depends more on which band a role sits in tha
 
 | Role | Basic | Gross | Where from | Postings |
 |---|---|---|---|---|
-| Clinic Staff | $2,500 – $2,600 | — | **JTE** | 265 |
-| Dental Assistant | from $2,800 | — | **JTE** | 0 |
+| Clinic Assistant | $2,500 – $3,000 | — | **JTE** | 265 |
 | Care / Support Staff | $2,480 – $3,300 | — | **JTE** | 228 |
 | Patient Service | $2,500 – $2,750 | — | ad data | 39 |
 
@@ -218,15 +217,14 @@ basic bands, but they are a useful sanity check.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 - Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **10**
+Roles carrying your figures so far: **9**
 
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
 - Machine Operator (manufacturing)
 - Assembly  (manufacturing)
-- Clinic Staff (healthcare)
+- Clinic Assistant (healthcare)
 - Care  (healthcare)
 - Pharmacy (healthcare)
 - Enrolled Nurse (healthcare)
-- Dental Assistant (healthcare)
