@@ -62,11 +62,11 @@ Sector note on the page: _Two different entry points here. ITE-level technical r
 | Site Engineer | — | $3,750 – $5,250 | — | ad data | 33 |
 | Design Engineer | — | $5,000 – $7,500 | — | ad data | 24 |
 
-**Hands-on roles** — Basic · Gross
+**Priced by scope** — Typical range
 
-| Role | Basic | Gross | Where from | Postings |
-|---|---|---|---|---|
-| Engineering Technician | $2,500 – $3,400 | — | ad data | 151 |
+| Role | Typical range | Where from | Postings |
+|---|---|---|---|
+| Engineering Technician | $2,750 – $3,400 | **JTE** | 151 |
 
 ### Logistics & Supply Chain
 
@@ -158,11 +158,12 @@ Floor in use: **S$2,500**
 | Business Analyst | — | $4,250 – $7,500 | — | ad data | 59 |
 | Audit / Tax | — | $3,750 – $6,000 | — | ad data | 53 |
 
-**Hands-on roles** — Basic · Gross
+**Priced by scope** — Typical range
 
-| Role | Basic | Gross | Where from | Postings |
-|---|---|---|---|---|
-| Admin / Secretarial | $2,500 – $3,100 | — | ad data, floored | 309 |
+| Role | Typical range | Where from | Postings |
+|---|---|---|---|
+| Administrative | $2,500 – $3,500 | **JTE** | 309 |
+| Secretary | $3,000 – $6,000 | **JTE** | 0 |
 
 ### IT & Tech
 
@@ -217,8 +218,9 @@ basic bands, but they are a useful sanity check.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 - Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **10**
+Roles carrying your figures so far: **13**
 
+- Engineering Technician (engineering)
 - Warehouse Assistant (logistics)
 - Driver (logistics)
 - Production (manufacturing)
@@ -228,4 +230,6 @@ Roles carrying your figures so far: **10**
 - Care  (healthcare)
 - Pharmacy (healthcare)
 - Patient Service Associate (healthcare)
+- Administrative (commercial)
 - Enrolled Nurse (healthcare)
+- Secretary (commercial)

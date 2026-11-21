@@ -35,13 +35,12 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 8 |
 | it | UI / UX Designer | 6 |
 
-## 3. Published roles with a blank band (60)
+## 3. Published roles with a blank band (58)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
 | Sector | Role | Blank band | Postings for the role |
 |---|---|---|---|
-| commercial | Admin / Secretarial | Gross | 309 |
 | it | Software Engineer | 8+ yrs | 293 |
 | healthcare | Clinic Assistant | Gross | 265 |
 | healthcare | Care / Support Staff | Gross | 228 |
@@ -54,7 +53,6 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | manufacturing | Manufacturing Engineer | 8+ yrs | 170 |
 | it | DevOps / Cloud Engineer | 0-3 yrs | 156 |
 | it | DevOps / Cloud Engineer | 8+ yrs | 156 |
-| engineering | Engineering Technician | Gross | 151 |
 | healthcare | Physiotherapist | 8+ yrs | 144 |
 | engineering | Project Manager | 0-3 yrs | 142 |
 | engineering | Electrical Engineer | 8+ yrs | 131 |
@@ -116,7 +114,6 @@ advertise for. Tell me the title you would use and I will rename them.
 - **manufacturing** · Assembly / Line
 - **healthcare** · Care / Support Staff
 - **healthcare** · Medical / Allied Health
-- **commercial** · Admin / Secretarial
 - **commercial** · Accountant / Accounts
 - **commercial** · Audit / Tax
 - **it** · Network / Infrastructure

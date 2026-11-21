@@ -36,6 +36,16 @@
         "8+ yrs": "senior, lead, manager"
       },
       "note": "Banded by experience, because that is how employers brief us."
+    },
+    "scope": {
+      "label": "Priced by scope",
+      "bands": [
+        "Typical range"
+      ],
+      "sub": {
+        "Typical range": "driven by how complex the work is"
+      },
+      "note": "These roles are not really banded by years served. What moves the number is how much the job actually carries. Tell us the duties and we will tell you where it lands."
     }
   },
   "sectors": [
@@ -79,24 +89,29 @@
         {
           "name": "Engineering Technician",
           "originalName": "Engineering Technician",
-          "track": "operative",
+          "track": "scope",
           "n": 151,
           "scope": "ITE-level technical and maintenance work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Entry sits around S$2,500, but S$2,750 basic is the mark to stay competitive for ITE-level technical roles, because sponsored diploma schemes have pulled entry pay up to about there. Below S$2,500 you will struggle for quality candidates. Shift and other allowances sit on top of all of this.",
+          "basicNote": "S$2,750 is where technical entry pay has settled, and below S$2,500 you will struggle for quality candidates. Not much rides on allowances here, it depends whether the role is shift or non-shift.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Basic": {
-              "low": 2500,
+            "Typical range": {
+              "low": 2750,
               "high": 3400,
-              "n": 127
-            },
-            "Gross": null
+              "n": 151,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
+            }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
@@ -972,7 +987,7 @@
           "scope": "Care staff and healthcare assistant work in community care.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Depends a lot on what kind of care the role covers. Allowances only really come in when the job requires going out to clients, so for most of these the basic is close to what the person takes home.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -1240,27 +1255,59 @@
           "published": true
         },
         {
-          "name": "Admin / Secretarial",
+          "name": "Administrative",
           "originalName": "Admin / Secretarial",
-          "track": "operative",
+          "track": "scope",
           "n": 309,
-          "scope": null,
+          "scope": "Office and administrative support.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": null,
+          "basicNote": "Complexity drives this one, not years. Simple data entry sits near the bottom of the range, a role that actually runs things sits near the top.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "Basic": {
+            "Typical range": {
               "low": 2500,
-              "high": 3100,
-              "n": 183,
-              "floored": true
-            },
-            "Gross": null
+              "high": 3500,
+              "n": 309,
+              "verified": true,
+              "openEnded": false,
+              "note": "data entry at the low end, full office support at the top",
+              "verifiedNote": "JTE, Nov 2026."
+            }
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Secretary",
+          "originalName": "Secretary",
+          "track": "scope",
+          "n": 0,
+          "scope": "Executive and personal assistant work.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "A different job from administrative support, not a promotion from it. The top of this range is for someone supporting senior leadership.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 3000,
+              "high": 6000,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "scales with who you are supporting and what you are trusted with",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {
