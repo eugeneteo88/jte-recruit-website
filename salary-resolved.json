@@ -1058,15 +1058,19 @@
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. A registered pharmacist starts materially higher, from about S$3,850 base on the published band. Ask us which one you are hiring.",
+          "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. S$2,500 is the floor we would work to. A registered pharmacist starts materially higher, from about S$3,850. Ask us which one you are hiring.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
             "0-3 yrs": {
-              "low": 2000,
+              "low": 2500,
               "high": 3400,
-              "n": 126
+              "n": 197,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
             },
             "3-8 yrs": {
               "low": 3600,
@@ -1075,7 +1079,9 @@
             },
             "8+ yrs": null
           },
-          "flags": [],
+          "flags": [
+            "jte-verified"
+          ],
           "published": true
         },
         {

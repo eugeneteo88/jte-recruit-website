@@ -127,7 +127,7 @@ Sector note on the page: _Pay here depends more on which band a role sits in tha
 | Registered Nurse | $3,250 – $4,250 | $3,850 – $4,750 | $6,250 – $7,500 | ad data | 716 |
 | Enrolled Nurse | $2,050 – $3,570 | — | — | **JTE** | 0 |
 | Therapist | $3,250 – $4,750 | $4,750 – $6,750 | — | ad data | 203 |
-| Pharmacy | $2,000 – $3,400 | $3,600 – $5,500 | — | ad data | 197 |
+| Pharmacy | $2,500 – $3,400 | $3,600 – $5,500 | — | ad data | 197 |
 | Physiotherapist | $3,750 – $5,500 | $5,400 – $7,500 | — | ad data | 144 |
 | Medical / Allied Health | $3,200 – $4,500 | $4,250 – $5,500 | — | ad data | 79 |
 | Laboratory | $2,600 – $4,100 | $4,900 – $5,550 | — | ad data | 55 |
@@ -218,7 +218,7 @@ basic bands, but they are a useful sanity check.
 - Clinic Staff and Patient Service are hospital and clinic front-of-house, not community care, so the guidelines do not cover them. Still on advertised data only.
 - Pharmacy is one row covering pharmacist and pharmacy assistant. Advertised entry is S$2,000-3,400 while the published pharmacist band starts at S$3,850 base. Needs splitting like the nurses.
 
-Roles carrying your figures so far: **9**
+Roles carrying your figures so far: **10**
 
 - Warehouse Assistant (logistics)
 - Driver (logistics)
@@ -227,5 +227,6 @@ Roles carrying your figures so far: **9**
 - Assembly  (manufacturing)
 - Clinic Staff (healthcare)
 - Care  (healthcare)
+- Pharmacy (healthcare)
 - Enrolled Nurse (healthcare)
 - Dental Assistant (healthcare)

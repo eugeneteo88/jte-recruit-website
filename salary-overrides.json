@@ -293,7 +293,15 @@
     },
     "healthcare/Pharmacy": {
       "track": "professional",
-      "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. A registered pharmacist starts materially higher, from about S$3,850 base on the published band. Ask us which one you are hiring."
+      "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. S$2,500 is the floor we would work to. A registered pharmacist starts materially higher, from about S$3,850. Ask us which one you are hiring.",
+      "pay": {
+        "0-3 yrs": {
+          "low": 2500,
+          "high": 3400
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
     },
     "healthcare/Medical / Allied Health": {
       "track": "professional"
