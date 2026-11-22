@@ -45,7 +45,7 @@ Not enough postings behind any band to publish. They are off the guide until we 
 | engineering | QA / QC Engineer | 8 |
 | it | UI / UX Designer | 6 |
 
-## 3. Published roles with a blank band (44)
+## 3. Published roles with a blank band (43)
 
 The role is on the guide, but this band shows a dash. Busiest roles first.
 
@@ -56,7 +56,6 @@ The role is on the guide, but this band shows a dash. Busiest roles first.
 | healthcare | Care / Support Staff | Gross | 228 |
 | it | Cybersecurity | 0-3 yrs | 214 |
 | healthcare | Therapist | 8+ yrs | 203 |
-| healthcare | Pharmacy | 8+ yrs | 197 |
 | it | Network / Infrastructure | 8+ yrs | 188 |
 | it | Software Developer | 0-3 yrs | 187 |
 | it | Software Developer | 8+ yrs | 187 |

@@ -335,16 +335,17 @@
       "track": "professional"
     },
     "healthcare/Pharmacy": {
-      "track": "professional",
-      "basicNote": "This covers pharmacy jobs broadly, and the lower end is assistant and technician work. S$2,500 is the lowest we would work to. A registered pharmacist starts much higher, from about S$3,850. Tell us which one you need.",
+      "track": "scope",
       "pay": {
-        "0-3 yrs": {
+        "Typical range": {
           "low": 2500,
-          "high": 3400
+          "high": 3000
         }
       },
       "verifiedNote": "JTE, Nov 2026.",
-      "verifiedOn": "2026-11-21"
+      "verifiedOn": "2026-11-22",
+      "rename": "Pharmacy Assistant",
+      "scope": "Counter work, dispensing support, stock."
     },
     "healthcare/Medical / Allied Health": {
       "track": "professional"
@@ -526,6 +527,23 @@
       "basicNote": "Experience gets you into this range, but it does not set the salary. The industry and the company do. The same senior title pays very differently across the two.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21"
+    },
+    "healthcare/Pharmacist": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Pharmacy",
+      "n": 0,
+      "scope": "Registered pharmacist.",
+      "pay": {
+        "Typical range": {
+          "low": 3100,
+          "high": 4000,
+          "note": "goes higher with experience"
+        }
+      },
+      "basicNote": "Years of experience drive this one. Above S$4,000 is normal for an experienced pharmacist.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-22"
     }
   },
   "basis": {

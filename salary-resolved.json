@@ -831,33 +831,55 @@
           "published": true
         },
         {
-          "name": "Pharmacy",
+          "name": "Pharmacy Assistant",
           "originalName": "Pharmacy",
-          "track": "professional",
+          "track": "scope",
           "n": 197,
-          "scope": null,
+          "scope": "Counter work, dispensing support, stock.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "This covers pharmacy jobs broadly, and the lower end is assistant and technician work. S$2,500 is the lowest we would work to. A registered pharmacist starts much higher, from about S$3,850. Tell us which one you need.",
+          "basicNote": null,
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
-            "0-3 yrs": {
+            "Typical range": {
               "low": 2500,
-              "high": 3400,
+              "high": 3000,
               "n": 197,
               "verified": true,
               "openEnded": false,
               "note": null,
               "verifiedNote": "JTE, Nov 2026."
-            },
-            "3-8 yrs": {
-              "low": 3600,
-              "high": 5500,
-              "n": 71
-            },
-            "8+ yrs": null
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Pharmacist",
+          "originalName": "Pharmacist",
+          "track": "scope",
+          "n": 0,
+          "scope": "Registered pharmacist.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Years of experience drive this one. Above S$4,000 is normal for an experienced pharmacist.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 3100,
+              "high": 4000,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "goes higher with experience",
+              "verifiedNote": "JTE, Nov 2026."
+            }
           },
           "flags": [
             "jte-verified"
