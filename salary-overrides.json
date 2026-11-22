@@ -7,11 +7,11 @@
   ],
   "floor": {
     "amount": 2500,
-    "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
+    "appliesTo": "Basic monthly salary, full-time, Singapore, 5-day week",
     "source": "JTE, November 2026",
-    "short": "Below about S$2,500 basic a month, a job gets much harder to fill.",
-    "long": "This is not a rule, just what we see. You can pay less. Expect to wait longer, and to lose people to the employer down the road. Everyone compares. For hands-on jobs on a 5-day week, S$2,500 is about where the market starts.",
-    "exemptNote": "The S$2,500 mark is about basic pay, where the basic is the whole package. Many hands-on jobs pay a lower basic with overtime on top. Judge those on the gross. Where we know both, we show both."
+    "short": "Below about S$2,500 basic salary a month, a job gets much harder to fill.",
+    "long": "This is not a rule, just what we see. You can pay less. Expect to wait longer, and to lose people to the employer down the road. Everyone compares salaries. For hands-on jobs on a 5-day week, S$2,500 is about where the market starts.",
+    "exemptNote": "The S$2,500 mark is about basic salary, where the basic is the whole package. Many hands-on jobs pay a lower basic with overtime on top. For those, look at the gross salary instead. Where we know both, we show both."
   },
   "tracks": {
     "operative": {
@@ -21,10 +21,10 @@
         "Gross"
       ],
       "sub": {
-        "Basic": "contract basic, monthly",
-        "Gross": "take-home with OT and allowances"
+        "Basic": "basic salary per month",
+        "Gross": "with overtime and allowances"
       },
-      "note": "Two numbers matter for these jobs. The basic is what you promise. The gross is what they take home after overtime and allowances, and that is the one they compare with other employers. Supervisor jobs are listed on their own."
+      "note": "Two numbers matter here. The basic salary is what you promise every month. The gross salary is what they actually take home after overtime and allowances. That is the number they compare with other employers. Supervisor jobs are listed separately."
     },
     "professional": {
       "label": "Professional & executive roles",
@@ -38,23 +38,23 @@
         "3-8 yrs": "experienced",
         "8+ yrs": "senior, lead, manager"
       },
-      "note": "Grouped by experience, because that is how employers ask us for people."
+      "note": "Grouped by years of experience, because that is how employers ask us for people."
     },
     "scope": {
-      "label": "Priced by scope",
+      "label": "Depends on job scope",
       "bands": [
         "Typical range"
       ],
       "sub": {
-        "Typical range": "driven by how complex the work is"
+        "Typical range": "depends on how complex the job is"
       },
-      "note": "Years matter less here. What matters is how much the job actually involves. Tell us the duties and we will tell you the number."
+      "note": "Years of experience matter less here. What matters is how much the job covers. Tell us the duties and we will tell you the salary."
     }
   },
   "sectors": {
     "engineering": {
       "defaultTrack": "professional",
-      "note": "We price engineering by level, not by job title. There are too many titles, and two people with the same one can be paid a thousand dollars apart. What decides it is how technical the job is and how much it carries."
+      "note": "We group engineering by level, not by job title. There are too many titles, and two people with the same title can be paid a thousand dollars apart. What decides the salary is how technical the job is and how much it covers."
     },
     "logistics": {
       "defaultTrack": "professional"
@@ -65,23 +65,23 @@
         "amount": 1800,
         "appliesTo": "Basic monthly salary, Singapore production and operator roles",
         "source": "JTE, November 2026",
-        "short": "The basic is only half the story here. Aim for a gross around S$3,000.",
-        "long": "Production pay runs a lower basic than most sectors, with overtime and incentives making up the rest. S$1,800 basic is about the lowest anyone will take. S$2,000 is normal. S$2,200 to S$2,500 gets you noticeably better people. But the number they judge is the gross, and around S$3,000 wins them. Fewer people want heavy overtime now, so a package that only works with lots of OT is a hard sell.",
+        "short": "The basic salary is only half the story. Aim for a gross salary around S$3,000.",
+        "long": "Production jobs pay a lower basic salary than most industries, with overtime and incentives making up the rest. S$1,800 basic is about the lowest anyone will accept. S$2,000 is normal. S$2,200 to S$2,500 gets you noticeably better people. But the number they look at is the gross salary, and around S$3,000 is what wins them. Fewer people want a lot of overtime now, so a package that only works with heavy OT is hard to sell.",
         "displayAmount": 3000
       },
-      "note": "The basic is only half the picture here. How simple or complex the job is moves the pay as much as the band does. At the bottom of the range, fewer people apply and the search takes longer."
+      "note": "The basic salary is only half the picture here. How simple or complex the job is affects the salary as much as the level does. At the bottom of the range, fewer people apply and hiring takes longer."
     },
     "healthcare": {
       "defaultTrack": "professional",
       "floor": {
         "amount": 1800,
-        "appliesTo": "Base monthly salary, Singapore community care and support roles",
+        "appliesTo": "Basic monthly salary, Singapore community care and support roles",
         "source": "JTE, November 2026",
-        "short": "Care jobs run on bands, not one rate. Care staff starts around S$2,500.",
-        "long": "Care pay runs on bands. The entry level, a health attendant, starts at S$1,800. A healthcare assistant or care staff job starts around S$2,500 and goes to about S$3,200. Those are base figures, so overtime and shift allowances sit on top. Nursing is the one to watch. The base bands are real, but they are not what closes a hire. A clinic assistant already starts above S$2,500, and a nurse carries far more than that. Budget a starting gross of about S$3,000 or the job will stay open.",
+        "short": "Care jobs pay by level, not one fixed salary. Care staff starts around S$2,500.",
+        "long": "Care jobs pay by level. The lowest, a health attendant, starts at S$1,800. A healthcare assistant or care staff job starts around S$2,500 and goes up to about S$3,200. Those are basic salaries, so overtime and shift allowances are on top. Nursing is the one to watch. Those starting salaries are real, but they are not what gets a nurse to say yes. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget a starting gross salary of about S$3,000 or the job will stay open.",
         "displayAmount": 2500
       },
-      "note": "Pay here depends on which band the job sits in, more than on years served. Tell us the duties and how much supervision there is, and we will tell you the band."
+      "note": "Salary here depends on the level of the job, more than on years of experience. Tell us the duties and how much supervision is involved, and we will tell you the level."
     },
     "commercial": {
       "defaultTrack": "professional"
@@ -98,7 +98,7 @@
     "engineering/Engineering Technician": {
       "track": "scope",
       "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
-      "basicNote": "S$2,750 is where technical entry pay has landed. Below S$2,500 you will struggle to find good people. Allowances do not add much here, it depends on shift or non-shift.",
+      "basicNote": "S$2,750 is where entry salaries for technical jobs have settled. Below S$2,500 you will struggle to find good people. Allowances do not add much here. It depends whether the job is shift or non-shift.",
       "pay": {
         "Typical range": {
           "low": 2750,
@@ -171,7 +171,7 @@
     "logistics/Driver": {
       "track": "operative",
       "scope": "Typically a 5.5 to 6 day week.",
-      "basicNote": "Judge a driver package on the gross, not the basic. A low basic with good incentives is normal. How hard the run is moves the basic as much as experience does.",
+      "basicNote": "Look at a driver package on the gross salary, not the basic. A low basic with good incentives is normal. How hard the route is affects the basic as much as experience does.",
       "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers.",
       "verifiedOn": "2026-11-20",
       "pay": {
@@ -238,7 +238,7 @@
     "manufacturing/Technician": {
       "track": "scope",
       "scope": "Maintenance, setup and line support.",
-      "basicNote": "A broad title, so the job decides the number. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing pays a little under engineering.",
+      "basicNote": "A broad title, so the job decides the salary. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing pays a little less than engineering.",
       "pay": {
         "Typical range": {
           "low": 2700,
@@ -297,7 +297,7 @@
       "track": "professional",
       "rename": "Registered Nurse",
       "scope": "Staff nurse and above.",
-      "basicNote": "These are what the market pays. A staff nurse can start lower, around S$2,730 base. But base is not what a nurse compares, and it is not what closes a hire. Shift and department allowances sit on top."
+      "basicNote": "These are what the market pays. A staff nurse can start lower, around S$2,730 basic. But the basic is not what a nurse compares, and it is not what gets them to say yes. Shift and department allowances are on top."
     },
     "healthcare/Therapist": {
       "track": "professional"
@@ -312,7 +312,7 @@
           "note": "around S$3,000 is the going rate"
         }
       },
-      "basicNote": "Starts above S$2,500, and about S$3,000 is the going rate. We placed one at S$2,800 basic, no allowances, 5 days and 44 hours, shifts but no midnight. Hiring is not the hard part. Keeping someone is.",
+      "basicNote": "Starts above S$2,500, and about S$3,000 is the going rate. We placed one at S$2,800 basic, no allowances, 5 days and 44 hours, shifts but no midnight shift. Hiring is not the hard part. Keeping someone is.",
       "verifiedNote": "JTE, Nov 2026, against placements we closed.",
       "verifiedOn": "2026-11-21",
       "rename": "Clinic Assistant"
@@ -329,14 +329,14 @@
       },
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21",
-      "basicNote": "Lower than nursing because the certification is easier to get. Do not read that as cheap. Even at S$2,500 this is a hard hire, so treat S$2,500 as the starting point, not the target. Allowances only apply when the job involves going out, so the basic is usually the whole package."
+      "basicNote": "Lower than nursing because the certificate is easier to get. Do not read that as cheap. Even at S$2,500 this is a hard job to fill, so treat S$2,500 as the starting point, not the target. Allowances only apply when the job involves going out, so the basic is usually the whole salary."
     },
     "healthcare/Physiotherapist": {
       "track": "professional"
     },
     "healthcare/Pharmacy": {
       "track": "professional",
-      "basicNote": "This covers pharmacy jobs broadly, and the lower end is assistant and technician work. S$2,500 is the floor we would work to. A registered pharmacist starts much higher, from about S$3,850. Tell us which one you need.",
+      "basicNote": "This covers pharmacy jobs broadly, and the lower end is assistant and technician work. S$2,500 is the lowest we would work to. A registered pharmacist starts much higher, from about S$3,850. Tell us which one you need.",
       "pay": {
         "0-3 yrs": {
           "low": 2500,
@@ -472,7 +472,7 @@
           "note": "entry to mid-career"
         }
       },
-      "basicNote": "Base only, and the base is the problem. S$2,050 will not attract anyone now. A clinic assistant already starts above S$2,500, and a nurse carries far more than that. Budget about S$3,000 starting gross with allowances in, or expect a long search.",
+      "basicNote": "This is basic salary only, and the basic is the problem. S$2,050 will not attract anyone now. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget about S$3,000 starting gross salary with allowances included, or expect a long search.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21",
       "nextTo": "Nurse"
@@ -489,7 +489,7 @@
           "note": "scales with who you are supporting and what you are trusted with"
         }
       },
-      "basicNote": "A different job from admin support, not a step up from it. The top of this range is for someone supporting senior leadership.",
+      "basicNote": "A different job from admin support, not a step up from it. The top of this range is for someone supporting senior management.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21"
     },
@@ -506,7 +506,7 @@
           "note": "complexity and responsibility decide where in the range"
         }
       },
-      "basicNote": "The discipline matters less than you would think. What moves the number is how technical the job is and how much it carries. A complex brief pays more than a simple one with the same title.",
+      "basicNote": "The discipline matters less than you would think. What moves the salary is how technical the job is and how much it covers. A complex job pays more than a simple one with the same title.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21"
     },
@@ -523,7 +523,7 @@
           "note": "industry and company move this as much as years do"
         }
       },
-      "basicNote": "Experience gets you into this range, but it does not set the number. The industry and the company do. The same senior title pays very differently across the two.",
+      "basicNote": "Experience gets you into this range, but it does not set the salary. The industry and the company do. The same senior title pays very differently across the two.",
       "verifiedNote": "JTE, Nov 2026.",
       "verifiedOn": "2026-11-21"
     }

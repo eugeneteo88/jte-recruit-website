@@ -45,9 +45,9 @@ the table says $2,410. RN, pharmacist and physiotherapist matched exactly.
 
 Floor in use: **S$2,500**
 
-Sector note on the page: _We price engineering by level, not by job title. There are too many titles, and two people with the same one can be paid a thousand dollars apart. What decides it is how technical the job is and how much it carries._
+Sector note on the page: _We group engineering by level, not by job title. There are too many titles, and two people with the same title can be paid a thousand dollars apart. What decides the salary is how technical the job is and how much it covers._
 
-**Priced by scope** — Typical range
+**Depends on job scope** — Typical range
 
 | Role | Typical range | Where from | Postings |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Floor in use: **S$2,500**
 
 Floor in use: **S$1,800** (sector-specific)
 
-Sector note on the page: _The basic is only half the picture here. How simple or complex the job is moves the pay as much as the band does. At the bottom of the range, fewer people apply and the search takes longer._
+Sector note on the page: _The basic salary is only half the picture here. How simple or complex the job is affects the salary as much as the level does. At the bottom of the range, fewer people apply and hiring takes longer._
 
 **Hands-on roles** — Basic · Gross
 
@@ -100,7 +100,7 @@ Sector note on the page: _The basic is only half the picture here. How simple or
 | Quality (QA / QC) | $2,250 – $3,200 | $3,750 – $4,750 | — | ad data | 81 |
 | Production Supervisor | $3,550 – $4,500 | $3,750 – $4,650 | — | ad data | 63 |
 
-**Priced by scope** — Typical range
+**Depends on job scope** — Typical range
 
 | Role | Typical range | Where from | Postings |
 |---|---|---|---|
@@ -110,7 +110,7 @@ Sector note on the page: _The basic is only half the picture here. How simple or
 
 Floor in use: **S$1,800** (sector-specific)
 
-Sector note on the page: _Pay here depends on which band the job sits in, more than on years served. Tell us the duties and how much supervision there is, and we will tell you the band._
+Sector note on the page: _Salary here depends on the level of the job, more than on years of experience. Tell us the duties and how much supervision is involved, and we will tell you the level._
 
 **Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
 
@@ -150,7 +150,7 @@ Floor in use: **S$2,500**
 | Business Analyst | — | $4,250 – $7,500 | — | ad data | 59 |
 | Audit / Tax | — | $3,750 – $6,000 | — | ad data | 53 |
 
-**Priced by scope** — Typical range
+**Depends on job scope** — Typical range
 
 | Role | Typical range | Where from | Postings |
 |---|---|---|---|

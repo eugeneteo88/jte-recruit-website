@@ -476,7 +476,7 @@ ${sec.note ? `  <section class="px-6 md:px-12 pb-8"><div class="max-w-4xl mx-aut
     <div class="max-w-3xl mx-auto sg-card p-7 md:p-9">
       <span class="eyebrow">What moves the number</span>
       <h2 class="font-serif text-xl md:text-2xl text-luxury-black mt-3 mb-3">Why two people in the same role earn differently</h2>
-      <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses sit on top of the base figures above, so actual take-home often runs higher, especially for shift and hands-on roles.</p>
+      <p class="text-gray-600 text-sm font-light leading-relaxed">${DRIVERS[sec.slug]} Overtime, allowances and bonuses are on top of the salaries above, so what people actually take home is often higher, especially for shift and hands-on jobs.</p>
       <p class="text-gray-500 text-[13px] font-light leading-relaxed mt-3">Hiring one of these? We recruit across ${sec.name.replace(/&amp;/g,'&')} every week, <a href="/sectors/${svc}" class="text-luxury-goldDark hover:underline font-medium">see how we help</a>, or <a href="/contact" class="text-luxury-goldDark hover:underline font-medium">ask us for a tailored range</a>. Open to a mid-career hire? A <a href="/hiring-grants/" class="text-luxury-goldDark hover:underline font-medium">hiring grant</a> can cover up to 70&ndash;90% of the salary.</p>
     </div>
   </section>
