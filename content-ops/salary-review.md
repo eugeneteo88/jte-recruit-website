@@ -1,6 +1,6 @@
 # Salary guide: everything, for your review
 
-Generated 2026-11-21. Market pull dated 2026-11-21, 9,608 postings.
+Generated 2026-11-22. Market pull dated 2026-11-21, 9,608 postings.
 
 Every published role is below with where its number came from. Mark up anything that
 looks wrong and I will put it in as a JTE figure, which then survives every weekly refresh.
@@ -45,7 +45,7 @@ the table says $2,410. RN, pharmacist and physiotherapist matched exactly.
 
 Floor in use: **S$2,500**
 
-Sector note on the page: _Priced by level, not by discipline. There are more engineering job titles than anyone can usefully list, and two roles with the same title can sit a thousand dollars apart. What actually decides the number is how technical the work is and how much the role carries. Tell us the duties and we will place it for you. ITE-level technical roles sit in the first band below; a local diploma engineering hire starts at S$3,000 and above._
+Sector note on the page: _We price engineering by level, not by job title. There are too many titles, and two people with the same one can be paid a thousand dollars apart. What decides it is how technical the job is and how much it carries._
 
 **Priced by scope** — Typical range
 
@@ -82,7 +82,7 @@ Floor in use: **S$2,500**
 
 Floor in use: **S$1,800** (sector-specific)
 
-Sector note on the page: _Pay is only half of it here. How straightforward the scope is moves the number as much as the band does, and at the lower end of the basic range the pool is smaller and the search takes longer. Tell us the scope and we will tell you what it will actually take to fill._
+Sector note on the page: _The basic is only half the picture here. How simple or complex the job is moves the pay as much as the band does. At the bottom of the range, fewer people apply and the search takes longer._
 
 **Hands-on roles** — Basic · Gross
 
@@ -110,7 +110,7 @@ Sector note on the page: _Pay is only half of it here. How straightforward the s
 
 Floor in use: **S$1,800** (sector-specific)
 
-Sector note on the page: _Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill._
+Sector note on the page: _Pay here depends on which band the job sits in, more than on years served. Tell us the duties and how much supervision there is, and we will tell you the band._
 
 **Professional & executive roles** — 0-3 yrs · 3-8 yrs · 8+ yrs
 

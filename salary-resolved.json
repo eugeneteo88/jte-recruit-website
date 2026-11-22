@@ -1,14 +1,14 @@
 {
   "updated": "2026-11-21",
-  "resolvedOn": "2026-11-21",
+  "resolvedOn": "2026-11-22",
   "totalPostings": 9608,
   "floor": {
     "amount": 2500,
     "appliesTo": "Full-time basic monthly salary, Singapore, 5-day week",
     "source": "JTE, November 2026",
-    "short": "Below about S$2,500 basic a month, a role gets much harder to fill locally.",
-    "long": "This is not a rule, it is what we see. You can hire below it, but expect to wait a lot longer and to lose people to the employer up the road. Everyone is comparing. For hands-on roles on a 5-day week, S$2,500 is roughly where the market starts now.",
-    "exemptNote": "The S$2,500 guide is about basic pay where the basic is the whole package. Plenty of hands-on roles run a lower basic with overtime and incentives on top, and there you judge the gross instead. Where we know both, we show both."
+    "short": "Below about S$2,500 basic a month, a job gets much harder to fill.",
+    "long": "This is not a rule, just what we see. You can pay less. Expect to wait longer, and to lose people to the employer down the road. Everyone compares. For hands-on jobs on a 5-day week, S$2,500 is about where the market starts.",
+    "exemptNote": "The S$2,500 mark is about basic pay, where the basic is the whole package. Many hands-on jobs pay a lower basic with overtime on top. Judge those on the gross. Where we know both, we show both."
   },
   "tracks": {
     "operative": {
@@ -21,7 +21,7 @@
         "Basic": "contract basic, monthly",
         "Gross": "take-home with OT and allowances"
       },
-      "note": "Hands-on roles do not really have a junior-to-senior ladder, but they do have two numbers that matter. The basic is what you commit to. The gross is what the person takes home once overtime, incentives and allowances land, and it is the number they compare against the employer up the road. Supervisor and team leader roles sit separately, because that is more responsibility rather than the same job for longer."
+      "note": "Two numbers matter for these jobs. The basic is what you promise. The gross is what they take home after overtime and allowances, and that is the one they compare with other employers. Supervisor jobs are listed on their own."
     },
     "professional": {
       "label": "Professional & executive roles",
@@ -35,7 +35,7 @@
         "3-8 yrs": "experienced",
         "8+ yrs": "senior, lead, manager"
       },
-      "note": "Banded by experience, because that is how employers brief us."
+      "note": "Grouped by experience, because that is how employers ask us for people."
     },
     "scope": {
       "label": "Priced by scope",
@@ -45,7 +45,7 @@
       "sub": {
         "Typical range": "driven by how complex the work is"
       },
-      "note": "These roles are not really banded by years served. What moves the number is how much the job actually carries. Tell us the duties and we will tell you where it lands."
+      "note": "Years matter less here. What matters is how much the job actually involves. Tell us the duties and we will tell you the number."
     }
   },
   "sectors": [
@@ -62,7 +62,7 @@
           "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "S$2,750 is where technical entry pay has settled, and below S$2,500 you will struggle for quality candidates. Not much rides on allowances here, it depends whether the role is shift or non-shift.",
+          "basicNote": "S$2,750 is where technical entry pay has landed. Below S$2,500 you will struggle to find good people. Allowances do not add much here, it depends on shift or non-shift.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -90,7 +90,7 @@
           "scope": "Mechanical, electrical, design, process, site, project, civil and structural, QA and QC.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "The discipline matters less than you would think. What moves the number is how technical the work is and how much the role is accountable for. A complex, technical brief starts higher than a straightforward one with the same job title.",
+          "basicNote": "The discipline matters less than you would think. What moves the number is how technical the job is and how much it carries. A complex brief pays more than a simple one with the same title.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -118,7 +118,7 @@
           "scope": "Senior mechanical, senior design, lead engineer and equivalent.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Years of experience get you into this range, but they do not set the number. The industry and the company do, and the same senior title pays very differently across the two.",
+          "basicNote": "Experience gets you into this range, but it does not set the number. The industry and the company do. The same senior title pays very differently across the two.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -140,7 +140,7 @@
         }
       ],
       "floor": null,
-      "note": "Priced by level, not by discipline. There are more engineering job titles than anyone can usefully list, and two roles with the same title can sit a thousand dollars apart. What actually decides the number is how technical the work is and how much the role carries. Tell us the duties and we will place it for you. ITE-level technical roles sit in the first band below; a local diploma engineering hire starts at S$3,000 and above."
+      "note": "We price engineering by level, not by job title. There are too many titles, and two people with the same one can be paid a thousand dollars apart. What decides it is how technical the job is and how much it carries."
     },
     {
       "slug": "logistics",
@@ -156,7 +156,7 @@
           "basis": "basic",
           "basisLabel": "basic monthly",
           "basicNote": null,
-          "aboveNote": "Above this you are into team leader or assistant supervisor, which is more responsibility rather than a wider job scope. We list that separately.",
+          "aboveNote": "Above this you are paying for a team leader or assistant supervisor. That is more responsibility, not a bigger job. We list it separately.",
           "benefitNote": null,
           "daysPerWeek": null,
           "bands": {
@@ -192,9 +192,9 @@
           "scope": "Typically a 5.5 to 6 day week.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Judge a driver package on the gross, not the basic. A low basic with strong incentives is normal here, and how demanding the run is moves the basic as much as experience does.",
+          "basicNote": "Judge a driver package on the gross, not the basic. A low basic with good incentives is normal. How hard the run is moves the basic as much as experience does.",
           "aboveNote": null,
-          "benefitNote": "Drivers can usually take the vehicle home, which is worth real money to them and is often what wins the hire.",
+          "benefitNote": "Drivers can usually take the vehicle home. That is worth real money to them, and it often wins the hire.",
           "daysPerWeek": null,
           "bands": {
             "Basic": {
@@ -516,7 +516,7 @@
           "scope": "Maintenance, setup and line support.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "A broad title, so the job scope decides the number. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing sits a little under engineering for equivalent technical work.",
+          "basicNote": "A broad title, so the job decides the number. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing pays a little under engineering.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -671,10 +671,11 @@
         "amount": 1800,
         "appliesTo": "Basic monthly salary, Singapore production and operator roles",
         "source": "JTE, November 2026",
-        "short": "In manufacturing the basic is only half the story. Aim for a gross around S$3,000.",
-        "long": "Production and operator pay runs a lower basic than most sectors, with overtime and incentives doing a lot of the work. Around S$1,800 basic is the practical minimum anyone will take. Start the basic at S$2,000 and you are in the normal range; S$2,200 to S$2,500 and you attract noticeably better production staff. But the number people actually judge is the gross, and around S$3,000 a month is what tends to win them. Fewer people want to chase overtime these days, so a package that only works with heavy OT is a harder sell."
+        "short": "The basic is only half the story here. Aim for a gross around S$3,000.",
+        "long": "Production pay runs a lower basic than most sectors, with overtime and incentives making up the rest. S$1,800 basic is about the lowest anyone will take. S$2,000 is normal. S$2,200 to S$2,500 gets you noticeably better people. But the number they judge is the gross, and around S$3,000 wins them. Fewer people want heavy overtime now, so a package that only works with lots of OT is a hard sell.",
+        "displayAmount": 3000
       },
-      "note": "Pay is only half of it here. How straightforward the scope is moves the number as much as the band does, and at the lower end of the basic range the pool is smaller and the search takes longer. Tell us the scope and we will tell you what it will actually take to fill."
+      "note": "The basic is only half the picture here. How simple or complex the job is moves the pay as much as the band does. At the bottom of the range, fewer people apply and the search takes longer."
     },
     {
       "slug": "healthcare",
@@ -689,7 +690,7 @@
           "scope": "Staff nurse and above.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "These bands are what the market is paying. A staff nurse can start lower, around S$2,730 base, but base is not what a nurse compares and it is not what closes a hire. Shift and department allowances sit on top of all of these.",
+          "basicNote": "These are what the market pays. A staff nurse can start lower, around S$2,730 base. But base is not what a nurse compares, and it is not what closes a hire. Shift and department allowances sit on top.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -721,7 +722,7 @@
           "scope": "Enrolled and assistant nurse.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Base only, and base is the problem here. S$2,050 will not attract anyone in this market. A clinic assistant, front desk and helping the doctor, already starts above S$2,500 and runs to about S$3,000. A nurse carries far more than that. Budget a starting gross of about S$3,000 once shift and department allowances are in, or expect a long search.",
+          "basicNote": "Base only, and the base is the problem. S$2,050 will not attract anyone now. A clinic assistant already starts above S$2,500, and a nurse carries far more than that. Budget about S$3,000 starting gross with allowances in, or expect a long search.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -751,7 +752,7 @@
           "scope": "Front desk plus assisting the doctor, GP or dental.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Starts above S$2,500 and the going rate is around S$3,000. We recently placed one at S$2,800 basic with no allowances on top, on a 5-day 44-hour week with shifts but no midnight shift. Hiring is not the hard part here, keeping someone is: below this range people move on.",
+          "basicNote": "Starts above S$2,500, and about S$3,000 is the going rate. We placed one at S$2,800 basic, no allowances, 5 days and 44 hours, shifts but no midnight. Hiring is not the hard part. Keeping someone is.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -780,7 +781,7 @@
           "scope": "Healthcare assistant and care staff. Certification needed, but easier to get than nursing.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Lower than nursing because the certification is easier to get, but do not read that as cheap. Even at S$2,500 this is a difficult hire now, so S$2,500 is where we would start rather than where we would aim. Allowances only really come in when the job requires going out to clients, so for most of these the basic is close to what the person takes home.",
+          "basicNote": "Lower than nursing because the certification is easier to get. Do not read that as cheap. Even at S$2,500 this is a hard hire, so treat S$2,500 as the starting point, not the target. Allowances only apply when the job involves going out, so the basic is usually the whole package.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -837,7 +838,7 @@
           "scope": null,
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "This band covers pharmacy roles broadly, and at the lower end it is assistant and technician work. S$2,500 is the floor we would work to. A registered pharmacist starts materially higher, from about S$3,850. Ask us which one you are hiring.",
+          "basicNote": "This covers pharmacy jobs broadly, and the lower end is assistant and technician work. S$2,500 is the floor we would work to. A registered pharmacist starts much higher, from about S$3,850. Tell us which one you need.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -1005,10 +1006,11 @@
         "amount": 1800,
         "appliesTo": "Base monthly salary, Singapore community care and support roles",
         "source": "JTE, November 2026",
-        "short": "Care roles run on bands, not one rate. A care staff role starts around S$2,480.",
-        "long": "Community care pay sits on salary bands rather than one market rate. The entry level, a health attendant, starts at S$1,800. A healthcare assistant or care staff role starts at about S$2,480 and runs to roughly S$3,300 as people progress. Those are base figures, so overtime, shift and department allowances sit on top. Nursing is the one to watch. Base bands are real, but they are not what a nurse compares and not what closes a hire. For scale: a clinic assistant already starts above S$2,500, and we recently placed one at S$2,800 basic with no allowances at all. A nurse carries far more responsibility than that, so budget a starting gross of about S$3,000 at the least, allowances included, or the role will sit open. Nursing is a hard hire here and pay has moved up accordingly."
+        "short": "Care jobs run on bands, not one rate. Care staff starts around S$2,500.",
+        "long": "Care pay runs on bands. The entry level, a health attendant, starts at S$1,800. A healthcare assistant or care staff job starts around S$2,500 and goes to about S$3,200. Those are base figures, so overtime and shift allowances sit on top. Nursing is the one to watch. The base bands are real, but they are not what closes a hire. A clinic assistant already starts above S$2,500, and a nurse carries far more than that. Budget a starting gross of about S$3,000 or the job will stay open.",
+        "displayAmount": 2500
       },
-      "note": "Pay here depends more on which band a role sits in than on years served. If you tell us the duties and the level of supervision, we can tell you the band it lands in and what it will take to fill."
+      "note": "Pay here depends on which band the job sits in, more than on years served. Tell us the duties and how much supervision there is, and we will tell you the band."
     },
     {
       "slug": "commercial",
@@ -1055,7 +1057,7 @@
           "scope": "Office and administrative support.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "Complexity drives this one, not years. Simple data entry sits near the bottom of the range, a role that actually runs things sits near the top.",
+          "basicNote": "How complex the job is decides this, not years. Simple data entry sits near the bottom. A job that actually runs the office sits near the top.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,
@@ -1083,7 +1085,7 @@
           "scope": "Executive and personal assistant work.",
           "basis": "basic",
           "basisLabel": "basic monthly",
-          "basicNote": "A different job from administrative support, not a promotion from it. The top of this range is for someone supporting senior leadership.",
+          "basicNote": "A different job from admin support, not a step up from it. The top of this range is for someone supporting senior leadership.",
           "aboveNote": null,
           "benefitNote": null,
           "daysPerWeek": null,

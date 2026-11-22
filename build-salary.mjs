@@ -372,7 +372,7 @@ const floorBoxFor = (sector) => {
   return `
   <section class="px-6 md:px-12 pb-10">
     <div class="floorbox">
-      <span class="fnum">S$${fmt(f.amount)}</span>
+      <span class="fnum">S$${fmt(f.displayAmount ?? f.amount)}</span>
       <div class="fhead">${esc(f.short)}</div>
       <p>${esc(f.long)}</p>
       ${!sector || !sector.floor ? (data.floor.exemptNote ? `<p class="fnote">${esc(data.floor.exemptNote)}</p>` : '') : ''}

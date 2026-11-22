@@ -1,6 +1,6 @@
 # Salary guide: what we still need from you
 
-Generated 2026-11-21 from the 9,608-posting pull dated 2026-11-21.
+Generated 2026-11-22 from the 9,608-posting pull dated 2026-11-21.
 
 The guide refuses to publish a range it cannot stand behind, so each line below is
 a blank on the live page. Give me a number for any of them and it goes in as a JTE
