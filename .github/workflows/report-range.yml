@@ -1,0 +1,58 @@
+name: Pull report data (June onwards)
+
+# One-click pull of Search Console and GA4 history for a client report.
+# The 28-day dashboard cannot answer "how did we do since June", and the
+# history archive was being discarded until 25 Nov, so there is no long series
+# in the repo. This fetches it properly.
+#
+# Actions tab -> "Pull report data (June onwards)" -> Run workflow.
+# It commits seo/report-range.json. The service account key never leaves CI.
+
+on:
+  workflow_dispatch:
+    inputs:
+      from:
+        description: 'Start date (YYYY-MM-DD)'
+        required: true
+        default: '2026-06-01'
+      to:
+        description: 'End date (YYYY-MM-DD), blank for yesterday'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull the range
+        run: |
+          printf '%s' "$GA_KEY_JSON" > .ga-key.json
+          FROM="${{ github.event.inputs.from }}" TO="${{ github.event.inputs.to }}" node scripts/report-range.mjs
+          rm -f .ga-key.json
+        env:
+          GA_KEY_JSON: ${{ secrets.GA_KEY_JSON }}
+
+      - name: Commit the data
+        run: |
+          git config user.name "jte-seo-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add seo/report-range.json
+          if git diff --cached --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: pull report data ${{ github.event.inputs.from }} onwards"
+            git pull --rebase --autostash origin main || true
+            git push origin HEAD:main || echo "push skipped"
+          fi
