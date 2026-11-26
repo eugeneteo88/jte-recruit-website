@@ -507,6 +507,108 @@
           "p": 17
         }
       ]
+    },
+    {
+      "date": "2026-11-26",
+      "impressions": 26097,
+      "clicks": 399,
+      "position": 16.6,
+      "leads": 25,
+      "leadsOrganic": 14,
+      "pages": 90,
+      "onPage1": 25,
+      "climbing": 8,
+      "slipping": 6,
+      "topMovers": [
+        {
+          "term": "employer of record singapore",
+          "from": 36,
+          "to": 24,
+          "impr": -13
+        },
+        {
+          "term": "tech headhunter singapore",
+          "from": 60,
+          "to": 49,
+          "impr": 10
+        },
+        {
+          "term": "logistics recruitment agencies",
+          "from": 32,
+          "to": 22,
+          "impr": -12
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "employer branding agency singapore",
+          "from": 7,
+          "to": 40,
+          "impr": 8
+        },
+        {
+          "term": "it staffing company",
+          "from": 25,
+          "to": 49,
+          "impr": 13
+        },
+        {
+          "term": "employer of record",
+          "from": 30,
+          "to": 45,
+          "impr": -6
+        }
+      ],
+      "kw": [
+        {
+          "t": "it manpower outsourcing solutions",
+          "p": 8
+        },
+        {
+          "t": "green industry recruiters",
+          "p": 9
+        },
+        {
+          "t": "engineering recruitment agency singapore",
+          "p": 9
+        },
+        {
+          "t": "business support recruitment",
+          "p": 10
+        },
+        {
+          "t": "healthcare recruitment agency singapore",
+          "p": 11
+        },
+        {
+          "t": "ict recruitment",
+          "p": 11
+        },
+        {
+          "t": "employer brand agency singapore",
+          "p": 12
+        },
+        {
+          "t": "how to hire engineers",
+          "p": 13
+        },
+        {
+          "t": "customer service recruitment agencies",
+          "p": 14
+        },
+        {
+          "t": "engineering recruiting firms",
+          "p": 15
+        },
+        {
+          "t": "hr recruitment agencies",
+          "p": 16
+        },
+        {
+          "t": "it contract recruitment",
+          "p": 16
+        }
+      ]
     }
   ]
 }
