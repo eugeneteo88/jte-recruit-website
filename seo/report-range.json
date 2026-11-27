@@ -1,0 +1,314 @@
+{
+  "from": "2026-06-01",
+  "to": "2026-11-26",
+  "generatedAt": "2026-11-27 05:24 UTC",
+  "missing": [],
+  "totals": {
+    "impressions": 112670,
+    "clicks": 2444,
+    "ctr": 2.17,
+    "position": 16.7
+  },
+  "monthly": [
+    {
+      "month": "2026-07",
+      "impressions": 12394,
+      "clicks": 434,
+      "position": 16.3
+    },
+    {
+      "month": "2026-08",
+      "impressions": 24775,
+      "clicks": 567,
+      "position": 17.5
+    },
+    {
+      "month": "2026-09",
+      "impressions": 24291,
+      "clicks": 552,
+      "position": 16.2
+    },
+    {
+      "month": "2026-10",
+      "impressions": 26934,
+      "clicks": 517,
+      "position": 16.2
+    },
+    {
+      "month": "2026-11",
+      "impressions": 24276,
+      "clicks": 374,
+      "position": 17
+    }
+  ],
+  "brandSplit": {
+    "brand": {
+      "clicks": 1112,
+      "impressions": 4859
+    },
+    "nonBrand": {
+      "clicks": 203,
+      "impressions": 67756
+    }
+  },
+  "topQueries": [
+    {
+      "term": "recruitment agency singapore",
+      "clicks": 14,
+      "impressions": 1685,
+      "position": 22.7
+    },
+    {
+      "term": "healthcare salary singapore",
+      "clicks": 7,
+      "impressions": 80,
+      "position": 4.9
+    },
+    {
+      "term": "healthcare recruitment agency singapore for foreigners",
+      "clicks": 5,
+      "impressions": 49,
+      "position": 6.4
+    },
+    {
+      "term": "singapore job agency whatsapp number",
+      "clicks": 5,
+      "impressions": 151,
+      "position": 5.8
+    },
+    {
+      "term": "job agency singapore",
+      "clicks": 4,
+      "impressions": 216,
+      "position": 22.7
+    },
+    {
+      "term": "allied health recruitment agency",
+      "clicks": 3,
+      "impressions": 7,
+      "position": 1
+    },
+    {
+      "term": "employment agency singapore",
+      "clicks": 3,
+      "impressions": 111,
+      "position": 11.3
+    },
+    {
+      "term": "healthcare pay",
+      "clicks": 3,
+      "impressions": 6,
+      "position": 2
+    },
+    {
+      "term": "recruitment agencies singapore",
+      "clicks": 3,
+      "impressions": 160,
+      "position": 19.1
+    },
+    {
+      "term": "singapore job agency for foreigners",
+      "clicks": 3,
+      "impressions": 16,
+      "position": 3.6
+    },
+    {
+      "term": "singapore recruitment agency",
+      "clicks": 3,
+      "impressions": 366,
+      "position": 19.9
+    },
+    {
+      "term": "best recruitment agency in singapore",
+      "clicks": 2,
+      "impressions": 156,
+      "position": 19.8
+    },
+    {
+      "term": "employment grant",
+      "clicks": 2,
+      "impressions": 8,
+      "position": 10.8
+    },
+    {
+      "term": "healthcare",
+      "clicks": 2,
+      "impressions": 15,
+      "position": 3.3
+    },
+    {
+      "term": "it recruitment agencies in singapore for foreigners",
+      "clicks": 2,
+      "impressions": 19,
+      "position": 13.2
+    }
+  ],
+  "topPages": [
+    {
+      "url": "/",
+      "clicks": 1603,
+      "impressions": 62974,
+      "position": 17.8
+    },
+    {
+      "url": "/sectors/healthcare-recruitment/",
+      "clicks": 114,
+      "impressions": 2150,
+      "position": 10.7
+    },
+    {
+      "url": "/salary-guide/healthcare/",
+      "clicks": 113,
+      "impressions": 2312,
+      "position": 6.3
+    },
+    {
+      "url": "/salary-guide/engineering/",
+      "clicks": 69,
+      "impressions": 4858,
+      "position": 7.1
+    },
+    {
+      "url": "/blog/recruitment-agency-cost-singapore/",
+      "clicks": 62,
+      "impressions": 4289,
+      "position": 4.5
+    },
+    {
+      "url": "/contact/",
+      "clicks": 57,
+      "impressions": 2085,
+      "position": 4
+    },
+    {
+      "url": "/salary-guide/it/",
+      "clicks": 56,
+      "impressions": 2730,
+      "position": 8.6
+    },
+    {
+      "url": "/salary-guide/",
+      "clicks": 36,
+      "impressions": 2970,
+      "position": 14.4
+    },
+    {
+      "url": "/salary-guide/healthcare",
+      "clicks": 35,
+      "impressions": 584,
+      "position": 4.4
+    },
+    {
+      "url": "/sectors/engineering-recruitment/",
+      "clicks": 29,
+      "impressions": 2768,
+      "position": 33.9
+    },
+    {
+      "url": "/our-story/",
+      "clicks": 28,
+      "impressions": 2236,
+      "position": 3.9
+    },
+    {
+      "url": "/salary-guide/logistics/",
+      "clicks": 25,
+      "impressions": 1587,
+      "position": 5.3
+    }
+  ],
+  "firstVsLast": {
+    "first": {
+      "month": "2026-07",
+      "impressions": 12394,
+      "clicks": 434,
+      "position": 16.3
+    },
+    "last": {
+      "month": "2026-10",
+      "impressions": 26934,
+      "clicks": 517,
+      "position": 16.2
+    }
+  },
+  "leadsTotal": 33,
+  "leadsMonthly": [
+    {
+      "month": "2026-10",
+      "leads": 6
+    },
+    {
+      "month": "2026-11",
+      "leads": 27
+    }
+  ],
+  "leadsByChannel": [
+    {
+      "channel": "Organic Search",
+      "leads": 16
+    },
+    {
+      "channel": "Direct",
+      "leads": 8
+    },
+    {
+      "channel": "AI Assistant",
+      "leads": 7
+    },
+    {
+      "channel": "Referral",
+      "leads": 2
+    }
+  ],
+  "sessionsByChannel": [
+    {
+      "channel": "Organic Search",
+      "sessions": 3230
+    },
+    {
+      "channel": "Direct",
+      "sessions": 2996
+    },
+    {
+      "channel": "Organic Social",
+      "sessions": 1105
+    },
+    {
+      "channel": "AI Assistant",
+      "sessions": 695
+    },
+    {
+      "channel": "Referral",
+      "sessions": 126
+    },
+    {
+      "channel": "Unassigned",
+      "sessions": 41
+    }
+  ],
+  "aiSessions": {
+    "total": 711,
+    "breakdown": [
+      {
+        "source": "chatgpt.com",
+        "sessions": 691
+      },
+      {
+        "source": "copilot.com",
+        "sessions": 15
+      },
+      {
+        "source": "perplexity.ai",
+        "sessions": 3
+      },
+      {
+        "source": "gemini.google.com",
+        "sessions": 1
+      },
+      {
+        "source": "perplexity",
+        "sessions": 1
+      }
+    ]
+  }
+}
