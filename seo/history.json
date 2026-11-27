@@ -711,6 +711,108 @@
           "p": 16
         }
       ]
+    },
+    {
+      "date": "2026-11-28",
+      "impressions": 27674,
+      "clicks": 420,
+      "position": 16.8,
+      "leads": 27,
+      "leadsOrganic": 15,
+      "pages": 89,
+      "onPage1": 25,
+      "climbing": 8,
+      "slipping": 6,
+      "topMovers": [
+        {
+          "term": "hr grant",
+          "from": 79,
+          "to": 33,
+          "impr": 4
+        },
+        {
+          "term": "project manager vs project engineer",
+          "from": 26,
+          "to": 9,
+          "impr": 2
+        },
+        {
+          "term": "employer of record singapore",
+          "from": 37,
+          "to": 23,
+          "impr": -18
+        }
+      ],
+      "topSlippers": [
+        {
+          "term": "it staffing company",
+          "from": 26,
+          "to": 52,
+          "impr": 16
+        },
+        {
+          "term": "it recruitment agency singapore",
+          "from": 22,
+          "to": 44,
+          "impr": 1
+        },
+        {
+          "term": "recruitment agency in singapore",
+          "from": 16,
+          "to": 34,
+          "impr": 0
+        }
+      ],
+      "kw": [
+        {
+          "t": "green industry recruiters",
+          "p": 9
+        },
+        {
+          "t": "it manpower outsourcing solutions",
+          "p": 10
+        },
+        {
+          "t": "business support recruitment",
+          "p": 10
+        },
+        {
+          "t": "engineering recruitment agency singapore",
+          "p": 11
+        },
+        {
+          "t": "healthcare recruitment agency singapore",
+          "p": 11
+        },
+        {
+          "t": "employer brand agency singapore",
+          "p": 12
+        },
+        {
+          "t": "it salary in singapore",
+          "p": 12
+        },
+        {
+          "t": "how to hire engineers",
+          "p": 14
+        },
+        {
+          "t": "ict recruitment",
+          "p": 14
+        },
+        {
+          "t": "customer service recruitment agencies",
+          "p": 16
+        },
+        {
+          "t": "international engineering recruitment agencies",
+          "p": 16
+        },
+        {
+          "t": "it contract recruitment",
+          "p": 16
+        }
+      ]
     }
   ]
 }

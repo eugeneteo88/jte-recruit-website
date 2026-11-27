@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "source": "Google Search Console + Analytics (auto)",
   "window": "last 28 days",
   "kpis": {
-    "impressions": 26243,
-    "clicks": 397,
+    "impressions": 27674,
+    "clicks": 420,
     "ctr": "1.5%",
     "position": "16.8"
   },
@@ -13,7 +13,7 @@
     7472,
     7118,
     6748,
-    4905
+    6336
   ],
   "monthly": [
     {
@@ -42,16 +42,16 @@
     },
     {
       "month": "2026-11",
-      "impressions": 24276,
-      "clicks": 374,
+      "impressions": 25707,
+      "clicks": 397,
       "partial": true
     }
   ],
-  "trendChange": "▼ 36% vs a month ago",
+  "trendChange": "▼ 17% vs a month ago",
   "wow": {
-    "impressions": -27,
-    "clicks": -36,
-    "position": -1.6
+    "impressions": -6,
+    "clicks": -17,
+    "position": -1
   },
   "pagesSurfacing": 89,
   "submitted": 116,
@@ -63,23 +63,18 @@
     },
     {
       "term": "it manpower outsourcing solutions",
-      "position": 9,
-      "impressions": 21
-    },
-    {
-      "term": "engineering recruitment agency singapore",
       "position": 10,
-      "impressions": 48
+      "impressions": 22
     },
     {
       "term": "business support recruitment",
       "position": 10,
-      "impressions": 25
+      "impressions": 26
     },
     {
-      "term": "ict recruitment",
+      "term": "engineering recruitment agency singapore",
       "position": 11,
-      "impressions": 28
+      "impressions": 50
     },
     {
       "term": "healthcare recruitment agency singapore",
@@ -89,43 +84,64 @@
     {
       "term": "employer brand agency singapore",
       "position": 12,
-      "impressions": 31
+      "impressions": 33
+    },
+    {
+      "term": "it salary in singapore",
+      "position": 12,
+      "impressions": 22
     },
     {
       "term": "how to hire engineers",
       "position": 14,
-      "impressions": 21
+      "impressions": 23
     },
     {
-      "term": "international engineering recruitment agencies",
-      "position": 15,
-      "impressions": 65
+      "term": "ict recruitment",
+      "position": 14,
+      "impressions": 31
     },
     {
       "term": "customer service recruitment agencies",
-      "position": 15,
-      "impressions": 22
-    },
-    {
-      "term": "engineering recruiting firms",
-      "position": 15,
-      "impressions": 65
-    },
-    {
-      "term": "hr recruitment agencies",
       "position": 16,
-      "impressions": 27
+      "impressions": 24
+    },
+    {
+      "term": "international engineering recruitment agencies",
+      "position": 16,
+      "impressions": 67
+    },
+    {
+      "term": "it contract recruitment",
+      "position": 16,
+      "impressions": 37
     }
   ],
   "mover": {
-    "term": "employer of record singapore",
-    "fromPosition": 37,
-    "toPosition": 23,
-    "deltaPosition": 13.5,
-    "imprChange": -18,
+    "term": "hr grant",
+    "fromPosition": 79,
+    "toPosition": 33,
+    "deltaPosition": 45.4,
+    "imprChange": 4,
     "kind": "climb"
   },
   "movers": [
+    {
+      "term": "hr grant",
+      "fromPosition": 79,
+      "toPosition": 33,
+      "deltaPosition": 45.4,
+      "imprChange": 4,
+      "kind": "climb"
+    },
+    {
+      "term": "project manager vs project engineer",
+      "fromPosition": 26,
+      "toPosition": 9,
+      "deltaPosition": 17.2,
+      "imprChange": 2,
+      "kind": "climb"
+    },
     {
       "term": "employer of record singapore",
       "fromPosition": 37,
@@ -137,57 +153,41 @@
     {
       "term": "tech headhunter singapore",
       "fromPosition": 60,
-      "toPosition": 48,
-      "deltaPosition": 11.9,
+      "toPosition": 49,
+      "deltaPosition": 11.6,
+      "imprChange": 7,
+      "kind": "climb"
+    },
+    {
+      "term": "hiring funding support",
+      "fromPosition": 54,
+      "toPosition": 43,
+      "deltaPosition": 10.3,
       "imprChange": 5,
       "kind": "climb"
     },
     {
       "term": "logistics recruitment agencies",
       "fromPosition": 30,
-      "toPosition": 21,
-      "deltaPosition": 9.5,
-      "imprChange": -10,
+      "toPosition": 20,
+      "deltaPosition": 9.8,
+      "imprChange": -8,
       "kind": "climb"
     },
     {
-      "term": "hiring funding support",
-      "fromPosition": 54,
-      "toPosition": 45,
-      "deltaPosition": 9,
-      "imprChange": -2,
-      "kind": "climb"
-    },
-    {
-      "term": "find recruiter",
-      "fromPosition": 51,
-      "toPosition": 43,
+      "term": "employer of record meaning",
+      "fromPosition": 52,
+      "toPosition": 44,
       "deltaPosition": 8.2,
-      "imprChange": 1,
+      "imprChange": 2,
       "kind": "climb"
     },
     {
       "term": "remote engineering staffing services",
       "fromPosition": 49,
       "toPosition": 42,
-      "deltaPosition": 6.9,
-      "imprChange": -3,
-      "kind": "climb"
-    },
-    {
-      "term": "engineering staffing services singapore",
-      "fromPosition": 55,
-      "toPosition": 49,
-      "deltaPosition": 6.5,
-      "imprChange": 21,
-      "kind": "climb"
-    },
-    {
-      "term": "tech recruitment",
-      "fromPosition": 33,
-      "toPosition": 27,
-      "deltaPosition": 5.8,
-      "imprChange": -1,
+      "deltaPosition": 7.2,
+      "imprChange": 1,
       "kind": "climb"
     }
   ],
@@ -196,47 +196,47 @@
       "term": "it staffing company",
       "fromPosition": 26,
       "toPosition": 52,
-      "deltaPosition": -25.9,
-      "imprChange": 15,
+      "deltaPosition": -25.4,
+      "imprChange": 16,
       "kind": "slip"
     },
     {
       "term": "it recruitment agency singapore",
       "fromPosition": 22,
-      "toPosition": 43,
-      "deltaPosition": -20.7,
-      "imprChange": -3,
+      "toPosition": 44,
+      "deltaPosition": -22,
+      "imprChange": 1,
       "kind": "slip"
     },
     {
-      "term": "employer of record",
-      "fromPosition": 32,
-      "toPosition": 50,
-      "deltaPosition": -18.4,
-      "imprChange": -13,
+      "term": "recruitment agency in singapore",
+      "fromPosition": 16,
+      "toPosition": 34,
+      "deltaPosition": -17.5,
+      "imprChange": 0,
       "kind": "slip"
     },
     {
-      "term": "employer branding agency singapore",
-      "fromPosition": 21,
-      "toPosition": 37,
-      "deltaPosition": -15.7,
-      "imprChange": 3,
+      "term": "international engineering recruitment agencies",
+      "fromPosition": 11,
+      "toPosition": 26,
+      "deltaPosition": -15.4,
+      "imprChange": -1,
       "kind": "slip"
     },
     {
       "term": "singapore talent recruitment",
       "fromPosition": 25,
-      "toPosition": 41,
-      "deltaPosition": -15.6,
-      "imprChange": -4,
+      "toPosition": 40,
+      "deltaPosition": -14.8,
+      "imprChange": 2,
       "kind": "slip"
     },
     {
-      "term": "it recruitment",
-      "fromPosition": 20,
-      "toPosition": 32,
-      "deltaPosition": -11.9,
+      "term": "employer of record",
+      "fromPosition": 32,
+      "toPosition": 46,
+      "deltaPosition": -14.4,
       "imprChange": -7,
       "kind": "slip"
     }
@@ -244,51 +244,51 @@
   "topPages": [
     {
       "url": "/",
-      "impressions": 10700,
-      "clicks": 187,
-      "position": 19.9
+      "impressions": 11100,
+      "clicks": 198,
+      "position": 20
     },
     {
       "url": "/salary-guide/engineering/",
-      "impressions": 1668,
-      "clicks": 17,
-      "position": 6.1
+      "impressions": 1829,
+      "clicks": 18,
+      "position": 6.5
     },
     {
       "url": "/blog/employment-pass-s-pass-work-permit-guide/",
-      "impressions": 1132,
+      "impressions": 1148,
       "clicks": 2,
       "position": 15.7
     },
     {
-      "url": "/hiring-grants/career-conversion-programme/",
-      "impressions": 961,
-      "clicks": 9,
-      "position": 20
-    },
-    {
       "url": "/salary-guide/it/",
-      "impressions": 931,
+      "impressions": 1031,
       "clicks": 17,
       "position": 7.2
     },
     {
       "url": "/sectors/it-recruitment/",
-      "impressions": 931,
+      "impressions": 999,
       "clicks": 5,
-      "position": 51.4
+      "position": 50.7
+    },
+    {
+      "url": "/hiring-grants/career-conversion-programme/",
+      "impressions": 988,
+      "clicks": 9,
+      "position": 20
     },
     {
       "url": "/blog/recruitment-agency-cost-singapore/",
-      "impressions": 924,
+      "impressions": 983,
       "clicks": 9,
       "position": 5.7
     },
     {
       "url": "/blog/project-engineer-vs-project-manager-hiring/",
-      "impressions": 802,
+      "impressions": 839,
       "clicks": 3,
-      "position": 10.4
+      "position": 10.2
     }
   ],
   "scorecard": [
@@ -300,7 +300,7 @@
     {
       "area": "Money keywords on page 1",
       "status": "good",
-      "note": "25 non-branded terms with real volume on page 1, 38 more within reach (positions 11-20)."
+      "note": "25 non-branded terms with real volume on page 1, 36 more within reach (positions 11-20)."
     },
     {
       "area": "Indexing",
@@ -337,10 +337,6 @@
     },
     {
       "name": "Referral",
-      "pct": 1
-    },
-    {
-      "name": "Unassigned",
       "pct": 1
     }
   ],
