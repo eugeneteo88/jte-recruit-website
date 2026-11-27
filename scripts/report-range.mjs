@@ -83,8 +83,22 @@ try {
     month: m.month,
     impressions: Math.round(m.impressions),
     clicks: Math.round(m.clicks),
-    position: +(m.posSum / Math.max(m.days, 1)).toFixed(1),
+    days: m.days,
+    // Mean of daily positions, NOT impression-weighted like the headline figure.
+    // Keep it out of any client-facing chart; it is here for internal sanity only.
+    dailyMeanPosition: +(m.posSum / Math.max(m.days, 1)).toFixed(1),
   }));
+
+  // Daily series, so coverage is provable rather than assumed. A part-month at
+  // either end would otherwise read as growth or as a drop.
+  out.daily = byDate
+    .map((r) => ({ date: r.keys[0], impressions: Math.round(num(r.impressions)), clicks: Math.round(num(r.clicks)) }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+  out.coverage = {
+    firstDate: out.daily[0]?.date || null,
+    lastDate: out.daily[out.daily.length - 1]?.date || null,
+    daysWithData: out.daily.length,
+  };
 
   // Brand vs non-brand. The honest version of "how much did SEO do".
   const queries = await gsc({ startDate: FROM, endDate: TO, dimensions: ['query'], type: 'web', rowLimit: 5000 });
@@ -136,6 +150,24 @@ try {
     leads: Math.round(num(r.metricValues[0].value)),
   })).sort((a, b) => a.month.localeCompare(b.month));
 
+  // Leads day by day, and sessions day by day. Together these say whether a
+  // month with no leads had none, or whether GA4's retention window simply ate
+  // the history: no sessions either means the data is gone, not that it was zero.
+  const leadsByDate = await ga({ dateRanges: range, dimensions: [{ name: 'date' }], metrics: [{ name: 'eventCount' }], dimensionFilter: leadFilter });
+  out.leadsDaily = leadsByDate
+    .map((r) => ({ date: r.dimensionValues[0].value.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3'), leads: Math.round(num(r.metricValues[0].value)) }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  const sessDaily = await ga({ dateRanges: range, dimensions: [{ name: 'date' }], metrics: [{ name: 'sessions' }] });
+  const sessDates = sessDaily
+    .map((r) => r.dimensionValues[0].value.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3'))
+    .sort();
+  out.ga4Coverage = {
+    firstDate: sessDates[0] || null,
+    lastDate: sessDates[sessDates.length - 1] || null,
+    daysWithData: sessDates.length,
+  };
+
   const byChannel = await ga({ dateRanges: range, dimensions: [{ name: 'sessionDefaultChannelGroup' }], metrics: [{ name: 'eventCount' }], dimensionFilter: leadFilter, orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }] });
   out.leadsByChannel = byChannel.map((r) => ({ channel: r.dimensionValues[0].value || '(unknown)', leads: Math.round(num(r.metricValues[0].value)) })).filter((x) => x.leads > 0);
 
@@ -158,6 +190,8 @@ mkdirSync('seo', { recursive: true });
 writeFileSync('seo/report-range.json', JSON.stringify(out, null, 2) + '\n');
 console.log(`report-range: ${FROM} to ${TO}`);
 if (out.totals) console.log(`  GSC  ${out.totals.impressions} impressions, ${out.totals.clicks} clicks, pos ${out.totals.position}`);
+if (out.coverage) console.log(`  GSC  data from ${out.coverage.firstDate} to ${out.coverage.lastDate} (${out.coverage.daysWithData} days)`);
+if (out.ga4Coverage) console.log(`  GA4  data from ${out.ga4Coverage.firstDate} to ${out.ga4Coverage.lastDate} (${out.ga4Coverage.daysWithData} days)`);
 if (out.brandSplit) console.log(`  brand ${out.brandSplit.brand.clicks} clicks vs non-brand ${out.brandSplit.nonBrand.clicks}`);
 if (out.leadsTotal != null) console.log(`  GA4  ${out.leadsTotal} leads, ${out.leadsMonthly?.length || 0} months`);
 if (missing.length) { console.log('  MISSING:'); missing.forEach((m) => console.log('    ' + m)); }
