@@ -1,0 +1,1658 @@
+{
+  "updated": "2026-11-28",
+  "resolvedOn": "2026-11-28",
+  "totalPostings": 9608,
+  "floor": {
+    "amount": 2500,
+    "appliesTo": "Basic monthly salary, full-time, Singapore, 5-day week",
+    "source": "JTE, November 2026",
+    "short": "Below about S$2,500 basic salary a month, a job gets much harder to fill.",
+    "long": "This is not a rule, just what we see. You can pay less. Expect to wait longer, and to lose people to the employer down the road. Everyone compares salaries. For hands-on jobs on a 5-day week, S$2,500 is about where the market starts.",
+    "exemptNote": "The S$2,500 mark is about basic salary, where the basic is the whole package. Many hands-on jobs pay a lower basic with overtime on top. For those, look at the gross salary instead. Where we know both, we show both."
+  },
+  "tracks": {
+    "operative": {
+      "label": "Hands-on roles",
+      "bands": [
+        "Basic",
+        "Gross"
+      ],
+      "sub": {
+        "Basic": "basic salary per month",
+        "Gross": "with overtime and allowances"
+      },
+      "note": "Two numbers matter here. The basic salary is what you promise every month. The gross salary is what they actually take home after overtime and allowances. That is the number they compare with other employers. Supervisor jobs are listed separately."
+    },
+    "professional": {
+      "label": "Professional & executive roles",
+      "bands": [
+        "0-3 yrs",
+        "3-8 yrs",
+        "8+ yrs"
+      ],
+      "sub": {
+        "0-3 yrs": "early career",
+        "3-8 yrs": "experienced",
+        "8+ yrs": "senior, lead, manager"
+      },
+      "note": "Grouped by years of experience, because that is how employers ask us for people."
+    },
+    "scope": {
+      "label": "Depends on job scope",
+      "bands": [
+        "Typical range"
+      ],
+      "sub": {
+        "Typical range": "depends on how complex the job is"
+      },
+      "note": "Years of experience matter less here. What matters is how much the job covers. Tell us the duties and we will tell you the salary."
+    }
+  },
+  "sectors": [
+    {
+      "slug": "engineering",
+      "name": "Engineering",
+      "n": 1633,
+      "roles": [
+        {
+          "name": "Engineering Assistant / Technician",
+          "originalName": "Engineering Technician",
+          "track": "scope",
+          "n": 170,
+          "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "S$2,750 is where entry salaries for technical jobs have settled. Below S$2,500 you will struggle to find good people. Allowances do not add much here. It depends whether the job is shift or non-shift.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 2750,
+              "high": 3400,
+              "n": 170,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Engineer",
+          "originalName": "Engineer",
+          "track": "scope",
+          "n": 702,
+          "scope": "Mechanical, electrical, design, process, site, project, civil and structural, QA and QC.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "The discipline matters less than you would think. What moves the salary is how technical the job is and how much it covers. A complex job pays more than a simple one with the same title.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 3000,
+              "high": 4500,
+              "n": 702,
+              "verified": true,
+              "openEnded": false,
+              "note": "complexity and responsibility decide where in the range",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Senior Engineer",
+          "originalName": "Senior Engineer",
+          "track": "scope",
+          "n": 0,
+          "scope": "Senior mechanical, senior design, lead engineer and equivalent.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Experience gets you into this range, but it does not set the salary. The industry and the company do. The same senior title pays very differently across the two.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 4500,
+              "high": 6500,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "industry and company move this as much as years do",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        }
+      ],
+      "floor": null,
+      "note": "We group engineering by level, not by job title. There are too many titles, and two people with the same title can be paid a thousand dollars apart. What decides the salary is how technical the job is and how much it covers."
+    },
+    {
+      "slug": "logistics",
+      "name": "Logistics & Supply Chain",
+      "n": 2071,
+      "roles": [
+        {
+          "name": "Warehouse Assistant",
+          "originalName": "Warehouse / Store",
+          "track": "operative",
+          "n": 552,
+          "scope": "Picking, packing, scanning, sorting. 5-day week.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": "Above this you are paying for a team leader or assistant supervisor. That is more responsibility, not a bigger job. We list it separately.",
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2500,
+              "high": 2900,
+              "n": 552,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026. Below S$2,500 basic is not the norm any more."
+            },
+            "Gross": {
+              "low": 3500,
+              "high": 4000,
+              "n": 552,
+              "verified": true,
+              "openEnded": false,
+              "note": "with allowances and OT",
+              "verifiedNote": "JTE, Nov 2026. Below S$2,500 basic is not the norm any more."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Driver",
+          "originalName": "Driver",
+          "track": "operative",
+          "n": 413,
+          "scope": "Typically a 5.5 to 6 day week.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Look at a driver package on the gross salary, not the basic. A low basic with good incentives is normal. How hard the route is affects the basic as much as experience does.",
+          "aboveNote": null,
+          "benefitNote": "Drivers can usually take the vehicle home. That is worth real money to them, and it often wins the hire.",
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 1800,
+              "high": 2500,
+              "n": 413,
+              "verified": true,
+              "openEnded": false,
+              "note": "varies with how physically demanding the run is",
+              "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers."
+            },
+            "Gross": {
+              "low": 3000,
+              "high": 4000,
+              "n": 413,
+              "verified": true,
+              "openEnded": false,
+              "note": "with trip incentives and OT",
+              "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Operations Executive",
+          "originalName": "Operations Executive",
+          "track": "professional",
+          "n": 292,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2650,
+              "high": 3500,
+              "n": 84
+            },
+            "3-8 yrs": {
+              "low": 3350,
+              "high": 4500,
+              "n": 156
+            },
+            "8+ yrs": {
+              "low": 6000,
+              "high": 10250,
+              "n": 52
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Procurement / Purchasing",
+          "originalName": "Procurement / Purchasing",
+          "track": "professional",
+          "n": 224,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3500,
+              "n": 46
+            },
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 4700,
+              "n": 148
+            },
+            "8+ yrs": {
+              "low": 6750,
+              "high": 11000,
+              "n": 30
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Logistics (general)",
+          "originalName": "Logistics (general)",
+          "track": "professional",
+          "n": 193,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": null,
+              "n": 102,
+              "floored": true,
+              "openEnded": true,
+              "needsJte": true
+            },
+            "3-8 yrs": {
+              "low": 3150,
+              "high": 4750,
+              "n": 46
+            },
+            "8+ yrs": {
+              "low": 7850,
+              "high": 10500,
+              "n": 45
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Shipping / Freight",
+          "originalName": "Shipping / Freight",
+          "track": "professional",
+          "n": 178,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3150,
+              "n": 51
+            },
+            "3-8 yrs": {
+              "low": 3100,
+              "high": 4250,
+              "n": 99
+            },
+            "8+ yrs": {
+              "low": 5250,
+              "high": 8500,
+              "n": 28
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Supply Chain Executive",
+          "originalName": "Supply Chain Executive",
+          "track": "professional",
+          "n": 87,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 5250,
+              "n": 46
+            },
+            "8+ yrs": {
+              "low": 6100,
+              "high": 10500,
+              "n": 22
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Planner",
+          "originalName": "Planner",
+          "track": "professional",
+          "n": 54,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 5250,
+              "n": 35
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Logistics Executive",
+          "originalName": "Logistics Executive",
+          "track": "professional",
+          "n": 33,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3500,
+              "high": 4500,
+              "n": 25
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ],
+      "floor": null,
+      "note": null
+    },
+    {
+      "slug": "manufacturing",
+      "name": "Manufacturing",
+      "n": 748,
+      "roles": [
+        {
+          "name": "Production",
+          "originalName": "Production",
+          "track": "operative",
+          "n": 202,
+          "scope": "Production and line work.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2000,
+              "high": 2300,
+              "n": 202,
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            },
+            "Gross": {
+              "low": 3000,
+              "high": null,
+              "n": 202,
+              "verified": true,
+              "openEnded": true,
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Manufacturing Engineer",
+          "originalName": "Manufacturing Engineer",
+          "track": "professional",
+          "n": 157,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3250,
+              "high": 4500,
+              "n": 47
+            },
+            "3-8 yrs": {
+              "low": 4250,
+              "high": 5750,
+              "n": 110
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Technician",
+          "originalName": "Technician",
+          "track": "scope",
+          "n": 137,
+          "scope": "Maintenance, setup and line support.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "A broad title, so the job decides the salary. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing pays a little less than engineering.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 2700,
+              "high": 3200,
+              "n": 137,
+              "verified": true,
+              "openEnded": false,
+              "note": "scope drives this more than years do",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Quality (QA / QC)",
+          "originalName": "Quality (QA / QC)",
+          "track": "professional",
+          "n": 75,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2400,
+              "high": 3050,
+              "n": 33
+            },
+            "3-8 yrs": {
+              "low": 3550,
+              "high": 4750,
+              "n": 32
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Production Supervisor",
+          "originalName": "Production Supervisor",
+          "track": "professional",
+          "n": 69,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4000,
+              "high": 4500,
+              "n": 25
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Machine Operator",
+          "originalName": "Machine Operator",
+          "track": "operative",
+          "n": 43,
+          "scope": "Machine minding, loading, monitoring, basic checks.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2000,
+              "high": 2300,
+              "n": 43,
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            },
+            "Gross": {
+              "low": 3000,
+              "high": null,
+              "n": 43,
+              "verified": true,
+              "openEnded": true,
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Assembly / Line",
+          "originalName": "Assembly / Line",
+          "track": "operative",
+          "n": 22,
+          "scope": "Assembly and line work.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2000,
+              "high": 2300,
+              "n": 22,
+              "verified": true,
+              "openEnded": false,
+              "note": "S$2,200 to S$2,500 attracts better staff",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            },
+            "Gross": {
+              "low": 3000,
+              "high": null,
+              "n": 22,
+              "verified": true,
+              "openEnded": true,
+              "note": "with OT and incentives, this is the level that attracts",
+              "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        }
+      ],
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Basic monthly salary, Singapore production and operator roles",
+        "source": "JTE, November 2026",
+        "short": "The basic salary is only half the story. Aim for a gross salary around S$3,000.",
+        "long": "Production jobs pay a lower basic salary than most industries, with overtime and incentives making up the rest. S$1,800 basic is about the lowest anyone will accept. S$2,000 is normal. S$2,200 to S$2,500 gets you noticeably better people. But the number they look at is the gross salary, and around S$3,000 is what wins them. Fewer people want a lot of overtime now, so a package that only works with heavy OT is hard to sell.",
+        "displayAmount": 3000
+      },
+      "note": "The basic salary is only half the picture here. How simple or complex the job is affects the salary as much as the level does. At the bottom of the range, fewer people apply and hiring takes longer."
+    },
+    {
+      "slug": "healthcare",
+      "name": "Healthcare",
+      "n": 1998,
+      "roles": [
+        {
+          "name": "Registered Nurse",
+          "originalName": "Nurse",
+          "track": "professional",
+          "n": 744,
+          "scope": "Staff nurse and above.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "These are what the market pays. A staff nurse can start lower, around S$2,730 basic. But the basic is not what a nurse compares, and it is not what gets them to say yes. Shift and department allowances are on top.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3350,
+              "high": 4250,
+              "n": 339
+            },
+            "3-8 yrs": {
+              "low": 3800,
+              "high": 4750,
+              "n": 378
+            },
+            "8+ yrs": {
+              "low": 6000,
+              "high": 8000,
+              "n": 27
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Enrolled Nurse",
+          "originalName": "Enrolled Nurse",
+          "track": "professional",
+          "n": 0,
+          "scope": "Enrolled and assistant nurse.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "This is basic salary only, and the basic is the problem. S$2,050 will not attract anyone now. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget about S$3,000 starting gross salary with allowances included, or expect a long search.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2050,
+              "high": 3570,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "entry to mid-career",
+              "verifiedNote": "JTE, Nov 2026."
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Clinic Assistant",
+          "originalName": "Clinic Staff",
+          "track": "operative",
+          "n": 259,
+          "scope": "Front desk plus assisting the doctor, GP or dental.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Starts above S$2,500, and about S$3,000 is the going rate. We placed one at S$2,800 basic, no allowances, 5 days and 44 hours, shifts but no midnight shift. Hiring is not the hard part. Keeping someone is.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2500,
+              "high": 3000,
+              "n": 259,
+              "verified": true,
+              "openEnded": false,
+              "note": "around S$3,000 is the going rate",
+              "verifiedNote": "JTE, Nov 2026, against placements we closed."
+            },
+            "Gross": null
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Care / Support Staff",
+          "originalName": "Care / Support Staff",
+          "track": "operative",
+          "n": 248,
+          "scope": "Healthcare assistant and care staff. Certification needed, but easier to get than nursing.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Lower than nursing because the certificate is easier to get. Do not read that as cheap. Even at S$2,500 this is a hard job to fill, so treat S$2,500 as the starting point, not the target. Allowances only apply when the job involves going out, so the basic is usually the whole salary.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2500,
+              "high": 3200,
+              "n": 248,
+              "verified": true,
+              "openEnded": false,
+              "note": "start at the floor and expect a slow search",
+              "verifiedNote": "JTE, Nov 2026."
+            },
+            "Gross": null
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Therapist",
+          "originalName": "Therapist",
+          "track": "professional",
+          "n": 206,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3050,
+              "high": 4500,
+              "n": 49
+            },
+            "3-8 yrs": {
+              "low": 4900,
+              "high": 6500,
+              "n": 157
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Pharmacy Assistant",
+          "originalName": "Pharmacy",
+          "track": "scope",
+          "n": 176,
+          "scope": "Counter work, dispensing support, stock.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 2500,
+              "high": 3000,
+              "n": 176,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Pharmacist",
+          "originalName": "Pharmacist",
+          "track": "scope",
+          "n": 0,
+          "scope": "Registered pharmacist.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "Years of experience drive this one. Above S$4,000 is normal for an experienced pharmacist.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 3100,
+              "high": 4000,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "goes higher with experience",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Physiotherapist",
+          "originalName": "Physiotherapist",
+          "track": "professional",
+          "n": 150,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3000,
+              "high": 5500,
+              "n": 35
+            },
+            "3-8 yrs": {
+              "low": 5300,
+              "high": 7500,
+              "n": 109
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Medical / Allied Health",
+          "originalName": "Medical / Allied Health",
+          "track": "professional",
+          "n": 73,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2850,
+              "high": 4500,
+              "n": 22
+            },
+            "3-8 yrs": {
+              "low": 4200,
+              "high": 5650,
+              "n": 42
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Laboratory",
+          "originalName": "Laboratory",
+          "track": "professional",
+          "n": 47,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2550,
+              "high": 3900,
+              "n": 32
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Patient Service Associate",
+          "originalName": "Patient Service",
+          "track": "operative",
+          "n": 41,
+          "scope": "Registration, appointments and patient queries.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Basic": {
+              "low": 2600,
+              "high": 3100,
+              "n": 41,
+              "verified": true,
+              "openEnded": false,
+              "note": null,
+              "verifiedNote": "JTE, Nov 2026."
+            },
+            "Gross": null
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Radiographer",
+          "originalName": "Radiographer",
+          "track": "professional",
+          "n": 38,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 6500,
+              "n": 29
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ],
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Basic monthly salary, Singapore community care and support roles",
+        "source": "JTE, November 2026",
+        "short": "Care jobs pay by level, not one fixed salary. Care staff starts around S$2,500.",
+        "long": "Care jobs pay by level. The lowest, a health attendant, starts at S$1,800. A healthcare assistant or care staff job starts around S$2,500 and goes up to about S$3,200. Those are basic salaries, so overtime and shift allowances are on top. Nursing is the one to watch. Those starting salaries are real, but they are not what gets a nurse to say yes. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget a starting gross salary of about S$3,000 or the job will stay open.",
+        "displayAmount": 2500
+      },
+      "note": "Salary here depends on the level of the job, more than on years of experience. Tell us the duties and how much supervision is involved, and we will tell you the level."
+    },
+    {
+      "slug": "commercial",
+      "name": "Commercial & Support",
+      "n": 1546,
+      "roles": [
+        {
+          "name": "Sales Executive",
+          "originalName": "Sales Executive",
+          "track": "professional",
+          "n": 401,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 4000,
+              "n": 208
+            },
+            "3-8 yrs": {
+              "low": 3250,
+              "high": 5000,
+              "n": 143
+            },
+            "8+ yrs": {
+              "low": 4400,
+              "high": 8750,
+              "n": 50
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Administrative",
+          "originalName": "Admin / Secretarial",
+          "track": "scope",
+          "n": 293,
+          "scope": "Office and administrative support.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "How complex the job is decides this, not years. Simple data entry sits near the bottom. A job that actually runs the office sits near the top.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 2500,
+              "high": 3500,
+              "n": 293,
+              "verified": true,
+              "openEnded": false,
+              "note": "data entry at the low end, full office support at the top",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Secretary",
+          "originalName": "Secretary",
+          "track": "scope",
+          "n": 0,
+          "scope": "Executive and personal assistant work.",
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": "A different job from admin support, not a step up from it. The top of this range is for someone supporting senior management.",
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "Typical range": {
+              "low": 3000,
+              "high": 6000,
+              "n": 0,
+              "verified": true,
+              "openEnded": false,
+              "note": "scales with who you are supporting and what you are trusted with",
+              "verifiedNote": "JTE, Nov 2026."
+            }
+          },
+          "flags": [
+            "jte-verified"
+          ],
+          "published": true
+        },
+        {
+          "name": "Accountant / Accounts",
+          "originalName": "Accountant / Accounts",
+          "track": "professional",
+          "n": 262,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2700,
+              "high": 3350,
+              "n": 77
+            },
+            "3-8 yrs": {
+              "low": 3350,
+              "high": 4750,
+              "n": 155
+            },
+            "8+ yrs": {
+              "low": 5000,
+              "high": 8000,
+              "n": 30
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Marketing",
+          "originalName": "Marketing",
+          "track": "professional",
+          "n": 139,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3500,
+              "high": 4500,
+              "n": 59
+            },
+            "3-8 yrs": null,
+            "8+ yrs": {
+              "low": 5500,
+              "high": 8250,
+              "n": 29
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Customer Service",
+          "originalName": "Customer Service",
+          "track": "professional",
+          "n": 97,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2500,
+              "high": 3200,
+              "n": 54
+            },
+            "3-8 yrs": {
+              "low": 2900,
+              "high": 3750,
+              "n": 43
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Finance",
+          "originalName": "Finance",
+          "track": "professional",
+          "n": 94,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3750,
+              "high": 5500,
+              "n": 40
+            },
+            "8+ yrs": {
+              "low": 5150,
+              "high": 8500,
+              "n": 35
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Business Development",
+          "originalName": "Business Development",
+          "track": "professional",
+          "n": 59,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 3400,
+              "high": 6000,
+              "n": 28
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Business Analyst",
+          "originalName": "Business Analyst",
+          "track": "professional",
+          "n": 54,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 4750,
+              "high": 7000,
+              "n": 43
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Recruitment / TA",
+          "originalName": "Recruitment / TA",
+          "track": "professional",
+          "n": 35,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3500,
+              "n": 20
+            },
+            "3-8 yrs": null,
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ],
+      "floor": null,
+      "note": null
+    },
+    {
+      "slug": "it",
+      "name": "IT & Tech",
+      "n": 1612,
+      "roles": [
+        {
+          "name": "Software Engineer",
+          "originalName": "Software Engineer",
+          "track": "professional",
+          "n": 275,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4500,
+              "high": 8000,
+              "n": 29
+            },
+            "3-8 yrs": {
+              "low": 6500,
+              "high": 9750,
+              "n": 232
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Cybersecurity",
+          "originalName": "Cybersecurity",
+          "track": "professional",
+          "n": 204,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6000,
+              "high": 9500,
+              "n": 154
+            },
+            "8+ yrs": {
+              "low": 8000,
+              "high": 14750,
+              "n": 39
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Software Developer",
+          "originalName": "Software Developer",
+          "track": "professional",
+          "n": 192,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 4150,
+              "high": 6900,
+              "n": 22
+            },
+            "3-8 yrs": {
+              "low": 6000,
+              "high": 9250,
+              "n": 164
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Network / Infrastructure",
+          "originalName": "Network / Infrastructure",
+          "track": "professional",
+          "n": 186,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 3400,
+              "high": 5200,
+              "n": 25
+            },
+            "3-8 yrs": {
+              "low": 5150,
+              "high": 8900,
+              "n": 142
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "DevOps / Cloud Engineer",
+          "originalName": "DevOps / Cloud Engineer",
+          "track": "professional",
+          "n": 159,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7000,
+              "high": 10500,
+              "n": 135
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Business Analyst",
+          "originalName": "IT Business Analyst",
+          "track": "professional",
+          "n": 123,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 6900,
+              "high": 8750,
+              "n": 105
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Application Engineer",
+          "originalName": "Application Engineer",
+          "track": "professional",
+          "n": 97,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5550,
+              "high": 10000,
+              "n": 68
+            },
+            "8+ yrs": {
+              "low": 8000,
+              "high": 13500,
+              "n": 23
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Project Manager",
+          "originalName": "IT Project Manager",
+          "track": "professional",
+          "n": 84,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7500,
+              "high": 10000,
+              "n": 52
+            },
+            "8+ yrs": {
+              "low": 7500,
+              "high": 10500,
+              "n": 32
+            }
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Engineer",
+          "originalName": "Data Engineer",
+          "track": "professional",
+          "n": 78,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7000,
+              "high": 9750,
+              "n": 71
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "IT Support / Helpdesk",
+          "originalName": "IT Support / Helpdesk",
+          "track": "professional",
+          "n": 67,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": {
+              "low": 2750,
+              "high": 3500,
+              "n": 32
+            },
+            "3-8 yrs": {
+              "low": 3050,
+              "high": 4500,
+              "n": 35
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Systems Engineer",
+          "originalName": "Systems Engineer",
+          "track": "professional",
+          "n": 59,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5000,
+              "high": 7400,
+              "n": 49
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "QA / Test Engineer",
+          "originalName": "QA / Test Engineer",
+          "track": "professional",
+          "n": 27,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 5750,
+              "high": 8500,
+              "n": 27
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        },
+        {
+          "name": "Data Scientist",
+          "originalName": "Data Scientist",
+          "track": "professional",
+          "n": 21,
+          "scope": null,
+          "basis": "basic",
+          "basisLabel": "basic monthly",
+          "basicNote": null,
+          "aboveNote": null,
+          "benefitNote": null,
+          "daysPerWeek": null,
+          "bands": {
+            "0-3 yrs": null,
+            "3-8 yrs": {
+              "low": 7000,
+              "high": 10500,
+              "n": 21
+            },
+            "8+ yrs": null
+          },
+          "flags": [],
+          "published": true
+        }
+      ],
+      "floor": null,
+      "note": null
+    }
+  ]
+}

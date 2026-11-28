@@ -1,0 +1,212 @@
+{
+  "index": {
+    "faq": [
+      {
+        "q": "How much do people earn in Singapore by sector?",
+        "a": "It depends on the sector, role and seniority, pick a sector guide above for typical monthly base ranges across engineering, IT, healthcare, manufacturing, logistics and commercial roles, all from our own read of the Singapore market."
+      },
+      {
+        "q": "What affects how much someone earns?",
+        "a": "Sector, the exact role and seniority, the hiring company and industry, professional registration or certifications, and how scarce the skill set is all move pay, two jobs with the same title can be very different."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Salary ranges in Singapore by sector (2026)",
+      "description": "Typical monthly base salary ranges across engineering, IT and tech, healthcare, manufacturing, logistics and commercial roles in Singapore, drawn from JTE Recruit placement data since 2014.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "commercial": {
+    "faq": [
+      {
+        "q": "What is the typical commercial or support salary in Singapore?",
+        "a": "It spans finance, HR, admin, sales, marketing and customer service, the bands above show typical monthly base from executives through to managers. Function and industry swing it a lot, so use the range as a guide."
+      },
+      {
+        "q": "What affects how much a commercial or support professional earns?",
+        "a": "The function (finance, HR, sales or admin), the industry, professional qualifications (such as ACCA or CA for finance), revenue responsibility for sales roles, and company size move pay most, alongside seniority."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Commercial and support salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for commercial and support roles in Singapore, finance, HR, admin, sales, marketing and customer service, by seniority.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "engineering": {
+    "faq": [
+      {
+        "q": "What is the typical engineer salary in Singapore?",
+        "a": "It depends heavily on discipline and seniority, the bands above show the typical monthly base we place at, from junior engineers through to engineering managers. Two engineers with the same title can sit far apart, so use them as a starting point and ask us about your exact role."
+      },
+      {
+        "q": "What affects how much an engineer earns?",
+        "a": "Discipline (mechanical, electrical, civil or process), professional registration, project versus plant work, and site or shift allowances move the number most, on top of seniority, the hiring company and how scarce the skill set is."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Engineering salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for engineering roles in Singapore by seniority, mechanical, electrical, civil, project, process, maintenance and QA/QC engineers, plus technicians.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "healthcare": {
+    "faq": [
+      {
+        "q": "What is the typical healthcare salary in Singapore?",
+        "a": "It varies by profession and setting, the bands above show typical monthly base across nursing, allied health and support roles. Registration and shift patterns change take-home a lot, so use them as a guide and ask us about a specific role."
+      },
+      {
+        "q": "What affects how much a healthcare professional earns?",
+        "a": "The profession and its registration (SNB for nurses, AHPC for allied health), the setting (hospital, clinic or nursing home), shift and on-call allowances, years registered and specialty all move the number, often more than the base title alone."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Healthcare salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for healthcare roles in Singapore, nursing, allied health, care and healthcare administration, by seniority.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "it": {
+    "faq": [
+      {
+        "q": "What is the typical IT or tech salary in Singapore?",
+        "a": "Tech has one of the widest pay spreads of any sector, the bands above cover typical monthly base from junior developers and support through to senior engineers and tech leads. Specialisation swings it a lot, so treat the range as a guide and ask us about a specific stack."
+      },
+      {
+        "q": "What affects how much a tech professional earns?",
+        "a": "The specialisation (cloud, cybersecurity, data and AI, or software engineering), how in-demand the stack is, relevant certifications, and the company’s stage and funding move pay most, alongside seniority and how hard the skill is to find."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "IT and tech salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for IT and technology roles in Singapore, software engineering, cybersecurity, data and AI, infrastructure and tech leadership, by seniority.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "logistics": {
+    "faq": [
+      {
+        "q": "What is the typical logistics or supply chain salary in Singapore?",
+        "a": "It ranges widely, from warehouse and transport roles through to supply-chain planning and management, the bands above show typical monthly base. Shift, night and peak-season work add to take-home, so treat the base as a starting point."
+      },
+      {
+        "q": "What affects how much a logistics professional earns?",
+        "a": "Shift and night work, licences (forklift, or class 3, 4 and 5 driving), peak-season demand, and whether the role is hands-on warehouse or supply-chain planning move the number most, on top of seniority and scope."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Logistics and supply chain salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for logistics and supply chain roles in Singapore, warehouse, transport, planning and supply-chain management, by seniority.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  },
+  "manufacturing": {
+    "faq": [
+      {
+        "q": "What is the typical manufacturing salary in Singapore?",
+        "a": "It depends on the role and shift pattern, the bands above cover typical monthly base from operators and technicians through to engineers and plant supervisors. Overtime and shift allowances add meaningfully on top, so read the base as a floor."
+      },
+      {
+        "q": "What affects how much a manufacturing hire earns?",
+        "a": "Shift and overtime patterns, the discipline and plant complexity, safety and equipment certifications, and supervisory scope move pay most, alongside seniority and how specialised the line or process is."
+      },
+      {
+        "q": "Do these salary figures include bonus and CPF?",
+        "a": "These are monthly basic salaries, before AWS, bonus, commission, overtime, shift and site allowances. What people actually take home is often higher, so treat these as the starting point, not the full package."
+      },
+      {
+        "q": "How current is this salary data?",
+        "a": "We keep them current. We track what employers across the Singapore market are advertising for each role and seniority, and set that against what we see when we actually fill these roles. Where our own figure differs from the advertised one, ours is the one we publish. The market moves, so treat them as an informed guide rather than a fixed rate card, and ask us for a read on a specific role."
+      },
+      {
+        "q": "How do I get an accurate salary benchmark for a specific role?",
+        "a": "Tell us the title, the scope and where the role is based, and we’ll come back, at no cost, with a sharper range for your exact hire and what comparable employers are paying."
+      }
+    ],
+    "dataset": {
+      "name": "Manufacturing salary ranges in Singapore (2026)",
+      "description": "Typical monthly base salary ranges for manufacturing roles in Singapore, operators, technicians, engineers, QA and plant supervisors, by seniority.",
+      "temporalCoverage": "2026",
+      "variableMeasured": "Typical monthly base salary (SGD)"
+    }
+  }
+}

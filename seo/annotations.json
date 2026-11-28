@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "date": "2026-10-13", "label": "AI-visibility rewrite: answer-first copy + schema on every sector and service page", "tag": "SEO" },
+    { "date": "2026-10-15", "label": "Growth Engine went live (autonomous content pipeline)", "tag": "Content" },
+    { "date": "2026-10-22", "label": "Payroll cluster publishing began", "tag": "Content" },
+    { "date": "2026-10-31", "label": "Free-payroll money page + full 16-article payroll cluster shipped", "tag": "Content" },
+    { "date": "2026-11-02", "label": "Control Hub redesign (this dashboard)", "tag": "Ops" },
+    { "date": "2026-11-07", "label": "IT-weighted payroll + contract-staffing content push begins (4 articles/week)", "tag": "Content" },
+    { "date": "2026-11-30", "label": "December payroll batch: hybrid-team, outsourcing, contractor-cost, Shortage-List EP (POV on 2026 trends)", "tag": "Content" },
+    { "date": "2026-12-08", "label": "Mid-December batch: 1-Jan-2027 roundup, freelancer-vs-employee CPF, remote dev team, year-end payroll switch", "tag": "Content" }
+  ]
+}

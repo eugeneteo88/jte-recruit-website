@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* JTE-GLOBAL-SELECTION — global brand text selection */
+@layer base{
+  ::selection{background-color:#ECDCBB;color:#241B12}::-moz-selection{background-color:#ECDCBB;color:#241B12}
+}
+
+/* JTE-NAV-DROPDOWN — desktop nav groups.
+   The nav redesign (2026-11-10) shipped .nav-grp/.nav-dd/.nav-car/.nav-lnk
+   markup site-wide but no rules for them, so every dropdown rendered
+   expanded and inline. These are the missing rules. Kept here (not in a
+   per-page <style>) so all pages get them from assets/tailwind.css. */
+@layer components{
+  .nav-desk{align-items:center;gap:1.75rem}
+
+  .nav-lnk,
+  .nav-grp>a{
+    position:relative;display:inline-flex;align-items:center;gap:.3rem;
+    font-size:.75rem;line-height:1;text-transform:uppercase;letter-spacing:.15em;
+    color:#4b5563;white-space:nowrap;transition:color .25s ease;
+  }
+  .nav-lnk:hover,.nav-grp>a:hover{color:#8C7350}
+  .nav-lnk.gold{color:#8C7350;font-weight:600}
+  .nav-lnk.gold:hover{color:#C6A87C}
+
+  /* gold underline on hover, same motion as .hover-gold-line */
+  .nav-lnk::after,
+  .nav-grp>a::after{
+    content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;
+    background:#C6A87C;transition:width .4s ease;
+  }
+  .nav-lnk:hover::after,
+  .nav-grp:hover>a::after,
+  .nav-grp:focus-within>a::after{width:100%}
+
+  .nav-grp{position:relative;display:inline-block}
+
+  .nav-car{
+    display:inline-block;width:0;height:0;margin-left:.1rem;
+    border-left:3.5px solid transparent;border-right:3.5px solid transparent;
+    border-top:4px solid currentColor;opacity:.55;
+    transition:transform .25s ease,opacity .25s ease;
+  }
+  .nav-grp:hover .nav-car,
+  .nav-grp:focus-within .nav-car{transform:rotate(180deg);opacity:1}
+
+  .nav-dd{
+    position:absolute;top:100%;left:50%;z-index:60;
+    min-width:15rem;padding:1rem 0 .75rem;margin-top:.9rem;
+    background:#F5F1E8;border:1px solid rgba(0,0,0,.07);border-radius:.6rem;
+    box-shadow:0 24px 50px -22px rgba(60,45,25,.45);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transform:translateX(-50%) translateY(-6px);
+    transition:opacity .25s ease,transform .25s ease,visibility .25s;
+  }
+  /* hover bridge, so the pointer can cross the gap into the panel */
+  .nav-dd::before{content:'';position:absolute;top:-.9rem;left:0;right:0;height:.9rem}
+
+  .nav-grp:hover>.nav-dd,
+  .nav-grp:focus-within>.nav-dd{
+    opacity:1;visibility:visible;pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+  }
+
+  .nav-dd .eyb{
+    padding:0 1.25rem .55rem;margin-bottom:.35rem;
+    border-bottom:1px solid rgba(0,0,0,.07);
+    font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+    color:#8C7350;
+  }
+  .nav-dd>a{
+    display:block;padding:.5rem 1.25rem;
+    font-size:.82rem;line-height:1.35;letter-spacing:.01em;color:#4b5563;
+    white-space:nowrap;transition:color .2s ease,background-color .2s ease;
+  }
+  .nav-dd>a:hover{color:#8C7350;background:rgba(198,168,124,.12)}
+  .nav-dd>a.lead{color:#1a1a1a;font-weight:600}
+}

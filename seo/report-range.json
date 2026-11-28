@@ -1,0 +1,1121 @@
+{
+  "from": "2026-06-01",
+  "to": "2026-11-26",
+  "generatedAt": "2026-11-27 05:30 UTC",
+  "missing": [],
+  "totals": {
+    "impressions": 112670,
+    "clicks": 2444,
+    "ctr": 2.17,
+    "position": 16.7
+  },
+  "monthly": [
+    {
+      "month": "2026-07",
+      "impressions": 12394,
+      "clicks": 434,
+      "days": 26,
+      "dailyMeanPosition": 16.3
+    },
+    {
+      "month": "2026-08",
+      "impressions": 24775,
+      "clicks": 567,
+      "days": 31,
+      "dailyMeanPosition": 17.5
+    },
+    {
+      "month": "2026-09",
+      "impressions": 24291,
+      "clicks": 552,
+      "days": 30,
+      "dailyMeanPosition": 16.2
+    },
+    {
+      "month": "2026-10",
+      "impressions": 26934,
+      "clicks": 517,
+      "days": 31,
+      "dailyMeanPosition": 16.2
+    },
+    {
+      "month": "2026-11",
+      "impressions": 24276,
+      "clicks": 374,
+      "days": 24,
+      "dailyMeanPosition": 17
+    }
+  ],
+  "daily": [
+    {
+      "date": "2026-07-06",
+      "impressions": 566,
+      "clicks": 13
+    },
+    {
+      "date": "2026-07-07",
+      "impressions": 426,
+      "clicks": 28
+    },
+    {
+      "date": "2026-07-08",
+      "impressions": 698,
+      "clicks": 34
+    },
+    {
+      "date": "2026-07-09",
+      "impressions": 508,
+      "clicks": 15
+    },
+    {
+      "date": "2026-07-10",
+      "impressions": 387,
+      "clicks": 8
+    },
+    {
+      "date": "2026-07-11",
+      "impressions": 346,
+      "clicks": 11
+    },
+    {
+      "date": "2026-07-12",
+      "impressions": 383,
+      "clicks": 20
+    },
+    {
+      "date": "2026-07-13",
+      "impressions": 528,
+      "clicks": 21
+    },
+    {
+      "date": "2026-07-14",
+      "impressions": 349,
+      "clicks": 23
+    },
+    {
+      "date": "2026-07-15",
+      "impressions": 479,
+      "clicks": 16
+    },
+    {
+      "date": "2026-07-16",
+      "impressions": 412,
+      "clicks": 7
+    },
+    {
+      "date": "2026-07-17",
+      "impressions": 291,
+      "clicks": 14
+    },
+    {
+      "date": "2026-07-18",
+      "impressions": 246,
+      "clicks": 8
+    },
+    {
+      "date": "2026-07-19",
+      "impressions": 383,
+      "clicks": 8
+    },
+    {
+      "date": "2026-07-20",
+      "impressions": 397,
+      "clicks": 22
+    },
+    {
+      "date": "2026-07-21",
+      "impressions": 372,
+      "clicks": 18
+    },
+    {
+      "date": "2026-07-22",
+      "impressions": 415,
+      "clicks": 9
+    },
+    {
+      "date": "2026-07-23",
+      "impressions": 331,
+      "clicks": 13
+    },
+    {
+      "date": "2026-07-24",
+      "impressions": 331,
+      "clicks": 6
+    },
+    {
+      "date": "2026-07-25",
+      "impressions": 256,
+      "clicks": 4
+    },
+    {
+      "date": "2026-07-26",
+      "impressions": 542,
+      "clicks": 27
+    },
+    {
+      "date": "2026-07-27",
+      "impressions": 717,
+      "clicks": 22
+    },
+    {
+      "date": "2026-07-28",
+      "impressions": 639,
+      "clicks": 37
+    },
+    {
+      "date": "2026-07-29",
+      "impressions": 1177,
+      "clicks": 19
+    },
+    {
+      "date": "2026-07-30",
+      "impressions": 667,
+      "clicks": 11
+    },
+    {
+      "date": "2026-07-31",
+      "impressions": 548,
+      "clicks": 20
+    },
+    {
+      "date": "2026-08-01",
+      "impressions": 509,
+      "clicks": 11
+    },
+    {
+      "date": "2026-08-02",
+      "impressions": 734,
+      "clicks": 21
+    },
+    {
+      "date": "2026-08-03",
+      "impressions": 665,
+      "clicks": 22
+    },
+    {
+      "date": "2026-08-04",
+      "impressions": 686,
+      "clicks": 28
+    },
+    {
+      "date": "2026-08-05",
+      "impressions": 921,
+      "clicks": 17
+    },
+    {
+      "date": "2026-08-06",
+      "impressions": 637,
+      "clicks": 16
+    },
+    {
+      "date": "2026-08-07",
+      "impressions": 478,
+      "clicks": 9
+    },
+    {
+      "date": "2026-08-08",
+      "impressions": 465,
+      "clicks": 4
+    },
+    {
+      "date": "2026-08-09",
+      "impressions": 643,
+      "clicks": 12
+    },
+    {
+      "date": "2026-08-10",
+      "impressions": 713,
+      "clicks": 19
+    },
+    {
+      "date": "2026-08-11",
+      "impressions": 757,
+      "clicks": 28
+    },
+    {
+      "date": "2026-08-12",
+      "impressions": 1242,
+      "clicks": 17
+    },
+    {
+      "date": "2026-08-13",
+      "impressions": 904,
+      "clicks": 19
+    },
+    {
+      "date": "2026-08-14",
+      "impressions": 618,
+      "clicks": 12
+    },
+    {
+      "date": "2026-08-15",
+      "impressions": 637,
+      "clicks": 10
+    },
+    {
+      "date": "2026-08-16",
+      "impressions": 774,
+      "clicks": 14
+    },
+    {
+      "date": "2026-08-17",
+      "impressions": 817,
+      "clicks": 28
+    },
+    {
+      "date": "2026-08-18",
+      "impressions": 777,
+      "clicks": 23
+    },
+    {
+      "date": "2026-08-19",
+      "impressions": 1206,
+      "clicks": 23
+    },
+    {
+      "date": "2026-08-20",
+      "impressions": 881,
+      "clicks": 31
+    },
+    {
+      "date": "2026-08-21",
+      "impressions": 723,
+      "clicks": 18
+    },
+    {
+      "date": "2026-08-22",
+      "impressions": 715,
+      "clicks": 11
+    },
+    {
+      "date": "2026-08-23",
+      "impressions": 771,
+      "clicks": 16
+    },
+    {
+      "date": "2026-08-24",
+      "impressions": 1093,
+      "clicks": 22
+    },
+    {
+      "date": "2026-08-25",
+      "impressions": 874,
+      "clicks": 13
+    },
+    {
+      "date": "2026-08-26",
+      "impressions": 1264,
+      "clicks": 17
+    },
+    {
+      "date": "2026-08-27",
+      "impressions": 954,
+      "clicks": 27
+    },
+    {
+      "date": "2026-08-28",
+      "impressions": 737,
+      "clicks": 15
+    },
+    {
+      "date": "2026-08-29",
+      "impressions": 695,
+      "clicks": 11
+    },
+    {
+      "date": "2026-08-30",
+      "impressions": 907,
+      "clicks": 28
+    },
+    {
+      "date": "2026-08-31",
+      "impressions": 978,
+      "clicks": 25
+    },
+    {
+      "date": "2026-09-01",
+      "impressions": 919,
+      "clicks": 18
+    },
+    {
+      "date": "2026-09-02",
+      "impressions": 1318,
+      "clicks": 24
+    },
+    {
+      "date": "2026-09-03",
+      "impressions": 937,
+      "clicks": 18
+    },
+    {
+      "date": "2026-09-04",
+      "impressions": 740,
+      "clicks": 11
+    },
+    {
+      "date": "2026-09-05",
+      "impressions": 558,
+      "clicks": 8
+    },
+    {
+      "date": "2026-09-06",
+      "impressions": 827,
+      "clicks": 18
+    },
+    {
+      "date": "2026-09-07",
+      "impressions": 872,
+      "clicks": 24
+    },
+    {
+      "date": "2026-09-08",
+      "impressions": 854,
+      "clicks": 30
+    },
+    {
+      "date": "2026-09-09",
+      "impressions": 1139,
+      "clicks": 32
+    },
+    {
+      "date": "2026-09-10",
+      "impressions": 888,
+      "clicks": 20
+    },
+    {
+      "date": "2026-09-11",
+      "impressions": 597,
+      "clicks": 12
+    },
+    {
+      "date": "2026-09-12",
+      "impressions": 651,
+      "clicks": 8
+    },
+    {
+      "date": "2026-09-13",
+      "impressions": 935,
+      "clicks": 17
+    },
+    {
+      "date": "2026-09-14",
+      "impressions": 1046,
+      "clicks": 29
+    },
+    {
+      "date": "2026-09-15",
+      "impressions": 810,
+      "clicks": 26
+    },
+    {
+      "date": "2026-09-16",
+      "impressions": 1172,
+      "clicks": 17
+    },
+    {
+      "date": "2026-09-17",
+      "impressions": 632,
+      "clicks": 18
+    },
+    {
+      "date": "2026-09-18",
+      "impressions": 692,
+      "clicks": 10
+    },
+    {
+      "date": "2026-09-19",
+      "impressions": 539,
+      "clicks": 9
+    },
+    {
+      "date": "2026-09-20",
+      "impressions": 654,
+      "clicks": 13
+    },
+    {
+      "date": "2026-09-21",
+      "impressions": 872,
+      "clicks": 18
+    },
+    {
+      "date": "2026-09-22",
+      "impressions": 779,
+      "clicks": 20
+    },
+    {
+      "date": "2026-09-23",
+      "impressions": 726,
+      "clicks": 24
+    },
+    {
+      "date": "2026-09-24",
+      "impressions": 792,
+      "clicks": 25
+    },
+    {
+      "date": "2026-09-25",
+      "impressions": 627,
+      "clicks": 9
+    },
+    {
+      "date": "2026-09-26",
+      "impressions": 512,
+      "clicks": 11
+    },
+    {
+      "date": "2026-09-27",
+      "impressions": 683,
+      "clicks": 14
+    },
+    {
+      "date": "2026-09-28",
+      "impressions": 810,
+      "clicks": 24
+    },
+    {
+      "date": "2026-09-29",
+      "impressions": 836,
+      "clicks": 17
+    },
+    {
+      "date": "2026-09-30",
+      "impressions": 874,
+      "clicks": 28
+    },
+    {
+      "date": "2026-10-01",
+      "impressions": 825,
+      "clicks": 13
+    },
+    {
+      "date": "2026-10-02",
+      "impressions": 709,
+      "clicks": 17
+    },
+    {
+      "date": "2026-10-03",
+      "impressions": 511,
+      "clicks": 8
+    },
+    {
+      "date": "2026-10-04",
+      "impressions": 748,
+      "clicks": 17
+    },
+    {
+      "date": "2026-10-05",
+      "impressions": 950,
+      "clicks": 27
+    },
+    {
+      "date": "2026-10-06",
+      "impressions": 852,
+      "clicks": 18
+    },
+    {
+      "date": "2026-10-07",
+      "impressions": 1030,
+      "clicks": 19
+    },
+    {
+      "date": "2026-10-08",
+      "impressions": 796,
+      "clicks": 26
+    },
+    {
+      "date": "2026-10-09",
+      "impressions": 691,
+      "clicks": 12
+    },
+    {
+      "date": "2026-10-10",
+      "impressions": 593,
+      "clicks": 8
+    },
+    {
+      "date": "2026-10-11",
+      "impressions": 849,
+      "clicks": 18
+    },
+    {
+      "date": "2026-10-12",
+      "impressions": 806,
+      "clicks": 16
+    },
+    {
+      "date": "2026-10-13",
+      "impressions": 776,
+      "clicks": 26
+    },
+    {
+      "date": "2026-10-14",
+      "impressions": 905,
+      "clicks": 23
+    },
+    {
+      "date": "2026-10-15",
+      "impressions": 672,
+      "clicks": 25
+    },
+    {
+      "date": "2026-10-16",
+      "impressions": 594,
+      "clicks": 11
+    },
+    {
+      "date": "2026-10-17",
+      "impressions": 550,
+      "clicks": 12
+    },
+    {
+      "date": "2026-10-18",
+      "impressions": 829,
+      "clicks": 13
+    },
+    {
+      "date": "2026-10-19",
+      "impressions": 768,
+      "clicks": 15
+    },
+    {
+      "date": "2026-10-20",
+      "impressions": 782,
+      "clicks": 17
+    },
+    {
+      "date": "2026-10-21",
+      "impressions": 1110,
+      "clicks": 22
+    },
+    {
+      "date": "2026-10-22",
+      "impressions": 1014,
+      "clicks": 14
+    },
+    {
+      "date": "2026-10-23",
+      "impressions": 1015,
+      "clicks": 8
+    },
+    {
+      "date": "2026-10-24",
+      "impressions": 758,
+      "clicks": 5
+    },
+    {
+      "date": "2026-10-25",
+      "impressions": 1193,
+      "clicks": 15
+    },
+    {
+      "date": "2026-10-26",
+      "impressions": 1082,
+      "clicks": 26
+    },
+    {
+      "date": "2026-10-27",
+      "impressions": 1110,
+      "clicks": 23
+    },
+    {
+      "date": "2026-10-28",
+      "impressions": 1393,
+      "clicks": 24
+    },
+    {
+      "date": "2026-10-29",
+      "impressions": 1056,
+      "clicks": 16
+    },
+    {
+      "date": "2026-10-30",
+      "impressions": 916,
+      "clicks": 17
+    },
+    {
+      "date": "2026-10-31",
+      "impressions": 1051,
+      "clicks": 6
+    },
+    {
+      "date": "2026-11-01",
+      "impressions": 1154,
+      "clicks": 18
+    },
+    {
+      "date": "2026-11-02",
+      "impressions": 1098,
+      "clicks": 18
+    },
+    {
+      "date": "2026-11-03",
+      "impressions": 1086,
+      "clicks": 9
+    },
+    {
+      "date": "2026-11-04",
+      "impressions": 1426,
+      "clicks": 21
+    },
+    {
+      "date": "2026-11-05",
+      "impressions": 741,
+      "clicks": 14
+    },
+    {
+      "date": "2026-11-06",
+      "impressions": 912,
+      "clicks": 14
+    },
+    {
+      "date": "2026-11-07",
+      "impressions": 814,
+      "clicks": 8
+    },
+    {
+      "date": "2026-11-08",
+      "impressions": 809,
+      "clicks": 5
+    },
+    {
+      "date": "2026-11-09",
+      "impressions": 1018,
+      "clicks": 13
+    },
+    {
+      "date": "2026-11-10",
+      "impressions": 1065,
+      "clicks": 19
+    },
+    {
+      "date": "2026-11-11",
+      "impressions": 1353,
+      "clicks": 22
+    },
+    {
+      "date": "2026-11-12",
+      "impressions": 1147,
+      "clicks": 16
+    },
+    {
+      "date": "2026-11-13",
+      "impressions": 863,
+      "clicks": 13
+    },
+    {
+      "date": "2026-11-14",
+      "impressions": 855,
+      "clicks": 8
+    },
+    {
+      "date": "2026-11-15",
+      "impressions": 995,
+      "clicks": 16
+    },
+    {
+      "date": "2026-11-16",
+      "impressions": 1141,
+      "clicks": 20
+    },
+    {
+      "date": "2026-11-17",
+      "impressions": 958,
+      "clicks": 27
+    },
+    {
+      "date": "2026-11-18",
+      "impressions": 1066,
+      "clicks": 21
+    },
+    {
+      "date": "2026-11-19",
+      "impressions": 870,
+      "clicks": 15
+    },
+    {
+      "date": "2026-11-20",
+      "impressions": 842,
+      "clicks": 10
+    },
+    {
+      "date": "2026-11-21",
+      "impressions": 740,
+      "clicks": 13
+    },
+    {
+      "date": "2026-11-22",
+      "impressions": 946,
+      "clicks": 17
+    },
+    {
+      "date": "2026-11-23",
+      "impressions": 1175,
+      "clicks": 23
+    },
+    {
+      "date": "2026-11-24",
+      "impressions": 1202,
+      "clicks": 14
+    }
+  ],
+  "coverage": {
+    "firstDate": "2026-07-06",
+    "lastDate": "2026-11-24",
+    "daysWithData": 142
+  },
+  "brandSplit": {
+    "brand": {
+      "clicks": 1112,
+      "impressions": 4859
+    },
+    "nonBrand": {
+      "clicks": 203,
+      "impressions": 67756
+    }
+  },
+  "topQueries": [
+    {
+      "term": "recruitment agency singapore",
+      "clicks": 14,
+      "impressions": 1685,
+      "position": 22.7
+    },
+    {
+      "term": "healthcare salary singapore",
+      "clicks": 7,
+      "impressions": 80,
+      "position": 4.9
+    },
+    {
+      "term": "healthcare recruitment agency singapore for foreigners",
+      "clicks": 5,
+      "impressions": 49,
+      "position": 6.4
+    },
+    {
+      "term": "singapore job agency whatsapp number",
+      "clicks": 5,
+      "impressions": 151,
+      "position": 5.8
+    },
+    {
+      "term": "job agency singapore",
+      "clicks": 4,
+      "impressions": 216,
+      "position": 22.7
+    },
+    {
+      "term": "allied health recruitment agency",
+      "clicks": 3,
+      "impressions": 7,
+      "position": 1
+    },
+    {
+      "term": "employment agency singapore",
+      "clicks": 3,
+      "impressions": 111,
+      "position": 11.3
+    },
+    {
+      "term": "healthcare pay",
+      "clicks": 3,
+      "impressions": 6,
+      "position": 2
+    },
+    {
+      "term": "recruitment agencies singapore",
+      "clicks": 3,
+      "impressions": 160,
+      "position": 19.1
+    },
+    {
+      "term": "singapore job agency for foreigners",
+      "clicks": 3,
+      "impressions": 16,
+      "position": 3.6
+    },
+    {
+      "term": "singapore recruitment agency",
+      "clicks": 3,
+      "impressions": 366,
+      "position": 19.9
+    },
+    {
+      "term": "best recruitment agency in singapore",
+      "clicks": 2,
+      "impressions": 156,
+      "position": 19.8
+    },
+    {
+      "term": "employment grant",
+      "clicks": 2,
+      "impressions": 8,
+      "position": 10.8
+    },
+    {
+      "term": "healthcare",
+      "clicks": 2,
+      "impressions": 15,
+      "position": 3.3
+    },
+    {
+      "term": "it recruitment agencies in singapore for foreigners",
+      "clicks": 2,
+      "impressions": 19,
+      "position": 13.2
+    }
+  ],
+  "topPages": [
+    {
+      "url": "/",
+      "clicks": 1603,
+      "impressions": 62974,
+      "position": 17.8
+    },
+    {
+      "url": "/sectors/healthcare-recruitment/",
+      "clicks": 114,
+      "impressions": 2150,
+      "position": 10.7
+    },
+    {
+      "url": "/salary-guide/healthcare/",
+      "clicks": 113,
+      "impressions": 2312,
+      "position": 6.3
+    },
+    {
+      "url": "/salary-guide/engineering/",
+      "clicks": 69,
+      "impressions": 4858,
+      "position": 7.1
+    },
+    {
+      "url": "/blog/recruitment-agency-cost-singapore/",
+      "clicks": 62,
+      "impressions": 4289,
+      "position": 4.5
+    },
+    {
+      "url": "/contact/",
+      "clicks": 57,
+      "impressions": 2085,
+      "position": 4
+    },
+    {
+      "url": "/salary-guide/it/",
+      "clicks": 56,
+      "impressions": 2730,
+      "position": 8.6
+    },
+    {
+      "url": "/salary-guide/",
+      "clicks": 36,
+      "impressions": 2970,
+      "position": 14.4
+    },
+    {
+      "url": "/salary-guide/healthcare",
+      "clicks": 35,
+      "impressions": 584,
+      "position": 4.4
+    },
+    {
+      "url": "/sectors/engineering-recruitment/",
+      "clicks": 29,
+      "impressions": 2768,
+      "position": 33.9
+    },
+    {
+      "url": "/our-story/",
+      "clicks": 28,
+      "impressions": 2236,
+      "position": 3.9
+    },
+    {
+      "url": "/salary-guide/logistics/",
+      "clicks": 25,
+      "impressions": 1587,
+      "position": 5.3
+    }
+  ],
+  "firstVsLast": {
+    "first": {
+      "month": "2026-07",
+      "impressions": 12394,
+      "clicks": 434,
+      "days": 26,
+      "dailyMeanPosition": 16.3
+    },
+    "last": {
+      "month": "2026-10",
+      "impressions": 26934,
+      "clicks": 517,
+      "days": 31,
+      "dailyMeanPosition": 16.2
+    }
+  },
+  "leadsTotal": 33,
+  "leadsMonthly": [
+    {
+      "month": "2026-10",
+      "leads": 6
+    },
+    {
+      "month": "2026-11",
+      "leads": 27
+    }
+  ],
+  "leadsDaily": [
+    {
+      "date": "2026-10-27",
+      "leads": 2
+    },
+    {
+      "date": "2026-10-28",
+      "leads": 3
+    },
+    {
+      "date": "2026-10-29",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-01",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-02",
+      "leads": 3
+    },
+    {
+      "date": "2026-11-04",
+      "leads": 2
+    },
+    {
+      "date": "2026-11-05",
+      "leads": 2
+    },
+    {
+      "date": "2026-11-07",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-11",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-12",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-13",
+      "leads": 2
+    },
+    {
+      "date": "2026-11-15",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-17",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-18",
+      "leads": 2
+    },
+    {
+      "date": "2026-11-19",
+      "leads": 4
+    },
+    {
+      "date": "2026-11-22",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-23",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-25",
+      "leads": 1
+    },
+    {
+      "date": "2026-11-26",
+      "leads": 3
+    }
+  ],
+  "ga4Coverage": {
+    "firstDate": "2026-07-07",
+    "lastDate": "2026-11-26",
+    "daysWithData": 142
+  },
+  "leadsByChannel": [
+    {
+      "channel": "Organic Search",
+      "leads": 16
+    },
+    {
+      "channel": "Direct",
+      "leads": 8
+    },
+    {
+      "channel": "AI Assistant",
+      "leads": 7
+    },
+    {
+      "channel": "Referral",
+      "leads": 2
+    }
+  ],
+  "sessionsByChannel": [
+    {
+      "channel": "Organic Search",
+      "sessions": 3230
+    },
+    {
+      "channel": "Direct",
+      "sessions": 2996
+    },
+    {
+      "channel": "Organic Social",
+      "sessions": 1105
+    },
+    {
+      "channel": "AI Assistant",
+      "sessions": 695
+    },
+    {
+      "channel": "Referral",
+      "sessions": 126
+    },
+    {
+      "channel": "Unassigned",
+      "sessions": 41
+    }
+  ],
+  "aiSessions": {
+    "total": 711,
+    "breakdown": [
+      {
+        "source": "chatgpt.com",
+        "sessions": 691
+      },
+      {
+        "source": "copilot.com",
+        "sessions": 15
+      },
+      {
+        "source": "perplexity.ai",
+        "sessions": 3
+      },
+      {
+        "source": "gemini.google.com",
+        "sessions": 1
+      },
+      {
+        "source": "perplexity",
+        "sessions": 1
+      }
+    ]
+  }
+}

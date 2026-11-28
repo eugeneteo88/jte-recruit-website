@@ -1,0 +1,149 @@
+{
+  "title": "Payroll — LinkedIn post bank",
+  "updated": "2026-11-03",
+  "note": "Personal-profile posts, in PUBLISH ORDER. Post the top one first and work down — it matches the 4/week site schedule (Nov 7 onward). Copy, paste into LinkedIn, then post or use the native Schedule (clock) button. Casual, first-person, no em-dashes. If something trends, post the relevant one out of order and bump two down the queue. GBP auto-posts from the site feed — this bank is for your personal LinkedIn.",
+  "posts": [
+    {
+      "chip": "Compliance",
+      "for": "Nov 7 · timely MOM hook",
+      "title": "The work pass and the payroll are the same compliance problem",
+      "cap": "MOM has been visibly tightening up on work passes lately, and it's a good reminder of something employers underrate: the pass and the payroll are the same compliance problem.\n\nPut someone on the wrong pass, miss a filing, mismatch the CPF, and it's not a slap on the wrist. It's the kind of thing that gets checked.\n\nWrote down the bits that actually trip people up, and how we keep them right.\nhttps://jte.com.sg/blog/work-pass-payroll-compliance-singapore/"
+    },
+    {
+      "chip": "Foreign hiring",
+      "for": "Nov 9 · EP 2027 change",
+      "title": "EP salary floors go up again in January 2027",
+      "cap": "One for the calendar if you hire foreign talent: Employment Pass salary floors rise again from January 2027, to S$6,000, and higher for older candidates and finance roles.\n\nIf you're planning hires around that date, the numbers you'd budget today might not clear the bar then.\n\nHere's the plain version, and why the payroll side of a foreign hire is worth getting off your plate.\nhttps://jte.com.sg/blog/ep-salary-rise-2027-foreign-it-hiring/"
+    },
+    {
+      "chip": "CPF",
+      "for": "Nov 11 · CPF 2027 change",
+      "title": "CPF rates change again in January 2027",
+      "cap": "CPF rates change again from January 2027 for senior workers. It's not huge, but it's exactly the kind of change that quietly trips up payroll, because the right rate depends on getting someone's age band spot on.\n\nYou shouldn't have to personally remember this stuff every January.\n\nWrote about what's changing, and why payroll done properly just tracks it for you.\nhttps://jte.com.sg/blog/cpf-rates-2027-payroll-singapore/"
+    },
+    {
+      "chip": "IT staffing",
+      "for": "Nov 13 · contract staffing",
+      "title": "IT runs on contractors. Who runs their payroll?",
+      "cap": "IT runs on contractors now. Project teams, six-month specialists, people who ramp on and off. Great for agility. Rough on whoever does the payroll.\n\nEvery contractor is a start date, a CPF setup, maybe a pass, and a clean exit, times however many you're running.\n\nHere's how to keep the flexibility and lose the admin.\nhttps://jte.com.sg/blog/it-contract-staffing-payroll-singapore/"
+    },
+    {
+      "chip": "IT projects",
+      "for": "Nov 14 · project team",
+      "title": "You landed an IT project. Now you need a team on it fast.",
+      "cap": "You land an IT project and need a team on it fast, a few devs, a specialist or two, for the length of the build. Finding them is one job. Employing and paying them all properly, fast, is the other.\n\nThe second one is where the start quietly derails.\n\nWrote down how I'd handle the payroll for a project team, so your people can stay on the project.\nhttps://jte.com.sg/blog/it-project-team-payroll-singapore/"
+    },
+    {
+      "chip": "IT hiring",
+      "for": "Nov 16 · contract vs perm",
+      "title": "Permanent or contract for your next IT hire? There's a payroll angle people miss.",
+      "cap": "Should your next IT hire be permanent or contract? Everyone frames it as a commitment question. There's a payroll angle people miss.\n\nA permanent hire is a fixed cost that's hard to unwind. A contractor flexes, but only if the admin behind them flexes too.\n\nHere's the honest way to think about it.\nhttps://jte.com.sg/blog/contract-vs-permanent-it-hire-payroll/"
+    },
+    {
+      "chip": "Staffing firms",
+      "for": "Nov 18 · payroll parking",
+      "title": "If you're an IT staffing firm, your margin lives and dies on admin",
+      "cap": "If you run an IT staffing firm, your margin lives and dies on admin. Every contractor you place is payroll, CPF, passes and a clean exit, and it stacks up fast as you grow.\n\nA lot of firms don't realise they can park that whole layer with someone else and just keep placing.\n\nWrote about how payroll parking works for staffing firms.\nhttps://jte.com.sg/blog/it-staffing-firm-payroll-parking-singapore/"
+    },
+    {
+      "chip": "Onboarding",
+      "for": "Nov 20 · speed",
+      "title": "Onboarding 20 contractors in two weeks: the payroll reality",
+      "cap": "Onboarding twenty IT contractors in two weeks because a project just kicked off? That's a mountain of admin landing exactly when your people should be getting the project moving.\n\nAnd speed is where the compliance slips happen.\n\nHere's how to onboard a cluster fast without the mistakes.\nhttps://jte.com.sg/blog/onboarding-it-contractors-fast-singapore/"
+    },
+    {
+      "chip": "The maths",
+      "for": "Nov 21 · outsourcing cost",
+      "title": "\"In-house payroll is cheaper.\" Is it though?",
+      "cap": "\"We'll just do payroll in-house, it's cheaper.\" Is it though?\n\nWhen you actually add up the hours, the software, the risk of a slip, and the fully-loaded cost of the person doing it, in-house payroll is rarely the cheap option people assume.\n\nDid the maths honestly. Here it is.\nhttps://jte.com.sg/blog/payroll-outsourcing-vs-in-house-maths/"
+    },
+    {
+      "chip": "EOR explained",
+      "for": "Nov 23 · plain English",
+      "title": "What \"employer of record\" actually means",
+      "cap": "\"Employer of record\" gets thrown around a lot without anyone explaining it. So here's the plain version.\n\nIt just means someone else is the employer on paper, so the payroll, CPF, passes and filings are their job, while the people and the work stay entirely yours.\n\nWrote down exactly what it covers, and what stays with you.\nhttps://jte.com.sg/blog/what-employer-of-record-covers-singapore/"
+    },
+    {
+      "chip": "Market entry",
+      "for": "Nov 25 · overseas first hire",
+      "title": "Found your first hire in Singapore? You probably don't need a company here yet.",
+      "cap": "Overseas tech company, you've found your first person in Singapore, and now you hit the question: do we need to set up a company here to employ them?\n\nFor a first hire, usually not.\n\nWrote down the lean way to employ and pay your first person here without incorporating anything, so you can prove the market first.\nhttps://jte.com.sg/blog/first-dev-hire-singapore-overseas-company/"
+    },
+    {
+      "chip": "Year end",
+      "for": "Nov 27 · before January",
+      "title": "Get your year-end payroll sorted before January",
+      "cap": "It's that time, year-end payroll. Final pay, bonuses, the IR8A prep, making sure everything's clean before January resets the clock.\n\nIt's the busiest, most error-prone stretch of the payroll year, and it usually lands on someone who's already stretched.\n\nHere's how to get it sorted before it becomes a December scramble.\nhttps://jte.com.sg/blog/year-end-payroll-before-january-singapore/"
+    },
+    {
+      "chip": "2026 trend",
+      "for": "Nov 30 · hybrid team POV",
+      "title": "The hybrid team is the 2026 default. Here's the catch.",
+      "cap": "Every 2026 hiring report is saying the same thing: a lean permanent core, flexed with contractors, is the new default. I think it's exactly right.\n\nBut there's a catch nobody mentions. A hybrid team means two payroll worlds at once, and every time you flex it, someone onboards or offboards a person.\n\nHere's how to keep the model and lose the admin.\nhttps://jte.com.sg/blog/hybrid-tech-team-payroll-singapore/"
+    },
+    {
+      "chip": "Outsourcing",
+      "for": "Dec 2 · 74% stat",
+      "title": "74% of firms are outsourcing tech talent. Most sort the payroll last.",
+      "cap": "Around three in four Singapore firms are outsourcing tech talent or planning to. No surprise, when 95% say they can't hire the tech people they need.\n\nBut almost everyone sorts the sourcing first and the payroll underneath last, and that's the wrong order.\n\nThe employment layer is where the compliance risk actually sits. Wrote about getting it right first.\nhttps://jte.com.sg/blog/outsourcing-tech-talent-payroll-singapore/"
+    },
+    {
+      "chip": "The real cost",
+      "for": "Dec 4 · contractor cost",
+      "title": "What a contract data or AI engineer really costs to employ",
+      "cap": "A contract data or AI engineer isn't cheap, so you look hard at the day rate. Fair. But the rate is only the headline.\n\nThe bit that surprises people is the layer on top, CPF, setup, passes, payslips, the admin hours, and for a six-month specialist you do all of it twice.\n\nAdded it up, and why done properly it costs close to nothing.\nhttps://jte.com.sg/blog/cost-to-employ-contract-tech-specialist-singapore/"
+    },
+    {
+      "chip": "Work passes",
+      "for": "Dec 6 · 5-year EP",
+      "title": "Some tech roles get a 5-year Employment Pass",
+      "cap": "Genuinely useful if you hire foreign tech talent: some tech roles sit on Singapore's Shortage Occupation List, which can earn bonus COMPASS points and, for some, an Employment Pass valid up to five years.\n\nThat's a real edge in a market this tight. But a longer pass is still a pass to manage.\n\nWrote down what it means, and how to make the most of it.\nhttps://jte.com.sg/blog/tech-shortage-occupation-list-ep-payroll-singapore/"
+    },
+    {
+      "chip": "Year-end planning",
+      "for": "Dec 8 · 1 Jan 2027 roundup",
+      "title": "Everything that changes for employers on 1 January 2027",
+      "cap": "Every year-end a batch of employer rules resets on 1 January, and 2027 has a few worth knowing before they land, not after.\n\nEP and S Pass salary floors go up, CPF senior rates step up again, and the LQS is already at S$1,800. None of it is dramatic alone. Together it all lands in the same place: your payroll.\n\nPut the one-page version together, and how to not have to track it yourself.\nhttps://jte.com.sg/blog/changes-for-employers-january-2027-singapore/"
+    },
+    {
+      "chip": "Classification",
+      "for": "Dec 10 · freelancer vs employee",
+      "title": "Freelancer, contractor or employee? That line decides who owes CPF.",
+      "cap": "In IT you hire help in every shape, a freelancer for a quick build, a contractor for a project, a permanent engineer for the core. Easy to treat the label as just a payment arrangement.\n\nIt's not. It's a legal line that decides who owes CPF, and Singapore has been sharpening it. Call someone freelance when they're really your staff and the obligation doesn't disappear.\n\nWrote down the plain version, classify honestly, then employ the real staff properly.\nhttps://jte.com.sg/blog/it-freelancer-contractor-employee-singapore-payroll/"
+    },
+    {
+      "chip": "Distributed teams",
+      "for": "Dec 12 · remote dev team",
+      "title": "Your dev team is in three countries. Here's the Singapore piece.",
+      "cap": "Engineering teams are spread out now, a couple of devs here, a lead there. Normal. Then one or two sit in Singapore and you hit the question: how do we employ and pay the Singapore people properly?\n\nYou don't want to open an entity for two engineers.\n\nHere's the clean way to handle just the Singapore piece, properly employed, no local back-office.\nhttps://jte.com.sg/blog/remote-distributed-dev-team-singapore-payroll/"
+    },
+    {
+      "chip": "Making the switch",
+      "for": "Dec 14 · year-end move",
+      "title": "Thinking of moving your payroll? Year-end is the clean moment.",
+      "cap": "A lot of employers know their payroll setup isn't really working, too much on one stretched person, errors creeping in, but put off changing it because switching mid-year feels messy.\n\nYou don't have to switch mid-year. Year-end closes the tax year cleanly, IR8A wraps the old chapter, and January starts fresh, no messy split.\n\nAnd with the 2027 changes landing anyway, two jobs become one. Wrote about why now is the moment.\nhttps://jte.com.sg/blog/switching-payroll-provider-year-end-singapore/"
+    }
+  ],
+  "evergreen": [
+    {
+      "chip": "Small business",
+      "title": "If you're the founder still doing payroll at 11pm, this one's for you",
+      "cap": "There's a version of the small-business owner I meet a lot. Runs the company all day, then sits down after everyone's gone home to do the payroll, CPF, payslips, making sure everyone's paid right. At 11pm. Again.\n\nIf that's you: the real cost isn't the hour. It's that it's always on your mind.\n\nHere's the cheap way out, and how to get your evenings back.\nhttps://jte.com.sg/blog/founder-doing-payroll-late-night/"
+    },
+    {
+      "chip": "Project staffing",
+      "title": "You just won a 2-year project. Who runs payroll for 200 new hires?",
+      "cap": "You win a 2-year project. Everyone's celebrating. Then it sinks in, you need to onboard and pay 200 people fast, and your HR team is still the same three folks it was last week.\n\nI've sat with a lot of manufacturing and engineering bosses at exactly this moment. The work's won; the headache is payroll.\n\nWrote down how I'd actually handle it, including why we can run that payroll for almost nothing.\nhttps://jte.com.sg/blog/project-staffing-payroll-singapore/"
+    },
+    {
+      "chip": "The offer",
+      "title": "Why I give the first year of payroll free",
+      "cap": "Every time I tell an employer we'll run their payroll free for the first year, the reaction is the same: a pause, then \"okay, what's the catch?\"\n\nFair question. If something sounds too good, people should be suspicious.\n\nSo I wrote the honest version, how it actually works, who's really paying, and why there's no catch for you.\nhttps://jte.com.sg/blog/why-first-year-payroll-free/"
+    },
+    {
+      "chip": "Growing team",
+      "title": "Growing from 5 to 20 staff? This is when payroll gets real",
+      "cap": "There's a size where a business quietly changes character, somewhere around 5 to 20 staff. Below five, payroll fits in your head. Past twenty, you've got structure. The messy bit is in between.\n\nIt's the stretch where doing payroll yourself stops working: the edge cases pile up, and a slip with CPF is the expensive kind.\n\nHere's how to get ahead of it before it bites.\nhttps://jte.com.sg/blog/growing-5-to-20-staff-payroll/"
+    }
+  ]
+}

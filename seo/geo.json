@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-11-16 16:01 UTC",
+  "status": "ok",
+  "robotsStatus": 200,
+  "robotsLines": 5,
+  "managedBlockLikely": false,
+  "llms": {
+    "status": 200,
+    "bytes": 6528
+  },
+  "crawlers": [
+    {
+      "ua": "Googlebot",
+      "kind": "search",
+      "why": "Google search indexing",
+      "blocked": false
+    },
+    {
+      "ua": "Bingbot",
+      "kind": "search",
+      "why": "Bing indexing, also feeds Copilot",
+      "blocked": false
+    },
+    {
+      "ua": "OAI-SearchBot",
+      "kind": "answer",
+      "why": "ChatGPT search results",
+      "blocked": false
+    },
+    {
+      "ua": "ChatGPT-User",
+      "kind": "answer",
+      "why": "ChatGPT fetching a page for a user",
+      "blocked": false
+    },
+    {
+      "ua": "PerplexityBot",
+      "kind": "answer",
+      "why": "Perplexity answers",
+      "blocked": false
+    },
+    {
+      "ua": "Claude-SearchBot",
+      "kind": "answer",
+      "why": "Claude search results",
+      "blocked": false
+    },
+    {
+      "ua": "ClaudeBot",
+      "kind": "model",
+      "why": "Claude citing jte.com.sg",
+      "blocked": false
+    },
+    {
+      "ua": "GPTBot",
+      "kind": "model",
+      "why": "OpenAI crawl",
+      "blocked": false
+    },
+    {
+      "ua": "Google-Extended",
+      "kind": "model",
+      "why": "Gemini and AI Overviews grounding",
+      "blocked": false
+    }
+  ],
+  "blocked": []
+}

@@ -1,0 +1,559 @@
+{
+  "_comment": [
+    "JTE's own layer on top of the weekly market pull. salary-data.json is",
+    "overwritten every Saturday by the refresh, so anything we know that the",
+    "raw numbers do not must live HERE or it gets wiped.",
+    "scripts/resolve-salary.mjs merges this over the raw pull."
+  ],
+  "floor": {
+    "amount": 2500,
+    "appliesTo": "Basic monthly salary, full-time, Singapore, 5-day week",
+    "source": "JTE, November 2026",
+    "short": "Below about S$2,500 basic salary a month, a job gets much harder to fill.",
+    "long": "This is not a rule, just what we see. You can pay less. Expect to wait longer, and to lose people to the employer down the road. Everyone compares salaries. For hands-on jobs on a 5-day week, S$2,500 is about where the market starts.",
+    "exemptNote": "The S$2,500 mark is about basic salary, where the basic is the whole package. Many hands-on jobs pay a lower basic with overtime on top. For those, look at the gross salary instead. Where we know both, we show both."
+  },
+  "tracks": {
+    "operative": {
+      "label": "Hands-on roles",
+      "bands": [
+        "Basic",
+        "Gross"
+      ],
+      "sub": {
+        "Basic": "basic salary per month",
+        "Gross": "with overtime and allowances"
+      },
+      "note": "Two numbers matter here. The basic salary is what you promise every month. The gross salary is what they actually take home after overtime and allowances. That is the number they compare with other employers. Supervisor jobs are listed separately."
+    },
+    "professional": {
+      "label": "Professional & executive roles",
+      "bands": [
+        "0-3 yrs",
+        "3-8 yrs",
+        "8+ yrs"
+      ],
+      "sub": {
+        "0-3 yrs": "early career",
+        "3-8 yrs": "experienced",
+        "8+ yrs": "senior, lead, manager"
+      },
+      "note": "Grouped by years of experience, because that is how employers ask us for people."
+    },
+    "scope": {
+      "label": "Depends on job scope",
+      "bands": [
+        "Typical range"
+      ],
+      "sub": {
+        "Typical range": "depends on how complex the job is"
+      },
+      "note": "Years of experience matter less here. What matters is how much the job covers. Tell us the duties and we will tell you the salary."
+    }
+  },
+  "sectors": {
+    "engineering": {
+      "defaultTrack": "professional",
+      "note": "We group engineering by level, not by job title. There are too many titles, and two people with the same title can be paid a thousand dollars apart. What decides the salary is how technical the job is and how much it covers."
+    },
+    "logistics": {
+      "defaultTrack": "professional"
+    },
+    "manufacturing": {
+      "defaultTrack": "professional",
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Basic monthly salary, Singapore production and operator roles",
+        "source": "JTE, November 2026",
+        "short": "The basic salary is only half the story. Aim for a gross salary around S$3,000.",
+        "long": "Production jobs pay a lower basic salary than most industries, with overtime and incentives making up the rest. S$1,800 basic is about the lowest anyone will accept. S$2,000 is normal. S$2,200 to S$2,500 gets you noticeably better people. But the number they look at is the gross salary, and around S$3,000 is what wins them. Fewer people want a lot of overtime now, so a package that only works with heavy OT is hard to sell.",
+        "displayAmount": 3000
+      },
+      "note": "The basic salary is only half the picture here. How simple or complex the job is affects the salary as much as the level does. At the bottom of the range, fewer people apply and hiring takes longer."
+    },
+    "healthcare": {
+      "defaultTrack": "professional",
+      "floor": {
+        "amount": 1800,
+        "appliesTo": "Basic monthly salary, Singapore community care and support roles",
+        "source": "JTE, November 2026",
+        "short": "Care jobs pay by level, not one fixed salary. Care staff starts around S$2,500.",
+        "long": "Care jobs pay by level. The lowest, a health attendant, starts at S$1,800. A healthcare assistant or care staff job starts around S$2,500 and goes up to about S$3,200. Those are basic salaries, so overtime and shift allowances are on top. Nursing is the one to watch. Those starting salaries are real, but they are not what gets a nurse to say yes. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget a starting gross salary of about S$3,000 or the job will stay open.",
+        "displayAmount": 2500
+      },
+      "note": "Salary here depends on the level of the job, more than on years of experience. Tell us the duties and how much supervision is involved, and we will tell you the level."
+    },
+    "commercial": {
+      "defaultTrack": "professional"
+    },
+    "it": {
+      "defaultTrack": "professional"
+    }
+  },
+  "roles": {
+    "engineering/Engineer (general)": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Engineering Technician": {
+      "track": "scope",
+      "scope": "Engineering assistant, technician, maintenance technician. ITE-level technical work.",
+      "basicNote": "S$2,750 is where entry salaries for technical jobs have settled. Below S$2,500 you will struggle to find good people. Allowances do not add much here. It depends whether the job is shift or non-shift.",
+      "pay": {
+        "Typical range": {
+          "low": 2750,
+          "high": 3400
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21",
+      "rename": "Engineering Assistant / Technician"
+    },
+    "engineering/Electrical Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Project Manager": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Project Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Mechanical Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Civil / Structural Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Site Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Maintenance Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Process Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/Design Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "engineering/QA / QC Engineer": {
+      "track": "professional",
+      "hide": true
+    },
+    "logistics/Warehouse / Store": {
+      "track": "operative",
+      "rename": "Warehouse Assistant",
+      "scope": "Picking, packing, scanning, sorting. 5-day week.",
+      "verifiedNote": "JTE, Nov 2026. Below S$2,500 basic is not the norm any more.",
+      "verifiedOn": "2026-11-20",
+      "aboveNote": "Above this you are paying for a team leader or assistant supervisor. That is more responsibility, not a bigger job. We list it separately.",
+      "pay": {
+        "Basic": {
+          "low": 2500,
+          "high": 2900
+        },
+        "Gross": {
+          "low": 3500,
+          "high": 4000,
+          "note": "with allowances and OT"
+        }
+      }
+    },
+    "logistics/Driver": {
+      "track": "operative",
+      "scope": "Typically a 5.5 to 6 day week.",
+      "basicNote": "Look at a driver package on the gross salary, not the basic. A low basic with good incentives is normal. How hard the route is affects the basic as much as experience does.",
+      "verifiedNote": "JTE, Nov 2026. Below this gross it is genuinely hard to attract drivers.",
+      "verifiedOn": "2026-11-20",
+      "pay": {
+        "Basic": {
+          "low": 1800,
+          "high": 2500,
+          "note": "varies with how physically demanding the run is"
+        },
+        "Gross": {
+          "low": 3000,
+          "high": 4000,
+          "note": "with trip incentives and OT"
+        }
+      },
+      "benefitNote": "Drivers can usually take the vehicle home. That is worth real money to them, and it often wins the hire."
+    },
+    "logistics/Operations Executive": {
+      "track": "professional"
+    },
+    "logistics/Shipping / Freight": {
+      "track": "professional"
+    },
+    "logistics/Procurement / Purchasing": {
+      "track": "professional"
+    },
+    "logistics/Logistics (general)": {
+      "track": "professional"
+    },
+    "logistics/Supply Chain Executive": {
+      "track": "professional"
+    },
+    "logistics/Planner": {
+      "track": "professional"
+    },
+    "logistics/Logistics Coordinator": {
+      "track": "professional"
+    },
+    "logistics/Logistics Executive": {
+      "track": "professional"
+    },
+    "logistics/Forklift Operator": {
+      "track": "operative"
+    },
+    "manufacturing/Production": {
+      "track": "operative",
+      "scope": "Production and line work.",
+      "pay": {
+        "Basic": {
+          "low": 2000,
+          "high": 2300,
+          "note": "S$2,200 to S$2,500 attracts better staff"
+        },
+        "Gross": {
+          "low": 3000,
+          "note": "with OT and incentives, this is the level that attracts"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles.",
+      "verifiedOn": "2026-11-20"
+    },
+    "manufacturing/Manufacturing Engineer": {
+      "track": "professional"
+    },
+    "manufacturing/Technician": {
+      "track": "scope",
+      "scope": "Maintenance, setup and line support.",
+      "basicNote": "A broad title, so the job decides the salary. We see clients paying S$2,700 and others S$2,800 for the same title, and S$3,200 with real experience. Manufacturing pays a little less than engineering.",
+      "pay": {
+        "Typical range": {
+          "low": 2700,
+          "high": 3200,
+          "note": "scope drives this more than years do"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "manufacturing/Quality (QA / QC)": {
+      "track": "professional"
+    },
+    "manufacturing/Production Supervisor": {
+      "track": "professional"
+    },
+    "manufacturing/Machine Operator": {
+      "track": "operative",
+      "scope": "Machine minding, loading, monitoring, basic checks.",
+      "pay": {
+        "Basic": {
+          "low": 2000,
+          "high": 2300,
+          "note": "S$2,200 to S$2,500 attracts better staff"
+        },
+        "Gross": {
+          "low": 3000,
+          "note": "with OT and incentives, this is the level that attracts"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles.",
+      "verifiedOn": "2026-11-20"
+    },
+    "manufacturing/Process": {
+      "track": "professional",
+      "_note": "Reclassified from operative: the pay says this is a process specialist, not a line role. Confirm the right title with Eugene."
+    },
+    "manufacturing/Assembly / Line": {
+      "track": "operative",
+      "scope": "Assembly and line work.",
+      "pay": {
+        "Basic": {
+          "low": 2000,
+          "high": 2300,
+          "note": "S$2,200 to S$2,500 attracts better staff"
+        },
+        "Gross": {
+          "low": 3000,
+          "note": "with OT and incentives, this is the level that attracts"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026, from 10+ years placing these roles.",
+      "verifiedOn": "2026-11-20"
+    },
+    "healthcare/Nurse": {
+      "track": "professional",
+      "rename": "Registered Nurse",
+      "scope": "Staff nurse and above.",
+      "basicNote": "These are what the market pays. A staff nurse can start lower, around S$2,730 basic. But the basic is not what a nurse compares, and it is not what gets them to say yes. Shift and department allowances are on top."
+    },
+    "healthcare/Therapist": {
+      "track": "professional"
+    },
+    "healthcare/Clinic Staff": {
+      "track": "operative",
+      "scope": "Front desk plus assisting the doctor, GP or dental.",
+      "pay": {
+        "Basic": {
+          "low": 2500,
+          "high": 3000,
+          "note": "around S$3,000 is the going rate"
+        }
+      },
+      "basicNote": "Starts above S$2,500, and about S$3,000 is the going rate. We placed one at S$2,800 basic, no allowances, 5 days and 44 hours, shifts but no midnight shift. Hiring is not the hard part. Keeping someone is.",
+      "verifiedNote": "JTE, Nov 2026, against placements we closed.",
+      "verifiedOn": "2026-11-21",
+      "rename": "Clinic Assistant"
+    },
+    "healthcare/Care / Support Staff": {
+      "track": "operative",
+      "scope": "Healthcare assistant and care staff. Certification needed, but easier to get than nursing.",
+      "pay": {
+        "Basic": {
+          "low": 2500,
+          "high": 3200,
+          "note": "start at the floor and expect a slow search"
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21",
+      "basicNote": "Lower than nursing because the certificate is easier to get. Do not read that as cheap. Even at S$2,500 this is a hard job to fill, so treat S$2,500 as the starting point, not the target. Allowances only apply when the job involves going out, so the basic is usually the whole salary."
+    },
+    "healthcare/Physiotherapist": {
+      "track": "professional"
+    },
+    "healthcare/Pharmacy": {
+      "track": "scope",
+      "pay": {
+        "Typical range": {
+          "low": 2500,
+          "high": 3000
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-22",
+      "rename": "Pharmacy Assistant",
+      "scope": "Counter work, dispensing support, stock."
+    },
+    "healthcare/Medical / Allied Health": {
+      "track": "professional"
+    },
+    "healthcare/Laboratory": {
+      "track": "professional"
+    },
+    "healthcare/Patient Service": {
+      "track": "operative",
+      "rename": "Patient Service Associate",
+      "scope": "Registration, appointments and patient queries.",
+      "pay": {
+        "Basic": {
+          "low": 2600,
+          "high": 3100
+        }
+      },
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "healthcare/Radiographer": {
+      "track": "professional"
+    },
+    "commercial/Sales Executive": {
+      "track": "professional"
+    },
+    "commercial/Admin / Secretarial": {
+      "track": "scope",
+      "rename": "Administrative",
+      "scope": "Office and administrative support.",
+      "pay": {
+        "Typical range": {
+          "low": 2500,
+          "high": 3500,
+          "note": "data entry at the low end, full office support at the top"
+        }
+      },
+      "basicNote": "How complex the job is decides this, not years. Simple data entry sits near the bottom. A job that actually runs the office sits near the top.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "commercial/Accountant / Accounts": {
+      "track": "professional"
+    },
+    "commercial/Marketing": {
+      "track": "professional"
+    },
+    "commercial/Finance": {
+      "track": "professional"
+    },
+    "commercial/Customer Service": {
+      "track": "professional"
+    },
+    "commercial/Audit / Tax": {
+      "track": "professional"
+    },
+    "commercial/Business Analyst": {
+      "track": "professional"
+    },
+    "commercial/Business Development": {
+      "track": "professional"
+    },
+    "commercial/Recruitment / TA": {
+      "track": "professional"
+    },
+    "commercial/Legal": {
+      "track": "professional"
+    },
+    "commercial/HR": {
+      "track": "professional"
+    },
+    "it/Software Engineer": {
+      "track": "professional"
+    },
+    "it/Software Developer": {
+      "track": "professional"
+    },
+    "it/Cybersecurity": {
+      "track": "professional"
+    },
+    "it/DevOps / Cloud Engineer": {
+      "track": "professional"
+    },
+    "it/Network / Infrastructure": {
+      "track": "professional"
+    },
+    "it/IT Business Analyst": {
+      "track": "professional"
+    },
+    "it/IT Project Manager": {
+      "track": "professional"
+    },
+    "it/Application Engineer": {
+      "track": "professional"
+    },
+    "it/Data Engineer": {
+      "track": "professional"
+    },
+    "it/IT Support / Helpdesk": {
+      "track": "professional"
+    },
+    "it/Systems Engineer": {
+      "track": "professional"
+    },
+    "it/QA / Test Engineer": {
+      "track": "professional"
+    },
+    "it/Data Scientist": {
+      "track": "professional"
+    },
+    "it/Data Analyst": {
+      "track": "professional"
+    },
+    "it/UI / UX Designer": {
+      "track": "professional"
+    },
+    "healthcare/Enrolled Nurse": {
+      "track": "professional",
+      "extra": true,
+      "scope": "Enrolled and assistant nurse.",
+      "pay": {
+        "0-3 yrs": {
+          "low": 2050,
+          "high": 3570,
+          "note": "entry to mid-career"
+        }
+      },
+      "basicNote": "This is basic salary only, and the basic is the problem. S$2,050 will not attract anyone now. A clinic assistant already starts above S$2,500, and a nurse does much more than that. Budget about S$3,000 starting gross salary with allowances included, or expect a long search.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21",
+      "nextTo": "Nurse"
+    },
+    "commercial/Secretary": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Admin / Secretarial",
+      "scope": "Executive and personal assistant work.",
+      "pay": {
+        "Typical range": {
+          "low": 3000,
+          "high": 6000,
+          "note": "scales with who you are supporting and what you are trusted with"
+        }
+      },
+      "basicNote": "A different job from admin support, not a step up from it. The top of this range is for someone supporting senior management.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "engineering/Engineer": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Engineering Technician",
+      "n": 702,
+      "scope": "Mechanical, electrical, design, process, site, project, civil and structural, QA and QC.",
+      "pay": {
+        "Typical range": {
+          "low": 3000,
+          "high": 4500,
+          "note": "complexity and responsibility decide where in the range"
+        }
+      },
+      "basicNote": "The discipline matters less than you would think. What moves the salary is how technical the job is and how much it covers. A complex job pays more than a simple one with the same title.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "engineering/Senior Engineer": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Engineer",
+      "n": 0,
+      "scope": "Senior mechanical, senior design, lead engineer and equivalent.",
+      "pay": {
+        "Typical range": {
+          "low": 4500,
+          "high": 6500,
+          "note": "industry and company move this as much as years do"
+        }
+      },
+      "basicNote": "Experience gets you into this range, but it does not set the salary. The industry and the company do. The same senior title pays very differently across the two.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-21"
+    },
+    "healthcare/Pharmacist": {
+      "track": "scope",
+      "extra": true,
+      "nextTo": "Pharmacy",
+      "n": 0,
+      "scope": "Registered pharmacist.",
+      "pay": {
+        "Typical range": {
+          "low": 3100,
+          "high": 4000,
+          "note": "goes higher with experience"
+        }
+      },
+      "basicNote": "Years of experience drive this one. Above S$4,000 is normal for an experienced pharmacist.",
+      "verifiedNote": "JTE, Nov 2026.",
+      "verifiedOn": "2026-11-22"
+    }
+  },
+  "basis": {
+    "basic": {
+      "label": "basic monthly",
+      "note": "Basic monthly salary, before bonus, AWS, overtime and allowances."
+    },
+    "gross": {
+      "label": "gross monthly",
+      "note": "Gross monthly package, basic plus overtime, incentives and allowances. For some roles the basic on its own is not what someone takes home, and not what they compare."
+    }
+  }
+}
