@@ -1,221 +1,236 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-28",
   "source": "MyCareersFuture (mycareersfuture.gov.sg)",
   "totalPostings": 9608,
   "sectors": [
     {
       "slug": "engineering",
       "name": "Engineering",
-      "n": 1631,
+      "n": 1633,
       "roles": [
         {
           "name": "Engineer (general)",
           "bands": {
             "Junior": {
-              "low": 3250,
-              "high": 5500,
-              "n": 199
+              "low": 3200,
+              "high": 5300,
+              "n": 195
             },
             "Mid": {
-              "low": 4500,
-              "high": 6500,
-              "n": 464
+              "low": 4400,
+              "high": 6600,
+              "n": 473
             },
             "Senior / Lead": {
               "low": 5500,
               "high": 9500,
-              "n": 39
+              "n": 41
             }
           },
-          "n": 702
+          "n": 709
         },
         {
           "name": "Engineering Technician",
           "bands": {
             "Junior": {
               "low": 2500,
-              "high": 3400,
-              "n": 127
+              "high": 3350,
+              "n": 140
             },
             "Mid": {
               "low": 3150,
               "high": 4000,
-              "n": 24
+              "n": 30
             }
           },
-          "n": 151
-        },
-        {
-          "name": "Project Manager",
-          "bands": {
-            "Mid": {
-              "low": 4500,
-              "high": 7000,
-              "n": 21
-            },
-            "Senior / Lead": {
-              "low": 6000,
-              "high": 9500,
-              "n": 121
-            }
-          },
-          "n": 142
-        },
-        {
-          "name": "Electrical Engineer",
-          "bands": {
-            "Junior": {
-              "low": 3250,
-              "high": 4300,
-              "n": 38
-            },
-            "Mid": {
-              "low": 4050,
-              "high": 6000,
-              "n": 82
-            },
-            "Senior / Lead": {
-              "low": 6500,
-              "high": 8500,
-              "n": 11
-            }
-          },
-          "n": 131
+          "n": 170
         },
         {
           "name": "Project Engineer",
           "bands": {
             "Junior": {
-              "low": 3500,
-              "high": 4500,
-              "n": 28
+              "low": 3450,
+              "high": 4250,
+              "n": 33
             },
             "Mid": {
-              "low": 3900,
+              "low": 4000,
               "high": 5250,
-              "n": 97
+              "n": 101
+            },
+            "Senior / Lead": {
+              "low": 4000,
+              "high": 8350,
+              "n": 7
             }
           },
-          "n": 125
+          "n": 141
         },
         {
-          "name": "Mechanical Engineer",
+          "name": "Project Manager",
+          "bands": {
+            "Mid": {
+              "low": 5000,
+              "high": 7000,
+              "n": 20
+            },
+            "Senior / Lead": {
+              "low": 6000,
+              "high": 10000,
+              "n": 115
+            }
+          },
+          "n": 135
+        },
+        {
+          "name": "Electrical Engineer",
           "bands": {
             "Junior": {
-              "low": 2750,
-              "high": 3900,
-              "n": 26
+              "low": 3400,
+              "high": 4350,
+              "n": 35
             },
             "Mid": {
               "low": 4000,
               "high": 6000,
-              "n": 67
+              "n": 80
             },
             "Senior / Lead": {
-              "low": 5800,
-              "high": 9000,
-              "n": 12
+              "low": 6500,
+              "high": 9500,
+              "n": 9
             }
           },
-          "n": 105
+          "n": 124
         },
         {
           "name": "Civil / Structural Engineer",
           "bands": {
             "Junior": {
-              "low": 3450,
-              "high": 5000,
-              "n": 17
+              "low": 3600,
+              "high": 4750,
+              "n": 18
             },
             "Mid": {
               "low": 4500,
               "high": 6250,
+              "n": 59
+            },
+            "Senior / Lead": {
+              "low": 6250,
+              "high": 11250,
+              "n": 15
+            }
+          },
+          "n": 92
+        },
+        {
+          "name": "Mechanical Engineer",
+          "bands": {
+            "Junior": {
+              "low": 2700,
+              "high": 3350,
+              "n": 17
+            },
+            "Mid": {
+              "low": 4200,
+              "high": 6250,
               "n": 58
             },
             "Senior / Lead": {
-              "low": 6500,
-              "high": 11250,
-              "n": 13
+              "low": 5900,
+              "high": 9000,
+              "n": 10
             }
           },
-          "n": 88
+          "n": 85
         },
         {
           "name": "Maintenance Engineer",
           "bands": {
             "Junior": {
               "low": 2750,
-              "high": 3750,
-              "n": 29
+              "high": 3850,
+              "n": 28
             },
             "Mid": {
               "low": 3250,
-              "high": 4750,
-              "n": 20
+              "high": 4950,
+              "n": 18
             }
           },
-          "n": 49
+          "n": 46
         },
         {
           "name": "Process Engineer",
           "bands": {
             "Junior": {
               "low": 3850,
-              "high": 5700,
-              "n": 8
+              "high": 5250,
+              "n": 9
             },
             "Mid": {
-              "low": 4600,
-              "high": 6250,
-              "n": 32
+              "low": 4750,
+              "high": 6500,
+              "n": 33
             }
           },
-          "n": 40
+          "n": 42
         },
         {
           "name": "Site Engineer",
           "bands": {
             "Junior": {
               "low": 4000,
-              "high": 4500,
+              "high": 4750,
               "n": 10
             },
             "Mid": {
               "low": 3750,
-              "high": 5250,
+              "high": 4750,
               "n": 23
+            },
+            "Senior / Lead": {
+              "low": 4150,
+              "high": 7000,
+              "n": 6
             }
           },
-          "n": 33
+          "n": 39
         },
         {
           "name": "Design Engineer",
           "bands": {
+            "Junior": {
+              "low": 3000,
+              "high": 7000,
+              "n": 6
+            },
             "Mid": {
-              "low": 5000,
+              "low": 5500,
               "high": 7500,
-              "n": 24
+              "n": 17
             }
           },
-          "n": 24
+          "n": 23
         },
         {
           "name": "QA / QC Engineer",
           "bands": {
             "Mid": {
-              "low": 3800,
+              "low": 4500,
               "high": 6250,
-              "n": 8
+              "n": 12
             }
           },
-          "n": 8
+          "n": 12
         }
       ]
     },
     {
       "slug": "logistics",
       "name": "Logistics & Supply Chain",
-      "n": 2059,
+      "n": 2071,
       "roles": [
         {
           "name": "Warehouse / Store",
@@ -223,49 +238,49 @@
             "Junior": {
               "low": 2150,
               "high": 2700,
-              "n": 394
+              "n": 416
             },
             "Mid": {
-              "low": 2800,
-              "high": 3800,
-              "n": 89
+              "low": 2850,
+              "high": 3750,
+              "n": 95
             },
             "Senior / Lead": {
-              "low": 4900,
-              "high": 6250,
-              "n": 32
+              "low": 4250,
+              "high": 6000,
+              "n": 41
             }
           },
-          "n": 515
+          "n": 552
         },
         {
           "name": "Driver",
           "bands": {
             "Junior": {
-              "low": 2600,
-              "high": 4000,
-              "n": 381
+              "low": 2500,
+              "high": 3950,
+              "n": 375
             },
             "Mid": {
-              "low": 3000,
-              "high": 4300,
-              "n": 45
+              "low": 2800,
+              "high": 4250,
+              "n": 38
             }
           },
-          "n": 426
+          "n": 413
         },
         {
           "name": "Operations Executive",
           "bands": {
             "Junior": {
-              "low": 2750,
+              "low": 2650,
               "high": 3500,
-              "n": 83
+              "n": 84
             },
             "Mid": {
-              "low": 3250,
+              "low": 3350,
               "high": 4500,
-              "n": 161
+              "n": 156
             },
             "Senior / Lead": {
               "low": 6000,
@@ -273,7 +288,7 @@
               "n": 52
             }
           },
-          "n": 296
+          "n": 292
         },
         {
           "name": "Procurement / Purchasing",
@@ -281,54 +296,33 @@
             "Junior": {
               "low": 2750,
               "high": 3500,
-              "n": 49
+              "n": 46
             },
             "Mid": {
-              "low": 3400,
-              "high": 4750,
-              "n": 138
+              "low": 3500,
+              "high": 4700,
+              "n": 148
             },
             "Senior / Lead": {
-              "low": 6250,
+              "low": 6750,
               "high": 11000,
-              "n": 33
+              "n": 30
             }
           },
-          "n": 220
-        },
-        {
-          "name": "Shipping / Freight",
-          "bands": {
-            "Junior": {
-              "low": 2750,
-              "high": 3250,
-              "n": 51
-            },
-            "Mid": {
-              "low": 3150,
-              "high": 4500,
-              "n": 109
-            },
-            "Senior / Lead": {
-              "low": 5500,
-              "high": 8500,
-              "n": 28
-            }
-          },
-          "n": 188
+          "n": 224
         },
         {
           "name": "Logistics (general)",
           "bands": {
             "Junior": {
-              "low": 2350,
-              "high": 3000,
-              "n": 81
+              "low": 2300,
+              "high": 2850,
+              "n": 102
             },
             "Mid": {
-              "low": 3200,
+              "low": 3150,
               "high": 4750,
-              "n": 53
+              "n": 46
             },
             "Senior / Lead": {
               "low": 7850,
@@ -336,60 +330,81 @@
               "n": 45
             }
           },
-          "n": 179
+          "n": 193
+        },
+        {
+          "name": "Shipping / Freight",
+          "bands": {
+            "Junior": {
+              "low": 2750,
+              "high": 3150,
+              "n": 51
+            },
+            "Mid": {
+              "low": 3100,
+              "high": 4250,
+              "n": 99
+            },
+            "Senior / Lead": {
+              "low": 5250,
+              "high": 8500,
+              "n": 28
+            }
+          },
+          "n": 178
         },
         {
           "name": "Supply Chain Executive",
           "bands": {
             "Junior": {
-              "low": 3000,
+              "low": 3250,
               "high": 4250,
-              "n": 20
+              "n": 19
             },
             "Mid": {
-              "low": 3550,
-              "high": 5000,
-              "n": 48
+              "low": 3500,
+              "high": 5250,
+              "n": 46
             },
             "Senior / Lead": {
-              "low": 6000,
+              "low": 6100,
               "high": 10500,
-              "n": 27
+              "n": 22
             }
           },
-          "n": 95
+          "n": 87
         },
         {
           "name": "Planner",
           "bands": {
             "Junior": {
-              "low": 2950,
-              "high": 4050,
-              "n": 25
+              "low": 2850,
+              "high": 4250,
+              "n": 19
             },
             "Mid": {
               "low": 3750,
               "high": 5250,
-              "n": 37
+              "n": 35
             }
           },
-          "n": 62
+          "n": 54
         },
         {
           "name": "Logistics Executive",
           "bands": {
             "Junior": {
-              "low": 2800,
+              "low": 2850,
               "high": 3700,
               "n": 8
             },
             "Mid": {
               "low": 3500,
               "high": 4500,
-              "n": 23
+              "n": 25
             }
           },
-          "n": 31
+          "n": 33
         },
         {
           "name": "Logistics Coordinator",
@@ -401,7 +416,7 @@
             },
             "Mid": {
               "low": 2800,
-              "high": 3000,
+              "high": 3500,
               "n": 7
             }
           },
@@ -412,7 +427,568 @@
           "bands": {
             "Junior": {
               "low": 2350,
-              "high": 2550,
+              "high": 2400,
+              "n": 12
+            }
+          },
+          "n": 12
+        }
+      ]
+    },
+    {
+      "slug": "manufacturing",
+      "name": "Manufacturing",
+      "n": 748,
+      "roles": [
+        {
+          "name": "Production",
+          "bands": {
+            "Junior": {
+              "low": 2000,
+              "high": 2950,
+              "n": 137
+            },
+            "Mid": {
+              "low": 3250,
+              "high": 4250,
+              "n": 41
+            },
+            "Senior / Lead": {
+              "low": 3900,
+              "high": 8000,
+              "n": 24
+            }
+          },
+          "n": 202
+        },
+        {
+          "name": "Manufacturing Engineer",
+          "bands": {
+            "Junior": {
+              "low": 3250,
+              "high": 4500,
+              "n": 47
+            },
+            "Mid": {
+              "low": 4250,
+              "high": 5750,
+              "n": 110
+            }
+          },
+          "n": 157
+        },
+        {
+          "name": "Technician",
+          "bands": {
+            "Junior": {
+              "low": 2400,
+              "high": 3250,
+              "n": 114
+            },
+            "Mid": {
+              "low": 2650,
+              "high": 4150,
+              "n": 23
+            }
+          },
+          "n": 137
+        },
+        {
+          "name": "Quality (QA / QC)",
+          "bands": {
+            "Junior": {
+              "low": 2400,
+              "high": 3050,
+              "n": 33
+            },
+            "Mid": {
+              "low": 3550,
+              "high": 4750,
+              "n": 32
+            },
+            "Senior / Lead": {
+              "low": 6000,
+              "high": 7000,
+              "n": 10
+            }
+          },
+          "n": 75
+        },
+        {
+          "name": "Production Supervisor",
+          "bands": {
+            "Junior": {
+              "low": 4000,
+              "high": 4500,
+              "n": 25
+            },
+            "Mid": {
+              "low": 3850,
+              "high": 5000,
+              "n": 35
+            },
+            "Senior / Lead": {
+              "low": 4000,
+              "high": 4150,
+              "n": 9
+            }
+          },
+          "n": 69
+        },
+        {
+          "name": "Machine Operator",
+          "bands": {
+            "Junior": {
+              "low": 1900,
+              "high": 2750,
+              "n": 43
+            }
+          },
+          "n": 43
+        },
+        {
+          "name": "Assembly / Line",
+          "bands": {
+            "Junior": {
+              "low": 2150,
+              "high": 2950,
+              "n": 22
+            }
+          },
+          "n": 22
+        },
+        {
+          "name": "Process",
+          "bands": {
+            "Junior": {
+              "low": 2250,
+              "high": 2900,
+              "n": 10
+            },
+            "Mid": {
+              "low": 4000,
+              "high": 10000,
+              "n": 12
+            }
+          },
+          "n": 22
+        }
+      ]
+    },
+    {
+      "slug": "healthcare",
+      "name": "Healthcare",
+      "n": 1998,
+      "roles": [
+        {
+          "name": "Nurse",
+          "bands": {
+            "Junior": {
+              "low": 3350,
+              "high": 4250,
+              "n": 339
+            },
+            "Mid": {
+              "low": 3800,
+              "high": 4750,
+              "n": 378
+            },
+            "Senior / Lead": {
+              "low": 6000,
+              "high": 8000,
+              "n": 27
+            }
+          },
+          "n": 744
+        },
+        {
+          "name": "Clinic Staff",
+          "bands": {
+            "Junior": {
+              "low": 2500,
+              "high": 3000,
+              "n": 145
+            },
+            "Mid": {
+              "low": 2650,
+              "high": 5500,
+              "n": 95
+            },
+            "Senior / Lead": {
+              "low": 4500,
+              "high": 6750,
+              "n": 19
+            }
+          },
+          "n": 259
+        },
+        {
+          "name": "Care / Support Staff",
+          "bands": {
+            "Junior": {
+              "low": 2100,
+              "high": 3000,
+              "n": 167
+            },
+            "Mid": {
+              "low": 2600,
+              "high": 5500,
+              "n": 64
+            },
+            "Senior / Lead": {
+              "low": 7250,
+              "high": 7500,
+              "n": 17
+            }
+          },
+          "n": 248
+        },
+        {
+          "name": "Therapist",
+          "bands": {
+            "Junior": {
+              "low": 3050,
+              "high": 4500,
+              "n": 49
+            },
+            "Mid": {
+              "low": 4900,
+              "high": 6500,
+              "n": 157
+            }
+          },
+          "n": 206
+        },
+        {
+          "name": "Pharmacy",
+          "bands": {
+            "Junior": {
+              "low": 2000,
+              "high": 3500,
+              "n": 106
+            },
+            "Mid": {
+              "low": 3600,
+              "high": 5500,
+              "n": 70
+            }
+          },
+          "n": 176
+        },
+        {
+          "name": "Physiotherapist",
+          "bands": {
+            "Junior": {
+              "low": 3000,
+              "high": 5500,
+              "n": 35
+            },
+            "Mid": {
+              "low": 5300,
+              "high": 7500,
+              "n": 109
+            },
+            "Senior / Lead": {
+              "low": 8000,
+              "high": 8000,
+              "n": 6
+            }
+          },
+          "n": 150
+        },
+        {
+          "name": "Medical / Allied Health",
+          "bands": {
+            "Junior": {
+              "low": 2850,
+              "high": 4500,
+              "n": 22
+            },
+            "Mid": {
+              "low": 4200,
+              "high": 5650,
+              "n": 42
+            },
+            "Senior / Lead": {
+              "low": 7000,
+              "high": 13900,
+              "n": 9
+            }
+          },
+          "n": 73
+        },
+        {
+          "name": "Laboratory",
+          "bands": {
+            "Junior": {
+              "low": 2550,
+              "high": 3900,
+              "n": 32
+            },
+            "Mid": {
+              "low": 4750,
+              "high": 5550,
+              "n": 15
+            }
+          },
+          "n": 47
+        },
+        {
+          "name": "Patient Service",
+          "bands": {
+            "Junior": {
+              "low": 2500,
+              "high": 2700,
+              "n": 41
+            }
+          },
+          "n": 41
+        },
+        {
+          "name": "Radiographer",
+          "bands": {
+            "Junior": {
+              "low": 3350,
+              "high": 4750,
+              "n": 9
+            },
+            "Mid": {
+              "low": 5000,
+              "high": 6500,
+              "n": 29
+            }
+          },
+          "n": 38
+        }
+      ]
+    },
+    {
+      "slug": "commercial",
+      "name": "Commercial & Support",
+      "n": 1546,
+      "roles": [
+        {
+          "name": "Sales Executive",
+          "bands": {
+            "Junior": {
+              "low": 2750,
+              "high": 4000,
+              "n": 208
+            },
+            "Mid": {
+              "low": 3250,
+              "high": 5000,
+              "n": 143
+            },
+            "Senior / Lead": {
+              "low": 4400,
+              "high": 8750,
+              "n": 50
+            }
+          },
+          "n": 401
+        },
+        {
+          "name": "Admin / Secretarial",
+          "bands": {
+            "Junior": {
+              "low": 2350,
+              "high": 3000,
+              "n": 176
+            },
+            "Mid": {
+              "low": 2900,
+              "high": 4250,
+              "n": 99
+            },
+            "Senior / Lead": {
+              "low": 4500,
+              "high": 7500,
+              "n": 18
+            }
+          },
+          "n": 293
+        },
+        {
+          "name": "Accountant / Accounts",
+          "bands": {
+            "Junior": {
+              "low": 2700,
+              "high": 3350,
+              "n": 77
+            },
+            "Mid": {
+              "low": 3350,
+              "high": 4750,
+              "n": 155
+            },
+            "Senior / Lead": {
+              "low": 5000,
+              "high": 8000,
+              "n": 30
+            }
+          },
+          "n": 262
+        },
+        {
+          "name": "Marketing",
+          "bands": {
+            "Junior": {
+              "low": 3500,
+              "high": 4500,
+              "n": 59
+            },
+            "Mid": {
+              "low": 3450,
+              "high": 5000,
+              "n": 51
+            },
+            "Senior / Lead": {
+              "low": 5500,
+              "high": 8250,
+              "n": 29
+            }
+          },
+          "n": 139
+        },
+        {
+          "name": "Customer Service",
+          "bands": {
+            "Junior": {
+              "low": 2500,
+              "high": 3200,
+              "n": 54
+            },
+            "Mid": {
+              "low": 2900,
+              "high": 3750,
+              "n": 43
+            }
+          },
+          "n": 97
+        },
+        {
+          "name": "Finance",
+          "bands": {
+            "Junior": {
+              "low": 2500,
+              "high": 4400,
+              "n": 19
+            },
+            "Mid": {
+              "low": 3750,
+              "high": 5500,
+              "n": 40
+            },
+            "Senior / Lead": {
+              "low": 5150,
+              "high": 8500,
+              "n": 35
+            }
+          },
+          "n": 94
+        },
+        {
+          "name": "Business Development",
+          "bands": {
+            "Junior": {
+              "low": 3500,
+              "high": 4750,
+              "n": 12
+            },
+            "Mid": {
+              "low": 3400,
+              "high": 6000,
+              "n": 28
+            },
+            "Senior / Lead": {
+              "low": 6500,
+              "high": 10000,
+              "n": 19
+            }
+          },
+          "n": 59
+        },
+        {
+          "name": "Business Analyst",
+          "bands": {
+            "Junior": {
+              "low": 3150,
+              "high": 6000,
+              "n": 11
+            },
+            "Mid": {
+              "low": 4750,
+              "high": 7000,
+              "n": 43
+            }
+          },
+          "n": 54
+        },
+        {
+          "name": "Audit / Tax",
+          "bands": {
+            "Junior": {
+              "low": 3300,
+              "high": 3600,
+              "n": 13
+            },
+            "Mid": {
+              "low": 3650,
+              "high": 5650,
+              "n": 19
+            },
+            "Senior / Lead": {
+              "low": 6050,
+              "high": 11500,
+              "n": 15
+            }
+          },
+          "n": 47
+        },
+        {
+          "name": "Recruitment / TA",
+          "bands": {
+            "Junior": {
+              "low": 2750,
+              "high": 3500,
+              "n": 20
+            },
+            "Mid": {
+              "low": 3250,
+              "high": 5500,
+              "n": 15
+            }
+          },
+          "n": 35
+        },
+        {
+          "name": "HR",
+          "bands": {
+            "Junior": {
+              "low": 2600,
+              "high": 3750,
+              "n": 8
+            },
+            "Mid": {
+              "low": 3000,
+              "high": 4750,
+              "n": 15
+            },
+            "Senior / Lead": {
+              "low": 6000,
+              "high": 9000,
+              "n": 9
+            }
+          },
+          "n": 32
+        },
+        {
+          "name": "Legal",
+          "bands": {
+            "Mid": {
+              "low": 5500,
+              "high": 11500,
               "n": 13
             }
           },
@@ -421,725 +997,169 @@
       ]
     },
     {
-      "slug": "manufacturing",
-      "name": "Manufacturing",
-      "n": 771,
-      "roles": [
-        {
-          "name": "Production",
-          "bands": {
-            "Junior": {
-              "low": 2100,
-              "high": 3000,
-              "n": 133
-            },
-            "Mid": {
-              "low": 3500,
-              "high": 4500,
-              "n": 49
-            },
-            "Senior / Lead": {
-              "low": 3500,
-              "high": 7250,
-              "n": 23
-            }
-          },
-          "n": 205
-        },
-        {
-          "name": "Manufacturing Engineer",
-          "bands": {
-            "Junior": {
-              "low": 3250,
-              "high": 4200,
-              "n": 43
-            },
-            "Mid": {
-              "low": 4150,
-              "high": 5750,
-              "n": 121
-            },
-            "Senior / Lead": {
-              "low": 6000,
-              "high": 7000,
-              "n": 6
-            }
-          },
-          "n": 170
-        },
-        {
-          "name": "Technician",
-          "bands": {
-            "Junior": {
-              "low": 2400,
-              "high": 3200,
-              "n": 110
-            },
-            "Mid": {
-              "low": 2650,
-              "high": 4000,
-              "n": 19
-            }
-          },
-          "n": 129
-        },
-        {
-          "name": "Quality (QA / QC)",
-          "bands": {
-            "Junior": {
-              "low": 2250,
-              "high": 3200,
-              "n": 39
-            },
-            "Mid": {
-              "low": 3750,
-              "high": 4750,
-              "n": 34
-            },
-            "Senior / Lead": {
-              "low": 6000,
-              "high": 8000,
-              "n": 8
-            }
-          },
-          "n": 81
-        },
-        {
-          "name": "Production Supervisor",
-          "bands": {
-            "Junior": {
-              "low": 3550,
-              "high": 4500,
-              "n": 22
-            },
-            "Mid": {
-              "low": 3750,
-              "high": 4650,
-              "n": 34
-            },
-            "Senior / Lead": {
-              "low": 4000,
-              "high": 4250,
-              "n": 7
-            }
-          },
-          "n": 63
-        },
-        {
-          "name": "Machine Operator",
-          "bands": {
-            "Junior": {
-              "low": 1900,
-              "high": 2600,
-              "n": 45
-            }
-          },
-          "n": 45
-        },
-        {
-          "name": "Process",
-          "bands": {
-            "Junior": {
-              "low": 2300,
-              "high": 2950,
-              "n": 14
-            },
-            "Mid": {
-              "low": 4000,
-              "high": 6750,
-              "n": 16
-            }
-          },
-          "n": 30
-        },
-        {
-          "name": "Assembly / Line",
-          "bands": {
-            "Junior": {
-              "low": 2200,
-              "high": 3250,
-              "n": 28
-            }
-          },
-          "n": 28
-        }
-      ]
-    },
-    {
-      "slug": "healthcare",
-      "name": "Healthcare",
-      "n": 1987,
-      "roles": [
-        {
-          "name": "Nurse",
-          "bands": {
-            "Junior": {
-              "low": 3250,
-              "high": 4250,
-              "n": 323
-            },
-            "Mid": {
-              "low": 3850,
-              "high": 4750,
-              "n": 361
-            },
-            "Senior / Lead": {
-              "low": 6250,
-              "high": 7500,
-              "n": 32
-            }
-          },
-          "n": 716
-        },
-        {
-          "name": "Clinic Staff",
-          "bands": {
-            "Junior": {
-              "low": 2500,
-              "high": 2900,
-              "n": 136
-            },
-            "Mid": {
-              "low": 2650,
-              "high": 5400,
-              "n": 106
-            },
-            "Senior / Lead": {
-              "low": 4650,
-              "high": 6750,
-              "n": 23
-            }
-          },
-          "n": 265
-        },
-        {
-          "name": "Care / Support Staff",
-          "bands": {
-            "Junior": {
-              "low": 2250,
-              "high": 2900,
-              "n": 152
-            },
-            "Mid": {
-              "low": 2600,
-              "high": 5250,
-              "n": 59
-            },
-            "Senior / Lead": {
-              "low": 6800,
-              "high": 8000,
-              "n": 17
-            }
-          },
-          "n": 228
-        },
-        {
-          "name": "Therapist",
-          "bands": {
-            "Junior": {
-              "low": 3250,
-              "high": 4750,
-              "n": 59
-            },
-            "Mid": {
-              "low": 4750,
-              "high": 6750,
-              "n": 144
-            }
-          },
-          "n": 203
-        },
-        {
-          "name": "Pharmacy",
-          "bands": {
-            "Junior": {
-              "low": 2000,
-              "high": 3400,
-              "n": 126
-            },
-            "Mid": {
-              "low": 3600,
-              "high": 5500,
-              "n": 71
-            }
-          },
-          "n": 197
-        },
-        {
-          "name": "Physiotherapist",
-          "bands": {
-            "Junior": {
-              "low": 3750,
-              "high": 5500,
-              "n": 32
-            },
-            "Mid": {
-              "low": 5400,
-              "high": 7500,
-              "n": 112
-            }
-          },
-          "n": 144
-        },
-        {
-          "name": "Medical / Allied Health",
-          "bands": {
-            "Junior": {
-              "low": 3200,
-              "high": 4500,
-              "n": 28
-            },
-            "Mid": {
-              "low": 4250,
-              "high": 5500,
-              "n": 42
-            },
-            "Senior / Lead": {
-              "low": 6750,
-              "high": 12000,
-              "n": 9
-            }
-          },
-          "n": 79
-        },
-        {
-          "name": "Laboratory",
-          "bands": {
-            "Junior": {
-              "low": 2600,
-              "high": 4100,
-              "n": 34
-            },
-            "Mid": {
-              "low": 4900,
-              "high": 5550,
-              "n": 21
-            }
-          },
-          "n": 55
-        },
-        {
-          "name": "Radiographer",
-          "bands": {
-            "Junior": {
-              "low": 4000,
-              "high": 4750,
-              "n": 12
-            },
-            "Mid": {
-              "low": 5000,
-              "high": 6500,
-              "n": 32
-            }
-          },
-          "n": 44
-        },
-        {
-          "name": "Patient Service",
-          "bands": {
-            "Junior": {
-              "low": 2500,
-              "high": 2750,
-              "n": 39
-            }
-          },
-          "n": 39
-        }
-      ]
-    },
-    {
-      "slug": "commercial",
-      "name": "Commercial & Support",
-      "n": 1540,
-      "roles": [
-        {
-          "name": "Sales Executive",
-          "bands": {
-            "Junior": {
-              "low": 2750,
-              "high": 4000,
-              "n": 206
-            },
-            "Mid": {
-              "low": 3250,
-              "high": 4750,
-              "n": 128
-            },
-            "Senior / Lead": {
-              "low": 5000,
-              "high": 9000,
-              "n": 53
-            }
-          },
-          "n": 387
-        },
-        {
-          "name": "Admin / Secretarial",
-          "bands": {
-            "Junior": {
-              "low": 2350,
-              "high": 3100,
-              "n": 183
-            },
-            "Mid": {
-              "low": 3050,
-              "high": 4500,
-              "n": 106
-            },
-            "Senior / Lead": {
-              "low": 5500,
-              "high": 8000,
-              "n": 20
-            }
-          },
-          "n": 309
-        },
-        {
-          "name": "Accountant / Accounts",
-          "bands": {
-            "Junior": {
-              "low": 2650,
-              "high": 3500,
-              "n": 73
-            },
-            "Mid": {
-              "low": 3350,
-              "high": 4800,
-              "n": 156
-            },
-            "Senior / Lead": {
-              "low": 5250,
-              "high": 9250,
-              "n": 29
-            }
-          },
-          "n": 258
-        },
-        {
-          "name": "Marketing",
-          "bands": {
-            "Junior": {
-              "low": 3300,
-              "high": 4150,
-              "n": 38
-            },
-            "Mid": {
-              "low": 3350,
-              "high": 4500,
-              "n": 50
-            },
-            "Senior / Lead": {
-              "low": 4600,
-              "high": 7500,
-              "n": 32
-            }
-          },
-          "n": 120
-        },
-        {
-          "name": "Finance",
-          "bands": {
-            "Junior": {
-              "low": 2450,
-              "high": 4250,
-              "n": 15
-            },
-            "Mid": {
-              "low": 3750,
-              "high": 5500,
-              "n": 42
-            },
-            "Senior / Lead": {
-              "low": 5250,
-              "high": 8500,
-              "n": 38
-            }
-          },
-          "n": 95
-        },
-        {
-          "name": "Customer Service",
-          "bands": {
-            "Junior": {
-              "low": 2500,
-              "high": 3250,
-              "n": 52
-            },
-            "Mid": {
-              "low": 2900,
-              "high": 3750,
-              "n": 43
-            }
-          },
-          "n": 95
-        },
-        {
-          "name": "Business Development",
-          "bands": {
-            "Junior": {
-              "low": 2900,
-              "high": 4300,
-              "n": 13
-            },
-            "Mid": {
-              "low": 3400,
-              "high": 5500,
-              "n": 32
-            },
-            "Senior / Lead": {
-              "low": 6500,
-              "high": 10250,
-              "n": 21
-            }
-          },
-          "n": 66
-        },
-        {
-          "name": "Business Analyst",
-          "bands": {
-            "Junior": {
-              "low": 4300,
-              "high": 6000,
-              "n": 12
-            },
-            "Mid": {
-              "low": 4250,
-              "high": 7500,
-              "n": 47
-            }
-          },
-          "n": 59
-        },
-        {
-          "name": "Audit / Tax",
-          "bands": {
-            "Junior": {
-              "low": 3300,
-              "high": 4100,
-              "n": 16
-            },
-            "Mid": {
-              "low": 3750,
-              "high": 6000,
-              "n": 20
-            },
-            "Senior / Lead": {
-              "low": 6500,
-              "high": 9000,
-              "n": 17
-            }
-          },
-          "n": 53
-        },
-        {
-          "name": "Recruitment / TA",
-          "bands": {
-            "Junior": {
-              "low": 2850,
-              "high": 3500,
-              "n": 17
-            },
-            "Mid": {
-              "low": 3250,
-              "high": 5500,
-              "n": 17
-            }
-          },
-          "n": 34
-        },
-        {
-          "name": "HR",
-          "bands": {
-            "Junior": {
-              "low": 2900,
-              "high": 3750,
-              "n": 9
-            },
-            "Mid": {
-              "low": 3000,
-              "high": 4500,
-              "n": 16
-            },
-            "Senior / Lead": {
-              "low": 6000,
-              "high": 9000,
-              "n": 9
-            }
-          },
-          "n": 34
-        },
-        {
-          "name": "Legal",
-          "bands": {
-            "Mid": {
-              "low": 6500,
-              "high": 14000,
-              "n": 14
-            }
-          },
-          "n": 14
-        }
-      ]
-    },
-    {
       "slug": "it",
       "name": "IT & Tech",
-      "n": 1620,
+      "n": 1612,
       "roles": [
         {
           "name": "Software Engineer",
           "bands": {
             "Junior": {
-              "low": 5000,
-              "high": 8150,
-              "n": 28
+              "low": 4500,
+              "high": 8000,
+              "n": 29
             },
             "Mid": {
               "low": 6500,
-              "high": 10000,
-              "n": 247
+              "high": 9750,
+              "n": 232
             },
             "Senior / Lead": {
-              "low": 7250,
-              "high": 10750,
-              "n": 18
+              "low": 6500,
+              "high": 10350,
+              "n": 14
             }
           },
-          "n": 293
+          "n": 275
         },
         {
           "name": "Cybersecurity",
           "bands": {
             "Junior": {
-              "low": 3750,
-              "high": 5500,
-              "n": 13
+              "low": 3300,
+              "high": 7500,
+              "n": 11
             },
             "Mid": {
               "low": 6000,
-              "high": 9250,
-              "n": 155
+              "high": 9500,
+              "n": 154
             },
             "Senior / Lead": {
-              "low": 7500,
-              "high": 12000,
-              "n": 46
+              "low": 8000,
+              "high": 14750,
+              "n": 39
             }
           },
-          "n": 214
-        },
-        {
-          "name": "Network / Infrastructure",
-          "bands": {
-            "Junior": {
-              "low": 3500,
-              "high": 5400,
-              "n": 22
-            },
-            "Mid": {
-              "low": 5000,
-              "high": 9000,
-              "n": 149
-            },
-            "Senior / Lead": {
-              "low": 7500,
-              "high": 12000,
-              "n": 17
-            }
-          },
-          "n": 188
+          "n": 204
         },
         {
           "name": "Software Developer",
           "bands": {
             "Junior": {
-              "low": 3850,
+              "low": 4150,
               "high": 6900,
-              "n": 18
+              "n": 22
             },
             "Mid": {
               "low": 6000,
-              "high": 9500,
-              "n": 162
+              "high": 9250,
+              "n": 164
             },
             "Senior / Lead": {
               "low": 5500,
-              "high": 10000,
-              "n": 7
+              "high": 9000,
+              "n": 6
             }
           },
-          "n": 187
+          "n": 192
+        },
+        {
+          "name": "Network / Infrastructure",
+          "bands": {
+            "Junior": {
+              "low": 3400,
+              "high": 5200,
+              "n": 25
+            },
+            "Mid": {
+              "low": 5150,
+              "high": 8900,
+              "n": 142
+            },
+            "Senior / Lead": {
+              "low": 7500,
+              "high": 10000,
+              "n": 19
+            }
+          },
+          "n": 186
         },
         {
           "name": "DevOps / Cloud Engineer",
           "bands": {
             "Junior": {
               "low": 5000,
-              "high": 7750,
-              "n": 12
-            },
-            "Mid": {
-              "low": 6500,
-              "high": 10000,
-              "n": 129
-            },
-            "Senior / Lead": {
-              "low": 7000,
-              "high": 12500,
+              "high": 6500,
               "n": 15
-            }
-          },
-          "n": 156
-        },
-        {
-          "name": "Application Engineer",
-          "bands": {
+            },
             "Mid": {
-              "low": 5550,
-              "high": 10000,
-              "n": 72
+              "low": 7000,
+              "high": 10500,
+              "n": 135
             },
             "Senior / Lead": {
-              "low": 8000,
-              "high": 13000,
-              "n": 26
+              "low": 7500,
+              "high": 10750,
+              "n": 9
             }
           },
-          "n": 98
+          "n": 159
         },
         {
           "name": "IT Business Analyst",
           "bands": {
             "Junior": {
               "low": 4150,
-              "high": 7500,
+              "high": 6500,
               "n": 7
             },
             "Mid": {
-              "low": 6650,
-              "high": 9000,
-              "n": 82
+              "low": 6900,
+              "high": 8750,
+              "n": 105
             },
             "Senior / Lead": {
-              "low": 10750,
-              "high": 14500,
-              "n": 9
+              "low": 7500,
+              "high": 12500,
+              "n": 11
             }
           },
-          "n": 98
+          "n": 123
+        },
+        {
+          "name": "Application Engineer",
+          "bands": {
+            "Junior": {
+              "low": 3050,
+              "high": 5500,
+              "n": 6
+            },
+            "Mid": {
+              "low": 5550,
+              "high": 10000,
+              "n": 68
+            },
+            "Senior / Lead": {
+              "low": 8000,
+              "high": 13500,
+              "n": 23
+            }
+          },
+          "n": 97
         },
         {
           "name": "IT Project Manager",
           "bands": {
             "Mid": {
-              "low": 7750,
+              "low": 7500,
               "high": 10000,
-              "n": 51
+              "n": 52
             },
             "Senior / Lead": {
               "low": 7500,
-              "high": 10350,
-              "n": 33
+              "high": 10500,
+              "n": 32
             }
           },
           "n": 84
@@ -1148,93 +1168,93 @@
           "name": "Data Engineer",
           "bands": {
             "Junior": {
-              "low": 4750,
-              "high": 6500,
-              "n": 6
+              "low": 5000,
+              "high": 7650,
+              "n": 7
             },
             "Mid": {
               "low": 7000,
               "high": 9750,
-              "n": 64
+              "n": 71
             }
           },
-          "n": 70
+          "n": 78
         },
         {
           "name": "IT Support / Helpdesk",
           "bands": {
             "Junior": {
-              "low": 2900,
-              "high": 3800,
-              "n": 30
+              "low": 2750,
+              "high": 3500,
+              "n": 32
             },
             "Mid": {
-              "low": 3000,
-              "high": 4250,
+              "low": 3050,
+              "high": 4500,
               "n": 35
             }
           },
-          "n": 65
+          "n": 67
         },
         {
           "name": "Systems Engineer",
           "bands": {
             "Junior": {
-              "low": 4500,
-              "high": 6500,
-              "n": 9
+              "low": 4600,
+              "high": 7000,
+              "n": 10
             },
             "Mid": {
               "low": 5000,
-              "high": 7500,
-              "n": 51
+              "high": 7400,
+              "n": 49
             }
           },
-          "n": 60
+          "n": 59
         },
         {
           "name": "QA / Test Engineer",
           "bands": {
             "Mid": {
-              "low": 5250,
-              "high": 8000,
-              "n": 31
+              "low": 5750,
+              "high": 8500,
+              "n": 27
             }
           },
-          "n": 31
+          "n": 27
         },
         {
           "name": "Data Scientist",
           "bands": {
             "Mid": {
-              "low": 7500,
-              "high": 11500,
-              "n": 28
+              "low": 7000,
+              "high": 10500,
+              "n": 21
             }
           },
-          "n": 28
+          "n": 21
         },
         {
           "name": "Data Analyst",
           "bands": {
             "Mid": {
               "low": 5500,
-              "high": 6750,
-              "n": 15
+              "high": 8250,
+              "n": 16
             }
           },
-          "n": 15
+          "n": 16
         },
         {
           "name": "UI / UX Designer",
           "bands": {
             "Mid": {
-              "low": 7900,
-              "high": 9000,
-              "n": 6
+              "low": 6800,
+              "high": 8500,
+              "n": 7
             }
           },
-          "n": 6
+          "n": 7
         }
       ]
     }
